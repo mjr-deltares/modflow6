@@ -1907,7 +1907,7 @@ subroutine solution_create(filename, id)
     integer(I4B) :: im, ic
     class(NumericalModelType), pointer :: mp
     class(NumericalExchangeType), pointer :: cp
-    
+    class(ModelConnectionType), pointer :: mc
     !
     ! -- Set amat and rhs to zero
     call this%sln_reset()
@@ -1917,6 +1917,12 @@ subroutine solution_create(filename, id)
     do ic=1,this%exchangelist%Count()
       cp => GetNumericalExchangeFromList(this%exchangelist, ic)
       call cp%exg_cf(kiter)
+    enddo
+    !
+    ! -- Calculate the matrix terms for each connection
+    do ic=1,this%connectionlist%Count()
+      mc => GetConnectionFromList(this%connectionlist, ic)
+      call mc%mc_cf(kiter)
     enddo
     !
     ! -- Calculate the matrix terms for each model
@@ -1929,6 +1935,12 @@ subroutine solution_create(filename, id)
     do ic=1,this%exchangelist%Count()
       cp => GetNumericalExchangeFromList(this%exchangelist, ic)
       call cp%exg_fc(kiter, this%ia, this%amat, inewton)
+    enddo
+    !
+    ! -- Add connection coefficients to the solution
+    do ic=1,this%connectionlist%Count()
+    mc => GetConnectionFromList(this%connectionlist, ic)
+      call mc%mc_fc(kiter, this%ia, this%amat, inewton)
     enddo
     !
     ! -- Add model coefficients to the solution
@@ -2338,6 +2350,12 @@ subroutine solution_create(filename, id)
       cp => GetNumericalExchangeFromList(this%exchangelist, ic)
       call cp%exg_mc(this%ia, this%ja)
     enddo
+    !
+    ! -- Create mapping arrays to global solution for model connections
+    do ic=1, this%connectionlist%Count()
+        mc => GetConnectionFromList(this%connectionlist, ic)
+        call mc%mc_mc(this%ia, this%ja)
+    end do
     !
     ! -- return
     return
