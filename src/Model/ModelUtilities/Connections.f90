@@ -11,6 +11,9 @@ module ConnectionsModule
   public :: ConnectionsType
   public :: iac_to_ia
 
+  public :: fillisym
+  public :: filljas
+  
   type ConnectionsType
     character(len=LENMEMPATH)                       :: memoryPath                !< memory path of the connections data
     character(len=LENMODELNAME), pointer            :: name_model => null()      !< name of the model    
@@ -1110,7 +1113,7 @@ module ConnectionsModule
 
   subroutine fillisym(neq, nja, ia, ja, isym)
 ! ******************************************************************************
-! fillisym -- Private function to fill the isym array
+! fillisym -- function to fill the isym array
 ! ******************************************************************************
 !
 !    SPECIFICATIONS:
@@ -1148,7 +1151,7 @@ module ConnectionsModule
 
   subroutine filljas(neq, nja, ia, ja, isym, jas)
 ! ******************************************************************************
-! fillisym -- Private function to fill the jas array
+! fillisym -- function to fill the jas array
 ! ******************************************************************************
 !
 !    SPECIFICATIONS:
