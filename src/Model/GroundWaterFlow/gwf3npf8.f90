@@ -84,6 +84,9 @@ module GwfNpfModule
     integer(I4B), dimension(:), pointer, contiguous :: ihcedge      => null()    !< edge type (horizontal or vertical)
     real(DP), dimension(:, :), pointer, contiguous  :: propsedge    => null()    !< edge properties (Q, area, nx, ny, distance) 
     !
+    class(*), pointer                           :: func_caller => null()
+    procedure(set_data_iface), nopass, pointer  :: set_data_func => null()    
+    !
   contains
     procedure                               :: npf_df
     procedure                               :: npf_ac
@@ -121,8 +124,16 @@ module GwfNpfModule
     procedure, public                       :: set_edge_properties
   endtype
 
-  contains
+  abstract interface     
+    subroutine set_data_iface(callingObject, npf)
+      import GwfNpftype
+      class(*), pointer :: callingObject
+      class(GwfNpftype) :: npf
+    end subroutine
+  end interface
 
+contains  
+  
   subroutine npf_cr(npfobj, name_model, inunit, iout)
 ! ******************************************************************************
 ! npf_cr -- Create a new NPF object. Pass a inunit value of 0 if npf data will
@@ -322,7 +333,7 @@ module GwfNpfModule
     ! -- Return
     return
   end subroutine npf_ar
-
+  
   subroutine npf_ad(this, nodes, hold, hnew, irestore)
 ! ******************************************************************************
 ! npf_ad -- Advance
