@@ -103,6 +103,7 @@ contains
     class(BaseSolutionType), pointer :: sp => null()
     class(BaseModelType), pointer :: mp => null()
     class(BaseExchangeType), pointer :: ep => null()
+    class(ModelConnectionType), pointer :: mc => null()
     
     ! -- FINAL PROCESSING (FP)
     ! -- Final processing for each model
@@ -139,6 +140,13 @@ contains
       ep => GetBaseExchangeFromList(baseexchangelist, ic)
       call ep%exg_da()
       deallocate(ep)
+    enddo
+    !
+    ! -- Deallocate for each connection
+    do ic = 1, baseconnectionlist%Count()
+      mc => GetConnectionFromList(baseconnectionlist, ic)
+      call mc%mc_da()
+      deallocate(mc)
     enddo
     !
     ! -- Deallocate for each solution
