@@ -870,7 +870,8 @@ module ConnectionsModule
 
   subroutine disuconnections(this, name_model, nodes, nodesuser, nrsize, &
                              nodereduced, nodeuser, iainp, jainp, &
-                             ihcinp, cl12inp, hwvainp, angldegxinp)
+                             ihcinp, cl12inp, hwvainp, angldegxinp, &
+                             iangledegx)
 ! ******************************************************************************
 ! disuconnections -- Construct the connectivity arrays using disu
 !   information.  Grid may be reduced
@@ -896,6 +897,7 @@ module ConnectionsModule
     real(DP), dimension(:), contiguous, intent(in) :: cl12inp
     real(DP), dimension(:), contiguous, intent(in) :: hwvainp
     real(DP), dimension(:), contiguous, intent(in) :: angldegxinp
+    integer(I4B), intent(in) :: iangledegx
     ! -- local
     integer(I4B),dimension(:),allocatable :: ihctemp
     real(DP),dimension(:),allocatable :: cl12temp
@@ -911,7 +913,7 @@ module ConnectionsModule
     !
     ! -- Set scalars
     this%nodes = nodes
-    this%ianglex = 1
+    this%ianglex = iangledegx
     !
     ! -- If not a reduced grid, then copy and finalize, otherwise more
     !    processing is required
