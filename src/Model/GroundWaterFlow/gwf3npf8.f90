@@ -84,9 +84,6 @@ module GwfNpfModule
     integer(I4B), dimension(:), pointer, contiguous :: ihcedge      => null()    !< edge type (horizontal or vertical)
     real(DP), dimension(:, :), pointer, contiguous  :: propsedge    => null()    !< edge properties (Q, area, nx, ny, distance) 
     !
-    class(*), pointer                               :: func_caller => null()
-    procedure(set_data_iface), pointer, nopass      :: set_data_func => null()
-    !
   contains
     procedure                               :: npf_df
     procedure                               :: npf_ac
@@ -124,16 +121,8 @@ module GwfNpfModule
     procedure, public                       :: set_edge_properties
   endtype
 
-  abstract interface     
-    subroutine set_data_iface(callingObject, npf)
-      import GwfNpftype
-      class(*), pointer :: callingObject
-      class(GwfNpftype) :: npf
-    end subroutine
-  end interface
+  contains
 
-contains  
-  
   subroutine npf_cr(npfobj, name_model, inunit, iout)
 ! ******************************************************************************
 ! npf_cr -- Create a new NPF object. Pass a inunit value of 0 if npf data will
@@ -316,8 +305,6 @@ contains
     else
       ! -- set the data block
       call this%set_grid_data(grid_data)
-      ! -- check data
-      call this%prepcheck()
     end if
     !
     ! -- preprocess data
@@ -335,7 +322,7 @@ contains
     ! -- Return
     return
   end subroutine npf_ar
-  
+
   subroutine npf_ad(this, nodes, hold, hnew, irestore)
 ! ******************************************************************************
 ! npf_ad -- Advance
@@ -1825,18 +1812,11 @@ contains
     character(len=24), dimension(:), pointer :: aname
     character(len=LINELENGTH) :: cellstr, errmsg
     integer(I4B) :: nerr, n
-    integer(I4B), dimension(:), pointer, contiguous :: ithickstartflag
     ! -- format
     character(len=*), parameter :: fmtkerr =                                   &
       "(1x, 'Hydraulic property ',a,' is <= 0 for cell ',a, ' ', 1pg15.6)"
     character(len=*), parameter :: fmtkerr2 =                                  &
       "(1x, '... ', i0,' additional errors not shown for ',a)"
-    character(len=*),parameter :: fmtnct = &
-    "(1X,'Negative cell thickness at cell ', A)"
-    character(len=*),parameter :: fmtihbe = &
-    "(1X,'Initial head, bottom elevation:',1P,2G13.5)"
-    character(len=*),parameter :: fmttebe = &
-    "(1X,'Top elevation, bottom elevation:',1P,2G13.5)"
 ! ------------------------------------------------------------------------------
     !
     ! -- initialize
@@ -2081,7 +2061,7 @@ contains
         end do
       end if
     end if
-    !    
+    !
     ! -- Initialize sat to zero for ibound=0 cells, unless the cell can
     !    rewet.  Initialize sat to the saturated fraction based on strt
     !    if icelltype is negative and the THCKSTRT option is in effect.
