@@ -70,13 +70,12 @@ module SimulationCreateModule
   ! 
   ! - GWF-GWF => GwfGwfConnection
   ! - GWT-GWT => GwtGwtConecction
-  ! - GWT-GWF => GwtGwfConnection
   ! - ...etc...
   !
   ! ******************************************************************************
-    use ListsModule, only: baseexchangelist
-    use BaseExchangeModule,       only: GetBaseExchangeFromList
-    use NumericalExchangeModule,  only: NumericalExchangeType
+    use ListsModule,            only: baseexchangelist
+    use BaseExchangeModule,     only: GetBaseExchangeFromList
+    use DisConnExchangeModule,  only: DisConnExchangeType
     use ConnectionBuilderModule
     
     integer(I4B) :: ic
@@ -84,7 +83,7 @@ module SimulationCreateModule
     type(ConnectionBuilderType) :: connectionBuilder
     
     class(BaseExchangeType), pointer :: ep => null()    
-    class(NumericalExchangeType), pointer :: numExchange => null()
+    class(DisConnExchangeType), pointer :: connExchange => null()
     
     if (baseexchangelist%Count() == 0) then
       ! very possible, silently return
@@ -100,14 +99,14 @@ module SimulationCreateModule
       ! connection doesn't make sense. Hence we need NumericalExchanges
       ! and derived classes
       select type (ep)
-        class is (NumericalExchangeType)      
+        class is (DisConnExchangeType)
           ! now create connections for this exchange, or extend existing connection
-          numExchange => ep
-          call connectionBuilder%processExchange(numExchange)
+          connExchange => ep
+          call connectionBuilder%processExchange(connExchange)
         class default
           ! unsupported exchange, do nothing here
           write(*,'(4x,a)') 'Error (which should never happen): unsupported exchangetype for creating model connection'
-      end select 
+      end select
       
     enddo
     
