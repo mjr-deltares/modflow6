@@ -5,7 +5,8 @@ module Mf6CoreModule
                                     baseconnectionlist
   use BaseModelModule,        only: BaseModelType, GetBaseModelFromList
   use BaseExchangeModule,     only: BaseExchangeType, GetBaseExchangeFromList
-  use ModelConnectionModule,  only: ModelConnectionType, GetConnectionFromList
+  use SpatialModelConnectionModule, only: SpatialModelConnectionType,            &
+                                          GetSpatialModelConnectionFromList
   use BaseSolutionModule,     only: BaseSolutionType, GetBaseSolutionFromList
   use SolutionGroupModule,    only: SolutionGroupType, GetSolutionGroupFromList
   implicit none  
@@ -103,7 +104,7 @@ contains
     class(BaseSolutionType), pointer :: sp => null()
     class(BaseModelType), pointer :: mp => null()
     class(BaseExchangeType), pointer :: ep => null()
-    class(ModelConnectionType), pointer :: mc => null()
+    class(SpatialModelConnectionType), pointer :: mc => null()
     
     ! -- FINAL PROCESSING (FP)
     ! -- Final processing for each model
@@ -144,8 +145,8 @@ contains
     !
     ! -- Deallocate for each connection
     do ic = 1, baseconnectionlist%Count()
-      mc => GetConnectionFromList(baseconnectionlist, ic)
-      call mc%mc_da()
+      mc => GetSpatialModelConnectionFromList(baseconnectionlist, ic)
+      call mc%exg_da()
       deallocate(mc)
     enddo
     !
@@ -194,7 +195,7 @@ contains
     class(BaseSolutionType), pointer :: sp => null()
     class(BaseModelType), pointer :: mp => null()
     class(BaseExchangeType), pointer :: ep => null()
-    class(ModelConnectionType), pointer :: mc => null()
+    class(SpatialModelConnectionType), pointer :: mc => null()
     
     ! -- Define each model
     do im = 1, basemodellist%Count()
@@ -210,8 +211,8 @@ contains
     !
     ! -- Define each connection
     do ic = 1, baseconnectionlist%Count()
-      mc => GetConnectionFromList(baseconnectionlist, ic)
-      call mc%mc_df()
+      mc => GetSpatialModelConnectionFromList(baseconnectionlist, ic)
+      call mc%exg_df()
     enddo
     !
     ! -- Define each solution
@@ -231,7 +232,7 @@ contains
     class(BaseSolutionType), pointer :: sp => null()
     class(BaseModelType), pointer :: mp => null()
     class(BaseExchangeType), pointer :: ep => null()
-    class(ModelConnectionType), pointer :: mc => null()
+    class(SpatialModelConnectionType), pointer :: mc => null()
     
     ! -- Allocate and read each model
     do im = 1, basemodellist%Count()
@@ -247,8 +248,8 @@ contains
     !
     ! -- Allocate and read all model connections
     do ic = 1, baseconnectionlist%Count()
-      mc => GetConnectionFromList(baseconnectionlist, ic)
-      call mc%mc_ar()
+      mc => GetSpatialModelConnectionFromList(baseconnectionlist, ic)
+      call mc%exg_ar()
     enddo
     !
     ! -- Allocate and read each solution
