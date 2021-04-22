@@ -50,7 +50,7 @@ contains
   end subroutine Mf6Run
   
   subroutine Mf6Initialize()
-    use SimulationCreateModule, only: simulation_cr, connections_cr
+    use SimulationCreateModule, only: simulation_cr
     ! -- dummy
     ! -- local
     
@@ -59,7 +59,6 @@ contains
     
     ! -- create
     call simulation_cr()
-    call connections_cr()
     
     ! -- define
     call simulation_df()
@@ -209,6 +208,10 @@ contains
       call ep%exg_df()
     enddo
     !
+    ! -- when needed, this is were the interface models are
+    ! created and added to the numerical solutions
+    call connections_cr()
+    !
     ! -- Define each connection
     do ic = 1, baseconnectionlist%Count()
       mc => GetSpatialModelConnectionFromList(baseconnectionlist, ic)
@@ -259,6 +262,38 @@ contains
     enddo
     !
   end subroutine simulation_ar
+
+  !> @brief Create the model connections from the exchanges
+  !!
+  !! This will upgrade the numerical exchanges in the solution,
+  !! whenever the configuration requires this, to Connection 
+  !! objects. Currently we anticipate:
+  !!
+  !!   GWF-GWF => GwfGwfConnection
+  !!   GWT-GWT => GwtGwtConecction
+  !<
+  subroutine connections_cr()
+    use ConnectionBuilderModule
+    use SimVariablesModule, only: iout
+    integer(I4B) :: isol
+    type(ConnectionBuilderType) :: connectionBuilder
+    class(BaseSolutionType), pointer :: sol => null()
+    
+    write(iout,'(/a)') 'PROCESSING MODEL CONNECTIONS'
+
+    if (baseexchangelist%Count() == 0) then
+      ! if this is not a coupled simulation in any way,
+      ! then we will not need model connections
+      return
+    end if
+    
+    do isol = 1, basesolutionlist%Count()
+      sol => GetBaseSolutionFromList(basesolutionlist, isol)
+      call connectionBuilder%processSolution(sol)
+    end do
+    
+    write(iout,'(a)') 'END OF MODEL CONNECTIONS'
+  end subroutine connections_cr
   
   subroutine Mf6PrepareTimestep()
     use KindModule,             only: I4B
