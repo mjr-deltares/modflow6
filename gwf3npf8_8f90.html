@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="mf6-triangular-grid.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">MODFLOW 6
-   &#160;<span id="projectnumber">version 6.2.2</span>
+   &#160;<span id="projectnumber">version 6.3.0</span>
    </div>
    <div id="projectbrief">MODFLOW 6 Code Documentation</div>
   </td>
@@ -145,6 +145,9 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a75051e6341026e749126d8a48aa4a90b"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfnpfmodule.html#a75051e6341026e749126d8a48aa4a90b">gwfnpfmodule::npf_ar</a> (this, ic, ibound, hnew, grid_data)</td></tr>
 <tr class="memdesc:a75051e6341026e749126d8a48aa4a90b"><td class="mdescLeft">&#160;</td><td class="mdescRight">allocate and read this NPF instance  <a href="namespacegwfnpfmodule.html#a75051e6341026e749126d8a48aa4a90b">More...</a><br /></td></tr>
 <tr class="separator:a75051e6341026e749126d8a48aa4a90b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca2d9b178552d142fce8a211c2354b64"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfnpfmodule.html#aca2d9b178552d142fce8a211c2354b64">gwfnpfmodule::npf_rp</a> (this)</td></tr>
+<tr class="memdesc:aca2d9b178552d142fce8a211c2354b64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read and prepare method for package.  <a href="namespacegwfnpfmodule.html#aca2d9b178552d142fce8a211c2354b64">More...</a><br /></td></tr>
+<tr class="separator:aca2d9b178552d142fce8a211c2354b64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8bd3761a7b72f7e397f2ecab7a4577a"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfnpfmodule.html#ab8bd3761a7b72f7e397f2ecab7a4577a">gwfnpfmodule::npf_ad</a> (this, nodes, hold, hnew, irestore)</td></tr>
 <tr class="separator:ab8bd3761a7b72f7e397f2ecab7a4577a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9f6c76fad8ae4c6d8bcb8b03b433712"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfnpfmodule.html#af9f6c76fad8ae4c6d8bcb8b03b433712">gwfnpfmodule::npf_cf</a> (this, kiter, nodes, hnew)</td></tr>
@@ -188,6 +191,12 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a6807fd51ec170cbceebbf661b9965c38"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfnpfmodule.html#a6807fd51ec170cbceebbf661b9965c38">gwfnpfmodule::preprocess_input</a> (this)</td></tr>
 <tr class="memdesc:a6807fd51ec170cbceebbf661b9965c38"><td class="mdescLeft">&#160;</td><td class="mdescRight">preprocess the NPF input data  <a href="namespacegwfnpfmodule.html#a6807fd51ec170cbceebbf661b9965c38">More...</a><br /></td></tr>
 <tr class="separator:a6807fd51ec170cbceebbf661b9965c38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a259ac5d9076a2478f1b5b7020b3c7ecd"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfnpfmodule.html#a259ac5d9076a2478f1b5b7020b3c7ecd">gwfnpfmodule::calc_condsat</a> (this, node, upperOnly)</td></tr>
+<tr class="memdesc:a259ac5d9076a2478f1b5b7020b3c7ecd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate CONDSAT array entries for the given node.  <a href="namespacegwfnpfmodule.html#a259ac5d9076a2478f1b5b7020b3c7ecd">More...</a><br /></td></tr>
+<tr class="separator:a259ac5d9076a2478f1b5b7020b3c7ecd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1635a61283c2c97f33cc03d398fb805a"><td class="memItemLeft" align="right" valign="top">real(dp) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfnpfmodule.html#a1635a61283c2c97f33cc03d398fb805a">gwfnpfmodule::calc_initial_sat</a> (this, n)</td></tr>
+<tr class="memdesc:a1635a61283c2c97f33cc03d398fb805a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate initial saturation for the given node.  <a href="namespacegwfnpfmodule.html#a1635a61283c2c97f33cc03d398fb805a">More...</a><br /></td></tr>
+<tr class="separator:a1635a61283c2c97f33cc03d398fb805a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44ee88a8e7b365313a2b0dee14df54ba"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfnpfmodule.html#a44ee88a8e7b365313a2b0dee14df54ba">gwfnpfmodule::sgwf_npf_wetdry</a> (this, kiter, hnew)</td></tr>
 <tr class="separator:a44ee88a8e7b365313a2b0dee14df54ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a49e6a1886d4eaf444a7e3abbfdc533"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfnpfmodule.html#a2a49e6a1886d4eaf444a7e3abbfdc533">gwfnpfmodule::rewet_check</a> (this, kiter, node, hm, ibdm, ihc, hnew, irewet)</td></tr>
@@ -225,7 +234,7 @@ Functions/Subroutines</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_32e188284d239da8bb14ec1dabb0c35f.html">Model</a></li><li class="navelem"><a class="el" href="dir_5aefb7a434fc869900e7ccf685166f81.html">GroundWaterFlow</a></li><li class="navelem"><a class="el" href="gwf3npf8_8f90.html">gwf3npf8.f90</a></li>
-    <li class="footer">Generated on Wed Jul 14 2021 10:58:05 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Sep 29 2021 08:34:21 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

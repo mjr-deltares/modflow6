@@ -20,6 +20,7 @@ var structgwtmvtmodule_1_1gwtmvttype =
     [ "budget", "structgwtmvtmodule_1_1gwtmvttype.html#ab4a7d5baa4e8e0c4c238929486bd3d01", null ],
     [ "budobj", "structgwtmvtmodule_1_1gwtmvttype.html#a0ce5eadc5d9341fd60557a8d6fcada2f", null ],
     [ "fmi", "structgwtmvtmodule_1_1gwtmvttype.html#a172cdf903476167ed2576736875e79ba", null ],
+    [ "ibudcsv", "structgwtmvtmodule_1_1gwtmvttype.html#a926268c8a409826ed9aca476e0ede285", null ],
     [ "ibudgetout", "structgwtmvtmodule_1_1gwtmvttype.html#ae858b1ac536849a58ed7d1e1412393a9", null ],
     [ "maxpackages", "structgwtmvtmodule_1_1gwtmvttype.html#ad254b4a3b69bb4204c2de46026d295ad", null ],
     [ "outputtab", "structgwtmvtmodule_1_1gwtmvttype.html#aea7901c42e2db10e600c260d449d29b7", null ],

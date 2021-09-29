@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="mf6-triangular-grid.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">MODFLOW 6
-   &#160;<span id="projectnumber">version 6.2.2</span>
+   &#160;<span id="projectnumber">version 6.3.0</span>
    </div>
    <div id="projectbrief">MODFLOW 6 Code Documentation</div>
   </td>
@@ -236,7 +236,7 @@ $(document).ready(function(){initNavTree('gwf3riv8_8f90_source.html',''); initRe
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="comment">! -- modules</span></div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceconstantsmodule.html">constantsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceconstantsmodule.html#a060d310ded5535ce2dc85bd1ca1afd3d">linelength</a></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacesimmodule.html">simmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61">ustop</a>, <a class="code" href="namespacesimmodule.html#a536cb6f0e13fcd33755e414641ff931a">store_error</a>, <a class="code" href="namespacesimmodule.html#a4c46e49de78d4498dd4ec106357775e6">count_errors</a>, <a class="code" href="namespacesimmodule.html#a1c78a6fda06b630c738bb654aa6bd816">store_error_unit</a></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacesimmodule.html">simmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>, <a class="code" href="namespacesimmodule.html#a4c46e49de78d4498dd4ec106357775e6">count_errors</a>, <a class="code" href="namespacesimmodule.html#a83910ed20af1fec9bdf46cad8c276538">store_error_unit</a></div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="comment">! -- dummy</span></div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structrivmodule_1_1rivtype.html">rivtype</a>),<span class="keywordtype">intent(inout)</span> :: this</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="comment">! -- local</span></div>
@@ -267,246 +267,244 @@ $(document).ready(function(){initNavTree('gwf3riv8_8f90_source.html',''); initRe
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        <span class="comment">! -- accumulate errors</span></div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        <span class="keywordflow">if</span> (rbot &lt; bt .and. this%icelltype(node) /= 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;          <span class="keyword">write</span>(errmsg, fmt=fmtriverr) i, rbot, bt</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;          <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a536cb6f0e13fcd33755e414641ff931a">store_error</a>(errmsg)</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;          <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(errmsg)</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="keywordflow">        end if</span></div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        <span class="keywordflow">if</span> (stage &lt; rbot) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;          <span class="keyword">write</span>(errmsg, fmt=fmtriverr2) i, stage, rbot</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;          <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a536cb6f0e13fcd33755e414641ff931a">store_error</a>(errmsg)</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;          <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(errmsg)</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="keywordflow">        end if</span></div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <span class="keywordflow">if</span> (stage &lt; bt .and. this%icelltype(node) /= 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;          <span class="keyword">write</span>(errmsg, fmt=fmtriverr3) i, stage, bt</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;          <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a536cb6f0e13fcd33755e414641ff931a">store_error</a>(errmsg)</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;          <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(errmsg)</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="keywordflow">        end if</span></div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="keywordflow">    end do</span></div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="comment">! -- write summary of river package error messages</span></div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="namespacesimmodule.html#a4c46e49de78d4498dd4ec106357775e6">count_errors</a>() &gt; 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a1c78a6fda06b630c738bb654aa6bd816">store_error_unit</a>(this%inunit)</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61">ustop</a>()</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="comment">! -- return</span></div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacerivmodule.html#ae5112c5b6e434c475fcb692c669e53fb">riv_ck</a></div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="keyword">subroutine </span><a class="code" href="namespacerivmodule.html#a34b470fa86fa279bae77a185b43ef966">riv_cf</a>(this, reset_mover)</div>
-<div class="line"><a name="l00177"></a><span class="lineno"><a class="line" href="namespacerivmodule.html#a34b470fa86fa279bae77a185b43ef966">  177</a></span>&#160;<span class="comment">! ******************************************************************************</span></div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="comment">! riv_cf -- Formulate the HCOF and RHS terms</span></div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="comment">! Subroutine: (1) skip in no rivs</span></div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="comment">!             (2) calculate hcof and rhs</span></div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="comment">! ******************************************************************************</span></div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="comment">!</span></div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="comment">!    SPECIFICATIONS:</span></div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structrivmodule_1_1rivtype.html">rivtype</a>) :: this</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="keywordtype">logical</span>, <span class="keywordtype">intent(in)</span>, <span class="keywordtype">optional</span> :: reset_mover</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    <span class="comment">! -- local</span></div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i, node</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="keywordtype">    real</span>(DP) :: hriv, criv, rbot</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="keywordtype">logical</span> :: lrm</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="comment">! -- Return if no rivs</span></div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keywordflow">if</span>(this%nbound.eq.0) <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="comment">! -- pakmvrobj cf</span></div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    lrm = .true.</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">present</span>(reset_mover)) lrm = reset_mover</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keywordflow">if</span>(this%imover == 1 .and. lrm) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;      <span class="keyword">call </span>this%pakmvrobj%cf()</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="keywordflow">    endif</span></div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="comment">! -- Calculate hcof and rhs for each riv entry</span></div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <span class="keywordflow">do</span> i=1,this%nbound</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;      node=this%nodelist(i)</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;      <span class="keywordflow">if</span>(this%ibound(node)&lt;=0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        this%hcof(i)=<a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        this%rhs(i)=<a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        cycle</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="keywordflow">      endif</span></div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;      hriv=this%bound(1,i)</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;      criv=this%bound(2,i)</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;      rbot=this%bound(3,i)</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;      <span class="keywordflow">if</span>(this%xnew(node)&lt;=rbot) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        this%rhs(i)=-criv*(hriv-rbot)</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        this%hcof(i) = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;      <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;        this%rhs(i) = -criv*hriv</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        this%hcof(i) = -criv</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="keywordflow">      endif</span></div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="keywordflow">    enddo</span></div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="comment">! -- return</span></div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;<span class="keyword">end subroutine </span><a class="code" href="namespacerivmodule.html#a34b470fa86fa279bae77a185b43ef966">riv_cf</a></div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160; </div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacerivmodule.html#acf4da61582e4652c8dac601ac513a09d">riv_fc</a>(this, rhs, ia, idxglo, amatsln)</div>
-<div class="line"><a name="l00229"></a><span class="lineno"><a class="line" href="namespacerivmodule.html#acf4da61582e4652c8dac601ac513a09d">  229</a></span>&#160;<span class="comment">! **************************************************************************</span></div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="comment">! riv_fc -- Copy rhs and hcof into solution rhs and amat</span></div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;<span class="comment">! **************************************************************************</span></div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;<span class="comment">!</span></div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;<span class="comment">!    SPECIFICATIONS:</span></div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="comment">! --------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structrivmodule_1_1rivtype.html">rivtype</a>) :: this</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">intent(inout)</span> :: rhs</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">intent(in)</span> :: ia</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">intent(in)</span> :: idxglo</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">intent(inout)</span> :: amatsln</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    <span class="comment">! -- local</span></div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i, n, ipos</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="keywordtype">    real</span>(DP) :: cond, stage, qriv <span class="comment">!, rbot</span></div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="comment">! --------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <span class="comment">! -- pakmvrobj fc</span></div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    <span class="keywordflow">if</span>(this%imover == 1) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;      <span class="keyword">call </span>this%pakmvrobj%fc()</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="keywordflow">    endif</span></div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="comment">! -- Copy package rhs and hcof into solution rhs and amat</span></div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <span class="keywordflow">do</span> i = 1, this%nbound</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;      n = this%nodelist(i)</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;      rhs(n) = rhs(n) + this%rhs(i)</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;      ipos = ia(n)</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;      amatsln(idxglo(ipos)) = amatsln(idxglo(ipos)) + this%hcof(i)</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;      <span class="comment">!</span></div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;      <span class="comment">! -- If mover is active and this river cell is discharging,</span></div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;      <span class="comment">!    store available water (as positive value).</span></div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;      stage = this%bound(1,i)</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;      <span class="keywordflow">if</span>(this%imover == 1 .and. this%xnew(n) &gt; stage) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        cond = this%bound(2,i)</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        qriv = cond * (this%xnew(n) - stage)</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        <span class="keyword">call </span>this%pakmvrobj%accumulate_qformvr(i, qriv)</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="keywordflow">      endif</span></div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;<span class="keywordflow">    enddo</span></div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="comment">! -- return</span></div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacerivmodule.html#acf4da61582e4652c8dac601ac513a09d">riv_fc</a></div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160; </div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacerivmodule.html#a9d6587182a79568ad16d4fbd98f71f1e">define_listlabel</a>(this)</div>
-<div class="line"><a name="l00273"></a><span class="lineno"><a class="line" href="namespacerivmodule.html#a9d6587182a79568ad16d4fbd98f71f1e">  273</a></span>&#160;<span class="comment">! ******************************************************************************</span></div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="comment">! define_listlabel -- Define the list heading that is written to iout when</span></div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;<span class="comment">!   PRINT_INPUT option is used.</span></div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;<span class="comment">! ******************************************************************************</span></div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;<span class="comment">!</span></div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;<span class="comment">!    SPECIFICATIONS:</span></div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structrivmodule_1_1rivtype.html">rivtype</a>), <span class="keywordtype">intent(inout)</span> :: this</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="comment">! -- create the header list label</span></div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    this%listlabel = trim(this%filtyp) // <span class="stringliteral">&#39; NO.&#39;</span></div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="keywordflow">if</span>(this%dis%ndim == 3) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;      <span class="keyword">write</span>(this%listlabel, <span class="stringliteral">&#39;(a, a7)&#39;</span>) trim(this%listlabel), <span class="stringliteral">&#39;LAYER&#39;</span></div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;      <span class="keyword">write</span>(this%listlabel, <span class="stringliteral">&#39;(a, a7)&#39;</span>) trim(this%listlabel), <span class="stringliteral">&#39;ROW&#39;</span></div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;      <span class="keyword">write</span>(this%listlabel, <span class="stringliteral">&#39;(a, a7)&#39;</span>) trim(this%listlabel), <span class="stringliteral">&#39;COL&#39;</span></div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="keywordflow">elseif</span>(this%dis%ndim == 2) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;      <span class="keyword">write</span>(this%listlabel, <span class="stringliteral">&#39;(a, a7)&#39;</span>) trim(this%listlabel), <span class="stringliteral">&#39;LAYER&#39;</span></div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;      <span class="keyword">write</span>(this%listlabel, <span class="stringliteral">&#39;(a, a7)&#39;</span>) trim(this%listlabel), <span class="stringliteral">&#39;CELL2D&#39;</span></div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;      <span class="keyword">write</span>(this%listlabel, <span class="stringliteral">&#39;(a, a7)&#39;</span>) trim(this%listlabel), <span class="stringliteral">&#39;NODE&#39;</span></div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;<span class="keywordflow">    endif</span></div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    <span class="keyword">write</span>(this%listlabel, <span class="stringliteral">&#39;(a, a16)&#39;</span>) trim(this%listlabel), <span class="stringliteral">&#39;STAGE&#39;</span></div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    <span class="keyword">write</span>(this%listlabel, <span class="stringliteral">&#39;(a, a16)&#39;</span>) trim(this%listlabel), <span class="stringliteral">&#39;CONDUCTANCE&#39;</span></div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    <span class="keyword">write</span>(this%listlabel, <span class="stringliteral">&#39;(a, a16)&#39;</span>) trim(this%listlabel), <span class="stringliteral">&#39;BOTTOM EL.&#39;</span></div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    <span class="keywordflow">if</span>(this%inamedbound == 1) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;      <span class="keyword">write</span>(this%listlabel, <span class="stringliteral">&#39;(a, a16)&#39;</span>) trim(this%listlabel), <span class="stringliteral">&#39;BOUNDARY NAME&#39;</span></div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;<span class="keywordflow">    endif</span></div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    <span class="comment">! -- return</span></div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacerivmodule.html#a9d6587182a79568ad16d4fbd98f71f1e">define_listlabel</a></div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160; </div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;  <span class="comment">! -- Procedures related to observations</span></div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160; </div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;<span class="keyword">logical </span><span class="keyword">function </span><a class="code" href="namespacerivmodule.html#a0c64045a09b00a86f365ae4279749f79">riv_obs_supported</a>(this)</div>
-<div class="line"><a name="l00309"></a><span class="lineno"><a class="line" href="namespacerivmodule.html#a0c64045a09b00a86f365ae4279749f79">  309</a></span>&#160;<span class="comment">! ******************************************************************************</span></div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;<span class="comment">! riv_obs_supported</span></div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;<span class="comment">!   -- Return true because RIV package supports observations.</span></div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;<span class="comment">!   -- Overrides BndType%bnd_obs_supported()</span></div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;<span class="comment">! ******************************************************************************</span></div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;<span class="comment">!</span></div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;<span class="comment">!    SPECIFICATIONS:</span></div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;  <span class="keywordtype">implicit none</span></div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;  <span class="keywordtype">class</span>(<a class="code" href="structrivmodule_1_1rivtype.html">rivtype</a>) :: this</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;  <a class="code" href="namespacerivmodule.html#a0c64045a09b00a86f365ae4279749f79">riv_obs_supported</a> = .true.</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;  <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;<span class="keyword">end function </span><a class="code" href="namespacerivmodule.html#a0c64045a09b00a86f365ae4279749f79">riv_obs_supported</a></div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160; </div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacerivmodule.html#a4781898f15fa14125b95c3f497a7f2ac">riv_df_obs</a>(this)</div>
-<div class="line"><a name="l00325"></a><span class="lineno"><a class="line" href="namespacerivmodule.html#a4781898f15fa14125b95c3f497a7f2ac">  325</a></span>&#160;  <span class="comment">! ******************************************************************************</span></div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;  <span class="comment">! riv_df_obs (implements bnd_df_obs)</span></div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;  <span class="comment">!   -- Store observation type supported by RIV package.</span></div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;  <span class="comment">!   -- Overrides BndType%bnd_df_obs</span></div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;  <span class="comment">! ******************************************************************************</span></div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;  <span class="comment">!</span></div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;  <span class="comment">!    SPECIFICATIONS:</span></div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;  <span class="comment">! ------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    <span class="keywordtype">implicit none</span></div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structrivmodule_1_1rivtype.html">rivtype</a>) :: this</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    <span class="comment">! -- local</span></div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: indx</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;  <span class="comment">! ------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    <span class="keyword">call </span>this%obs%StoreObsType(<span class="stringliteral">&#39;riv&#39;</span>, .true., indx)</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    this%obs%obsData(indx)%ProcessIdPtr =&gt; <a class="code" href="namespaceobsmodule.html#a7dbce254f60ae2f0925c07136365ce91">defaultobsidprocessor</a></div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    <span class="comment">! -- Store obs type and assign procedure pointer</span></div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    <span class="comment">!    for to-mvr observation type.</span></div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;    <span class="keyword">call </span>this%obs%StoreObsType(<span class="stringliteral">&#39;to-mvr&#39;</span>, .true., indx)</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    this%obs%obsData(indx)%ProcessIdPtr =&gt; <a class="code" href="namespaceobsmodule.html#a7dbce254f60ae2f0925c07136365ce91">defaultobsidprocessor</a></div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    <span class="comment">! -- return</span></div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacerivmodule.html#a4781898f15fa14125b95c3f497a7f2ac">riv_df_obs</a></div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160; </div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;  <span class="comment">! -- Procedure related to time series</span></div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160; </div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacerivmodule.html#acd6194fc90c0b46b95cb112f239c6b58">riv_rp_ts</a>(this)</div>
-<div class="line"><a name="l00354"></a><span class="lineno"><a class="line" href="namespacerivmodule.html#acd6194fc90c0b46b95cb112f239c6b58">  354</a></span>&#160;    <span class="comment">! -- Assign tsLink%Text appropriately for</span></div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    <span class="comment">!    all time series in use by package.</span></div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    <span class="comment">!    In RIV package variables STAGE, COND, and RBOT</span></div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;    <span class="comment">!    can be controlled by time series.</span></div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structrivmodule_1_1rivtype.html">rivtype</a>), <span class="keywordtype">intent(inout)</span> :: this</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    <span class="comment">! -- local</span></div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i, nlinks</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structtimeserieslinkmodule_1_1timeserieslinktype.html">timeserieslinktype</a>), <span class="keywordtype">pointer</span> :: tslink =&gt; null()</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    nlinks = this%TsManager%boundtslinks%Count()</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    <span class="keywordflow">do</span> i=1,nlinks</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;      tslink =&gt; <a class="code" href="namespacetimeserieslinkmodule.html#ab7e38e1f45871cf48de54cc179ee9ac7">gettimeserieslinkfromlist</a>(this%TsManager%boundtslinks, i)</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;      <span class="keywordflow">if</span> (<span class="keyword">associated</span>(tslink)) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;        <span class="keywordflow">select case</span> (tslink%JCol)</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;        <span class="keywordflow">case</span> (1)</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;          tslink%Text = <span class="stringliteral">&#39;STAGE&#39;</span></div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;        <span class="keywordflow">case</span> (2)</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;          tslink%Text = <span class="stringliteral">&#39;COND&#39;</span></div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;        <span class="keywordflow">case</span> (3)</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;          tslink%Text = <span class="stringliteral">&#39;RBOT&#39;</span></div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;<span class="keywordflow">        end select</span></div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;<span class="keywordflow">      endif</span></div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;<span class="keywordflow">    enddo</span></div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacerivmodule.html#acd6194fc90c0b46b95cb112f239c6b58">riv_rp_ts</a></div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160; </div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;<span class="keyword">end module </span><a class="code" href="namespacerivmodule.html">rivmodule</a></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a83910ed20af1fec9bdf46cad8c276538">store_error_unit</a>(this%inunit)</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="comment">! -- return</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacerivmodule.html#ae5112c5b6e434c475fcb692c669e53fb">riv_ck</a></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="keyword">subroutine </span><a class="code" href="namespacerivmodule.html#a34b470fa86fa279bae77a185b43ef966">riv_cf</a>(this, reset_mover)</div>
+<div class="line"><a name="l00176"></a><span class="lineno"><a class="line" href="namespacerivmodule.html#a34b470fa86fa279bae77a185b43ef966">  176</a></span>&#160;<span class="comment">! ******************************************************************************</span></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="comment">! riv_cf -- Formulate the HCOF and RHS terms</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="comment">! Subroutine: (1) skip in no rivs</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="comment">!             (2) calculate hcof and rhs</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="comment">! ******************************************************************************</span></div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="comment">!</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="comment">!    SPECIFICATIONS:</span></div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="comment">! -- dummy</span></div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structrivmodule_1_1rivtype.html">rivtype</a>) :: this</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keywordtype">logical</span>, <span class="keywordtype">intent(in)</span>, <span class="keywordtype">optional</span> :: reset_mover</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="comment">! -- local</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i, node</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="keywordtype">    real</span>(DP) :: hriv, criv, rbot</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="keywordtype">logical</span> :: lrm</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="comment">! -- Return if no rivs</span></div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="keywordflow">if</span>(this%nbound.eq.0) <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="comment">! -- pakmvrobj cf</span></div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    lrm = .true.</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">present</span>(reset_mover)) lrm = reset_mover</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="keywordflow">if</span>(this%imover == 1 .and. lrm) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;      <span class="keyword">call </span>this%pakmvrobj%cf()</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="keywordflow">    endif</span></div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <span class="comment">! -- Calculate hcof and rhs for each riv entry</span></div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keywordflow">do</span> i=1,this%nbound</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;      node=this%nodelist(i)</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;      <span class="keywordflow">if</span>(this%ibound(node)&lt;=0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        this%hcof(i)=<a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        this%rhs(i)=<a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        cycle</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="keywordflow">      endif</span></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;      hriv=this%bound(1,i)</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;      criv=this%bound(2,i)</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;      rbot=this%bound(3,i)</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;      <span class="keywordflow">if</span>(this%xnew(node)&lt;=rbot) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        this%rhs(i)=-criv*(hriv-rbot)</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        this%hcof(i) = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;      <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        this%rhs(i) = -criv*hriv</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;        this%hcof(i) = -criv</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;<span class="keywordflow">      endif</span></div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="keywordflow">    enddo</span></div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="comment">! -- return</span></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="keyword">end subroutine </span><a class="code" href="namespacerivmodule.html#a34b470fa86fa279bae77a185b43ef966">riv_cf</a></div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacerivmodule.html#acf4da61582e4652c8dac601ac513a09d">riv_fc</a>(this, rhs, ia, idxglo, amatsln)</div>
+<div class="line"><a name="l00228"></a><span class="lineno"><a class="line" href="namespacerivmodule.html#acf4da61582e4652c8dac601ac513a09d">  228</a></span>&#160;<span class="comment">! **************************************************************************</span></div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="comment">! riv_fc -- Copy rhs and hcof into solution rhs and amat</span></div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="comment">! **************************************************************************</span></div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;<span class="comment">!</span></div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;<span class="comment">!    SPECIFICATIONS:</span></div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;<span class="comment">! --------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    <span class="comment">! -- dummy</span></div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structrivmodule_1_1rivtype.html">rivtype</a>) :: this</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">intent(inout)</span> :: rhs</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">intent(in)</span> :: ia</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">intent(in)</span> :: idxglo</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">intent(inout)</span> :: amatsln</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    <span class="comment">! -- local</span></div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i, n, ipos</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="keywordtype">    real</span>(DP) :: cond, stage, qriv <span class="comment">!, rbot</span></div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="comment">! --------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <span class="comment">! -- pakmvrobj fc</span></div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <span class="keywordflow">if</span>(this%imover == 1) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;      <span class="keyword">call </span>this%pakmvrobj%fc()</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<span class="keywordflow">    endif</span></div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="comment">! -- Copy package rhs and hcof into solution rhs and amat</span></div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="keywordflow">do</span> i = 1, this%nbound</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;      n = this%nodelist(i)</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;      rhs(n) = rhs(n) + this%rhs(i)</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;      ipos = ia(n)</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;      amatsln(idxglo(ipos)) = amatsln(idxglo(ipos)) + this%hcof(i)</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;      <span class="comment">!</span></div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;      <span class="comment">! -- If mover is active and this river cell is discharging,</span></div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;      <span class="comment">!    store available water (as positive value).</span></div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;      stage = this%bound(1,i)</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;      <span class="keywordflow">if</span>(this%imover == 1 .and. this%xnew(n) &gt; stage) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        cond = this%bound(2,i)</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        qriv = cond * (this%xnew(n) - stage)</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        <span class="keyword">call </span>this%pakmvrobj%accumulate_qformvr(i, qriv)</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="keywordflow">      endif</span></div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="keywordflow">    enddo</span></div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="comment">! -- return</span></div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacerivmodule.html#acf4da61582e4652c8dac601ac513a09d">riv_fc</a></div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160; </div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacerivmodule.html#a9d6587182a79568ad16d4fbd98f71f1e">define_listlabel</a>(this)</div>
+<div class="line"><a name="l00272"></a><span class="lineno"><a class="line" href="namespacerivmodule.html#a9d6587182a79568ad16d4fbd98f71f1e">  272</a></span>&#160;<span class="comment">! ******************************************************************************</span></div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;<span class="comment">! define_listlabel -- Define the list heading that is written to iout when</span></div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="comment">!   PRINT_INPUT option is used.</span></div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;<span class="comment">! ******************************************************************************</span></div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;<span class="comment">!</span></div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;<span class="comment">!    SPECIFICATIONS:</span></div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structrivmodule_1_1rivtype.html">rivtype</a>), <span class="keywordtype">intent(inout)</span> :: this</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <span class="comment">! -- create the header list label</span></div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    this%listlabel = trim(this%filtyp) // <span class="stringliteral">&#39; NO.&#39;</span></div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    <span class="keywordflow">if</span>(this%dis%ndim == 3) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;      <span class="keyword">write</span>(this%listlabel, <span class="stringliteral">&#39;(a, a7)&#39;</span>) trim(this%listlabel), <span class="stringliteral">&#39;LAYER&#39;</span></div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;      <span class="keyword">write</span>(this%listlabel, <span class="stringliteral">&#39;(a, a7)&#39;</span>) trim(this%listlabel), <span class="stringliteral">&#39;ROW&#39;</span></div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;      <span class="keyword">write</span>(this%listlabel, <span class="stringliteral">&#39;(a, a7)&#39;</span>) trim(this%listlabel), <span class="stringliteral">&#39;COL&#39;</span></div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="keywordflow">elseif</span>(this%dis%ndim == 2) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;      <span class="keyword">write</span>(this%listlabel, <span class="stringliteral">&#39;(a, a7)&#39;</span>) trim(this%listlabel), <span class="stringliteral">&#39;LAYER&#39;</span></div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;      <span class="keyword">write</span>(this%listlabel, <span class="stringliteral">&#39;(a, a7)&#39;</span>) trim(this%listlabel), <span class="stringliteral">&#39;CELL2D&#39;</span></div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;      <span class="keyword">write</span>(this%listlabel, <span class="stringliteral">&#39;(a, a7)&#39;</span>) trim(this%listlabel), <span class="stringliteral">&#39;NODE&#39;</span></div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;<span class="keywordflow">    endif</span></div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    <span class="keyword">write</span>(this%listlabel, <span class="stringliteral">&#39;(a, a16)&#39;</span>) trim(this%listlabel), <span class="stringliteral">&#39;STAGE&#39;</span></div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    <span class="keyword">write</span>(this%listlabel, <span class="stringliteral">&#39;(a, a16)&#39;</span>) trim(this%listlabel), <span class="stringliteral">&#39;CONDUCTANCE&#39;</span></div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    <span class="keyword">write</span>(this%listlabel, <span class="stringliteral">&#39;(a, a16)&#39;</span>) trim(this%listlabel), <span class="stringliteral">&#39;BOTTOM EL.&#39;</span></div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    <span class="keywordflow">if</span>(this%inamedbound == 1) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;      <span class="keyword">write</span>(this%listlabel, <span class="stringliteral">&#39;(a, a16)&#39;</span>) trim(this%listlabel), <span class="stringliteral">&#39;BOUNDARY NAME&#39;</span></div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;<span class="keywordflow">    endif</span></div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    <span class="comment">! -- return</span></div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacerivmodule.html#a9d6587182a79568ad16d4fbd98f71f1e">define_listlabel</a></div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160; </div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;  <span class="comment">! -- Procedures related to observations</span></div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160; </div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;<span class="keyword">logical </span><span class="keyword">function </span><a class="code" href="namespacerivmodule.html#a0c64045a09b00a86f365ae4279749f79">riv_obs_supported</a>(this)</div>
+<div class="line"><a name="l00308"></a><span class="lineno"><a class="line" href="namespacerivmodule.html#a0c64045a09b00a86f365ae4279749f79">  308</a></span>&#160;<span class="comment">! ******************************************************************************</span></div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;<span class="comment">! riv_obs_supported</span></div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;<span class="comment">!   -- Return true because RIV package supports observations.</span></div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;<span class="comment">!   -- Overrides BndType%bnd_obs_supported()</span></div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;<span class="comment">! ******************************************************************************</span></div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;<span class="comment">!</span></div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;<span class="comment">!    SPECIFICATIONS:</span></div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;  <span class="keywordtype">implicit none</span></div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;  <span class="keywordtype">class</span>(<a class="code" href="structrivmodule_1_1rivtype.html">rivtype</a>) :: this</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;  <a class="code" href="namespacerivmodule.html#a0c64045a09b00a86f365ae4279749f79">riv_obs_supported</a> = .true.</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;  <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<span class="keyword">end function </span><a class="code" href="namespacerivmodule.html#a0c64045a09b00a86f365ae4279749f79">riv_obs_supported</a></div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160; </div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacerivmodule.html#a4781898f15fa14125b95c3f497a7f2ac">riv_df_obs</a>(this)</div>
+<div class="line"><a name="l00324"></a><span class="lineno"><a class="line" href="namespacerivmodule.html#a4781898f15fa14125b95c3f497a7f2ac">  324</a></span>&#160;  <span class="comment">! ******************************************************************************</span></div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;  <span class="comment">! riv_df_obs (implements bnd_df_obs)</span></div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;  <span class="comment">!   -- Store observation type supported by RIV package.</span></div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;  <span class="comment">!   -- Overrides BndType%bnd_df_obs</span></div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;  <span class="comment">! ******************************************************************************</span></div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;  <span class="comment">!</span></div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;  <span class="comment">!    SPECIFICATIONS:</span></div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;  <span class="comment">! ------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    <span class="keywordtype">implicit none</span></div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    <span class="comment">! -- dummy</span></div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structrivmodule_1_1rivtype.html">rivtype</a>) :: this</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    <span class="comment">! -- local</span></div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: indx</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;  <span class="comment">! ------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    <span class="keyword">call </span>this%obs%StoreObsType(<span class="stringliteral">&#39;riv&#39;</span>, .true., indx)</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    this%obs%obsData(indx)%ProcessIdPtr =&gt; <a class="code" href="namespaceobsmodule.html#a7dbce254f60ae2f0925c07136365ce91">defaultobsidprocessor</a></div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    <span class="comment">! -- Store obs type and assign procedure pointer</span></div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    <span class="comment">!    for to-mvr observation type.</span></div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    <span class="keyword">call </span>this%obs%StoreObsType(<span class="stringliteral">&#39;to-mvr&#39;</span>, .true., indx)</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;    this%obs%obsData(indx)%ProcessIdPtr =&gt; <a class="code" href="namespaceobsmodule.html#a7dbce254f60ae2f0925c07136365ce91">defaultobsidprocessor</a></div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    <span class="comment">! -- return</span></div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacerivmodule.html#a4781898f15fa14125b95c3f497a7f2ac">riv_df_obs</a></div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160; </div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;  <span class="comment">! -- Procedure related to time series</span></div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160; </div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacerivmodule.html#acd6194fc90c0b46b95cb112f239c6b58">riv_rp_ts</a>(this)</div>
+<div class="line"><a name="l00353"></a><span class="lineno"><a class="line" href="namespacerivmodule.html#acd6194fc90c0b46b95cb112f239c6b58">  353</a></span>&#160;    <span class="comment">! -- Assign tsLink%Text appropriately for</span></div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    <span class="comment">!    all time series in use by package.</span></div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    <span class="comment">!    In RIV package variables STAGE, COND, and RBOT</span></div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    <span class="comment">!    can be controlled by time series.</span></div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;    <span class="comment">! -- dummy</span></div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structrivmodule_1_1rivtype.html">rivtype</a>), <span class="keywordtype">intent(inout)</span> :: this</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    <span class="comment">! -- local</span></div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i, nlinks</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structtimeserieslinkmodule_1_1timeserieslinktype.html">timeserieslinktype</a>), <span class="keywordtype">pointer</span> :: tslink =&gt; null()</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;    nlinks = this%TsManager%boundtslinks%Count()</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    <span class="keywordflow">do</span> i=1,nlinks</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;      tslink =&gt; <a class="code" href="namespacetimeserieslinkmodule.html#ab7e38e1f45871cf48de54cc179ee9ac7">gettimeserieslinkfromlist</a>(this%TsManager%boundtslinks, i)</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;      <span class="keywordflow">if</span> (<span class="keyword">associated</span>(tslink)) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;        <span class="keywordflow">select case</span> (tslink%JCol)</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;        <span class="keywordflow">case</span> (1)</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;          tslink%Text = <span class="stringliteral">&#39;STAGE&#39;</span></div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;        <span class="keywordflow">case</span> (2)</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;          tslink%Text = <span class="stringliteral">&#39;COND&#39;</span></div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;        <span class="keywordflow">case</span> (3)</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;          tslink%Text = <span class="stringliteral">&#39;RBOT&#39;</span></div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;<span class="keywordflow">        end select</span></div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;<span class="keywordflow">      endif</span></div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;<span class="keywordflow">    enddo</span></div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;    <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacerivmodule.html#acd6194fc90c0b46b95cb112f239c6b58">riv_rp_ts</a></div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160; </div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;<span class="keyword">end module </span><a class="code" href="namespacerivmodule.html">rivmodule</a></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="anamespacebndmodule_html"><div class="ttname"><a href="namespacebndmodule.html">bndmodule</a></div><div class="ttdoc">This module contains the base model package.</div><div class="ttdef"><b>Definition:</b> <a href="_boundary_package_8f90_source.html#l00008">BoundaryPackage.f90:8</a></div></div>
+<div class="ttc" id="anamespacebndmodule_html"><div class="ttname"><a href="namespacebndmodule.html">bndmodule</a></div><div class="ttdoc">This module contains the base boundary package.</div><div class="ttdef"><b>Definition:</b> <a href="_boundary_package_8f90_source.html#l00008">BoundaryPackage.f90:8</a></div></div>
 <div class="ttc" id="anamespacekindmodule_html"><div class="ttname"><a href="namespacekindmodule.html">kindmodule</a></div><div class="ttdoc">This module defines variable data types.</div><div class="ttdef"><b>Definition:</b> <a href="kind_8f90_source.html#l00008">kind.f90:8</a></div></div>
+<div class="ttc" id="anamespacesimmodule_html_a21870712a1166225fdcd5b60bffb353e"><div class="ttname"><a href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">simmodule::store_error</a></div><div class="ttdeci">subroutine, public store_error(msg, terminate)</div><div class="ttdoc">Store error message.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_8f90_source.html#l00129">Sim.f90:129</a></div></div>
 <div class="ttc" id="anamespaceconstantsmodule_html_abab5757666b9ddd2726c20ce48dd0050"><div class="ttname"><a href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">constantsmodule::dzero</a></div><div class="ttdeci">real(dp), parameter dzero</div><div class="ttdoc">real constant zero</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00053">Constants.f90:53</a></div></div>
 <div class="ttc" id="astructtimeserieslinkmodule_1_1timeserieslinktype_html"><div class="ttname"><a href="structtimeserieslinkmodule_1_1timeserieslinktype.html">timeserieslinkmodule::timeserieslinktype</a></div><div class="ttdef"><b>Definition:</b> <a href="_time_series_link_8f90_source.html#l00017">TimeSeriesLink.f90:17</a></div></div>
 <div class="ttc" id="anamespaceobsmodule_html"><div class="ttname"><a href="namespaceobsmodule.html">obsmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_obs3_8f90_source.html#l00127">Obs3.f90:127</a></div></div>
-<div class="ttc" id="anamespacesimmodule_html_a1c78a6fda06b630c738bb654aa6bd816"><div class="ttname"><a href="namespacesimmodule.html#a1c78a6fda06b630c738bb654aa6bd816">simmodule::store_error_unit</a></div><div class="ttdeci">subroutine, public store_error_unit(iunit)</div><div class="ttdoc">Store the file unit number.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_8f90_source.html#l00195">Sim.f90:195</a></div></div>
-<div class="ttc" id="anamespacerivmodule_html_a9d6587182a79568ad16d4fbd98f71f1e"><div class="ttname"><a href="namespacerivmodule.html#a9d6587182a79568ad16d4fbd98f71f1e">rivmodule::define_listlabel</a></div><div class="ttdeci">subroutine define_listlabel(this)</div><div class="ttdef"><b>Definition:</b> <a href="gwf3riv8_8f90_source.html#l00273">gwf3riv8.f90:273</a></div></div>
-<div class="ttc" id="anamespacesimmodule_html_a536cb6f0e13fcd33755e414641ff931a"><div class="ttname"><a href="namespacesimmodule.html#a536cb6f0e13fcd33755e414641ff931a">simmodule::store_error</a></div><div class="ttdeci">subroutine, public store_error(msg)</div><div class="ttdoc">Store error message.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_8f90_source.html#l00129">Sim.f90:129</a></div></div>
-<div class="ttc" id="anamespacerivmodule_html_acd6194fc90c0b46b95cb112f239c6b58"><div class="ttname"><a href="namespacerivmodule.html#acd6194fc90c0b46b95cb112f239c6b58">rivmodule::riv_rp_ts</a></div><div class="ttdeci">subroutine riv_rp_ts(this)</div><div class="ttdef"><b>Definition:</b> <a href="gwf3riv8_8f90_source.html#l00354">gwf3riv8.f90:354</a></div></div>
+<div class="ttc" id="anamespacerivmodule_html_a9d6587182a79568ad16d4fbd98f71f1e"><div class="ttname"><a href="namespacerivmodule.html#a9d6587182a79568ad16d4fbd98f71f1e">rivmodule::define_listlabel</a></div><div class="ttdeci">subroutine define_listlabel(this)</div><div class="ttdef"><b>Definition:</b> <a href="gwf3riv8_8f90_source.html#l00272">gwf3riv8.f90:272</a></div></div>
+<div class="ttc" id="anamespacerivmodule_html_acd6194fc90c0b46b95cb112f239c6b58"><div class="ttname"><a href="namespacerivmodule.html#acd6194fc90c0b46b95cb112f239c6b58">rivmodule::riv_rp_ts</a></div><div class="ttdeci">subroutine riv_rp_ts(this)</div><div class="ttdef"><b>Definition:</b> <a href="gwf3riv8_8f90_source.html#l00353">gwf3riv8.f90:353</a></div></div>
 <div class="ttc" id="anamespacerivmodule_html_aa6ba7718043f5d99029eca2df069afbe"><div class="ttname"><a href="namespacerivmodule.html#aa6ba7718043f5d99029eca2df069afbe">rivmodule::riv_create</a></div><div class="ttdeci">subroutine, public riv_create(packobj, id, ibcnum, inunit, iout, namemodel, pakname)</div><div class="ttdef"><b>Definition:</b> <a href="gwf3riv8_8f90_source.html#l00036">gwf3riv8.f90:36</a></div></div>
 <div class="ttc" id="anamespacerivmodule_html_ab025ddf6ac086d7831636a0b3b9fcdc2"><div class="ttname"><a href="namespacerivmodule.html#ab025ddf6ac086d7831636a0b3b9fcdc2">rivmodule::text</a></div><div class="ttdeci">character(len=lenpackagename) text</div><div class="ttdef"><b>Definition:</b> <a href="gwf3riv8_8f90_source.html#l00017">gwf3riv8.f90:17</a></div></div>
 <div class="ttc" id="astructrivmodule_1_1rivtype_html"><div class="ttname"><a href="structrivmodule_1_1rivtype.html">rivmodule::rivtype</a></div><div class="ttdef"><b>Definition:</b> <a href="gwf3riv8_8f90_source.html#l00019">gwf3riv8.f90:19</a></div></div>
@@ -514,31 +512,31 @@ $(document).ready(function(){initNavTree('gwf3riv8_8f90_source.html',''); initRe
 <div class="ttc" id="anamespaceconstantsmodule_html_a96baa989fd4e29721a7756b985c18b30"><div class="ttname"><a href="namespaceconstantsmodule.html#a96baa989fd4e29721a7756b985c18b30">constantsmodule::lenftype</a></div><div class="ttdeci">integer(i4b), parameter lenftype</div><div class="ttdoc">maximum length of a package type (DIS, WEL, OC, etc.)</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00030">Constants.f90:30</a></div></div>
 <div class="ttc" id="anamespacesimmodule_html"><div class="ttname"><a href="namespacesimmodule.html">simmodule</a></div><div class="ttdoc">This module contains simulation methods.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_8f90_source.html#l00010">Sim.f90:10</a></div></div>
 <div class="ttc" id="anamespacerivmodule_html_aef8103efea3cb6bdcc34b172cef8d11d"><div class="ttname"><a href="namespacerivmodule.html#aef8103efea3cb6bdcc34b172cef8d11d">rivmodule::riv_options</a></div><div class="ttdeci">subroutine riv_options(this, option, found)</div><div class="ttdef"><b>Definition:</b> <a href="gwf3riv8_8f90_source.html#l00083">gwf3riv8.f90:83</a></div></div>
+<div class="ttc" id="anamespacesimmodule_html_a83910ed20af1fec9bdf46cad8c276538"><div class="ttname"><a href="namespacesimmodule.html#a83910ed20af1fec9bdf46cad8c276538">simmodule::store_error_unit</a></div><div class="ttdeci">subroutine, public store_error_unit(iunit, terminate)</div><div class="ttdoc">Store the file unit number.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_8f90_source.html#l00209">Sim.f90:209</a></div></div>
 <div class="ttc" id="anamespacememoryhelpermodule_html"><div class="ttname"><a href="namespacememoryhelpermodule.html">memoryhelpermodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_helper_8f90_source.html#l00001">MemoryHelper.f90:1</a></div></div>
 <div class="ttc" id="anamespacememoryhelpermodule_html_a3791dbc2d4a06a0b9112158cff21f738"><div class="ttname"><a href="namespacememoryhelpermodule.html#a3791dbc2d4a06a0b9112158cff21f738">memoryhelpermodule::create_mem_path</a></div><div class="ttdeci">character(len=lenmempath) function create_mem_path(component, subcomponent)</div><div class="ttdoc">returns the path to the memory object</div><div class="ttdef"><b>Definition:</b> <a href="_memory_helper_8f90_source.html#l00021">MemoryHelper.f90:21</a></div></div>
 <div class="ttc" id="anamespaceconstantsmodule_html_a060d310ded5535ce2dc85bd1ca1afd3d"><div class="ttname"><a href="namespaceconstantsmodule.html#a060d310ded5535ce2dc85bd1ca1afd3d">constantsmodule::linelength</a></div><div class="ttdeci">integer(i4b), parameter linelength</div><div class="ttdoc">maximum length of a standard line</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00036">Constants.f90:36</a></div></div>
 <div class="ttc" id="anamespacetimeserieslinkmodule_html"><div class="ttname"><a href="namespacetimeserieslinkmodule.html">timeserieslinkmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_time_series_link_8f90_source.html#l00001">TimeSeriesLink.f90:1</a></div></div>
-<div class="ttc" id="anamespacesimmodule_html_a0be97214c1d4fcf42bc4ddc27b111b61"><div class="ttname"><a href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61">simmodule::ustop</a></div><div class="ttdeci">subroutine, public ustop(stopmess, ioutlocal)</div><div class="ttdoc">Stop the simulation.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_8f90_source.html#l00321">Sim.f90:321</a></div></div>
 <div class="ttc" id="anamespaceinputoutputmodule_html"><div class="ttname"><a href="namespaceinputoutputmodule.html">inputoutputmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_input_output_8f90_source.html#l00003">InputOutput.f90:3</a></div></div>
 <div class="ttc" id="anamespacerivmodule_html_ae5112c5b6e434c475fcb692c669e53fb"><div class="ttname"><a href="namespacerivmodule.html#ae5112c5b6e434c475fcb692c669e53fb">rivmodule::riv_ck</a></div><div class="ttdeci">subroutine riv_ck(this)</div><div class="ttdef"><b>Definition:</b> <a href="gwf3riv8_8f90_source.html#l00115">gwf3riv8.f90:115</a></div></div>
 <div class="ttc" id="anamespacerivmodule_html_a8103055c518a667d92550c87747e2471"><div class="ttname"><a href="namespacerivmodule.html#a8103055c518a667d92550c87747e2471">rivmodule::ftype</a></div><div class="ttdeci">character(len=lenftype) ftype</div><div class="ttdef"><b>Definition:</b> <a href="gwf3riv8_8f90_source.html#l00016">gwf3riv8.f90:16</a></div></div>
 <div class="ttc" id="anamespaceobsmodule_html_a7dbce254f60ae2f0925c07136365ce91"><div class="ttname"><a href="namespaceobsmodule.html#a7dbce254f60ae2f0925c07136365ce91">obsmodule::defaultobsidprocessor</a></div><div class="ttdeci">subroutine, public defaultobsidprocessor(obsrv, dis, inunitobs, iout)</div><div class="ttdef"><b>Definition:</b> <a href="_obs3_8f90_source.html#l00238">Obs3.f90:238</a></div></div>
 <div class="ttc" id="anamespacekindmodule_html_a2f6861418b5e7d3d602b77228232a470"><div class="ttname"><a href="namespacekindmodule.html#a2f6861418b5e7d3d602b77228232a470">kindmodule::i4b</a></div><div class="ttdeci">integer, parameter i4b</div><div class="ttdoc">Integer kind.</div><div class="ttdef"><b>Definition:</b> <a href="kind_8f90_source.html#l00016">kind.f90:16</a></div></div>
-<div class="ttc" id="anamespacerivmodule_html_a4781898f15fa14125b95c3f497a7f2ac"><div class="ttname"><a href="namespacerivmodule.html#a4781898f15fa14125b95c3f497a7f2ac">rivmodule::riv_df_obs</a></div><div class="ttdeci">subroutine riv_df_obs(this)</div><div class="ttdef"><b>Definition:</b> <a href="gwf3riv8_8f90_source.html#l00325">gwf3riv8.f90:325</a></div></div>
+<div class="ttc" id="anamespacerivmodule_html_a4781898f15fa14125b95c3f497a7f2ac"><div class="ttname"><a href="namespacerivmodule.html#a4781898f15fa14125b95c3f497a7f2ac">rivmodule::riv_df_obs</a></div><div class="ttdeci">subroutine riv_df_obs(this)</div><div class="ttdef"><b>Definition:</b> <a href="gwf3riv8_8f90_source.html#l00324">gwf3riv8.f90:324</a></div></div>
 <div class="ttc" id="anamespacerivmodule_html"><div class="ttname"><a href="namespacerivmodule.html">rivmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="gwf3riv8_8f90_source.html#l00001">gwf3riv8.f90:1</a></div></div>
 <div class="ttc" id="anamespaceconstantsmodule_html"><div class="ttname"><a href="namespaceconstantsmodule.html">constantsmodule</a></div><div class="ttdoc">This module contains simulation constants.</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00009">Constants.f90:9</a></div></div>
-<div class="ttc" id="anamespacerivmodule_html_acf4da61582e4652c8dac601ac513a09d"><div class="ttname"><a href="namespacerivmodule.html#acf4da61582e4652c8dac601ac513a09d">rivmodule::riv_fc</a></div><div class="ttdeci">subroutine riv_fc(this, rhs, ia, idxglo, amatsln)</div><div class="ttdef"><b>Definition:</b> <a href="gwf3riv8_8f90_source.html#l00229">gwf3riv8.f90:229</a></div></div>
+<div class="ttc" id="anamespacerivmodule_html_acf4da61582e4652c8dac601ac513a09d"><div class="ttname"><a href="namespacerivmodule.html#acf4da61582e4652c8dac601ac513a09d">rivmodule::riv_fc</a></div><div class="ttdeci">subroutine riv_fc(this, rhs, ia, idxglo, amatsln)</div><div class="ttdef"><b>Definition:</b> <a href="gwf3riv8_8f90_source.html#l00228">gwf3riv8.f90:228</a></div></div>
 <div class="ttc" id="anamespacetimeserieslinkmodule_html_ab7e38e1f45871cf48de54cc179ee9ac7"><div class="ttname"><a href="namespacetimeserieslinkmodule.html#ab7e38e1f45871cf48de54cc179ee9ac7">timeserieslinkmodule::gettimeserieslinkfromlist</a></div><div class="ttdeci">type(timeserieslinktype) function, pointer, public gettimeserieslinkfromlist(list, indx)</div><div class="ttdef"><b>Definition:</b> <a href="_time_series_link_8f90_source.html#l00095">TimeSeriesLink.f90:95</a></div></div>
 <div class="ttc" id="anamespaceconstantsmodule_html_a2e75f10abe62e57d87d7d468c2bf763d"><div class="ttname"><a href="namespaceconstantsmodule.html#a2e75f10abe62e57d87d7d468c2bf763d">constantsmodule::lenpackagename</a></div><div class="ttdeci">integer(i4b), parameter lenpackagename</div><div class="ttdoc">maximum length of the package name</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00021">Constants.f90:21</a></div></div>
 <div class="ttc" id="anamespacekindmodule_html_ae38bd3a7dfaf151094c26e1529259639"><div class="ttname"><a href="namespacekindmodule.html#ae38bd3a7dfaf151094c26e1529259639">kindmodule::dp</a></div><div class="ttdeci">integer, parameter dp</div><div class="ttdoc">Precision of all real variables.</div><div class="ttdef"><b>Definition:</b> <a href="kind_8f90_source.html#l00014">kind.f90:14</a></div></div>
-<div class="ttc" id="anamespaceinputoutputmodule_html_a653efe7e8a111c5e477fea26e0b04fe5"><div class="ttname"><a href="namespaceinputoutputmodule.html#a653efe7e8a111c5e477fea26e0b04fe5">inputoutputmodule::urword</a></div><div class="ttdeci">subroutine, public urword(LINE, ICOL, ISTART, ISTOP, NCODE, N, R, IOUT, IN)</div><div class="ttdef"><b>Definition:</b> <a href="_input_output_8f90_source.html#l00747">InputOutput.f90:747</a></div></div>
-<div class="ttc" id="anamespacerivmodule_html_a0c64045a09b00a86f365ae4279749f79"><div class="ttname"><a href="namespacerivmodule.html#a0c64045a09b00a86f365ae4279749f79">rivmodule::riv_obs_supported</a></div><div class="ttdeci">logical function riv_obs_supported(this)</div><div class="ttdef"><b>Definition:</b> <a href="gwf3riv8_8f90_source.html#l00309">gwf3riv8.f90:309</a></div></div>
-<div class="ttc" id="anamespacerivmodule_html_a34b470fa86fa279bae77a185b43ef966"><div class="ttname"><a href="namespacerivmodule.html#a34b470fa86fa279bae77a185b43ef966">rivmodule::riv_cf</a></div><div class="ttdeci">subroutine riv_cf(this, reset_mover)</div><div class="ttdef"><b>Definition:</b> <a href="gwf3riv8_8f90_source.html#l00177">gwf3riv8.f90:177</a></div></div>
+<div class="ttc" id="anamespaceinputoutputmodule_html_a653efe7e8a111c5e477fea26e0b04fe5"><div class="ttname"><a href="namespaceinputoutputmodule.html#a653efe7e8a111c5e477fea26e0b04fe5">inputoutputmodule::urword</a></div><div class="ttdeci">subroutine, public urword(LINE, ICOL, ISTART, ISTOP, NCODE, N, R, IOUT, IN)</div><div class="ttdef"><b>Definition:</b> <a href="_input_output_8f90_source.html#l00734">InputOutput.f90:734</a></div></div>
+<div class="ttc" id="anamespacerivmodule_html_a0c64045a09b00a86f365ae4279749f79"><div class="ttname"><a href="namespacerivmodule.html#a0c64045a09b00a86f365ae4279749f79">rivmodule::riv_obs_supported</a></div><div class="ttdeci">logical function riv_obs_supported(this)</div><div class="ttdef"><b>Definition:</b> <a href="gwf3riv8_8f90_source.html#l00308">gwf3riv8.f90:308</a></div></div>
+<div class="ttc" id="anamespacerivmodule_html_a34b470fa86fa279bae77a185b43ef966"><div class="ttname"><a href="namespacerivmodule.html#a34b470fa86fa279bae77a185b43ef966">rivmodule::riv_cf</a></div><div class="ttdeci">subroutine riv_cf(this, reset_mover)</div><div class="ttdef"><b>Definition:</b> <a href="gwf3riv8_8f90_source.html#l00176">gwf3riv8.f90:176</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_32e188284d239da8bb14ec1dabb0c35f.html">Model</a></li><li class="navelem"><a class="el" href="dir_5aefb7a434fc869900e7ccf685166f81.html">GroundWaterFlow</a></li><li class="navelem"><a class="el" href="gwf3riv8_8f90.html">gwf3riv8.f90</a></li>
-    <li class="footer">Generated on Wed Jul 14 2021 10:58:04 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Sep 29 2021 08:34:20 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -1,6 +1,6 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" title=" " alt="" coords="5,360,176,387"/>
-<area shape="rect" id="node2" href="$structbndmodule_1_1bndtype.html" title=" " alt="" coords="268,5,424,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,385,176,412"/>
+<area shape="rect" id="node2" href="$structbndmodule_1_1bndtype.html" title="@ brief BndType" alt="" coords="268,5,424,32"/>
 <area shape="rect" id="node3" href="$structghostnodemodule_1_1ghostnodetype.html" title=" " alt="" coords="224,56,468,83"/>
 <area shape="rect" id="node4" href="$structgwfbuymodule_1_1gwfbuytype.html" title=" " alt="" coords="244,107,448,133"/>
 <area shape="rect" id="node5" href="$structgwfcsubmodule_1_1gwfcsubtype.html" title=" " alt="" coords="238,157,454,184"/>
@@ -14,5 +14,6 @@
 <area shape="rect" id="node13" href="$structgwtfmimodule_1_1gwtfmitype.html" title=" " alt="" coords="246,563,446,589"/>
 <area shape="rect" id="node14" href="$structgwtmstmodule_1_1gwtmsttype.html" title="@ brief Mobile storage and transfer" alt="" coords="243,613,449,640"/>
 <area shape="rect" id="node15" href="$structgwtmvtmodule_1_1gwtmvttype.html" title=" " alt="" coords="242,664,450,691"/>
-<area shape="rect" id="node16" href="$structgwtssmmodule_1_1gwtssmtype.html" title=" " alt="" coords="241,715,451,741"/>
+<area shape="rect" id="node16" href="$structgwtssmmodule_1_1gwtssmtype.html" title="Derived type for the SSM Package." alt="" coords="241,715,451,741"/>
+<area shape="rect" id="node17" href="$structtvbasemodule_1_1tvbasetype.html" title=" " alt="" coords="248,765,444,792"/>
 </map>

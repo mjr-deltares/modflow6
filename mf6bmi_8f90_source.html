@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="mf6-triangular-grid.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">MODFLOW 6
-   &#160;<span id="projectnumber">version 6.2.2</span>
+   &#160;<span id="projectnumber">version 6.3.0</span>
    </div>
    <div id="projectbrief">MODFLOW 6 Code Documentation</div>
   </td>
@@ -555,7 +555,7 @@ $(document).ready(function(){initNavTree('mf6bmi_8f90_source.html',''); initResi
 <div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacememorysethandlermodule.html">memorysethandlermodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacememorysethandlermodule.html#a696105cae7404befd7025d5757933bb5">on_memory_set</a></div>
 <div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;    <span class="comment">! -- dummy variables</span></div>
 <div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;    <span class="keywordtype">character(kind=c_char)</span>, <span class="keywordtype">intent(in)</span> :: c_var_address(*)<span class="comment"> !&lt; memory address string of the variable</span></div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;    <span class="keywordtype">type</span>(c_ptr), <span class="keywordtype">intent(in)</span> :: c_arr_ptr<span class="comment">                    !&lt; pointer to the double precision array</span></div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;    <span class="keywordtype">type</span>(c_ptr), <span class="keywordtype">intent(in)</span> :: c_arr_ptr<span class="comment">                    !&lt; pointer to the integer array</span></div>
 <div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;    <span class="keywordtype">integer</span> :: bmi_status<span class="comment">                                   !&lt; BMI status code</span></div>
 <div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;    <span class="comment">! -- local variables</span></div>
 <div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;    <span class="keywordtype">character(len=LENMEMPATH)</span> :: mem_path</div>
@@ -1025,7 +1025,7 @@ $(document).ready(function(){initNavTree('mf6bmi_8f90_source.html',''); initResi
 <div class="ttc" id="anamespacemf6coremodule_html_aa847da5116e01f4fad8885b0c4f96757"><div class="ttname"><a href="namespacemf6coremodule.html#aa847da5116e01f4fad8885b0c4f96757">mf6coremodule::mf6initialize</a></div><div class="ttdeci">subroutine mf6initialize()</div><div class="ttdoc">Initialize a simulation.</div><div class="ttdef"><b>Definition:</b> <a href="mf6core_8f90_source.html#l00063">mf6core.f90:63</a></div></div>
 <div class="ttc" id="anamespacemf6bmi_html_a7554abf91ce887ebd01374f20f760f22"><div class="ttname"><a href="namespacemf6bmi.html#a7554abf91ce887ebd01374f20f760f22">mf6bmi::set_value_int</a></div><div class="ttdeci">integer function set_value_int(c_var_address, c_arr_ptr)</div><div class="ttdoc">Set new values for a variable of type integer.</div><div class="ttdef"><b>Definition:</b> <a href="mf6bmi_8f90_source.html#l00692">mf6bmi.f90:692</a></div></div>
 <div class="ttc" id="anamespacemf6bmierror_html_aaa2ace32b7957252031146cde743c1b5"><div class="ttname"><a href="namespacemf6bmierror.html#aaa2ace32b7957252031146cde743c1b5">mf6bmierror::fmt_invalid_mem_access</a></div><div class="ttdeci">character(len= *), parameter fmt_invalid_mem_access</div><div class="ttdef"><b>Definition:</b> <a href="mf6bmi_error_8f90_source.html#l00029">mf6bmiError.f90:29</a></div></div>
-<div class="ttc" id="anamespaceinputoutputmodule_html_a535bdfca3d31ebc3a8e4bd5af6890d55"><div class="ttname"><a href="namespaceinputoutputmodule.html#a535bdfca3d31ebc3a8e4bd5af6890d55">inputoutputmodule::getunit</a></div><div class="ttdeci">integer(i4b) function, public getunit()</div><div class="ttdef"><b>Definition:</b> <a href="_input_output_8f90_source.html#l00208">InputOutput.f90:208</a></div></div>
+<div class="ttc" id="anamespaceinputoutputmodule_html_a535bdfca3d31ebc3a8e4bd5af6890d55"><div class="ttname"><a href="namespaceinputoutputmodule.html#a535bdfca3d31ebc3a8e4bd5af6890d55">inputoutputmodule::getunit</a></div><div class="ttdeci">integer(i4b) function, public getunit()</div><div class="ttdef"><b>Definition:</b> <a href="_input_output_8f90_source.html#l00204">InputOutput.f90:204</a></div></div>
 <div class="ttc" id="anamespacemf6bmiutil_html_a0ffc95bc2095307abd3902e26468b26d"><div class="ttname"><a href="namespacemf6bmiutil.html#a0ffc95bc2095307abd3902e26468b26d">mf6bmiutil::bmi_lencomponentname</a></div><div class="ttdeci">integer(c_int), bind(C, name=&quot;BMI_LENCOMPONENTNAME&quot;) bmi_lencomponentname</div><div class="ttdoc">component name length, i.e. 'MODFLOW 6'</div><div class="ttdef"><b>Definition:</b> <a href="mf6bmi_util_8f90_source.html#l00035">mf6bmiUtil.f90:35</a></div></div>
 <div class="ttc" id="anamespaceinputoutputmodule_html"><div class="ttname"><a href="namespaceinputoutputmodule.html">inputoutputmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_input_output_8f90_source.html#l00003">InputOutput.f90:3</a></div></div>
 <div class="ttc" id="anamespacemf6bmi_html_a0ec8fd46eb6d72c4f3e42419d4e20288"><div class="ttname"><a href="namespacemf6bmi.html#a0ec8fd46eb6d72c4f3e42419d4e20288">mf6bmi::get_input_item_count</a></div><div class="ttdeci">integer(kind=c_int) function get_input_item_count(count)</div><div class="ttdoc">Get the number of input variables in the simulation.</div><div class="ttdef"><b>Definition:</b> <a href="mf6bmi_8f90_source.html#l00199">mf6bmi.f90:199</a></div></div>
@@ -1079,7 +1079,7 @@ $(document).ready(function(){initNavTree('mf6bmi_8f90_source.html',''); initResi
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_df792f6769e16fbc2e58301ddc635f77.html">srcbmi</a></li><li class="navelem"><a class="el" href="mf6bmi_8f90.html">mf6bmi.f90</a></li>
-    <li class="footer">Generated on Wed Jul 14 2021 10:58:05 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Sep 29 2021 08:34:21 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

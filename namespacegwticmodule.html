@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="mf6-triangular-grid.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">MODFLOW 6
-   &#160;<span id="projectnumber">version 6.2.2</span>
+   &#160;<span id="projectnumber">version 6.3.0</span>
    </div>
    <div id="projectbrief">MODFLOW 6 Code Documentation</div>
   </td>
@@ -262,7 +262,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="comment">! -- modules</span></div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceconstantsmodule.html">constantsmodule</a>,   <span class="keywordtype">only</span>: <a class="code" href="namespaceconstantsmodule.html#a060d310ded5535ce2dc85bd1ca1afd3d">linelength</a></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacesimmodule.html">simmodule</a>,         <span class="keywordtype">only</span>: <a class="code" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61">ustop</a>, <a class="code" href="namespacesimmodule.html#a536cb6f0e13fcd33755e414641ff931a">store_error</a></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacesimmodule.html">simmodule</a>,         <span class="keywordtype">only</span>: <a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a></div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="comment">! -- dummy</span></div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">class</span>(GwtIcType) :: this</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="comment">! -- local</span></div>
@@ -295,32 +295,30 @@ Here is the caller graph for this function:</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="keywordflow">          case default</span></div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            <span class="keyword">write</span>(errmsg,<span class="stringliteral">&#39;(4x,a,a)&#39;</span>)<span class="stringliteral">&#39;ERROR. UNKNOWN GRIDDATA TAG: &#39;</span>,             &amp;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                                     trim(keyword)</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a536cb6f0e13fcd33755e414641ff931a">store_error</a>(errmsg)</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(errmsg)</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61">ustop</a>()</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keywordflow">        end select</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keywordflow">      end do</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;      <span class="keyword">write</span>(this%iout,<span class="stringliteral">&#39;(1x,a)&#39;</span>)<span class="stringliteral">&#39;END PROCESSING GRIDDATA&#39;</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a536cb6f0e13fcd33755e414641ff931a">store_error</a>(<span class="stringliteral">&#39;ERROR.  REQUIRED GRIDDATA BLOCK NOT FOUND.&#39;</span>)</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;      <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61">ustop</a>()</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="comment">! -- Return</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keywordflow">        end select</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keywordflow">      end do</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;      <span class="keyword">write</span>(this%iout,<span class="stringliteral">&#39;(1x,a)&#39;</span>)<span class="stringliteral">&#39;END PROCESSING GRIDDATA&#39;</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(<span class="stringliteral">&#39;ERROR.  REQUIRED GRIDDATA BLOCK NOT FOUND.&#39;</span>)</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;      <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="comment">! -- Return</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordflow">return</span></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacegwticmodule_a29d78b01d35ca5c17c8ec1c93807740c_cgraph.png" border="0" usemap="#namespacegwticmodule_a29d78b01d35ca5c17c8ec1c93807740c_cgraph" alt=""/></div>
 <map name="namespacegwticmodule_a29d78b01d35ca5c17c8ec1c93807740c_cgraph" id="namespacegwticmodule_a29d78b01d35ca5c17c8ec1c93807740c_cgraph">
-<area shape="rect" title=" " alt="" coords="5,43,184,69"/>
-<area shape="rect" href="namespacesimmodule.html#a536cb6f0e13fcd33755e414641ff931a" title="Store error message." alt="" coords="232,17,407,44"/>
-<area shape="rect" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="250,68,389,95"/>
-<area shape="rect" href="namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="455,27,623,69"/>
-<area shape="rect" href="namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title=" " alt="" coords="455,93,623,134"/>
-<area shape="rect" href="namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="671,5,865,32"/>
-<area shape="rect" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title=" " alt="" coords="684,57,852,98"/>
+<area shape="rect" title=" " alt="" coords="5,68,184,95"/>
+<area shape="rect" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="232,68,407,95"/>
+<area shape="rect" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="455,68,593,95"/>
+<area shape="rect" href="namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="641,27,809,69"/>
+<area shape="rect" href="namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title=" " alt="" coords="641,93,809,134"/>
+<area shape="rect" href="namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="857,5,1052,32"/>
+<area shape="rect" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title=" " alt="" coords="871,57,1039,98"/>
 </map>
 </div>
 
@@ -328,16 +326,15 @@ Here is the call graph for this function:</div>
 </div>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="anamespacesimmodule_html_a536cb6f0e13fcd33755e414641ff931a"><div class="ttname"><a href="namespacesimmodule.html#a536cb6f0e13fcd33755e414641ff931a">simmodule::store_error</a></div><div class="ttdeci">subroutine, public store_error(msg)</div><div class="ttdoc">Store error message.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_8f90_source.html#l00129">Sim.f90:129</a></div></div>
+<div class="ttc" id="anamespacesimmodule_html_a21870712a1166225fdcd5b60bffb353e"><div class="ttname"><a href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">simmodule::store_error</a></div><div class="ttdeci">subroutine, public store_error(msg, terminate)</div><div class="ttdoc">Store error message.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_8f90_source.html#l00129">Sim.f90:129</a></div></div>
 <div class="ttc" id="anamespacesimmodule_html"><div class="ttname"><a href="namespacesimmodule.html">simmodule</a></div><div class="ttdoc">This module contains simulation methods.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_8f90_source.html#l00010">Sim.f90:10</a></div></div>
 <div class="ttc" id="anamespaceconstantsmodule_html_a060d310ded5535ce2dc85bd1ca1afd3d"><div class="ttname"><a href="namespaceconstantsmodule.html#a060d310ded5535ce2dc85bd1ca1afd3d">constantsmodule::linelength</a></div><div class="ttdeci">integer(i4b), parameter linelength</div><div class="ttdoc">maximum length of a standard line</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00036">Constants.f90:36</a></div></div>
-<div class="ttc" id="anamespacesimmodule_html_a0be97214c1d4fcf42bc4ddc27b111b61"><div class="ttname"><a href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61">simmodule::ustop</a></div><div class="ttdeci">subroutine, public ustop(stopmess, ioutlocal)</div><div class="ttdoc">Stop the simulation.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_8f90_source.html#l00321">Sim.f90:321</a></div></div>
 <div class="ttc" id="anamespaceconstantsmodule_html"><div class="ttname"><a href="namespaceconstantsmodule.html">constantsmodule</a></div><div class="ttdoc">This module contains simulation constants.</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00009">Constants.f90:9</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacegwticmodule.html">gwticmodule</a></li>
-    <li class="footer">Generated on Wed Jul 14 2021 10:58:08 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Sep 29 2021 08:34:24 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

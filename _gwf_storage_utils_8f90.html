@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="mf6-triangular-grid.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">MODFLOW 6
-   &#160;<span id="projectnumber">version 6.2.2</span>
+   &#160;<span id="projectnumber">version 6.3.0</span>
    </div>
    <div id="projectbrief">MODFLOW 6 Code Documentation</div>
   </td>
@@ -123,11 +123,17 @@ $(document).ready(function(){initNavTree('_gwf_storage_utils_8f90.html',''); ini
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Modules</h2></td></tr>
 <tr class="memitem:namespacegwfstorageutilsmodule"><td class="memItemLeft" align="right" valign="top">module &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfstorageutilsmodule.html">gwfstorageutilsmodule</a></td></tr>
-<tr class="memdesc:namespacegwfstorageutilsmodule"><td class="mdescLeft">&#160;</td><td class="mdescRight">This module contains the storage capacity subroutines. <br /></td></tr>
+<tr class="memdesc:namespacegwfstorageutilsmodule"><td class="mdescLeft">&#160;</td><td class="mdescRight">This module contains stateless storage subroutines and functions. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
+<tr class="memitem:a7b4b9fbc31b583968ffda1abc761c54d"><td class="memItemLeft" align="right" valign="top">pure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfstorageutilsmodule.html#a7b4b9fbc31b583968ffda1abc761c54d">gwfstorageutilsmodule::ssterms</a> (iconvert, iorig_ss, iconf_ss, top, bot, rho1, rho1old, snnew, snold, hnew, hold, aterm, rhsterm, rate)</td></tr>
+<tr class="memdesc:a7b4b9fbc31b583968ffda1abc761c54d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the specific storage terms.  <a href="namespacegwfstorageutilsmodule.html#a7b4b9fbc31b583968ffda1abc761c54d">More...</a><br /></td></tr>
+<tr class="separator:a7b4b9fbc31b583968ffda1abc761c54d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ad13e9f2d26ae09d3e9adf2b9eac6d3"><td class="memItemLeft" align="right" valign="top">pure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfstorageutilsmodule.html#a5ad13e9f2d26ae09d3e9adf2b9eac6d3">gwfstorageutilsmodule::syterms</a> (top, bot, rho2, rho2old, snnew, snold, aterm, rhsterm, rate)</td></tr>
+<tr class="memdesc:a5ad13e9f2d26ae09d3e9adf2b9eac6d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the specific yield storage terms.  <a href="namespacegwfstorageutilsmodule.html#a5ad13e9f2d26ae09d3e9adf2b9eac6d3">More...</a><br /></td></tr>
+<tr class="separator:a5ad13e9f2d26ae09d3e9adf2b9eac6d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0a1ef63059b5b016feca7cbb978b3bd"><td class="memItemLeft" align="right" valign="top">pure real(dp) function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfstorageutilsmodule.html#ad0a1ef63059b5b016feca7cbb978b3bd">gwfstorageutilsmodule::sscapacity</a> (istor_coef, top, bot, area, ss)</td></tr>
 <tr class="memdesc:ad0a1ef63059b5b016feca7cbb978b3bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the specific storage capacity.  <a href="namespacegwfstorageutilsmodule.html#ad0a1ef63059b5b016feca7cbb978b3bd">More...</a><br /></td></tr>
 <tr class="separator:ad0a1ef63059b5b016feca7cbb978b3bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -141,7 +147,7 @@ Functions/Subroutines</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_32e188284d239da8bb14ec1dabb0c35f.html">Model</a></li><li class="navelem"><a class="el" href="dir_c1f30da02202fb3f19a3c29076dafee1.html">ModelUtilities</a></li><li class="navelem"><a class="el" href="_gwf_storage_utils_8f90.html">GwfStorageUtils.f90</a></li>
-    <li class="footer">Generated on Wed Jul 14 2021 10:58:05 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Sep 29 2021 08:34:21 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

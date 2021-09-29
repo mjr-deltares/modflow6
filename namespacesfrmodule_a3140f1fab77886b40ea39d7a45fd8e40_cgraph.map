@@ -1,0 +1,4 @@
+<map id="sfrmodule::calc_surface_area" name="sfrmodule::calc_surface_area">
+<area shape="rect" id="node1" title="Calculate maximum surface area." alt="" coords="5,13,219,39"/>
+<area shape="rect" id="node2" href="$namespacegwfsfrcrosssectionutilsmodule.html#a03ff1af3a6f04574195b8b9fd29a1cc0" title="Calculate the saturated top width for a reach." alt="" coords="267,5,488,47"/>
+</map>

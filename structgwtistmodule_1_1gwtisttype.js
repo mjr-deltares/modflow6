@@ -27,6 +27,8 @@ var structgwtistmodule_1_1gwtisttype =
     [ "decayslast", "structgwtistmodule_1_1gwtisttype.html#a594e04fc1404cd2c4756d09c35927c90", null ],
     [ "distcoef", "structgwtistmodule_1_1gwtisttype.html#a84261a54cac1e6c363525d4692e4a9b5", null ],
     [ "fmi", "structgwtistmodule_1_1gwtisttype.html#abd3497ed36887ace9aef6efc1716bc36", null ],
+    [ "ibudcsv", "structgwtistmodule_1_1gwtisttype.html#a93c4b791231b50766ec2cccc738be3c5", null ],
+    [ "ibudgetout", "structgwtistmodule_1_1gwtisttype.html#a8abeb0234fa9801a1e88a23894142e83", null ],
     [ "icimout", "structgwtistmodule_1_1gwtisttype.html#a27cab7efb487049fcdc055e25b2b7bc2", null ],
     [ "idcy", "structgwtistmodule_1_1gwtisttype.html#a25496c0a3253be0c08d689f242ad7490", null ],
     [ "isrb", "structgwtistmodule_1_1gwtisttype.html#a04874017ccb3d489cab3490cdfc99638", null ],

@@ -24,7 +24,7 @@
 <area shape="rect" id="node22" href="$namespacemf6xmi.html#af8d28c72dda6783a01843bcc2ed56fe3" title="Get the full address string for a variable." alt="" coords="262,921,450,947"/>
 <area shape="rect" id="node23" href="$namespacememorytypemodule.html#aadef09c718c031b8a26e0daafa948f43" title=" " alt="" coords="258,855,454,896"/>
 <area shape="rect" id="node25" href="$namespaceconnectionsmodule.html#ae71d867478877b7cfc5e2fd0a8147d49" title=" " alt="" coords="277,972,435,1013"/>
-<area shape="rect" id="node26" href="$namespaceoutputcontrolmodule.html#ab4c21f744ae8f5f98d68147622968261" title=" " alt="" coords="277,1037,435,1079"/>
+<area shape="rect" id="node26" href="$namespaceoutputcontrolmodule.html#ab4c21f744ae8f5f98d68147622968261" title="@ brief Allocate scalars method for OutputControlType" alt="" coords="277,1037,435,1079"/>
 <area shape="rect" id="node27" href="$namespacebasedismodule.html#a66cb0050e8ca0bf34ea6f977a979907b" title=" " alt="" coords="265,1103,447,1144"/>
 <area shape="rect" id="node28" href="$namespacebndmodule.html#a20ea539a7c70f9999cfb0e133195b1df" title="@ brief Allocate package scalars" alt="" coords="279,1168,433,1209"/>
 <area shape="rect" id="node29" href="$namespacegwfnpfmodule.html#ae44de5bba8e892bcfea0585a3afd426b" title=" " alt="" coords="268,1233,444,1275"/>
@@ -47,6 +47,6 @@
 <area shape="rect" id="node46" href="$namespacegwtmodule.html#ad4f6eefd4112176d49bd99d8944bdef3" title=" " alt="" coords="283,2173,429,2199"/>
 <area shape="rect" id="node47" href="$namespacegwfhfbmodule.html#a21b42bc793bf2730a4287b8e6e47605a" title=" " alt="" coords="273,2223,439,2250"/>
 <area shape="rect" id="node48" href="$namespaceimslinearmodule.html#a6a11a0465c3b3e411da5afab1b06241a" title="@ brief Allocate storage and read data" alt="" coords="245,2274,467,2301"/>
-<area shape="rect" id="node49" href="$namespacelakmodule.html#aea86c122541293299ac3f8482a60dcba" title=" " alt="" coords="273,2325,439,2351"/>
-<area shape="rect" id="node50" href="$namespacelakmodule.html#ab38819a4b2584b33be00fb5ebd043ede" title=" " alt="" coords="279,2376,433,2417"/>
+<area shape="rect" id="node49" href="$namespacegwtspcmodule.html#a8af090fd1933a8dc32415504f583aa58" title="@ brief Initialize the SPC type" alt="" coords="265,2325,447,2351"/>
+<area shape="rect" id="node50" href="$namespacelakmodule.html#aea86c122541293299ac3f8482a60dcba" title=" " alt="" coords="273,2375,439,2402"/>
 </map>

@@ -1,0 +1,6 @@
+<map id="outputcontroldatamodule::ocd_cr" name="outputcontroldatamodule::ocd_cr">
+<area shape="rect" id="node1" title="@ brief Create OutputControlDataType" alt="" coords="224,64,411,105"/>
+<area shape="rect" id="node2" href="$namespacegwtistmodule.html#aaaa3a8e269ee0d09d8d4e33b5eb7391e" title="@ brief Allocate package scalars" alt="" coords="5,5,176,47"/>
+<area shape="rect" id="node3" href="$namespacegwtocmodule.html#a88b4a70f671943b59bb3d807d61d3fef" title="@ brief Allocate and read GwtOcType" alt="" coords="14,71,167,98"/>
+<area shape="rect" id="node4" href="$namespacegwfocmodule.html#aad46dee34411375a0223346541fed2a2" title="@ brief Allocate and read GwfOcType" alt="" coords="14,122,167,149"/>
+</map>

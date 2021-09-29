@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="mf6-triangular-grid.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">MODFLOW 6
-   &#160;<span id="projectnumber">version 6.2.2</span>
+   &#160;<span id="projectnumber">version 6.3.0</span>
    </div>
    <div id="projectbrief">MODFLOW 6 Code Documentation</div>
   </td>
@@ -125,7 +125,7 @@ Collaboration diagram for packagebudgetmodule::packagebudgettype:</div>
 <div class="dyncontent">
 <div class="center"><img src="structpackagebudgetmodule_1_1packagebudgettype__coll__graph.png" border="0" usemap="#packagebudgetmodule_1_1packagebudgettype_coll__map" alt="Collaboration graph"/></div>
 <map name="packagebudgetmodule_1_1packagebudgettype_coll__map" id="packagebudgetmodule_1_1packagebudgettype_coll__map">
-<area shape="rect" title=" " alt="" coords="5,5,176,303"/>
+<area shape="rect" title=" " alt="" coords="5,5,176,317"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -145,26 +145,40 @@ Private Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:ae4149556d97e817714dd3bac2bdf5e87"><td class="memItemLeft" align="right" valign="top">character(len=lenpackagename)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpackagebudgetmodule_1_1packagebudgettype.html#ae4149556d97e817714dd3bac2bdf5e87">name</a> = ''</td></tr>
+<tr class="memdesc:ae4149556d97e817714dd3bac2bdf5e87"><td class="mdescLeft">&#160;</td><td class="mdescRight">name of the package  <a href="structpackagebudgetmodule_1_1packagebudgettype.html#ae4149556d97e817714dd3bac2bdf5e87">More...</a><br /></td></tr>
 <tr class="separator:ae4149556d97e817714dd3bac2bdf5e87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5425adc61b349de9a0d7c68fbac63e92"><td class="memItemLeft" align="right" valign="top">character(len=lenpackagename)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpackagebudgetmodule_1_1packagebudgettype.html#a5425adc61b349de9a0d7c68fbac63e92">budtxt</a> = ''</td></tr>
+<tr class="memdesc:a5425adc61b349de9a0d7c68fbac63e92"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of flow (CHD, RCH, RCHA, ...)  <a href="structpackagebudgetmodule_1_1packagebudgettype.html#a5425adc61b349de9a0d7c68fbac63e92">More...</a><br /></td></tr>
+<tr class="separator:a5425adc61b349de9a0d7c68fbac63e92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af313dce584001ec7708868a2bf023a45"><td class="memItemLeft" align="right" valign="top">character(len=lenauxname), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpackagebudgetmodule_1_1packagebudgettype.html#af313dce584001ec7708868a2bf023a45">auxname</a></td></tr>
+<tr class="memdesc:af313dce584001ec7708868a2bf023a45"><td class="mdescLeft">&#160;</td><td class="mdescRight">auxiliary variable names  <a href="structpackagebudgetmodule_1_1packagebudgettype.html#af313dce584001ec7708868a2bf023a45">More...</a><br /></td></tr>
 <tr class="separator:af313dce584001ec7708868a2bf023a45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a252e46fe72c0da9472f2e898a48ff28e"><td class="memItemLeft" align="right" valign="top">integer(i4b)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpackagebudgetmodule_1_1packagebudgettype.html#a252e46fe72c0da9472f2e898a48ff28e">naux</a></td></tr>
+<tr class="memdesc:a252e46fe72c0da9472f2e898a48ff28e"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of auxiliary variables  <a href="structpackagebudgetmodule_1_1packagebudgettype.html#a252e46fe72c0da9472f2e898a48ff28e">More...</a><br /></td></tr>
 <tr class="separator:a252e46fe72c0da9472f2e898a48ff28e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a14d51bdee604bfe1f4aaf3fcba342d"><td class="memItemLeft" align="right" valign="top">integer(i4b), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpackagebudgetmodule_1_1packagebudgettype.html#a5a14d51bdee604bfe1f4aaf3fcba342d">nbound</a> =&gt; null()</td></tr>
+<tr class="memdesc:a5a14d51bdee604bfe1f4aaf3fcba342d"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of boundaries for current stress period  <a href="structpackagebudgetmodule_1_1packagebudgettype.html#a5a14d51bdee604bfe1f4aaf3fcba342d">More...</a><br /></td></tr>
 <tr class="separator:a5a14d51bdee604bfe1f4aaf3fcba342d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76c75bf8e6a084b663bf945f2bd326a1"><td class="memItemLeft" align="right" valign="top">integer(i4b), dimension(:), pointer, contiguous&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpackagebudgetmodule_1_1packagebudgettype.html#a76c75bf8e6a084b663bf945f2bd326a1">nodelist</a> =&gt; null()</td></tr>
+<tr class="memdesc:a76c75bf8e6a084b663bf945f2bd326a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">vector of reduced node numbers  <a href="structpackagebudgetmodule_1_1packagebudgettype.html#a76c75bf8e6a084b663bf945f2bd326a1">More...</a><br /></td></tr>
 <tr class="separator:a76c75bf8e6a084b663bf945f2bd326a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af532730d194f1e9b35f8ee83f8db86f5"><td class="memItemLeft" align="right" valign="top">real(dp), dimension(:,:), pointer, contiguous&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpackagebudgetmodule_1_1packagebudgettype.html#af532730d194f1e9b35f8ee83f8db86f5">bound</a> =&gt; null()</td></tr>
+<tr class="memdesc:af532730d194f1e9b35f8ee83f8db86f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">array of package specific boundary numbers  <a href="structpackagebudgetmodule_1_1packagebudgettype.html#af532730d194f1e9b35f8ee83f8db86f5">More...</a><br /></td></tr>
 <tr class="separator:af532730d194f1e9b35f8ee83f8db86f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab31060a98ad288d37195de5d4dc12929"><td class="memItemLeft" align="right" valign="top">real(dp), dimension(:), pointer, contiguous&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpackagebudgetmodule_1_1packagebudgettype.html#ab31060a98ad288d37195de5d4dc12929">hcof</a> =&gt; null()</td></tr>
+<tr class="memdesc:ab31060a98ad288d37195de5d4dc12929"><td class="mdescLeft">&#160;</td><td class="mdescRight">diagonal contribution  <a href="structpackagebudgetmodule_1_1packagebudgettype.html#ab31060a98ad288d37195de5d4dc12929">More...</a><br /></td></tr>
 <tr class="separator:ab31060a98ad288d37195de5d4dc12929"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7b0f32e46d48bc978e2156bc44542c0"><td class="memItemLeft" align="right" valign="top">real(dp), dimension(:), pointer, contiguous&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpackagebudgetmodule_1_1packagebudgettype.html#aa7b0f32e46d48bc978e2156bc44542c0">rhs</a> =&gt; null()</td></tr>
+<tr class="memdesc:aa7b0f32e46d48bc978e2156bc44542c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">right-hand side contribution  <a href="structpackagebudgetmodule_1_1packagebudgettype.html#aa7b0f32e46d48bc978e2156bc44542c0">More...</a><br /></td></tr>
 <tr class="separator:aa7b0f32e46d48bc978e2156bc44542c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c933816ef3648c0a60687e362eb75b7"><td class="memItemLeft" align="right" valign="top">real(dp), dimension(:,:), pointer, contiguous&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpackagebudgetmodule_1_1packagebudgettype.html#a1c933816ef3648c0a60687e362eb75b7">auxvar</a> =&gt; null()</td></tr>
+<tr class="memdesc:a1c933816ef3648c0a60687e362eb75b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">auxiliary variable array  <a href="structpackagebudgetmodule_1_1packagebudgettype.html#a1c933816ef3648c0a60687e362eb75b7">More...</a><br /></td></tr>
 <tr class="separator:a1c933816ef3648c0a60687e362eb75b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06fdef6b4317c38c763a1df341b45a7a"><td class="memItemLeft" align="right" valign="top">real(dp), dimension(:), pointer, contiguous&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpackagebudgetmodule_1_1packagebudgettype.html#a06fdef6b4317c38c763a1df341b45a7a">flow</a> =&gt; null()</td></tr>
+<tr class="memdesc:a06fdef6b4317c38c763a1df341b45a7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculated flow  <a href="structpackagebudgetmodule_1_1packagebudgettype.html#a06fdef6b4317c38c763a1df341b45a7a">More...</a><br /></td></tr>
 <tr class="separator:a06fdef6b4317c38c763a1df341b45a7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa41bd3246add726cfd85134919e5202"><td class="memItemLeft" align="right" valign="top">real(dp), dimension(:), pointer, contiguous&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpackagebudgetmodule_1_1packagebudgettype.html#afa41bd3246add726cfd85134919e5202">xnew</a> =&gt; null()</td></tr>
+<tr class="memdesc:afa41bd3246add726cfd85134919e5202"><td class="mdescLeft">&#160;</td><td class="mdescRight">dependent variable (head) for this time step  <a href="structpackagebudgetmodule_1_1packagebudgettype.html#afa41bd3246add726cfd85134919e5202">More...</a><br /></td></tr>
 <tr class="separator:afa41bd3246add726cfd85134919e5202"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -191,7 +205,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_package_budget_8f90_source.html#l00030">30</a> of file <a class="el" href="_package_budget_8f90_source.html">PackageBudget.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_package_budget_8f90_source.html#l00031">31</a> of file <a class="el" href="_package_budget_8f90_source.html">PackageBudget.f90</a>.</p>
 
 </div>
 </div>
@@ -215,7 +229,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_package_budget_8f90_source.html#l00031">31</a> of file <a class="el" href="_package_budget_8f90_source.html">PackageBudget.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_package_budget_8f90_source.html#l00032">32</a> of file <a class="el" href="_package_budget_8f90_source.html">PackageBudget.f90</a>.</p>
 
 </div>
 </div>
@@ -239,7 +253,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_package_budget_8f90_source.html#l00028">28</a> of file <a class="el" href="_package_budget_8f90_source.html">PackageBudget.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_package_budget_8f90_source.html#l00029">29</a> of file <a class="el" href="_package_budget_8f90_source.html">PackageBudget.f90</a>.</p>
 
 </div>
 </div>
@@ -263,7 +277,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_package_budget_8f90_source.html#l00027">27</a> of file <a class="el" href="_package_budget_8f90_source.html">PackageBudget.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_package_budget_8f90_source.html#l00028">28</a> of file <a class="el" href="_package_budget_8f90_source.html">PackageBudget.f90</a>.</p>
 
 </div>
 </div>
@@ -287,7 +301,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_package_budget_8f90_source.html#l00029">29</a> of file <a class="el" href="_package_budget_8f90_source.html">PackageBudget.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_package_budget_8f90_source.html#l00030">30</a> of file <a class="el" href="_package_budget_8f90_source.html">PackageBudget.f90</a>.</p>
 
 </div>
 </div>
@@ -312,8 +326,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_package_budget_8f90_source.html#l00014">14</a> of file <a class="el" href="_package_budget_8f90_source.html">PackageBudget.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">character(len=LENAUXNAME)</span>, <span class="keywordtype">allocatable</span>, <span class="keywordtype">dimension(:)</span> :: auxname              <span class="comment">!auxiliary variable names</span></div>
+<p class="definition">Definition at line <a class="el" href="_package_budget_8f90_source.html#l00015">15</a> of file <a class="el" href="_package_budget_8f90_source.html">PackageBudget.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">character(len=LENAUXNAME)</span>, <span class="keywordtype">allocatable</span>, <span class="keywordtype">dimension(:)</span> :: auxname<span class="comment">              !&lt; auxiliary variable names</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -337,8 +351,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_package_budget_8f90_source.html#l00021">21</a> of file <a class="el" href="_package_budget_8f90_source.html">PackageBudget.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:,:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: auxvar =&gt; null()            <span class="comment">!auxiliary variable array</span></div>
+<p class="definition">Definition at line <a class="el" href="_package_budget_8f90_source.html#l00022">22</a> of file <a class="el" href="_package_budget_8f90_source.html">PackageBudget.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:,:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: auxvar =&gt; null()            <span class="comment">!&lt; auxiliary variable array</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -362,8 +376,33 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_package_budget_8f90_source.html#l00018">18</a> of file <a class="el" href="_package_budget_8f90_source.html">PackageBudget.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:,:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: bound =&gt; null()             <span class="comment">!array of package specific boundary numbers</span></div>
+<p class="definition">Definition at line <a class="el" href="_package_budget_8f90_source.html#l00019">19</a> of file <a class="el" href="_package_budget_8f90_source.html">PackageBudget.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:,:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: bound =&gt; null()             <span class="comment">!&lt; array of package specific boundary numbers</span></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a5425adc61b349de9a0d7c68fbac63e92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5425adc61b349de9a0d7c68fbac63e92">&#9670;&nbsp;</a></span>budtxt</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">character(len=lenpackagename) packagebudgetmodule::packagebudgettype::budtxt = ''</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_package_budget_8f90_source.html#l00014">14</a> of file <a class="el" href="_package_budget_8f90_source.html">PackageBudget.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">character(len=LENPACKAGENAME)</span> :: budtxt = <span class="stringliteral">&#39;&#39;</span><span class="comment">                                 !&lt; type of flow (CHD, RCH, RCHA, ...)</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -387,8 +426,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_package_budget_8f90_source.html#l00022">22</a> of file <a class="el" href="_package_budget_8f90_source.html">PackageBudget.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: flow =&gt; null()                <span class="comment">!calculated flow</span></div>
+<p class="definition">Definition at line <a class="el" href="_package_budget_8f90_source.html#l00023">23</a> of file <a class="el" href="_package_budget_8f90_source.html">PackageBudget.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: flow =&gt; null()                <span class="comment">!&lt; calculated flow</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -412,8 +451,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_package_budget_8f90_source.html#l00019">19</a> of file <a class="el" href="_package_budget_8f90_source.html">PackageBudget.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: hcof =&gt; null()                <span class="comment">!diagonal contribution</span></div>
+<p class="definition">Definition at line <a class="el" href="_package_budget_8f90_source.html#l00020">20</a> of file <a class="el" href="_package_budget_8f90_source.html">PackageBudget.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: hcof =&gt; null()                <span class="comment">!&lt; diagonal contribution</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -438,7 +477,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="_package_budget_8f90_source.html#l00013">13</a> of file <a class="el" href="_package_budget_8f90_source.html">PackageBudget.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">character(len=LENPACKAGENAME)</span> :: name = <span class="stringliteral">&#39;&#39;</span>                                   <span class="comment">!name of the package</span></div>
+<div class="fragment"><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">character(len=LENPACKAGENAME)</span> :: name = <span class="stringliteral">&#39;&#39;</span><span class="comment">                                   !&lt; name of the package</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -462,8 +501,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_package_budget_8f90_source.html#l00015">15</a> of file <a class="el" href="_package_budget_8f90_source.html">PackageBudget.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: naux                                                         <span class="comment">!number of auxiliary variables</span></div>
+<p class="definition">Definition at line <a class="el" href="_package_budget_8f90_source.html#l00016">16</a> of file <a class="el" href="_package_budget_8f90_source.html">PackageBudget.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: naux<span class="comment">                                                         !&lt; number of auxiliary variables</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -487,8 +526,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_package_budget_8f90_source.html#l00016">16</a> of file <a class="el" href="_package_budget_8f90_source.html">PackageBudget.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: nbound =&gt; null()                                    <span class="comment">!number of boundaries for current stress period</span></div>
+<p class="definition">Definition at line <a class="el" href="_package_budget_8f90_source.html#l00017">17</a> of file <a class="el" href="_package_budget_8f90_source.html">PackageBudget.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: nbound =&gt; null()                                    <span class="comment">!&lt; number of boundaries for current stress period</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -512,8 +551,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_package_budget_8f90_source.html#l00017">17</a> of file <a class="el" href="_package_budget_8f90_source.html">PackageBudget.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: nodelist =&gt; null()        <span class="comment">!vector of reduced node numbers</span></div>
+<p class="definition">Definition at line <a class="el" href="_package_budget_8f90_source.html#l00018">18</a> of file <a class="el" href="_package_budget_8f90_source.html">PackageBudget.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: nodelist =&gt; null()        <span class="comment">!&lt; vector of reduced node numbers</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -537,8 +576,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_package_budget_8f90_source.html#l00020">20</a> of file <a class="el" href="_package_budget_8f90_source.html">PackageBudget.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: rhs =&gt; null()                 <span class="comment">!right-hand side contribution</span></div>
+<p class="definition">Definition at line <a class="el" href="_package_budget_8f90_source.html#l00021">21</a> of file <a class="el" href="_package_budget_8f90_source.html">PackageBudget.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: rhs =&gt; null()                 <span class="comment">!&lt; right-hand side contribution</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -562,8 +601,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_package_budget_8f90_source.html#l00023">23</a> of file <a class="el" href="_package_budget_8f90_source.html">PackageBudget.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: xnew =&gt; null()                <span class="comment">!dependent variable (head) for this time step</span></div>
+<p class="definition">Definition at line <a class="el" href="_package_budget_8f90_source.html#l00024">24</a> of file <a class="el" href="_package_budget_8f90_source.html">PackageBudget.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: xnew =&gt; null()                <span class="comment">!&lt; dependent variable (head) for this time step</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -576,7 +615,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacepackagebudgetmodule.html">packagebudgetmodule</a></li><li class="navelem"><a class="el" href="structpackagebudgetmodule_1_1packagebudgettype.html">packagebudgettype</a></li>
-    <li class="footer">Generated on Wed Jul 14 2021 10:58:15 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Sep 29 2021 08:34:30 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

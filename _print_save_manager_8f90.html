@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="mf6-triangular-grid.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">MODFLOW 6
-   &#160;<span id="projectnumber">version 6.2.2</span>
+   &#160;<span id="projectnumber">version 6.3.0</span>
    </div>
    <div id="projectbrief">MODFLOW 6 Code Documentation</div>
   </td>
@@ -124,23 +124,29 @@ $(document).ready(function(){initNavTree('_print_save_manager_8f90.html',''); in
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Types</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structprintsavemanagermodule_1_1printsavemanagertype.html">printsavemanagermodule::printsavemanagertype</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">@ brief PrintSaveManagerType  <a href="structprintsavemanagermodule_1_1printsavemanagertype.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Modules</h2></td></tr>
 <tr class="memitem:namespaceprintsavemanagermodule"><td class="memItemLeft" align="right" valign="top">module &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceprintsavemanagermodule.html">printsavemanagermodule</a></td></tr>
+<tr class="memdesc:namespaceprintsavemanagermodule"><td class="mdescLeft">&#160;</td><td class="mdescRight">This module contains the PrintSaveManagerModule. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:ac37ef6f0b10bf2542b9e148da1f3fb30"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceprintsavemanagermodule.html#ac37ef6f0b10bf2542b9e148da1f3fb30">printsavemanagermodule::init</a> (this)</td></tr>
+<tr class="memdesc:ac37ef6f0b10bf2542b9e148da1f3fb30"><td class="mdescLeft">&#160;</td><td class="mdescRight">@ brief Initialize PrintSaveManager  <a href="namespaceprintsavemanagermodule.html#ac37ef6f0b10bf2542b9e148da1f3fb30">More...</a><br /></td></tr>
 <tr class="separator:ac37ef6f0b10bf2542b9e148da1f3fb30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3fe42a4a942db05d677fe27c1e9266f9"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceprintsavemanagermodule.html#a3fe42a4a942db05d677fe27c1e9266f9">printsavemanagermodule::rp</a> (this, linein, iout)</td></tr>
+<tr class="memdesc:a3fe42a4a942db05d677fe27c1e9266f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">@ brief Read and prepare for PrintSaveManager  <a href="namespaceprintsavemanagermodule.html#a3fe42a4a942db05d677fe27c1e9266f9">More...</a><br /></td></tr>
 <tr class="separator:a3fe42a4a942db05d677fe27c1e9266f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a395b1dc2694b391dd1f7cb641a4a9563"><td class="memItemLeft" align="right" valign="top">logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceprintsavemanagermodule.html#a395b1dc2694b391dd1f7cb641a4a9563">printsavemanagermodule::kstp_to_print</a> (this, kstp, nstp)</td></tr>
-<tr class="separator:a395b1dc2694b391dd1f7cb641a4a9563"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acbb86a718787db0b55ce4f3adb400c22"><td class="memItemLeft" align="right" valign="top">logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceprintsavemanagermodule.html#acbb86a718787db0b55ce4f3adb400c22">printsavemanagermodule::kstp_to_save</a> (this, kstp, nstp)</td></tr>
-<tr class="separator:acbb86a718787db0b55ce4f3adb400c22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a018f51ab8a632be60f6fcf0c46c387bf"><td class="memItemLeft" align="right" valign="top">logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceprintsavemanagermodule.html#a018f51ab8a632be60f6fcf0c46c387bf">printsavemanagermodule::kstp_to_print</a> (this, kstp, endofperiod)</td></tr>
+<tr class="memdesc:a018f51ab8a632be60f6fcf0c46c387bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">@ brief Determine if it is time to print the data  <a href="namespaceprintsavemanagermodule.html#a018f51ab8a632be60f6fcf0c46c387bf">More...</a><br /></td></tr>
+<tr class="separator:a018f51ab8a632be60f6fcf0c46c387bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ec15853353d9e98bec6c405ad04846a"><td class="memItemLeft" align="right" valign="top">logical function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceprintsavemanagermodule.html#a7ec15853353d9e98bec6c405ad04846a">printsavemanagermodule::kstp_to_save</a> (this, kstp, endofperiod)</td></tr>
+<tr class="memdesc:a7ec15853353d9e98bec6c405ad04846a"><td class="mdescLeft">&#160;</td><td class="mdescRight">@ brief Determine if it is time to save the data  <a href="namespaceprintsavemanagermodule.html#a7ec15853353d9e98bec6c405ad04846a">More...</a><br /></td></tr>
+<tr class="separator:a7ec15853353d9e98bec6c405ad04846a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -148,7 +154,7 @@ Functions/Subroutines</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ff383ddf1aa4eab0c4ce7910366d05a5.html">Utilities</a></li><li class="navelem"><a class="el" href="dir_999e2359dc7886edabb368f39392551b.html">OutputControl</a></li><li class="navelem"><a class="el" href="_print_save_manager_8f90.html">PrintSaveManager.f90</a></li>
-    <li class="footer">Generated on Wed Jul 14 2021 10:58:05 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Sep 29 2021 08:34:21 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

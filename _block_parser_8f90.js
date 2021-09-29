@@ -16,6 +16,6 @@ var _block_parser_8f90 =
     [ "getunit", "_block_parser_8f90.html#a30710d972a8142694bf2959ca9196385", null ],
     [ "initialize", "_block_parser_8f90.html#a2ceba27582aeaec211c0d4c8f84d07f5", null ],
     [ "readscalarerror", "_block_parser_8f90.html#a553ea728f4453f212a3dec8d575dba6e", null ],
-    [ "storeerrorunit", "_block_parser_8f90.html#a5244993be33033437d0d81e2537f5f34", null ],
+    [ "storeerrorunit", "_block_parser_8f90.html#ab965bb64afbe3f023f85b62f43c04b91", null ],
     [ "terminateblock", "_block_parser_8f90.html#aafffe10b84175a04467cc9326c8fed12", null ]
 ];

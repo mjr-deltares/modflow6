@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="mf6-triangular-grid.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">MODFLOW 6
-   &#160;<span id="projectnumber">version 6.2.2</span>
+   &#160;<span id="projectnumber">version 6.3.0</span>
    </div>
    <div id="projectbrief">MODFLOW 6 Code Documentation</div>
   </td>
@@ -203,11 +203,11 @@ Functions/Subroutines</h2></td></tr>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="keywordtype">    real</span>(DP) :: q</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    ratin = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    ratout = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    ratin = dzero</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    ratout = dzero</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="keywordflow">do</span> i = 1, this%nlist</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;      q = this%flow(i)</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;      <span class="keywordflow">if</span> (q &lt; <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a>) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;      <span class="keywordflow">if</span> (q &lt; dzero) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        ratout = ratout - q</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;      <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        ratin = ratin + q</div>
@@ -1110,7 +1110,6 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="astructbudgetfilereadermodule_1_1budgetfilereadertype_html"><div class="ttname"><a href="structbudgetfilereadermodule_1_1budgetfilereadertype.html">budgetfilereadermodule::budgetfilereadertype</a></div><div class="ttdef"><b>Definition:</b> <a href="_budget_file_reader_8f90_source.html#l00012">BudgetFileReader.f90:12</a></div></div>
-<div class="ttc" id="anamespaceconstantsmodule_html_abab5757666b9ddd2726c20ce48dd0050"><div class="ttname"><a href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">constantsmodule::dzero</a></div><div class="ttdeci">real(dp), parameter dzero</div><div class="ttdoc">real constant zero</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00053">Constants.f90:53</a></div></div>
 <div class="ttc" id="anamespacebudgetfilereadermodule_html"><div class="ttname"><a href="namespacebudgetfilereadermodule.html">budgetfilereadermodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_budget_file_reader_8f90_source.html#l00001">BudgetFileReader.f90:1</a></div></div>
 <div class="ttc" id="anamespacetdismodule_html_ad3443c7d7da2a67a75174c39c6d40c84"><div class="ttname"><a href="namespacetdismodule.html#ad3443c7d7da2a67a75174c39c6d40c84">tdismodule::kstp</a></div><div class="ttdeci">integer(i4b), pointer, public kstp</div><div class="ttdoc">current time step number</div><div class="ttdef"><b>Definition:</b> <a href="tdis_8f90_source.html#l00025">tdis.f90:25</a></div></div>
 <div class="ttc" id="anamespacetdismodule_html_ae84d6ee69d7bba12d20a6255a398935b"><div class="ttname"><a href="namespacetdismodule.html#ae84d6ee69d7bba12d20a6255a398935b">tdismodule::kper</a></div><div class="ttdeci">integer(i4b), pointer, public kper</div><div class="ttdoc">current stress period number</div><div class="ttdef"><b>Definition:</b> <a href="tdis_8f90_source.html#l00024">tdis.f90:24</a></div></div>
@@ -1118,7 +1117,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacebudgettermmodule.html">budgettermmodule</a></li>
-    <li class="footer">Generated on Wed Jul 14 2021 10:58:06 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Sep 29 2021 08:34:21 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

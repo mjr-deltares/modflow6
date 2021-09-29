@@ -10,6 +10,7 @@ var structoutputcontrolmodule_1_1outputcontroltype =
     [ "oc_save_unit", "structoutputcontrolmodule_1_1outputcontroltype.html#a26825b846f15e23a1d3d5dfb0da8f08b", null ],
     [ "read_options", "structoutputcontrolmodule_1_1outputcontroltype.html#a51ea67baf1f27dc52ea7a23892b5d049", null ],
     [ "set_print_flag", "structoutputcontrolmodule_1_1outputcontroltype.html#ad0e195b9b690cfaf287d76f7c123d377", null ],
+    [ "ibudcsv", "structoutputcontrolmodule_1_1outputcontroltype.html#ad7ca19add266b657b644eb578fd4fb79", null ],
     [ "inunit", "structoutputcontrolmodule_1_1outputcontroltype.html#a68221e33776469051195fd35f3049ae3", null ],
     [ "iocrep", "structoutputcontrolmodule_1_1outputcontroltype.html#a20e2e50bfb60559deb23615993aa7d17", null ],
     [ "iout", "structoutputcontrolmodule_1_1outputcontroltype.html#a305795fc8a22d70aec2904d3b35cc2f4", null ],

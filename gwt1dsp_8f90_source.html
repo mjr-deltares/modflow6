@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="mf6-triangular-grid.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">MODFLOW 6
-   &#160;<span id="projectnumber">version 6.2.2</span>
+   &#160;<span id="projectnumber">version 6.3.0</span>
    </div>
    <div id="projectbrief">MODFLOW 6 Code Documentation</div>
   </td>
@@ -612,7 +612,7 @@ $(document).ready(function(){initNavTree('gwt1dsp_8f90_source.html',''); initRes
 <div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;    <span class="comment">! -- modules</span></div>
 <div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceconstantsmodule.html">constantsmodule</a>,   <span class="keywordtype">only</span>: <a class="code" href="namespaceconstantsmodule.html#a060d310ded5535ce2dc85bd1ca1afd3d">linelength</a></div>
-<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacesimmodule.html">simmodule</a>,         <span class="keywordtype">only</span>: <a class="code" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61">ustop</a>, <a class="code" href="namespacesimmodule.html#a536cb6f0e13fcd33755e414641ff931a">store_error</a></div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacesimmodule.html">simmodule</a>,         <span class="keywordtype">only</span>: <a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a></div>
 <div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;    <span class="comment">! -- dummy</span></div>
 <div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structgwtdspmodule_1_1gwtdsptype.html">gwtdsptype</a>) :: this</div>
 <div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;    <span class="comment">! -- local</span></div>
@@ -643,429 +643,424 @@ $(document).ready(function(){initNavTree('gwt1dsp_8f90_source.html',''); initRes
 <div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;            <span class="keyword">write</span>(this%iout, <span class="stringliteral">&#39;(4x,a)&#39;</span>)                                         &amp;</div>
 <div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;                             <span class="stringliteral">&#39;XT3D RIGHT-HAND SIDE FORMULATION IS SELECTED.&#39;</span></div>
 <div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;<span class="keywordflow">          case default</span></div>
-<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;            <span class="keyword">write</span>(errmsg,<span class="stringliteral">&#39;(4x,a,a)&#39;</span>)<span class="stringliteral">&#39;****ERROR. UNKNOWN DISPERSION OPTION: &#39;</span>,  &amp;</div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;            <span class="keyword">write</span>(errmsg,<span class="stringliteral">&#39;(4x,a,a)&#39;</span>)<span class="stringliteral">&#39;UNKNOWN DISPERSION OPTION: &#39;</span>, &amp;</div>
 <div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;                                     trim(keyword)</div>
-<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;            <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a536cb6f0e13fcd33755e414641ff931a">store_error</a>(errmsg)</div>
-<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;            <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61">ustop</a>()</div>
-<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;<span class="keywordflow">        end select</span></div>
-<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;<span class="keywordflow">      end do</span></div>
-<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;      <span class="keyword">write</span>(this%iout,<span class="stringliteral">&#39;(1x,a)&#39;</span>)<span class="stringliteral">&#39;END OF DISPERSION OPTIONS&#39;</span></div>
-<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;    <span class="comment">! -- Return</span></div>
-<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacegwtdspmodule.html#af0bf7fa983b9e6890fae42e74c5457d9">read_options</a></div>
-<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160; </div>
-<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacegwtdspmodule.html#a72cebc6d6e7f6640975689a3542fde6e">read_data</a>(this)</div>
-<div class="line"><a name="l00544"></a><span class="lineno"><a class="line" href="namespacegwtdspmodule.html#a72cebc6d6e7f6640975689a3542fde6e">  544</a></span>&#160;<span class="comment">! ******************************************************************************</span></div>
-<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;<span class="comment">! read_data -- read the dispersion data</span></div>
-<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;<span class="comment">! ******************************************************************************</span></div>
-<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;<span class="comment">!</span></div>
-<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;<span class="comment">!    SPECIFICATIONS:</span></div>
-<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceconstantsmodule.html">constantsmodule</a>,   <span class="keywordtype">only</span>: <a class="code" href="namespaceconstantsmodule.html#a060d310ded5535ce2dc85bd1ca1afd3d">linelength</a></div>
-<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacesimmodule.html">simmodule</a>,         <span class="keywordtype">only</span>: <a class="code" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61">ustop</a>, <a class="code" href="namespacesimmodule.html#a536cb6f0e13fcd33755e414641ff931a">store_error</a>, <a class="code" href="namespacesimmodule.html#a4c46e49de78d4498dd4ec106357775e6">count_errors</a></div>
-<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacememorymanagermodule.html">memorymanagermodule</a>, <span class="keywordtype">only</span>: <a class="code" href="interfacememorymanagermodule_1_1mem__reallocate.html">mem_reallocate</a>, <a class="code" href="interfacememorymanagermodule_1_1mem__copyptr.html">mem_copyptr</a>, <a class="code" href="interfacememorymanagermodule_1_1mem__reassignptr.html">mem_reassignptr</a></div>
-<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structgwtdspmodule_1_1gwtdsptype.html">gwtdsptype</a>) :: this</div>
-<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;    <span class="comment">! -- local</span></div>
-<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;    <span class="keywordtype">character(len=LINELENGTH)</span> :: errmsg, keyword</div>
-<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;    <span class="keywordtype">character(len=:)</span>, <span class="keywordtype">allocatable</span> :: line</div>
-<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: istart, istop, lloc, ierr</div>
-<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;    <span class="keywordtype">logical</span> :: isfound, endOfBlock</div>
-<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;    <span class="keywordtype">logical</span>, <span class="keywordtype">dimension(6)</span>           :: lname</div>
-<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;    <span class="keywordtype">character(len=24)</span>, <span class="keywordtype">dimension(6)</span> :: aname</div>
-<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;    <span class="comment">! -- formats</span></div>
-<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;    <span class="comment">! -- data</span></div>
-<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;    <span class="keyword">data</span> aname(1) /<span class="stringliteral">&#39;   DIFFUSION COEFFICIENT&#39;</span>/</div>
-<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;    <span class="keyword">data</span> aname(2) /<span class="stringliteral">&#39;                     ALH&#39;</span>/</div>
-<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;    <span class="keyword">data</span> aname(3) /<span class="stringliteral">&#39;                     ALV&#39;</span>/</div>
-<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;    <span class="keyword">data</span> aname(4) /<span class="stringliteral">&#39;                    ATH1&#39;</span>/</div>
-<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;    <span class="keyword">data</span> aname(5) /<span class="stringliteral">&#39;                    ATH2&#39;</span>/</div>
-<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;    <span class="keyword">data</span> aname(6) /<span class="stringliteral">&#39;                     ATV&#39;</span>/</div>
-<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;    <span class="comment">! -- initialize</span></div>
-<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;    lname(:) = .false.</div>
-<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;    isfound = .false.</div>
-<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;    <span class="comment">! -- get griddata block</span></div>
-<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;    <span class="keyword">call </span>this%parser%GetBlock(<span class="stringliteral">&#39;GRIDDATA&#39;</span>, isfound, ierr)</div>
-<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;    <span class="keywordflow">if</span>(isfound) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;      <span class="keyword">write</span>(this%iout,<span class="stringliteral">&#39;(1x,a)&#39;</span>)<span class="stringliteral">&#39;PROCESSING GRIDDATA&#39;</span></div>
-<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;      <span class="keywordflow">do</span></div>
-<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;        <span class="keyword">call </span>this%parser%GetNextLine(endofblock)</div>
-<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;        <span class="keywordflow">if</span> (endofblock) <span class="keywordflow">exit</span></div>
-<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;        <span class="keyword">call </span>this%parser%GetStringCaps(keyword)</div>
-<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;        <span class="keyword">call </span>this%parser%GetRemainingLine(line)</div>
-<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;        lloc = 1</div>
-<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;        <span class="keywordflow">select case</span> (keyword)</div>
-<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;        <span class="keywordflow">case</span> (<span class="stringliteral">&#39;DIFFC&#39;</span>)</div>
-<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;            <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__reallocate.html">mem_reallocate</a>(this%diffc, this%dis%nodes, <span class="stringliteral">&#39;DIFFC&#39;</span>,           &amp;</div>
-<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;                              trim(this%memoryPath))</div>
-<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;            <span class="keyword">call </span>this%dis%read_grid_array(line, lloc, istart, istop, this%iout,&amp;</div>
-<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;                                         this%parser%iuactive, this%diffc,     &amp;</div>
-<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;                                         aname(1))</div>
-<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;            lname(1) = .true.</div>
-<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;        <span class="keywordflow">case</span> (<span class="stringliteral">&#39;ALH&#39;</span>)</div>
-<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;          <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__reallocate.html">mem_reallocate</a>(this%alh, this%dis%nodes, <span class="stringliteral">&#39;ALH&#39;</span>,                 &amp;</div>
-<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;                            trim(this%memoryPath))</div>
-<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;          <span class="keyword">call </span>this%dis%read_grid_array(line, lloc, istart, istop, this%iout,  &amp;</div>
-<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;                                         this%parser%iuactive, this%alh,       &amp;</div>
-<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;                                         aname(2))</div>
-<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;            lname(2) = .true.</div>
-<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;        <span class="keywordflow">case</span> (<span class="stringliteral">&#39;ALV&#39;</span>)</div>
-<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;          <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__reallocate.html">mem_reallocate</a>(this%alv, this%dis%nodes, <span class="stringliteral">&#39;ALV&#39;</span>,                 &amp;</div>
-<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;                            trim(this%memoryPath))</div>
-<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;          <span class="keyword">call </span>this%dis%read_grid_array(line, lloc, istart, istop, this%iout,  &amp;</div>
-<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;                                         this%parser%iuactive, this%alv,       &amp;</div>
-<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;                                         aname(3))</div>
-<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;            lname(3) = .true.</div>
-<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;        <span class="keywordflow">case</span> (<span class="stringliteral">&#39;ATH1&#39;</span>)</div>
-<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;          <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__reallocate.html">mem_reallocate</a>(this%ath1, this%dis%nodes, <span class="stringliteral">&#39;ATH1&#39;</span>,               &amp;</div>
-<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;                            trim(this%memoryPath))</div>
-<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;          <span class="keyword">call </span>this%dis%read_grid_array(line, lloc, istart, istop, this%iout,  &amp;</div>
-<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;                                         this%parser%iuactive, this%ath1,      &amp;</div>
-<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;                                         aname(4))</div>
-<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;          lname(4) = .true.</div>
-<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;        <span class="keywordflow">case</span> (<span class="stringliteral">&#39;ATH2&#39;</span>)</div>
-<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;          <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__reallocate.html">mem_reallocate</a>(this%ath2, this%dis%nodes, <span class="stringliteral">&#39;ATH2&#39;</span>,               &amp;</div>
-<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;                            trim(this%memoryPath))</div>
-<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;          <span class="keyword">call </span>this%dis%read_grid_array(line, lloc, istart, istop, this%iout,  &amp;</div>
-<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;                                         this%parser%iuactive, this%ath2,      &amp;</div>
-<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;                                         aname(5))</div>
-<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;          lname(5) = .true.</div>
-<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;        <span class="keywordflow">case</span> (<span class="stringliteral">&#39;ATV&#39;</span>)</div>
-<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;          <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__reallocate.html">mem_reallocate</a>(this%atv, this%dis%nodes, <span class="stringliteral">&#39;ATV&#39;</span>,                 &amp;</div>
-<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;                            trim(this%memoryPath))</div>
-<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;          <span class="keyword">call </span>this%dis%read_grid_array(line, lloc, istart, istop, this%iout,  &amp;</div>
-<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;                                         this%parser%iuactive, this%atv,       &amp;</div>
-<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;                                         aname(6))</div>
-<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;            lname(6) = .true.</div>
-<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;<span class="keywordflow">        case default</span></div>
-<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;          <span class="keyword">write</span>(errmsg,<span class="stringliteral">&#39;(4x,a,a)&#39;</span>)<span class="stringliteral">&#39;ERROR. UNKNOWN GRIDDATA TAG: &#39;</span>,             &amp;</div>
-<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;                                    trim(keyword)</div>
-<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;          <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a536cb6f0e13fcd33755e414641ff931a">store_error</a>(errmsg)</div>
-<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;          <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
-<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;          <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61">ustop</a>()</div>
-<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;<span class="keywordflow">        end select</span></div>
-<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;<span class="keywordflow">      end do</span></div>
-<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;      <span class="keyword">write</span>(this%iout,<span class="stringliteral">&#39;(1x,a)&#39;</span>)<span class="stringliteral">&#39;END PROCESSING GRIDDATA&#39;</span></div>
-<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;      <span class="keyword">write</span>(errmsg,<span class="stringliteral">&#39;(1x,a)&#39;</span>)<span class="stringliteral">&#39;ERROR.  REQUIRED GRIDDATA BLOCK NOT FOUND.&#39;</span></div>
-<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a536cb6f0e13fcd33755e414641ff931a">store_error</a>(errmsg)</div>
-<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;      <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
-<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61">ustop</a>()</div>
-<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;    <span class="keywordflow">if</span>(lname(1)) this%idiffc = 1</div>
-<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;    <span class="keywordflow">if</span>(lname(2)) this%idisp = this%idisp + 1</div>
-<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;    <span class="keywordflow">if</span>(lname(3)) this%idisp = this%idisp + 1</div>
-<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;    <span class="keywordflow">if</span>(lname(4)) this%idisp = this%idisp + 1</div>
-<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;    <span class="keywordflow">if</span>(lname(5)) this%idisp = this%idisp + 1</div>
-<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;    <span class="comment">! -- if dispersivities are specified, then both alh and ath1 must be included</span></div>
-<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;    <span class="keywordflow">if</span>(this%idisp &gt; 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;      <span class="comment">!</span></div>
-<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;      <span class="comment">! -- make sure alh was specified</span></div>
-<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;      <span class="keywordflow">if</span> (.not. lname(2)) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;        <span class="keyword">write</span>(errmsg,<span class="stringliteral">&#39;(1x,a)&#39;</span>) <span class="stringliteral">&#39;IF DISPERSIVITIES ARE SPECIFIED THEN ALH IS REQUIRED.&#39;</span></div>
-<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;        <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a536cb6f0e13fcd33755e414641ff931a">store_error</a>(errmsg)</div>
-<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;<span class="keywordflow">      endif</span></div>
-<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;      <span class="comment">!</span></div>
-<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;      <span class="comment">! -- make sure ath1 was specified</span></div>
-<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;      <span class="keywordflow">if</span> (.not. lname(4)) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;        <span class="keyword">write</span>(errmsg,<span class="stringliteral">&#39;(1x,a)&#39;</span>) <span class="stringliteral">&#39;IF DISPERSIVITIES ARE SPECIFIED THEN ATH1 IS REQUIRED.&#39;</span></div>
-<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;        <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a536cb6f0e13fcd33755e414641ff931a">store_error</a>(errmsg)</div>
-<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;<span class="keywordflow">      endif</span></div>
-<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;      <span class="comment">!</span></div>
-<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;      <span class="comment">! -- If alv not specified then point it to alh</span></div>
-<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;      <span class="keywordflow">if</span>(.not. lname(3)) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__reassignptr.html">mem_reassignptr</a>(this%alv, <span class="stringliteral">&#39;ALV&#39;</span>, trim(this%memoryPath),                 &amp;</div>
-<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;                                       <span class="stringliteral">&#39;ALH&#39;</span>, trim(this%memoryPath))</div>
-<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;<span class="keywordflow">      endif</span></div>
-<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;      <span class="comment">!</span></div>
-<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;      <span class="comment">! -- If ath2 not specified then assign it to ath1</span></div>
-<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;      <span class="keywordflow">if</span> (.not. lname(5)) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__reassignptr.html">mem_reassignptr</a>(this%ath2, <span class="stringliteral">&#39;ATH2&#39;</span>, trim(this%memoryPath),                 &amp;</div>
-<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;                                        <span class="stringliteral">&#39;ATH1&#39;</span>, trim(this%memoryPath))</div>
-<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;<span class="keywordflow">      endif</span></div>
-<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;      <span class="comment">!</span></div>
-<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;      <span class="comment">! -- If atv not specified then assign it to ath2</span></div>
-<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;      <span class="keywordflow">if</span> (.not. lname(6)) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__reassignptr.html">mem_reassignptr</a>(this%atv, <span class="stringliteral">&#39;ATV&#39;</span>, trim(this%memoryPath),                 &amp;</div>
-<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;                                       <span class="stringliteral">&#39;ATH2&#39;</span>, trim(this%memoryPath))</div>
-<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;<span class="keywordflow">      endif</span></div>
-<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;<span class="keywordflow">    endif</span></div>
-<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;    <span class="comment">! -- terminate if errors</span></div>
-<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="namespacesimmodule.html#a4c46e49de78d4498dd4ec106357775e6">count_errors</a>() &gt; 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;      <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
-<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61">ustop</a>()</div>
-<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;<span class="keywordflow">    endif</span></div>
-<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;    <span class="comment">! -- Return</span></div>
-<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacegwtdspmodule.html#a72cebc6d6e7f6640975689a3542fde6e">read_data</a></div>
-<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160; </div>
-<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacegwtdspmodule.html#ae09fda3471794302fdbee6d45125d2eb">calcdispellipse</a>(this)</div>
-<div class="line"><a name="l00696"></a><span class="lineno"><a class="line" href="namespacegwtdspmodule.html#ae09fda3471794302fdbee6d45125d2eb">  696</a></span>&#160;<span class="comment">! ******************************************************************************</span></div>
-<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;<span class="comment">! calcdispellipse -- Calculate dispersion coefficients</span></div>
-<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;<span class="comment">! ******************************************************************************</span></div>
-<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;<span class="comment">!</span></div>
-<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;<span class="comment">!    SPECIFICATIONS:</span></div>
-<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;    <span class="comment">! -- modules</span></div>
-<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structgwtdspmodule_1_1gwtdsptype.html">gwtdsptype</a>) :: this</div>
-<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;    <span class="comment">! -- local</span></div>
-<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: nodes, n</div>
-<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;<span class="keywordtype">    real</span>(DP) :: q, qx, qy, qz</div>
-<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;<span class="keywordtype">    real</span>(DP) :: alh, alv, ath1, ath2, atv, a</div>
-<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;<span class="keywordtype">    real</span>(DP) :: al, at1, at2</div>
-<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;<span class="keywordtype">    real</span>(DP) :: qzoqsquared</div>
-<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;<span class="keywordtype">    real</span>(DP) :: dstar</div>
-<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;    <span class="comment">! -- loop through and calculate dispersion coefficients and angles</span></div>
-<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;    nodes = <span class="keyword">size</span>(this%d11)</div>
-<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;    <span class="keywordflow">do</span> n = 1, nodes</div>
-<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;      <span class="comment">!</span></div>
-<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;      <span class="comment">! -- initialize</span></div>
-<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;      this%d11(n) = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;      this%d22(n) = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;      this%d33(n) = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;      this%angle1(n) = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;      this%angle2(n) = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;      this%angle3(n) = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;      <span class="keywordflow">if</span>(this%fmi%ibdgwfsat0(n) == 0) cycle</div>
-<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;      <span class="comment">!</span></div>
-<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;      <span class="comment">! -- specific discharge</span></div>
-<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;      qx = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;      qy = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;      qz = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;      q = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;      qx = this%fmi%gwfspdis(1, n)</div>
-<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;      qy = this%fmi%gwfspdis(2, n)</div>
-<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;      qz = this%fmi%gwfspdis(3, n)</div>
-<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;      q = qx ** 2 + qy ** 2 + qz ** 2</div>
-<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;      <span class="keywordflow">if</span> (q &gt; <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a>) q = sqrt(q)</div>
-<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;      <span class="comment">!</span></div>
-<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;      <span class="comment">! -- dispersion coefficients</span></div>
-<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;      alh = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;      alv = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;      ath1 = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;      ath2 = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;      atv = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;      <span class="keywordflow">if</span> (this%idisp &gt; 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;        alh = this%alh(n)</div>
-<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;        alv = this%alv(n)</div>
-<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;        ath1 = this%ath1(n)</div>
-<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;        ath2 = this%ath2(n)</div>
-<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;        atv = this%atv(n)</div>
-<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;<span class="keywordflow">      endif</span></div>
-<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;      dstar = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;      <span class="keywordflow">if</span> (this%idiffc &gt; 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;        dstar = this%diffc(n) * this%porosity(n)</div>
-<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;<span class="keywordflow">      endif</span></div>
-<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;      <span class="comment">!</span></div>
-<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;      <span class="comment">! -- Calculate the longitudal and transverse dispersivities</span></div>
-<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;      al = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;      at1 = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;      at2 = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;      <span class="keywordflow">if</span> (q &gt; <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a>) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;        qzoqsquared = (qz / q) ** 2</div>
-<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;        al = alh * (<a class="code" href="namespaceconstantsmodule.html#af918ac22cd0b232deea67660bfbc9ce1">done</a> - qzoqsquared) + alv * qzoqsquared</div>
-<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;        at1 = ath1 * (<a class="code" href="namespaceconstantsmodule.html#af918ac22cd0b232deea67660bfbc9ce1">done</a> - qzoqsquared) + atv * qzoqsquared</div>
-<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;        at2 = ath2 * (<a class="code" href="namespaceconstantsmodule.html#af918ac22cd0b232deea67660bfbc9ce1">done</a> - qzoqsquared) + atv * qzoqsquared</div>
-<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;<span class="keywordflow">      endif</span></div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;            <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(errmsg, terminate=.true.)</div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;<span class="keywordflow">        end select</span></div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;<span class="keywordflow">      end do</span></div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;      <span class="keyword">write</span>(this%iout,<span class="stringliteral">&#39;(1x,a)&#39;</span>)<span class="stringliteral">&#39;END OF DISPERSION OPTIONS&#39;</span></div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;    <span class="comment">! -- Return</span></div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;    <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacegwtdspmodule.html#af0bf7fa983b9e6890fae42e74c5457d9">read_options</a></div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160; </div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacegwtdspmodule.html#a72cebc6d6e7f6640975689a3542fde6e">read_data</a>(this)</div>
+<div class="line"><a name="l00543"></a><span class="lineno"><a class="line" href="namespacegwtdspmodule.html#a72cebc6d6e7f6640975689a3542fde6e">  543</a></span>&#160;<span class="comment">! ******************************************************************************</span></div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;<span class="comment">! read_data -- read the dispersion data</span></div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;<span class="comment">! ******************************************************************************</span></div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;<span class="comment">!</span></div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;<span class="comment">!    SPECIFICATIONS:</span></div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceconstantsmodule.html">constantsmodule</a>,   <span class="keywordtype">only</span>: <a class="code" href="namespaceconstantsmodule.html#a060d310ded5535ce2dc85bd1ca1afd3d">linelength</a></div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacesimmodule.html">simmodule</a>,         <span class="keywordtype">only</span>: <a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>, <a class="code" href="namespacesimmodule.html#a4c46e49de78d4498dd4ec106357775e6">count_errors</a></div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacememorymanagermodule.html">memorymanagermodule</a>, <span class="keywordtype">only</span>: <a class="code" href="interfacememorymanagermodule_1_1mem__reallocate.html">mem_reallocate</a>, <a class="code" href="interfacememorymanagermodule_1_1mem__copyptr.html">mem_copyptr</a>, <a class="code" href="interfacememorymanagermodule_1_1mem__reassignptr.html">mem_reassignptr</a></div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;    <span class="comment">! -- dummy</span></div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structgwtdspmodule_1_1gwtdsptype.html">gwtdsptype</a>) :: this</div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;    <span class="comment">! -- local</span></div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;    <span class="keywordtype">character(len=LINELENGTH)</span> :: errmsg, keyword</div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;    <span class="keywordtype">character(len=:)</span>, <span class="keywordtype">allocatable</span> :: line</div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: istart, istop, lloc, ierr</div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;    <span class="keywordtype">logical</span> :: isfound, endOfBlock</div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;    <span class="keywordtype">logical</span>, <span class="keywordtype">dimension(6)</span>           :: lname</div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;    <span class="keywordtype">character(len=24)</span>, <span class="keywordtype">dimension(6)</span> :: aname</div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;    <span class="comment">! -- formats</span></div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;    <span class="comment">! -- data</span></div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;    <span class="keyword">data</span> aname(1) /<span class="stringliteral">&#39;   DIFFUSION COEFFICIENT&#39;</span>/</div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;    <span class="keyword">data</span> aname(2) /<span class="stringliteral">&#39;                     ALH&#39;</span>/</div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;    <span class="keyword">data</span> aname(3) /<span class="stringliteral">&#39;                     ALV&#39;</span>/</div>
+<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;    <span class="keyword">data</span> aname(4) /<span class="stringliteral">&#39;                    ATH1&#39;</span>/</div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;    <span class="keyword">data</span> aname(5) /<span class="stringliteral">&#39;                    ATH2&#39;</span>/</div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;    <span class="keyword">data</span> aname(6) /<span class="stringliteral">&#39;                     ATV&#39;</span>/</div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;    <span class="comment">! -- initialize</span></div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;    lname(:) = .false.</div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;    isfound = .false.</div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;    <span class="comment">! -- get griddata block</span></div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;    <span class="keyword">call </span>this%parser%GetBlock(<span class="stringliteral">&#39;GRIDDATA&#39;</span>, isfound, ierr)</div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;    <span class="keywordflow">if</span>(isfound) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;      <span class="keyword">write</span>(this%iout,<span class="stringliteral">&#39;(1x,a)&#39;</span>)<span class="stringliteral">&#39;PROCESSING GRIDDATA&#39;</span></div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;      <span class="keywordflow">do</span></div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;        <span class="keyword">call </span>this%parser%GetNextLine(endofblock)</div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;        <span class="keywordflow">if</span> (endofblock) <span class="keywordflow">exit</span></div>
+<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;        <span class="keyword">call </span>this%parser%GetStringCaps(keyword)</div>
+<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;        <span class="keyword">call </span>this%parser%GetRemainingLine(line)</div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;        lloc = 1</div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;        <span class="keywordflow">select case</span> (keyword)</div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;        <span class="keywordflow">case</span> (<span class="stringliteral">&#39;DIFFC&#39;</span>)</div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;            <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__reallocate.html">mem_reallocate</a>(this%diffc, this%dis%nodes, <span class="stringliteral">&#39;DIFFC&#39;</span>,           &amp;</div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;                              trim(this%memoryPath))</div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;            <span class="keyword">call </span>this%dis%read_grid_array(line, lloc, istart, istop, this%iout,&amp;</div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;                                         this%parser%iuactive, this%diffc,     &amp;</div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;                                         aname(1))</div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;            lname(1) = .true.</div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;        <span class="keywordflow">case</span> (<span class="stringliteral">&#39;ALH&#39;</span>)</div>
+<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;          <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__reallocate.html">mem_reallocate</a>(this%alh, this%dis%nodes, <span class="stringliteral">&#39;ALH&#39;</span>,                 &amp;</div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;                            trim(this%memoryPath))</div>
+<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;          <span class="keyword">call </span>this%dis%read_grid_array(line, lloc, istart, istop, this%iout,  &amp;</div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;                                         this%parser%iuactive, this%alh,       &amp;</div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;                                         aname(2))</div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;            lname(2) = .true.</div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;        <span class="keywordflow">case</span> (<span class="stringliteral">&#39;ALV&#39;</span>)</div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;          <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__reallocate.html">mem_reallocate</a>(this%alv, this%dis%nodes, <span class="stringliteral">&#39;ALV&#39;</span>,                 &amp;</div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;                            trim(this%memoryPath))</div>
+<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;          <span class="keyword">call </span>this%dis%read_grid_array(line, lloc, istart, istop, this%iout,  &amp;</div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;                                         this%parser%iuactive, this%alv,       &amp;</div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;                                         aname(3))</div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;            lname(3) = .true.</div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;        <span class="keywordflow">case</span> (<span class="stringliteral">&#39;ATH1&#39;</span>)</div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;          <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__reallocate.html">mem_reallocate</a>(this%ath1, this%dis%nodes, <span class="stringliteral">&#39;ATH1&#39;</span>,               &amp;</div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;                            trim(this%memoryPath))</div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;          <span class="keyword">call </span>this%dis%read_grid_array(line, lloc, istart, istop, this%iout,  &amp;</div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;                                         this%parser%iuactive, this%ath1,      &amp;</div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;                                         aname(4))</div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;          lname(4) = .true.</div>
+<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;        <span class="keywordflow">case</span> (<span class="stringliteral">&#39;ATH2&#39;</span>)</div>
+<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;          <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__reallocate.html">mem_reallocate</a>(this%ath2, this%dis%nodes, <span class="stringliteral">&#39;ATH2&#39;</span>,               &amp;</div>
+<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;                            trim(this%memoryPath))</div>
+<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;          <span class="keyword">call </span>this%dis%read_grid_array(line, lloc, istart, istop, this%iout,  &amp;</div>
+<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;                                         this%parser%iuactive, this%ath2,      &amp;</div>
+<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;                                         aname(5))</div>
+<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;          lname(5) = .true.</div>
+<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;        <span class="keywordflow">case</span> (<span class="stringliteral">&#39;ATV&#39;</span>)</div>
+<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;          <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__reallocate.html">mem_reallocate</a>(this%atv, this%dis%nodes, <span class="stringliteral">&#39;ATV&#39;</span>,                 &amp;</div>
+<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;                            trim(this%memoryPath))</div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;          <span class="keyword">call </span>this%dis%read_grid_array(line, lloc, istart, istop, this%iout,  &amp;</div>
+<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;                                         this%parser%iuactive, this%atv,       &amp;</div>
+<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;                                         aname(6))</div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;            lname(6) = .true.</div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;<span class="keywordflow">        case default</span></div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;          <span class="keyword">write</span>(errmsg,<span class="stringliteral">&#39;(4x,a,a)&#39;</span>) <span class="stringliteral">&#39;Unknown GRIDDATA tag: &#39;</span>, trim(keyword)</div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;          <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(errmsg)</div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;          <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
+<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;<span class="keywordflow">        end select</span></div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;<span class="keywordflow">      end do</span></div>
+<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;      <span class="keyword">write</span>(this%iout,<span class="stringliteral">&#39;(1x,a)&#39;</span>)<span class="stringliteral">&#39;END PROCESSING GRIDDATA&#39;</span></div>
+<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;      <span class="keyword">write</span>(errmsg,<span class="stringliteral">&#39;(1x,a)&#39;</span>) <span class="stringliteral">&#39;Required GRIDDATA block not found.&#39;</span></div>
+<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(errmsg)</div>
+<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;      <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
+<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;    <span class="keywordflow">if</span>(lname(1)) this%idiffc = 1</div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;    <span class="keywordflow">if</span>(lname(2)) this%idisp = this%idisp + 1</div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;    <span class="keywordflow">if</span>(lname(3)) this%idisp = this%idisp + 1</div>
+<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;    <span class="keywordflow">if</span>(lname(4)) this%idisp = this%idisp + 1</div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;    <span class="keywordflow">if</span>(lname(5)) this%idisp = this%idisp + 1</div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;    <span class="comment">! -- if dispersivities are specified, then both alh and ath1 must be included</span></div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;    <span class="keywordflow">if</span>(this%idisp &gt; 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;      <span class="comment">!</span></div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;      <span class="comment">! -- make sure alh was specified</span></div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;      <span class="keywordflow">if</span> (.not. lname(2)) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;        <span class="keyword">write</span>(errmsg,<span class="stringliteral">&#39;(1x,a)&#39;</span>) <span class="stringliteral">&#39;IF DISPERSIVITIES ARE SPECIFIED THEN ALH IS REQUIRED.&#39;</span></div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;        <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(errmsg)</div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;<span class="keywordflow">      endif</span></div>
+<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;      <span class="comment">!</span></div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;      <span class="comment">! -- make sure ath1 was specified</span></div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;      <span class="keywordflow">if</span> (.not. lname(4)) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;        <span class="keyword">write</span>(errmsg,<span class="stringliteral">&#39;(1x,a)&#39;</span>) <span class="stringliteral">&#39;IF DISPERSIVITIES ARE SPECIFIED THEN ATH1 IS REQUIRED.&#39;</span></div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;        <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(errmsg)</div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;<span class="keywordflow">      endif</span></div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;      <span class="comment">!</span></div>
+<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;      <span class="comment">! -- If alv not specified then point it to alh</span></div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;      <span class="keywordflow">if</span>(.not. lname(3)) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__reassignptr.html">mem_reassignptr</a>(this%alv, <span class="stringliteral">&#39;ALV&#39;</span>, trim(this%memoryPath),                 &amp;</div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;                                       <span class="stringliteral">&#39;ALH&#39;</span>, trim(this%memoryPath))</div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;<span class="keywordflow">      endif</span></div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;      <span class="comment">!</span></div>
+<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;      <span class="comment">! -- If ath2 not specified then assign it to ath1</span></div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;      <span class="keywordflow">if</span> (.not. lname(5)) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__reassignptr.html">mem_reassignptr</a>(this%ath2, <span class="stringliteral">&#39;ATH2&#39;</span>, trim(this%memoryPath),                 &amp;</div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;                                        <span class="stringliteral">&#39;ATH1&#39;</span>, trim(this%memoryPath))</div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;<span class="keywordflow">      endif</span></div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;      <span class="comment">!</span></div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;      <span class="comment">! -- If atv not specified then assign it to ath2</span></div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;      <span class="keywordflow">if</span> (.not. lname(6)) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__reassignptr.html">mem_reassignptr</a>(this%atv, <span class="stringliteral">&#39;ATV&#39;</span>, trim(this%memoryPath),                 &amp;</div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;                                       <span class="stringliteral">&#39;ATH2&#39;</span>, trim(this%memoryPath))</div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;<span class="keywordflow">      endif</span></div>
+<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;<span class="keywordflow">    endif</span></div>
+<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;    <span class="comment">! -- terminate if errors</span></div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="namespacesimmodule.html#a4c46e49de78d4498dd4ec106357775e6">count_errors</a>() &gt; 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;      <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;<span class="keywordflow">    endif</span></div>
+<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;    <span class="comment">! -- Return</span></div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;    <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacegwtdspmodule.html#a72cebc6d6e7f6640975689a3542fde6e">read_data</a></div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160; </div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacegwtdspmodule.html#ae09fda3471794302fdbee6d45125d2eb">calcdispellipse</a>(this)</div>
+<div class="line"><a name="l00691"></a><span class="lineno"><a class="line" href="namespacegwtdspmodule.html#ae09fda3471794302fdbee6d45125d2eb">  691</a></span>&#160;<span class="comment">! ******************************************************************************</span></div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;<span class="comment">! calcdispellipse -- Calculate dispersion coefficients</span></div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;<span class="comment">! ******************************************************************************</span></div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;<span class="comment">!</span></div>
+<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;<span class="comment">!    SPECIFICATIONS:</span></div>
+<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;    <span class="comment">! -- modules</span></div>
+<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;    <span class="comment">! -- dummy</span></div>
+<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structgwtdspmodule_1_1gwtdsptype.html">gwtdsptype</a>) :: this</div>
+<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;    <span class="comment">! -- local</span></div>
+<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: nodes, n</div>
+<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;<span class="keywordtype">    real</span>(DP) :: q, qx, qy, qz</div>
+<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;<span class="keywordtype">    real</span>(DP) :: alh, alv, ath1, ath2, atv, a</div>
+<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;<span class="keywordtype">    real</span>(DP) :: al, at1, at2</div>
+<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;<span class="keywordtype">    real</span>(DP) :: qzoqsquared</div>
+<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;<span class="keywordtype">    real</span>(DP) :: dstar</div>
+<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;    <span class="comment">! -- loop through and calculate dispersion coefficients and angles</span></div>
+<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;    nodes = <span class="keyword">size</span>(this%d11)</div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;    <span class="keywordflow">do</span> n = 1, nodes</div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;      <span class="comment">!</span></div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;      <span class="comment">! -- initialize</span></div>
+<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;      this%d11(n) = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;      this%d22(n) = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;      this%d33(n) = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;      this%angle1(n) = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;      this%angle2(n) = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;      this%angle3(n) = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;      <span class="keywordflow">if</span>(this%fmi%ibdgwfsat0(n) == 0) cycle</div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;      <span class="comment">!</span></div>
+<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;      <span class="comment">! -- specific discharge</span></div>
+<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;      qx = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;      qy = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;      qz = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;      q = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;      qx = this%fmi%gwfspdis(1, n)</div>
+<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;      qy = this%fmi%gwfspdis(2, n)</div>
+<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;      qz = this%fmi%gwfspdis(3, n)</div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;      q = qx ** 2 + qy ** 2 + qz ** 2</div>
+<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;      <span class="keywordflow">if</span> (q &gt; <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a>) q = sqrt(q)</div>
+<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;      <span class="comment">!</span></div>
+<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;      <span class="comment">! -- dispersion coefficients</span></div>
+<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;      alh = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;      alv = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;      ath1 = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;      ath2 = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;      atv = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;      <span class="keywordflow">if</span> (this%idisp &gt; 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;        alh = this%alh(n)</div>
+<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;        alv = this%alv(n)</div>
+<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;        ath1 = this%ath1(n)</div>
+<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;        ath2 = this%ath2(n)</div>
+<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;        atv = this%atv(n)</div>
+<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;<span class="keywordflow">      endif</span></div>
+<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;      dstar = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;      <span class="keywordflow">if</span> (this%idiffc &gt; 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;        dstar = this%diffc(n) * this%porosity(n)</div>
+<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;<span class="keywordflow">      endif</span></div>
+<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;      <span class="comment">!</span></div>
+<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;      <span class="comment">! -- Calculate the longitudal and transverse dispersivities</span></div>
+<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;      al = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;      at1 = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;      at2 = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;      <span class="keywordflow">if</span> (q &gt; <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a>) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;        qzoqsquared = (qz / q) ** 2</div>
+<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;        al = alh * (<a class="code" href="namespaceconstantsmodule.html#af918ac22cd0b232deea67660bfbc9ce1">done</a> - qzoqsquared) + alv * qzoqsquared</div>
+<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;        at1 = ath1 * (<a class="code" href="namespaceconstantsmodule.html#af918ac22cd0b232deea67660bfbc9ce1">done</a> - qzoqsquared) + atv * qzoqsquared</div>
+<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;        at2 = ath2 * (<a class="code" href="namespaceconstantsmodule.html#af918ac22cd0b232deea67660bfbc9ce1">done</a> - qzoqsquared) + atv * qzoqsquared</div>
+<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;<span class="keywordflow">      endif</span></div>
+<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;      <span class="comment">!</span></div>
+<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;      <span class="comment">! -- Calculate and save the diagonal components of the dispersion tensor</span></div>
+<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;      this%d11(n) = al * q + dstar</div>
+<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;      this%d22(n) = at1 * q + dstar</div>
+<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;      this%d33(n) = at2 * q + dstar</div>
 <div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;      <span class="comment">!</span></div>
-<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;      <span class="comment">! -- Calculate and save the diagonal components of the dispersion tensor</span></div>
-<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;      this%d11(n) = al * q + dstar</div>
-<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;      this%d22(n) = at1 * q + dstar</div>
-<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;      this%d33(n) = at2 * q + dstar</div>
-<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;      <span class="comment">!</span></div>
-<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;      <span class="comment">! -- Angles of rotation if velocity based dispersion tensor</span></div>
-<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;      <span class="keywordflow">if</span> (this%idisp &gt; 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;      <span class="comment">! -- Angles of rotation if velocity based dispersion tensor</span></div>
+<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;      <span class="keywordflow">if</span> (this%idisp &gt; 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;        <span class="comment">!</span></div>
+<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;        <span class="comment">! -- angles of rotation from model coordinates to direction of velocity</span></div>
+<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;        <span class="comment">! qx / q = cos(a1) * cos(a2)</span></div>
+<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;        <span class="comment">! qy / q = sin(a1) * cos(a2)</span></div>
+<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;        <span class="comment">! qz / q = sin(a2)</span></div>
 <div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;        <span class="comment">!</span></div>
-<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;        <span class="comment">! -- angles of rotation from model coordinates to direction of velocity</span></div>
-<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;        <span class="comment">! qx / q = cos(a1) * cos(a2)</span></div>
-<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;        <span class="comment">! qy / q = sin(a1) * cos(a2)</span></div>
-<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;        <span class="comment">! qz / q = sin(a2)</span></div>
-<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;        <span class="comment">!</span></div>
-<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;        <span class="comment">! -- angle3 is zero</span></div>
-<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;        this%angle3(n) = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;        <span class="comment">! -- angle3 is zero</span></div>
+<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;        this%angle3(n) = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;        <span class="comment">!</span></div>
+<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;        <span class="comment">! -- angle2</span></div>
+<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;        a = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;        <span class="keywordflow">if</span> (q &gt; <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a>) a = qz / q</div>
+<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;        this%angle2(n) = asin(a)</div>
 <div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;        <span class="comment">!</span></div>
-<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;        <span class="comment">! -- angle2</span></div>
-<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;        a = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;        <span class="keywordflow">if</span> (q &gt; <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a>) a = qz / q</div>
-<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;        this%angle2(n) = asin(a)</div>
-<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;        <span class="comment">!</span></div>
-<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;        <span class="comment">! -- angle1</span></div>
-<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;        a = q * cos(this%angle2(n))</div>
-<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;        <span class="keywordflow">if</span> (a /= <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a>) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;          a = qx / a</div>
-<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;          a = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;<span class="keywordflow">        endif</span></div>
-<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;        <span class="comment">!</span></div>
-<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;        <span class="comment">! -- acos(1) not defined, so set to zero if necessary</span></div>
-<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;        <span class="keywordflow">if</span> (a &lt;= -<a class="code" href="namespaceconstantsmodule.html#af918ac22cd0b232deea67660bfbc9ce1">done</a>) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;          this%angle1(n) = <a class="code" href="namespaceconstantsmodule.html#aa190ea61b44b2ef628329833de6543a9">dpi</a></div>
-<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;        <span class="keywordflow">elseif</span> (a &gt;= <a class="code" href="namespaceconstantsmodule.html#af918ac22cd0b232deea67660bfbc9ce1">done</a>) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;          this%angle1(n) = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;          this%angle1(n) = acos(a)</div>
-<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;<span class="keywordflow">        endif</span></div>
-<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;        <span class="comment">!</span></div>
-<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;<span class="keywordflow">      endif</span></div>
-<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;<span class="keywordflow">    enddo</span></div>
-<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;    <span class="comment">! -- Return</span></div>
-<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacegwtdspmodule.html#ae09fda3471794302fdbee6d45125d2eb">calcdispellipse</a></div>
-<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160; </div>
-<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacegwtdspmodule.html#a77c08298c00f58b40c21da466d1001f0">calcdispcoef</a>(this)</div>
-<div class="line"><a name="l00813"></a><span class="lineno"><a class="line" href="namespacegwtdspmodule.html#a77c08298c00f58b40c21da466d1001f0">  813</a></span>&#160;<span class="comment">! ******************************************************************************</span></div>
-<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;<span class="comment">! calcdispcoef -- Calculate dispersion coefficients</span></div>
-<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;<span class="comment">! ******************************************************************************</span></div>
-<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;<span class="comment">!</span></div>
-<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;<span class="comment">!    SPECIFICATIONS:</span></div>
-<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;    <span class="comment">! -- modules</span></div>
-<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacegwfnpfmodule.html">gwfnpfmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacegwfnpfmodule.html#af6557a125519ffbda0826d7c39fec8e1">hyeff_calc</a></div>
-<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structgwtdspmodule_1_1gwtdsptype.html">gwtdsptype</a>) :: this</div>
-<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;    <span class="comment">! -- local</span></div>
-<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: nodes, n, m, idiag, ipos</div>
-<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;<span class="keywordtype">    real</span>(DP) :: clnm, clmn, dn, dm</div>
-<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;<span class="keywordtype">    real</span>(DP) :: vg1, vg2, vg3</div>
-<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: ihc, isympos</div>
-<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: iavgmeth</div>
-<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;<span class="keywordtype">    real</span>(DP) :: satn, satm, topn, topm, botn, botm</div>
-<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;<span class="keywordtype">    real</span>(DP) :: hwva, cond, cn, cm, denom</div>
-<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;<span class="keywordtype">    real</span>(DP) :: anm, amn, thksatn, thksatm, sill_top, sill_bot, tpn, tpm</div>
-<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;    <span class="comment">! -- set iavgmeth = 1 to use arithmetic averaging for effective dispersion</span></div>
-<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;    iavgmeth = 1</div>
-<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;    <span class="comment">! -- Proces connections</span></div>
-<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;    nodes = <span class="keyword">size</span>(this%d11)</div>
-<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;    <span class="keywordflow">do</span> n = 1, nodes</div>
-<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;      <span class="keywordflow">if</span>(this%fmi%ibdgwfsat0(n) == 0) cycle</div>
-<div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;      idiag = this%dis%con%ia(n)</div>
-<div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;      <span class="keywordflow">do</span> ipos = this%dis%con%ia(n) + 1, this%dis%con%ia(n + 1) - 1</div>
-<div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160;        <span class="comment">!</span></div>
-<div class="line"><a name="l00844"></a><span class="lineno">  844</span>&#160;        <span class="comment">! -- Set m to connected cell</span></div>
-<div class="line"><a name="l00845"></a><span class="lineno">  845</span>&#160;        m = this%dis%con%ja(ipos)</div>
-<div class="line"><a name="l00846"></a><span class="lineno">  846</span>&#160;        <span class="comment">!</span></div>
-<div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160;        <span class="comment">! -- skip for lower triangle</span></div>
-<div class="line"><a name="l00848"></a><span class="lineno">  848</span>&#160;        <span class="keywordflow">if</span> (m &lt; n) cycle</div>
-<div class="line"><a name="l00849"></a><span class="lineno">  849</span>&#160;        isympos = this%dis%con%jas(ipos)</div>
-<div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160;        this%dispcoef(isympos) = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160;        <span class="keywordflow">if</span>(this%fmi%ibdgwfsat0(m) == 0) cycle</div>
-<div class="line"><a name="l00852"></a><span class="lineno">  852</span>&#160;        <span class="comment">!</span></div>
-<div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;        <span class="comment">! -- cell dimensions</span></div>
-<div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160;        hwva = this%dis%con%hwva(isympos)</div>
-<div class="line"><a name="l00855"></a><span class="lineno">  855</span>&#160;        clnm = this%dis%con%cl1(isympos)</div>
-<div class="line"><a name="l00856"></a><span class="lineno">  856</span>&#160;        clmn = this%dis%con%cl2(isympos)</div>
-<div class="line"><a name="l00857"></a><span class="lineno">  857</span>&#160;        ihc = this%dis%con%ihc(isympos)</div>
-<div class="line"><a name="l00858"></a><span class="lineno">  858</span>&#160;        topn = this%dis%top(n)</div>
-<div class="line"><a name="l00859"></a><span class="lineno">  859</span>&#160;        topm = this%dis%top(m)</div>
-<div class="line"><a name="l00860"></a><span class="lineno">  860</span>&#160;        botn = this%dis%bot(n)</div>
-<div class="line"><a name="l00861"></a><span class="lineno">  861</span>&#160;        botm = this%dis%bot(m)</div>
-<div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;        <span class="comment">!</span></div>
-<div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;        <span class="comment">! -- flow model information</span></div>
-<div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160;        satn = this%fmi%gwfsat(n)</div>
-<div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;        satm = this%fmi%gwfsat(m)</div>
-<div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160;        <span class="comment">!</span></div>
-<div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160;        <span class="comment">! -- Calculate dispersion coefficient for cell n in the direction</span></div>
-<div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;        <span class="comment">!    normal to the shared n-m face and for cell m in the direction</span></div>
-<div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160;        <span class="comment">!    normal to the shared n-m face.</span></div>
-<div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;        <span class="keyword">call </span>this%dis%connection_normal(n, m, ihc, vg1, vg2, vg3, ipos)</div>
-<div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;        dn = <a class="code" href="namespacegwfnpfmodule.html#af6557a125519ffbda0826d7c39fec8e1">hyeff_calc</a>(this%d11(n), this%d22(n), this%d33(n),                 &amp;</div>
-<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;                        this%angle1(n), this%angle2(n), this%angle3(n),        &amp;</div>
-<div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;                        vg1, vg2, vg3, iavgmeth)</div>
-<div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;        dm = <a class="code" href="namespacegwfnpfmodule.html#af6557a125519ffbda0826d7c39fec8e1">hyeff_calc</a>(this%d11(m), this%d22(m), this%d33(m),                 &amp;</div>
-<div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;                        this%angle1(m), this%angle2(m), this%angle3(m),        &amp;</div>
-<div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;                        vg1, vg2, vg3, iavgmeth)</div>
-<div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160;        <span class="comment">!</span></div>
-<div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160;        <span class="comment">! -- Calculate dispersion conductance based on NPF subroutines and the</span></div>
-<div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160;        <span class="comment">!    effective dispersion coefficients dn and dm.</span></div>
-<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;        <span class="keywordflow">if</span>(ihc == 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00881"></a><span class="lineno">  881</span>&#160;          clnm = satn * (topn - botn) * <a class="code" href="namespaceconstantsmodule.html#a9262b16d485352c5d369c6cb86232c60">dhalf</a></div>
-<div class="line"><a name="l00882"></a><span class="lineno">  882</span>&#160;          clmn = satm * (topm - botm) * <a class="code" href="namespaceconstantsmodule.html#a9262b16d485352c5d369c6cb86232c60">dhalf</a></div>
-<div class="line"><a name="l00883"></a><span class="lineno">  883</span>&#160;          anm = hwva</div>
-<div class="line"><a name="l00884"></a><span class="lineno">  884</span>&#160;          <span class="comment">!</span></div>
-<div class="line"><a name="l00885"></a><span class="lineno">  885</span>&#160;          <span class="comment">! -- n is convertible and unsaturated</span></div>
-<div class="line"><a name="l00886"></a><span class="lineno">  886</span>&#160;          <span class="keywordflow">if</span> (satn == <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a>) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00887"></a><span class="lineno">  887</span>&#160;            anm = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00888"></a><span class="lineno">  888</span>&#160;          <span class="keywordflow">else</span> <span class="keywordflow">if</span> (n &gt; m .and. satn &lt; <a class="code" href="namespaceconstantsmodule.html#af918ac22cd0b232deea67660bfbc9ce1">done</a>) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;        <span class="comment">! -- angle1</span></div>
+<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;        a = q * cos(this%angle2(n))</div>
+<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;        <span class="keywordflow">if</span> (a /= <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a>) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;          a = qx / a</div>
+<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;          a = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;<span class="keywordflow">        endif</span></div>
+<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;        <span class="comment">!</span></div>
+<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;        <span class="comment">! -- acos(1) not defined, so set to zero if necessary</span></div>
+<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;        <span class="keywordflow">if</span> (a &lt;= -<a class="code" href="namespaceconstantsmodule.html#af918ac22cd0b232deea67660bfbc9ce1">done</a>) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;          this%angle1(n) = <a class="code" href="namespaceconstantsmodule.html#aa190ea61b44b2ef628329833de6543a9">dpi</a></div>
+<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;        <span class="keywordflow">elseif</span> (a &gt;= <a class="code" href="namespaceconstantsmodule.html#af918ac22cd0b232deea67660bfbc9ce1">done</a>) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;          this%angle1(n) = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;          this%angle1(n) = acos(a)</div>
+<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;<span class="keywordflow">        endif</span></div>
+<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;        <span class="comment">!</span></div>
+<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;<span class="keywordflow">      endif</span></div>
+<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;<span class="keywordflow">    enddo</span></div>
+<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;    <span class="comment">! -- Return</span></div>
+<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;    <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacegwtdspmodule.html#ae09fda3471794302fdbee6d45125d2eb">calcdispellipse</a></div>
+<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160; </div>
+<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacegwtdspmodule.html#a77c08298c00f58b40c21da466d1001f0">calcdispcoef</a>(this)</div>
+<div class="line"><a name="l00808"></a><span class="lineno"><a class="line" href="namespacegwtdspmodule.html#a77c08298c00f58b40c21da466d1001f0">  808</a></span>&#160;<span class="comment">! ******************************************************************************</span></div>
+<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;<span class="comment">! calcdispcoef -- Calculate dispersion coefficients</span></div>
+<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;<span class="comment">! ******************************************************************************</span></div>
+<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;<span class="comment">!</span></div>
+<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;<span class="comment">!    SPECIFICATIONS:</span></div>
+<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;    <span class="comment">! -- modules</span></div>
+<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacegwfnpfmodule.html">gwfnpfmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacegwfnpfmodule.html#af6557a125519ffbda0826d7c39fec8e1">hyeff_calc</a></div>
+<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;    <span class="comment">! -- dummy</span></div>
+<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structgwtdspmodule_1_1gwtdsptype.html">gwtdsptype</a>) :: this</div>
+<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;    <span class="comment">! -- local</span></div>
+<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: nodes, n, m, idiag, ipos</div>
+<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;<span class="keywordtype">    real</span>(DP) :: clnm, clmn, dn, dm</div>
+<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;<span class="keywordtype">    real</span>(DP) :: vg1, vg2, vg3</div>
+<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: ihc, isympos</div>
+<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: iavgmeth</div>
+<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;<span class="keywordtype">    real</span>(DP) :: satn, satm, topn, topm, botn, botm</div>
+<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;<span class="keywordtype">    real</span>(DP) :: hwva, cond, cn, cm, denom</div>
+<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;<span class="keywordtype">    real</span>(DP) :: anm, amn, thksatn, thksatm, sill_top, sill_bot, tpn, tpm</div>
+<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;    <span class="comment">! -- set iavgmeth = 1 to use arithmetic averaging for effective dispersion</span></div>
+<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;    iavgmeth = 1</div>
+<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;    <span class="comment">! -- Proces connections</span></div>
+<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;    nodes = <span class="keyword">size</span>(this%d11)</div>
+<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;    <span class="keywordflow">do</span> n = 1, nodes</div>
+<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;      <span class="keywordflow">if</span>(this%fmi%ibdgwfsat0(n) == 0) cycle</div>
+<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;      idiag = this%dis%con%ia(n)</div>
+<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;      <span class="keywordflow">do</span> ipos = this%dis%con%ia(n) + 1, this%dis%con%ia(n + 1) - 1</div>
+<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;        <span class="comment">!</span></div>
+<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;        <span class="comment">! -- Set m to connected cell</span></div>
+<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;        m = this%dis%con%ja(ipos)</div>
+<div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;        <span class="comment">!</span></div>
+<div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;        <span class="comment">! -- skip for lower triangle</span></div>
+<div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160;        <span class="keywordflow">if</span> (m &lt; n) cycle</div>
+<div class="line"><a name="l00844"></a><span class="lineno">  844</span>&#160;        isympos = this%dis%con%jas(ipos)</div>
+<div class="line"><a name="l00845"></a><span class="lineno">  845</span>&#160;        this%dispcoef(isympos) = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00846"></a><span class="lineno">  846</span>&#160;        <span class="keywordflow">if</span>(this%fmi%ibdgwfsat0(m) == 0) cycle</div>
+<div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160;        <span class="comment">!</span></div>
+<div class="line"><a name="l00848"></a><span class="lineno">  848</span>&#160;        <span class="comment">! -- cell dimensions</span></div>
+<div class="line"><a name="l00849"></a><span class="lineno">  849</span>&#160;        hwva = this%dis%con%hwva(isympos)</div>
+<div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160;        clnm = this%dis%con%cl1(isympos)</div>
+<div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160;        clmn = this%dis%con%cl2(isympos)</div>
+<div class="line"><a name="l00852"></a><span class="lineno">  852</span>&#160;        ihc = this%dis%con%ihc(isympos)</div>
+<div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;        topn = this%dis%top(n)</div>
+<div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160;        topm = this%dis%top(m)</div>
+<div class="line"><a name="l00855"></a><span class="lineno">  855</span>&#160;        botn = this%dis%bot(n)</div>
+<div class="line"><a name="l00856"></a><span class="lineno">  856</span>&#160;        botm = this%dis%bot(m)</div>
+<div class="line"><a name="l00857"></a><span class="lineno">  857</span>&#160;        <span class="comment">!</span></div>
+<div class="line"><a name="l00858"></a><span class="lineno">  858</span>&#160;        <span class="comment">! -- flow model information</span></div>
+<div class="line"><a name="l00859"></a><span class="lineno">  859</span>&#160;        satn = this%fmi%gwfsat(n)</div>
+<div class="line"><a name="l00860"></a><span class="lineno">  860</span>&#160;        satm = this%fmi%gwfsat(m)</div>
+<div class="line"><a name="l00861"></a><span class="lineno">  861</span>&#160;        <span class="comment">!</span></div>
+<div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;        <span class="comment">! -- Calculate dispersion coefficient for cell n in the direction</span></div>
+<div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;        <span class="comment">!    normal to the shared n-m face and for cell m in the direction</span></div>
+<div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160;        <span class="comment">!    normal to the shared n-m face.</span></div>
+<div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;        <span class="keyword">call </span>this%dis%connection_normal(n, m, ihc, vg1, vg2, vg3, ipos)</div>
+<div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160;        dn = <a class="code" href="namespacegwfnpfmodule.html#af6557a125519ffbda0826d7c39fec8e1">hyeff_calc</a>(this%d11(n), this%d22(n), this%d33(n),                 &amp;</div>
+<div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160;                        this%angle1(n), this%angle2(n), this%angle3(n),        &amp;</div>
+<div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;                        vg1, vg2, vg3, iavgmeth)</div>
+<div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160;        dm = <a class="code" href="namespacegwfnpfmodule.html#af6557a125519ffbda0826d7c39fec8e1">hyeff_calc</a>(this%d11(m), this%d22(m), this%d33(m),                 &amp;</div>
+<div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;                        this%angle1(m), this%angle2(m), this%angle3(m),        &amp;</div>
+<div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;                        vg1, vg2, vg3, iavgmeth)</div>
+<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;        <span class="comment">!</span></div>
+<div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;        <span class="comment">! -- Calculate dispersion conductance based on NPF subroutines and the</span></div>
+<div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;        <span class="comment">!    effective dispersion coefficients dn and dm.</span></div>
+<div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;        <span class="keywordflow">if</span>(ihc == 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;          clnm = satn * (topn - botn) * <a class="code" href="namespaceconstantsmodule.html#a9262b16d485352c5d369c6cb86232c60">dhalf</a></div>
+<div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160;          clmn = satm * (topm - botm) * <a class="code" href="namespaceconstantsmodule.html#a9262b16d485352c5d369c6cb86232c60">dhalf</a></div>
+<div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160;          anm = hwva</div>
+<div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160;          <span class="comment">!</span></div>
+<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;          <span class="comment">! -- n is convertible and unsaturated</span></div>
+<div class="line"><a name="l00881"></a><span class="lineno">  881</span>&#160;          <span class="keywordflow">if</span> (satn == <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a>) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00882"></a><span class="lineno">  882</span>&#160;            anm = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00883"></a><span class="lineno">  883</span>&#160;          <span class="keywordflow">else</span> <span class="keywordflow">if</span> (n &gt; m .and. satn &lt; <a class="code" href="namespaceconstantsmodule.html#af918ac22cd0b232deea67660bfbc9ce1">done</a>) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00884"></a><span class="lineno">  884</span>&#160;            anm = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00885"></a><span class="lineno">  885</span>&#160;<span class="keywordflow">          endif</span></div>
+<div class="line"><a name="l00886"></a><span class="lineno">  886</span>&#160;          <span class="comment">!</span></div>
+<div class="line"><a name="l00887"></a><span class="lineno">  887</span>&#160;          <span class="comment">! -- m is convertible and unsaturated</span></div>
+<div class="line"><a name="l00888"></a><span class="lineno">  888</span>&#160;          <span class="keywordflow">if</span> (satm == <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a>) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00889"></a><span class="lineno">  889</span>&#160;            anm = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00890"></a><span class="lineno">  890</span>&#160;<span class="keywordflow">          endif</span></div>
-<div class="line"><a name="l00891"></a><span class="lineno">  891</span>&#160;          <span class="comment">!</span></div>
-<div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160;          <span class="comment">! -- m is convertible and unsaturated</span></div>
-<div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160;          <span class="keywordflow">if</span> (satm == <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a>) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00894"></a><span class="lineno">  894</span>&#160;            anm = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00895"></a><span class="lineno">  895</span>&#160;          <span class="keywordflow">else</span> <span class="keywordflow">if</span> (m &gt; n .and. satm &lt; <a class="code" href="namespaceconstantsmodule.html#af918ac22cd0b232deea67660bfbc9ce1">done</a>) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00896"></a><span class="lineno">  896</span>&#160;            anm = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00897"></a><span class="lineno">  897</span>&#160;<span class="keywordflow">          endif</span></div>
+<div class="line"><a name="l00890"></a><span class="lineno">  890</span>&#160;          <span class="keywordflow">else</span> <span class="keywordflow">if</span> (m &gt; n .and. satm &lt; <a class="code" href="namespaceconstantsmodule.html#af918ac22cd0b232deea67660bfbc9ce1">done</a>) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00891"></a><span class="lineno">  891</span>&#160;            anm = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160;<span class="keywordflow">          endif</span></div>
+<div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160;          <span class="comment">!</span></div>
+<div class="line"><a name="l00894"></a><span class="lineno">  894</span>&#160;          <span class="comment">! -- amn is the same as anm for vertical flow</span></div>
+<div class="line"><a name="l00895"></a><span class="lineno">  895</span>&#160;          amn = anm</div>
+<div class="line"><a name="l00896"></a><span class="lineno">  896</span>&#160;        <span class="comment">!</span></div>
+<div class="line"><a name="l00897"></a><span class="lineno">  897</span>&#160;        <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00898"></a><span class="lineno">  898</span>&#160;          <span class="comment">!</span></div>
-<div class="line"><a name="l00899"></a><span class="lineno">  899</span>&#160;          <span class="comment">! -- amn is the same as anm for vertical flow</span></div>
-<div class="line"><a name="l00900"></a><span class="lineno">  900</span>&#160;          amn = anm</div>
-<div class="line"><a name="l00901"></a><span class="lineno">  901</span>&#160;        <span class="comment">!</span></div>
-<div class="line"><a name="l00902"></a><span class="lineno">  902</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00903"></a><span class="lineno">  903</span>&#160;          <span class="comment">!</span></div>
-<div class="line"><a name="l00904"></a><span class="lineno">  904</span>&#160;          <span class="comment">! -- horizontal conductance</span></div>
-<div class="line"><a name="l00905"></a><span class="lineno">  905</span>&#160;          thksatn = (topn - botn) * satn</div>
-<div class="line"><a name="l00906"></a><span class="lineno">  906</span>&#160;          thksatm = (topm - botm) * satm</div>
-<div class="line"><a name="l00907"></a><span class="lineno">  907</span>&#160;          <span class="comment">!</span></div>
-<div class="line"><a name="l00908"></a><span class="lineno">  908</span>&#160;          <span class="comment">! -- handle vertically staggered case</span></div>
-<div class="line"><a name="l00909"></a><span class="lineno">  909</span>&#160;          <span class="keywordflow">if</span> (ihc == 2) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00910"></a><span class="lineno">  910</span>&#160;            sill_top = min(topn, topm)</div>
-<div class="line"><a name="l00911"></a><span class="lineno">  911</span>&#160;            sill_bot = max(botn, botm)</div>
-<div class="line"><a name="l00912"></a><span class="lineno">  912</span>&#160;            tpn = botn + thksatn</div>
-<div class="line"><a name="l00913"></a><span class="lineno">  913</span>&#160;            tpm = botm + thksatm</div>
-<div class="line"><a name="l00914"></a><span class="lineno">  914</span>&#160;            thksatn = max(min(tpn, sill_top) - sill_bot, <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a>)</div>
-<div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160;            thksatm = max(min(tpm, sill_top) - sill_bot, <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a>)</div>
-<div class="line"><a name="l00916"></a><span class="lineno">  916</span>&#160;<span class="keywordflow">          end if</span></div>
-<div class="line"><a name="l00917"></a><span class="lineno">  917</span>&#160;          <span class="comment">!</span></div>
-<div class="line"><a name="l00918"></a><span class="lineno">  918</span>&#160;          <span class="comment">! -- calculate the saturated area term</span></div>
-<div class="line"><a name="l00919"></a><span class="lineno">  919</span>&#160;          anm = thksatn * hwva</div>
-<div class="line"><a name="l00920"></a><span class="lineno">  920</span>&#160;          amn = thksatm * hwva</div>
-<div class="line"><a name="l00921"></a><span class="lineno">  921</span>&#160;          <span class="comment">!</span></div>
-<div class="line"><a name="l00922"></a><span class="lineno">  922</span>&#160;          <span class="comment">! -- n or m is unsaturated, so no dispersion</span></div>
-<div class="line"><a name="l00923"></a><span class="lineno">  923</span>&#160;          <span class="keywordflow">if</span> (satn == <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a> .or. satm == <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a>) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00924"></a><span class="lineno">  924</span>&#160;            anm = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00925"></a><span class="lineno">  925</span>&#160;            amn = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00926"></a><span class="lineno">  926</span>&#160;<span class="keywordflow">          endif</span></div>
-<div class="line"><a name="l00927"></a><span class="lineno">  927</span>&#160;          <span class="comment">!</span></div>
-<div class="line"><a name="l00928"></a><span class="lineno">  928</span>&#160;<span class="keywordflow">        end if</span></div>
-<div class="line"><a name="l00929"></a><span class="lineno">  929</span>&#160;        <span class="comment">!</span></div>
-<div class="line"><a name="l00930"></a><span class="lineno">  930</span>&#160;        <span class="comment">! -- calculate conductance using the two half cell conductances</span></div>
-<div class="line"><a name="l00931"></a><span class="lineno">  931</span>&#160;        cn = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00932"></a><span class="lineno">  932</span>&#160;        <span class="keywordflow">if</span> (clnm &gt; <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a>) cn = dn * anm / clnm</div>
-<div class="line"><a name="l00933"></a><span class="lineno">  933</span>&#160;        cm = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00934"></a><span class="lineno">  934</span>&#160;        <span class="keywordflow">if</span> (clmn &gt; <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a>) cm = dm * amn / clmn</div>
-<div class="line"><a name="l00935"></a><span class="lineno">  935</span>&#160;        denom = cn + cm</div>
-<div class="line"><a name="l00936"></a><span class="lineno">  936</span>&#160;        <span class="keywordflow">if</span> (denom &gt; <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a>) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00937"></a><span class="lineno">  937</span>&#160;          cond = cn * cm / denom</div>
-<div class="line"><a name="l00938"></a><span class="lineno">  938</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00939"></a><span class="lineno">  939</span>&#160;          cond = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00940"></a><span class="lineno">  940</span>&#160;<span class="keywordflow">        end if</span></div>
-<div class="line"><a name="l00941"></a><span class="lineno">  941</span>&#160;        <span class="comment">!</span></div>
-<div class="line"><a name="l00942"></a><span class="lineno">  942</span>&#160;        <span class="comment">! -- Assign the calculated dispersion conductance</span></div>
-<div class="line"><a name="l00943"></a><span class="lineno">  943</span>&#160;        this%dispcoef(isympos) = cond</div>
-<div class="line"><a name="l00944"></a><span class="lineno">  944</span>&#160;        <span class="comment">!</span></div>
-<div class="line"><a name="l00945"></a><span class="lineno">  945</span>&#160;<span class="keywordflow">      enddo</span></div>
-<div class="line"><a name="l00946"></a><span class="lineno">  946</span>&#160;<span class="keywordflow">    enddo</span></div>
-<div class="line"><a name="l00947"></a><span class="lineno">  947</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00948"></a><span class="lineno">  948</span>&#160;    <span class="comment">! -- Return</span></div>
-<div class="line"><a name="l00949"></a><span class="lineno">  949</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00950"></a><span class="lineno">  950</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacegwtdspmodule.html#a77c08298c00f58b40c21da466d1001f0">calcdispcoef</a></div>
-<div class="line"><a name="l00951"></a><span class="lineno">  951</span>&#160;  </div>
-<div class="line"><a name="l00952"></a><span class="lineno">  952</span>&#160;<span class="keyword">end module </span><a class="code" href="namespacegwtdspmodule.html">gwtdspmodule</a></div>
+<div class="line"><a name="l00899"></a><span class="lineno">  899</span>&#160;          <span class="comment">! -- horizontal conductance</span></div>
+<div class="line"><a name="l00900"></a><span class="lineno">  900</span>&#160;          thksatn = (topn - botn) * satn</div>
+<div class="line"><a name="l00901"></a><span class="lineno">  901</span>&#160;          thksatm = (topm - botm) * satm</div>
+<div class="line"><a name="l00902"></a><span class="lineno">  902</span>&#160;          <span class="comment">!</span></div>
+<div class="line"><a name="l00903"></a><span class="lineno">  903</span>&#160;          <span class="comment">! -- handle vertically staggered case</span></div>
+<div class="line"><a name="l00904"></a><span class="lineno">  904</span>&#160;          <span class="keywordflow">if</span> (ihc == 2) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00905"></a><span class="lineno">  905</span>&#160;            sill_top = min(topn, topm)</div>
+<div class="line"><a name="l00906"></a><span class="lineno">  906</span>&#160;            sill_bot = max(botn, botm)</div>
+<div class="line"><a name="l00907"></a><span class="lineno">  907</span>&#160;            tpn = botn + thksatn</div>
+<div class="line"><a name="l00908"></a><span class="lineno">  908</span>&#160;            tpm = botm + thksatm</div>
+<div class="line"><a name="l00909"></a><span class="lineno">  909</span>&#160;            thksatn = max(min(tpn, sill_top) - sill_bot, <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a>)</div>
+<div class="line"><a name="l00910"></a><span class="lineno">  910</span>&#160;            thksatm = max(min(tpm, sill_top) - sill_bot, <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a>)</div>
+<div class="line"><a name="l00911"></a><span class="lineno">  911</span>&#160;<span class="keywordflow">          end if</span></div>
+<div class="line"><a name="l00912"></a><span class="lineno">  912</span>&#160;          <span class="comment">!</span></div>
+<div class="line"><a name="l00913"></a><span class="lineno">  913</span>&#160;          <span class="comment">! -- calculate the saturated area term</span></div>
+<div class="line"><a name="l00914"></a><span class="lineno">  914</span>&#160;          anm = thksatn * hwva</div>
+<div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160;          amn = thksatm * hwva</div>
+<div class="line"><a name="l00916"></a><span class="lineno">  916</span>&#160;          <span class="comment">!</span></div>
+<div class="line"><a name="l00917"></a><span class="lineno">  917</span>&#160;          <span class="comment">! -- n or m is unsaturated, so no dispersion</span></div>
+<div class="line"><a name="l00918"></a><span class="lineno">  918</span>&#160;          <span class="keywordflow">if</span> (satn == <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a> .or. satm == <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a>) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00919"></a><span class="lineno">  919</span>&#160;            anm = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00920"></a><span class="lineno">  920</span>&#160;            amn = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00921"></a><span class="lineno">  921</span>&#160;<span class="keywordflow">          endif</span></div>
+<div class="line"><a name="l00922"></a><span class="lineno">  922</span>&#160;          <span class="comment">!</span></div>
+<div class="line"><a name="l00923"></a><span class="lineno">  923</span>&#160;<span class="keywordflow">        end if</span></div>
+<div class="line"><a name="l00924"></a><span class="lineno">  924</span>&#160;        <span class="comment">!</span></div>
+<div class="line"><a name="l00925"></a><span class="lineno">  925</span>&#160;        <span class="comment">! -- calculate conductance using the two half cell conductances</span></div>
+<div class="line"><a name="l00926"></a><span class="lineno">  926</span>&#160;        cn = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00927"></a><span class="lineno">  927</span>&#160;        <span class="keywordflow">if</span> (clnm &gt; <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a>) cn = dn * anm / clnm</div>
+<div class="line"><a name="l00928"></a><span class="lineno">  928</span>&#160;        cm = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00929"></a><span class="lineno">  929</span>&#160;        <span class="keywordflow">if</span> (clmn &gt; <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a>) cm = dm * amn / clmn</div>
+<div class="line"><a name="l00930"></a><span class="lineno">  930</span>&#160;        denom = cn + cm</div>
+<div class="line"><a name="l00931"></a><span class="lineno">  931</span>&#160;        <span class="keywordflow">if</span> (denom &gt; <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a>) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00932"></a><span class="lineno">  932</span>&#160;          cond = cn * cm / denom</div>
+<div class="line"><a name="l00933"></a><span class="lineno">  933</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00934"></a><span class="lineno">  934</span>&#160;          cond = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00935"></a><span class="lineno">  935</span>&#160;<span class="keywordflow">        end if</span></div>
+<div class="line"><a name="l00936"></a><span class="lineno">  936</span>&#160;        <span class="comment">!</span></div>
+<div class="line"><a name="l00937"></a><span class="lineno">  937</span>&#160;        <span class="comment">! -- Assign the calculated dispersion conductance</span></div>
+<div class="line"><a name="l00938"></a><span class="lineno">  938</span>&#160;        this%dispcoef(isympos) = cond</div>
+<div class="line"><a name="l00939"></a><span class="lineno">  939</span>&#160;        <span class="comment">!</span></div>
+<div class="line"><a name="l00940"></a><span class="lineno">  940</span>&#160;<span class="keywordflow">      enddo</span></div>
+<div class="line"><a name="l00941"></a><span class="lineno">  941</span>&#160;<span class="keywordflow">    enddo</span></div>
+<div class="line"><a name="l00942"></a><span class="lineno">  942</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00943"></a><span class="lineno">  943</span>&#160;    <span class="comment">! -- Return</span></div>
+<div class="line"><a name="l00944"></a><span class="lineno">  944</span>&#160;    <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00945"></a><span class="lineno">  945</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacegwtdspmodule.html#a77c08298c00f58b40c21da466d1001f0">calcdispcoef</a></div>
+<div class="line"><a name="l00946"></a><span class="lineno">  946</span>&#160;  </div>
+<div class="line"><a name="l00947"></a><span class="lineno">  947</span>&#160;<span class="keyword">end module </span><a class="code" href="namespacegwtdspmodule.html">gwtdspmodule</a></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="astructgwtfmimodule_1_1gwtfmitype_html"><div class="ttname"><a href="structgwtfmimodule_1_1gwtfmitype.html">gwtfmimodule::gwtfmitype</a></div><div class="ttdef"><b>Definition:</b> <a href="gwt1fmi1_8f90_source.html#l00033">gwt1fmi1.f90:33</a></div></div>
@@ -1073,14 +1068,14 @@ $(document).ready(function(){initNavTree('gwt1dsp_8f90_source.html',''); initRes
 <div class="ttc" id="anamespacekindmodule_html"><div class="ttname"><a href="namespacekindmodule.html">kindmodule</a></div><div class="ttdoc">This module defines variable data types.</div><div class="ttdef"><b>Definition:</b> <a href="kind_8f90_source.html#l00008">kind.f90:8</a></div></div>
 <div class="ttc" id="anamespacegwtdspmodule_html_a444da6d575bac49f9c6c9d486a24352e"><div class="ttname"><a href="namespacegwtdspmodule.html#a444da6d575bac49f9c6c9d486a24352e">gwtdspmodule::allocate_scalars</a></div><div class="ttdeci">subroutine allocate_scalars(this)</div><div class="ttdef"><b>Definition:</b> <a href="gwt1dsp_8f90_source.html#l00355">gwt1dsp.f90:355</a></div></div>
 <div class="ttc" id="astructgwtdspmodule_1_1gwtdsptype_html"><div class="ttname"><a href="structgwtdspmodule_1_1gwtdsptype.html">gwtdspmodule::gwtdsptype</a></div><div class="ttdef"><b>Definition:</b> <a href="gwt1dsp_8f90_source.html#l00015">gwt1dsp.f90:15</a></div></div>
-<div class="ttc" id="anamespacegwtdspmodule_html_a72cebc6d6e7f6640975689a3542fde6e"><div class="ttname"><a href="namespacegwtdspmodule.html#a72cebc6d6e7f6640975689a3542fde6e">gwtdspmodule::read_data</a></div><div class="ttdeci">subroutine read_data(this)</div><div class="ttdef"><b>Definition:</b> <a href="gwt1dsp_8f90_source.html#l00544">gwt1dsp.f90:544</a></div></div>
+<div class="ttc" id="anamespacegwtdspmodule_html_a72cebc6d6e7f6640975689a3542fde6e"><div class="ttname"><a href="namespacegwtdspmodule.html#a72cebc6d6e7f6640975689a3542fde6e">gwtdspmodule::read_data</a></div><div class="ttdeci">subroutine read_data(this)</div><div class="ttdef"><b>Definition:</b> <a href="gwt1dsp_8f90_source.html#l00543">gwt1dsp.f90:543</a></div></div>
 <div class="ttc" id="anamespacegwtdspmodule_html_a1025fe40ad98520c0d26e25f792b4df3"><div class="ttname"><a href="namespacegwtdspmodule.html#a1025fe40ad98520c0d26e25f792b4df3">gwtdspmodule::dsp_cr</a></div><div class="ttdeci">subroutine, public dsp_cr(dspobj, name_model, inunit, iout, fmi)</div><div class="ttdef"><b>Definition:</b> <a href="gwt1dsp_8f90_source.html#l00065">gwt1dsp.f90:65</a></div></div>
+<div class="ttc" id="anamespacesimmodule_html_a21870712a1166225fdcd5b60bffb353e"><div class="ttname"><a href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">simmodule::store_error</a></div><div class="ttdeci">subroutine, public store_error(msg, terminate)</div><div class="ttdoc">Store error message.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_8f90_source.html#l00129">Sim.f90:129</a></div></div>
 <div class="ttc" id="anamespaceconstantsmodule_html_abab5757666b9ddd2726c20ce48dd0050"><div class="ttname"><a href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">constantsmodule::dzero</a></div><div class="ttdeci">real(dp), parameter dzero</div><div class="ttdoc">real constant zero</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00053">Constants.f90:53</a></div></div>
 <div class="ttc" id="anamespacegwtdspmodule_html_af95c044eec9fb27c69cf431c71c6b387"><div class="ttname"><a href="namespacegwtdspmodule.html#af95c044eec9fb27c69cf431c71c6b387">gwtdspmodule::dsp_ac</a></div><div class="ttdeci">subroutine dsp_ac(this, moffset, sparse)</div><div class="ttdef"><b>Definition:</b> <a href="gwt1dsp_8f90_source.html#l00141">gwt1dsp.f90:141</a></div></div>
 <div class="ttc" id="astructxt3dmodule_1_1xt3dtype_html"><div class="ttname"><a href="structxt3dmodule_1_1xt3dtype.html">xt3dmodule::xt3dtype</a></div><div class="ttdef"><b>Definition:</b> <a href="_xt3d_interface_8f90_source.html#l00012">Xt3dInterface.f90:12</a></div></div>
 <div class="ttc" id="anamespacebasedismodule_html"><div class="ttname"><a href="namespacebasedismodule.html">basedismodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_discretization_base_8f90_source.html#l00001">DiscretizationBase.f90:1</a></div></div>
 <div class="ttc" id="anamespacegwtdspmodule_html_ac937abcd1a67dca3f3402fb9d939577b"><div class="ttname"><a href="namespacegwtdspmodule.html#ac937abcd1a67dca3f3402fb9d939577b">gwtdspmodule::dsp_ar</a></div><div class="ttdeci">subroutine dsp_ar(this, ibound, porosity)</div><div class="ttdef"><b>Definition:</b> <a href="gwt1dsp_8f90_source.html#l00189">gwt1dsp.f90:189</a></div></div>
-<div class="ttc" id="anamespacesimmodule_html_a536cb6f0e13fcd33755e414641ff931a"><div class="ttname"><a href="namespacesimmodule.html#a536cb6f0e13fcd33755e414641ff931a">simmodule::store_error</a></div><div class="ttdeci">subroutine, public store_error(msg)</div><div class="ttdoc">Store error message.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_8f90_source.html#l00129">Sim.f90:129</a></div></div>
 <div class="ttc" id="anamespaceconstantsmodule_html_a9262b16d485352c5d369c6cb86232c60"><div class="ttname"><a href="namespaceconstantsmodule.html#a9262b16d485352c5d369c6cb86232c60">constantsmodule::dhalf</a></div><div class="ttdeci">real(dp), parameter dhalf</div><div class="ttdoc">real constant 1/2</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00056">Constants.f90:56</a></div></div>
 <div class="ttc" id="anamespacesimmodule_html_a4c46e49de78d4498dd4ec106357775e6"><div class="ttname"><a href="namespacesimmodule.html#a4c46e49de78d4498dd4ec106357775e6">simmodule::count_errors</a></div><div class="ttdeci">integer(i4b) function, public count_errors()</div><div class="ttdoc">Return number of errors.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_8f90_source.html#l00059">Sim.f90:59</a></div></div>
 <div class="ttc" id="ainterfacememorymanagermodule_1_1mem__reassignptr_html"><div class="ttname"><a href="interfacememorymanagermodule_1_1mem__reassignptr.html">memorymanagermodule::mem_reassignptr</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00080">MemoryManager.f90:80</a></div></div>
@@ -1089,14 +1084,13 @@ $(document).ready(function(){initNavTree('gwt1dsp_8f90_source.html',''); initRes
 <div class="ttc" id="astructsparsemodule_1_1sparsematrix_html"><div class="ttname"><a href="structsparsemodule_1_1sparsematrix.html">sparsemodule::sparsematrix</a></div><div class="ttdef"><b>Definition:</b> <a href="_sparse_8f90_source.html#l00014">Sparse.f90:14</a></div></div>
 <div class="ttc" id="anamespaceconstantsmodule_html_aa190ea61b44b2ef628329833de6543a9"><div class="ttname"><a href="namespaceconstantsmodule.html#aa190ea61b44b2ef628329833de6543a9">constantsmodule::dpi</a></div><div class="ttdeci">real(dp), parameter dpi</div><div class="ttdoc">real constant</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00108">Constants.f90:108</a></div></div>
 <div class="ttc" id="anamespaceconstantsmodule_html_a060d310ded5535ce2dc85bd1ca1afd3d"><div class="ttname"><a href="namespaceconstantsmodule.html#a060d310ded5535ce2dc85bd1ca1afd3d">constantsmodule::linelength</a></div><div class="ttdeci">integer(i4b), parameter linelength</div><div class="ttdoc">maximum length of a standard line</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00036">Constants.f90:36</a></div></div>
-<div class="ttc" id="anamespacegwtdspmodule_html_a77c08298c00f58b40c21da466d1001f0"><div class="ttname"><a href="namespacegwtdspmodule.html#a77c08298c00f58b40c21da466d1001f0">gwtdspmodule::calcdispcoef</a></div><div class="ttdeci">subroutine calcdispcoef(this)</div><div class="ttdef"><b>Definition:</b> <a href="gwt1dsp_8f90_source.html#l00813">gwt1dsp.f90:813</a></div></div>
+<div class="ttc" id="anamespacegwtdspmodule_html_a77c08298c00f58b40c21da466d1001f0"><div class="ttname"><a href="namespacegwtdspmodule.html#a77c08298c00f58b40c21da466d1001f0">gwtdspmodule::calcdispcoef</a></div><div class="ttdeci">subroutine calcdispcoef(this)</div><div class="ttdef"><b>Definition:</b> <a href="gwt1dsp_8f90_source.html#l00808">gwt1dsp.f90:808</a></div></div>
 <div class="ttc" id="anamespacegwtdspmodule_html_a0fdb17a00fbbe83b6229ddec4237ac51"><div class="ttname"><a href="namespacegwtdspmodule.html#a0fdb17a00fbbe83b6229ddec4237ac51">gwtdspmodule::dsp_fc</a></div><div class="ttdeci">subroutine dsp_fc(this, kiter, nodes, nja, njasln, amatsln, idxglo, rhs, cnew)</div><div class="ttdef"><b>Definition:</b> <a href="gwt1dsp_8f90_source.html#l00265">gwt1dsp.f90:265</a></div></div>
-<div class="ttc" id="anamespacesimmodule_html_a0be97214c1d4fcf42bc4ddc27b111b61"><div class="ttname"><a href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61">simmodule::ustop</a></div><div class="ttdeci">subroutine, public ustop(stopmess, ioutlocal)</div><div class="ttdoc">Stop the simulation.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_8f90_source.html#l00321">Sim.f90:321</a></div></div>
 <div class="ttc" id="ainterfacememorymanagermodule_1_1mem__allocate_html"><div class="ttname"><a href="interfacememorymanagermodule_1_1mem__allocate.html">memorymanagermodule::mem_allocate</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00050">MemoryManager.f90:50</a></div></div>
 <div class="ttc" id="ainterfacememorymanagermodule_1_1mem__copyptr_html"><div class="ttname"><a href="interfacememorymanagermodule_1_1mem__copyptr.html">memorymanagermodule::mem_copyptr</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00075">MemoryManager.f90:75</a></div></div>
-<div class="ttc" id="anamespacegwtdspmodule_html_ae09fda3471794302fdbee6d45125d2eb"><div class="ttname"><a href="namespacegwtdspmodule.html#ae09fda3471794302fdbee6d45125d2eb">gwtdspmodule::calcdispellipse</a></div><div class="ttdeci">subroutine calcdispellipse(this)</div><div class="ttdef"><b>Definition:</b> <a href="gwt1dsp_8f90_source.html#l00696">gwt1dsp.f90:696</a></div></div>
+<div class="ttc" id="anamespacegwtdspmodule_html_ae09fda3471794302fdbee6d45125d2eb"><div class="ttname"><a href="namespacegwtdspmodule.html#ae09fda3471794302fdbee6d45125d2eb">gwtdspmodule::calcdispellipse</a></div><div class="ttdeci">subroutine calcdispellipse(this)</div><div class="ttdef"><b>Definition:</b> <a href="gwt1dsp_8f90_source.html#l00691">gwt1dsp.f90:691</a></div></div>
 <div class="ttc" id="anamespacekindmodule_html_a2f6861418b5e7d3d602b77228232a470"><div class="ttname"><a href="namespacekindmodule.html#a2f6861418b5e7d3d602b77228232a470">kindmodule::i4b</a></div><div class="ttdeci">integer, parameter i4b</div><div class="ttdoc">Integer kind.</div><div class="ttdef"><b>Definition:</b> <a href="kind_8f90_source.html#l00016">kind.f90:16</a></div></div>
-<div class="ttc" id="anamespacegwfnpfmodule_html_af6557a125519ffbda0826d7c39fec8e1"><div class="ttname"><a href="namespacegwfnpfmodule.html#af6557a125519ffbda0826d7c39fec8e1">gwfnpfmodule::hyeff_calc</a></div><div class="ttdeci">real(dp) function, public hyeff_calc(k11, k22, k33, ang1, ang2, ang3, vg1, vg2, vg3, iavgmeth)</div><div class="ttdef"><b>Definition:</b> <a href="gwf3npf8_8f90_source.html#l02927">gwf3npf8.f90:2927</a></div></div>
+<div class="ttc" id="anamespacegwfnpfmodule_html_af6557a125519ffbda0826d7c39fec8e1"><div class="ttname"><a href="namespacegwfnpfmodule.html#af6557a125519ffbda0826d7c39fec8e1">gwfnpfmodule::hyeff_calc</a></div><div class="ttdeci">real(dp) function, public hyeff_calc(k11, k22, k33, ang1, ang2, ang3, vg1, vg2, vg3, iavgmeth)</div><div class="ttdef"><b>Definition:</b> <a href="gwf3npf8_8f90_source.html#l03068">gwf3npf8.f90:3068</a></div></div>
 <div class="ttc" id="anamespacegwtfmimodule_html"><div class="ttname"><a href="namespacegwtfmimodule.html">gwtfmimodule</a></div><div class="ttdef"><b>Definition:</b> <a href="gwt1fmi1_8f90_source.html#l00001">gwt1fmi1.f90:1</a></div></div>
 <div class="ttc" id="anamespacext3dmodule_html_ad20f01d9a9fe69c0d007ba046a0435eb"><div class="ttname"><a href="namespacext3dmodule.html#ad20f01d9a9fe69c0d007ba046a0435eb">xt3dmodule::xt3d_cr</a></div><div class="ttdeci">subroutine, public xt3d_cr(xt3dobj, name_model, inunit, iout, ldispopt)</div><div class="ttdef"><b>Definition:</b> <a href="_xt3d_interface_8f90_source.html#l00081">Xt3dInterface.f90:81</a></div></div>
 <div class="ttc" id="anamespacegwtdspmodule_html_a945e95c85c5a6f7b5e94fa3f86ec8904"><div class="ttname"><a href="namespacegwtdspmodule.html#a945e95c85c5a6f7b5e94fa3f86ec8904">gwtdspmodule::dsp_ad</a></div><div class="ttdeci">subroutine dsp_ad(this)</div><div class="ttdef"><b>Definition:</b> <a href="gwt1dsp_8f90_source.html#l00225">gwt1dsp.f90:225</a></div></div>
@@ -1122,7 +1116,7 @@ $(document).ready(function(){initNavTree('gwt1dsp_8f90_source.html',''); initRes
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_32e188284d239da8bb14ec1dabb0c35f.html">Model</a></li><li class="navelem"><a class="el" href="dir_5ac382e795535087161f2a8b7f95a830.html">GroundWaterTransport</a></li><li class="navelem"><a class="el" href="gwt1dsp_8f90.html">gwt1dsp.f90</a></li>
-    <li class="footer">Generated on Wed Jul 14 2021 10:58:05 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Sep 29 2021 08:34:20 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -72,6 +72,7 @@ var structmawmodule_1_1mawtype =
     [ "hk", "structmawmodule_1_1mawtype.html#a6df536992eb611452a19c4ec37919e26", null ],
     [ "iaconn", "structmawmodule_1_1mawtype.html#a7d04b14783682362e5deb45fa48031aa", null ],
     [ "iboundpak", "structmawmodule_1_1mawtype.html#a09a203b193aa8782ca05e9586407e2ce", null ],
+    [ "ibudcsv", "structmawmodule_1_1mawtype.html#a8adfa7474a9530cbb6b0d7be12b3c4a9", null ],
     [ "ibudgetout", "structmawmodule_1_1mawtype.html#aba5a3a048d57cabfd14550128078cd21", null ],
     [ "idense", "structmawmodule_1_1mawtype.html#a6aa0b18b500c1f450ea593c1a17e5fe4", null ],
     [ "idxdglo", "structmawmodule_1_1mawtype.html#a8b9d9b96a9cf35405f4396704d0ae657", null ],

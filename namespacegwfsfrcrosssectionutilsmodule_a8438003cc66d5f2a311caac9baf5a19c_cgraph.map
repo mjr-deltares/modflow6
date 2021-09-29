@@ -1,0 +1,5 @@
+<map id="gwfsfrcrosssectionutilsmodule::get_wetted_topwidth" name="gwfsfrcrosssectionutilsmodule::get_wetted_topwidth">
+<area shape="rect" id="node1" title="Calculate the wetted top width for a reach." alt="" coords="5,5,227,47"/>
+<area shape="rect" id="node2" href="$namespacegwfsfrcrosssectionutilsmodule.html#a11c6ec9b28737071b2c2a8f39cb13c26" title="Calculate the wetted top widths for each line segment." alt="" coords="275,5,496,47"/>
+<area shape="rect" id="node3" href="$namespacegwfsfrcrosssectionutilsmodule.html#a8c5b548e8cb05e8b72009d9e3176b4a2" title="Calculate the station values for the wetted portion of the cross&#45;section." alt="" coords="544,5,765,47"/>
+</map>

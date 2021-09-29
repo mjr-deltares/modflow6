@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="mf6-triangular-grid.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">MODFLOW 6
-   &#160;<span id="projectnumber">version 6.2.2</span>
+   &#160;<span id="projectnumber">version 6.3.0</span>
    </div>
    <div id="projectbrief">MODFLOW 6 Code Documentation</div>
   </td>
@@ -124,12 +124,13 @@ $(document).ready(function(){initNavTree('_boundary_package_8f90.html',''); init
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Types</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbndmodule_1_1bndtype.html">bndmodule::bndtype</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">@ brief BndType  <a href="structbndmodule_1_1bndtype.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Modules</h2></td></tr>
 <tr class="memitem:namespacebndmodule"><td class="memItemLeft" align="right" valign="top">module &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebndmodule.html">bndmodule</a></td></tr>
-<tr class="memdesc:namespacebndmodule"><td class="mdescLeft">&#160;</td><td class="mdescRight">This module contains the base model package. <br /></td></tr>
+<tr class="memdesc:namespacebndmodule"><td class="mdescLeft">&#160;</td><td class="mdescRight">This module contains the base boundary package. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -188,9 +189,9 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a2822e27845b880d6ad888240a0120b87"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebndmodule.html#a2822e27845b880d6ad888240a0120b87">bndmodule::bnd_ot_dv</a> (this, idvsave, idvprint)</td></tr>
 <tr class="memdesc:a2822e27845b880d6ad888240a0120b87"><td class="mdescLeft">&#160;</td><td class="mdescRight">@ brief Output advanced package dependent-variable terms.  <a href="namespacebndmodule.html#a2822e27845b880d6ad888240a0120b87">More...</a><br /></td></tr>
 <tr class="separator:a2822e27845b880d6ad888240a0120b87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7d203ae3aca367a4760c29cc0343c42"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebndmodule.html#af7d203ae3aca367a4760c29cc0343c42">bndmodule::bnd_ot_bdsummary</a> (this, kstp, kper, iout)</td></tr>
-<tr class="memdesc:af7d203ae3aca367a4760c29cc0343c42"><td class="mdescLeft">&#160;</td><td class="mdescRight">@ brief Output advanced package budget summary.  <a href="namespacebndmodule.html#af7d203ae3aca367a4760c29cc0343c42">More...</a><br /></td></tr>
-<tr class="separator:af7d203ae3aca367a4760c29cc0343c42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e156a20b435ac183389d6b70bcf0635"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebndmodule.html#a9e156a20b435ac183389d6b70bcf0635">bndmodule::bnd_ot_bdsummary</a> (this, kstp, kper, iout, ibudfl)</td></tr>
+<tr class="memdesc:a9e156a20b435ac183389d6b70bcf0635"><td class="mdescLeft">&#160;</td><td class="mdescRight">@ brief Output advanced package budget summary.  <a href="namespacebndmodule.html#a9e156a20b435ac183389d6b70bcf0635">More...</a><br /></td></tr>
+<tr class="separator:a9e156a20b435ac183389d6b70bcf0635"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a433859417b7056df12692f3ccad66e16"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebndmodule.html#a433859417b7056df12692f3ccad66e16">bndmodule::bnd_ot_model_flows</a> (this, icbcfl, ibudfl, icbcun, imap)</td></tr>
 <tr class="memdesc:a433859417b7056df12692f3ccad66e16"><td class="mdescLeft">&#160;</td><td class="mdescRight">@ brief Output package flow terms.  <a href="namespacebndmodule.html#a433859417b7056df12692f3ccad66e16">More...</a><br /></td></tr>
 <tr class="separator:a433859417b7056df12692f3ccad66e16"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -264,7 +265,7 @@ Functions/Subroutines</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_32e188284d239da8bb14ec1dabb0c35f.html">Model</a></li><li class="navelem"><a class="el" href="dir_c1f30da02202fb3f19a3c29076dafee1.html">ModelUtilities</a></li><li class="navelem"><a class="el" href="_boundary_package_8f90.html">BoundaryPackage.f90</a></li>
-    <li class="footer">Generated on Wed Jul 14 2021 10:58:05 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Sep 29 2021 08:34:21 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -19,5 +19,6 @@ var gwf3rch8_8f90 =
     [ "rch_rp_ts", "gwf3rch8_8f90.html#a43f759c2091a21a4c1ac437869a6e091", null ],
     [ "set_nodesontop", "gwf3rch8_8f90.html#ad155b5a7c22547b0b50b20c49807473f", null ],
     [ "ftype", "gwf3rch8_8f90.html#ae81b7bc72f97a964ef3f297008cb91d4", null ],
-    [ "text", "gwf3rch8_8f90.html#ac7c699655344378d573ec321dcb6e3da", null ]
+    [ "text", "gwf3rch8_8f90.html#ac7c699655344378d573ec321dcb6e3da", null ],
+    [ "texta", "gwf3rch8_8f90.html#a762ac356323c8b8654a0bdd50f33c23e", null ]
 ];

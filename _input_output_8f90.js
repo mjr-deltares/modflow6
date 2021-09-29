@@ -13,7 +13,6 @@ var _input_output_8f90 =
     [ "get_nwords", "_input_output_8f90.html#a87643079f91094dcead5dcc634ce1b4d", null ],
     [ "getfilefrompath", "_input_output_8f90.html#a23290af3b67b515f8452e48a56ed2955", null ],
     [ "getunit", "_input_output_8f90.html#a535bdfca3d31ebc3a8e4bd5af6890d55", null ],
-    [ "linear_interpolate", "_input_output_8f90.html#a5c5a026a2298577eb353f39d91504598", null ],
     [ "lowcase", "_input_output_8f90.html#a5d0681efcccbea67f1d521a6729cbb4f", null ],
     [ "openfile", "_input_output_8f90.html#ae97851e3edae8d9809e384058a1a4d52", null ],
     [ "parseline", "_input_output_8f90.html#a6c54d102f5c67defd36241a197a7ca56", null ],

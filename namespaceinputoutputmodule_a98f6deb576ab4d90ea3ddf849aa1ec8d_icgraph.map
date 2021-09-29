@@ -1,5 +1,5 @@
 <map id="inputoutputmodule::print_format" name="inputoutputmodule::print_format">
-<area shape="rect" id="node1" title=" " alt="" coords="200,39,355,80"/>
-<area shape="rect" id="node2" href="$namespaceoutputcontroldata.html#a54e147b3c97b9472f11daca3907158ab" title=" " alt="" coords="5,5,152,47"/>
-<area shape="rect" id="node3" href="$namespaceoutputcontroldata.html#a69d34d636f2fa29e0e0272ae85c3d38a" title=" " alt="" coords="5,71,152,112"/>
+<area shape="rect" id="node1" title=" " alt="" coords="240,39,395,80"/>
+<area shape="rect" id="node2" href="$namespaceoutputcontroldatamodule.html#a7036b3616b97a823faefbc12ec36a27d" title="@ brief Initialize this OutputControlDataType as double precision data" alt="" coords="5,5,192,47"/>
+<area shape="rect" id="node3" href="$namespaceoutputcontroldatamodule.html#acd0909f16182d5588a0c0f79b3cda415" title="@ brief Initialize this OutputControlDataType as integer data" alt="" coords="5,71,192,112"/>
 </map>

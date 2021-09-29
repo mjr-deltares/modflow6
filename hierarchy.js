@@ -1,5 +1,6 @@
 var hierarchy =
 [
+    [ "tvbasemodule::ar_set_pointers", "interfacetvbasemodule_1_1ar__set__pointers.html", null ],
     [ "baseexchangemodule::baseexchangetype", "structbaseexchangemodule_1_1baseexchangetype.html", null ],
     [ "baseexchangetype", null, [
       [ "gwfgwtexchangemodule::gwfgwtexchangetype", "structgwfgwtexchangemodule_1_1gwfgwtexchangetype.html", null ],
@@ -14,10 +15,10 @@ var hierarchy =
       [ "numericalmodelmodule::numericalmodeltype", "structnumericalmodelmodule_1_1numericalmodeltype.html", null ]
     ] ],
     [ "basemodelmodule::basemodeltype", "structbasemodelmodule_1_1basemodeltype.html", null ],
+    [ "basesolutionmodule::basesolutiontype", "structbasesolutionmodule_1_1basesolutiontype.html", null ],
     [ "basesolutiontype", null, [
       [ "numericalsolutionmodule::numericalsolutiontype", "structnumericalsolutionmodule_1_1numericalsolutiontype.html", null ]
     ] ],
-    [ "basesolutionmodule::basesolutiontype", "structbasesolutionmodule_1_1basesolutiontype.html", null ],
     [ "blockparsermodule::blockparsertype", "structblockparsermodule_1_1blockparsertype.html", null ],
     [ "bmif::bmi", "structbmif_1_1bmi.html", null ],
     [ "bmif::bmif_finalize", "interfacebmif_1_1bmif__finalize.html", null ],
@@ -107,6 +108,7 @@ var hierarchy =
     [ "arrayhandlersmodule::expandarray", "interfacearrayhandlersmodule_1_1expandarray.html", null ],
     [ "arrayhandlersmodule::expandarraywrapper", "interfacearrayhandlersmodule_1_1expandarraywrapper.html", null ],
     [ "arrayhandlersmodule::extendptrarray", "interfacearrayhandlersmodule_1_1extendptrarray.html", null ],
+    [ "tvbasemodule::get_pointer_to_value", "interfacetvbasemodule_1_1get__pointer__to__value.html", null ],
     [ "gwfictype", null, [
       [ "gwticmodule::gwtictype", "structgwticmodule_1_1gwtictype.html", null ]
     ] ],
@@ -118,6 +120,7 @@ var hierarchy =
       [ "gwtsftmodule::gwtsfttype", "structgwtsftmodule_1_1gwtsfttype.html", null ],
       [ "gwtuztmodule::gwtuzttype", "structgwtuztmodule_1_1gwtuzttype.html", null ]
     ] ],
+    [ "gwtspcmodule::gwtspctype", "structgwtspcmodule_1_1gwtspctype.html", null ],
     [ "hashtablemodule::hashlisttype", "structhashtablemodule_1_1hashlisttype.html", null ],
     [ "hashtablemodule::hashtabletype", "structhashtablemodule_1_1hashtabletype.html", null ],
     [ "headfilereadermodule::headfilereadertype", "structheadfilereadermodule_1_1headfilereadertype.html", null ],
@@ -165,7 +168,8 @@ var hierarchy =
       [ "gwtfmimodule::gwtfmitype", "structgwtfmimodule_1_1gwtfmitype.html", null ],
       [ "gwtmstmodule::gwtmsttype", "structgwtmstmodule_1_1gwtmsttype.html", null ],
       [ "gwtmvtmodule::gwtmvttype", "structgwtmvtmodule_1_1gwtmvttype.html", null ],
-      [ "gwtssmmodule::gwtssmtype", "structgwtssmmodule_1_1gwtssmtype.html", null ]
+      [ "gwtssmmodule::gwtssmtype", "structgwtssmmodule_1_1gwtssmtype.html", null ],
+      [ "tvbasemodule::tvbasetype", "structtvbasemodule_1_1tvbasetype.html", null ]
     ] ],
     [ "numericalpackagemodule::numericalpackagetype", "structnumericalpackagemodule_1_1numericalpackagetype.html", null ],
     [ "obscontainermodule::obscontainertype", "structobscontainermodule_1_1obscontainertype.html", null ],
@@ -178,7 +182,7 @@ var hierarchy =
       [ "gwtobsmodule::gwtobstype", "structgwtobsmodule_1_1gwtobstype.html", null ]
     ] ],
     [ "obsmodule::obstype", "structobsmodule_1_1obstype.html", null ],
-    [ "outputcontroldata::outputcontroldatatype", "structoutputcontroldata_1_1outputcontroldatatype.html", null ],
+    [ "outputcontroldatamodule::outputcontroldatatype", "structoutputcontroldatamodule_1_1outputcontroldatatype.html", null ],
     [ "outputcontroltype", null, [
       [ "gwfocmodule::gwfoctype", "structgwfocmodule_1_1gwfoctype.html", null ],
       [ "gwtocmodule::gwtoctype", "structgwtocmodule_1_1gwtoctype.html", null ]
@@ -189,9 +193,13 @@ var hierarchy =
     [ "printsavemanagermodule::printsavemanagertype", "structprintsavemanagermodule_1_1printsavemanagertype.html", null ],
     [ "observemodule::ProcessIdSub", "interfaceobservemodule_1_1_process_id_sub.html", null ],
     [ "sortmodule::qsort", "interfacesortmodule_1_1qsort.html", null ],
+    [ "tvbasemodule::read_option", "interfacetvbasemodule_1_1read__option.html", null ],
     [ "arrayreadersmodule::readarray", "interfacearrayreadersmodule_1_1readarray.html", null ],
+    [ "tvbasemodule::reset_change_flags", "interfacetvbasemodule_1_1reset__change__flags.html", null ],
     [ "sparsemodule::rowtype", "structsparsemodule_1_1rowtype.html", null ],
+    [ "tvbasemodule::set_changed_at", "interfacetvbasemodule_1_1set__changed__at.html", null ],
     [ "memorysethandlermodule::set_handler_iface", "interfacememorysethandlermodule_1_1set__handler__iface.html", null ],
+    [ "gwfsfrcrosssectionutilsmodule::sfrcrosssectiontype", "structgwfsfrcrosssectionutilsmodule_1_1sfrcrosssectiontype.html", null ],
     [ "basesolutionmodule::sln_ad", "interfacebasesolutionmodule_1_1sln__ad.html", null ],
     [ "basesolutionmodule::sln_ar", "interfacebasesolutionmodule_1_1sln__ar.html", null ],
     [ "basesolutionmodule::sln_ca", "interfacebasesolutionmodule_1_1sln__ca.html", null ],
@@ -220,8 +228,13 @@ var hierarchy =
     [ "timeseriesmanagermodule::timeseriesmanagertype", "structtimeseriesmanagermodule_1_1timeseriesmanagertype.html", null ],
     [ "timeseriesrecordmodule::timeseriesrecordtype", "structtimeseriesrecordmodule_1_1timeseriesrecordtype.html", null ],
     [ "timeseriesmodule::timeseriestype", "structtimeseriesmodule_1_1timeseriestype.html", null ],
+    [ "tvbasetype", null, [
+      [ "tvkmodule::tvktype", "structtvkmodule_1_1tvktype.html", null ],
+      [ "tvsmodule::tvstype", "structtvsmodule_1_1tvstype.html", null ]
+    ] ],
     [ "sortmodule::unique_values", "interfacesortmodule_1_1unique__values.html", null ],
     [ "uzfcellgroupmodule::uzfcellgrouptype", "structuzfcellgroupmodule_1_1uzfcellgrouptype.html", null ],
+    [ "tvbasemodule::validate_change", "interfacetvbasemodule_1_1validate__change.html", null ],
     [ "xt3dmodule::xt3dtype", "structxt3dmodule_1_1xt3dtype.html", null ],
     [ "access", null, null ],
     [ "ACCESS", null, null ],
@@ -288,7 +301,6 @@ var hierarchy =
     [ "ConstructObservation", null, null ],
     [ "ConstructObsOutput", null, null ],
     [ "ConstructTimeArray", null, null ],
-    [ "ConstructTimeArraySeries", null, null ],
     [ "ConstructTimeArraySeriesLink", null, null ],
     [ "ConstructTimeSeriesFile", null, null ],
     [ "ConstructTimeSeriesLink", null, null ],
@@ -378,6 +390,7 @@ var hierarchy =
     [ "form", null, null ],
     [ "fseek_stream", null, null ],
     [ "get_compiler", null, null ],
+    [ "get_cross_section_area", null, null ],
     [ "get_from_memorylist", null, null ],
     [ "get_ijk", null, null ],
     [ "get_isize", null, null ],
@@ -388,6 +401,9 @@ var hierarchy =
     [ "get_mem_type", null, null ],
     [ "get_node", null, null ],
     [ "get_os", null, null ],
+    [ "get_saturated_topwidth", null, null ],
+    [ "get_wetted_perimeter", null, null ],
+    [ "get_wetted_topwidth", null, null ],
     [ "get_zero_order_decay", null, null ],
     [ "GetBaseExchangeFromList", null, null ],
     [ "GetBaseModelFromList", null, null ],
@@ -437,6 +453,7 @@ var hierarchy =
     [ "GwtMvtType", null, null ],
     [ "GwtObsType", null, null ],
     [ "GwtOcType", null, null ],
+    [ "GwtSpcType", null, null ],
     [ "GwtSsmType", null, null ],
     [ "hash_table_cr", null, null ],
     [ "hash_table_da", null, null ],
@@ -558,7 +575,6 @@ var hierarchy =
     [ "NameFileType", null, null ],
     [ "nper", null, null ],
     [ "npf_cr", null, null ],
-    [ "nstp", null, null ],
     [ "nulllify_packagemover_pointer", null, null ],
     [ "NumericalExchangeType", null, null ],
     [ "NumericalModelType", null, null ],
@@ -633,6 +649,7 @@ var hierarchy =
     [ "src_create", null, null ],
     [ "SsCapacity", null, null ],
     [ "ssm_cr", null, null ],
+    [ "SsTerms", null, null ],
     [ "start_time", null, null ],
     [ "STEPWISE", null, null ],
     [ "sto_cr", null, null ],
@@ -642,6 +659,7 @@ var hierarchy =
     [ "store_error_unit", null, null ],
     [ "store_warning", null, null ],
     [ "SyCapacity", null, null ],
+    [ "SyTerms", null, null ],
     [ "TABCENTER", null, null ],
     [ "TABINTEGER", null, null ],
     [ "table_cr", null, null ],
@@ -676,6 +694,12 @@ var hierarchy =
     [ "totimc", null, null ],
     [ "totimsav", null, null ],
     [ "tsmanager_cr", null, null ],
+    [ "tvbase_da", null, null ],
+    [ "TvBaseType", null, null ],
+    [ "tvk_cr", null, null ],
+    [ "TvkType", null, null ],
+    [ "tvs_cr", null, null ],
+    [ "TvsType", null, null ],
     [ "u8rdcom", null, null ],
     [ "u9rdcom", null, null ],
     [ "ubdsv06", null, null ],
@@ -689,8 +713,8 @@ var hierarchy =
     [ "ulasav", null, null ],
     [ "ulstlb", null, null ],
     [ "UNDEFINED", null, null ],
-    [ "upcase", null, null ],
     [ "UPCASE", null, null ],
+    [ "upcase", null, null ],
     [ "urdaux", null, null ],
     [ "urword", null, null ],
     [ "URWORD", null, null ],

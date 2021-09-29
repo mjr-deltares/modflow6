@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="mf6-triangular-grid.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">MODFLOW 6
-   &#160;<span id="projectnumber">version 6.2.2</span>
+   &#160;<span id="projectnumber">version 6.3.0</span>
    </div>
    <div id="projectbrief">MODFLOW 6 Code Documentation</div>
   </td>
@@ -116,6 +116,7 @@ $(document).ready(function(){initNavTree('structgwfstomodule_1_1gwfstotype.html'
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="structgwfstomodule_1_1gwfstotype-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">gwfstomodule::gwfstotype Type Reference</div>  </div>
@@ -126,7 +127,7 @@ Inheritance diagram for gwfstomodule::gwfstotype:</div>
 <div class="dyncontent">
 <div class="center"><img src="structgwfstomodule_1_1gwfstotype__inherit__graph.png" border="0" usemap="#gwfstomodule_1_1gwfstotype_inherit__map" alt="Inheritance graph"/></div>
 <map name="gwfstomodule_1_1gwfstotype_inherit__map" id="gwfstomodule_1_1gwfstotype_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,131,201,545"/>
+<area shape="rect" title=" " alt="" coords="5,131,201,633"/>
 <area shape="rect" title=" " alt="" coords="18,5,189,83"/>
 </map>
 </div>
@@ -135,7 +136,7 @@ Collaboration diagram for gwfstomodule::gwfstotype:</div>
 <div class="dyncontent">
 <div class="center"><img src="structgwfstomodule_1_1gwfstotype__coll__graph.png" border="0" usemap="#gwfstomodule_1_1gwfstotype_coll__map" alt="Collaboration graph"/></div>
 <map name="gwfstomodule_1_1gwfstotype_coll__map" id="gwfstomodule_1_1gwfstotype_coll__map">
-<area shape="rect" title=" " alt="" coords="5,131,201,545"/>
+<area shape="rect" title=" " alt="" coords="5,131,201,633"/>
 <area shape="rect" title=" " alt="" coords="18,5,189,83"/>
 </map>
 </div>
@@ -201,6 +202,15 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a86c2f7d9ddaa90b63aea198d0fcd409b"><td class="memItemLeft" align="right" valign="top">real(dp), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgwfstomodule_1_1gwfstotype.html#a86c2f7d9ddaa90b63aea198d0fcd409b">satomega</a> =&gt; null()</td></tr>
 <tr class="memdesc:a86c2f7d9ddaa90b63aea198d0fcd409b"><td class="mdescLeft">&#160;</td><td class="mdescRight">newton-raphson saturation omega  <a href="structgwfstomodule_1_1gwfstotype.html#a86c2f7d9ddaa90b63aea198d0fcd409b">More...</a><br /></td></tr>
 <tr class="separator:a86c2f7d9ddaa90b63aea198d0fcd409b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f87f581975d13ad7f295cccf98f2043"><td class="memItemLeft" align="right" valign="top">integer(i4b), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgwfstomodule_1_1gwfstotype.html#a7f87f581975d13ad7f295cccf98f2043">integratechanges</a> =&gt; null()</td></tr>
+<tr class="memdesc:a7f87f581975d13ad7f295cccf98f2043"><td class="mdescLeft">&#160;</td><td class="mdescRight">indicates if mid-simulation ss and sy changes should be integrated via an additional matrix formulation term  <a href="structgwfstomodule_1_1gwfstotype.html#a7f87f581975d13ad7f295cccf98f2043">More...</a><br /></td></tr>
+<tr class="separator:a7f87f581975d13ad7f295cccf98f2043"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47bd2aeef5332ec45f8d8a83c1c7ec15"><td class="memItemLeft" align="right" valign="top">integer(i4b), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgwfstomodule_1_1gwfstotype.html#a47bd2aeef5332ec45f8d8a83c1c7ec15">intvs</a> =&gt; null()</td></tr>
+<tr class="memdesc:a47bd2aeef5332ec45f8d8a83c1c7ec15"><td class="mdescLeft">&#160;</td><td class="mdescRight">TVS (time-varying storage) unit number (0 if unused)  <a href="structgwfstomodule_1_1gwfstotype.html#a47bd2aeef5332ec45f8d8a83c1c7ec15">More...</a><br /></td></tr>
+<tr class="separator:a47bd2aeef5332ec45f8d8a83c1c7ec15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6df5b403e18bccafb49250611ac4a3e6"><td class="memItemLeft" align="right" valign="top">type(tvstype), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgwfstomodule_1_1gwfstotype.html#a6df5b403e18bccafb49250611ac4a3e6">tvs</a> =&gt; null()</td></tr>
+<tr class="memdesc:a6df5b403e18bccafb49250611ac4a3e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">TVS object.  <a href="structgwfstomodule_1_1gwfstotype.html#a6df5b403e18bccafb49250611ac4a3e6">More...</a><br /></td></tr>
+<tr class="separator:a6df5b403e18bccafb49250611ac4a3e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -210,10 +220,21 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:af15ec9da771fb85d6208e15549491c38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9348be441deabcfaa062652f70b25ca"><td class="memItemLeft" align="right" valign="top">procedure, private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgwfstomodule_1_1gwfstotype.html#af9348be441deabcfaa062652f70b25ca">read_data</a></td></tr>
 <tr class="separator:af9348be441deabcfaa062652f70b25ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1a1b961e43f9a271093cda0b91f26d3"><td class="memItemLeft" align="right" valign="top">procedure, private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgwfstomodule_1_1gwfstotype.html#af1a1b961e43f9a271093cda0b91f26d3">save_old_ss_sy</a></td></tr>
+<tr class="separator:af1a1b961e43f9a271093cda0b91f26d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a3d50cda1b7039eaf2b41a805c1d21c8c"><td class="memItemLeft" align="right" valign="top">real(dp), dimension(:), pointer, private, contiguous&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgwfstomodule_1_1gwfstotype.html#a3d50cda1b7039eaf2b41a805c1d21c8c">oldss</a> =&gt; null()</td></tr>
+<tr class="memdesc:a3d50cda1b7039eaf2b41a805c1d21c8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">previous time step specific storage  <a href="structgwfstomodule_1_1gwfstotype.html#a3d50cda1b7039eaf2b41a805c1d21c8c">More...</a><br /></td></tr>
+<tr class="separator:a3d50cda1b7039eaf2b41a805c1d21c8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad71dba155c24538dad9f52f11ade12af"><td class="memItemLeft" align="right" valign="top">real(dp), dimension(:), pointer, private, contiguous&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgwfstomodule_1_1gwfstotype.html#ad71dba155c24538dad9f52f11ade12af">oldsy</a> =&gt; null()</td></tr>
+<tr class="memdesc:ad71dba155c24538dad9f52f11ade12af"><td class="mdescLeft">&#160;</td><td class="mdescRight">previous time step specific yield  <a href="structgwfstomodule_1_1gwfstotype.html#ad71dba155c24538dad9f52f11ade12af">More...</a><br /></td></tr>
+<tr class="separator:ad71dba155c24538dad9f52f11ade12af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00029">29</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00031">31</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
 </div><h2 class="groupheader">Member Function/Subroutine Documentation</h2>
 <a id="a61e64aa42552e677c5e985b53d7e0aff"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a61e64aa42552e677c5e985b53d7e0aff">&#9670;&nbsp;</a></span>allocate_arrays()</h2>
@@ -235,7 +256,7 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00053">53</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00060">60</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
 
 </div>
 </div>
@@ -251,7 +272,7 @@ Private Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00052">52</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00059">59</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
 
 </div>
 </div>
@@ -275,7 +296,7 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00056">56</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00063">63</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
 
 </div>
 </div>
@@ -299,7 +320,31 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00055">55</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00062">62</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
+
+</div>
+</div>
+<a id="af1a1b961e43f9a271093cda0b91f26d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1a1b961e43f9a271093cda0b91f26d3">&#9670;&nbsp;</a></span>save_old_ss_sy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">procedure, private gwfstomodule::gwfstotype::save_old_ss_sy</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00064">64</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
 
 </div>
 </div>
@@ -315,7 +360,7 @@ Private Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00045">45</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00052">52</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
 
 </div>
 </div>
@@ -331,7 +376,7 @@ Private Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00043">43</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00050">50</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
 
 </div>
 </div>
@@ -347,7 +392,7 @@ Private Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00049">49</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00056">56</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
 
 </div>
 </div>
@@ -363,7 +408,7 @@ Private Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00048">48</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00055">55</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
 
 </div>
 </div>
@@ -379,7 +424,7 @@ Private Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00051">51</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00058">58</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
 
 </div>
 </div>
@@ -395,7 +440,7 @@ Private Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00046">46</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00053">53</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
 
 </div>
 </div>
@@ -411,7 +456,7 @@ Private Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00047">47</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00054">54</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
 
 </div>
 </div>
@@ -427,7 +472,7 @@ Private Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00044">44</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00051">51</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
 
 </div>
 </div>
@@ -443,7 +488,7 @@ Private Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00050">50</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00057">57</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
 
 </div>
 </div>
@@ -460,8 +505,8 @@ Private Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00040">40</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>  :: ibound =&gt; null()         <span class="comment">!&lt; pointer to model ibound</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00042">42</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>  :: ibound =&gt; null()         <span class="comment">!&lt; pointer to model ibound</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -477,8 +522,8 @@ Private Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00031">31</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                            :: iconf_ss =&gt; null()       <span class="comment">!&lt; indicates if ss is 0 below the top of a layer</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00033">33</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                            :: iconf_ss =&gt; null()       <span class="comment">!&lt; indicates if ss is 0 below the top of a layer</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -494,8 +539,42 @@ Private Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00035">35</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>  :: iconvert =&gt; null()       <span class="comment">!&lt; confined (0) or convertible (1)</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00037">37</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>  :: iconvert =&gt; null()       <span class="comment">!&lt; confined (0) or convertible (1)</span></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a7f87f581975d13ad7f295cccf98f2043"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f87f581975d13ad7f295cccf98f2043">&#9670;&nbsp;</a></span>integratechanges</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer(i4b), pointer gwfstomodule::gwfstotype::integratechanges =&gt; null()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00044">44</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                         :: integratechanges =&gt; null()  <span class="comment">!&lt; indicates if mid-simulation ss and sy changes should be integrated via an additional matrix formulation term</span></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a47bd2aeef5332ec45f8d8a83c1c7ec15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47bd2aeef5332ec45f8d8a83c1c7ec15">&#9670;&nbsp;</a></span>intvs</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer(i4b), pointer gwfstomodule::gwfstotype::intvs =&gt; null()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00045">45</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                            :: intvs =&gt; null()          <span class="comment">!&lt; TVS (time-varying storage) unit number (0 if unused)</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -511,8 +590,8 @@ Private Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00032">32</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                            :: iorig_ss =&gt; null()       <span class="comment">!&lt; indicates if the original storage specific storage formulation should be used</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00034">34</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                            :: iorig_ss =&gt; null()       <span class="comment">!&lt; indicates if the original storage specific storage formulation should be used</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -528,8 +607,8 @@ Private Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00033">33</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                            :: iss =&gt; null()            <span class="comment">!&lt; steady state flag: 1 = steady, 0 = transient</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00035">35</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                            :: iss =&gt; null()            <span class="comment">!&lt; steady state flag: 1 = steady, 0 = transient</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -545,8 +624,8 @@ Private Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00030">30</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                            :: istor_coef =&gt; null()     <span class="comment">!&lt; indicates if ss is the storage coefficient</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00032">32</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                            :: istor_coef =&gt; null()     <span class="comment">!&lt; indicates if ss is the storage coefficient</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -562,8 +641,58 @@ Private Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00034">34</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                            :: iusesy =&gt; null()         <span class="comment">!&lt; flag set if any cell is convertible (0, 1)</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00036">36</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                            :: iusesy =&gt; null()         <span class="comment">!&lt; flag set if any cell is convertible (0, 1)</span></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a3d50cda1b7039eaf2b41a805c1d21c8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d50cda1b7039eaf2b41a805c1d21c8c">&#9670;&nbsp;</a></span>oldss</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(dp), dimension(:), pointer, private, contiguous gwfstomodule::gwfstotype::oldss =&gt; null()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00047">47</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>, <span class="keywordtype">private</span> :: oldss =&gt; null()      <span class="comment">!&lt; previous time step specific storage</span></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ad71dba155c24538dad9f52f11ade12af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad71dba155c24538dad9f52f11ade12af">&#9670;&nbsp;</a></span>oldsy</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(dp), dimension(:), pointer, private, contiguous gwfstomodule::gwfstotype::oldsy =&gt; null()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00048">48</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>, <span class="keywordtype">private</span> :: oldsy =&gt; null()      <span class="comment">!&lt; previous time step specific yield</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -579,8 +708,8 @@ Private Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00041">41</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">pointer</span>                                :: satomega =&gt; null()       <span class="comment">!&lt; newton-raphson saturation omega</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00043">43</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">pointer</span>                                :: satomega =&gt; null()       <span class="comment">!&lt; newton-raphson saturation omega</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -596,8 +725,8 @@ Private Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00036">36</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>      :: ss =&gt; null()             <span class="comment">!&lt; specfic storage or storage coefficient</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00038">38</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>      :: ss =&gt; null()             <span class="comment">!&lt; specfic storage or storage coefficient</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -613,8 +742,8 @@ Private Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00038">38</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>      :: strgss =&gt; null()         <span class="comment">!&lt; vector of specific storage rates</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00040">40</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>      :: strgss =&gt; null()         <span class="comment">!&lt; vector of specific storage rates</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -630,8 +759,8 @@ Private Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00039">39</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>      :: strgsy =&gt; null()         <span class="comment">!&lt; vector of specific yield rates</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00041">41</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>      :: strgsy =&gt; null()         <span class="comment">!&lt; vector of specific yield rates</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -647,8 +776,25 @@ Private Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00037">37</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>      :: sy =&gt; null()             <span class="comment">!&lt; specific yield</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00039">39</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>      :: sy =&gt; null()             <span class="comment">!&lt; specific yield</span></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a6df5b403e18bccafb49250611ac4a3e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6df5b403e18bccafb49250611ac4a3e6">&#9670;&nbsp;</a></span>tvs</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">type(tvstype), pointer gwfstomodule::gwfstotype::tvs =&gt; null()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="gwf3sto8_8f90_source.html#l00046">46</a> of file <a class="el" href="gwf3sto8_8f90_source.html">gwf3sto8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">type</span>(TvsType), <span class="keywordtype">pointer</span>                           :: tvs =&gt; null()            <span class="comment">!&lt; TVS object</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -661,7 +807,7 @@ Private Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacegwfstomodule.html">gwfstomodule</a></li><li class="navelem"><a class="el" href="structgwfstomodule_1_1gwfstotype.html">gwfstotype</a></li>
-    <li class="footer">Generated on Wed Jul 14 2021 10:58:08 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Sep 29 2021 08:34:23 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

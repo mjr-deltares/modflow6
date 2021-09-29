@@ -15,13 +15,13 @@
 <area shape="rect" id="node22" href="$namespacegwfstomodule.html#a1f40b9eb86e20e9925d53861e6124fa9" title="@ brief Fill A and right&#45;hand side for the package" alt="" coords="285,749,447,775"/>
 <area shape="rect" id="node23" href="$namespacegwfstomodule.html#a3067c9055de2c4fb5db449dc7ce5ceea" title="@ brief Fill Newton&#45;Raphson terms in A and right&#45;hand side for the package" alt="" coords="285,799,447,826"/>
 <area shape="rect" id="node24" href="$namespacegwfnpfmodule.html#a043778a29f31835c4167e493e79df0ef" title=" " alt="" coords="273,850,459,877"/>
-<area shape="rect" id="node7" href="$namespacegwfbuymodule.html#afad33f0e9d7a6436b40c52758f6dca6f" title=" " alt="" coords="20,61,197,87"/>
-<area shape="rect" id="node8" href="$namespacegwfbuymodule.html#a1c7119e85ddd46a92c3ca038d987ab8c" title=" " alt="" coords="5,111,212,138"/>
-<area shape="rect" id="node9" href="$namespacegwfgwfexchangemodule.html#adfb483eb5e84ad0053aebe4b8b8d3093" title=" " alt="" coords="17,163,200,204"/>
-<area shape="rect" id="node10" href="$namespacegwfgwfexchangemodule.html#a606cd0dc2dc02ddd2d446b0cdbb829cb" title=" " alt="" coords="17,228,200,269"/>
-<area shape="rect" id="node11" href="$namespacegwfgwfexchangemodule.html#a28dd63adddbc183cb48ed05500678144" title=" " alt="" coords="17,293,200,335"/>
-<area shape="rect" id="node12" href="$namespacegwfnpfmodule.html#ae8ff97fa2c799a484b0453dba8647ae8" title=" " alt="" coords="27,359,191,386"/>
-<area shape="rect" id="node13" href="$namespacegwfnpfmodule.html#a6807fd51ec170cbceebbf661b9965c38" title="preprocess the NPF input data" alt="" coords="11,411,206,452"/>
+<area shape="rect" id="node7" href="$namespacegwfnpfmodule.html#a259ac5d9076a2478f1b5b7020b3c7ecd" title="Calculate CONDSAT array entries for the given node." alt="" coords="33,60,184,101"/>
+<area shape="rect" id="node8" href="$namespacegwfbuymodule.html#afad33f0e9d7a6436b40c52758f6dca6f" title=" " alt="" coords="20,126,197,153"/>
+<area shape="rect" id="node9" href="$namespacegwfbuymodule.html#a1c7119e85ddd46a92c3ca038d987ab8c" title=" " alt="" coords="5,177,212,203"/>
+<area shape="rect" id="node10" href="$namespacegwfgwfexchangemodule.html#adfb483eb5e84ad0053aebe4b8b8d3093" title=" " alt="" coords="17,228,200,269"/>
+<area shape="rect" id="node11" href="$namespacegwfgwfexchangemodule.html#a606cd0dc2dc02ddd2d446b0cdbb829cb" title=" " alt="" coords="17,293,200,335"/>
+<area shape="rect" id="node12" href="$namespacegwfgwfexchangemodule.html#a28dd63adddbc183cb48ed05500678144" title=" " alt="" coords="17,359,200,400"/>
+<area shape="rect" id="node13" href="$namespacegwfnpfmodule.html#ae8ff97fa2c799a484b0453dba8647ae8" title=" " alt="" coords="27,425,191,451"/>
 <area shape="rect" id="node14" href="$namespacegwfnpfmodule.html#ac8f968c7606140cdf62f98ce4872d957" title=" " alt="" coords="31,476,186,517"/>
 <area shape="rect" id="node25" href="$namespacegwfnpfmodule.html#a838bc577fc2fa1a76824043bf322ab30" title=" " alt="" coords="33,809,184,851"/>
 <area shape="rect" id="node26" href="$namespacegwfgwfexchangemodule.html#a1f4f7a596e1cf09b52235aa697a3278f" title=" " alt="" coords="17,875,200,916"/>

@@ -1,0 +1,6 @@
+<map id="sfrmodule::calc_area_wet" name="sfrmodule::calc_area_wet">
+<area shape="rect" id="node1" title="Calculate wetted area." alt="" coords="5,13,195,39"/>
+<area shape="rect" id="node2" href="$namespacegwfsfrcrosssectionutilsmodule.html#a8213bcea683c7cbae9692944f979c0d6" title="Calculate the cross&#45;sectional area for a reach." alt="" coords="243,5,464,47"/>
+<area shape="rect" id="node3" href="$namespacegwfsfrcrosssectionutilsmodule.html#ae1fe57cd3d341bb29602b326997ba95f" title="Calculate the cross&#45;sectional areas for each line segment." alt="" coords="512,5,733,47"/>
+<area shape="rect" id="node4" href="$namespacegwfsfrcrosssectionutilsmodule.html#a8c5b548e8cb05e8b72009d9e3176b4a2" title="Calculate the station values for the wetted portion of the cross&#45;section." alt="" coords="781,5,1003,47"/>
+</map>

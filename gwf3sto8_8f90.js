@@ -5,6 +5,7 @@ var gwf3sto8_8f90 =
     [ "allocate_scalars", "gwf3sto8_8f90.html#ad44f710e1185af02fa77bcef8096a988", null ],
     [ "read_data", "gwf3sto8_8f90.html#a0c8d86b6e55d617384cd417936c04b04", null ],
     [ "read_options", "gwf3sto8_8f90.html#a57953fb33bb5c7322483a4a79605468e", null ],
+    [ "save_old_ss_sy", "gwf3sto8_8f90.html#aa6bb596604b9cc0ad233a8c882f69299", null ],
     [ "sto_ad", "gwf3sto8_8f90.html#ae43068d63ce128d9dcded09c641e9194", null ],
     [ "sto_ar", "gwf3sto8_8f90.html#a3fd8a2cb9fcbc19f5c219d10bdab7ef4", null ],
     [ "sto_bd", "gwf3sto8_8f90.html#a08bfa3f870bb260a7efb7fde537406ec", null ],

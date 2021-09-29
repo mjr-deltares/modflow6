@@ -1,5 +1,10 @@
 <map id="timeseriesmanagermodule::read_value_or_time_series" name="timeseriesmanagermodule::read_value_or_time_series">
-<area shape="rect" id="node1" title=" " alt="" coords="5,27,211,69"/>
-<area shape="rect" id="node2" href="$namespacesimmodule.html#a536cb6f0e13fcd33755e414641ff931a" title="Store error message." alt="" coords="259,5,433,32"/>
-<area shape="rect" id="node3" href="$namespaceinputoutputmodule.html#a3418ad9e27e9d9caac6f541863e1c522" title=" " alt="" coords="269,57,423,98"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,90,211,131"/>
+<area shape="rect" id="node2" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="259,68,433,95"/>
+<area shape="rect" id="node8" href="$namespaceinputoutputmodule.html#a3418ad9e27e9d9caac6f541863e1c522" title=" " alt="" coords="269,119,423,161"/>
+<area shape="rect" id="node3" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="481,68,620,95"/>
+<area shape="rect" id="node4" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="668,27,836,69"/>
+<area shape="rect" id="node7" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title=" " alt="" coords="668,93,836,134"/>
+<area shape="rect" id="node5" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="884,5,1079,32"/>
+<area shape="rect" id="node6" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title=" " alt="" coords="897,57,1065,98"/>
 </map>

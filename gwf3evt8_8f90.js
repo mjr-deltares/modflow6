@@ -19,5 +19,6 @@ var gwf3evt8_8f90 =
     [ "evt_rp_ts", "gwf3evt8_8f90.html#af0cd06d420d0c0131e7afa9c1c24c2a9", null ],
     [ "set_nodesontop", "gwf3evt8_8f90.html#a1e8bde7372711e7c776278e073dea737", null ],
     [ "ftype", "gwf3evt8_8f90.html#ad0e4ad5cfc9eb1eb8f07464ec6346e01", null ],
-    [ "text", "gwf3evt8_8f90.html#a3f99885b653a74fdcaa8d46ee32f44ed", null ]
+    [ "text", "gwf3evt8_8f90.html#a3f99885b653a74fdcaa8d46ee32f44ed", null ],
+    [ "texta", "gwf3evt8_8f90.html#adefd7471e70aa378cfdc865a3dcd5e2a", null ]
 ];

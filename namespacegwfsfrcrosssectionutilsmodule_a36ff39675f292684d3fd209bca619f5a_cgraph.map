@@ -1,0 +1,4 @@
+<map id="gwfsfrcrosssectionutilsmodule::get_wetted_perimeters" name="gwfsfrcrosssectionutilsmodule::get_wetted_perimeters">
+<area shape="rect" id="node1" title="Calculate the wetted perimeters for each line segment." alt="" coords="5,5,227,47"/>
+<area shape="rect" id="node2" href="$namespacegwfsfrcrosssectionutilsmodule.html#a8c5b548e8cb05e8b72009d9e3176b4a2" title="Calculate the station values for the wetted portion of the cross&#45;section." alt="" coords="275,5,496,47"/>
+</map>

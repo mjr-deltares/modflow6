@@ -8,6 +8,7 @@ var structpackagebudgetmodule_1_1packagebudgettype =
     [ "auxname", "structpackagebudgetmodule_1_1packagebudgettype.html#af313dce584001ec7708868a2bf023a45", null ],
     [ "auxvar", "structpackagebudgetmodule_1_1packagebudgettype.html#a1c933816ef3648c0a60687e362eb75b7", null ],
     [ "bound", "structpackagebudgetmodule_1_1packagebudgettype.html#af532730d194f1e9b35f8ee83f8db86f5", null ],
+    [ "budtxt", "structpackagebudgetmodule_1_1packagebudgettype.html#a5425adc61b349de9a0d7c68fbac63e92", null ],
     [ "flow", "structpackagebudgetmodule_1_1packagebudgettype.html#a06fdef6b4317c38c763a1df341b45a7a", null ],
     [ "hcof", "structpackagebudgetmodule_1_1packagebudgettype.html#ab31060a98ad288d37195de5d4dc12929", null ],
     [ "name", "structpackagebudgetmodule_1_1packagebudgettype.html#ae4149556d97e817714dd3bac2bdf5e87", null ],

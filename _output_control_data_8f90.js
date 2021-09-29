@@ -1,12 +1,12 @@
 var _output_control_data_8f90 =
 [
-    [ "outputcontroldatatype", "structoutputcontroldata_1_1outputcontroldatatype.html", "structoutputcontroldata_1_1outputcontroldatatype" ],
-    [ "allocate_scalars", "_output_control_data_8f90.html#a69850a5dd17695a5b642e9d3446dbe79", null ],
-    [ "init_dbl", "_output_control_data_8f90.html#a54e147b3c97b9472f11daca3907158ab", null ],
-    [ "init_int", "_output_control_data_8f90.html#a69d34d636f2fa29e0e0272ae85c3d38a", null ],
-    [ "ocd_cr", "_output_control_data_8f90.html#a225600f84ec8c95252f9f5a9bd305024", null ],
-    [ "ocd_da", "_output_control_data_8f90.html#a1911736821bd0439fe6d95a51925e7af", null ],
-    [ "ocd_ot", "_output_control_data_8f90.html#a593492d10b998e7d9a0ec887d74eebcc", null ],
-    [ "ocd_rp_check", "_output_control_data_8f90.html#a1c9afaae8cb986a0c0acfdfe2d5e0e06", null ],
-    [ "set_option", "_output_control_data_8f90.html#a8d39d48b1dc0a811cd35b7e283a22f65", null ]
+    [ "outputcontroldatatype", "structoutputcontroldatamodule_1_1outputcontroldatatype.html", "structoutputcontroldatamodule_1_1outputcontroldatatype" ],
+    [ "allocate_scalars", "_output_control_data_8f90.html#ace3c10f4df248891cceb5b0261fb87ec", null ],
+    [ "init_dbl", "_output_control_data_8f90.html#a7036b3616b97a823faefbc12ec36a27d", null ],
+    [ "init_int", "_output_control_data_8f90.html#acd0909f16182d5588a0c0f79b3cda415", null ],
+    [ "ocd_cr", "_output_control_data_8f90.html#ad72aec6cda8603dc2702b9aeedadb413", null ],
+    [ "ocd_da", "_output_control_data_8f90.html#a860bfba7aef2c7af936f7f03e2ea38dd", null ],
+    [ "ocd_ot", "_output_control_data_8f90.html#abec6a784a7bbda1c5e260c74edb16a95", null ],
+    [ "ocd_rp_check", "_output_control_data_8f90.html#aae04b50b220a960d7cc96686bfea4296", null ],
+    [ "set_option", "_output_control_data_8f90.html#ac7377a6625b558ceee3c768ad91bc6b4", null ]
 ];

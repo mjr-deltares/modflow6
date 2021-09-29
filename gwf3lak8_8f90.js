@@ -53,7 +53,7 @@ var gwf3lak8_8f90 =
     [ "lak_linear_interpolation", "gwf3lak8_8f90.html#a88751a63eec1dda03a468790a852d268", null ],
     [ "lak_obs_supported", "gwf3lak8_8f90.html#a5f497c3a935621ef01d1d217abfca2d8", null ],
     [ "lak_options", "gwf3lak8_8f90.html#a96af648392010fe6f8771ab9357d69c6", null ],
-    [ "lak_ot_bdsummary", "gwf3lak8_8f90.html#ac458f72ae7bac235ddae0750c94a2170", null ],
+    [ "lak_ot_bdsummary", "gwf3lak8_8f90.html#ae96d80dcd2e30054b56d5ad743e391c1", null ],
     [ "lak_ot_dv", "gwf3lak8_8f90.html#a95511545bc8635e1e34c5645d7cbeae1", null ],
     [ "lak_ot_model_flows", "gwf3lak8_8f90.html#a7cee81c21a6da943a3ca424dcd3f71d3", null ],
     [ "lak_ot_package_flows", "gwf3lak8_8f90.html#a263f2c401533f187b88f94eb7ad1675b", null ],
