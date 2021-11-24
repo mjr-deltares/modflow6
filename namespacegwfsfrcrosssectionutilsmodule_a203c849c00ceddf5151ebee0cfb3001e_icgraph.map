@@ -1,0 +1,9 @@
+<map id="gwfsfrcrosssectionutilsmodule::get_cross_section_areas" name="gwfsfrcrosssectionutilsmodule::get_cross_section_areas">
+<area shape="rect" id="node1" title="Calculate the cross&#45;sectional areas for each line segment." alt="" coords="513,71,735,112"/>
+<area shape="rect" id="node2" href="$namespacegwfsfrcrosssectionutilsmodule.html#a7c33f0c4fc670e1429db6270236c0aa0" title="Calculate the cross&#45;sectional area for a reach." alt="" coords="244,5,465,47"/>
+<area shape="rect" id="node5" href="$namespacegwfsfrcrosssectionutilsmodule.html#aff5d27ff828addebaab7ff6b26dd2253" title="Calculate the hydraulic radius for a reach." alt="" coords="244,71,465,112"/>
+<area shape="rect" id="node6" href="$namespacegwfsfrcrosssectionutilsmodule.html#afc61cb170904485218150cf0399b5009" title="Calculate the manning&#39;s discharge for a reach." alt="" coords="244,136,465,177"/>
+<area shape="rect" id="node3" href="$namespacesfrmodule.html#ad6d467292e7c1a65e3cbd3198393e2b4" title="Calculate wetted area." alt="" coords="6,13,195,39"/>
+<area shape="rect" id="node4" href="$namespacesfrcrosssectionmanager.html#a991b31f9018f43aa8a9df00e6625447c" title="Validate cross&#45;section tables." alt="" coords="11,68,190,109"/>
+<area shape="rect" id="node7" href="$namespacesfrmodule.html#a8bea0c1a6342ebff08051f67b38cc64d" title="Calculate streamflow." alt="" coords="5,143,196,170"/>
+</map>

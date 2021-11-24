@@ -5,6 +5,7 @@ var structgwfnpfmodule_1_1gwfnpftype =
     [ "calc_condsat", "structgwfnpfmodule_1_1gwfnpftype.html#a55b016d26c9f3b00b825b689323e9a24", null ],
     [ "calc_initial_sat", "structgwfnpfmodule_1_1gwfnpftype.html#a659873ba2432f3746295010b7ed270fc", null ],
     [ "calc_spdis", "structgwfnpfmodule_1_1gwfnpftype.html#a2c2a7ed362728e6399cf23794e4bc01d", null ],
+    [ "calcsatthickness", "structgwfnpfmodule_1_1gwfnpftype.html#ae683f9e82ead164c2376c0a6f4fba60c", null ],
     [ "check_options", "structgwfnpfmodule_1_1gwfnpftype.html#aeeb6ee8607a71a6e4f35650cfe63bae1", null ],
     [ "hy_eff", "structgwfnpfmodule_1_1gwfnpftype.html#ac1c67d27f451147972b2ad423ee460bc", null ],
     [ "increase_edge_count", "structgwfnpfmodule_1_1gwfnpftype.html#ad8b4c383b5b6aee2cd2f2e20d818838d", null ],

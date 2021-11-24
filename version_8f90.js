@@ -2,6 +2,7 @@ var version_8f90 =
 [
     [ "write_listfile_header", "version_8f90.html#a0eedbf1f3bd80a688acb3f014addc767", null ],
     [ "fmtdisclaimer", "version_8f90.html#a7dc728c3fb082dee90908196f391816b", null ],
+    [ "fmtlicense", "version_8f90.html#a5c76a025b87b40700d686a906ae06af3", null ],
     [ "fmttitle", "version_8f90.html#a6d6229967cd6814c5133fa9184851128", null ],
     [ "idevelopmode", "version_8f90.html#ab82d1ea64df56737f03bbbe06c1499bd", null ],
     [ "mftitle", "version_8f90.html#a9f3a0846f5962bee31fe418d1a588252", null ],

@@ -6,6 +6,7 @@ var gwf3npf8_8f90 =
     [ "calc_condsat", "gwf3npf8_8f90.html#a259ac5d9076a2478f1b5b7020b3c7ecd", null ],
     [ "calc_initial_sat", "gwf3npf8_8f90.html#a1635a61283c2c97f33cc03d398fb805a", null ],
     [ "calc_spdis", "gwf3npf8_8f90.html#a838bc577fc2fa1a76824043bf322ab30", null ],
+    [ "calcsatthickness", "gwf3npf8_8f90.html#acf881dd9a2bb2af5fa6d89b8cc295c11", null ],
     [ "check_options", "gwf3npf8_8f90.html#af8a68d9eaf7060bb71949cff4984e9d7", null ],
     [ "condmean", "gwf3npf8_8f90.html#ae3238216f84434bb2862e840a6ebeb00", null ],
     [ "hcond", "gwf3npf8_8f90.html#a7fc55c137cbf452e811e7bda474af209", null ],

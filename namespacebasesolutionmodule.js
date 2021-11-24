@@ -1,5 +1,6 @@
 var namespacebasesolutionmodule =
 [
+    [ "assignConnectionsIFace", "interfacebasesolutionmodule_1_1assign_connections_i_face.html", "interfacebasesolutionmodule_1_1assign_connections_i_face" ],
     [ "basesolutiontype", "structbasesolutionmodule_1_1basesolutiontype.html", "structbasesolutionmodule_1_1basesolutiontype" ],
     [ "sln_ad", "interfacebasesolutionmodule_1_1sln__ad.html", "interfacebasesolutionmodule_1_1sln__ad" ],
     [ "sln_ar", "interfacebasesolutionmodule_1_1sln__ar.html", "interfacebasesolutionmodule_1_1sln__ar" ],
@@ -12,6 +13,7 @@ var namespacebasesolutionmodule =
     [ "sln_rp", "interfacebasesolutionmodule_1_1sln__rp.html", "interfacebasesolutionmodule_1_1sln__rp" ],
     [ "slnaddexchange", "interfacebasesolutionmodule_1_1slnaddexchange.html", "interfacebasesolutionmodule_1_1slnaddexchange" ],
     [ "slnaddmodel", "interfacebasesolutionmodule_1_1slnaddmodel.html", "interfacebasesolutionmodule_1_1slnaddmodel" ],
+    [ "slngetexchanges", "interfacebasesolutionmodule_1_1slngetexchanges.html", "interfacebasesolutionmodule_1_1slngetexchanges" ],
     [ "slngetmodels", "interfacebasesolutionmodule_1_1slngetmodels.html", "interfacebasesolutionmodule_1_1slngetmodels" ],
     [ "slnsave", "interfacebasesolutionmodule_1_1slnsave.html", "interfacebasesolutionmodule_1_1slnsave" ]
 ];

@@ -133,6 +133,8 @@ Variables</h2></td></tr>
 <tr class="separator:a733280dd05725ffbe3969344a79a964c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e857b53bd777fd84ebcc75f2d7fe273"><td class="memItemLeft" align="right" valign="top">type(listtype), public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelistsmodule.html#a3e857b53bd777fd84ebcc75f2d7fe273">baseexchangelist</a></td></tr>
 <tr class="separator:a3e857b53bd777fd84ebcc75f2d7fe273"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa04fa4e835743f2005800850259f8014"><td class="memItemLeft" align="right" valign="top">type(listtype), public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelistsmodule.html#aa04fa4e835743f2005800850259f8014">baseconnectionlist</a></td></tr>
+<tr class="separator:aa04fa4e835743f2005800850259f8014"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function/Subroutine Documentation</h2>
 <a id="acfc4a2fee6511bdae3eae6fbf510e46c"></a>
@@ -147,20 +149,22 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mf6lists_8f90_source.html#l00030">30</a> of file <a class="el" href="mf6lists_8f90_source.html">mf6lists.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">! ******************************************************************************</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">! Deallocate the lists</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">! ******************************************************************************</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">!</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">!    SPECIFICATIONS:</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">call </span><a class="code" href="namespacelistsmodule.html#a3b242f17eecc25a4acea6ab6e3c5ae7b">basemodellist</a>%Clear()</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">call </span>basesolutionlist%Clear()</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">call </span>solutiongrouplist%Clear()</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">call </span>baseexchangelist%Clear()</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">return</span></div>
+<p class="definition">Definition at line <a class="el" href="mf6lists_8f90_source.html#l00033">33</a> of file <a class="el" href="mf6lists_8f90_source.html">mf6lists.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">! ******************************************************************************</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">! Deallocate the lists</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">! ******************************************************************************</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">!</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">!    SPECIFICATIONS:</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">call </span><a class="code" href="namespacelistsmodule.html#a3b242f17eecc25a4acea6ab6e3c5ae7b">basemodellist</a>%Clear()</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">call </span>basesolutionlist%Clear()</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">call </span>solutiongrouplist%Clear()</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">call </span>baseexchangelist%Clear()</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">call </span>baseconnectionlist%Clear()</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">return</span></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -177,6 +181,23 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
+<a id="aa04fa4e835743f2005800850259f8014"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa04fa4e835743f2005800850259f8014">&#9670;&nbsp;</a></span>baseconnectionlist</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">type(listtype), public listsmodule::baseconnectionlist</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="mf6lists_8f90_source.html#l00028">28</a> of file <a class="el" href="mf6lists_8f90_source.html">mf6lists.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keywordtype">type</span>(ListType) :: baseconnectionlist</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="a3e857b53bd777fd84ebcc75f2d7fe273"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3e857b53bd777fd84ebcc75f2d7fe273">&#9670;&nbsp;</a></span>baseexchangelist</h2>
 
@@ -252,7 +273,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacelistsmodule.html">listsmodule</a></li>
-    <li class="footer">Generated on Wed Sep 29 2021 08:34:27 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Nov 24 2021 08:19:51 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

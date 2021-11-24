@@ -2,8 +2,11 @@ var _list_8f90 =
 [
     [ "listtype", "structlistmodule_1_1listtype.html", "structlistmodule_1_1listtype" ],
     [ "listnodetype", "structlistmodule_1_1listnodetype.html", "structlistmodule_1_1listnodetype" ],
+    [ "isEqualIface", "interfacelistmodule_1_1is_equal_iface.html", "interfacelistmodule_1_1is_equal_iface" ],
     [ "add", "_list_8f90.html#a6560d30d3bbdc25e0dd28b3a4e745417", null ],
+    [ "arepointersequal", "_list_8f90.html#a048fbc40d7f22a48ad719061694ee447", null ],
     [ "clear", "_list_8f90.html#a6e456ed8c174329960c963a5a49cdf77", null ],
+    [ "containsobject", "_list_8f90.html#a55b011bb2bb16fed0cd0e8bb93d616e3", null ],
     [ "count", "_list_8f90.html#a0499e35443316bdb2cd7831e373cc0ad", null ],
     [ "deallocatebackward", "_list_8f90.html#ae4500a42c5c418653624bfdb3232860c", null ],
     [ "deallocvalue", "_list_8f90.html#a014cb6d5066f2664743d105f0366c4df", null ],

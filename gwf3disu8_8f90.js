@@ -2,6 +2,7 @@ var gwf3disu8_8f90 =
 [
     [ "gwfdisutype", "structgwfdisumodule_1_1gwfdisutype.html", "structgwfdisumodule_1_1gwfdisutype" ],
     [ "allocate_arrays", "gwf3disu8_8f90.html#acf6185784c278f04eccb1a128090135f", null ],
+    [ "allocate_arrays_mem", "gwf3disu8_8f90.html#ac87743e603a43f1097cdedd9249baa36", null ],
     [ "allocate_scalars", "gwf3disu8_8f90.html#a1993ef7ed3c856ce4a40b4079177901e", null ],
     [ "connection_normal", "gwf3disu8_8f90.html#ae0592763f60446f434aa841faafcd587", null ],
     [ "connection_vector", "gwf3disu8_8f90.html#aef4810f0b7135c55d70d1401981ba353", null ],

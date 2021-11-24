@@ -1,4 +1,8 @@
 <map id="sfrmodule::sfr_calc_qman" name="sfrmodule::sfr_calc_qman">
-<area shape="rect" id="node1" title="Calculate streamflow." alt="" coords="5,5,196,32"/>
-<area shape="rect" id="node2" href="$namespacesmoothingmodule.html#aa2bd453c7d7697853962a1d09f29f99a" title=" " alt="" coords="244,5,463,32"/>
+<area shape="rect" id="node1" title="Calculate streamflow." alt="" coords="5,75,196,102"/>
+<area shape="rect" id="node2" href="$namespacegwfsfrcrosssectionutilsmodule.html#afc61cb170904485218150cf0399b5009" title="Calculate the manning&#39;s discharge for a reach." alt="" coords="244,39,465,80"/>
+<area shape="rect" id="node6" href="$namespacesmoothingmodule.html#aa2bd453c7d7697853962a1d09f29f99a" title=" " alt="" coords="245,105,464,131"/>
+<area shape="rect" id="node3" href="$namespacegwfsfrcrosssectionutilsmodule.html#a203c849c00ceddf5151ebee0cfb3001e" title="Calculate the cross&#45;sectional areas for each line segment." alt="" coords="513,5,735,47"/>
+<area shape="rect" id="node5" href="$namespacegwfsfrcrosssectionutilsmodule.html#a3012e8e3963413b1b4c0c6a7eaaf0e56" title="Calculate the wetted perimeters for each line segment." alt="" coords="513,71,735,112"/>
+<area shape="rect" id="node4" href="$namespacegwfsfrcrosssectionutilsmodule.html#a37e8faa52bc7cf1544c73b24f45a3de0" title="Calculate the station values for the wetted portion of the cross&#45;section." alt="" coords="783,39,1004,80"/>
 </map>

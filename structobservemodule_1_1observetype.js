@@ -1,6 +1,7 @@
 var structobservemodule_1_1observetype =
 [
     [ "addobsindex", "structobservemodule_1_1observetype.html#a82cbab9b78ed56ead567a8772b3d6f07", null ],
+    [ "da", "structobservemodule_1_1observetype.html#a782acac7028eb6873dbf090ef3fad42d", null ],
     [ "resetcurrent", "structobservemodule_1_1observetype.html#af53f72351db861a3b6097f82f18dcc53", null ],
     [ "resetobsindex", "structobservemodule_1_1observetype.html#a66082465216cd84c2c8d0d3145a24ee5", null ],
     [ "writeto", "structobservemodule_1_1observetype.html#a0ffcb90ec24e22d5a2b9f29434b17b1d", null ],

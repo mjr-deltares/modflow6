@@ -305,13 +305,13 @@ Here is the caller graph for this function:</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;      elsec = elsec+(iedt(8)-ibdt(8))*0.001</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="comment">!</span></div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="comment">!     CONVERT SECONDS TO DAYS, HOURS, MINUTES, AND SECONDS</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;      ndays = elsec/nspd</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;      ndays = int(elsec/nspd)</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;      rsecs = mod(elsec, 86400.0_dp)</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;      nhours = rsecs/3600.0</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;      nhours = int(rsecs/3600.0)</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;      rsecs = mod(rsecs,3600.0_dp)</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;      nmins = rsecs/60.0</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;      nmins = int(rsecs/60.0)</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;      rsecs = mod(rsecs,60.0_dp)</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;      nsecs = rsecs</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;      nsecs = int(rsecs)</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;      rsecs = mod(rsecs,1.0_dp)</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;      msecs = nint(rsecs*1000.0)</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;      nrsecs = nsecs</div>
@@ -356,7 +356,7 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="namespacetimermodule_a1f8301c0a31753924cb55e23ebb36b95_cgraph.png" border="0" usemap="#namespacetimermodule_a1f8301c0a31753924cb55e23ebb36b95_cgraph" alt=""/></div>
 <map name="namespacetimermodule_a1f8301c0a31753924cb55e23ebb36b95_cgraph" id="namespacetimermodule_a1f8301c0a31753924cb55e23ebb36b95_cgraph">
 <area shape="rect" title=" " alt="" coords="5,13,208,39"/>
-<area shape="rect" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title=" " alt="" coords="256,5,424,47"/>
+<area shape="rect" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="256,5,424,47"/>
 </map>
 </div>
 <div class="dynheader">
@@ -416,7 +416,7 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="namespacetimermodule_aabd6b77317f11bb9dd7d89c52317c104_cgraph.png" border="0" usemap="#namespacetimermodule_aabd6b77317f11bb9dd7d89c52317c104_cgraph" alt=""/></div>
 <map name="namespacetimermodule_aabd6b77317f11bb9dd7d89c52317c104_cgraph" id="namespacetimermodule_aabd6b77317f11bb9dd7d89c52317c104_cgraph">
 <area shape="rect" title=" " alt="" coords="5,13,187,39"/>
-<area shape="rect" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title=" " alt="" coords="235,5,403,47"/>
+<area shape="rect" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="235,5,403,47"/>
 </map>
 </div>
 <div class="dynheader">
@@ -463,12 +463,12 @@ Here is the caller graph for this function:</div>
 </div>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="anamespacegenericutilitiesmodule_html_a34492cca79f70174fd015808be8b7ebf"><div class="ttname"><a href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf">genericutilitiesmodule::sim_message</a></div><div class="ttdeci">subroutine, public sim_message(message, iunit, fmt, level, skipbefore, skipafter, advance)</div><div class="ttdef"><b>Definition:</b> <a href="genericutils_8f90_source.html#l00020">genericutils.f90:20</a></div></div>
+<div class="ttc" id="anamespacegenericutilitiesmodule_html_a34492cca79f70174fd015808be8b7ebf"><div class="ttname"><a href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf">genericutilitiesmodule::sim_message</a></div><div class="ttdeci">subroutine, public sim_message(message, iunit, fmt, level, skipbefore, skipafter, advance)</div><div class="ttdoc">Write simulation message.</div><div class="ttdef"><b>Definition:</b> <a href="genericutils_8f90_source.html#l00033">genericutils.f90:33</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetimermodule.html">timermodule</a></li>
-    <li class="footer">Generated on Wed Sep 29 2021 08:34:32 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Nov 24 2021 08:19:58 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

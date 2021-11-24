@@ -75,6 +75,7 @@ var _constants_8f90 =
     [ "dtwothirds", "_constants_8f90.html#a1dd99b36c8013b13af6abf45ed99bf3d", null ],
     [ "dzero", "_constants_8f90.html#abab5757666b9ddd2726c20ce48dd0050", null ],
     [ "iulast", "_constants_8f90.html#a3999926c281524e8a79cb40dd4711b8c", null ],
+    [ "iuoc", "_constants_8f90.html#abcd15830dd221d8bc10d194ef69898d4", null ],
     [ "iuserformatstrip", "_constants_8f90.html#a6d366b0fb2a7bb591d1700fe614ae384", null ],
     [ "iuserformatwrap", "_constants_8f90.html#a7b8d677e1ca983dd9bdaaed17dd8fbd9", null ],
     [ "iustart", "_constants_8f90.html#a4c97c83c0354b0d18b16ed8ff425aaa4", null ],

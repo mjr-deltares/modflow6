@@ -1,0 +1,4 @@
+<map id="gwfsfrcrosssectionutilsmodule::get_hydraulic_radius" name="gwfsfrcrosssectionutilsmodule::get_hydraulic_radius">
+<area shape="rect" id="node1" title="Calculate the hydraulic radius for a reach." alt="" coords="232,5,453,47"/>
+<area shape="rect" id="node2" href="$namespacesfrcrosssectionmanager.html#a991b31f9018f43aa8a9df00e6625447c" title="Validate cross&#45;section tables." alt="" coords="5,5,184,47"/>
+</map>

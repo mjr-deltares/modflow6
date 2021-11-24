@@ -11,6 +11,7 @@ var structdisconnexchangemodule_1_1disconnexchangetype =
     [ "ianglex", "structdisconnexchangemodule_1_1disconnexchangetype.html#a0239edd5302d2368765a4e041c8a727b", null ],
     [ "icdist", "structdisconnexchangemodule_1_1disconnexchangetype.html#a7d6652437c3d25fc25480b45c675ebc9", null ],
     [ "ihc", "structdisconnexchangemodule_1_1disconnexchangetype.html#a83cfabc82c4b83d4f934ce434e11dfe9", null ],
+    [ "ixt3d", "structdisconnexchangemodule_1_1disconnexchangetype.html#a44768618b24eb1c12e2e277a6f5116b8", null ],
     [ "model1", "structdisconnexchangemodule_1_1disconnexchangetype.html#af9e2c774129fda02c847c22f7515346f", null ],
     [ "model2", "structdisconnexchangemodule_1_1disconnexchangetype.html#ab5c9f82817136e4d23f47c63b4946513", null ],
     [ "naux", "structdisconnexchangemodule_1_1disconnexchangetype.html#ab7253d01e4a85176f8b6072f4eefab31", null ],

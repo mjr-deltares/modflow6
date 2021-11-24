@@ -1,0 +1,6 @@
+<map id="gwfsfrcrosssectionutilsmodule::get_mannings_section" name="gwfsfrcrosssectionutilsmodule::get_mannings_section">
+<area shape="rect" id="node1" title="Calculate the manning&#39;s discharge for a reach." alt="" coords="5,39,227,80"/>
+<area shape="rect" id="node2" href="$namespacegwfsfrcrosssectionutilsmodule.html#a203c849c00ceddf5151ebee0cfb3001e" title="Calculate the cross&#45;sectional areas for each line segment." alt="" coords="275,5,496,47"/>
+<area shape="rect" id="node4" href="$namespacegwfsfrcrosssectionutilsmodule.html#a3012e8e3963413b1b4c0c6a7eaaf0e56" title="Calculate the wetted perimeters for each line segment." alt="" coords="275,71,496,112"/>
+<area shape="rect" id="node3" href="$namespacegwfsfrcrosssectionutilsmodule.html#a37e8faa52bc7cf1544c73b24f45a3de0" title="Calculate the station values for the wetted portion of the cross&#45;section." alt="" coords="544,39,765,80"/>
+</map>

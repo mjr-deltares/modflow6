@@ -463,7 +463,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwt1uzt1_8f90_source.html#l00052">52</a> of file <a class="el" href="gwt1uzt1_8f90_source.html">gwt1uzt1.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>            :: concinfl =&gt; null()    <span class="comment">! infiltration concentration</span></div>
+<div class="fragment"><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: concinfl =&gt; null()    <span class="comment">! infiltration concentration</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -480,7 +480,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwt1uzt1_8f90_source.html#l00053">53</a> of file <a class="el" href="gwt1uzt1_8f90_source.html">gwt1uzt1.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>            :: concuzet =&gt; null()    <span class="comment">! unsat et concentration</span></div>
+<div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: concuzet =&gt; null()    <span class="comment">! unsat et concentration</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -497,7 +497,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwt1uzt1_8f90_source.html#l00048">48</a> of file <a class="el" href="gwt1uzt1_8f90_source.html">gwt1uzt1.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                                  :: idxbudinfl =&gt; null()  <span class="comment">! index of uzf infiltration terms in flowbudptr</span></div>
+<div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                       :: idxbudinfl =&gt; null()  <span class="comment">! index of uzf infiltration terms in flowbudptr</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -514,7 +514,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwt1uzt1_8f90_source.html#l00049">49</a> of file <a class="el" href="gwt1uzt1_8f90_source.html">gwt1uzt1.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                                  :: idxbudrinf =&gt; null()  <span class="comment">! index of rejected infiltration terms in flowbudptr</span></div>
+<div class="fragment"><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                       :: idxbudrinf =&gt; null()  <span class="comment">! index of rejected infiltration terms in flowbudptr</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -531,7 +531,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwt1uzt1_8f90_source.html#l00051">51</a> of file <a class="el" href="gwt1uzt1_8f90_source.html">gwt1uzt1.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                                  :: idxbudritm =&gt; null()  <span class="comment">! index of rej infil to mover rate to mover terms in flowbudptr</span></div>
+<div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                       :: idxbudritm =&gt; null()  <span class="comment">! index of rej infil to mover rate to mover terms in flowbudptr</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -548,7 +548,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwt1uzt1_8f90_source.html#l00050">50</a> of file <a class="el" href="gwt1uzt1_8f90_source.html">gwt1uzt1.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                                  :: idxbuduzet =&gt; null()  <span class="comment">! index of unsat et terms in flowbudptr</span></div>
+<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                       :: idxbuduzet =&gt; null()  <span class="comment">! index of unsat et terms in flowbudptr</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -561,7 +561,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacegwtuztmodule.html">gwtuztmodule</a></li><li class="navelem"><a class="el" href="structgwtuztmodule_1_1gwtuzttype.html">gwtuzttype</a></li>
-    <li class="footer">Generated on Wed Sep 29 2021 08:34:25 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Nov 24 2021 08:19:49 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

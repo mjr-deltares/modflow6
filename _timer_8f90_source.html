@@ -232,13 +232,13 @@ $(document).ready(function(){initNavTree('_timer_8f90_source.html',''); initResi
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;      elsec = elsec+(iedt(8)-<a class="code" href="namespacetimermodule.html#a87b723757727d161d5d128609d3ed0d5">ibdt</a>(8))*0.001</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="comment">!</span></div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="comment">!     CONVERT SECONDS TO DAYS, HOURS, MINUTES, AND SECONDS</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;      ndays = elsec/nspd</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;      ndays = int(elsec/nspd)</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;      rsecs = mod(elsec, 86400.0_dp)</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;      nhours = rsecs/3600.0</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;      nhours = int(rsecs/3600.0)</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;      rsecs = mod(rsecs,3600.0_dp)</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;      nmins = rsecs/60.0</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;      nmins = int(rsecs/60.0)</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;      rsecs = mod(rsecs,60.0_dp)</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;      nsecs = rsecs</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;      nsecs = int(rsecs)</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;      rsecs = mod(rsecs,1.0_dp)</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;      msecs = nint(rsecs*1000.0)</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;      nrsecs = nsecs</div>
@@ -312,11 +312,11 @@ $(document).ready(function(){initNavTree('_timer_8f90_source.html',''); initResi
 </div><!-- doc-content -->
 <div class="ttc" id="anamespacetimermodule_html_a87b723757727d161d5d128609d3ed0d5"><div class="ttname"><a href="namespacetimermodule.html#a87b723757727d161d5d128609d3ed0d5">timermodule::ibdt</a></div><div class="ttdeci">integer(i4b), dimension(8) ibdt</div><div class="ttdef"><b>Definition:</b> <a href="_timer_8f90_source.html#l00011">Timer.f90:11</a></div></div>
 <div class="ttc" id="anamespacekindmodule_html"><div class="ttname"><a href="namespacekindmodule.html">kindmodule</a></div><div class="ttdoc">This module defines variable data types.</div><div class="ttdef"><b>Definition:</b> <a href="kind_8f90_source.html#l00008">kind.f90:8</a></div></div>
-<div class="ttc" id="anamespaceconstantsmodule_html_abab5757666b9ddd2726c20ce48dd0050"><div class="ttname"><a href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">constantsmodule::dzero</a></div><div class="ttdeci">real(dp), parameter dzero</div><div class="ttdoc">real constant zero</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00053">Constants.f90:53</a></div></div>
-<div class="ttc" id="anamespacegenericutilitiesmodule_html_a34492cca79f70174fd015808be8b7ebf"><div class="ttname"><a href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf">genericutilitiesmodule::sim_message</a></div><div class="ttdeci">subroutine, public sim_message(message, iunit, fmt, level, skipbefore, skipafter, advance)</div><div class="ttdef"><b>Definition:</b> <a href="genericutils_8f90_source.html#l00020">genericutils.f90:20</a></div></div>
+<div class="ttc" id="anamespaceconstantsmodule_html_abab5757666b9ddd2726c20ce48dd0050"><div class="ttname"><a href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">constantsmodule::dzero</a></div><div class="ttdeci">real(dp), parameter dzero</div><div class="ttdoc">real constant zero</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00054">Constants.f90:54</a></div></div>
+<div class="ttc" id="anamespacegenericutilitiesmodule_html_a34492cca79f70174fd015808be8b7ebf"><div class="ttname"><a href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf">genericutilitiesmodule::sim_message</a></div><div class="ttdeci">subroutine, public sim_message(message, iunit, fmt, level, skipbefore, skipafter, advance)</div><div class="ttdoc">Write simulation message.</div><div class="ttdef"><b>Definition:</b> <a href="genericutils_8f90_source.html#l00033">genericutils.f90:33</a></div></div>
 <div class="ttc" id="anamespacetimermodule_html"><div class="ttname"><a href="namespacetimermodule.html">timermodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_timer_8f90_source.html#l00001">Timer.f90:1</a></div></div>
 <div class="ttc" id="anamespaceconstantsmodule_html_a060d310ded5535ce2dc85bd1ca1afd3d"><div class="ttname"><a href="namespaceconstantsmodule.html#a060d310ded5535ce2dc85bd1ca1afd3d">constantsmodule::linelength</a></div><div class="ttdeci">integer(i4b), parameter linelength</div><div class="ttdoc">maximum length of a standard line</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00036">Constants.f90:36</a></div></div>
-<div class="ttc" id="anamespacegenericutilitiesmodule_html"><div class="ttname"><a href="namespacegenericutilitiesmodule.html">genericutilitiesmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="genericutils_8f90_source.html#l00001">genericutils.f90:1</a></div></div>
+<div class="ttc" id="anamespacegenericutilitiesmodule_html"><div class="ttname"><a href="namespacegenericutilitiesmodule.html">genericutilitiesmodule</a></div><div class="ttdoc">This module contains generic utilties.</div><div class="ttdef"><b>Definition:</b> <a href="genericutils_8f90_source.html#l00007">genericutils.f90:7</a></div></div>
 <div class="ttc" id="anamespacekindmodule_html_a2f6861418b5e7d3d602b77228232a470"><div class="ttname"><a href="namespacekindmodule.html#a2f6861418b5e7d3d602b77228232a470">kindmodule::i4b</a></div><div class="ttdeci">integer, parameter i4b</div><div class="ttdoc">Integer kind.</div><div class="ttdef"><b>Definition:</b> <a href="kind_8f90_source.html#l00016">kind.f90:16</a></div></div>
 <div class="ttc" id="anamespacetimermodule_html_aabd6b77317f11bb9dd7d89c52317c104"><div class="ttname"><a href="namespacetimermodule.html#aabd6b77317f11bb9dd7d89c52317c104">timermodule::start_time</a></div><div class="ttdeci">subroutine, public start_time()</div><div class="ttdef"><b>Definition:</b> <a href="_timer_8f90_source.html#l00016">Timer.f90:16</a></div></div>
 <div class="ttc" id="anamespaceconstantsmodule_html"><div class="ttname"><a href="namespaceconstantsmodule.html">constantsmodule</a></div><div class="ttdoc">This module contains simulation constants.</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00009">Constants.f90:9</a></div></div>
@@ -327,7 +327,7 @@ $(document).ready(function(){initNavTree('_timer_8f90_source.html',''); initResi
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ff383ddf1aa4eab0c4ce7910366d05a5.html">Utilities</a></li><li class="navelem"><a class="el" href="_timer_8f90.html">Timer.f90</a></li>
-    <li class="footer">Generated on Wed Sep 29 2021 08:34:21 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Nov 24 2021 08:19:43 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

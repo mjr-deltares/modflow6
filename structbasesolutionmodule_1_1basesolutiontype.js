@@ -2,6 +2,7 @@ var structbasesolutionmodule_1_1basesolutiontype =
 [
     [ "add_exchange", "structbasesolutionmodule_1_1basesolutiontype.html#a1bc8c6fde27afd4e0b18e372a0583a3f", null ],
     [ "add_model", "structbasesolutionmodule_1_1basesolutiontype.html#a053e9c928c793ca8c5913abacfccc26a", null ],
+    [ "get_exchanges", "structbasesolutionmodule_1_1basesolutiontype.html#a4917035eed8dd760d328f7d8e488d2e8", null ],
     [ "get_models", "structbasesolutionmodule_1_1basesolutiontype.html#a8b1bb32e88070deb24f110970ccfb653", null ],
     [ "sln_ad", "structbasesolutionmodule_1_1basesolutiontype.html#aa4f90074e39db429586f8f8d6f48886e", null ],
     [ "sln_ar", "structbasesolutionmodule_1_1basesolutiontype.html#a85dd33d3c65125ab13796e3a571032f1", null ],

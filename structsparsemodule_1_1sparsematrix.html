@@ -115,6 +115,7 @@ $(document).ready(function(){initNavTree('structsparsemodule_1_1sparsematrix.htm
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="structsparsemodule_1_1sparsematrix-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">sparsemodule::sparsematrix Type Reference</div>  </div>
@@ -125,15 +126,15 @@ Collaboration diagram for sparsemodule::sparsematrix:</div>
 <div class="dyncontent">
 <div class="center"><img src="structsparsemodule_1_1sparsematrix__coll__graph.png" border="0" usemap="#sparsemodule_1_1sparsematrix_coll__map" alt="Collaboration graph"/></div>
 <map name="sparsemodule_1_1sparsematrix_coll__map" id="sparsemodule_1_1sparsematrix_coll__map">
-<area shape="rect" title=" " alt="" coords="5,160,213,325"/>
+<area shape="rect" title=" " alt="" coords="5,160,213,355"/>
 <area shape="rect" href="structsparsemodule_1_1rowtype.html" title=" " alt="" coords="22,5,197,97"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a28d969fe9fd7302750f8c9b229023916"><td class="memItemLeft" align="right" valign="top">procedure&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsparsemodule_1_1sparsematrix.html#a28d969fe9fd7302750f8c9b229023916">init</a> =&gt; <a class="el" href="namespacesparsemodule.html#aa628f8a01b0365f233b64b866a1b17ed">initialize</a></td></tr>
-<tr class="separator:a28d969fe9fd7302750f8c9b229023916"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5912a9d23f494d3aebea09a928ea132e"><td class="memItemLeft" align="right" valign="top">generic&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsparsemodule_1_1sparsematrix.html#a5912a9d23f494d3aebea09a928ea132e">init</a> =&gt; <a class="el" href="structsparsemodule_1_1sparsematrix.html#ad0aa8f8725809bebf562743363c0b4b4">initialize</a>, <a class="el" href="structsparsemodule_1_1sparsematrix.html#a86e804bfcef03be427ad305c0e36ce85">initializefixed</a></td></tr>
+<tr class="separator:a5912a9d23f494d3aebea09a928ea132e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6d45129ad474ebc785d4dad1d968986"><td class="memItemLeft" align="right" valign="top">procedure&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsparsemodule_1_1sparsematrix.html#ae6d45129ad474ebc785d4dad1d968986">addconnection</a></td></tr>
 <tr class="separator:ae6d45129ad474ebc785d4dad1d968986"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14bf41977d8c0df7f92a1ce145f1acbf"><td class="memItemLeft" align="right" valign="top">procedure&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsparsemodule_1_1sparsematrix.html#a14bf41977d8c0df7f92a1ce145f1acbf">filliaja</a></td></tr>
@@ -153,6 +154,13 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a52cb660f68fdc33f7c4eca698d29eaec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47479eaa8e6c040d1b06994c76afed26"><td class="memItemLeft" align="right" valign="top">type(<a class="el" href="structsparsemodule_1_1rowtype.html">rowtype</a>), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsparsemodule_1_1sparsematrix.html#a47479eaa8e6c040d1b06994c76afed26">row</a></td></tr>
 <tr class="separator:a47479eaa8e6c040d1b06994c76afed26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a86e804bfcef03be427ad305c0e36ce85"><td class="memItemLeft" align="right" valign="top">procedure, private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsparsemodule_1_1sparsematrix.html#a86e804bfcef03be427ad305c0e36ce85">initializefixed</a></td></tr>
+<tr class="separator:a86e804bfcef03be427ad305c0e36ce85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0aa8f8725809bebf562743363c0b4b4"><td class="memItemLeft" align="right" valign="top">procedure, private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsparsemodule_1_1sparsematrix.html#ad0aa8f8725809bebf562743363c0b4b4">initialize</a></td></tr>
+<tr class="separator:ad0aa8f8725809bebf562743363c0b4b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
@@ -206,19 +214,78 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a28d969fe9fd7302750f8c9b229023916"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28d969fe9fd7302750f8c9b229023916">&#9670;&nbsp;</a></span>init()</h2>
+<a id="a5912a9d23f494d3aebea09a928ea132e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5912a9d23f494d3aebea09a928ea132e">&#9670;&nbsp;</a></span>init()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">procedure sparsemodule::sparsematrix::init</td>
+          <td class="memname">generic sparsemodule::sparsematrix::init</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="_sparse_8f90_source.html#l00020">20</a> of file <a class="el" href="_sparse_8f90_source.html">Sparse.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="structsparsemodule_1_1sparsematrix_a5912a9d23f494d3aebea09a928ea132e_cgraph.png" border="0" usemap="#structsparsemodule_1_1sparsematrix_a5912a9d23f494d3aebea09a928ea132e_cgraph" alt=""/></div>
+<map name="structsparsemodule_1_1sparsematrix_a5912a9d23f494d3aebea09a928ea132e_cgraph" id="structsparsemodule_1_1sparsematrix_a5912a9d23f494d3aebea09a928ea132e_cgraph">
+<area shape="rect" title=" " alt="" coords="5,49,213,90"/>
+<area shape="rect" href="_grid_sorting_8f90.html#a8d6fb88aa9b65a273f65b89226533321" title=" " alt="" coords="345,5,387,32"/>
+<area shape="rect" href="namespacesparsemodule.html#aa628f8a01b0365f233b64b866a1b17ed" title=" " alt="" coords="277,56,455,83"/>
+<area shape="rect" href="namespacesparsemodule.html#ac192c3c24ae1c402bc678abc660cd672" title=" " alt="" coords="261,107,471,133"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ad0aa8f8725809bebf562743363c0b4b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0aa8f8725809bebf562743363c0b4b4">&#9670;&nbsp;</a></span>initialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">procedure, private sparsemodule::sparsematrix::initialize</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_sparse_8f90_source.html#l00027">27</a> of file <a class="el" href="_sparse_8f90_source.html">Sparse.f90</a>.</p>
+
+</div>
+</div>
+<a id="a86e804bfcef03be427ad305c0e36ce85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86e804bfcef03be427ad305c0e36ce85">&#9670;&nbsp;</a></span>initializefixed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">procedure, private sparsemodule::sparsematrix::initializefixed</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_sparse_8f90_source.html#l00026">26</a> of file <a class="el" href="_sparse_8f90_source.html">Sparse.f90</a>.</p>
 
 </div>
 </div>
@@ -316,7 +383,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacesparsemodule.html">sparsemodule</a></li><li class="navelem"><a class="el" href="structsparsemodule_1_1sparsematrix.html">sparsematrix</a></li>
-    <li class="footer">Generated on Wed Sep 29 2021 08:34:32 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Nov 24 2021 08:19:57 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

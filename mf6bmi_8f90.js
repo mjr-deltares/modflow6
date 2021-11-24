@@ -12,8 +12,8 @@ var mf6bmi_8f90 =
     [ "get_output_var_names", "mf6bmi_8f90.html#abdf3d594c1532800d8cf98aa2954af49", null ],
     [ "get_start_time", "mf6bmi_8f90.html#a705c3facf566c3ef210451cc9327a0fe", null ],
     [ "get_time_step", "mf6bmi_8f90.html#a5c438ec5bccafd0e9e8f0768527dcb60", null ],
-    [ "get_value_double", "mf6bmi_8f90.html#a8e2d2eff520317a6077f5930a16ee879", null ],
-    [ "get_value_int", "mf6bmi_8f90.html#a8480a9859452c90d4d6e6b0ac426cd37", null ],
+    [ "get_value_double", "mf6bmi_8f90.html#acc4c6412b6a442d074ce7ae84a2035a5", null ],
+    [ "get_value_int", "mf6bmi_8f90.html#ab8420782c84a71ce8317f0d150bcb009", null ],
     [ "get_value_ptr_double", "mf6bmi_8f90.html#a153a9442109bd76c780fee6c9df0b98f", null ],
     [ "get_value_ptr_int", "mf6bmi_8f90.html#a28ea5f7ea56d55ff4f5c3ffebce9542a", null ],
     [ "get_var_itemsize", "mf6bmi_8f90.html#a7577d21a969c2b60a882ce5eeae541ba", null ],
@@ -21,7 +21,7 @@ var mf6bmi_8f90 =
     [ "get_var_rank", "mf6bmi_8f90.html#a3265848af6c1473c9efac7e1ad33fc55", null ],
     [ "get_var_shape", "mf6bmi_8f90.html#aa6b446de7c8c4e4eb1fc5f02d227367e", null ],
     [ "get_var_type", "mf6bmi_8f90.html#ac054346ad15babb77f682681763822fc", null ],
-    [ "set_value_double", "mf6bmi_8f90.html#afa45f28dfaf37edf75461c09f40fe874", null ],
-    [ "set_value_int", "mf6bmi_8f90.html#a7554abf91ce887ebd01374f20f760f22", null ],
+    [ "set_value_double", "mf6bmi_8f90.html#a6a08b40da6cc46b5de74c41439943b56", null ],
+    [ "set_value_int", "mf6bmi_8f90.html#a74fbdad610a2b2aeac150b0f178e9782", null ],
     [ "istdout_to_file", "mf6bmi_8f90.html#af62108098e59d2930c0c36d224a364c5", null ]
 ];

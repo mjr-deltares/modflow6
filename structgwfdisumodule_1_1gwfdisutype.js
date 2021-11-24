@@ -1,6 +1,7 @@
 var structgwfdisumodule_1_1gwfdisutype =
 [
     [ "allocate_arrays", "structgwfdisumodule_1_1gwfdisutype.html#a08f1932dd69f0add4da4447c76d4b801", null ],
+    [ "allocate_arrays_mem", "structgwfdisumodule_1_1gwfdisutype.html#a8f0e3f004cc594e1df52c89b76ffe240", null ],
     [ "allocate_scalars", "structgwfdisumodule_1_1gwfdisutype.html#abd286440854703552e0585ef444700f3", null ],
     [ "connection_normal", "structgwfdisumodule_1_1gwfdisutype.html#a833cf4798b46af6a562dc6868c149302", null ],
     [ "connection_vector", "structgwfdisumodule_1_1gwfdisutype.html#a76790773f0a92ecfb57259ba86b86afe", null ],
@@ -35,6 +36,7 @@ var structgwfdisumodule_1_1gwfdisutype =
     [ "cl12inp", "structgwfdisumodule_1_1gwfdisutype.html#a3be61249b6d51e26d1d38beadb8250f4", null ],
     [ "hwvainp", "structgwfdisumodule_1_1gwfdisutype.html#a65669baa030d8c53caf06af7da1a5623", null ],
     [ "iainp", "structgwfdisumodule_1_1gwfdisutype.html#a8f0038708197d67a50716edc4b947c6d", null ],
+    [ "iangledegx", "structgwfdisumodule_1_1gwfdisutype.html#ac95920f0daa79c080413ac9bb661be30", null ],
     [ "iavert", "structgwfdisumodule_1_1gwfdisutype.html#a84dbabafd94c19ef2eafe78298787d58", null ],
     [ "idomain", "structgwfdisumodule_1_1gwfdisutype.html#ab2e16e68d01423ec582c961fdfd0855d", null ],
     [ "ihcinp", "structgwfdisumodule_1_1gwfdisutype.html#adbd0a7d52428e5ed97ecf8ccbc93ab80", null ],
@@ -42,6 +44,7 @@ var structgwfdisumodule_1_1gwfdisutype =
     [ "javert", "structgwfdisumodule_1_1gwfdisutype.html#a7a2df3f11554e46f597ceb13a6628259", null ],
     [ "njausr", "structgwfdisumodule_1_1gwfdisutype.html#a261cd67882dbe0fc83461192f3be709b", null ],
     [ "nvert", "structgwfdisumodule_1_1gwfdisutype.html#a859a0e22b75560c5bcbeb1b0ee85f125", null ],
+    [ "readfromfile", "structgwfdisumodule_1_1gwfdisutype.html#abc2eddaea68f2a2f834afb187e30457b", null ],
     [ "top1d", "structgwfdisumodule_1_1gwfdisutype.html#a256c0942b5b78acb41b00e31d7e5a844", null ],
     [ "vertices", "structgwfdisumodule_1_1gwfdisutype.html#a0ba198b7bf00580b8446b9f6ccd7903f", null ],
     [ "voffsettol", "structgwfdisumodule_1_1gwfdisutype.html#a2cc16026a05eb1b57325b08276271f01", null ]

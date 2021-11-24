@@ -113,8 +113,7 @@ $(document).ready(function(){initNavTree('ims8linear_8f90.html',''); initResizab
   <div class="summary">
 <a href="#nested-classes">Data Types</a> &#124;
 <a href="#namespaces">Modules</a> &#124;
-<a href="#func-members">Functions/Subroutines</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions/Subroutines</a>  </div>
   <div class="headertitle">
 <div class="title">ims8linear.f90 File Reference</div>  </div>
 </div><!--header-->
@@ -134,9 +133,9 @@ Modules</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
-<tr class="memitem:a6a11a0465c3b3e411da5afab1b06241a"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceimslinearmodule.html#a6a11a0465c3b3e411da5afab1b06241a">imslinearmodule::imslinear_ar</a> (this, NAME, INIU, IOUT, IPRIMS, MXITER, IFDPARAM, IMSLINEARM, NEQ, NJA, IA, JA, AMAT, RHS, X, NINNER, LFINDBLOCK)</td></tr>
-<tr class="memdesc:a6a11a0465c3b3e411da5afab1b06241a"><td class="mdescLeft">&#160;</td><td class="mdescRight">@ brief Allocate storage and read data  <a href="namespaceimslinearmodule.html#a6a11a0465c3b3e411da5afab1b06241a">More...</a><br /></td></tr>
-<tr class="separator:a6a11a0465c3b3e411da5afab1b06241a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca592093800c888f4968f91a1841523d"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceimslinearmodule.html#aca592093800c888f4968f91a1841523d">imslinearmodule::imslinear_ar</a> (this, NAME, parser, IOUT, IPRIMS, MXITER, IFDPARAM, IMSLINEARM, NEQ, NJA, IA, JA, AMAT, RHS, X, NINNER, LFINDBLOCK)</td></tr>
+<tr class="memdesc:aca592093800c888f4968f91a1841523d"><td class="mdescLeft">&#160;</td><td class="mdescRight">@ brief Allocate storage and read data  <a href="namespaceimslinearmodule.html#aca592093800c888f4968f91a1841523d">More...</a><br /></td></tr>
+<tr class="separator:aca592093800c888f4968f91a1841523d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f7967f429e6faea280ac07dc5da1e7c"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceimslinearmodule.html#a2f7967f429e6faea280ac07dc5da1e7c">imslinearmodule::imslinear_summary</a> (this, mxiter)</td></tr>
 <tr class="memdesc:a2f7967f429e6faea280ac07dc5da1e7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">@ brief Write summary of settings  <a href="namespaceimslinearmodule.html#a2f7967f429e6faea280ac07dc5da1e7c">More...</a><br /></td></tr>
 <tr class="separator:a2f7967f429e6faea280ac07dc5da1e7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -152,11 +151,6 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a7c756a5435a1749f8b81d2c0148f756c"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceimslinearmodule.html#a7c756a5435a1749f8b81d2c0148f756c">imslinearmodule::imslinear_ap</a> (this, ICNVG, KSTP, KITER, IN_ITER, NCONV, CONVNMOD, CONVMODSTART, LOCDV, LOCDR, CACCEL, ITINNER, CONVLOCDV, CONVLOCDR, DVMAX, DRMAX, CONVDVMAX, CONVDRMAX)</td></tr>
 <tr class="memdesc:a7c756a5435a1749f8b81d2c0148f756c"><td class="mdescLeft">&#160;</td><td class="mdescRight">@ brief Base linear accelerator subroutine  <a href="namespaceimslinearmodule.html#a7c756a5435a1749f8b81d2c0148f756c">More...</a><br /></td></tr>
 <tr class="separator:a7c756a5435a1749f8b81d2c0148f756c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a95223272f43c74a8b575a28d9c54bfb5"><td class="memItemLeft" align="right" valign="top">type(blockparsertype), private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceimslinearmodule.html#a95223272f43c74a8b575a28d9c54bfb5">imslinearmodule::parser</a></td></tr>
-<tr class="separator:a95223272f43c74a8b575a28d9c54bfb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -164,7 +158,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_45e973df69963bbfe985a1f7e6db2b6f.html">Solution</a></li><li class="navelem"><a class="el" href="dir_05d5634044adf0ab08e7f809dfce3115.html">SparseMatrixSolver</a></li><li class="navelem"><a class="el" href="ims8linear_8f90.html">ims8linear.f90</a></li>
-    <li class="footer">Generated on Wed Sep 29 2021 08:34:21 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Nov 24 2021 08:19:44 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

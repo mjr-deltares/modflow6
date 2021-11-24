@@ -1,0 +1,5 @@
+<map id="gwfsfrcrosssectionutilsmodule::get_cross_section_area" name="gwfsfrcrosssectionutilsmodule::get_cross_section_area">
+<area shape="rect" id="node1" title="Calculate the cross&#45;sectional area for a reach." alt="" coords="243,27,464,69"/>
+<area shape="rect" id="node2" href="$namespacesfrmodule.html#ad6d467292e7c1a65e3cbd3198393e2b4" title="Calculate wetted area." alt="" coords="5,5,195,32"/>
+<area shape="rect" id="node3" href="$namespacesfrcrosssectionmanager.html#a991b31f9018f43aa8a9df00e6625447c" title="Validate cross&#45;section tables." alt="" coords="11,57,189,98"/>
+</map>

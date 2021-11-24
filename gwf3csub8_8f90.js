@@ -8,7 +8,6 @@ var gwf3csub8_8f90 =
     [ "csub_ar", "gwf3csub8_8f90.html#a0dda5eb3b012a87d4aa46d2425fe103d", null ],
     [ "csub_bd", "gwf3csub8_8f90.html#aaa5fa6b598abf6a6b02566ac6e011d02", null ],
     [ "csub_bd_obs", "gwf3csub8_8f90.html#aa7004edcb691fddec7a23394829abda8", null ],
-    [ "csub_bdsav", "gwf3csub8_8f90.html#a4e69e05a6ae353d6c27eaaee57a49966", null ],
     [ "csub_calc_adjes", "gwf3csub8_8f90.html#a164b41c7b6754d700790c5a28b5a4dc0", null ],
     [ "csub_calc_delay_flow", "gwf3csub8_8f90.html#a05fcad1c27703a703fb6d69d45c0180a", null ],
     [ "csub_calc_interbed_thickness", "gwf3csub8_8f90.html#a8cf53003c8beb84858f8d048f829c06e", null ],

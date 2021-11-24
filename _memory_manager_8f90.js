@@ -74,7 +74,6 @@ var _memory_manager_8f90 =
     [ "iprmem", "_memory_manager_8f90.html#a6b030117728c1dbb6704277edb93c547", null ],
     [ "memorylist", "_memory_manager_8f90.html#aa6a53b9762dc9cd2d90bf23b5dbd5e1b", null ],
     [ "memtab", "_memory_manager_8f90.html#a2537ed30b876b264d94a42108ee0ea50", null ],
-    [ "nvalues_achr", "_memory_manager_8f90.html#a5bb79ba9134fb30aa3e3c4cd84ca3335", null ],
     [ "nvalues_adbl", "_memory_manager_8f90.html#a20eb2371c2adc85050cc40b3dea14f61", null ],
     [ "nvalues_aint", "_memory_manager_8f90.html#a3d419061b354905b75909e5af7da42f5", null ],
     [ "nvalues_alogical", "_memory_manager_8f90.html#ae80b9c88e2266f9faf1a9cff7b1820c6", null ],

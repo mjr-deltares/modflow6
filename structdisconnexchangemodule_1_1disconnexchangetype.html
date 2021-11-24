@@ -128,7 +128,7 @@ Inheritance diagram for disconnexchangemodule::disconnexchangetype:</div>
 <div class="dyncontent">
 <div class="center"><img src="structdisconnexchangemodule_1_1disconnexchangetype__inherit__graph.png" border="0" usemap="#disconnexchangemodule_1_1disconnexchangetype_inherit__map" alt="Inheritance graph"/></div>
 <map name="disconnexchangemodule_1_1disconnexchangetype_inherit__map" id="disconnexchangemodule_1_1disconnexchangetype_inherit__map">
-<area shape="rect" title="Exchange based on connection between discretizations of DisBaseType. The data specifies the connectio..." alt="" coords="5,131,189,443"/>
+<area shape="rect" title="Exchange based on connection between discretizations of DisBaseType. The data specifies the connectio..." alt="" coords="5,131,189,457"/>
 <area shape="rect" title=" " alt="" coords="8,5,187,83"/>
 </map>
 </div>
@@ -137,7 +137,7 @@ Collaboration diagram for disconnexchangemodule::disconnexchangetype:</div>
 <div class="dyncontent">
 <div class="center"><img src="structdisconnexchangemodule_1_1disconnexchangetype__coll__graph.png" border="0" usemap="#disconnexchangemodule_1_1disconnexchangetype_coll__map" alt="Collaboration graph"/></div>
 <map name="disconnexchangemodule_1_1disconnexchangetype_coll__map" id="disconnexchangemodule_1_1disconnexchangetype_coll__map">
-<area shape="rect" title="Exchange based on connection between discretizations of DisBaseType. The data specifies the connectio..." alt="" coords="5,131,189,443"/>
+<area shape="rect" title="Exchange based on connection between discretizations of DisBaseType. The data specifies the connectio..." alt="" coords="5,131,189,457"/>
 <area shape="rect" title=" " alt="" coords="8,5,187,83"/>
 </map>
 </div>
@@ -195,6 +195,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a7d6652437c3d25fc25480b45c675ebc9"><td class="memItemLeft" align="right" valign="top">integer(i4b), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdisconnexchangemodule_1_1disconnexchangetype.html#a7d6652437c3d25fc25480b45c675ebc9">icdist</a> =&gt; null()</td></tr>
 <tr class="memdesc:a7d6652437c3d25fc25480b45c675ebc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">flag indicating cdist was read, if read, icdist is index in auxvar  <a href="structdisconnexchangemodule_1_1disconnexchangetype.html#a7d6652437c3d25fc25480b45c675ebc9">More...</a><br /></td></tr>
 <tr class="separator:a7d6652437c3d25fc25480b45c675ebc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44768618b24eb1c12e2e277a6f5116b8"><td class="memItemLeft" align="right" valign="top">integer(i4b), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdisconnexchangemodule_1_1disconnexchangetype.html#a44768618b24eb1c12e2e277a6f5116b8">ixt3d</a> =&gt; null()</td></tr>
+<tr class="memdesc:a44768618b24eb1c12e2e277a6f5116b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">flag indicating if XT3D should be applied on the interface  <a href="structdisconnexchangemodule_1_1disconnexchangetype.html#a44768618b24eb1c12e2e277a6f5116b8">More...</a><br /></td></tr>
+<tr class="separator:a44768618b24eb1c12e2e277a6f5116b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
@@ -220,7 +223,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_dis_conn_exchange_8f90_source.html#l00039">39</a> of file <a class="el" href="_dis_conn_exchange_8f90_source.html">DisConnExchange.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_dis_conn_exchange_8f90_source.html#l00041">41</a> of file <a class="el" href="_dis_conn_exchange_8f90_source.html">DisConnExchange.f90</a>.</p>
 
 </div>
 </div>
@@ -244,7 +247,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_dis_conn_exchange_8f90_source.html#l00038">38</a> of file <a class="el" href="_dis_conn_exchange_8f90_source.html">DisConnExchange.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_dis_conn_exchange_8f90_source.html#l00040">40</a> of file <a class="el" href="_dis_conn_exchange_8f90_source.html">DisConnExchange.f90</a>.</p>
 
 </div>
 </div>
@@ -268,7 +271,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_dis_conn_exchange_8f90_source.html#l00040">40</a> of file <a class="el" href="_dis_conn_exchange_8f90_source.html">DisConnExchange.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_dis_conn_exchange_8f90_source.html#l00042">42</a> of file <a class="el" href="_dis_conn_exchange_8f90_source.html">DisConnExchange.f90</a>.</p>
 
 </div>
 </div>
@@ -474,6 +477,31 @@ Private Attributes</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
+<a id="a44768618b24eb1c12e2e277a6f5116b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44768618b24eb1c12e2e277a6f5116b8">&#9670;&nbsp;</a></span>ixt3d</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer(i4b), pointer disconnexchangemodule::disconnexchangetype::ixt3d =&gt; null()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_dis_conn_exchange_8f90_source.html#l00036">36</a> of file <a class="el" href="_dis_conn_exchange_8f90_source.html">DisConnExchange.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                            :: ixt3d       =&gt; null()    <span class="comment">!&lt; flag indicating if XT3D should be applied on the interface</span></div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="af9e2c774129fda02c847c22f7515346f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af9e2c774129fda02c847c22f7515346f">&#9670;&nbsp;</a></span>model1</h2>
 
@@ -633,7 +661,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacedisconnexchangemodule.html">disconnexchangemodule</a></li><li class="navelem"><a class="el" href="structdisconnexchangemodule_1_1disconnexchangetype.html">disconnexchangetype</a></li>
-    <li class="footer">Generated on Wed Sep 29 2021 08:34:21 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Nov 24 2021 08:19:44 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

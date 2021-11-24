@@ -127,7 +127,7 @@ $(document).ready(function(){initNavTree('_message_8f90_source.html',''); initRe
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacekindmodule.html">kindmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacekindmodule.html#aab86cc631d886fd4042b11df419be9ee">lgp</a>, <a class="code" href="namespacekindmodule.html#a2f6861418b5e7d3d602b77228232a470">i4b</a>, <a class="code" href="namespacekindmodule.html#ae38bd3a7dfaf151094c26e1529259639">dp</a></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespaceconstantsmodule.html">constantsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceconstantsmodule.html#a060d310ded5535ce2dc85bd1ca1afd3d">linelength</a>, <a class="code" href="namespaceconstantsmodule.html#ac9c1da291f7c6bfb35a47957c588ab20">maxcharlen</a>, <a class="code" href="namespaceconstantsmodule.html#af918ac22cd0b232deea67660bfbc9ce1">done</a>,                       &amp;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;                             <a class="code" href="namespaceconstantsmodule.html#a2b539c21fd695a3e19b9bf12f6c72561a0cbe126834625aba907787044f4f381a">vsummary</a></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacegenericutilitiesmodule.html">genericutilitiesmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf">sim_message</a>  </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacegenericutilitiesmodule.html">genericutilitiesmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf">sim_message</a>, <a class="code" href="namespacegenericutilitiesmodule.html#a5ac177a8d56df5b9de11651861d6a9e4">write_message</a>  </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacesimvariablesmodule.html">simvariablesmodule</a>,     <span class="keywordtype">only</span>: <a class="code" href="namespacesimvariablesmodule.html#ae1046045ef436d5259b217750d7490fe">istdout</a></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacearrayhandlersmodule.html">arrayhandlersmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="interfacearrayhandlersmodule_1_1expandarray.html">expandarray</a>  </div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  </div>
@@ -250,7 +250,7 @@ $(document).ready(function(){initNavTree('_message_8f90_source.html',''); initRe
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;      <span class="comment">! -- resize message</span></div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;      <span class="keywordflow">if</span> (inc_array) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacearrayhandlersmodule_1_1expandarray.html">expandarray</a>(this%message, increment=this%inc_message)</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        this%inc_message = this%inc_message * 1.1</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        this%inc_message = int(this%inc_message * 1.1)</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="keywordflow">      end if</span></div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;      <span class="comment">!</span></div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;      <span class="comment">! -- Determine if the substring exists in the passed message.</span></div>
@@ -335,9 +335,9 @@ $(document).ready(function(){initNavTree('_message_8f90_source.html',''); initRe
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;          <span class="comment">!</span></div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;          <span class="comment">! -- write each message</span></div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;          <span class="keywordflow">do</span> i = 1, isize</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;            <span class="keyword">call </span><a class="code" href="namespacemessagemodule.html#a87f63a79f6d9b0300cd9f0498571c69c">write_message</a>(this%message(i), i, iwidth=iwidth, level=ilevel)</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;            <span class="keyword">call </span><a class="code" href="namespacegenericutilitiesmodule.html#a5ac177a8d56df5b9de11651861d6a9e4">write_message</a>(this%message(i), i, iwidth=iwidth, level=ilevel)</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;            <span class="keywordflow">if</span> (iu &gt; 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;              <span class="keyword">call </span><a class="code" href="namespacemessagemodule.html#a87f63a79f6d9b0300cd9f0498571c69c">write_message</a>(this%message(i), i, iwidth=iwidth, iunit=iu,    &amp;</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;              <span class="keyword">call </span><a class="code" href="namespacegenericutilitiesmodule.html#a5ac177a8d56df5b9de11651861d6a9e4">write_message</a>(this%message(i), i, iwidth=iwidth, iunit=iu,    &amp;</div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;                                 level=ilevel)</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;<span class="keywordflow">            end if</span></div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="keywordflow">          end do</span></div>
@@ -359,154 +359,37 @@ $(document).ready(function(){initNavTree('_message_8f90_source.html',''); initRe
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;      <span class="comment">! -- return</span></div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;      <span class="keywordflow">return</span></div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <span class="keyword">end subroutine </span><a class="code" href="namespacemessagemodule.html#ae9d6932a90f6202609b221df93a6d60c">print_message</a></div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;<span class="comment">    !&gt; @brief Write messages</span></div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<span class="comment">    !!</span></div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="comment">    !!  Subroutine that formats and writes a single message.</span></div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;<span class="comment">    !!</span></div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;<span class="comment">    !&lt;</span></div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <span class="keyword">subroutine </span><a class="code" href="namespacemessagemodule.html#a87f63a79f6d9b0300cd9f0498571c69c">write_message</a>(message, icount, iwidth, iunit, level)</div>
-<div class="line"><a name="l00253"></a><span class="lineno"><a class="line" href="namespacemessagemodule.html#a87f63a79f6d9b0300cd9f0498571c69c">  253</a></span>&#160;    <span class="comment">! -- dummy variables</span></div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="keywordtype">character (len=*)</span>, <span class="keywordtype">intent(in)</span>           :: message<span class="comment">   !&lt; message to be written</span></div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <span class="keywordtype">integer(I4B)</span>,      <span class="keywordtype">intent(in)</span>           :: icount<span class="comment">    !&lt; counter to prepended to the message  </span></div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <span class="keywordtype">integer(I4B)</span>,      <span class="keywordtype">intent(in)</span>           :: iwidth<span class="comment">    !&lt; maximum width of the prepended counter</span></div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keywordtype">integer(I4B)</span>,      <span class="keywordtype">intent(in)</span>, <span class="keywordtype">optional</span> :: iunit<span class="comment">     !&lt; the unit number to which the message is written</span></div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <span class="keywordtype">integer(I4B)</span>,      <span class="keywordtype">intent(in)</span>, <span class="keywordtype">optional</span> :: level<span class="comment">     !&lt; level of message (VSUMMARY, VALL, VDEBUG)</span></div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <span class="comment">! -- local variables</span></div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <span class="keywordtype">character(len=MAXCHARLEN)</span> :: amessage</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="keywordtype">character(len=20)</span>         :: ablank</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    <span class="keywordtype">character(len=16)</span>         :: cfmt</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <span class="keywordtype">character(len=10)</span>         :: cval</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    <span class="keywordtype">integer(I4B)</span>              :: jend</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="keywordtype">integer(I4B)</span>              :: nblc</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <span class="keywordtype">integer(I4B)</span>              :: junit</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="keywordtype">integer(I4B)</span>              :: ilevel</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="keywordtype">integer(I4B)</span>              :: leadblank</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="keywordtype">integer(I4B)</span>              :: itake</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <span class="keywordtype">integer(I4B)</span>              :: ipos</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    <span class="keywordtype">integer(I4B)</span>              :: i</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="keywordtype">integer(I4B)</span>              :: j</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <span class="comment">! -- return if no message is passed</span></div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <span class="keywordflow">if</span> (len_trim(message) &lt; 1) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;      <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="comment">! -- initialize local variables</span></div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    amessage = message</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    junit = <a class="code" href="namespacesimvariablesmodule.html#ae1046045ef436d5259b217750d7490fe">istdout</a></div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    ablank = <span class="stringliteral">&#39; &#39;</span></div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    itake = 0</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    j = 0</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    <span class="comment">! -- ensure that there is at least one blank space at the start of amessage</span></div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    <span class="keywordflow">if</span> (amessage(1:1) /= <span class="stringliteral">&#39; &#39;</span>) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;      amessage = <span class="stringliteral">&#39; &#39;</span> // trim(amessage)</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    <span class="comment">! -- process optional dummy variables</span></div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    <span class="comment">! -- set the unit number</span></div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">present</span>(iunit))<span class="keywordflow">then</span></div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;      <span class="keywordflow">if</span> (iunit &gt; 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;        junit = iunit</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;<span class="keywordflow">      end if</span></div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <span class="comment">! -- set the message level</span></div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">present</span>(level)) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;      ilevel = level</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;      ilevel = <a class="code" href="namespaceconstantsmodule.html#a2b539c21fd695a3e19b9bf12f6c72561a0cbe126834625aba907787044f4f381a">vsummary</a></div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    <span class="comment">! -- create the counter to prepend to amessage</span></div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <span class="keyword">write</span>(cfmt, <span class="stringliteral">&#39;(A,I0,A)&#39;</span>) <span class="stringliteral">&#39;(1X,I&#39;</span>, iwidth, <span class="stringliteral">&#39;,&quot;.&quot;)&#39;</span></div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    <span class="keyword">write</span>(cval, cfmt) icount</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    <span class="comment">! -- prepend amessage with the counter</span></div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    ipos = len_trim(cval)</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    nblc = len_trim(amessage)</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    amessage = adjustr(amessage(1:nblc+ipos))</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    <span class="keywordflow">if</span> (nblc+ipos &lt; len(amessage)) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;      amessage(nblc+ipos+1:) = <span class="stringliteral">&#39; &#39;</span></div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    amessage(1:ipos) = cval(1:ipos)</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    <span class="comment">! -- set the number of leading blanks</span></div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    leadblank = ipos - 1</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <span class="comment">! -- calculate the final length of the message after modification</span></div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    nblc = len_trim(amessage)</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    <span class="comment">! -- parse the amessage into multiple lines</span></div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;5   <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    jend = j + 78 - itake</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    <span class="keywordflow">if</span> (jend &gt;= nblc) <span class="keywordflow">go to</span> 100</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    <span class="keywordflow">do</span> i = jend, j+1, -1</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;      <span class="keywordflow">if</span> (amessage(i:i).eq.<span class="stringliteral">&#39; &#39;</span>) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        <span class="keywordflow">if</span> (itake.eq.0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;          <span class="keyword">call </span><a class="code" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf">sim_message</a>(amessage(j+1:i), iunit=junit, level=ilevel)</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;          itake = 2 + leadblank</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;          <span class="keyword">call </span><a class="code" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf">sim_message</a>(ablank(1:leadblank+2)//amessage(j+1:i),               &amp;</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;                           iunit=junit, level=ilevel)</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;<span class="keywordflow">        end if</span></div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;        j = i</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;        <span class="keywordflow">go to</span> 5</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;<span class="keywordflow">      end if</span></div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    <span class="keywordflow">if</span> (itake == 0)<span class="keywordflow">then</span></div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf">sim_message</a>(amessage(j+1:jend), iunit=junit, level=ilevel)</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;      itake = 2 + leadblank</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf">sim_message</a>(ablank(1:leadblank+2)//amessage(j+1:jend),                &amp;</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;                       iunit=junit, level=ilevel)</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    j = jend</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    <span class="keywordflow">go to</span> 5</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    <span class="comment">! -- last piece of amessage to write to a line</span></div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;100 <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    jend = nblc</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    <span class="keywordflow">if</span> (itake == 0)<span class="keywordflow">then</span></div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf">sim_message</a>(amessage(j+1:jend), iunit=junit, level=ilevel)</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf">sim_message</a>(ablank(1:leadblank+2)//amessage(j+1:jend),                &amp;</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;                       iunit=junit, level=ilevel)</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    <span class="comment">! -- return</span></div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacemessagemodule.html#a87f63a79f6d9b0300cd9f0498571c69c">write_message</a></div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    <span class="comment"></span></div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;<span class="comment">  !&gt; @ brief Deallocate message</span></div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;<span class="comment">  !!</span></div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;<span class="comment">  !! Subroutine that deallocate the array of strings if it was allocated </span></div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;<span class="comment">  !!</span></div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;<span class="comment">  !&lt;</span></div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacemessagemodule.html#a909589a6639a17d88ccded29168c33a8">deallocate_message</a>(this)</div>
-<div class="line"><a name="l00372"></a><span class="lineno"><a class="line" href="namespacemessagemodule.html#a909589a6639a17d88ccded29168c33a8">  372</a></span>&#160;    <span class="comment">! -- dummy variables</span></div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structmessagemodule_1_1messagetype.html">messagetype</a>) :: this<span class="comment">    !&lt; MessageType object</span></div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    <span class="comment">! -- deallocate the message</span></div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">allocated</span>(this%message)) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;      <span class="keyword">deallocate</span>(this%message)</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    <span class="comment">! -- return</span></div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacemessagemodule.html#a909589a6639a17d88ccded29168c33a8">deallocate_message</a></div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160; </div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;<span class="keyword">end module </span><a class="code" href="namespacemessagemodule.html">messagemodule</a></div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160; </div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    <span class="comment"></span></div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<span class="comment">  !&gt; @ brief Deallocate message</span></div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="comment">  !!</span></div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;<span class="comment">  !! Subroutine that deallocate the array of strings if it was allocated </span></div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;<span class="comment">  !!</span></div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;<span class="comment">  !&lt;</span></div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacemessagemodule.html#a909589a6639a17d88ccded29168c33a8">deallocate_message</a>(this)</div>
+<div class="line"><a name="l00254"></a><span class="lineno"><a class="line" href="namespacemessagemodule.html#a909589a6639a17d88ccded29168c33a8">  254</a></span>&#160;    <span class="comment">! -- dummy variables</span></div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structmessagemodule_1_1messagetype.html">messagetype</a>) :: this<span class="comment">    !&lt; MessageType object</span></div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="comment">! -- deallocate the message</span></div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">allocated</span>(this%message)) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;      <span class="keyword">deallocate</span>(this%message)</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    <span class="comment">! -- return</span></div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacemessagemodule.html#a909589a6639a17d88ccded29168c33a8">deallocate_message</a></div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160; </div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;<span class="keyword">end module </span><a class="code" href="namespacemessagemodule.html">messagemodule</a></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="anamespacemessagemodule_html_aac34972f49b5bf1188e25ae6c71c78c3"><div class="ttname"><a href="namespacemessagemodule.html#aac34972f49b5bf1188e25ae6c71c78c3">messagemodule::count_message</a></div><div class="ttdeci">integer(i4b) function count_message(this)</div><div class="ttdoc">Return number of messages.</div><div class="ttdef"><b>Definition:</b> <a href="_message_8f90_source.html#l00073">Message.f90:73</a></div></div>
 <div class="ttc" id="anamespacekindmodule_html"><div class="ttname"><a href="namespacekindmodule.html">kindmodule</a></div><div class="ttdoc">This module defines variable data types.</div><div class="ttdef"><b>Definition:</b> <a href="kind_8f90_source.html#l00008">kind.f90:8</a></div></div>
-<div class="ttc" id="anamespacemessagemodule_html_a909589a6639a17d88ccded29168c33a8"><div class="ttname"><a href="namespacemessagemodule.html#a909589a6639a17d88ccded29168c33a8">messagemodule::deallocate_message</a></div><div class="ttdeci">subroutine deallocate_message(this)</div><div class="ttdoc">@ brief Deallocate message</div><div class="ttdef"><b>Definition:</b> <a href="_message_8f90_source.html#l00372">Message.f90:372</a></div></div>
-<div class="ttc" id="anamespacegenericutilitiesmodule_html_a34492cca79f70174fd015808be8b7ebf"><div class="ttname"><a href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf">genericutilitiesmodule::sim_message</a></div><div class="ttdeci">subroutine, public sim_message(message, iunit, fmt, level, skipbefore, skipafter, advance)</div><div class="ttdef"><b>Definition:</b> <a href="genericutils_8f90_source.html#l00020">genericutils.f90:20</a></div></div>
+<div class="ttc" id="anamespacemessagemodule_html_a909589a6639a17d88ccded29168c33a8"><div class="ttname"><a href="namespacemessagemodule.html#a909589a6639a17d88ccded29168c33a8">messagemodule::deallocate_message</a></div><div class="ttdeci">subroutine deallocate_message(this)</div><div class="ttdoc">@ brief Deallocate message</div><div class="ttdef"><b>Definition:</b> <a href="_message_8f90_source.html#l00254">Message.f90:254</a></div></div>
+<div class="ttc" id="anamespacegenericutilitiesmodule_html_a34492cca79f70174fd015808be8b7ebf"><div class="ttname"><a href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf">genericutilitiesmodule::sim_message</a></div><div class="ttdeci">subroutine, public sim_message(message, iunit, fmt, level, skipbefore, skipafter, advance)</div><div class="ttdoc">Write simulation message.</div><div class="ttdef"><b>Definition:</b> <a href="genericutils_8f90_source.html#l00033">genericutils.f90:33</a></div></div>
 <div class="ttc" id="anamespacemessagemodule_html_a68b486068da42c9fe01798129ee83af2"><div class="ttname"><a href="namespacemessagemodule.html#a68b486068da42c9fe01798129ee83af2">messagemodule::store_message</a></div><div class="ttdeci">subroutine store_message(this, msg, substring)</div><div class="ttdoc">Store message.</div><div class="ttdef"><b>Definition:</b> <a href="_message_8f90_source.html#l00114">Message.f90:114</a></div></div>
 <div class="ttc" id="anamespacekindmodule_html_aab86cc631d886fd4042b11df419be9ee"><div class="ttname"><a href="namespacekindmodule.html#aab86cc631d886fd4042b11df419be9ee">kindmodule::lgp</a></div><div class="ttdeci">integer, parameter lgp</div><div class="ttdoc">Logical kind.</div><div class="ttdef"><b>Definition:</b> <a href="kind_8f90_source.html#l00015">kind.f90:15</a></div></div>
 <div class="ttc" id="ainterfacearrayhandlersmodule_1_1expandarray_html"><div class="ttname"><a href="interfacearrayhandlersmodule_1_1expandarray.html">arrayhandlersmodule::expandarray</a></div><div class="ttdef"><b>Definition:</b> <a href="_array_handlers_8f90_source.html#l00016">ArrayHandlers.f90:16</a></div></div>
+<div class="ttc" id="anamespacegenericutilitiesmodule_html_a5ac177a8d56df5b9de11651861d6a9e4"><div class="ttname"><a href="namespacegenericutilitiesmodule.html#a5ac177a8d56df5b9de11651861d6a9e4">genericutilitiesmodule::write_message</a></div><div class="ttdeci">subroutine, public write_message(message, icount, iwidth, iunit, level)</div><div class="ttdoc">Write messages.</div><div class="ttdef"><b>Definition:</b> <a href="genericutils_8f90_source.html#l00118">genericutils.f90:118</a></div></div>
 <div class="ttc" id="anamespaceconstantsmodule_html_a060d310ded5535ce2dc85bd1ca1afd3d"><div class="ttname"><a href="namespaceconstantsmodule.html#a060d310ded5535ce2dc85bd1ca1afd3d">constantsmodule::linelength</a></div><div class="ttdeci">integer(i4b), parameter linelength</div><div class="ttdoc">maximum length of a standard line</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00036">Constants.f90:36</a></div></div>
 <div class="ttc" id="anamespacemessagemodule_html"><div class="ttname"><a href="namespacemessagemodule.html">messagemodule</a></div><div class="ttdoc">This module contains message methods.</div><div class="ttdef"><b>Definition:</b> <a href="_message_8f90_source.html#l00009">Message.f90:9</a></div></div>
 <div class="ttc" id="anamespacemessagemodule_html_adb042877db7244d1b0c2cf1c352dcf7d"><div class="ttname"><a href="namespacemessagemodule.html#adb042877db7244d1b0c2cf1c352dcf7d">messagemodule::set_max_message</a></div><div class="ttdeci">subroutine set_max_message(this, imax)</div><div class="ttdoc">Set the maximum number of messages stored.</div><div class="ttdef"><b>Definition:</b> <a href="_message_8f90_source.html#l00096">Message.f90:96</a></div></div>
@@ -514,21 +397,20 @@ $(document).ready(function(){initNavTree('_message_8f90_source.html',''); initRe
 <div class="ttc" id="astructmessagemodule_1_1messagetype_html"><div class="ttname"><a href="structmessagemodule_1_1messagetype.html">messagemodule::messagetype</a></div><div class="ttdef"><b>Definition:</b> <a href="_message_8f90_source.html#l00022">Message.f90:22</a></div></div>
 <div class="ttc" id="anamespacesimvariablesmodule_html"><div class="ttname"><a href="namespacesimvariablesmodule.html">simvariablesmodule</a></div><div class="ttdoc">This module contains simulation variables.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_variables_8f90_source.html#l00009">SimVariables.f90:9</a></div></div>
 <div class="ttc" id="anamespacemessagemodule_html_ae9d6932a90f6202609b221df93a6d60c"><div class="ttname"><a href="namespacemessagemodule.html#ae9d6932a90f6202609b221df93a6d60c">messagemodule::print_message</a></div><div class="ttdeci">subroutine print_message(this, title, name, iunit, level)</div><div class="ttdoc">Print messages.</div><div class="ttdef"><b>Definition:</b> <a href="_message_8f90_source.html#l00175">Message.f90:175</a></div></div>
-<div class="ttc" id="anamespacegenericutilitiesmodule_html"><div class="ttname"><a href="namespacegenericutilitiesmodule.html">genericutilitiesmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="genericutils_8f90_source.html#l00001">genericutils.f90:1</a></div></div>
+<div class="ttc" id="anamespacegenericutilitiesmodule_html"><div class="ttname"><a href="namespacegenericutilitiesmodule.html">genericutilitiesmodule</a></div><div class="ttdoc">This module contains generic utilties.</div><div class="ttdef"><b>Definition:</b> <a href="genericutils_8f90_source.html#l00007">genericutils.f90:7</a></div></div>
 <div class="ttc" id="anamespacekindmodule_html_a2f6861418b5e7d3d602b77228232a470"><div class="ttname"><a href="namespacekindmodule.html#a2f6861418b5e7d3d602b77228232a470">kindmodule::i4b</a></div><div class="ttdeci">integer, parameter i4b</div><div class="ttdoc">Integer kind.</div><div class="ttdef"><b>Definition:</b> <a href="kind_8f90_source.html#l00016">kind.f90:16</a></div></div>
-<div class="ttc" id="anamespaceconstantsmodule_html_a2b539c21fd695a3e19b9bf12f6c72561a0cbe126834625aba907787044f4f381a"><div class="ttname"><a href="namespaceconstantsmodule.html#a2b539c21fd695a3e19b9bf12f6c72561a0cbe126834625aba907787044f4f381a">constantsmodule::vsummary</a></div><div class="ttdeci">@ vsummary</div><div class="ttdoc">0</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00146">Constants.f90:146</a></div></div>
+<div class="ttc" id="anamespaceconstantsmodule_html_a2b539c21fd695a3e19b9bf12f6c72561a0cbe126834625aba907787044f4f381a"><div class="ttname"><a href="namespaceconstantsmodule.html#a2b539c21fd695a3e19b9bf12f6c72561a0cbe126834625aba907787044f4f381a">constantsmodule::vsummary</a></div><div class="ttdeci">@ vsummary</div><div class="ttdoc">0</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00147">Constants.f90:147</a></div></div>
 <div class="ttc" id="anamespacesimvariablesmodule_html_ae1046045ef436d5259b217750d7490fe"><div class="ttname"><a href="namespacesimvariablesmodule.html#ae1046045ef436d5259b217750d7490fe">simvariablesmodule::istdout</a></div><div class="ttdeci">integer(i4b) istdout</div><div class="ttdoc">unit number for stdout</div><div class="ttdef"><b>Definition:</b> <a href="_sim_variables_8f90_source.html#l00019">SimVariables.f90:19</a></div></div>
 <div class="ttc" id="anamespaceconstantsmodule_html"><div class="ttname"><a href="namespaceconstantsmodule.html">constantsmodule</a></div><div class="ttdoc">This module contains simulation constants.</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00009">Constants.f90:9</a></div></div>
 <div class="ttc" id="anamespacekindmodule_html_ae38bd3a7dfaf151094c26e1529259639"><div class="ttname"><a href="namespacekindmodule.html#ae38bd3a7dfaf151094c26e1529259639">kindmodule::dp</a></div><div class="ttdeci">integer, parameter dp</div><div class="ttdoc">Precision of all real variables.</div><div class="ttdef"><b>Definition:</b> <a href="kind_8f90_source.html#l00014">kind.f90:14</a></div></div>
-<div class="ttc" id="anamespacemessagemodule_html_a87f63a79f6d9b0300cd9f0498571c69c"><div class="ttname"><a href="namespacemessagemodule.html#a87f63a79f6d9b0300cd9f0498571c69c">messagemodule::write_message</a></div><div class="ttdeci">subroutine write_message(message, icount, iwidth, iunit, level)</div><div class="ttdoc">Write messages.</div><div class="ttdef"><b>Definition:</b> <a href="_message_8f90_source.html#l00253">Message.f90:253</a></div></div>
 <div class="ttc" id="anamespacemessagemodule_html_af57e8a19af378d96a293148972615b75"><div class="ttname"><a href="namespacemessagemodule.html#af57e8a19af378d96a293148972615b75">messagemodule::init_message</a></div><div class="ttdeci">subroutine init_message(this)</div><div class="ttdoc">Always initialize the message object.</div><div class="ttdef"><b>Definition:</b> <a href="_message_8f90_source.html#l00052">Message.f90:52</a></div></div>
 <div class="ttc" id="anamespaceconstantsmodule_html_ac9c1da291f7c6bfb35a47957c588ab20"><div class="ttname"><a href="namespaceconstantsmodule.html#ac9c1da291f7c6bfb35a47957c588ab20">constantsmodule::maxcharlen</a></div><div class="ttdeci">integer(i4b), parameter maxcharlen</div><div class="ttdoc">maximum length of char string</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00038">Constants.f90:38</a></div></div>
-<div class="ttc" id="anamespaceconstantsmodule_html_af918ac22cd0b232deea67660bfbc9ce1"><div class="ttname"><a href="namespaceconstantsmodule.html#af918ac22cd0b232deea67660bfbc9ce1">constantsmodule::done</a></div><div class="ttdeci">real(dp), parameter done</div><div class="ttdoc">real constant 1</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00064">Constants.f90:64</a></div></div>
+<div class="ttc" id="anamespaceconstantsmodule_html_af918ac22cd0b232deea67660bfbc9ce1"><div class="ttname"><a href="namespaceconstantsmodule.html#af918ac22cd0b232deea67660bfbc9ce1">constantsmodule::done</a></div><div class="ttdeci">real(dp), parameter done</div><div class="ttdoc">real constant 1</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00065">Constants.f90:65</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ff383ddf1aa4eab0c4ce7910366d05a5.html">Utilities</a></li><li class="navelem"><a class="el" href="_message_8f90.html">Message.f90</a></li>
-    <li class="footer">Generated on Wed Sep 29 2021 08:34:20 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Nov 24 2021 08:19:43 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

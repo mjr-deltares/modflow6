@@ -183,6 +183,8 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:abd286440854703552e0585ef444700f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08f1932dd69f0add4da4447c76d4b801"><td class="memItemLeft" align="right" valign="top">procedure&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgwfdisumodule_1_1gwfdisutype.html#a08f1932dd69f0add4da4447c76d4b801">allocate_arrays</a></td></tr>
 <tr class="separator:a08f1932dd69f0add4da4447c76d4b801"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f0e3f004cc594e1df52c89b76ffe240"><td class="memItemLeft" align="right" valign="top">procedure&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgwfdisumodule_1_1gwfdisutype.html#a8f0e3f004cc594e1df52c89b76ffe240">allocate_arrays_mem</a></td></tr>
+<tr class="separator:a8f0e3f004cc594e1df52c89b76ffe240"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e17e9efe37d9563cdb4deee532915e7"><td class="memItemLeft" align="right" valign="top">procedure&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgwfdisumodule_1_1gwfdisutype.html#a0e17e9efe37d9563cdb4deee532915e7">read_options</a></td></tr>
 <tr class="separator:a0e17e9efe37d9563cdb4deee532915e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11c1aaabe89e38c1be2b07216441e60f"><td class="memItemLeft" align="right" valign="top">procedure&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgwfdisumodule_1_1gwfdisutype.html#a11c1aaabe89e38c1be2b07216441e60f">read_dimensions</a></td></tr>
@@ -232,12 +234,16 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a65669baa030d8c53caf06af7da1a5623"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb80147afd2baa40bdacd2c06dfc416f"><td class="memItemLeft" align="right" valign="top">real(dp), dimension(:), pointer, contiguous&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgwfdisumodule_1_1gwfdisutype.html#adb80147afd2baa40bdacd2c06dfc416f">angldegxinp</a> =&gt; null()</td></tr>
 <tr class="separator:adb80147afd2baa40bdacd2c06dfc416f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac95920f0daa79c080413ac9bb661be30"><td class="memItemLeft" align="right" valign="top">integer(i4b), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgwfdisumodule_1_1gwfdisutype.html#ac95920f0daa79c080413ac9bb661be30">iangledegx</a> =&gt; null()</td></tr>
+<tr class="separator:ac95920f0daa79c080413ac9bb661be30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84dbabafd94c19ef2eafe78298787d58"><td class="memItemLeft" align="right" valign="top">integer(i4b), dimension(:), pointer, contiguous&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgwfdisumodule_1_1gwfdisutype.html#a84dbabafd94c19ef2eafe78298787d58">iavert</a> =&gt; null()</td></tr>
 <tr class="separator:a84dbabafd94c19ef2eafe78298787d58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a2df3f11554e46f597ceb13a6628259"><td class="memItemLeft" align="right" valign="top">integer(i4b), dimension(:), pointer, contiguous&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgwfdisumodule_1_1gwfdisutype.html#a7a2df3f11554e46f597ceb13a6628259">javert</a> =&gt; null()</td></tr>
 <tr class="separator:a7a2df3f11554e46f597ceb13a6628259"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2e16e68d01423ec582c961fdfd0855d"><td class="memItemLeft" align="right" valign="top">integer(i4b), dimension(:), pointer, contiguous&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgwfdisumodule_1_1gwfdisutype.html#ab2e16e68d01423ec582c961fdfd0855d">idomain</a> =&gt; null()</td></tr>
 <tr class="separator:ab2e16e68d01423ec582c961fdfd0855d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc2eddaea68f2a2f834afb187e30457b"><td class="memItemLeft" align="right" valign="top">logical(lgp)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgwfdisumodule_1_1gwfdisutype.html#abc2eddaea68f2a2f834afb187e30457b">readfromfile</a></td></tr>
+<tr class="separator:abc2eddaea68f2a2f834afb187e30457b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
@@ -263,7 +269,31 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00060">60</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00062">62</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
+
+</div>
+</div>
+<a id="a8f0e3f004cc594e1df52c89b76ffe240"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f0e3f004cc594e1df52c89b76ffe240">&#9670;&nbsp;</a></span>allocate_arrays_mem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">procedure gwfdisumodule::gwfdisutype::allocate_arrays_mem</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00063">63</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
 
 </div>
 </div>
@@ -287,7 +317,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00059">59</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00061">61</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
 
 </div>
 </div>
@@ -311,7 +341,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00052">52</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00054">54</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
 
 </div>
 </div>
@@ -335,7 +365,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00053">53</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00055">55</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
 
 </div>
 </div>
@@ -359,7 +389,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00042">42</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00044">44</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
 
 </div>
 </div>
@@ -383,7 +413,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00041">41</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00043">43</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
 
 </div>
 </div>
@@ -407,7 +437,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00045">45</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00047">47</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
 
 </div>
 </div>
@@ -431,7 +461,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00043">43</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00045">45</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
 
 </div>
 </div>
@@ -455,7 +485,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00044">44</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00046">46</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
 
 </div>
 </div>
@@ -479,7 +509,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00055">55</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00057">57</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
 
 </div>
 </div>
@@ -503,7 +533,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00047">47</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00049">49</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
 
 </div>
 </div>
@@ -527,7 +557,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00046">46</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00048">48</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
 
 </div>
 </div>
@@ -551,7 +581,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00051">51</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00053">53</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
 
 </div>
 </div>
@@ -575,7 +605,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00050">50</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00052">52</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
 
 </div>
 </div>
@@ -599,7 +629,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00049">49</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00051">51</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
 
 </div>
 </div>
@@ -623,7 +653,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00048">48</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00050">50</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
 
 </div>
 </div>
@@ -647,7 +677,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00066">66</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00069">69</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
 
 </div>
 </div>
@@ -671,7 +701,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00064">64</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00067">67</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
 
 </div>
 </div>
@@ -695,7 +725,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00071">71</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00074">74</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
 
 </div>
 </div>
@@ -719,7 +749,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00062">62</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00065">65</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
 
 </div>
 </div>
@@ -743,7 +773,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00070">70</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00073">73</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
 
 </div>
 </div>
@@ -767,7 +797,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00063">63</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00066">66</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
 
 </div>
 </div>
@@ -791,7 +821,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00061">61</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00064">64</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
 
 </div>
 </div>
@@ -815,7 +845,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00065">65</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00068">68</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
 
 </div>
 </div>
@@ -831,7 +861,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00056">56</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00058">58</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
 
 </div>
 </div>
@@ -847,7 +877,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00057">57</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00059">59</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
 
 </div>
 </div>
@@ -871,7 +901,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00054">54</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00056">56</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
 
 </div>
 </div>
@@ -895,7 +925,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00067">67</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00070">70</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
 
 </div>
 </div>
@@ -1075,6 +1105,31 @@ Private Attributes</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
+<a id="ac95920f0daa79c080413ac9bb661be30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac95920f0daa79c080413ac9bb661be30">&#9670;&nbsp;</a></span>iangledegx</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer(i4b), pointer gwfdisumodule::gwfdisutype::iangledegx =&gt; null()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00037">37</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: iangledegx =&gt; null()                                <span class="comment">! =1 when angle information was present in input, 0 otherwise</span></div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="a84dbabafd94c19ef2eafe78298787d58"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a84dbabafd94c19ef2eafe78298787d58">&#9670;&nbsp;</a></span>iavert</h2>
 
@@ -1095,8 +1150,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00037">37</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: iavert =&gt; null()          <span class="comment">! cell vertex pointer ia array</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00038">38</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: iavert =&gt; null()          <span class="comment">! cell vertex pointer ia array</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1120,8 +1175,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00039">39</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: idomain  =&gt; null()        <span class="comment">! idomain (nodes)</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00040">40</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: idomain  =&gt; null()        <span class="comment">! idomain (nodes)</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1195,8 +1250,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00038">38</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>:: javert =&gt; null()           <span class="comment">! cell vertex pointer ja array</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00039">39</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>:: javert =&gt; null()           <span class="comment">! cell vertex pointer ja array</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1247,6 +1302,31 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00024">24</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
 <div class="fragment"><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: nvert =&gt; null()                                     <span class="comment">! number of x,y vertices</span></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="abc2eddaea68f2a2f834afb187e30457b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc2eddaea68f2a2f834afb187e30457b">&#9670;&nbsp;</a></span>readfromfile</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">logical(lgp) gwfdisumodule::gwfdisutype::readfromfile</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="gwf3disu8_8f90_source.html#l00041">41</a> of file <a class="el" href="gwf3disu8_8f90_source.html">gwf3disu8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: readFromFile                                                 <span class="comment">! True, when DIS is read from file (almost always)</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1334,7 +1414,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacegwfdisumodule.html">gwfdisumodule</a></li><li class="navelem"><a class="el" href="structgwfdisumodule_1_1gwfdisutype.html">gwfdisutype</a></li>
-    <li class="footer">Generated on Wed Sep 29 2021 08:34:22 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Nov 24 2021 08:19:45 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

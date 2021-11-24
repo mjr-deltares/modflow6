@@ -345,7 +345,7 @@ Functions/Subroutines</h2></td></tr>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordflow">if</span> (.not. this%endoffile) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;      <span class="keyword">read</span>(this%inunit, iostat=iostat) this%kstpnext, this%kpernext</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;      <span class="keywordflow">if</span> (iostat == 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="keyword">call </span><a class="code" href="namespaceinputoutputmodule.html#a9138018756a22c0480830e247f537fa1">fseek_stream</a>(this%inunit, -2 * <a class="code" href="namespacekindmodule.html#a2f6861418b5e7d3d602b77228232a470">i4b</a>, 1, iostat)</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="keyword">call </span><a class="code" href="namespaceinputoutputmodule.html#a9138018756a22c0480830e247f537fa1">fseek_stream</a>(this%inunit, -2 * i4b, 1, iostat)</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (iostat &lt; 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        this%endoffile = .true.</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="keywordflow">      endif</span></div>
@@ -367,14 +367,13 @@ Here is the call graph for this function:</div>
 </div>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="anamespaceinputoutputmodule_html_a9138018756a22c0480830e247f537fa1"><div class="ttname"><a href="namespaceinputoutputmodule.html#a9138018756a22c0480830e247f537fa1">inputoutputmodule::fseek_stream</a></div><div class="ttdeci">subroutine, public fseek_stream(iu, offset, whence, status)</div><div class="ttdef"><b>Definition:</b> <a href="_input_output_8f90_source.html#l02168">InputOutput.f90:2168</a></div></div>
+<div class="ttc" id="anamespaceinputoutputmodule_html_a9138018756a22c0480830e247f537fa1"><div class="ttname"><a href="namespaceinputoutputmodule.html#a9138018756a22c0480830e247f537fa1">inputoutputmodule::fseek_stream</a></div><div class="ttdeci">subroutine, public fseek_stream(iu, offset, whence, status)</div><div class="ttdef"><b>Definition:</b> <a href="_input_output_8f90_source.html#l02177">InputOutput.f90:2177</a></div></div>
 <div class="ttc" id="anamespaceinputoutputmodule_html"><div class="ttname"><a href="namespaceinputoutputmodule.html">inputoutputmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_input_output_8f90_source.html#l00003">InputOutput.f90:3</a></div></div>
-<div class="ttc" id="anamespacekindmodule_html_a2f6861418b5e7d3d602b77228232a470"><div class="ttname"><a href="namespacekindmodule.html#a2f6861418b5e7d3d602b77228232a470">kindmodule::i4b</a></div><div class="ttdeci">integer, parameter i4b</div><div class="ttdoc">Integer kind.</div><div class="ttdef"><b>Definition:</b> <a href="kind_8f90_source.html#l00016">kind.f90:16</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceheadfilereadermodule.html">headfilereadermodule</a></li>
-    <li class="footer">Generated on Wed Sep 29 2021 08:34:25 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Nov 24 2021 08:19:49 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

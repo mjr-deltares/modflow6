@@ -256,12 +256,12 @@ Functions/Subroutines</h2></td></tr>
 <div class="line"><a name="l01123"></a><span class="lineno"> 1123</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__allocate.html">mem_allocate</a>(this%rmatck, 3, 3, <span class="stringliteral">&#39;RMATCK&#39;</span>, this%memoryPath)</div>
 <div class="line"><a name="l01124"></a><span class="lineno"> 1124</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l01125"></a><span class="lineno"> 1125</span>&#160;    <span class="comment">! -- Initialize arrays to zero</span></div>
-<div class="line"><a name="l01126"></a><span class="lineno"> 1126</span>&#160;    this%rmatck = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l01126"></a><span class="lineno"> 1126</span>&#160;    this%rmatck = dzero</div>
 <div class="line"><a name="l01127"></a><span class="lineno"> 1127</span>&#160;    <span class="keywordflow">if</span> (this%inewton /= 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l01128"></a><span class="lineno"> 1128</span>&#160;      this%qsat = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l01128"></a><span class="lineno"> 1128</span>&#160;      this%qsat = dzero</div>
 <div class="line"><a name="l01129"></a><span class="lineno"> 1129</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (this%lamatsaved) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l01130"></a><span class="lineno"> 1130</span>&#160;      this%amatpc = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l01131"></a><span class="lineno"> 1131</span>&#160;      this%amatpcx = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l01130"></a><span class="lineno"> 1130</span>&#160;      this%amatpc = dzero</div>
+<div class="line"><a name="l01131"></a><span class="lineno"> 1131</span>&#160;      this%amatpcx = dzero</div>
 <div class="line"><a name="l01132"></a><span class="lineno"> 1132</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l01133"></a><span class="lineno"> 1133</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l01134"></a><span class="lineno"> 1134</span>&#160;    <span class="comment">! -- Return</span></div>
@@ -1038,9 +1038,9 @@ Here is the call graph for this function:</div>
 <area shape="rect" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="211,68,385,95"/>
 <area shape="rect" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="433,68,572,95"/>
 <area shape="rect" href="namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="620,27,788,69"/>
-<area shape="rect" href="namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title=" " alt="" coords="620,93,788,134"/>
+<area shape="rect" href="namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="620,93,788,134"/>
 <area shape="rect" href="namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="836,5,1031,32"/>
-<area shape="rect" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title=" " alt="" coords="849,57,1017,98"/>
+<area shape="rect" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="849,57,1017,98"/>
 </map>
 </div>
 
@@ -1158,8 +1158,8 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l01408"></a><span class="lineno"> 1408</span>&#160;          sill_bot = max(botn, botm)</div>
 <div class="line"><a name="l01409"></a><span class="lineno"> 1409</span>&#160;          tpn = botn + thksatn</div>
 <div class="line"><a name="l01410"></a><span class="lineno"> 1410</span>&#160;          tpm = botm + thksatm</div>
-<div class="line"><a name="l01411"></a><span class="lineno"> 1411</span>&#160;          thksatn = max(min(tpn, sill_top) - sill_bot, <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a>)</div>
-<div class="line"><a name="l01412"></a><span class="lineno"> 1412</span>&#160;          thksatm = max(min(tpm, sill_top) - sill_bot, <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a>)</div>
+<div class="line"><a name="l01411"></a><span class="lineno"> 1411</span>&#160;          thksatn = max(min(tpn, sill_top) - sill_bot, dzero)</div>
+<div class="line"><a name="l01412"></a><span class="lineno"> 1412</span>&#160;          thksatm = max(min(tpm, sill_top) - sill_bot, dzero)</div>
 <div class="line"><a name="l01413"></a><span class="lineno"> 1413</span>&#160;<span class="keywordflow">        end if</span></div>
 <div class="line"><a name="l01414"></a><span class="lineno"> 1414</span>&#160;        ar01 = this%dis%con%hwva(jjs01) * dhalf * (thksatn + thksatm)</div>
 <div class="line"><a name="l01415"></a><span class="lineno"> 1415</span>&#160;      <span class="keywordflow">else</span></div>
@@ -1194,8 +1194,8 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l01444"></a><span class="lineno"> 1444</span>&#160;        sill_bot = max(botn, botm)</div>
 <div class="line"><a name="l01445"></a><span class="lineno"> 1445</span>&#160;        tpn = botn + thksatn</div>
 <div class="line"><a name="l01446"></a><span class="lineno"> 1446</span>&#160;        tpm = botm + thksatm</div>
-<div class="line"><a name="l01447"></a><span class="lineno"> 1447</span>&#160;        thksatn = max(min(tpn, sill_top) - sill_bot, <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a>)</div>
-<div class="line"><a name="l01448"></a><span class="lineno"> 1448</span>&#160;        thksatm = max(min(tpm, sill_top) - sill_bot, <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a>)</div>
+<div class="line"><a name="l01447"></a><span class="lineno"> 1447</span>&#160;        thksatn = max(min(tpn, sill_top) - sill_bot, dzero)</div>
+<div class="line"><a name="l01448"></a><span class="lineno"> 1448</span>&#160;        thksatm = max(min(tpm, sill_top) - sill_bot, dzero)</div>
 <div class="line"><a name="l01449"></a><span class="lineno"> 1449</span>&#160;<span class="keywordflow">      end if</span></div>
 <div class="line"><a name="l01450"></a><span class="lineno"> 1450</span>&#160;      ar01 = this%dis%con%hwva(jjs01) * thksatn</div>
 <div class="line"><a name="l01451"></a><span class="lineno"> 1451</span>&#160;      ar10 = this%dis%con%hwva(jjs01) * thksatm</div>
@@ -1292,9 +1292,9 @@ Here is the call graph for this function:</div>
 <area shape="rect" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="639,68,813,95"/>
 <area shape="rect" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="861,68,1000,95"/>
 <area shape="rect" href="namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="1048,27,1216,69"/>
-<area shape="rect" href="namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title=" " alt="" coords="1048,93,1216,134"/>
+<area shape="rect" href="namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="1048,93,1216,134"/>
 <area shape="rect" href="namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="1264,5,1459,32"/>
-<area shape="rect" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title=" " alt="" coords="1277,57,1445,98"/>
+<area shape="rect" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1277,57,1445,98"/>
 </map>
 </div>
 <div class="dynheader">
@@ -1302,17 +1302,18 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacext3dmodule_ad20f01d9a9fe69c0d007ba046a0435eb_icgraph.png" border="0" usemap="#namespacext3dmodule_ad20f01d9a9fe69c0d007ba046a0435eb_icgraph" alt=""/></div>
 <map name="namespacext3dmodule_ad20f01d9a9fe69c0d007ba046a0435eb_icgraph" id="namespacext3dmodule_ad20f01d9a9fe69c0d007ba046a0435eb_icgraph">
-<area shape="rect" title=" " alt="" coords="1515,56,1671,83"/>
-<area shape="rect" href="namespacegwtdspmodule.html#a137ee979ee5781114bb5c5771af433cb" title=" " alt="" coords="1297,5,1467,32"/>
-<area shape="rect" href="namespacegwfmodule.html#ab7c4f16fdcabd8814e3649d4950a4c9b" title=" " alt="" coords="1309,56,1455,83"/>
-<area shape="rect" href="namespacegwfnpfmodule.html#a68c0ee40476b639bd15d53771afbc02e" title="define the NPF package instance" alt="" coords="1299,107,1465,133"/>
-<area shape="rect" href="namespacesimulationcreatemodule.html#a0043d2fa8d8b96e41e5e0fdfecaadae7" title="Set the models to be used for the simulation." alt="" coords="1068,49,1249,90"/>
-<area shape="rect" href="namespacesimulationcreatemodule.html#a7d37a8b63b2b0874f875f45b6cf93f03" title="Read the simulation name file." alt="" coords="821,49,1020,90"/>
-<area shape="rect" href="namespacesimulationcreatemodule.html#afcbe0fd3c140a3ba4f0a5409e5dc8781" title="Read the simulation name file and initialize the models, exchanges." alt="" coords="592,49,773,90"/>
-<area shape="rect" href="namespacemf6coremodule.html#aa847da5116e01f4fad8885b0c4f96757" title="Initialize a simulation." alt="" coords="329,56,544,83"/>
-<area shape="rect" href="namespacemf6bmi.html#aa886df822e4ea66c30a97a9060da5de8" title="Initialize the computational core." alt="" coords="107,31,276,57"/>
-<area shape="rect" href="namespacemf6coremodule.html#a207819c711610066af1b83ec2a8efef0" title="Main controller." alt="" coords="101,81,281,108"/>
-<area shape="rect" href="mf6_8f90.html#aa95bf577752f92b917375902bbb13863" title="MODFLOW 6 main entry point." alt="" coords="5,81,53,108"/>
+<area shape="rect" title=" " alt="" coords="1539,97,1695,123"/>
+<area shape="rect" href="namespacegwfinterfacemodelmodule.html#aca5d8f065ea2095afc49c8600f35b2af" title=" " alt="" coords="1297,5,1491,47"/>
+<area shape="rect" href="namespacegwtdspmodule.html#a137ee979ee5781114bb5c5771af433cb" title=" " alt="" coords="1309,71,1479,98"/>
+<area shape="rect" href="namespacegwfmodule.html#ab7c4f16fdcabd8814e3649d4950a4c9b" title=" " alt="" coords="1321,122,1467,149"/>
+<area shape="rect" href="namespacegwfnpfmodule.html#a68c0ee40476b639bd15d53771afbc02e" title="define the NPF package instance" alt="" coords="1311,173,1477,199"/>
+<area shape="rect" href="namespacesimulationcreatemodule.html#a0043d2fa8d8b96e41e5e0fdfecaadae7" title="Set the models to be used for the simulation." alt="" coords="1068,115,1249,156"/>
+<area shape="rect" href="namespacesimulationcreatemodule.html#a7d37a8b63b2b0874f875f45b6cf93f03" title="Read the simulation name file." alt="" coords="821,115,1020,156"/>
+<area shape="rect" href="namespacesimulationcreatemodule.html#afcbe0fd3c140a3ba4f0a5409e5dc8781" title="Read the simulation name file and initialize the models, exchanges." alt="" coords="592,115,773,156"/>
+<area shape="rect" href="namespacemf6coremodule.html#aa847da5116e01f4fad8885b0c4f96757" title="Initialize a simulation." alt="" coords="329,122,544,149"/>
+<area shape="rect" href="namespacemf6bmi.html#aa886df822e4ea66c30a97a9060da5de8" title="Initialize the computational core." alt="" coords="107,97,276,123"/>
+<area shape="rect" href="namespacemf6coremodule.html#a207819c711610066af1b83ec2a8efef0" title="Main controller." alt="" coords="101,147,281,174"/>
+<area shape="rect" href="mf6_8f90.html#aa95bf577752f92b917375902bbb13863" title="MODFLOW 6 main entry point." alt="" coords="5,147,53,174"/>
 </map>
 </div>
 
@@ -3443,26 +3444,26 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="anamespacesimmodule_html_a21870712a1166225fdcd5b60bffb353e"><div class="ttname"><a href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">simmodule::store_error</a></div><div class="ttdeci">subroutine, public store_error(msg, terminate)</div><div class="ttdoc">Store error message.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_8f90_source.html#l00129">Sim.f90:129</a></div></div>
-<div class="ttc" id="anamespaceconstantsmodule_html_abab5757666b9ddd2726c20ce48dd0050"><div class="ttname"><a href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">constantsmodule::dzero</a></div><div class="ttdeci">real(dp), parameter dzero</div><div class="ttdoc">real constant zero</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00053">Constants.f90:53</a></div></div>
-<div class="ttc" id="anamespaceconstantsmodule_html_a9262b16d485352c5d369c6cb86232c60"><div class="ttname"><a href="namespaceconstantsmodule.html#a9262b16d485352c5d369c6cb86232c60">constantsmodule::dhalf</a></div><div class="ttdeci">real(dp), parameter dhalf</div><div class="ttdoc">real constant 1/2</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00056">Constants.f90:56</a></div></div>
+<div class="ttc" id="anamespaceconstantsmodule_html_abab5757666b9ddd2726c20ce48dd0050"><div class="ttname"><a href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">constantsmodule::dzero</a></div><div class="ttdeci">real(dp), parameter dzero</div><div class="ttdoc">real constant zero</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00054">Constants.f90:54</a></div></div>
+<div class="ttc" id="anamespaceconstantsmodule_html_a9262b16d485352c5d369c6cb86232c60"><div class="ttname"><a href="namespaceconstantsmodule.html#a9262b16d485352c5d369c6cb86232c60">constantsmodule::dhalf</a></div><div class="ttdeci">real(dp), parameter dhalf</div><div class="ttdoc">real constant 1/2</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00057">Constants.f90:57</a></div></div>
 <div class="ttc" id="anamespacesimmodule_html"><div class="ttname"><a href="namespacesimmodule.html">simmodule</a></div><div class="ttdoc">This module contains simulation methods.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_8f90_source.html#l00010">Sim.f90:10</a></div></div>
 <div class="ttc" id="astructsparsemodule_1_1sparsematrix_html"><div class="ttname"><a href="structsparsemodule_1_1sparsematrix.html">sparsemodule::sparsematrix</a></div><div class="ttdef"><b>Definition:</b> <a href="_sparse_8f90_source.html#l00014">Sparse.f90:14</a></div></div>
 <div class="ttc" id="anamespacememoryhelpermodule_html_a3791dbc2d4a06a0b9112158cff21f738"><div class="ttname"><a href="namespacememoryhelpermodule.html#a3791dbc2d4a06a0b9112158cff21f738">memoryhelpermodule::create_mem_path</a></div><div class="ttdeci">character(len=lenmempath) function create_mem_path(component, subcomponent)</div><div class="ttdoc">returns the path to the memory object</div><div class="ttdef"><b>Definition:</b> <a href="_memory_helper_8f90_source.html#l00021">MemoryHelper.f90:21</a></div></div>
-<div class="ttc" id="ainterfacememorymanagermodule_1_1mem__allocate_html"><div class="ttname"><a href="interfacememorymanagermodule_1_1mem__allocate.html">memorymanagermodule::mem_allocate</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00050">MemoryManager.f90:50</a></div></div>
+<div class="ttc" id="ainterfacememorymanagermodule_1_1mem__allocate_html"><div class="ttname"><a href="interfacememorymanagermodule_1_1mem__allocate.html">memorymanagermodule::mem_allocate</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00049">MemoryManager.f90:49</a></div></div>
 <div class="ttc" id="anamespacesmoothingmodule_html_a0ee42e035a1831565d3132d8929eb67c"><div class="ttname"><a href="namespacesmoothingmodule.html#a0ee42e035a1831565d3132d8929eb67c">smoothingmodule::squadraticsaturationderivative</a></div><div class="ttdeci">real(dp) function squadraticsaturationderivative(top, bot, x, eps, bmin)</div><div class="ttdef"><b>Definition:</b> <a href="_smoothing_functions_8f90_source.html#l00418">SmoothingFunctions.f90:418</a></div></div>
 <div class="ttc" id="anamespacext3dalgorithmmodule_html_a06c7808265b42eea384e923e68a5b8bb"><div class="ttname"><a href="namespacext3dalgorithmmodule.html#a06c7808265b42eea384e923e68a5b8bb">xt3dalgorithmmodule::qconds</a></div><div class="ttdeci">subroutine qconds(nnbrmx, nnbr0, inbr0, il01, vc0, vn0, dl0, dl0n, ck0, nnbr1, inbr1, il10, vc1, vn1, dl1, dl1n, ck1, ar01, ar10, vcthresh, allhc0, allhc1, chat01, chati0, chat1j)</div><div class="ttdef"><b>Definition:</b> <a href="_xt3d_algorithm_8f90_source.html#l00015">Xt3dAlgorithm.f90:15</a></div></div>
 <div class="ttc" id="anamespaceconstantsmodule_html"><div class="ttname"><a href="namespaceconstantsmodule.html">constantsmodule</a></div><div class="ttdoc">This module contains simulation constants.</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00009">Constants.f90:9</a></div></div>
-<div class="ttc" id="ainterfacememorymanagermodule_1_1mem__deallocate_html"><div class="ttname"><a href="interfacememorymanagermodule_1_1mem__deallocate.html">memorymanagermodule::mem_deallocate</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00085">MemoryManager.f90:85</a></div></div>
+<div class="ttc" id="ainterfacememorymanagermodule_1_1mem__deallocate_html"><div class="ttname"><a href="interfacememorymanagermodule_1_1mem__deallocate.html">memorymanagermodule::mem_deallocate</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00084">MemoryManager.f90:84</a></div></div>
 <div class="ttc" id="anamespacememorymanagermodule_html"><div class="ttname"><a href="namespacememorymanagermodule.html">memorymanagermodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00001">MemoryManager.f90:1</a></div></div>
 <div class="ttc" id="anamespacesmoothingmodule_html"><div class="ttname"><a href="namespacesmoothingmodule.html">smoothingmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_smoothing_functions_8f90_source.html#l00001">SmoothingFunctions.f90:1</a></div></div>
 <div class="ttc" id="anamespacesparsemodule_html"><div class="ttname"><a href="namespacesparsemodule.html">sparsemodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_sparse_8f90_source.html#l00001">Sparse.f90:1</a></div></div>
 <div class="ttc" id="anamespacext3dalgorithmmodule_html"><div class="ttname"><a href="namespacext3dalgorithmmodule.html">xt3dalgorithmmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_xt3d_algorithm_8f90_source.html#l00004">Xt3dAlgorithm.f90:4</a></div></div>
-<div class="ttc" id="anamespaceconstantsmodule_html_af918ac22cd0b232deea67660bfbc9ce1"><div class="ttname"><a href="namespaceconstantsmodule.html#af918ac22cd0b232deea67660bfbc9ce1">constantsmodule::done</a></div><div class="ttdeci">real(dp), parameter done</div><div class="ttdoc">real constant 1</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00064">Constants.f90:64</a></div></div>
+<div class="ttc" id="anamespaceconstantsmodule_html_af918ac22cd0b232deea67660bfbc9ce1"><div class="ttname"><a href="namespaceconstantsmodule.html#af918ac22cd0b232deea67660bfbc9ce1">constantsmodule::done</a></div><div class="ttdeci">real(dp), parameter done</div><div class="ttdoc">real constant 1</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00065">Constants.f90:65</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacext3dmodule.html">xt3dmodule</a></li>
-    <li class="footer">Generated on Wed Sep 29 2021 08:34:35 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Nov 24 2021 08:20:01 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

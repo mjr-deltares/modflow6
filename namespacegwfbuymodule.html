@@ -246,14 +246,14 @@ Functions/Subroutines</h2></td></tr>
 <div class="line"><a name="l01569"></a><span class="lineno"> 1569</span>&#160;    <span class="comment">! -- Initialize</span></div>
 <div class="line"><a name="l01570"></a><span class="lineno"> 1570</span>&#160;    <span class="keywordflow">do</span> i = 1, nodes</div>
 <div class="line"><a name="l01571"></a><span class="lineno"> 1571</span>&#160;      this%dense(i) = this%denseref</div>
-<div class="line"><a name="l01572"></a><span class="lineno"> 1572</span>&#160;      this%elev(i) = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l01572"></a><span class="lineno"> 1572</span>&#160;      this%elev(i) = dzero</div>
 <div class="line"><a name="l01573"></a><span class="lineno"> 1573</span>&#160;<span class="keywordflow">    enddo</span></div>
 <div class="line"><a name="l01574"></a><span class="lineno"> 1574</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l01575"></a><span class="lineno"> 1575</span>&#160;    <span class="comment">! -- Initialize nrhospecies arrays</span></div>
 <div class="line"><a name="l01576"></a><span class="lineno"> 1576</span>&#160;    <span class="keywordflow">do</span> i = 1, this%nrhospecies</div>
-<div class="line"><a name="l01577"></a><span class="lineno"> 1577</span>&#160;      this%drhodc(i) = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l01578"></a><span class="lineno"> 1578</span>&#160;      this%crhoref(i) = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l01579"></a><span class="lineno"> 1579</span>&#160;      this%ctemp(i) = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l01577"></a><span class="lineno"> 1577</span>&#160;      this%drhodc(i) = dzero</div>
+<div class="line"><a name="l01578"></a><span class="lineno"> 1578</span>&#160;      this%crhoref(i) = dzero</div>
+<div class="line"><a name="l01579"></a><span class="lineno"> 1579</span>&#160;      this%ctemp(i) = dzero</div>
 <div class="line"><a name="l01580"></a><span class="lineno"> 1580</span>&#160;      this%cmodelname(i) = <span class="stringliteral">&#39;&#39;</span></div>
 <div class="line"><a name="l01581"></a><span class="lineno"> 1581</span>&#160;      this%cauxspeciesname(i) = <span class="stringliteral">&#39;&#39;</span></div>
 <div class="line"><a name="l01582"></a><span class="lineno"> 1582</span>&#160;<span class="keywordflow">    end do</span></div>
@@ -432,7 +432,7 @@ Functions/Subroutines</h2></td></tr>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="comment">! -- Ensure NPF XT3D is not on</span></div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keywordflow">if</span> (this%npf%ixt3d /= 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(<span class="stringliteral">&#39;Error in model &#39;</span> // trim(this%name_model) // &amp;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;      <span class="keyword">call </span>store_error(<span class="stringliteral">&#39;Error in model &#39;</span> // trim(this%name_model) // &amp;</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <span class="stringliteral">&#39;.  The XT3D option cannot be used with the BUY Package.&#39;</span>)</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;      <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="keywordflow">    endif</span></div>
@@ -451,9 +451,9 @@ Here is the call graph for this function:</div>
 <area shape="rect" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="224,68,399,95"/>
 <area shape="rect" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="447,68,585,95"/>
 <area shape="rect" href="namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="633,27,801,69"/>
-<area shape="rect" href="namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title=" " alt="" coords="633,93,801,134"/>
+<area shape="rect" href="namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="633,93,801,134"/>
 <area shape="rect" href="namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="849,5,1044,32"/>
-<area shape="rect" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title=" " alt="" coords="863,57,1031,98"/>
+<area shape="rect" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="863,57,1031,98"/>
 </map>
 </div>
 
@@ -2360,7 +2360,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;      <span class="keywordflow">do</span> i = 1, this%nrhospecies</div>
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        <span class="keywordflow">if</span> (.not. <span class="keyword">associated</span>(this%modelconc(i)%conc)) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;          <span class="keyword">write</span>(errmsg, fmtc) i</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;          <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(errmsg)</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;          <span class="keyword">call </span>store_error(errmsg)</div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;<span class="keywordflow">        end if</span></div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;<span class="keywordflow">      end do</span></div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;      <span class="keywordflow">if</span> (count_errors() &gt; 0) <span class="keywordflow">then</span></div>
@@ -2380,9 +2380,9 @@ Here is the call graph for this function:</div>
 <area shape="rect" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="229,68,403,95"/>
 <area shape="rect" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="456,68,595,95"/>
 <area shape="rect" href="namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="643,27,811,69"/>
-<area shape="rect" href="namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title=" " alt="" coords="643,93,811,134"/>
+<area shape="rect" href="namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="643,93,811,134"/>
 <area shape="rect" href="namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="859,5,1053,32"/>
-<area shape="rect" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title=" " alt="" coords="872,57,1040,98"/>
+<area shape="rect" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="872,57,1040,98"/>
 </map>
 </div>
 
@@ -3172,19 +3172,19 @@ Here is the caller graph for this function:</div>
 <div class="line"><a name="l01130"></a><span class="lineno"> 1130</span>&#160;<span class="keywordflow">          case default</span></div>
 <div class="line"><a name="l01131"></a><span class="lineno"> 1131</span>&#160;            <span class="keyword">write</span>(errmsg,<span class="stringliteral">&#39;(4x,a,a)&#39;</span>)                                           &amp;</div>
 <div class="line"><a name="l01132"></a><span class="lineno"> 1132</span>&#160;              <span class="stringliteral">&#39;UNKNOWN BUY DIMENSION: &#39;</span>, trim(keyword)</div>
-<div class="line"><a name="l01133"></a><span class="lineno"> 1133</span>&#160;            <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(errmsg)</div>
+<div class="line"><a name="l01133"></a><span class="lineno"> 1133</span>&#160;            <span class="keyword">call </span>store_error(errmsg)</div>
 <div class="line"><a name="l01134"></a><span class="lineno"> 1134</span>&#160;            <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
 <div class="line"><a name="l01135"></a><span class="lineno"> 1135</span>&#160;<span class="keywordflow">        end select</span></div>
 <div class="line"><a name="l01136"></a><span class="lineno"> 1136</span>&#160;<span class="keywordflow">      end do</span></div>
 <div class="line"><a name="l01137"></a><span class="lineno"> 1137</span>&#160;      <span class="keyword">write</span>(this%iout,<span class="stringliteral">&#39;(1x,a)&#39;</span>)<span class="stringliteral">&#39;END OF BUY DIMENSIONS&#39;</span></div>
 <div class="line"><a name="l01138"></a><span class="lineno"> 1138</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l01139"></a><span class="lineno"> 1139</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(<span class="stringliteral">&#39;REQUIRED BUY DIMENSIONS BLOCK NOT FOUND.&#39;</span>)</div>
+<div class="line"><a name="l01139"></a><span class="lineno"> 1139</span>&#160;      <span class="keyword">call </span>store_error(<span class="stringliteral">&#39;REQUIRED BUY DIMENSIONS BLOCK NOT FOUND.&#39;</span>)</div>
 <div class="line"><a name="l01140"></a><span class="lineno"> 1140</span>&#160;      <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
 <div class="line"><a name="l01141"></a><span class="lineno"> 1141</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l01142"></a><span class="lineno"> 1142</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l01143"></a><span class="lineno"> 1143</span>&#160;    <span class="comment">! -- check dimension</span></div>
 <div class="line"><a name="l01144"></a><span class="lineno"> 1144</span>&#160;    <span class="keywordflow">if</span> (this%nrhospecies &lt; 1) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l01145"></a><span class="lineno"> 1145</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(<span class="stringliteral">&#39;NRHOSPECIES MUST BE GREATER THAN ONE.&#39;</span>)</div>
+<div class="line"><a name="l01145"></a><span class="lineno"> 1145</span>&#160;      <span class="keyword">call </span>store_error(<span class="stringliteral">&#39;NRHOSPECIES MUST BE GREATER THAN ONE.&#39;</span>)</div>
 <div class="line"><a name="l01146"></a><span class="lineno"> 1146</span>&#160;      <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
 <div class="line"><a name="l01147"></a><span class="lineno"> 1147</span>&#160;<span class="keywordflow">    endif</span></div>
 <div class="line"><a name="l01148"></a><span class="lineno"> 1148</span>&#160;    <span class="comment">!</span></div>
@@ -3199,9 +3199,9 @@ Here is the call graph for this function:</div>
 <area shape="rect" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="209,68,384,95"/>
 <area shape="rect" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="432,68,571,95"/>
 <area shape="rect" href="namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="619,27,787,69"/>
-<area shape="rect" href="namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title=" " alt="" coords="619,93,787,134"/>
+<area shape="rect" href="namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="619,93,787,134"/>
 <area shape="rect" href="namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="835,5,1029,32"/>
-<area shape="rect" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title=" " alt="" coords="848,57,1016,98"/>
+<area shape="rect" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="848,57,1016,98"/>
 </map>
 </div>
 
@@ -3293,12 +3293,12 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l01647"></a><span class="lineno"> 1647</span>&#160;            <span class="keywordflow">else</span> </div>
 <div class="line"><a name="l01648"></a><span class="lineno"> 1648</span>&#160;              errmsg = <span class="stringliteral">&#39;OPTIONAL DENSITY KEYWORD MUST BE &#39;</span> //                  &amp;</div>
 <div class="line"><a name="l01649"></a><span class="lineno"> 1649</span>&#160;                       <span class="stringliteral">&#39;FOLLOWED BY FILEOUT&#39;</span></div>
-<div class="line"><a name="l01650"></a><span class="lineno"> 1650</span>&#160;              <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(errmsg)</div>
+<div class="line"><a name="l01650"></a><span class="lineno"> 1650</span>&#160;              <span class="keyword">call </span>store_error(errmsg)</div>
 <div class="line"><a name="l01651"></a><span class="lineno"> 1651</span>&#160;<span class="keywordflow">            end if</span></div>
 <div class="line"><a name="l01652"></a><span class="lineno"> 1652</span>&#160;<span class="keywordflow">          case default</span></div>
 <div class="line"><a name="l01653"></a><span class="lineno"> 1653</span>&#160;            <span class="keyword">write</span>(errmsg,<span class="stringliteral">&#39;(4x,a,a)&#39;</span>)<span class="stringliteral">&#39;****ERROR. UNKNOWN BUY OPTION: &#39;</span>,         &amp;</div>
 <div class="line"><a name="l01654"></a><span class="lineno"> 1654</span>&#160;                                     trim(keyword)</div>
-<div class="line"><a name="l01655"></a><span class="lineno"> 1655</span>&#160;            <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(errmsg)</div>
+<div class="line"><a name="l01655"></a><span class="lineno"> 1655</span>&#160;            <span class="keyword">call </span>store_error(errmsg)</div>
 <div class="line"><a name="l01656"></a><span class="lineno"> 1656</span>&#160;            <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
 <div class="line"><a name="l01657"></a><span class="lineno"> 1657</span>&#160;<span class="keywordflow">        end select</span></div>
 <div class="line"><a name="l01658"></a><span class="lineno"> 1658</span>&#160;<span class="keywordflow">      end do</span></div>
@@ -3322,9 +3322,9 @@ Here is the call graph for this function:</div>
 <area shape="rect" href="namespaceinputoutputmodule.html#a3418ad9e27e9d9caac6f541863e1c522" title=" " alt="" coords="412,71,567,112"/>
 <area shape="rect" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="869,198,1008,225"/>
 <area shape="rect" href="namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="1056,212,1224,253"/>
-<area shape="rect" href="namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title=" " alt="" coords="1056,147,1224,188"/>
+<area shape="rect" href="namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="1056,147,1224,188"/>
 <area shape="rect" href="namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="1272,219,1467,246"/>
-<area shape="rect" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title=" " alt="" coords="1285,271,1453,312"/>
+<area shape="rect" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1285,271,1453,312"/>
 <area shape="rect" href="namespaceinputoutputmodule.html#a5d0681efcccbea67f1d521a6729cbb4f" title=" " alt="" coords="641,329,795,371"/>
 <area shape="rect" href="namespacesimmodule.html#a83910ed20af1fec9bdf46cad8c276538" title="Store the file unit number." alt="" coords="615,227,821,254"/>
 </map>
@@ -3402,11 +3402,11 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l01196"></a><span class="lineno"> 1196</span>&#160;        irhospec = this%parser%GetInteger()</div>
 <div class="line"><a name="l01197"></a><span class="lineno"> 1197</span>&#160;        <span class="keywordflow">if</span> (irhospec &lt; 1 .or. irhospec &gt; this%nrhospecies) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l01198"></a><span class="lineno"> 1198</span>&#160;          <span class="keyword">write</span>(errmsg, fmterr) irhospec</div>
-<div class="line"><a name="l01199"></a><span class="lineno"> 1199</span>&#160;          <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(errmsg)</div>
+<div class="line"><a name="l01199"></a><span class="lineno"> 1199</span>&#160;          <span class="keyword">call </span>store_error(errmsg)</div>
 <div class="line"><a name="l01200"></a><span class="lineno"> 1200</span>&#160;<span class="keywordflow">        end if</span></div>
 <div class="line"><a name="l01201"></a><span class="lineno"> 1201</span>&#160;        <span class="keywordflow">if</span> (itemp(irhospec) /= 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l01202"></a><span class="lineno"> 1202</span>&#160;          <span class="keyword">write</span>(errmsg, fmterr) irhospec</div>
-<div class="line"><a name="l01203"></a><span class="lineno"> 1203</span>&#160;          <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(errmsg)</div>
+<div class="line"><a name="l01203"></a><span class="lineno"> 1203</span>&#160;          <span class="keyword">call </span>store_error(errmsg)</div>
 <div class="line"><a name="l01204"></a><span class="lineno"> 1204</span>&#160;<span class="keywordflow">        end if</span></div>
 <div class="line"><a name="l01205"></a><span class="lineno"> 1205</span>&#160;        itemp(irhospec) = 1</div>
 <div class="line"><a name="l01206"></a><span class="lineno"> 1206</span>&#160;        this%drhodc(irhospec) = this%parser%GetDouble()</div>
@@ -3456,9 +3456,9 @@ Here is the call graph for this function:</div>
 <area shape="rect" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="214,68,389,95"/>
 <area shape="rect" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="441,68,580,95"/>
 <area shape="rect" href="namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="628,27,796,69"/>
-<area shape="rect" href="namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title=" " alt="" coords="628,93,796,134"/>
+<area shape="rect" href="namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="628,93,796,134"/>
 <area shape="rect" href="namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="844,5,1039,32"/>
-<area shape="rect" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title=" " alt="" coords="857,57,1025,98"/>
+<area shape="rect" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="857,57,1025,98"/>
 </map>
 </div>
 
@@ -3542,14 +3542,13 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="anamespacebndmodule_html"><div class="ttname"><a href="namespacebndmodule.html">bndmodule</a></div><div class="ttdoc">This module contains the base boundary package.</div><div class="ttdef"><b>Definition:</b> <a href="_boundary_package_8f90_source.html#l00008">BoundaryPackage.f90:8</a></div></div>
-<div class="ttc" id="anamespacesimmodule_html_a21870712a1166225fdcd5b60bffb353e"><div class="ttname"><a href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">simmodule::store_error</a></div><div class="ttdeci">subroutine, public store_error(msg, terminate)</div><div class="ttdoc">Store error message.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_8f90_source.html#l00129">Sim.f90:129</a></div></div>
-<div class="ttc" id="anamespaceconstantsmodule_html_abab5757666b9ddd2726c20ce48dd0050"><div class="ttname"><a href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">constantsmodule::dzero</a></div><div class="ttdeci">real(dp), parameter dzero</div><div class="ttdoc">real constant zero</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00053">Constants.f90:53</a></div></div>
-<div class="ttc" id="anamespacegwfnpfmodule_html_a7fc55c137cbf452e811e7bda474af209"><div class="ttname"><a href="namespacegwfnpfmodule.html#a7fc55c137cbf452e811e7bda474af209">gwfnpfmodule::hcond</a></div><div class="ttdeci">real(dp) function, public hcond(ibdn, ibdm, ictn, ictm, inewton, inwtup, ihc, icellavg, iusg, iupw, condsat, hn, hm, satn, satm, hkn, hkm, topn, topm, botn, botm, cln, clm, fawidth, satomega, satminopt)</div><div class="ttdef"><b>Definition:</b> <a href="gwf3npf8_8f90_source.html#l02699">gwf3npf8.f90:2699</a></div></div>
-<div class="ttc" id="anamespacegwfnpfmodule_html_a0ac64188c68a16279d975e588393259e"><div class="ttname"><a href="namespacegwfnpfmodule.html#a0ac64188c68a16279d975e588393259e">gwfnpfmodule::vcond</a></div><div class="ttdeci">real(dp) function, public vcond(ibdn, ibdm, ictn, ictm, inewton, ivarcv, idewatcv, condsat, hn, hm, vkn, vkm, satn, satm, topn, topm, botn, botm, flowarea)</div><div class="ttdef"><b>Definition:</b> <a href="gwf3npf8_8f90_source.html#l02865">gwf3npf8.f90:2865</a></div></div>
-<div class="ttc" id="anamespaceinputoutputmodule_html_a12462c53c53955327093c22ab7b89d99"><div class="ttname"><a href="namespaceinputoutputmodule.html#a12462c53c53955327093c22ab7b89d99">inputoutputmodule::urdaux</a></div><div class="ttdeci">subroutine, public urdaux(naux, inunit, iout, lloc, istart, istop, auxname, line, text)</div><div class="ttdef"><b>Definition:</b> <a href="_input_output_8f90_source.html#l01785">InputOutput.f90:1785</a></div></div>
+<div class="ttc" id="anamespaceconstantsmodule_html_abab5757666b9ddd2726c20ce48dd0050"><div class="ttname"><a href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">constantsmodule::dzero</a></div><div class="ttdeci">real(dp), parameter dzero</div><div class="ttdoc">real constant zero</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00054">Constants.f90:54</a></div></div>
+<div class="ttc" id="anamespacegwfnpfmodule_html_a7fc55c137cbf452e811e7bda474af209"><div class="ttname"><a href="namespacegwfnpfmodule.html#a7fc55c137cbf452e811e7bda474af209">gwfnpfmodule::hcond</a></div><div class="ttdeci">real(dp) function, public hcond(ibdn, ibdm, ictn, ictm, inewton, inwtup, ihc, icellavg, iusg, iupw, condsat, hn, hm, satn, satm, hkn, hkm, topn, topm, botn, botm, cln, clm, fawidth, satomega, satminopt)</div><div class="ttdef"><b>Definition:</b> <a href="gwf3npf8_8f90_source.html#l02700">gwf3npf8.f90:2700</a></div></div>
+<div class="ttc" id="anamespacegwfnpfmodule_html_a0ac64188c68a16279d975e588393259e"><div class="ttname"><a href="namespacegwfnpfmodule.html#a0ac64188c68a16279d975e588393259e">gwfnpfmodule::vcond</a></div><div class="ttdeci">real(dp) function, public vcond(ibdn, ibdm, ictn, ictm, inewton, ivarcv, idewatcv, condsat, hn, hm, vkn, vkm, satn, satm, topn, topm, botn, botm, flowarea)</div><div class="ttdef"><b>Definition:</b> <a href="gwf3npf8_8f90_source.html#l02866">gwf3npf8.f90:2866</a></div></div>
+<div class="ttc" id="anamespaceinputoutputmodule_html_a12462c53c53955327093c22ab7b89d99"><div class="ttname"><a href="namespaceinputoutputmodule.html#a12462c53c53955327093c22ab7b89d99">inputoutputmodule::urdaux</a></div><div class="ttdeci">subroutine, public urdaux(naux, inunit, iout, lloc, istart, istop, auxname, line, text)</div><div class="ttdef"><b>Definition:</b> <a href="_input_output_8f90_source.html#l01794">InputOutput.f90:1794</a></div></div>
 <div class="ttc" id="anamespaceopenspecmodule_html"><div class="ttname"><a href="namespaceopenspecmodule.html">openspecmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_open_spec_8f90_source.html#l00001">OpenSpec.f90:1</a></div></div>
 <div class="ttc" id="anamespaceinputoutputmodule_html_a535bdfca3d31ebc3a8e4bd5af6890d55"><div class="ttname"><a href="namespaceinputoutputmodule.html#a535bdfca3d31ebc3a8e4bd5af6890d55">inputoutputmodule::getunit</a></div><div class="ttdeci">integer(i4b) function, public getunit()</div><div class="ttdef"><b>Definition:</b> <a href="_input_output_8f90_source.html#l00204">InputOutput.f90:204</a></div></div>
-<div class="ttc" id="ainterfacememorymanagermodule_1_1mem__allocate_html"><div class="ttname"><a href="interfacememorymanagermodule_1_1mem__allocate.html">memorymanagermodule::mem_allocate</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00050">MemoryManager.f90:50</a></div></div>
+<div class="ttc" id="ainterfacememorymanagermodule_1_1mem__allocate_html"><div class="ttname"><a href="interfacememorymanagermodule_1_1mem__allocate.html">memorymanagermodule::mem_allocate</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00049">MemoryManager.f90:49</a></div></div>
 <div class="ttc" id="anamespaceinputoutputmodule_html"><div class="ttname"><a href="namespaceinputoutputmodule.html">inputoutputmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_input_output_8f90_source.html#l00003">InputOutput.f90:3</a></div></div>
 <div class="ttc" id="astructlakmodule_1_1laktype_html"><div class="ttname"><a href="structlakmodule_1_1laktype.html">lakmodule::laktype</a></div><div class="ttdef"><b>Definition:</b> <a href="gwf3lak8_8f90_source.html#l00049">gwf3lak8.f90:49</a></div></div>
 <div class="ttc" id="anamespaceconstantsmodule_html"><div class="ttname"><a href="namespaceconstantsmodule.html">constantsmodule</a></div><div class="ttdoc">This module contains simulation constants.</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00009">Constants.f90:9</a></div></div>
@@ -3557,7 +3556,7 @@ Here is the call graph for this function:</div>
 <div class="ttc" id="anamespacetdismodule_html"><div class="ttname"><a href="namespacetdismodule.html">tdismodule</a></div><div class="ttdef"><b>Definition:</b> <a href="tdis_8f90_source.html#l00005">tdis.f90:5</a></div></div>
 <div class="ttc" id="anamespacesfrmodule_html"><div class="ttname"><a href="namespacesfrmodule.html">sfrmodule</a></div><div class="ttdoc">This module contains the SFR package methods.</div><div class="ttdef"><b>Definition:</b> <a href="gwf3sfr8_8f90_source.html#l00007">gwf3sfr8.f90:7</a></div></div>
 <div class="ttc" id="anamespacegwfnpfmodule_html"><div class="ttname"><a href="namespacegwfnpfmodule.html">gwfnpfmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="gwf3npf8_8f90_source.html#l00001">gwf3npf8.f90:1</a></div></div>
-<div class="ttc" id="ainterfacememorymanagermodule_1_1mem__deallocate_html"><div class="ttname"><a href="interfacememorymanagermodule_1_1mem__deallocate.html">memorymanagermodule::mem_deallocate</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00085">MemoryManager.f90:85</a></div></div>
+<div class="ttc" id="ainterfacememorymanagermodule_1_1mem__deallocate_html"><div class="ttname"><a href="interfacememorymanagermodule_1_1mem__deallocate.html">memorymanagermodule::mem_deallocate</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00084">MemoryManager.f90:84</a></div></div>
 <div class="ttc" id="anamespacelakmodule_html"><div class="ttname"><a href="namespacelakmodule.html">lakmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="gwf3lak8_8f90_source.html#l00001">gwf3lak8.f90:1</a></div></div>
 <div class="ttc" id="anamespaceopenspecmodule_html_ade3198b3fa7a2972dae70d888f866536"><div class="ttname"><a href="namespaceopenspecmodule.html#ade3198b3fa7a2972dae70d888f866536">openspecmodule::form</a></div><div class="ttdeci">character(len=20) form</div><div class="ttdef"><b>Definition:</b> <a href="_open_spec_8f90_source.html#l00007">OpenSpec.f90:7</a></div></div>
 <div class="ttc" id="anamespaceinputoutputmodule_html_a653efe7e8a111c5e477fea26e0b04fe5"><div class="ttname"><a href="namespaceinputoutputmodule.html#a653efe7e8a111c5e477fea26e0b04fe5">inputoutputmodule::urword</a></div><div class="ttdeci">subroutine, public urword(LINE, ICOL, ISTART, ISTOP, NCODE, N, R, IOUT, IN)</div><div class="ttdef"><b>Definition:</b> <a href="_input_output_8f90_source.html#l00734">InputOutput.f90:734</a></div></div>
@@ -3565,13 +3564,13 @@ Here is the call graph for this function:</div>
 <div class="ttc" id="anamespacetdismodule_html_ad3443c7d7da2a67a75174c39c6d40c84"><div class="ttname"><a href="namespacetdismodule.html#ad3443c7d7da2a67a75174c39c6d40c84">tdismodule::kstp</a></div><div class="ttdeci">integer(i4b), pointer, public kstp</div><div class="ttdoc">current time step number</div><div class="ttdef"><b>Definition:</b> <a href="tdis_8f90_source.html#l00025">tdis.f90:25</a></div></div>
 <div class="ttc" id="anamespaceinputoutputmodule_html_ae97851e3edae8d9809e384058a1a4d52"><div class="ttname"><a href="namespaceinputoutputmodule.html#ae97851e3edae8d9809e384058a1a4d52">inputoutputmodule::openfile</a></div><div class="ttdeci">subroutine, public openfile(iu, iout, fname, ftype, fmtarg_opt, accarg_opt, filstat_opt, mode_opt)</div><div class="ttdef"><b>Definition:</b> <a href="_input_output_8f90_source.html#l00033">InputOutput.f90:33</a></div></div>
 <div class="ttc" id="anamespacetdismodule_html_ae84d6ee69d7bba12d20a6255a398935b"><div class="ttname"><a href="namespacetdismodule.html#ae84d6ee69d7bba12d20a6255a398935b">tdismodule::kper</a></div><div class="ttdeci">integer(i4b), pointer, public kper</div><div class="ttdoc">current stress period number</div><div class="ttdef"><b>Definition:</b> <a href="tdis_8f90_source.html#l00024">tdis.f90:24</a></div></div>
-<div class="ttc" id="astructsfrmodule_1_1sfrtype_html"><div class="ttname"><a href="structsfrmodule_1_1sfrtype.html">sfrmodule::sfrtype</a></div><div class="ttdef"><b>Definition:</b> <a href="gwf3sfr8_8f90_source.html#l00048">gwf3sfr8.f90:48</a></div></div>
+<div class="ttc" id="astructsfrmodule_1_1sfrtype_html"><div class="ttname"><a href="structsfrmodule_1_1sfrtype.html">sfrmodule::sfrtype</a></div><div class="ttdef"><b>Definition:</b> <a href="gwf3sfr8_8f90_source.html#l00050">gwf3sfr8.f90:50</a></div></div>
 <div class="ttc" id="anamespacemawmodule_html"><div class="ttname"><a href="namespacemawmodule.html">mawmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="gwf3maw8_8f90_source.html#l00001">gwf3maw8.f90:1</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacegwfbuymodule.html">gwfbuymodule</a></li>
-    <li class="footer">Generated on Wed Sep 29 2021 08:34:21 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Nov 24 2021 08:19:44 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

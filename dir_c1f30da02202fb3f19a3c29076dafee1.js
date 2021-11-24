@@ -10,6 +10,7 @@ var dir_c1f30da02202fb3f19a3c29076dafee1 =
     [ "GwtSpc.f90", "_gwt_spc_8f90.html", "_gwt_spc_8f90" ],
     [ "Mover.f90", "_mover_8f90.html", "_mover_8f90" ],
     [ "PackageMover.f90", "_package_mover_8f90.html", "_package_mover_8f90" ],
+    [ "SfrCrossSectionManager.f90", "_sfr_cross_section_manager_8f90.html", "_sfr_cross_section_manager_8f90" ],
     [ "SfrCrossSectionUtils.f90", "_sfr_cross_section_utils_8f90.html", "_sfr_cross_section_utils_8f90" ],
     [ "UzfCellGroup.f90", "_uzf_cell_group_8f90.html", "_uzf_cell_group_8f90" ],
     [ "Xt3dAlgorithm.f90", "_xt3d_algorithm_8f90.html", "_xt3d_algorithm_8f90" ],

@@ -1,0 +1,26 @@
+var structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype =
+[
+    [ "allocatescalars", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#aa12244c892f1f6cd21923e7fcf270b8f", null ],
+    [ "construct", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a781048d4e008b7a7adfb445f7071796a", null ],
+    [ "exg_ac", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#af6aeea03945111597a1aeae8b516abf8", null ],
+    [ "exg_ar", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a34433883b6ea20c21c704a8bd2a99e85", null ],
+    [ "exg_bd", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a16fe858dc39f95bdab03488b4bc54d26", null ],
+    [ "exg_cf", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a186b7147fd9cbf6c82b96663089bce77", null ],
+    [ "exg_cq", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a8f80856e874af18097e7d698c652334c", null ],
+    [ "exg_da", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#adb5df2325e274e9b76a1d588f888428e", null ],
+    [ "exg_df", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a6de60541d80f7d9eab030d6493cb5cb1", null ],
+    [ "exg_fc", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a4ce4e9f4c3f0bc24689bf60b8f1d21f6", null ],
+    [ "exg_ot", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a454715eff3e2a0620eee035f79530503", null ],
+    [ "exg_rp", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#aec8e0218393344774408884847ebf9ca", null ],
+    [ "gwfgwfconnection_ctor", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a9559232d1f1e87f1ee1b9178856e59f1", null ],
+    [ "maskownerconnections", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a4360c44d4f243b8243014e42fd4568cd", null ],
+    [ "printexchangeflow", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#abee1a63d4022896cf1c3524fb925675e", null ],
+    [ "setflowtoexchanges", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#aa96acdd6d4371a6c97352d9591f0a581", null ],
+    [ "syncinterfacemodel", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#aad7f46377c47255769873a238866d62d", null ],
+    [ "validateconnection", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a648e5118d1fd55332a4ab8e5913d50f6", null ],
+    [ "validategwfexchange", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#ad016a0da0cab6a1c5fd342c68653c2d8", null ],
+    [ "gwfmodel", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#ae8ab38adb45837f3dfee76085eb49104", null ],
+    [ "interfacemodel", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#ac6fef86fc160e6203500cbd8ce409d0e", null ],
+    [ "iout", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a0b93dc7a0783635ac2a7419f4a1a0e5f", null ],
+    [ "ixt3donexchange", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#afa1f1c2963c0bf2525283f8423676d09", null ]
+];

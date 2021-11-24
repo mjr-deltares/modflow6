@@ -2,6 +2,7 @@ var structlistmodule_1_1listtype =
 [
     [ "add", "structlistmodule_1_1listtype.html#a40940f9f20bd7842fe0785b19dc2f906", null ],
     [ "clear", "structlistmodule_1_1listtype.html#a46a0b6ccd43f35a58b71e7b914e92339", null ],
+    [ "containsobject", "structlistmodule_1_1listtype.html#adc88a9f714caffc167456514dd02bc08", null ],
     [ "count", "structlistmodule_1_1listtype.html#a18a4e4a7c54ea0ea8d4eb88a4a99511f", null ],
     [ "deallocatebackward", "structlistmodule_1_1listtype.html#a365ea662c6e134ed3a46a18bf9492c01", null ],
     [ "get_current_item", "structlistmodule_1_1listtype.html#a78bf6a3b447513ae67a4c45337cf6e0d", null ],
