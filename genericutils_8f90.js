@@ -4,5 +4,5 @@ var genericutils_8f90 =
     [ "sim_message", "genericutils_8f90.html#a34492cca79f70174fd015808be8b7ebf", null ],
     [ "stop_with_error", "genericutils_8f90.html#a3af5fcf48dcd06255d9bc07f6a25db59", null ],
     [ "write_centered", "genericutils_8f90.html#aa9380deee7f1629af2bda7df7f589714", null ],
-    [ "write_message", "genericutils_8f90.html#a5ac177a8d56df5b9de11651861d6a9e4", null ]
+    [ "write_message", "genericutils_8f90.html#a79d1b03a42785a805abc5ed2a7499b36", null ]
 ];

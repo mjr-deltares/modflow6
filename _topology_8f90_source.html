@@ -115,48 +115,92 @@ $(document).ready(function(){initNavTree('_topology_8f90_source.html',''); initR
 </div><!--header-->
 <div class="contents">
 <a href="_topology_8f90.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="namespacetopologymodule.html">    1</a></span>&#160;<span class="keyword">module</span> <a class="code" href="namespacetopologymodule.html">topologymodule</a></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacekindmodule.html">kindmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacekindmodule.html#a2f6861418b5e7d3d602b77228232a470">i4b</a></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacekindmodule.html">kindmodule</a>, <span class="keywordtype">only</span>: i4b</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacenumericalmodelmodule.html">numericalmodelmodule</a>, <span class="keywordtype">only</span>: numericalmodeltype</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;  <span class="keywordtype">implicit none</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;  <span class="keywordtype">private</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">  !&gt; Data structure to hold a global cell identifier,</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">  !! using a pointer to the model and its local cell </span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">  !&lt; index</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="structtopologymodule_1_1globalcelltype.html">   10</a></span>&#160;  <span class="keyword">type</span>, <span class="keyword">public</span> :: <a class="code" href="structtopologymodule_1_1globalcelltype.html">globalcelltype</a></div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="structtopologymodule_1_1globalcelltype.html#afc79343c3dad272de212a3992ae3ca73">   11</a></span>&#160;    <span class="keywordtype">integer(I4B)</span> :: index<span class="comment">                                 !&lt; the index on the model grid</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="structtopologymodule_1_1globalcelltype.html#ab8e4918f9a9088aed4dddabb7617eb0a">   12</a></span>&#160;    <span class="keywordtype">class</span>(numericalmodeltype), <span class="keywordtype">pointer</span> :: model =&gt; null() <span class="comment">!&lt; the model</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  <span class="keyword">end type</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="comment">! a global cell with neighbors</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structtopologymodule_1_1cellwithnbrstype.html">   16</a></span>&#160;  <span class="keyword">type</span>, <span class="keyword">public</span> :: <a class="code" href="structtopologymodule_1_1cellwithnbrstype.html">cellwithnbrstype</a></div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structtopologymodule_1_1cellwithnbrstype.html#af8370537b50394b2f4ca7a317e377cd1">   17</a></span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structtopologymodule_1_1globalcelltype.html">globalcelltype</a>) :: cell</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structtopologymodule_1_1cellwithnbrstype.html#a86823e1691d8c561f02dd586ebac7176">   18</a></span>&#160;    <span class="keywordtype">integer(I4B)</span> :: nrofnbrs = 0</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structtopologymodule_1_1cellwithnbrstype.html#a0945a048f62b95c2ce925d9fa85ab934">   19</a></span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structtopologymodule_1_1cellwithnbrstype.html">cellwithnbrstype</a>), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: neighbors =&gt; null()</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <span class="keyword">end type</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="comment">! a model with neighbors</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="structtopologymodule_1_1modelwithnbrstype.html">   23</a></span>&#160;  <span class="keyword">type</span>, <span class="keyword">public</span> :: <a class="code" href="structtopologymodule_1_1modelwithnbrstype.html">modelwithnbrstype</a></div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="structtopologymodule_1_1modelwithnbrstype.html#adbef8ab12b52ba8cbb166916312d71bf">   24</a></span>&#160;      <span class="keywordtype">class</span>(numericalmodeltype), <span class="keywordtype">pointer</span> :: model =&gt; null()</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="structtopologymodule_1_1modelwithnbrstype.html#abcc3fe2f28d99d670f20070dd7b36dd1">   25</a></span>&#160;      <span class="keywordtype">integer(I4B)</span> :: nrofnbrs = 0</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="structtopologymodule_1_1modelwithnbrstype.html#a39ccce295f8938a2535aff3d917e73f4">   26</a></span>&#160;      <span class="keywordtype">type</span>(<a class="code" href="structtopologymodule_1_1modelwithnbrstype.html">modelwithnbrstype</a>), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: neighbors =&gt; null()</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keyword">end type</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">end module</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="namespacetopologymodule.html#a0eee3baeb59c9a00502a235147c44ff8">    7</a></span>&#160;  <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">parameter</span> :: <a class="code" href="namespacetopologymodule.html#a0eee3baeb59c9a00502a235147c44ff8">defaultcapacity</a> = 6</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">  !&gt; Data structure to hold a global cell identifier,</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">  !! using a pointer to the model and its local cell </span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">  !&lt; index</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="structtopologymodule_1_1globalcelltype.html">   12</a></span>&#160;  <span class="keyword">type</span>, <span class="keyword">public</span> :: <a class="code" href="structtopologymodule_1_1globalcelltype.html">globalcelltype</a></div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="structtopologymodule_1_1globalcelltype.html#afc79343c3dad272de212a3992ae3ca73">   13</a></span>&#160;    <span class="keywordtype">integer(I4B)</span> :: index<span class="comment">                                 !&lt; the index on the model grid</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="structtopologymodule_1_1globalcelltype.html#ab8e4918f9a9088aed4dddabb7617eb0a">   14</a></span>&#160;    <span class="keywordtype">class</span>(numericalmodeltype), <span class="keywordtype">pointer</span> :: model =&gt; null() <span class="comment">!&lt; the model</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="keyword">end type</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <span class="comment">! a global cell with neighbors</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structtopologymodule_1_1cellwithnbrstype.html">   18</a></span>&#160;  <span class="keyword">type</span>, <span class="keyword">public</span> :: <a class="code" href="structtopologymodule_1_1cellwithnbrstype.html">cellwithnbrstype</a></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structtopologymodule_1_1cellwithnbrstype.html#af8370537b50394b2f4ca7a317e377cd1">   19</a></span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structtopologymodule_1_1globalcelltype.html">globalcelltype</a>) :: cell</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structtopologymodule_1_1cellwithnbrstype.html#a86823e1691d8c561f02dd586ebac7176">   20</a></span>&#160;    <span class="keywordtype">integer(I4B)</span> :: nrofnbrs = 0</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="structtopologymodule_1_1cellwithnbrstype.html#a0945a048f62b95c2ce925d9fa85ab934">   21</a></span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structtopologymodule_1_1cellwithnbrstype.html">cellwithnbrstype</a>), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: neighbors =&gt; null()</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keyword">contains</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="structtopologymodule_1_1cellwithnbrstype.html#a2e4ad72d601c7fcea0e03c0ef085a951">   23</a></span>&#160;    <span class="keywordtype">procedure</span> :: <a class="code" href="namespacetopologymodule.html#a8b61b077c69c2461ce7faa8601ea3d9a">addnbr</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keyword">end type</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="comment">! a model with neighbors</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="structtopologymodule_1_1modelwithnbrstype.html">   27</a></span>&#160;  <span class="keyword">type</span>, <span class="keyword">public</span> :: <a class="code" href="structtopologymodule_1_1modelwithnbrstype.html">modelwithnbrstype</a></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="structtopologymodule_1_1modelwithnbrstype.html#adbef8ab12b52ba8cbb166916312d71bf">   28</a></span>&#160;      <span class="keywordtype">class</span>(numericalmodeltype), <span class="keywordtype">pointer</span> :: model =&gt; null()</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="structtopologymodule_1_1modelwithnbrstype.html#abcc3fe2f28d99d670f20070dd7b36dd1">   29</a></span>&#160;      <span class="keywordtype">integer(I4B)</span> :: nrofnbrs = 0</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="structtopologymodule_1_1modelwithnbrstype.html#a39ccce295f8938a2535aff3d917e73f4">   30</a></span>&#160;      <span class="keywordtype">type</span>(<a class="code" href="structtopologymodule_1_1modelwithnbrstype.html">modelwithnbrstype</a>), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: neighbors =&gt; null()</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keyword">end type</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keyword">contains</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacetopologymodule.html#a8b61b077c69c2461ce7faa8601ea3d9a">addnbr</a>(this, index, model)</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="namespacetopologymodule.html#a8b61b077c69c2461ce7faa8601ea3d9a">   36</a></span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structtopologymodule_1_1cellwithnbrstype.html">cellwithnbrstype</a>) :: this</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: index</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">class</span>(numericalmodeltype), <span class="keywordtype">pointer</span> :: model</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: nbrCnt, currentSize, i</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structtopologymodule_1_1cellwithnbrstype.html">cellwithnbrstype</a>), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>,  <span class="keywordtype">contiguous</span> :: newNeighbors</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structtopologymodule_1_1cellwithnbrstype.html">cellwithnbrstype</a>), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>,  <span class="keywordtype">contiguous</span> :: oldNeighbors</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">if</span> (.not. <span class="keyword">associated</span>(this%neighbors)) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      <span class="keyword">allocate</span>(this%neighbors(<a class="code" href="namespacetopologymodule.html#a0eee3baeb59c9a00502a235147c44ff8">defaultcapacity</a>))</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      this%nrOfNbrs = 0</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    nbrcnt = this%nrOfNbrs</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    currentsize = <span class="keyword">size</span>(this%neighbors)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">if</span> (nbrcnt + 1 &gt; currentsize) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      <span class="comment">! inflate</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      oldneighbors =&gt; this%neighbors</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      <span class="keyword">allocate</span>(newneighbors(currentsize + <a class="code" href="namespacetopologymodule.html#a0eee3baeb59c9a00502a235147c44ff8">defaultcapacity</a>))</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      <span class="keywordflow">do</span> i=1, currentsize</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        newneighbors(i) = oldneighbors(i)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keywordflow">      end do</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      this%neighbors =&gt; newneighbors</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      <span class="comment">! clean up</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      <span class="keyword">deallocate</span>(oldneighbors)</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      <span class="keyword">nullify</span>(oldneighbors)</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    this%neighbors(nbrcnt + 1)%cell%index = index</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    this%neighbors(nbrcnt + 1)%cell%model =&gt; model</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    this%nrOfNbrs = nbrcnt + 1</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacetopologymodule.html#a8b61b077c69c2461ce7faa8601ea3d9a">addnbr</a></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">end module</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="anamespacekindmodule_html"><div class="ttname"><a href="namespacekindmodule.html">kindmodule</a></div><div class="ttdoc">This module defines variable data types.</div><div class="ttdef"><b>Definition:</b> <a href="kind_8f90_source.html#l00008">kind.f90:8</a></div></div>
-<div class="ttc" id="astructtopologymodule_1_1cellwithnbrstype_html"><div class="ttname"><a href="structtopologymodule_1_1cellwithnbrstype.html">topologymodule::cellwithnbrstype</a></div><div class="ttdef"><b>Definition:</b> <a href="_topology_8f90_source.html#l00016">Topology.f90:16</a></div></div>
+<div class="ttc" id="astructtopologymodule_1_1cellwithnbrstype_html"><div class="ttname"><a href="structtopologymodule_1_1cellwithnbrstype.html">topologymodule::cellwithnbrstype</a></div><div class="ttdef"><b>Definition:</b> <a href="_topology_8f90_source.html#l00018">Topology.f90:18</a></div></div>
 <div class="ttc" id="anamespacetopologymodule_html"><div class="ttname"><a href="namespacetopologymodule.html">topologymodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_topology_8f90_source.html#l00001">Topology.f90:1</a></div></div>
+<div class="ttc" id="anamespacetopologymodule_html_a8b61b077c69c2461ce7faa8601ea3d9a"><div class="ttname"><a href="namespacetopologymodule.html#a8b61b077c69c2461ce7faa8601ea3d9a">topologymodule::addnbr</a></div><div class="ttdeci">subroutine addnbr(this, index, model)</div><div class="ttdef"><b>Definition:</b> <a href="_topology_8f90_source.html#l00036">Topology.f90:36</a></div></div>
+<div class="ttc" id="anamespacetopologymodule_html_a0eee3baeb59c9a00502a235147c44ff8"><div class="ttname"><a href="namespacetopologymodule.html#a0eee3baeb59c9a00502a235147c44ff8">topologymodule::defaultcapacity</a></div><div class="ttdeci">integer(i4b), parameter defaultcapacity</div><div class="ttdoc">index</div><div class="ttdef"><b>Definition:</b> <a href="_topology_8f90_source.html#l00007">Topology.f90:7</a></div></div>
 <div class="ttc" id="anamespacenumericalmodelmodule_html"><div class="ttname"><a href="namespacenumericalmodelmodule.html">numericalmodelmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_numerical_model_8f90_source.html#l00001">NumericalModel.f90:1</a></div></div>
-<div class="ttc" id="anamespacekindmodule_html_a2f6861418b5e7d3d602b77228232a470"><div class="ttname"><a href="namespacekindmodule.html#a2f6861418b5e7d3d602b77228232a470">kindmodule::i4b</a></div><div class="ttdeci">integer, parameter i4b</div><div class="ttdoc">Integer kind.</div><div class="ttdef"><b>Definition:</b> <a href="kind_8f90_source.html#l00016">kind.f90:16</a></div></div>
-<div class="ttc" id="astructtopologymodule_1_1globalcelltype_html"><div class="ttname"><a href="structtopologymodule_1_1globalcelltype.html">topologymodule::globalcelltype</a></div><div class="ttdoc">Data structure to hold a global cell identifier, using a pointer to the model and its local cell.</div><div class="ttdef"><b>Definition:</b> <a href="_topology_8f90_source.html#l00010">Topology.f90:10</a></div></div>
-<div class="ttc" id="astructtopologymodule_1_1modelwithnbrstype_html"><div class="ttname"><a href="structtopologymodule_1_1modelwithnbrstype.html">topologymodule::modelwithnbrstype</a></div><div class="ttdef"><b>Definition:</b> <a href="_topology_8f90_source.html#l00023">Topology.f90:23</a></div></div>
+<div class="ttc" id="astructtopologymodule_1_1globalcelltype_html"><div class="ttname"><a href="structtopologymodule_1_1globalcelltype.html">topologymodule::globalcelltype</a></div><div class="ttdoc">Data structure to hold a global cell identifier, using a pointer to the model and its local cell.</div><div class="ttdef"><b>Definition:</b> <a href="_topology_8f90_source.html#l00012">Topology.f90:12</a></div></div>
+<div class="ttc" id="astructtopologymodule_1_1modelwithnbrstype_html"><div class="ttname"><a href="structtopologymodule_1_1modelwithnbrstype.html">topologymodule::modelwithnbrstype</a></div><div class="ttdef"><b>Definition:</b> <a href="_topology_8f90_source.html#l00027">Topology.f90:27</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_32e188284d239da8bb14ec1dabb0c35f.html">Model</a></li><li class="navelem"><a class="el" href="dir_4602b8d0a0ef27d9d0b14db2c16038ea.html">Connection</a></li><li class="navelem"><a class="el" href="_topology_8f90.html">Topology.f90</a></li>
-    <li class="footer">Generated on Wed Nov 24 2021 08:19:42 for MODFLOW 6 by
+    <li class="footer">Generated on Tue Jan 11 2022 13:29:59 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

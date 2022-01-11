@@ -1,12 +1,9 @@
 <map id="disconnexchangemodule::castasdisconnexchangeclass" name="disconnexchangemodule::castasdisconnexchangeclass">
-<area shape="rect" id="node1" title=" " alt="" coords="563,235,781,276"/>
-<area shape="rect" id="node2" href="$namespacedisconnexchangemodule.html#a63ac91d936c8b44104f8e091a81e7ac2" title=" " alt="" coords="300,235,515,276"/>
+<area shape="rect" id="node1" title=" " alt="" coords="563,136,781,177"/>
+<area shape="rect" id="node2" href="$namespacedisconnexchangemodule.html#a63ac91d936c8b44104f8e091a81e7ac2" title=" " alt="" coords="300,136,515,177"/>
 <area shape="rect" id="node3" href="$namespaceconnectionbuildermodule.html#aa5b7a09a35bdd2b85e44caea16bb075e" title="Add global exchanges from a certain numerical solution to the connections." alt="" coords="12,5,245,47"/>
 <area shape="rect" id="node4" href="$namespacegridconnectionmodule.html#a377a3a2cf20792c946eefd52cf4ff6cb" title="Fill connection data (ihc, cl1, ...) for." alt="" coords="5,71,252,112"/>
-<area shape="rect" id="node5" href="$namespacespatialmodelconnectionmodule.html#aee8123b74db48f7a7eba19d980b2a65e" title="Create the topology of connected models." alt="" coords="15,136,242,177"/>
-<area shape="rect" id="node6" href="$namespacegridconnectionmodule.html#aa70140a6ab86dd0bc048c22740318568" title="Get the exchange data for a pair of models" alt="" coords="45,201,212,243"/>
-<area shape="rect" id="node7" href="$namespacespatialmodelconnectionmodule.html#afb3f4a52cda6271ee145014d5a35bc40" title="Returns total nr. of primary connections." alt="" coords="15,267,242,308"/>
-<area shape="rect" id="node8" href="$namespaceconnectionbuildermodule.html#aef408e9381f69a203549fc5e8a355041" title="Create connections from exchanges." alt="" coords="35,332,222,373"/>
-<area shape="rect" id="node9" href="$namespacespatialmodelconnectionmodule.html#a5decccd26a66819f75ffa2036bc6378b" title="Set the primary connections from the exchange data." alt="" coords="15,397,242,439"/>
-<area shape="rect" id="node10" href="$namespacespatialmodelconnectionmodule.html#a0574292d636407e09dae880717f67331" title="Validate this connection." alt="" coords="15,463,242,504"/>
+<area shape="rect" id="node5" href="$namespacegridconnectionmodule.html#aa70140a6ab86dd0bc048c22740318568" title="Get the exchange data for a pair of models" alt="" coords="45,136,212,177"/>
+<area shape="rect" id="node6" href="$namespacespatialmodelconnectionmodule.html#aec90536f741cddef194442f90e8d7aa7" title="Mask the owner&#39;s connections." alt="" coords="15,201,242,243"/>
+<area shape="rect" id="node7" href="$namespaceconnectionbuildermodule.html#aef408e9381f69a203549fc5e8a355041" title="Create connections from exchanges." alt="" coords="35,267,222,308"/>
 </map>

@@ -10,6 +10,5 @@ var structgwfnpfoptionsmodule_1_1gwfnpfoptionstype =
     [ "ithickstrt", "structgwfnpfoptionsmodule_1_1gwfnpfoptionstype.html#ae5e15d9472eae162f4f4faf58e063d93", null ],
     [ "ivarcv", "structgwfnpfoptionsmodule_1_1gwfnpfoptionstype.html#ad7fcb0af5e8b4a37ac315108bbfb92f1", null ],
     [ "iwetit", "structgwfnpfoptionsmodule_1_1gwfnpfoptionstype.html#ac32932ab94ab4784e2225417a30f1349", null ],
-    [ "ixt3d", "structgwfnpfoptionsmodule_1_1gwfnpfoptionstype.html#a6b395758114d32615a5a73a2da6d0586", null ],
     [ "wetfct", "structgwfnpfoptionsmodule_1_1gwfnpfoptionstype.html#a206d2265310580e37996ef9d6a1d4263", null ]
 ];

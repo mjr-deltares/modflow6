@@ -3,6 +3,7 @@ var structgwtadvmodule_1_1gwtadvtype =
     [ "adv_ar", "structgwtadvmodule_1_1gwtadvtype.html#a4e8473883fbfe8174fec38a2adcc1596", null ],
     [ "adv_cq", "structgwtadvmodule_1_1gwtadvtype.html#ae706774c996df4b1544e72098e3e8fd9", null ],
     [ "adv_da", "structgwtadvmodule_1_1gwtadvtype.html#a6a3a89031e9c44fe2919fec38b83d77a", null ],
+    [ "adv_df", "structgwtadvmodule_1_1gwtadvtype.html#ab526818cbde3015cc229985e335c9bee", null ],
     [ "adv_fc", "structgwtadvmodule_1_1gwtadvtype.html#a048fe896f7edbd7f7a46fc332e608594", null ],
     [ "adv_weight", "structgwtadvmodule_1_1gwtadvtype.html#af1ee7e99a46fce6bf41d1965ce7dc2d3", null ],
     [ "advqtvd", "structgwtadvmodule_1_1gwtadvtype.html#a67588a92f855452a2be89e4f7d03dbb0", null ],

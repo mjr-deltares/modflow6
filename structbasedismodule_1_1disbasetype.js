@@ -43,6 +43,7 @@ var structbasedismodule_1_1disbasetype =
     [ "record_srcdst_list_entry", "structbasedismodule_1_1disbasetype.html#ace29d2b175c4971847dc36effd54bce0", null ],
     [ "record_srcdst_list_header", "structbasedismodule_1_1disbasetype.html#a8dca4b7c7215a0396d33b6f6779efd43", null ],
     [ "supports_layers", "structbasedismodule_1_1disbasetype.html#ab3e5afb82f15fb868ea72fa49ea6ff9e", null ],
+    [ "transform_xy", "structbasedismodule_1_1disbasetype.html#abbeb8a35485c83a513ec53a8a161bf20", null ],
     [ "write_grb", "structbasedismodule_1_1disbasetype.html#ad7980892e426ad28babb87623827cd64", null ],
     [ "angrot", "structbasedismodule_1_1disbasetype.html#ad64e46df248ab983d58741b00b4fd2e3", null ],
     [ "area", "structbasedismodule_1_1disbasetype.html#a8215326bc4dce74f1103ae684f9835ef", null ],

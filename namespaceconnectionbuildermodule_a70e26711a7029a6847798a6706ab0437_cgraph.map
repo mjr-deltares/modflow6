@@ -1,5 +1,0 @@
-<map id="connectionbuildermodule::lookupconnection" name="connectionbuildermodule::lookupconnection">
-<area shape="rect" id="node1" title="This function gets an existing connection for a model, based on the type of exchange...." alt="" coords="5,5,192,47"/>
-<area shape="rect" id="node2" href="$namespacespatialmodelconnectionmodule.html#ab03c81ae159b53ae92e07d83d48cca29" title="Get the connection from a list." alt="" coords="240,5,499,47"/>
-<area shape="rect" id="node3" href="$namespacespatialmodelconnectionmodule.html#aef271cf59d66fe8e5baef704109028fc" title="Cast to SpatialModelConnectionType." alt="" coords="547,5,808,47"/>
-</map>

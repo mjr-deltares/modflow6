@@ -129,7 +129,7 @@ Collaboration diagram for gridconnectionmodule::gridconnectiontype:</div>
 <div class="dyncontent">
 <div class="center"><img src="structgridconnectionmodule_1_1gridconnectiontype__coll__graph.png" border="0" usemap="#gridconnectionmodule_1_1gridconnectiontype_coll__map" alt="Collaboration graph"/></div>
 <map name="gridconnectionmodule_1_1gridconnectiontype_coll__map" id="gridconnectionmodule_1_1gridconnectiontype_coll__map">
-<area shape="rect" title="This class is used to construct the connections object for the interface model&#39;s spatial discretizati..." alt="" coords="5,5,255,493"/>
+<area shape="rect" title="This class is used to construct the connections object for the interface model&#39;s spatial discretizati..." alt="" coords="5,5,255,508"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -147,6 +147,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a75bf9f176db9203280b5141dbef07a6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9909259e897fc02596f971871b78ef35"><td class="memItemLeft" align="right" valign="top">generic&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgridconnectionmodule_1_1gridconnectiontype.html#a9909259e897fc02596f971871b78ef35">getinterfaceindex</a> =&gt; <a class="el" href="structgridconnectionmodule_1_1gridconnectiontype.html#a526f6f6ae81d3e49c100e3aacc470656">getinterfaceindexbycell</a>, <a class="el" href="structgridconnectionmodule_1_1gridconnectiontype.html#a2d7a19438151908becb9d572087ac692">getinterfaceindexbyindexmodel</a></td></tr>
 <tr class="separator:a9909259e897fc02596f971871b78ef35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d59a9d85c20b78667a4b968b30446f6"><td class="memItemLeft" align="right" valign="top">procedure, pass(this)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgridconnectionmodule_1_1gridconnectiontype.html#a9d59a9d85c20b78667a4b968b30446f6">getdiscretization</a></td></tr>
+<tr class="separator:a9d59a9d85c20b78667a4b968b30446f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7cea00f3ee2c2bc9f65af5843d0115db"><td class="memItemLeft" align="right" valign="top">procedure, pass(this)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgridconnectionmodule_1_1gridconnectiontype.html#a7cea00f3ee2c2bc9f65af5843d0115db">isperiodic</a></td></tr>
 <tr class="separator:a7cea00f3ee2c2bc9f65af5843d0115db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -161,9 +163,8 @@ Public Attributes</h2></td></tr>
 <tr class="memdesc:a82e5f04e55c1f4be63ce6cde866a669e"><td class="mdescLeft">&#160;</td><td class="mdescRight">stencil size at the interface  <a href="structgridconnectionmodule_1_1gridconnectiontype.html#a82e5f04e55c1f4be63ce6cde866a669e">More...</a><br /></td></tr>
 <tr class="separator:a82e5f04e55c1f4be63ce6cde866a669e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0ad6bf47e5f96a5aae020ccf6917f4d"><td class="memItemLeft" align="right" valign="top">class(numericalmodeltype), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgridconnectionmodule_1_1gridconnectiontype.html#ac0ad6bf47e5f96a5aae020ccf6917f4d">model</a> =&gt; null()</td></tr>
+<tr class="memdesc:ac0ad6bf47e5f96a5aae020ccf6917f4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">the model for which this grid connection exists  <a href="structgridconnectionmodule_1_1gridconnectiontype.html#ac0ad6bf47e5f96a5aae020ccf6917f4d">More...</a><br /></td></tr>
 <tr class="separator:ac0ad6bf47e5f96a5aae020ccf6917f4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adef82a75313164ad95f027f8dc80acfa"><td class="memItemLeft" align="right" valign="top">integer(i4b), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgridconnectionmodule_1_1gridconnectiontype.html#adef82a75313164ad95f027f8dc80acfa">linkcapacity</a> =&gt; null()</td></tr>
-<tr class="separator:adef82a75313164ad95f027f8dc80acfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab154d9d42f4972829094cb7d3c15946f"><td class="memItemLeft" align="right" valign="top">integer(i4b), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgridconnectionmodule_1_1gridconnectiontype.html#ab154d9d42f4972829094cb7d3c15946f">nrofboundarycells</a> =&gt; null()</td></tr>
 <tr class="memdesc:ab154d9d42f4972829094cb7d3c15946f"><td class="mdescLeft">&#160;</td><td class="mdescRight">nr of boundary cells with connection to another model  <a href="structgridconnectionmodule_1_1gridconnectiontype.html#ab154d9d42f4972829094cb7d3c15946f">More...</a><br /></td></tr>
 <tr class="separator:ab154d9d42f4972829094cb7d3c15946f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -171,14 +172,19 @@ Public Attributes</h2></td></tr>
 <tr class="memdesc:a768686fed7f35f1ff5d55826e6925ad0"><td class="mdescLeft">&#160;</td><td class="mdescRight">cells on our side of the primary connections  <a href="structgridconnectionmodule_1_1gridconnectiontype.html#a768686fed7f35f1ff5d55826e6925ad0">More...</a><br /></td></tr>
 <tr class="separator:a768686fed7f35f1ff5d55826e6925ad0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab904ffad42859e6876033f53f485456a"><td class="memItemLeft" align="right" valign="top">type(cellwithnbrstype), dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgridconnectionmodule_1_1gridconnectiontype.html#ab904ffad42859e6876033f53f485456a">connectedcells</a> =&gt; null()</td></tr>
-<tr class="memdesc:ab904ffad42859e6876033f53f485456a"><td class="mdescLeft">&#160;</td><td class="mdescRight">cells on the neighbors side of the primary connection  <a href="structgridconnectionmodule_1_1gridconnectiontype.html#ab904ffad42859e6876033f53f485456a">More...</a><br /></td></tr>
+<tr class="memdesc:ab904ffad42859e6876033f53f485456a"><td class="mdescLeft">&#160;</td><td class="mdescRight">cells on the neighbors side of the primary connection <br  />
+  <a href="structgridconnectionmodule_1_1gridconnectiontype.html#ab904ffad42859e6876033f53f485456a">More...</a><br /></td></tr>
 <tr class="separator:ab904ffad42859e6876033f53f485456a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa56eee88a0c2cb2a0cf15da79959a0d2"><td class="memItemLeft" align="right" valign="top">type(modelwithnbrstype), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgridconnectionmodule_1_1gridconnectiontype.html#aa56eee88a0c2cb2a0cf15da79959a0d2">modelwithnbrs</a> =&gt; null()</td></tr>
-<tr class="memdesc:aa56eee88a0c2cb2a0cf15da79959a0d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">tree structure with the neigboring model topology  <a href="structgridconnectionmodule_1_1gridconnectiontype.html#aa56eee88a0c2cb2a0cf15da79959a0d2">More...</a><br /></td></tr>
+<tr class="memdesc:aa56eee88a0c2cb2a0cf15da79959a0d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">tree structure with the neigboring model topology <br  />
+  <a href="structgridconnectionmodule_1_1gridconnectiontype.html#aa56eee88a0c2cb2a0cf15da79959a0d2">More...</a><br /></td></tr>
 <tr class="separator:aa56eee88a0c2cb2a0cf15da79959a0d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeeedcbc26c809bc7e0998d1c113a3a8e"><td class="memItemLeft" align="right" valign="top">type(listtype)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgridconnectionmodule_1_1gridconnectiontype.html#aeeedcbc26c809bc7e0998d1c113a3a8e">exchanges</a></td></tr>
 <tr class="memdesc:aeeedcbc26c809bc7e0998d1c113a3a8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">all relevant exchanges for this connection, up to the required depth  <a href="structgridconnectionmodule_1_1gridconnectiontype.html#aeeedcbc26c809bc7e0998d1c113a3a8e">More...</a><br /></td></tr>
 <tr class="separator:aeeedcbc26c809bc7e0998d1c113a3a8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97005c0599a06c4e1ac90eb2e0dc2e4f"><td class="memItemLeft" align="right" valign="top">integer, dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgridconnectionmodule_1_1gridconnectiontype.html#a97005c0599a06c4e1ac90eb2e0dc2e4f">primconnections</a> =&gt; null()</td></tr>
+<tr class="memdesc:a97005c0599a06c4e1ac90eb2e0dc2e4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">table mapping the index in the boundaryCells/connectedCells arrays into a connection index for e.g. access to flowja  <a href="structgridconnectionmodule_1_1gridconnectiontype.html#a97005c0599a06c4e1ac90eb2e0dc2e4f">More...</a><br /></td></tr>
+<tr class="separator:a97005c0599a06c4e1ac90eb2e0dc2e4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f9fb54c16703b2ce5bb6a2e0c838f8a"><td class="memItemLeft" align="right" valign="top">integer(i4b), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgridconnectionmodule_1_1gridconnectiontype.html#a0f9fb54c16703b2ce5bb6a2e0c838f8a">nrofcells</a> =&gt; null()</td></tr>
 <tr class="memdesc:a0f9fb54c16703b2ce5bb6a2e0c838f8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">the total number of cells in the interface  <a href="structgridconnectionmodule_1_1gridconnectiontype.html#a0f9fb54c16703b2ce5bb6a2e0c838f8a">More...</a><br /></td></tr>
 <tr class="separator:a0f9fb54c16703b2ce5bb6a2e0c838f8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -186,7 +192,7 @@ Public Attributes</h2></td></tr>
 <tr class="memdesc:a6262513c0c992932ac30b9e17197f30f"><td class="mdescLeft">&#160;</td><td class="mdescRight">a map from interface index to global coordinate  <a href="structgridconnectionmodule_1_1gridconnectiontype.html#a6262513c0c992932ac30b9e17197f30f">More...</a><br /></td></tr>
 <tr class="separator:a6262513c0c992932ac30b9e17197f30f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33f9f61944d69dd0856682cf9cc1c675"><td class="memItemLeft" align="right" valign="top">integer(i4b), dimension(:), pointer, contiguous&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgridconnectionmodule_1_1gridconnectiontype.html#a33f9f61944d69dd0856682cf9cc1c675">idxtoglobalidx</a> =&gt; null()</td></tr>
-<tr class="memdesc:a33f9f61944d69dd0856682cf9cc1c675"><td class="mdescLeft">&#160;</td><td class="mdescRight">a (flat) map from interface index to global index  <a href="structgridconnectionmodule_1_1gridconnectiontype.html#a33f9f61944d69dd0856682cf9cc1c675">More...</a><br /></td></tr>
+<tr class="memdesc:a33f9f61944d69dd0856682cf9cc1c675"><td class="mdescLeft">&#160;</td><td class="mdescRight">a (flat) map from interface index to global index, stored in mem. mgr. so can be used for debugging  <a href="structgridconnectionmodule_1_1gridconnectiontype.html#a33f9f61944d69dd0856682cf9cc1c675">More...</a><br /></td></tr>
 <tr class="separator:a33f9f61944d69dd0856682cf9cc1c675"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84116126108fae973573e4a1dc0ea617"><td class="memItemLeft" align="right" valign="top">integer(i4b), dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgridconnectionmodule_1_1gridconnectiontype.html#a84116126108fae973573e4a1dc0ea617">regionaltointerfaceidxmap</a> =&gt; null()</td></tr>
 <tr class="memdesc:a84116126108fae973573e4a1dc0ea617"><td class="mdescLeft">&#160;</td><td class="mdescRight">(sparse) mapping from regional index to interface ixd  <a href="structgridconnectionmodule_1_1gridconnectiontype.html#a84116126108fae973573e4a1dc0ea617">More...</a><br /></td></tr>
@@ -251,10 +257,12 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:a7693dcbaa78e6c7f70a7a2cf9a361c8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a469cd48246419200b7cf5a40fdb87d53"><td class="memItemLeft" align="right" valign="top">procedure, pass(this), private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgridconnectionmodule_1_1gridconnectiontype.html#a469cd48246419200b7cf5a40fdb87d53">createconnectionmask</a></td></tr>
 <tr class="separator:a469cd48246419200b7cf5a40fdb87d53"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41506fb761f9c97ab00d9a485a4f9892"><td class="memItemLeft" align="right" valign="top">procedure, pass(this), private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgridconnectionmodule_1_1gridconnectiontype.html#a41506fb761f9c97ab00d9a485a4f9892">maskconnections</a></td></tr>
-<tr class="separator:a41506fb761f9c97ab00d9a485a4f9892"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab8b7ac71346059ec339b118d4a41cac"><td class="memItemLeft" align="right" valign="top">procedure, pass(this), private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgridconnectionmodule_1_1gridconnectiontype.html#aab8b7ac71346059ec339b118d4a41cac">maskinternalconnections</a></td></tr>
+<tr class="separator:aab8b7ac71346059ec339b118d4a41cac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b2ad7be7eed2e58c179020907359f63"><td class="memItemLeft" align="right" valign="top">procedure, pass(this), private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgridconnectionmodule_1_1gridconnectiontype.html#a1b2ad7be7eed2e58c179020907359f63">setmaskonconnection</a></td></tr>
 <tr class="separator:a1b2ad7be7eed2e58c179020907359f63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b08978c193a666e7cc6a6b77d3e4ad4"><td class="memItemLeft" align="right" valign="top">procedure, pass(this), private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgridconnectionmodule_1_1gridconnectiontype.html#a6b08978c193a666e7cc6a6b77d3e4ad4">createlookuptable</a></td></tr>
+<tr class="separator:a6b08978c193a666e7cc6a6b77d3e4ad4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>It works as follows:</p>
@@ -268,7 +276,7 @@ Private Member Functions</h2></td></tr>
 <li>INTERFACE index, numbering the cells in the interface grid </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00043">43</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00044">44</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
 </div><h2 class="groupheader">Member Function/Subroutine Documentation</h2>
 <a id="a60b6a1fc3e022e817d3f700082ffddb5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a60b6a1fc3e022e817d3f700082ffddb5">&#9670;&nbsp;</a></span>addmodellink()</h2>
@@ -282,7 +290,7 @@ Private Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00077">77</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00080">80</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
 
 </div>
 </div>
@@ -306,7 +314,7 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00088">88</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00093">93</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
 
 </div>
 </div>
@@ -330,7 +338,7 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00087">87</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00092">92</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
 
 </div>
 </div>
@@ -354,7 +362,7 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00089">89</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00094">94</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
 
 </div>
 </div>
@@ -378,7 +386,7 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00098">98</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00103">103</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
 
 </div>
 </div>
@@ -402,7 +410,7 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00091">91</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00096">96</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
 
 </div>
 </div>
@@ -426,7 +434,7 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00074">74</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00077">77</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
 
 </div>
 </div>
@@ -450,7 +458,7 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00086">86</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00091">91</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
 
 </div>
 </div>
@@ -474,7 +482,7 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00099">99</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00104">104</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
 
 </div>
 </div>
@@ -490,7 +498,7 @@ Private Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00076">76</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00079">79</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
 
 </div>
 </div>
@@ -514,7 +522,7 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00090">90</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00095">95</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
 
 </div>
 </div>
@@ -538,7 +546,7 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00102">102</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00107">107</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
 
 </div>
 </div>
@@ -554,7 +562,7 @@ Private Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00073">73</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00076">76</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
 
 </div>
 </div>
@@ -578,7 +586,31 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00105">105</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00110">110</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+
+</div>
+</div>
+<a id="a6b08978c193a666e7cc6a6b77d3e4ad4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b08978c193a666e7cc6a6b77d3e4ad4">&#9670;&nbsp;</a></span>createlookuptable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">procedure, pass(this), private gridconnectionmodule::gridconnectiontype::createlookuptable</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00113">113</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
 
 </div>
 </div>
@@ -594,7 +626,7 @@ Private Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00075">75</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00078">78</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
 
 </div>
 </div>
@@ -610,7 +642,7 @@ Private Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00078">78</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00081">81</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
 
 </div>
 </div>
@@ -634,7 +666,7 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00104">104</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00109">109</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
 
 </div>
 </div>
@@ -658,7 +690,23 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00103">103</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00108">108</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+
+</div>
+</div>
+<a id="a9d59a9d85c20b78667a4b968b30446f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d59a9d85c20b78667a4b968b30446f6">&#9670;&nbsp;</a></span>getdiscretization()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">procedure, pass(this) gridconnectionmodule::gridconnectiontype::getdiscretization</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00085">85</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
 
 </div>
 </div>
@@ -682,7 +730,7 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00096">96</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00101">101</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
 
 </div>
 </div>
@@ -698,7 +746,7 @@ Private Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00079">79</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00082">82</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -732,7 +780,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00093">93</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00098">98</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
 
 </div>
 </div>
@@ -756,7 +804,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00094">94</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00099">99</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
 
 </div>
 </div>
@@ -780,7 +828,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00095">95</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00100">100</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
 
 </div>
 </div>
@@ -804,7 +852,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00092">92</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00097">97</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
 
 </div>
 </div>
@@ -820,7 +868,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00083">83</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00088">88</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
 
 </div>
 </div>
@@ -844,12 +892,12 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00101">101</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00106">106</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
 
 </div>
 </div>
-<a id="a41506fb761f9c97ab00d9a485a4f9892"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a41506fb761f9c97ab00d9a485a4f9892">&#9670;&nbsp;</a></span>maskconnections()</h2>
+<a id="aab8b7ac71346059ec339b118d4a41cac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab8b7ac71346059ec339b118d4a41cac">&#9670;&nbsp;</a></span>maskinternalconnections()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -858,7 +906,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">procedure, pass(this), private gridconnectionmodule::gridconnectiontype::maskconnections</td>
+          <td class="memname">procedure, pass(this), private gridconnectionmodule::gridconnectiontype::maskinternalconnections</td>
         </tr>
       </table>
   </td>
@@ -868,7 +916,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00106">106</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00111">111</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
 
 </div>
 </div>
@@ -892,7 +940,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00097">97</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00102">102</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
 
 </div>
 </div>
@@ -916,7 +964,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00107">107</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00112">112</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
 
 </div>
 </div>
@@ -940,7 +988,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00100">100</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00105">105</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
 
 </div>
 </div>
@@ -957,8 +1005,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00054">54</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">type</span>(CellWithNbrsType), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: boundaryCells =&gt; null()    <span class="comment">!&lt; cells on our side of the primary connections</span></div>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00053">53</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">type</span>(CellWithNbrsType), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: boundaryCells =&gt; null()    <span class="comment">!&lt; cells on our side of the primary connections</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -974,8 +1022,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00055">55</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">type</span>(CellWithNbrsType), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: connectedCells =&gt; null()   <span class="comment">!&lt; cells on the neighbors side of the primary connection</span></div>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00054">54</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">type</span>(CellWithNbrsType), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: connectedCells =&gt; null()   <span class="comment">!&lt; cells on the neighbors side of the primary connection    </span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -991,8 +1039,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00069">69</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: connectionMask =&gt; null()             <span class="comment">!&lt; to mask out connections from the amat coefficient calculation</span></div>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00072">72</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: connectionMask =&gt; null()             <span class="comment">!&lt; to mask out connections from the amat coefficient calculation</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1008,8 +1056,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00068">68</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">type</span>(ConnectionsType), <span class="keywordtype">pointer</span>      :: connections =&gt; null()                <span class="comment">!&lt; sparse matrix with the connections</span></div>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00071">71</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">type</span>(ConnectionsType), <span class="keywordtype">pointer</span>      :: connections =&gt; null()                <span class="comment">!&lt; sparse matrix with the connections</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1025,8 +1073,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00057">57</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">type</span>(ListType) :: exchanges<span class="comment">                                                 !&lt; all relevant exchanges for this connection, up to</span></div>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00056">56</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">type</span>(ListType) :: exchanges<span class="comment">                                                 !&lt; all relevant exchanges for this connection, up to</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1042,8 +1090,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00047">47</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: exchangeStencilDepth<span class="comment"> !&lt; stencil size at the interface</span></div>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00048">48</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: exchangeStencilDepth<span class="comment"> !&lt; stencil size at the interface</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1059,8 +1107,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00061">61</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">type</span>(GlobalCellType), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: idxToGlobal =&gt; null()        <span class="comment">!&lt; a map from interface index to global coordinate</span></div>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00063">63</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">type</span>(GlobalCellType), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: idxToGlobal =&gt; null()        <span class="comment">!&lt; a map from interface index to global coordinate</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1076,8 +1124,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00062">62</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: idxToGlobalIdx =&gt; null() <span class="comment">!&lt; a (flat) map from interface index to global index</span></div>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00064">64</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: idxToGlobalIdx =&gt; null() <span class="comment">!&lt; a (flat) map from interface index to global index,</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1093,8 +1141,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00067">67</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>               :: indexCount =&gt; null()                 <span class="comment">!&lt; counts the number of cells in the interface</span></div>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00070">70</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>               :: indexCount =&gt; null()                 <span class="comment">!&lt; counts the number of cells in the interface</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1110,25 +1158,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00046">46</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: internalStencilDepth<span class="comment"> !&lt; stencil size for the interior</span></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="adef82a75313164ad95f027f8dc80acfa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adef82a75313164ad95f027f8dc80acfa">&#9670;&nbsp;</a></span>linkcapacity</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer(i4b), pointer gridconnectionmodule::gridconnectiontype::linkcapacity =&gt; null()</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00051">51</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: linkCapacity =&gt; null()</div>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00047">47</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: internalStencilDepth<span class="comment"> !&lt; stencil size for the interior</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1144,8 +1175,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00045">45</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">character(len=LENMEMPATH)</span> :: memoryPath</div>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00046">46</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">character(len=LENMEMPATH)</span> :: memoryPath</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1161,8 +1192,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00049">49</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType), <span class="keywordtype">pointer</span> :: model =&gt; null()</div>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00050">50</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType), <span class="keywordtype">pointer</span> :: model =&gt; null()                       <span class="comment">!&lt; the model for which this grid connection exists</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1178,8 +1209,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00056">56</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">type</span>(ModelWithNbrsType), <span class="keywordtype">pointer</span> :: modelWithNbrs =&gt; null()                 <span class="comment">!&lt; tree structure with the neigboring model topology</span></div>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00055">55</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">type</span>(ModelWithNbrsType), <span class="keywordtype">pointer</span> :: modelWithNbrs =&gt; null()                 <span class="comment">!&lt; tree structure with the neigboring model topology    </span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1195,8 +1226,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00053">53</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: nrOfBoundaryCells =&gt; null()                        <span class="comment">!&lt; nr of boundary cells with connection to another model</span></div>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00052">52</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: nrOfBoundaryCells =&gt; null()                        <span class="comment">!&lt; nr of boundary cells with connection to another model</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1212,8 +1243,25 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00060">60</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: nrOfCells =&gt; null()                                <span class="comment">!&lt; the total number of cells in the interface</span></div>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00062">62</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: nrOfCells =&gt; null()                                <span class="comment">!&lt; the total number of cells in the interface</span></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a97005c0599a06c4e1ac90eb2e0dc2e4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97005c0599a06c4e1ac90eb2e0dc2e4f">&#9670;&nbsp;</a></span>primconnections</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, dimension(:), pointer gridconnectionmodule::gridconnectiontype::primconnections =&gt; null()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00059">59</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">integer</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: primConnections =&gt; null()                 <span class="comment">!&lt; table mapping the index in the boundaryCells/connectedCells</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1229,8 +1277,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00066">66</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: regionalModelOffset =&gt; null()        <span class="comment">!&lt; the new offset to compactify the range of indices</span></div>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00069">69</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: regionalModelOffset =&gt; null()        <span class="comment">!&lt; the new offset to compactify the range of indices</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1246,8 +1294,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00065">65</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">type</span>(ListType)                      :: regionalModels<span class="comment">                       !&lt; the models participating in the interface</span></div>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00068">68</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">type</span>(ListType)                      :: regionalModels<span class="comment">                       !&lt; the models participating in the interface</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1263,8 +1311,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00064">64</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: regionalToInterfaceIdxMap =&gt; null()  <span class="comment">!&lt; (sparse) mapping from regional index to interface ixd</span></div>
+<p class="definition">Definition at line <a class="el" href="_grid_connection_8f90_source.html#l00067">67</a> of file <a class="el" href="_grid_connection_8f90_source.html">GridConnection.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: regionalToInterfaceIdxMap =&gt; null()  <span class="comment">!&lt; (sparse) mapping from regional index to interface ixd</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1277,7 +1325,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacegridconnectionmodule.html">gridconnectionmodule</a></li><li class="navelem"><a class="el" href="structgridconnectionmodule_1_1gridconnectiontype.html">gridconnectiontype</a></li>
-    <li class="footer">Generated on Wed Nov 24 2021 08:19:44 for MODFLOW 6 by
+    <li class="footer">Generated on Tue Jan 11 2022 13:30:01 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

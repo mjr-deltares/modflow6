@@ -1,6 +1,4 @@
 <map id="gwfgwfconnectionmodule::validateconnection" name="gwfgwfconnectionmodule::validateconnection">
-<area shape="rect" id="node1" title="Add connections, handled by the interface model,." alt="" coords="5,27,196,69"/>
-<area shape="rect" id="node2" href="$namespacesimmodule.html#a4c46e49de78d4498dd4ec106357775e6" title="Return number of errors." alt="" coords="247,5,431,32"/>
-<area shape="rect" id="node3" href="$namespacegwfgwfexchangemodule.html#a212a97d08a5d235f4aa6a96c92e715fa" title=" " alt="" coords="244,57,433,98"/>
-<area shape="rect" id="node4" href="$namespacegwfgwfexchangemodule.html#a37715320b34a1b4e2ef3912663f3f89d" title=" " alt="" coords="481,57,673,98"/>
+<area shape="rect" id="node1" title="Validate this connection This is called before proceeding to construct the interface model." alt="" coords="5,5,196,47"/>
+<area shape="rect" id="node2" href="$namespacesimmodule.html#a4c46e49de78d4498dd4ec106357775e6" title="Return number of errors." alt="" coords="244,13,428,39"/>
 </map>

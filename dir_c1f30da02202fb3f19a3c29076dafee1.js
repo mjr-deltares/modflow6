@@ -7,6 +7,13 @@ var dir_c1f30da02202fb3f19a3c29076dafee1 =
     [ "GwfNpfGridData.f90", "_gwf_npf_grid_data_8f90.html", "_gwf_npf_grid_data_8f90" ],
     [ "GwfNpfOptions.f90", "_gwf_npf_options_8f90.html", "_gwf_npf_options_8f90" ],
     [ "GwfStorageUtils.f90", "_gwf_storage_utils_8f90.html", "_gwf_storage_utils_8f90" ],
+    [ "GwtAdvOptions.f90", "_gwt_adv_options_8f90.html", [
+      [ "gwtadvoptionstype", "structgwtadvoptionsmodule_1_1gwtadvoptionstype.html", "structgwtadvoptionsmodule_1_1gwtadvoptionstype" ]
+    ] ],
+    [ "GwtDspGridData.f90", "_gwt_dsp_grid_data_8f90.html", "_gwt_dsp_grid_data_8f90" ],
+    [ "GwtDspOptions.f90", "_gwt_dsp_options_8f90.html", [
+      [ "gwtdspoptionstype", "structgwtdspoptionsmodule_1_1gwtdspoptionstype.html", "structgwtdspoptionsmodule_1_1gwtdspoptionstype" ]
+    ] ],
     [ "GwtSpc.f90", "_gwt_spc_8f90.html", "_gwt_spc_8f90" ],
     [ "Mover.f90", "_mover_8f90.html", "_mover_8f90" ],
     [ "PackageMover.f90", "_package_mover_8f90.html", "_package_mover_8f90" ],

@@ -1,5 +1,9 @@
 <map id="spatialmodelconnectionmodule::validateconnection" name="spatialmodelconnectionmodule::validateconnection">
-<area shape="rect" id="node1" title="Validate this connection." alt="" coords="5,5,232,47"/>
-<area shape="rect" id="node2" href="$namespacedisconnexchangemodule.html#a63ac91d936c8b44104f8e091a81e7ac2" title=" " alt="" coords="280,5,495,47"/>
-<area shape="rect" id="node3" href="$namespacedisconnexchangemodule.html#a9ad5f8b11f95c70aeda06b186754b567" title=" " alt="" coords="543,5,761,47"/>
+<area shape="rect" id="node1" title="Validate this connection." alt="" coords="5,61,232,102"/>
+<area shape="rect" id="node2" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="280,68,455,95"/>
+<area shape="rect" id="node3" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="503,68,641,95"/>
+<area shape="rect" id="node4" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="689,27,857,69"/>
+<area shape="rect" id="node7" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="689,93,857,134"/>
+<area shape="rect" id="node5" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="905,5,1100,32"/>
+<area shape="rect" id="node6" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="919,57,1087,98"/>
 </map>

@@ -1,6 +1,7 @@
 <map id="gwtfmimodule::fmi_cr" name="gwtfmimodule::fmi_cr">
-<area shape="rect" id="node1" title=" " alt="" coords="1492,31,1659,57"/>
-<area shape="rect" id="node2" href="$namespacegwtmodule.html#ad4f6eefd4112176d49bd99d8944bdef3" title=" " alt="" coords="1297,31,1444,57"/>
+<area shape="rect" id="node1" title=" " alt="" coords="1540,60,1707,87"/>
+<area shape="rect" id="node2" href="$namespacegwtmodule.html#ad4f6eefd4112176d49bd99d8944bdef3" title=" " alt="" coords="1321,31,1468,57"/>
+<area shape="rect" id="node10" href="$namespacegwtinterfacemodelmodule.html#ada68ea42046fb1af9fbae3faf24bfc38" title="Create the interface model, analogously to what." alt="" coords="1297,82,1492,123"/>
 <area shape="rect" id="node3" href="$namespacesimulationcreatemodule.html#a0043d2fa8d8b96e41e5e0fdfecaadae7" title="Set the models to be used for the simulation." alt="" coords="1068,23,1249,65"/>
 <area shape="rect" id="node4" href="$namespacesimulationcreatemodule.html#a7d37a8b63b2b0874f875f45b6cf93f03" title="Read the simulation name file." alt="" coords="821,23,1020,65"/>
 <area shape="rect" id="node5" href="$namespacesimulationcreatemodule.html#afcbe0fd3c140a3ba4f0a5409e5dc8781" title="Read the simulation name file and initialize the models, exchanges." alt="" coords="592,23,773,65"/>

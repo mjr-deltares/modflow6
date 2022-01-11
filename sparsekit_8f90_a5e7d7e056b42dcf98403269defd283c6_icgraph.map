@@ -1,0 +1,7 @@
+<map id="amux" name="amux">
+<area shape="rect" id="node1" title=" " alt="" coords="699,71,757,98"/>
+<area shape="rect" id="node2" href="$namespaceimslinearbasemodule.html#a4ea318d12fd3c9a9157e9d9105dcc0e2" title="@ brief Preconditioned BiConjugate Gradient Stabilized linear accelerator" alt="" coords="277,5,440,47"/>
+<area shape="rect" id="node4" href="$namespaceimslinearbasemodule.html#afbf0c8cb5e5b740b9ff34f7c7141f251" title="@ brief Preconditioned Conjugate Gradient linear accelerator" alt="" coords="277,123,440,164"/>
+<area shape="rect" id="node5" href="$namespaceimslinearbasemodule.html#aa17a3aa7b4ad331fd2f6b742f6f7db48" title="Calculate residual." alt="" coords="488,64,651,105"/>
+<area shape="rect" id="node3" href="$namespaceimslinearmodule.html#a7c756a5435a1749f8b81d2c0148f756c" title="@ brief Base linear accelerator subroutine" alt="" coords="5,71,229,98"/>
+</map>

@@ -116,7 +116,7 @@ $(document).ready(function(){initNavTree('_base_geometry_8f90_source.html',''); 
 <div class="contents">
 <a href="_base_geometry_8f90.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="namespacebasegeometrymodule.html">    1</a></span>&#160;<span class="keyword">module</span> <a class="code" href="namespacebasegeometrymodule.html">basegeometrymodule</a></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;  </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacekindmodule.html">kindmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacekindmodule.html#ae38bd3a7dfaf151094c26e1529259639">dp</a>, <a class="code" href="namespacekindmodule.html#a2f6861418b5e7d3d602b77228232a470">i4b</a></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacekindmodule.html">kindmodule</a>, <span class="keywordtype">only</span>: dp, i4b</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;  </div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;  <span class="keywordtype">implicit none</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;  <span class="keywordtype">private</span></div>
@@ -141,7 +141,7 @@ $(document).ready(function(){initNavTree('_base_geometry_8f90_source.html',''); 
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  </div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keyword">function </span><a class="code" href="namespacebasegeometrymodule.html#a7b694e2fa990dccdd306567ce3b0df06">area_sat</a>(this)</div>
 <div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="namespacebasegeometrymodule.html#a7b694e2fa990dccdd306567ce3b0df06">   27</a></span>&#160;    <span class="comment">! -- return</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">    real</span>(<a class="code" href="namespacekindmodule.html#ae38bd3a7dfaf151094c26e1529259639">dp</a>) :: <a class="code" href="namespacebasegeometrymodule.html#a7b694e2fa990dccdd306567ce3b0df06">area_sat</a></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">    real</span>(dp) :: <a class="code" href="namespacebasegeometrymodule.html#a7b694e2fa990dccdd306567ce3b0df06">area_sat</a></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment">! -- dummy</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">class</span>(basegeometrytype) :: this</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="namespacebasegeometrymodule.html#a7b694e2fa990dccdd306567ce3b0df06">area_sat</a> = 0.d0</div>
@@ -151,7 +151,7 @@ $(document).ready(function(){initNavTree('_base_geometry_8f90_source.html',''); 
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  </div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; <span class="keyword">function </span><a class="code" href="namespacebasegeometrymodule.html#a214e3a84d18551b3f63962a887af3731">perimeter_sat</a>(this)</div>
 <div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="namespacebasegeometrymodule.html#a214e3a84d18551b3f63962a887af3731">   37</a></span>&#160;    <span class="comment">! -- return</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">    real</span>(<a class="code" href="namespacekindmodule.html#ae38bd3a7dfaf151094c26e1529259639">dp</a>) :: <a class="code" href="namespacebasegeometrymodule.html#a214e3a84d18551b3f63962a887af3731">perimeter_sat</a></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">    real</span>(dp) :: <a class="code" href="namespacebasegeometrymodule.html#a214e3a84d18551b3f63962a887af3731">perimeter_sat</a></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">! -- dummy</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">class</span>(basegeometrytype) :: this</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="namespacebasegeometrymodule.html#a214e3a84d18551b3f63962a887af3731">perimeter_sat</a> = 0.d0</div>
@@ -161,10 +161,10 @@ $(document).ready(function(){initNavTree('_base_geometry_8f90_source.html',''); 
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  </div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keyword">function </span><a class="code" href="namespacebasegeometrymodule.html#a4ea52d64b528aeec2f6e40e709519da7">area_wet</a>(this, depth)</div>
 <div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="namespacebasegeometrymodule.html#a4ea52d64b528aeec2f6e40e709519da7">   47</a></span>&#160;    <span class="comment">! -- return</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keywordtype">    real</span>(<a class="code" href="namespacekindmodule.html#ae38bd3a7dfaf151094c26e1529259639">dp</a>) :: <a class="code" href="namespacebasegeometrymodule.html#a4ea52d64b528aeec2f6e40e709519da7">area_wet</a></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keywordtype">    real</span>(dp) :: <a class="code" href="namespacebasegeometrymodule.html#a4ea52d64b528aeec2f6e40e709519da7">area_wet</a></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment">! -- dummy</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">class</span>(basegeometrytype) :: this</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keywordtype">    real</span>(<a class="code" href="namespacekindmodule.html#ae38bd3a7dfaf151094c26e1529259639">dp</a>), <span class="keywordtype">intent(in)</span> :: depth    </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: depth    </div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="namespacebasegeometrymodule.html#a4ea52d64b528aeec2f6e40e709519da7">area_wet</a> = 0.d0</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment">! -- return</span></div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">return</span></div>
@@ -172,10 +172,10 @@ $(document).ready(function(){initNavTree('_base_geometry_8f90_source.html',''); 
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  </div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keyword">function </span><a class="code" href="namespacebasegeometrymodule.html#a4ab21f63f3ce939745d7c4e0b1216fc9">perimeter_wet</a>(this, depth)</div>
 <div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="namespacebasegeometrymodule.html#a4ab21f63f3ce939745d7c4e0b1216fc9">   58</a></span>&#160;    <span class="comment">! -- return</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keywordtype">    real</span>(<a class="code" href="namespacekindmodule.html#ae38bd3a7dfaf151094c26e1529259639">dp</a>) :: <a class="code" href="namespacebasegeometrymodule.html#a4ab21f63f3ce939745d7c4e0b1216fc9">perimeter_wet</a></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keywordtype">    real</span>(dp) :: <a class="code" href="namespacebasegeometrymodule.html#a4ab21f63f3ce939745d7c4e0b1216fc9">perimeter_wet</a></div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="comment">! -- dummy</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">class</span>(basegeometrytype) :: this</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keywordtype">    real</span>(<a class="code" href="namespacekindmodule.html#ae38bd3a7dfaf151094c26e1529259639">dp</a>), <span class="keywordtype">intent(in)</span> :: depth    </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: depth    </div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="namespacebasegeometrymodule.html#a4ab21f63f3ce939745d7c4e0b1216fc9">perimeter_wet</a> = 0.d0</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="comment">! -- return</span></div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">return</span></div>
@@ -224,15 +224,13 @@ $(document).ready(function(){initNavTree('_base_geometry_8f90_source.html',''); 
 <div class="ttc" id="anamespacebasegeometrymodule_html_a7c38b44aa02582bb68f01e1301cfd355"><div class="ttname"><a href="namespacebasegeometrymodule.html#a7c38b44aa02582bb68f01e1301cfd355">basegeometrymodule::set_attribute</a></div><div class="ttdeci">subroutine set_attribute(this, line)</div><div class="ttdef"><b>Definition:</b> <a href="_base_geometry_8f90_source.html#l00069">BaseGeometry.f90:69</a></div></div>
 <div class="ttc" id="anamespacebasegeometrymodule_html_a4ea52d64b528aeec2f6e40e709519da7"><div class="ttname"><a href="namespacebasegeometrymodule.html#a4ea52d64b528aeec2f6e40e709519da7">basegeometrymodule::area_wet</a></div><div class="ttdeci">real(dp) function area_wet(this, depth)</div><div class="ttdef"><b>Definition:</b> <a href="_base_geometry_8f90_source.html#l00047">BaseGeometry.f90:47</a></div></div>
 <div class="ttc" id="anamespacebasegeometrymodule_html_a4a09c80c2be4fd13ed2f5af2143e0611"><div class="ttname"><a href="namespacebasegeometrymodule.html#a4a09c80c2be4fd13ed2f5af2143e0611">basegeometrymodule::geonamelen</a></div><div class="ttdeci">integer(i4b), parameter geonamelen</div><div class="ttdef"><b>Definition:</b> <a href="_base_geometry_8f90_source.html#l00009">BaseGeometry.f90:9</a></div></div>
-<div class="ttc" id="anamespacekindmodule_html_a2f6861418b5e7d3d602b77228232a470"><div class="ttname"><a href="namespacekindmodule.html#a2f6861418b5e7d3d602b77228232a470">kindmodule::i4b</a></div><div class="ttdeci">integer, parameter i4b</div><div class="ttdoc">Integer kind.</div><div class="ttdef"><b>Definition:</b> <a href="kind_8f90_source.html#l00016">kind.f90:16</a></div></div>
 <div class="ttc" id="anamespacebasegeometrymodule_html_a7b694e2fa990dccdd306567ce3b0df06"><div class="ttname"><a href="namespacebasegeometrymodule.html#a7b694e2fa990dccdd306567ce3b0df06">basegeometrymodule::area_sat</a></div><div class="ttdeci">real(dp) function area_sat(this)</div><div class="ttdef"><b>Definition:</b> <a href="_base_geometry_8f90_source.html#l00027">BaseGeometry.f90:27</a></div></div>
 <div class="ttc" id="anamespacebasegeometrymodule_html"><div class="ttname"><a href="namespacebasegeometrymodule.html">basegeometrymodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_base_geometry_8f90_source.html#l00001">BaseGeometry.f90:1</a></div></div>
-<div class="ttc" id="anamespacekindmodule_html_ae38bd3a7dfaf151094c26e1529259639"><div class="ttname"><a href="namespacekindmodule.html#ae38bd3a7dfaf151094c26e1529259639">kindmodule::dp</a></div><div class="ttdeci">integer, parameter dp</div><div class="ttdoc">Precision of all real variables.</div><div class="ttdef"><b>Definition:</b> <a href="kind_8f90_source.html#l00014">kind.f90:14</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_32e188284d239da8bb14ec1dabb0c35f.html">Model</a></li><li class="navelem"><a class="el" href="dir_5e358ed4ee1421ad992482c81cef41a0.html">Geometry</a></li><li class="navelem"><a class="el" href="_base_geometry_8f90.html">BaseGeometry.f90</a></li>
-    <li class="footer">Generated on Wed Nov 24 2021 08:19:42 for MODFLOW 6 by
+    <li class="footer">Generated on Tue Jan 11 2022 13:29:59 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

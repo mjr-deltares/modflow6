@@ -2,6 +2,7 @@ var gwt1_8f90 =
 [
     [ "gwtmodeltype", "structgwtmodule_1_1gwtmodeltype.html", "structgwtmodule_1_1gwtmodeltype" ],
     [ "allocate_scalars", "gwt1_8f90.html#a5a8cbd98cab2c981d225285c2f899a54", null ],
+    [ "castasgwtmodel", "gwt1_8f90.html#a69c21c98d464d85dd10f6126bba5b07f", null ],
     [ "ftype_check", "gwt1_8f90.html#a2a8193d60b50c2a566851c726ef56756", null ],
     [ "gwt_ac", "gwt1_8f90.html#a908b0418ae0922f5ddef22f0cb03deeb", null ],
     [ "gwt_ad", "gwt1_8f90.html#abdb2ce002dcc57697f7fed3a45c62640", null ],

@@ -3,7 +3,7 @@ var _gwf_gwf_exchange_8f90 =
     [ "gwfexchangetype", "structgwfgwfexchangemodule_1_1gwfexchangetype.html", "structgwfgwfexchangemodule_1_1gwfexchangetype" ],
     [ "allocate_arrays", "_gwf_gwf_exchange_8f90.html#aaa2860ed405089c45dac142a5a20033c", null ],
     [ "allocate_scalars", "_gwf_gwf_exchange_8f90.html#a731ad8b774d83065fbb046b9183e0481", null ],
-    [ "castasgwfexchangeclass", "_gwf_gwf_exchange_8f90.html#a37715320b34a1b4e2ef3912663f3f89d", null ],
+    [ "castasgwfexchange", "_gwf_gwf_exchange_8f90.html#aac43e7dbf0b8ccd7642cbc9a28badd77", null ],
     [ "condcalc", "_gwf_gwf_exchange_8f90.html#adfb483eb5e84ad0053aebe4b8b8d3093", null ],
     [ "getgwfexchangefromlist", "_gwf_gwf_exchange_8f90.html#a212a97d08a5d235f4aa6a96c92e715fa", null ],
     [ "gwf_gwf_ac", "_gwf_gwf_exchange_8f90.html#a4a37ae59aa2825bfaa0a41bbe42af340", null ],
@@ -30,11 +30,11 @@ var _gwf_gwf_exchange_8f90 =
     [ "gwf_gwf_save_simvals", "_gwf_gwf_exchange_8f90.html#a4d20dd3801d4fc9fe96c67b0ed02448b", null ],
     [ "gwf_gwf_set_spdis", "_gwf_gwf_exchange_8f90.html#ae863d254ceaa66dd9d56d1194a58c0ee", null ],
     [ "gwfexchange_create", "_gwf_gwf_exchange_8f90.html#a48675d5bb4150882948c0844691ed446", null ],
+    [ "parse_option", "_gwf_gwf_exchange_8f90.html#a3a1a567692279b362a294d7b6b8ae971", null ],
     [ "qcalc", "_gwf_gwf_exchange_8f90.html#a8dc7c47193c0fffea6eb6ca80987d93e", null ],
-    [ "read_data", "_gwf_gwf_exchange_8f90.html#a7b5a46df8ceb66bebffdc144279b8c95", null ],
-    [ "read_dimensions", "_gwf_gwf_exchange_8f90.html#a4e4b3010aeeed8d82fe3cf79a3629e3b", null ],
     [ "read_gnc", "_gwf_gwf_exchange_8f90.html#ace18c018717a91f8bbc942c9da4434bb", null ],
     [ "read_mvr", "_gwf_gwf_exchange_8f90.html#adc570e5db32482ada98b47690b1c92a5", null ],
     [ "read_options", "_gwf_gwf_exchange_8f90.html#a30323e69d2dbc0705ceb951a73385b97", null ],
-    [ "rewet", "_gwf_gwf_exchange_8f90.html#a2d141cbfc501a53611ba7dafa3ed815d", null ]
+    [ "rewet", "_gwf_gwf_exchange_8f90.html#a2d141cbfc501a53611ba7dafa3ed815d", null ],
+    [ "use_interface_model", "_gwf_gwf_exchange_8f90.html#a5ee21a7bd938104b56658f93949ef2f3", null ]
 ];

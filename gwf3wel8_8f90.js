@@ -2,6 +2,8 @@ var gwf3wel8_8f90 =
 [
     [ "weltype", "structwelmodule_1_1weltype.html", "structwelmodule_1_1weltype" ],
     [ "define_listlabel", "gwf3wel8_8f90.html#a39133c126a7f85243b932b4b4fe24787", null ],
+    [ "wel_afr_csv_init", "gwf3wel8_8f90.html#a808c62d0da1eb1323a6311442f0bb26e", null ],
+    [ "wel_afr_csv_write", "gwf3wel8_8f90.html#a636caf148967c8e04273cb78df7b54a4", null ],
     [ "wel_allocate_scalars", "gwf3wel8_8f90.html#a1d47c86cef064a424e1538d1f7314d27", null ],
     [ "wel_bd_obs", "gwf3wel8_8f90.html#ac1b19bdc840a0c53b80b5d5c97b4fba8", null ],
     [ "wel_cf", "gwf3wel8_8f90.html#a8437fc114c52ba645fb2b3ec368baaa0", null ],

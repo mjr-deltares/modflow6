@@ -1,26 +1,26 @@
 <map id="inputoutputmodule::upcase" name="inputoutputmodule::upcase">
-<area shape="rect" id="node1" title=" " alt="" coords="911,825,1065,867"/>
+<area shape="rect" id="node1" title=" " alt="" coords="911,827,1065,868"/>
 <area shape="rect" id="node2" href="$namespacetimearrayserieslinkmodule.html#afc99a91da5788dc510bdfb25be102a6c" title=" " alt="" coords="581,55,799,96"/>
 <area shape="rect" id="node4" href="$namespacetimeserieslinkmodule.html#a1969df94e787ccdaf7260cce3421172b" title=" " alt="" coords="599,169,781,211"/>
 <area shape="rect" id="node6" href="$namespaceinputoutputmodule.html#a2f708dffa1b89bf951c41031434cc724" title=" " alt="" coords="588,332,792,373"/>
-<area shape="rect" id="node13" href="$namespaceblockparsermodule.html#ae71d5e3c28259fbc71820e4b7a65e80b" title="@ brief Get a cellid" alt="" coords="613,416,767,457"/>
-<area shape="rect" id="node14" href="$namespacecommandarguments.html#ae6b7d5e1791dc7bd0614d16c358d6dee" title="Get command line arguments." alt="" coords="517,482,863,509"/>
-<area shape="rect" id="node16" href="$namespaceblockparsermodule.html#a61be802352292aef08522c6e7d1a9f05" title="@ brief Get the next line" alt="" coords="613,533,767,575"/>
-<area shape="rect" id="node17" href="$namespacegwfmodule.html#ab7c4f16fdcabd8814e3649d4950a4c9b" title=" " alt="" coords="617,599,763,626"/>
-<area shape="rect" id="node19" href="$namespacegwtmodule.html#ad4f6eefd4112176d49bd99d8944bdef3" title=" " alt="" coords="617,650,763,677"/>
-<area shape="rect" id="node20" href="$namespacetimeseriesmodule.html#a2d5bafaf391749837190cb393a0094ba" title=" " alt="" coords="588,701,792,743"/>
+<area shape="rect" id="node13" href="$namespaceblockparsermodule.html#ae71d5e3c28259fbc71820e4b7a65e80b" title="@ brief Get a cellid" alt="" coords="613,417,767,459"/>
+<area shape="rect" id="node14" href="$namespacecommandarguments.html#ae6b7d5e1791dc7bd0614d16c358d6dee" title="Get command line arguments." alt="" coords="517,483,863,510"/>
+<area shape="rect" id="node16" href="$namespaceblockparsermodule.html#a61be802352292aef08522c6e7d1a9f05" title="@ brief Get the next line" alt="" coords="613,535,767,576"/>
+<area shape="rect" id="node17" href="$namespacegwfmodule.html#ab7c4f16fdcabd8814e3649d4950a4c9b" title=" " alt="" coords="617,601,763,627"/>
+<area shape="rect" id="node19" href="$namespacegwtmodule.html#ad4f6eefd4112176d49bd99d8944bdef3" title=" " alt="" coords="617,651,763,678"/>
+<area shape="rect" id="node20" href="$namespacetimeseriesmodule.html#a2d5bafaf391749837190cb393a0094ba" title=" " alt="" coords="588,703,792,744"/>
 <area shape="rect" id="node21" href="$namespacetimeseriesmodule.html#a5307fb777f2b6702259e78235b6498c4" title=" " alt="" coords="233,683,469,710"/>
-<area shape="rect" id="node22" href="$namespacememorymanagermodule.html#a4db1987bf8fd0385f329ac688662ced9" title="Deallocate memory in the memory manager." alt="" coords="598,767,782,808"/>
-<area shape="rect" id="node24" href="$namespacenamefilemodule.html#a48943659df9116b2d66118d8fefc9977" title=" " alt="" coords="593,884,787,925"/>
-<area shape="rect" id="node25" href="$namespacenamefilemodule.html#a557a3b9fe5867a78d612a11b998dc81d" title=" " alt="" coords="593,949,787,991"/>
-<area shape="rect" id="node26" href="$namespacenamefilemodule.html#a2fcd31b122268848c427692d0290d7e7" title=" " alt="" coords="593,1015,787,1056"/>
-<area shape="rect" id="node27" href="$namespaceinputoutputmodule.html#ae97851e3edae8d9809e384058a1a4d52" title=" " alt="" coords="613,1080,767,1121"/>
-<area shape="rect" id="node45" href="$namespaceinputoutputmodule.html#a98f6deb576ab4d90ea3ddf849aa1ec8d" title=" " alt="" coords="274,1804,429,1845"/>
-<area shape="rect" id="node46" href="$namespacetimeseriesmanagermodule.html#ac4f8c90d5ffe4459f6a631b0bfea9bce" title=" " alt="" coords="587,1197,793,1239"/>
-<area shape="rect" id="node47" href="$namespacetimeseriesmanagermodule.html#a2075a4c123cb1167bfbdaaf4ceae7666" title=" " alt="" coords="572,1263,808,1304"/>
-<area shape="rect" id="node48" href="$namespaceinputoutputmodule.html#a20fd69114074fcbe01dcc8219d4bbd79" title=" " alt="" coords="613,1328,767,1369"/>
-<area shape="rect" id="node49" href="$namespaceobsmodule.html#aa798af6bf30f959ddea76b5581fbefcb" title=" " alt="" coords="597,1394,783,1421"/>
-<area shape="rect" id="node50" href="$namespaceinputoutputmodule.html#a8e4aeea8abff018a14a4a05a627215f5" title=" " alt="" coords="613,1445,767,1487"/>
+<area shape="rect" id="node22" href="$namespacememorymanagermodule.html#a4db1987bf8fd0385f329ac688662ced9" title="Deallocate memory in the memory manager." alt="" coords="598,768,782,809"/>
+<area shape="rect" id="node24" href="$namespacenamefilemodule.html#a48943659df9116b2d66118d8fefc9977" title=" " alt="" coords="593,885,787,927"/>
+<area shape="rect" id="node25" href="$namespacenamefilemodule.html#a557a3b9fe5867a78d612a11b998dc81d" title=" " alt="" coords="593,951,787,992"/>
+<area shape="rect" id="node26" href="$namespacenamefilemodule.html#a2fcd31b122268848c427692d0290d7e7" title=" " alt="" coords="593,1016,787,1057"/>
+<area shape="rect" id="node27" href="$namespaceinputoutputmodule.html#ae97851e3edae8d9809e384058a1a4d52" title=" " alt="" coords="613,1081,767,1123"/>
+<area shape="rect" id="node45" href="$namespaceinputoutputmodule.html#a98f6deb576ab4d90ea3ddf849aa1ec8d" title=" " alt="" coords="274,1805,429,1847"/>
+<area shape="rect" id="node46" href="$namespacetimeseriesmanagermodule.html#ac4f8c90d5ffe4459f6a631b0bfea9bce" title=" " alt="" coords="587,1199,793,1240"/>
+<area shape="rect" id="node47" href="$namespacetimeseriesmanagermodule.html#a2075a4c123cb1167bfbdaaf4ceae7666" title=" " alt="" coords="572,1264,808,1305"/>
+<area shape="rect" id="node48" href="$namespaceinputoutputmodule.html#a20fd69114074fcbe01dcc8219d4bbd79" title=" " alt="" coords="613,1329,767,1371"/>
+<area shape="rect" id="node49" href="$namespaceobsmodule.html#aa798af6bf30f959ddea76b5581fbefcb" title=" " alt="" coords="597,1395,783,1422"/>
+<area shape="rect" id="node50" href="$namespaceinputoutputmodule.html#a8e4aeea8abff018a14a4a05a627215f5" title=" " alt="" coords="613,1447,767,1488"/>
 <area shape="rect" id="node3" href="$namespacetimearrayseriesmanagermodule.html#a6ec6a50176fc83a28ba539bba8490a12" title=" " alt="" coords="235,5,467,47"/>
 <area shape="rect" id="node5" href="$namespacetimeseriesmanagermodule.html#a142b9ea7f0a86ff5593807cec33ae413" title=" " alt="" coords="252,71,451,112"/>
 <area shape="rect" id="node7" href="$namespacegwtaptmodule.html#abb56c327ba1e85187d14771a059b816c" title=" " alt="" coords="250,136,453,177"/>
@@ -32,21 +32,21 @@
 <area shape="rect" id="node15" href="$namespacemf6coremodule.html#a207819c711610066af1b83ec2a8efef0" title="Main controller." alt="" coords="5,574,185,601"/>
 <area shape="rect" id="node18" href="$namespacesimulationcreatemodule.html#a0043d2fa8d8b96e41e5e0fdfecaadae7" title="Set the models to be used for the simulation." alt="" coords="261,567,442,608"/>
 <area shape="rect" id="node23" href="$namespacemf6coremodule.html#ae17efa5a9e03fd31617a08c08e20ae03" title="Finalize the simulation." alt="" coords="248,633,455,659"/>
-<area shape="rect" id="node28" href="$namespacegwtaptmodule.html#aabee2672c80ab9c60c6bf31f9d068e57" title=" " alt="" coords="251,1557,451,1583"/>
-<area shape="rect" id="node29" href="$namespacenumericalexchangemodule.html#a239b2a2d899d88530dc46adb70d7705b" title=" " alt="" coords="252,1608,451,1649"/>
-<area shape="rect" id="node30" href="$namespacegwfgwfexchangemodule.html#a8fd62a7c8068962d77882edcf4ff2216" title=" " alt="" coords="260,1673,443,1715"/>
-<area shape="rect" id="node31" href="$namespacegwfgwfconnectionmodule.html#a0628358850e2cc5b5e43cc0b981fadf0" title="Basic construction of the connection." alt="" coords="256,1739,447,1780"/>
-<area shape="rect" id="node32" href="$namespacelakmodule.html#a96af648392010fe6f8771ab9357d69c6" title=" " alt="" coords="264,734,439,761"/>
-<area shape="rect" id="node33" href="$namespacelakmodule.html#aceb19911a7be283f611b1693532035e8" title=" " alt="" coords="274,785,429,827"/>
-<area shape="rect" id="node34" href="$namespacemawmodule.html#a87afdb6d07439759d215f5e0dc96c18e" title=" " alt="" coords="262,851,441,892"/>
-<area shape="rect" id="node35" href="$namespacenamefilemodule.html#a8447d145db7cfa2ee7c6820b406fe005" title=" " alt="" coords="241,917,462,943"/>
-<area shape="rect" id="node36" href="$namespacearrayreadersmodule.html#a1707e96f6079c135eb5f5575948a3202" title=" " alt="" coords="274,968,429,1009"/>
-<area shape="rect" id="node37" href="$namespaceobsmodule.html#a0e39fd82e1d2b282f8789b064f750f72" title=" " alt="" coords="271,1033,432,1075"/>
-<area shape="rect" id="node38" href="$namespaceoutputcontrolmodule.html#ad27d8d7ea48709c696438593c34991a2" title="@ brief Read options for OutputControlType" alt="" coords="272,1099,431,1140"/>
-<area shape="rect" id="node39" href="$namespacegwtmvtmodule.html#adb6db25e518b2e84edd7ca0b53b1e1c3" title=" " alt="" coords="272,1164,431,1205"/>
-<area shape="rect" id="node40" href="$namespacegwfcsubmodule.html#a1576ca3a5da563e697ae4e94e64af607" title="@ brief Read options for package" alt="" coords="270,1229,433,1271"/>
-<area shape="rect" id="node41" href="$namespacegwtfmimodule.html#a60564215454aae02e410b196ffc1dc4a" title=" " alt="" coords="274,1295,429,1336"/>
-<area shape="rect" id="node42" href="$namespacegwfmvrmodule.html#a8b15e8d2b17b178680866ffdfbdbe474" title=" " alt="" coords="272,1360,431,1401"/>
-<area shape="rect" id="node43" href="$namespacegwtistmodule.html#af8cd450ab5f646649ed562d52cdda268" title="@ brief Read options for package" alt="" coords="277,1425,425,1467"/>
-<area shape="rect" id="node44" href="$namespacegwfstomodule.html#a57953fb33bb5c7322483a4a79605468e" title="@ brief Read options for package" alt="" coords="275,1491,427,1532"/>
+<area shape="rect" id="node28" href="$namespacegwtaptmodule.html#aabee2672c80ab9c60c6bf31f9d068e57" title=" " alt="" coords="251,1558,451,1585"/>
+<area shape="rect" id="node29" href="$namespacenumericalexchangemodule.html#a239b2a2d899d88530dc46adb70d7705b" title=" " alt="" coords="252,1609,451,1651"/>
+<area shape="rect" id="node30" href="$namespacegwfgwfexchangemodule.html#a8fd62a7c8068962d77882edcf4ff2216" title=" " alt="" coords="260,1675,443,1716"/>
+<area shape="rect" id="node31" href="$namespacegwfgwfconnectionmodule.html#adf69ded6447b65b3eea555039e4ae491" title="Basic construction of the connection." alt="" coords="256,1740,447,1781"/>
+<area shape="rect" id="node32" href="$namespacegwtgwtexchangemodule.html#a1d4e55ab2cf2de75b7304f5a35f07dbc" title="read the data from the input file" alt="" coords="260,735,443,776"/>
+<area shape="rect" id="node33" href="$namespacegwtgwtconnectionmodule.html#a0f6be4b0e1fb989189e1749e459bc2bf" title="Basic construction of the connection." alt="" coords="256,800,447,841"/>
+<area shape="rect" id="node34" href="$namespacelakmodule.html#a96af648392010fe6f8771ab9357d69c6" title=" " alt="" coords="264,866,439,893"/>
+<area shape="rect" id="node35" href="$namespacelakmodule.html#aceb19911a7be283f611b1693532035e8" title=" " alt="" coords="274,917,429,959"/>
+<area shape="rect" id="node36" href="$namespacemawmodule.html#a87afdb6d07439759d215f5e0dc96c18e" title=" " alt="" coords="262,983,441,1024"/>
+<area shape="rect" id="node37" href="$namespacenamefilemodule.html#a8447d145db7cfa2ee7c6820b406fe005" title=" " alt="" coords="241,1049,462,1075"/>
+<area shape="rect" id="node38" href="$namespacegwfgwfexchangemodule.html#a3a1a567692279b362a294d7b6b8ae971" title="parse option from exchange file" alt="" coords="260,1100,443,1141"/>
+<area shape="rect" id="node39" href="$namespacearrayreadersmodule.html#a1707e96f6079c135eb5f5575948a3202" title=" " alt="" coords="274,1165,429,1207"/>
+<area shape="rect" id="node40" href="$namespaceobsmodule.html#a0e39fd82e1d2b282f8789b064f750f72" title=" " alt="" coords="271,1231,432,1272"/>
+<area shape="rect" id="node41" href="$namespaceoutputcontrolmodule.html#ad27d8d7ea48709c696438593c34991a2" title="@ brief Read options for OutputControlType" alt="" coords="272,1296,431,1337"/>
+<area shape="rect" id="node42" href="$namespacegwtmvtmodule.html#adb6db25e518b2e84edd7ca0b53b1e1c3" title=" " alt="" coords="272,1361,431,1403"/>
+<area shape="rect" id="node43" href="$namespacegwfcsubmodule.html#a1576ca3a5da563e697ae4e94e64af607" title="@ brief Read options for package" alt="" coords="270,1427,433,1468"/>
+<area shape="rect" id="node44" href="$namespacegwtfmimodule.html#a60564215454aae02e410b196ffc1dc4a" title=" " alt="" coords="274,1492,429,1533"/>
 </map>

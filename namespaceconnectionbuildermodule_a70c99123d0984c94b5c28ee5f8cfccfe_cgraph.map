@@ -1,6 +1,5 @@
 <map id="connectionbuildermodule::setconnectionstosolution" name="connectionbuildermodule::setconnectionstosolution">
-<area shape="rect" id="node1" title="Set connections to the solution." alt="" coords="5,27,199,69"/>
-<area shape="rect" id="node2" href="$namespacelistmodule.html#a048fbc40d7f22a48ad719061694ee447" title=" " alt="" coords="271,5,481,32"/>
-<area shape="rect" id="node3" href="$namespacespatialmodelconnectionmodule.html#ab03c81ae159b53ae92e07d83d48cca29" title="Get the connection from a list." alt="" coords="247,57,505,98"/>
-<area shape="rect" id="node4" href="$namespacespatialmodelconnectionmodule.html#aef271cf59d66fe8e5baef704109028fc" title="Cast to SpatialModelConnectionType." alt="" coords="553,57,815,98"/>
+<area shape="rect" id="node1" title="Set connections to the solution." alt="" coords="5,5,199,47"/>
+<area shape="rect" id="node2" href="$namespacespatialmodelconnectionmodule.html#ab03c81ae159b53ae92e07d83d48cca29" title="Get the connection from a list." alt="" coords="247,5,505,47"/>
+<area shape="rect" id="node3" href="$namespacespatialmodelconnectionmodule.html#aef271cf59d66fe8e5baef704109028fc" title="Cast to SpatialModelConnectionType." alt="" coords="553,5,815,47"/>
 </map>

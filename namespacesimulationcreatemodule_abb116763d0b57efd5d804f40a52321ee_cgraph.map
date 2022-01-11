@@ -1,15 +1,18 @@
 <map id="simulationcreatemodule::exchanges_create" name="simulationcreatemodule::exchanges_create">
-<area shape="rect" id="node1" title="Set the exchanges to be used for the simulation." alt="" coords="5,71,187,112"/>
-<area shape="rect" id="node2" href="$namespacegwfgwfexchangemodule.html#a48675d5bb4150882948c0844691ed446" title=" " alt="" coords="235,71,417,112"/>
-<area shape="rect" id="node6" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="909,158,1084,185"/>
-<area shape="rect" id="node13" href="$namespacegwfgwtexchangemodule.html#abaa0495d0fb9d47508b2641f656e04ef" title=" " alt="" coords="235,5,417,47"/>
-<area shape="rect" id="node3" href="$namespacebaseexchangemodule.html#a67919a88cc5ebe70bb4a38eaf9ef9144" title=" " alt="" coords="465,5,647,47"/>
-<area shape="rect" id="node4" href="$namespacememoryhelpermodule.html#a3791dbc2d4a06a0b9112158cff21f738" title="returns the path to the memory object" alt="" coords="473,71,639,112"/>
-<area shape="rect" id="node12" href="$namespaceobsmodule.html#a57372fbf202fe90e2d12383ce1b15eee" title=" " alt="" coords="484,137,628,163"/>
-<area shape="rect" id="node5" href="$namespacememoryhelpermodule.html#a5405f58247a0962e5449ebc1e4dcff0f" title="Generic routine to check the length of (parts of) the memory address." alt="" coords="695,96,861,137"/>
-<area shape="rect" id="node7" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="1132,158,1271,185"/>
-<area shape="rect" id="node8" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="1319,117,1487,159"/>
-<area shape="rect" id="node11" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="1319,183,1487,224"/>
-<area shape="rect" id="node9" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="1535,95,1729,122"/>
-<area shape="rect" id="node10" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1548,147,1716,188"/>
+<area shape="rect" id="node1" title="Set the exchanges to be used for the simulation." alt="" coords="5,145,187,186"/>
+<area shape="rect" id="node2" href="$namespacegwfgwfexchangemodule.html#a48675d5bb4150882948c0844691ed446" title=" " alt="" coords="235,46,417,87"/>
+<area shape="rect" id="node6" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="1155,188,1329,215"/>
+<area shape="rect" id="node13" href="$namespacegwfgwtexchangemodule.html#abaa0495d0fb9d47508b2641f656e04ef" title=" " alt="" coords="235,111,417,153"/>
+<area shape="rect" id="node14" href="$namespacegwtgwtexchangemodule.html#ae326da47e670112aed71b3b9111b0e59" title="Create the GWT&#45;GWT exchange data structure." alt="" coords="235,177,417,218"/>
+<area shape="rect" id="node3" href="$namespacebaseexchangemodule.html#a67919a88cc5ebe70bb4a38eaf9ef9144" title=" " alt="" coords="522,122,703,163"/>
+<area shape="rect" id="node4" href="$namespacememoryhelpermodule.html#a3791dbc2d4a06a0b9112158cff21f738" title="returns the path to the memory object" alt="" coords="529,57,696,98"/>
+<area shape="rect" id="node12" href="$namespaceobsmodule.html#a57372fbf202fe90e2d12383ce1b15eee" title=" " alt="" coords="541,5,685,32"/>
+<area shape="rect" id="node5" href="$namespacememoryhelpermodule.html#a5405f58247a0962e5449ebc1e4dcff0f" title="Generic routine to check the length of (parts of) the memory address." alt="" coords="874,90,1041,131"/>
+<area shape="rect" id="node7" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="1377,188,1516,215"/>
+<area shape="rect" id="node8" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="1564,147,1732,189"/>
+<area shape="rect" id="node11" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="1564,213,1732,254"/>
+<area shape="rect" id="node9" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="1780,125,1975,152"/>
+<area shape="rect" id="node10" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1793,177,1961,218"/>
+<area shape="rect" id="node15" href="$namespacebasemodelmodule.html#a79adefc92f4f7d0d032babb551c571f8" title=" " alt="" coords="465,188,760,215"/>
+<area shape="rect" id="node16" href="$namespacebasemodelmodule.html#a6612a181104601a56b8227e88e5dc8f5" title=" " alt="" coords="808,188,1107,215"/>
 </map>

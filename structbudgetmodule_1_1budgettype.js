@@ -23,7 +23,7 @@ var structbudgetmodule_1_1budgettype =
     [ "labeltitle", "structbudgetmodule_1_1budgettype.html#a8ad64c56beb2578e2fe4392c0169e4e7", null ],
     [ "maxsize", "structbudgetmodule_1_1budgettype.html#af1c2929cf0d02e56652b6f90d1a89498", null ],
     [ "msum", "structbudgetmodule_1_1budgettype.html#a02b2fb1238011cd969ceb0e6bf72dba0", null ],
-    [ "rowlabel", "structbudgetmodule_1_1budgettype.html#ac9b5831f2a8de0b55e805b9a92d3d30d", null ],
+    [ "rowlabel", "structbudgetmodule_1_1budgettype.html#a568b85f9598889321e09e9cf5d2a14df", null ],
     [ "vbnm", "structbudgetmodule_1_1budgettype.html#a07b3aa2d314a5b88fb1ecda17dc60b17", null ],
     [ "vbvl", "structbudgetmodule_1_1budgettype.html#ad1e71adf44fbe07faf49202e15037a47", null ],
     [ "written_once", "structbudgetmodule_1_1budgettype.html#a2d4532bcba1b7db3a29e14c73d802fe0", null ]

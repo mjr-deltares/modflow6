@@ -1,7 +1,9 @@
 <map id="csrutilsmodule::getcsrindex" name="csrutilsmodule::getcsrindex">
-<area shape="rect" id="node1" title="Return index for element i,j in CSR storage,." alt="" coords="280,111,483,138"/>
-<area shape="rect" id="node2" href="$namespacegwfgwfconnectionmodule.html#a32b44363e6ef3ae95fb7311896ff8438" title="Calculate intra&#45;cell flows The calculation will be dispatched to the interface model,..." alt="" coords="23,5,214,47"/>
-<area shape="rect" id="node3" href="$namespacegwfgwfconnectionmodule.html#a140be91220180e6297f2e7a5b7a0a592" title="Mask the owner&#39;s connections." alt="" coords="23,71,214,112"/>
-<area shape="rect" id="node4" href="$namespacegwfgwfconnectionmodule.html#a1f0cc08357587f4b580dbc6ada598355" title="Set the flows (flowja from interface model) to the." alt="" coords="23,136,214,177"/>
-<area shape="rect" id="node5" href="$namespacespatialmodelconnectionmodule.html#aee338ca429ac57486e61429330ae6512" title="Creates the mapping from the local system." alt="" coords="5,201,232,243"/>
+<area shape="rect" id="node1" title="Return index for element i,j in CSR storage,." alt="" coords="280,177,483,203"/>
+<area shape="rect" id="node2" href="$namespacegridconnectionmodule.html#a15b3330e2cde669c59a26c20afd8676d" title="Create lookup tables for efficient access" alt="" coords="35,5,202,47"/>
+<area shape="rect" id="node3" href="$namespacegwfgwfconnectionmodule.html#a32b44363e6ef3ae95fb7311896ff8438" title="Calculate intra&#45;cell flows The calculation will be dispatched to the interface model,..." alt="" coords="23,71,214,112"/>
+<area shape="rect" id="node4" href="$namespacespatialmodelconnectionmodule.html#aec90536f741cddef194442f90e8d7aa7" title="Mask the owner&#39;s connections." alt="" coords="5,136,232,177"/>
+<area shape="rect" id="node5" href="$namespacegwfgwfconnectionmodule.html#a2feb4df88189153941c59d3c4bc26794" title="Copy interface model flowja between models, to." alt="" coords="23,201,214,243"/>
+<area shape="rect" id="node6" href="$namespacegwfgwfconnectionmodule.html#a291611921ff15f7740f1338af43f7ccf" title="Set the flows (flowja from interface model) to the." alt="" coords="23,267,214,308"/>
+<area shape="rect" id="node7" href="$namespacegwtgwtconnectionmodule.html#afdd0c707ae2fd46c765a5902fe61f6b1" title="called during advance (*_ad), to copy the data from the models into the connection&#39;s placeholder arra..." alt="" coords="23,332,214,373"/>
 </map>

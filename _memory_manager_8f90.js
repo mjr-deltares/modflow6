@@ -60,6 +60,7 @@ var _memory_manager_8f90 =
     [ "reallocate_str1d", "_memory_manager_8f90.html#abf1a3c790b0f50e9a0084728c961bbd1", null ],
     [ "reassignptr_dbl1d", "_memory_manager_8f90.html#a70613d0cd4560dd677e3329a8ad3c79d", null ],
     [ "reassignptr_dbl2d", "_memory_manager_8f90.html#ac47296c614674d278c88c53ba687c8b1", null ],
+    [ "reassignptr_int", "_memory_manager_8f90.html#adda06550357cdaafb4e38c4fe13af467", null ],
     [ "reassignptr_int1d", "_memory_manager_8f90.html#acec3ecf0b919282a8fc932ac08585357", null ],
     [ "reassignptr_int2d", "_memory_manager_8f90.html#a6a3cb628133de899280f6ad67daf5f93", null ],
     [ "setptr_dbl", "_memory_manager_8f90.html#a6c03fdc7796c6e28b17b3253c9d50afc", null ],

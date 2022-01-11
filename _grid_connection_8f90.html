@@ -135,9 +135,9 @@ Modules</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
-<tr class="memitem:a87b8f1dcd432b2475f22a07545396de3"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegridconnectionmodule.html#a87b8f1dcd432b2475f22a07545396de3">gridconnectionmodule::construct</a> (this, model, nCapacity, connectionName)</td></tr>
-<tr class="memdesc:a87b8f1dcd432b2475f22a07545396de3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the GridConnection and allocate the data structures for the primary connections.  <a href="namespacegridconnectionmodule.html#a87b8f1dcd432b2475f22a07545396de3">More...</a><br /></td></tr>
-<tr class="separator:a87b8f1dcd432b2475f22a07545396de3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51ea2469018d3c02815e4c1e67e962a4"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegridconnectionmodule.html#a51ea2469018d3c02815e4c1e67e962a4">gridconnectionmodule::construct</a> (this, model, nrOfPrimaries, connectionName)</td></tr>
+<tr class="memdesc:a51ea2469018d3c02815e4c1e67e962a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the GridConnection and allocate the data structures for the primary connections.  <a href="namespacegridconnectionmodule.html#a51ea2469018d3c02815e4c1e67e962a4">More...</a><br /></td></tr>
+<tr class="separator:a51ea2469018d3c02815e4c1e67e962a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a423af275c6544fffbb2f11d87955ce48"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegridconnectionmodule.html#a423af275c6544fffbb2f11d87955ce48">gridconnectionmodule::connectcell</a> (this, idx1, model1, idx2, model2)</td></tr>
 <tr class="memdesc:a423af275c6544fffbb2f11d87955ce48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connect neighboring cells at the interface by storing them in the boundary cell and connected cell arrays.  <a href="namespacegridconnectionmodule.html#a423af275c6544fffbb2f11d87955ce48">More...</a><br /></td></tr>
 <tr class="separator:a423af275c6544fffbb2f11d87955ce48"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -156,8 +156,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a26c54338831e0905a098ad60a7fef96b"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegridconnectionmodule.html#a26c54338831e0905a098ad60a7fef96b">gridconnectionmodule::buildconnections</a> (this)</td></tr>
 <tr class="memdesc:a26c54338831e0905a098ad60a7fef96b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a sparse matrix holding all cell connections,.  <a href="namespacegridconnectionmodule.html#a26c54338831e0905a098ad60a7fef96b">More...</a><br /></td></tr>
 <tr class="separator:a26c54338831e0905a098ad60a7fef96b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4dd36cb89b010bae5745197695e1fdb7"><td class="memItemLeft" align="right" valign="top">recursive subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegridconnectionmodule.html#a4dd36cb89b010bae5745197695e1fdb7">gridconnectionmodule::addneighbors</a> (this, cellNbrs, depth, mask, local)</td></tr>
-<tr class="separator:a4dd36cb89b010bae5745197695e1fdb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0386ef72c25bd84eca6abd7e4c4fd9a8"><td class="memItemLeft" align="right" valign="top">recursive subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegridconnectionmodule.html#a0386ef72c25bd84eca6abd7e4c4fd9a8">gridconnectionmodule::addneighbors</a> (this, cellNbrs, depth, mask, interior)</td></tr>
+<tr class="separator:a0386ef72c25bd84eca6abd7e4c4fd9a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a295dc264584af2cf4353f5f0ce3d524c"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegridconnectionmodule.html#a295dc264584af2cf4353f5f0ce3d524c">gridconnectionmodule::addremoteneighbors</a> (this, cellNbrs, modelWithNbrs, mask)</td></tr>
 <tr class="memdesc:a295dc264584af2cf4353f5f0ce3d524c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Take neighboring models, find the associated exchange data structure, and add neighboring cells from the n-m pairs.  <a href="namespacegridconnectionmodule.html#a295dc264584af2cf4353f5f0ce3d524c">More...</a><br /></td></tr>
 <tr class="separator:a295dc264584af2cf4353f5f0ce3d524c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -198,9 +198,13 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a20e4680b6b2a768f758f9142bc8c4e07"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegridconnectionmodule.html#a20e4680b6b2a768f758f9142bc8c4e07">gridconnectionmodule::createconnectionmask</a> (this)</td></tr>
 <tr class="memdesc:a20e4680b6b2a768f758f9142bc8c4e07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create the connection masks.  <a href="namespacegridconnectionmodule.html#a20e4680b6b2a768f758f9142bc8c4e07">More...</a><br /></td></tr>
 <tr class="separator:a20e4680b6b2a768f758f9142bc8c4e07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62086954ecdbfb924b0464ff10ec19b8"><td class="memItemLeft" align="right" valign="top">recursive subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegridconnectionmodule.html#a62086954ecdbfb924b0464ff10ec19b8">gridconnectionmodule::maskconnections</a> (this, cell, nbrCell, level)</td></tr>
-<tr class="memdesc:a62086954ecdbfb924b0464ff10ec19b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursively mask connections, increasing the level as we go.  <a href="namespacegridconnectionmodule.html#a62086954ecdbfb924b0464ff10ec19b8">More...</a><br /></td></tr>
-<tr class="separator:a62086954ecdbfb924b0464ff10ec19b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15b3330e2cde669c59a26c20afd8676d"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegridconnectionmodule.html#a15b3330e2cde669c59a26c20afd8676d">gridconnectionmodule::createlookuptable</a> (this)</td></tr>
+<tr class="memdesc:a15b3330e2cde669c59a26c20afd8676d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create lookup tables for efficient access <br  />
+  <a href="namespacegridconnectionmodule.html#a15b3330e2cde669c59a26c20afd8676d">More...</a><br /></td></tr>
+<tr class="separator:a15b3330e2cde669c59a26c20afd8676d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0437f20eae9a5dec3d9b3c250678db9e"><td class="memItemLeft" align="right" valign="top">recursive subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegridconnectionmodule.html#a0437f20eae9a5dec3d9b3c250678db9e">gridconnectionmodule::maskinternalconnections</a> (this, cell, nbrCell, level)</td></tr>
+<tr class="memdesc:a0437f20eae9a5dec3d9b3c250678db9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursively mask connections, increasing the level as we go.  <a href="namespacegridconnectionmodule.html#a0437f20eae9a5dec3d9b3c250678db9e">More...</a><br /></td></tr>
+<tr class="separator:a0437f20eae9a5dec3d9b3c250678db9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d8452eab1dc41afbcebd5ef7bab980f"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegridconnectionmodule.html#a3d8452eab1dc41afbcebd5ef7bab980f">gridconnectionmodule::setmaskonconnection</a> (this, cell, nbrCell, level)</td></tr>
 <tr class="memdesc:a3d8452eab1dc41afbcebd5ef7bab980f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a mask on the connection from a cell to its neighbor, (and not the transposed!) not overwriting the current level.  <a href="namespacegridconnectionmodule.html#a3d8452eab1dc41afbcebd5ef7bab980f">More...</a><br /></td></tr>
 <tr class="separator:a3d8452eab1dc41afbcebd5ef7bab980f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -216,6 +220,9 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a400c8b8c65514de713c166e6637a9a28"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegridconnectionmodule.html#a400c8b8c65514de713c166e6637a9a28">gridconnectionmodule::allocatescalars</a> (this)</td></tr>
 <tr class="memdesc:a400c8b8c65514de713c166e6637a9a28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate scalar data.  <a href="namespacegridconnectionmodule.html#a400c8b8c65514de713c166e6637a9a28">More...</a><br /></td></tr>
 <tr class="separator:a400c8b8c65514de713c166e6637a9a28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a172bd93154b5f674856a189f690d8bd3"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegridconnectionmodule.html#a172bd93154b5f674856a189f690d8bd3">gridconnectionmodule::getdiscretization</a> (this, disu)</td></tr>
+<tr class="memdesc:a172bd93154b5f674856a189f690d8bd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the discretization (DISU) after all preprocessing by this grid connection has been done,.  <a href="namespacegridconnectionmodule.html#a172bd93154b5f674856a189f690d8bd3">More...</a><br /></td></tr>
+<tr class="separator:a172bd93154b5f674856a189f690d8bd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56443ea7890582e0bca9b1ce2bd9b4c2"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegridconnectionmodule.html#a56443ea7890582e0bca9b1ce2bd9b4c2">gridconnectionmodule::destroy</a> (this)</td></tr>
 <tr class="memdesc:a56443ea7890582e0bca9b1ce2bd9b4c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocate grid connection resources.  <a href="namespacegridconnectionmodule.html#a56443ea7890582e0bca9b1ce2bd9b4c2">More...</a><br /></td></tr>
 <tr class="separator:a56443ea7890582e0bca9b1ce2bd9b4c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -234,7 +241,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_32e188284d239da8bb14ec1dabb0c35f.html">Model</a></li><li class="navelem"><a class="el" href="dir_4602b8d0a0ef27d9d0b14db2c16038ea.html">Connection</a></li><li class="navelem"><a class="el" href="_grid_connection_8f90.html">GridConnection.f90</a></li>
-    <li class="footer">Generated on Wed Nov 24 2021 08:19:43 for MODFLOW 6 by
+    <li class="footer">Generated on Tue Jan 11 2022 13:30:00 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

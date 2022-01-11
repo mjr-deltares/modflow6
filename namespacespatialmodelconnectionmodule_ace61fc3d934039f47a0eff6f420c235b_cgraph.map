@@ -1,5 +1,5 @@
 <map id="spatialmodelconnectionmodule::createcoefficientmatrix" name="spatialmodelconnectionmodule::createcoefficientmatrix">
-<area shape="rect" id="node1" title="Create connection&#39;s matrix (ia,ja,amat) from sparse." alt="" coords="5,61,232,102"/>
+<area shape="rect" id="node1" title="Add connections, handled by the interface model,." alt="" coords="5,61,232,102"/>
 <area shape="rect" id="node2" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="280,68,419,95"/>
 <area shape="rect" id="node3" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="467,27,635,69"/>
 <area shape="rect" id="node6" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="467,93,635,134"/>

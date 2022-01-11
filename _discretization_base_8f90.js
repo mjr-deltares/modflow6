@@ -40,5 +40,6 @@ var _discretization_base_8f90 =
     [ "record_srcdst_list_entry", "_discretization_base_8f90.html#a381da1e57db3b514a508cc3d8b825e91", null ],
     [ "record_srcdst_list_header", "_discretization_base_8f90.html#a3098bbe66998a1e0885f9f80b3155aa6", null ],
     [ "supports_layers", "_discretization_base_8f90.html#a57da0e7d7f6bfe135836710970de8637", null ],
+    [ "transform_xy", "_discretization_base_8f90.html#ad57f730e5c883bd0c2837b4c7f8589ee", null ],
     [ "write_grb", "_discretization_base_8f90.html#a46502be09499d9bc22b8d8e8870a988d", null ]
 ];
