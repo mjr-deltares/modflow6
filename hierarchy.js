@@ -116,6 +116,7 @@ var hierarchy =
     [ "tvbasemodule::get_pointer_to_value", "interfacetvbasemodule_1_1get__pointer__to__value.html", null ],
     [ "topologymodule::globalcelltype", "structtopologymodule_1_1globalcelltype.html", null ],
     [ "gridconnectionmodule::gridconnectiontype", "structgridconnectionmodule_1_1gridconnectiontype.html", null ],
+    [ "gwfbuyinputdatamodule::gwfbuyinputdatatype", "structgwfbuyinputdatamodule_1_1gwfbuyinputdatatype.html", null ],
     [ "gwfictype", null, [
       [ "gwticmodule::gwtictype", "structgwticmodule_1_1gwtictype.html", null ]
     ] ],
@@ -196,17 +197,17 @@ var hierarchy =
     [ "observemodule::observetype", "structobservemodule_1_1observetype.html", null ],
     [ "obsoutputlistmodule::obsoutputlisttype", "structobsoutputlistmodule_1_1obsoutputlisttype.html", null ],
     [ "obsoutputmodule::obsoutputtype", "structobsoutputmodule_1_1obsoutputtype.html", null ],
+    [ "obsmodule::obstype", "structobsmodule_1_1obstype.html", null ],
     [ "obstype", null, [
       [ "gwfobsmodule::gwfobstype", "structgwfobsmodule_1_1gwfobstype.html", null ],
       [ "gwtobsmodule::gwtobstype", "structgwtobsmodule_1_1gwtobstype.html", null ]
     ] ],
-    [ "obsmodule::obstype", "structobsmodule_1_1obstype.html", null ],
     [ "outputcontroldatamodule::outputcontroldatatype", "structoutputcontroldatamodule_1_1outputcontroldatatype.html", null ],
+    [ "outputcontrolmodule::outputcontroltype", "structoutputcontrolmodule_1_1outputcontroltype.html", null ],
     [ "outputcontroltype", null, [
       [ "gwfocmodule::gwfoctype", "structgwfocmodule_1_1gwfoctype.html", null ],
       [ "gwtocmodule::gwtoctype", "structgwtocmodule_1_1gwtoctype.html", null ]
     ] ],
-    [ "outputcontrolmodule::outputcontroltype", "structoutputcontrolmodule_1_1outputcontroltype.html", null ],
     [ "packagebudgetmodule::packagebudgettype", "structpackagebudgetmodule_1_1packagebudgettype.html", null ],
     [ "packagemovermodule::packagemovertype", "structpackagemovermodule_1_1packagemovertype.html", null ],
     [ "printsavemanagermodule::printsavemanagertype", "structprintsavemanagermodule_1_1printsavemanagertype.html", null ],
@@ -476,6 +477,7 @@ var hierarchy =
     [ "GridConnectionType", null, null ],
     [ "gwf_cr", null, null ],
     [ "gwf_obs_cr", null, null ],
+    [ "GwfBuyInputDataType", null, null ],
     [ "GwfBuyType", null, null ],
     [ "GwfCsubType", null, null ],
     [ "gwfexchange_create", null, null ],
@@ -772,8 +774,8 @@ var hierarchy =
     [ "ulstlb", null, null ],
     [ "UNDEFINED", null, null ],
     [ "unique_values", null, null ],
-    [ "UPCASE", null, null ],
     [ "upcase", null, null ],
+    [ "UPCASE", null, null ],
     [ "urdaux", null, null ],
     [ "urword", null, null ],
     [ "URWORD", null, null ],

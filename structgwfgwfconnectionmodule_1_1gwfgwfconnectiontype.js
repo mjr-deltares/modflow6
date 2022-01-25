@@ -3,6 +3,7 @@ var structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype =
     [ "allocate_arrays", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a109c2e3d5149b08519927d181b4d1233", null ],
     [ "allocatescalars", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#aa12244c892f1f6cd21923e7fcf270b8f", null ],
     [ "construct", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a781048d4e008b7a7adfb445f7071796a", null ],
+    [ "exg_ad", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a03ca515d560c153d7ff8b74dfec3ca4d", null ],
     [ "exg_ar", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a34433883b6ea20c21c704a8bd2a99e85", null ],
     [ "exg_bd", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a16fe858dc39f95bdab03488b4bc54d26", null ],
     [ "exg_cf", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a186b7147fd9cbf6c82b96663089bce77", null ],

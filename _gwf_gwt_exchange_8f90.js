@@ -8,5 +8,6 @@ var _gwf_gwt_exchange_8f90 =
     [ "gwfbnd2gwtfmi", "_gwf_gwt_exchange_8f90.html#abbedb30b5491b6d003c17354417c6e47", null ],
     [ "gwfconn2gwtconn", "_gwf_gwt_exchange_8f90.html#a186c9181959e0a9abaa5eca74675574a", null ],
     [ "gwfgwt_cr", "_gwf_gwt_exchange_8f90.html#abaa0495d0fb9d47508b2641f656e04ef", null ],
+    [ "link_connections", "_gwf_gwt_exchange_8f90.html#a9ee492b3ec8552d284f5875b8419f2ff", null ],
     [ "set_model_pointers", "_gwf_gwt_exchange_8f90.html#ae7df87968c62eebdd785510342852679", null ]
 ];

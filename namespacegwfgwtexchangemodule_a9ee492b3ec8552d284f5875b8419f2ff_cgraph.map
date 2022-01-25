@@ -1,0 +1,5 @@
+<map id="gwfgwtexchangemodule::link_connections" name="gwfgwtexchangemodule::link_connections">
+<area shape="rect" id="node1" title="Links a GWT connection to its GWF counterpart." alt="" coords="5,5,188,47"/>
+<area shape="rect" id="node2" href="$namespacespatialmodelconnectionmodule.html#ab03c81ae159b53ae92e07d83d48cca29" title="Get the connection from a list." alt="" coords="236,5,495,47"/>
+<area shape="rect" id="node3" href="$namespacespatialmodelconnectionmodule.html#aef271cf59d66fe8e5baef704109028fc" title="Cast to SpatialModelConnectionType." alt="" coords="543,5,804,47"/>
+</map>

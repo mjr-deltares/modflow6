@@ -35,6 +35,7 @@ var namespaces_dup =
     [ "ghostnodemodule", "namespaceghostnodemodule.html", null ],
     [ "gridconnectionmodule", "namespacegridconnectionmodule.html", null ],
     [ "gridsorting", "namespacegridsorting.html", null ],
+    [ "gwfbuyinputdatamodule", "namespacegwfbuyinputdatamodule.html", null ],
     [ "gwfbuymodule", "namespacegwfbuymodule.html", null ],
     [ "gwfcsubmodule", "namespacegwfcsubmodule.html", null ],
     [ "gwfdismodule", "namespacegwfdismodule.html", null ],

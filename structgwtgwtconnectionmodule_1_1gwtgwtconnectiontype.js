@@ -17,6 +17,7 @@ var structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype =
     [ "setgridextent", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#a97727c455881670ac925d7da2538c1f8", null ],
     [ "syncinterfacemodel", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#aa52d5993cf28d7ec1e30684aadf1d134", null ],
     [ "validateconnection", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#ad97c30e6e535a0cdb39498a082f11087", null ],
+    [ "conc", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#a7c76a94484a680892937d378ecbfaf7a", null ],
     [ "exchangeisowned", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#a951f51ecbed8b1eb1e846a5d788d7e6d", null ],
     [ "exgflowja", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#a5c81557eef9da4093b429db25b2ce216", null ],
     [ "exgflowjagwt", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#adeae9c98bf35bbe1d4a2fb43a30d0aa8", null ],
@@ -27,6 +28,7 @@ var structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype =
     [ "gwtexchange", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#a2df7cba5a788434d75a64bf3fb6f5b89", null ],
     [ "gwtinterfacemodel", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#a73fbf27fce1d332e4f82c41cbad061b6", null ],
     [ "gwtmodel", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#aecb1cc7fd9581202f91f37bd56748129", null ],
+    [ "icbound", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#aba3233f8b677fae5d41983c53752b94f", null ],
     [ "iifaceadvscheme", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#a47159ae71d6c7a6a0992b1bc5651bbac", null ],
     [ "iifacext3d", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#a1b9b63eba28c7143762acc92a9085512", null ],
     [ "iout", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#a26a333ecaee1f831fa0d7ed3e4acad9b", null ]

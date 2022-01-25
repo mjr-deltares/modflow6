@@ -27,6 +27,7 @@ var annotated_dup =
     [ "ghbmodule", "namespaceghbmodule.html", "namespaceghbmodule" ],
     [ "ghostnodemodule", "namespaceghostnodemodule.html", "namespaceghostnodemodule" ],
     [ "gridconnectionmodule", "namespacegridconnectionmodule.html", "namespacegridconnectionmodule" ],
+    [ "gwfbuyinputdatamodule", "namespacegwfbuyinputdatamodule.html", "namespacegwfbuyinputdatamodule" ],
     [ "gwfbuymodule", "namespacegwfbuymodule.html", "namespacegwfbuymodule" ],
     [ "gwfcsubmodule", "namespacegwfcsubmodule.html", "namespacegwfcsubmodule" ],
     [ "gwfdismodule", "namespacegwfdismodule.html", "namespacegwfdismodule" ],

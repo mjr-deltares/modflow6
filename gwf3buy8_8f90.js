@@ -20,7 +20,7 @@ var gwf3buy8_8f90 =
     [ "buy_cq", "gwf3buy8_8f90.html#a3e8151a3192e45930c4ec84b91aee333", null ],
     [ "buy_cr", "gwf3buy8_8f90.html#a280c013f7e5cdc83e8fc21d588ff8ce3", null ],
     [ "buy_da", "gwf3buy8_8f90.html#ab30b5c1a3760c346c449e58bafa2649f", null ],
-    [ "buy_df", "gwf3buy8_8f90.html#ae5b0ba797f20cf610f2612e6ee6a62e7", null ],
+    [ "buy_df", "gwf3buy8_8f90.html#a71c1b8edb35e69cce70148b755893d90", null ],
     [ "buy_fc", "gwf3buy8_8f90.html#a627e3b4f6d77574bed6996c9185fa8e6", null ],
     [ "buy_ot_dv", "gwf3buy8_8f90.html#a91f12f6b88ac79575bf5aa6e1d4a36e4", null ],
     [ "buy_rp", "gwf3buy8_8f90.html#a2276d49daabf4a511728b87d53a141f9", null ],
@@ -32,5 +32,7 @@ var gwf3buy8_8f90 =
     [ "read_dimensions", "gwf3buy8_8f90.html#aa22728d20def7fcbd66a55b9163968f6", null ],
     [ "read_options", "gwf3buy8_8f90.html#a0e88c756f125aeb05acb4ac475cf3f18", null ],
     [ "read_packagedata", "gwf3buy8_8f90.html#a81d907dd102a8f2787ac8f666b9f0bdb", null ],
-    [ "set_concentration_pointer", "gwf3buy8_8f90.html#a4bfb087dd22f740704ffa194593c6f73", null ]
+    [ "set_concentration_pointer", "gwf3buy8_8f90.html#a4bfb087dd22f740704ffa194593c6f73", null ],
+    [ "set_options", "gwf3buy8_8f90.html#a1ad2d95fac3b66a1664fff9a7a467250", null ],
+    [ "set_packagedata", "gwf3buy8_8f90.html#a59d7d2bde365fd78ea1869cd8efe9c63", null ]
 ];

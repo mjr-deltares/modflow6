@@ -21,6 +21,8 @@ var structgwfbuymodule_1_1gwfbuytype =
     [ "read_options", "structgwfbuymodule_1_1gwfbuytype.html#ac455aca3bc846b6948f00987c0549a91", null ],
     [ "read_packagedata", "structgwfbuymodule_1_1gwfbuytype.html#af740e323bb5f995e77072d6c5bf1a2df", null ],
     [ "set_concentration_pointer", "structgwfbuymodule_1_1gwfbuytype.html#aff62e131c78c0cbfdd563d74c455ed0d", null ],
+    [ "set_options", "structgwfbuymodule_1_1gwfbuytype.html#a6b9d9cec26ee37ab46a64baadd9265b9", null ],
+    [ "set_packagedata", "structgwfbuymodule_1_1gwfbuytype.html#acb55097cd5ddafdb4d54f76cad897118", null ],
     [ "cauxspeciesname", "structgwfbuymodule_1_1gwfbuytype.html#a247221904d2715d3716a742224ecc96d", null ],
     [ "cmodelname", "structgwfbuymodule_1_1gwfbuytype.html#ad88da152336e3b533c3916a6ee5a0e96", null ],
     [ "concbuy", "structgwfbuymodule_1_1gwfbuytype.html#a40263298f552ee08be6af5caedc77086", null ],
