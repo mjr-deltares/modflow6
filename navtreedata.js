@@ -23,6 +23,7 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "MODFLOW 6", "index.html", [
+    [ "MODFLOW 6 Source Code Documentation", "index.html", null ],
     [ "Todo List", "todo.html", null ],
     [ "Modules", "namespaces.html", [
       [ "Modules List", "namespaces.html", "namespaces_dup" ],
@@ -67,24 +68,24 @@ var NAVTREEINDEX =
 "gwf3riv8_8f90.html#ae5112c5b6e434c475fcb692c669e53fb",
 "gwt1apt1_8f90.html#af0a6cee85eccdf1655f9d77d14feef17",
 "gwt1ssm1_8f90.html",
-"interfacememorymanagermodule_1_1mem__copyptr.html#a28524fd87271bef0ce44c82a6740f839",
+"interfacememorymanagermodule_1_1mem__copyptr.html#a0fa293f3f46ada089538dd27f34818f5",
 "namespacegwfhfbmodule.html",
-"namespacetimearrayseriesmodule.html",
-"structblockparsermodule_1_1blockparsertype.html#a730b588b07002f7baa7c943a75792d82",
-"structbudgettermmodule_1_1budgettermtype.html#a6122c56fb56c08fa9e21f42e751586c3",
-"structgridconnectionmodule_1_1gridconnectiontype.html#a27fba8453348558624b3a9e1646309d6",
-"structgwfcsubmodule_1_1gwfcsubtype.html#acc47292a8cca7be4bda193f6ef005c3f",
-"structgwfgwfexchangemodule_1_1gwfexchangetype.html#ae3543eee514f76d2545a23fce93b5967",
-"structgwfnpfmodule_1_1gwfnpftype.html#ac1c67d27f451147972b2ad423ee460bc",
-"structgwtdspmodule_1_1gwtdsptype.html#aeac509f059c3d254f20d7a08ea9210b0",
-"structgwtmstmodule_1_1gwtmsttype.html#a6d47584f1afc1b9ffbf45b41c21fed01",
-"structimslinearmodule_1_1imslineardatatype.html#a363e75e63a42e14d65fc761725777c44",
-"structlakmodule_1_1laktype.html#af9dd077eb357a7b010c2a6260b59c756",
-"structmvrmodule_1_1mvrtype.html#a5d3995908b1023d26db1f559e1ee8331",
-"structobservemodule_1_1observetype.html#a990b4d11b2124d8d2b338040ee71ab7d",
-"structsfrmodule_1_1sfrtype.html#a24c9882ae17ecf14b05aa063ca7dea61",
-"structtimearrayseriesmanagermodule_1_1timearrayseriesmanagertype.html#a48aea1ec6110daec03b3a53b59c195a0",
-"structuzfcellgroupmodule_1_1uzfcellgrouptype.html#af48f96fef151f21cb694f9ae5922048a"
+"namespacetimearrayseriesmanagermodule.html",
+"structblockparsermodule_1_1blockparsertype.html#a6fa05ba5270ee52a003a773b32b8c3b8",
+"structbudgettermmodule_1_1budgettermtype.html#a5f85703374b9597ae66fd39b36949d5a",
+"structgridconnectionmodule_1_1gridconnectiontype.html#a230bc57becb6c39f62a12d3469ee845a",
+"structgwfcsubmodule_1_1gwfcsubtype.html#acc344fcb906acd888b3271a11efd3d0d",
+"structgwfgwfexchangemodule_1_1gwfexchangetype.html#ae25d8611f2ac394a910e8f7505f0de21",
+"structgwfnpfmodule_1_1gwfnpftype.html#ac18e00d8704980afcfa95cdcc836baf8",
+"structgwtdspmodule_1_1gwtdsptype.html#ae9d9f308afcc7b839d17503d4f739878",
+"structgwtmstmodule_1_1gwtmsttype.html#a6a977b4e84c346fbadb1c5cb0e4028ba",
+"structimslinearmodule_1_1imslineardatatype.html#a2edc1722cb12eafd24ceba358657c774",
+"structlakmodule_1_1laktype.html#af894843be30083020c9b99468ddfa242",
+"structmvrmodule_1_1mvrtype.html#a37e0842c1e3648dc9271429044700631",
+"structobservemodule_1_1observetype.html#a82cbab9b78ed56ead567a8772b3d6f07",
+"structsfrmodule_1_1sfrtype.html#a232c168f8d65f1e9b867052b3ae748df",
+"structtimearrayseriesmanagermodule_1_1timearrayseriesmanagertype.html#a297041297652499e9dc2be83b762799d",
+"structuzfcellgroupmodule_1_1uzfcellgrouptype.html#af023dd2418e026c58cc16356a8170840"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

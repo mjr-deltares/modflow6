@@ -1,5 +1,5 @@
 <map id="gwfmodule::package_create" name="gwfmodule::package_create">
-<area shape="rect" id="node1" title=" " alt="" coords="5,353,163,394"/>
+<area shape="rect" id="node1" title="Create boundary condition packages for this model." alt="" coords="5,353,163,394"/>
 <area shape="rect" id="node2" href="$namespacebndmodule.html#a70fe6df37e37369463c5776bbe1323cb" title="Add boundary to package list." alt="" coords="218,5,402,32"/>
 <area shape="rect" id="node3" href="$namespaceapimodule.html#a69610802564ad710cb88863117b38a46" title="@ brief Create a new package object" alt="" coords="227,107,393,133"/>
 <area shape="rect" id="node6" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="923,208,1097,235"/>

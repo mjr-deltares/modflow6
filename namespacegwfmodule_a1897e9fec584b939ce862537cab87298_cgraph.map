@@ -1,5 +1,5 @@
 <map id="gwfmodule::ftype_check" name="gwfmodule::ftype_check">
-<area shape="rect" id="node1" title=" " alt="" coords="5,43,187,69"/>
+<area shape="rect" id="node1" title="Check to make sure required input files have been specified." alt="" coords="5,43,187,69"/>
 <area shape="rect" id="node2" href="$namespacesimmodule.html#a4c46e49de78d4498dd4ec106357775e6" title="Return number of errors." alt="" coords="235,17,419,44"/>
 <area shape="rect" id="node3" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="239,68,414,95"/>
 <area shape="rect" id="node4" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="467,68,605,95"/>

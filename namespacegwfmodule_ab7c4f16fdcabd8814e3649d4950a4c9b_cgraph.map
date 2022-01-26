@@ -1,5 +1,5 @@
 <map id="gwfmodule::gwf_cr" name="gwfmodule::gwf_cr">
-<area shape="rect" id="node1" title=" " alt="" coords="5,563,152,589"/>
+<area shape="rect" id="node1" title="Create a new groundwater flow model object." alt="" coords="5,563,152,589"/>
 <area shape="rect" id="node2" href="$namespacebasemodelmodule.html#a06c7689672ba278e5c0809a272091e63" title=" " alt="" coords="200,5,480,32"/>
 <area shape="rect" id="node3" href="$namespacebudgetmodule.html#a5d07ccf1026ac718f510c44519685c0f" title="@ brief Create a new budget object" alt="" coords="534,791,722,817"/>
 <area shape="rect" id="node4" href="$namespacegwfbuymodule.html#a280c013f7e5cdc83e8fc21d588ff8ce3" title=" " alt="" coords="255,107,425,133"/>
