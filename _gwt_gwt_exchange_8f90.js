@@ -10,5 +10,6 @@ var _gwt_gwt_exchange_8f90 =
     [ "gwtgwt_df", "_gwt_gwt_exchange_8f90.html#a1d4e55ab2cf2de75b7304f5a35f07dbc", null ],
     [ "parse_option", "_gwt_gwt_exchange_8f90.html#a18679192b7bf35223fc014cc929afdff", null ],
     [ "read_options", "_gwt_gwt_exchange_8f90.html#aaf7a3ad93f5518a83a25af2c949c8d67", null ],
-    [ "use_interface_model", "_gwt_gwt_exchange_8f90.html#af3a3b20464d12d444e508a41dbbbc9a9", null ]
+    [ "use_interface_model", "_gwt_gwt_exchange_8f90.html#af3a3b20464d12d444e508a41dbbbc9a9", null ],
+    [ "validate_exchange", "_gwt_gwt_exchange_8f90.html#a6150d2c51d38a118483955689feb6d67", null ]
 ];

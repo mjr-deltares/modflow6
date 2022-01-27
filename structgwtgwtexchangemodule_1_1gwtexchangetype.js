@@ -7,6 +7,7 @@ var structgwtgwtexchangemodule_1_1gwtexchangetype =
     [ "parse_option", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#a325013a9c3305c4575389653f8c79ab0", null ],
     [ "read_options", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#ae8263bcabcba0430a36e6f8d6cdb7944", null ],
     [ "use_interface_model", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#aeed7529ff999e911a16e18683838e7ed", null ],
+    [ "validate_exchange", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#a527103783cfbedc1106ee4d9a805cf3a", null ],
     [ "gwtmodel1", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#acc5d9b8218e2284d8f7e9cbb8b2507c5", null ],
     [ "gwtmodel2", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#af45eae2e9e0cd8414b58a622e924bf56", null ],
     [ "iadvscheme", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#ab7ac991b3d500341ab74ef0c3adce07c", null ]

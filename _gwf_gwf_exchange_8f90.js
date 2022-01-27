@@ -36,5 +36,6 @@ var _gwf_gwf_exchange_8f90 =
     [ "read_mvr", "_gwf_gwf_exchange_8f90.html#adc570e5db32482ada98b47690b1c92a5", null ],
     [ "read_options", "_gwf_gwf_exchange_8f90.html#a30323e69d2dbc0705ceb951a73385b97", null ],
     [ "rewet", "_gwf_gwf_exchange_8f90.html#a2d141cbfc501a53611ba7dafa3ed815d", null ],
-    [ "use_interface_model", "_gwf_gwf_exchange_8f90.html#a5ee21a7bd938104b56658f93949ef2f3", null ]
+    [ "use_interface_model", "_gwf_gwf_exchange_8f90.html#a5ee21a7bd938104b56658f93949ef2f3", null ],
+    [ "validate_exchange", "_gwf_gwf_exchange_8f90.html#aabc561aefd93cdde87725dd7097e45f6", null ]
 ];

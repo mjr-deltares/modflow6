@@ -32,6 +32,7 @@ var structgwfgwfexchangemodule_1_1gwfexchangetype =
     [ "read_options", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a414271d322c8ae0491bef7fb16954195", null ],
     [ "rewet", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a31c062478864b4049be62212e904a47d", null ],
     [ "use_interface_model", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a60f4017c05c67a4a357579d2ea6ec736", null ],
+    [ "validate_exchange", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#ab4b2900552374fed2c92491591b5c8bc", null ],
     [ "cond", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#ab24adc448176664e96c84c3638131b3e", null ],
     [ "condsat", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a90a6a5ae856e369ba9a11cac63781898", null ],
     [ "gnc", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a3e9324340567e5fd759f6c52e35a956c", null ],

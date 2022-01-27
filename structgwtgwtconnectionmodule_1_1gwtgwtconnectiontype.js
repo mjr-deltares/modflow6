@@ -21,6 +21,7 @@ var structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype =
     [ "exchangeisowned", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#a951f51ecbed8b1eb1e846a5d788d7e6d", null ],
     [ "exgflowja", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#a5c81557eef9da4093b429db25b2ce216", null ],
     [ "exgflowjagwt", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#adeae9c98bf35bbe1d4a2fb43a30d0aa8", null ],
+    [ "exgflowsign", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#a9acc02658b80471c7b7fd53db46cdd03", null ],
     [ "gwfflowja", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#a01bee805a614665c95fbdb1765b252ea", null ],
     [ "gwfhead", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#ac969cfaa01f2119465a2d0aa551df63c", null ],
     [ "gwfsat", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#a57a754841563cdd251ad67b0020d068c", null ],
