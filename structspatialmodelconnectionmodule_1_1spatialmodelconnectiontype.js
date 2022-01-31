@@ -9,7 +9,6 @@ var structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype =
     [ "exg_da", "structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html#a63961eceb8f061d702377a0b5c847a09", null ],
     [ "exg_df", "structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html#a377a6495116d98550882eca9ef727c6f", null ],
     [ "exg_mc", "structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html#a5d202351dc36c892ce614445a607cd86", null ],
-    [ "findmodelneighbors", "structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html#a6d61d1a8cbdc393ca5dea152dd202e9e", null ],
     [ "getnrofconnections", "structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html#a09491688df96e7a9ec1e1e0c32960d9a", null ],
     [ "maskownerconnections", "structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html#af3ed0086ad9b294306f1384d2c9e40ac", null ],
     [ "setexchangeconnections", "structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html#ab9a950e04abc8bc0a4de896a401a2810", null ],

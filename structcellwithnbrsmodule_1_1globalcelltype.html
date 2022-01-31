@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>MODFLOW 6: topologymodule::modelwithnbrstype Type Reference</title>
+<title>MODFLOW 6: cellwithnbrsmodule::globalcelltype Type Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -93,7 +93,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('structtopologymodule_1_1modelwithnbrstype.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('structcellwithnbrsmodule_1_1globalcelltype.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -114,94 +114,80 @@ $(document).ready(function(){initNavTree('structtopologymodule_1_1modelwithnbrst
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="structtopologymodule_1_1modelwithnbrstype-members.html">List of all members</a>  </div>
+<a href="structcellwithnbrsmodule_1_1globalcelltype-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">topologymodule::modelwithnbrstype Type Reference</div>  </div>
+<div class="title">cellwithnbrsmodule::globalcelltype Type Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Data structure to hold a global cell identifier, using a pointer to the model and its local cell.  
+ <a href="structcellwithnbrsmodule_1_1globalcelltype.html#details">More...</a></p>
 <div class="dynheader">
-Collaboration diagram for topologymodule::modelwithnbrstype:</div>
+Collaboration diagram for cellwithnbrsmodule::globalcelltype:</div>
 <div class="dyncontent">
-<div class="center"><img src="structtopologymodule_1_1modelwithnbrstype__coll__graph.png" border="0" usemap="#topologymodule_1_1modelwithnbrstype_coll__map" alt="Collaboration graph"/></div>
-<map name="topologymodule_1_1modelwithnbrstype_coll__map" id="topologymodule_1_1modelwithnbrstype_coll__map">
-<area shape="rect" title=" " alt="" coords="5,5,268,97"/>
+<div class="center"><img src="structcellwithnbrsmodule_1_1globalcelltype__coll__graph.png" border="0" usemap="#cellwithnbrsmodule_1_1globalcelltype_coll__map" alt="Collaboration graph"/></div>
+<map name="cellwithnbrsmodule_1_1globalcelltype_coll__map" id="cellwithnbrsmodule_1_1globalcelltype_coll__map">
+<area shape="rect" title="Data structure to hold a global cell identifier, using a pointer to the model and its local cell." alt="" coords="5,5,156,112"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:adbef8ab12b52ba8cbb166916312d71bf"><td class="memItemLeft" align="right" valign="top">class(numericalmodeltype), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtopologymodule_1_1modelwithnbrstype.html#adbef8ab12b52ba8cbb166916312d71bf">model</a> =&gt; null()</td></tr>
-<tr class="separator:adbef8ab12b52ba8cbb166916312d71bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abcc3fe2f28d99d670f20070dd7b36dd1"><td class="memItemLeft" align="right" valign="top">integer(i4b)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtopologymodule_1_1modelwithnbrstype.html#abcc3fe2f28d99d670f20070dd7b36dd1">nrofnbrs</a> = 0</td></tr>
-<tr class="separator:abcc3fe2f28d99d670f20070dd7b36dd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39ccce295f8938a2535aff3d917e73f4"><td class="memItemLeft" align="right" valign="top">type(<a class="el" href="structtopologymodule_1_1modelwithnbrstype.html">modelwithnbrstype</a>), dimension(:), pointer, contiguous&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtopologymodule_1_1modelwithnbrstype.html#a39ccce295f8938a2535aff3d917e73f4">neighbors</a> =&gt; null()</td></tr>
-<tr class="separator:a39ccce295f8938a2535aff3d917e73f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa86fae723638af16fe090b0a8aae388b"><td class="memItemLeft" align="right" valign="top">integer(i4b)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcellwithnbrsmodule_1_1globalcelltype.html#aa86fae723638af16fe090b0a8aae388b">index</a></td></tr>
+<tr class="memdesc:aa86fae723638af16fe090b0a8aae388b"><td class="mdescLeft">&#160;</td><td class="mdescRight">the index on the model grid  <a href="structcellwithnbrsmodule_1_1globalcelltype.html#aa86fae723638af16fe090b0a8aae388b">More...</a><br /></td></tr>
+<tr class="separator:aa86fae723638af16fe090b0a8aae388b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39ec8a1992757a8a6c1d06a97c4a5a1d"><td class="memItemLeft" align="right" valign="top">class(numericalmodeltype), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcellwithnbrsmodule_1_1globalcelltype.html#a39ec8a1992757a8a6c1d06a97c4a5a1d">model</a> =&gt; null()</td></tr>
+<tr class="memdesc:a39ec8a1992757a8a6c1d06a97c4a5a1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">the model  <a href="structcellwithnbrsmodule_1_1globalcelltype.html#a39ec8a1992757a8a6c1d06a97c4a5a1d">More...</a><br /></td></tr>
+<tr class="separator:a39ec8a1992757a8a6c1d06a97c4a5a1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_topology_8f90_source.html#l00027">27</a> of file <a class="el" href="_topology_8f90_source.html">Topology.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_cell_with_nbrs_8f90_source.html#l00012">12</a> of file <a class="el" href="_cell_with_nbrs_8f90_source.html">CellWithNbrs.f90</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="adbef8ab12b52ba8cbb166916312d71bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adbef8ab12b52ba8cbb166916312d71bf">&#9670;&nbsp;</a></span>model</h2>
+<a id="aa86fae723638af16fe090b0a8aae388b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa86fae723638af16fe090b0a8aae388b">&#9670;&nbsp;</a></span>index</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">class(numericalmodeltype), pointer topologymodule::modelwithnbrstype::model =&gt; null()</td>
+          <td class="memname">integer(i4b) cellwithnbrsmodule::globalcelltype::index</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_topology_8f90_source.html#l00028">28</a> of file <a class="el" href="_topology_8f90_source.html">Topology.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;      <span class="keywordtype">class</span>(NumericalModelType), <span class="keywordtype">pointer</span> :: model =&gt; null()</div>
+<p class="definition">Definition at line <a class="el" href="_cell_with_nbrs_8f90_source.html#l00013">13</a> of file <a class="el" href="_cell_with_nbrs_8f90_source.html">CellWithNbrs.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: index<span class="comment">                                 !&lt; the index on the model grid</span></div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a39ccce295f8938a2535aff3d917e73f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a39ccce295f8938a2535aff3d917e73f4">&#9670;&nbsp;</a></span>neighbors</h2>
+<a id="a39ec8a1992757a8a6c1d06a97c4a5a1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39ec8a1992757a8a6c1d06a97c4a5a1d">&#9670;&nbsp;</a></span>model</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">type(<a class="el" href="structtopologymodule_1_1modelwithnbrstype.html">modelwithnbrstype</a>), dimension(:), pointer, contiguous topologymodule::modelwithnbrstype::neighbors =&gt; null()</td>
+          <td class="memname">class(numericalmodeltype), pointer cellwithnbrsmodule::globalcelltype::model =&gt; null()</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_topology_8f90_source.html#l00030">30</a> of file <a class="el" href="_topology_8f90_source.html">Topology.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;      <span class="keywordtype">type</span>(ModelWithNbrsType), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: neighbors =&gt; null<span class="comment">()</span></div>
-<span class="comment"></span></div><!-- fragment -->
-</div>
-</div>
-<a id="abcc3fe2f28d99d670f20070dd7b36dd1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abcc3fe2f28d99d670f20070dd7b36dd1">&#9670;&nbsp;</a></span>nrofnbrs</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer(i4b) topologymodule::modelwithnbrstype::nrofnbrs = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_topology_8f90_source.html#l00029">29</a> of file <a class="el" href="_topology_8f90_source.html">Topology.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;      <span class="keywordtype">integer(I4B)</span> :: nrOfNbrs = 0</div>
+<p class="definition">Definition at line <a class="el" href="_cell_with_nbrs_8f90_source.html#l00014">14</a> of file <a class="el" href="_cell_with_nbrs_8f90_source.html">CellWithNbrs.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType), <span class="keywordtype">pointer</span> :: model =&gt; null() <span class="comment">!&lt; the model</span></div>
 </div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this type was generated from the following file:<ul>
-<li>/home/runner/work/modflow6/modflow6/src/Model/Connection/<a class="el" href="_topology_8f90_source.html">Topology.f90</a></li>
+<li>/home/runner/work/modflow6/modflow6/src/Model/Connection/<a class="el" href="_cell_with_nbrs_8f90_source.html">CellWithNbrs.f90</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacetopologymodule.html">topologymodule</a></li><li class="navelem"><a class="el" href="structtopologymodule_1_1modelwithnbrstype.html">modelwithnbrstype</a></li>
-    <li class="footer">Generated on Thu Jan 27 2022 09:54:45 for MODFLOW 6 by
+    <li class="navelem"><a class="el" href="namespacecellwithnbrsmodule.html">cellwithnbrsmodule</a></li><li class="navelem"><a class="el" href="structcellwithnbrsmodule_1_1globalcelltype.html">globalcelltype</a></li>
+    <li class="footer">Generated on Mon Jan 31 2022 15:04:18 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

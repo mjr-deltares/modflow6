@@ -1,4 +1,0 @@
-<map id="topologymodule::cellwithnbrstype" name="topologymodule::cellwithnbrstype">
-<area shape="rect" id="node1" title=" " alt="" coords="5,160,249,237"/>
-<area shape="rect" id="node2" href="$structtopologymodule_1_1globalcelltype.html" title="Data structure to hold a global cell identifier, using a pointer to the model and its local cell." alt="" coords="13,5,241,97"/>
-</map>

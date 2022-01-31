@@ -1,5 +1,5 @@
-<map id="gridconnectionmodule::getexchangedata" name="gridconnectionmodule::getexchangedata">
-<area shape="rect" id="node1" title="Get the exchange data for a pair of models" alt="" coords="5,5,172,47"/>
+<map id="gridconnectionmodule::addremoteneighbors" name="gridconnectionmodule::addremoteneighbors">
+<area shape="rect" id="node1" title="Add cell neighbors across models using the stored exchange data structures." alt="" coords="5,5,172,47"/>
 <area shape="rect" id="node2" href="$namespacedisconnexchangemodule.html#a63ac91d936c8b44104f8e091a81e7ac2" title=" " alt="" coords="220,5,435,47"/>
 <area shape="rect" id="node3" href="$namespacedisconnexchangemodule.html#a9ad5f8b11f95c70aeda06b186754b567" title=" " alt="" coords="483,5,701,47"/>
 </map>

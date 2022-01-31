@@ -89,7 +89,7 @@ var hierarchy =
     [ "budgettermmodule::budgettermtype", "structbudgettermmodule_1_1budgettermtype.html", null ],
     [ "budgetmodule::budgettype", "structbudgetmodule_1_1budgettype.html", null ],
     [ "gwtfmimodule::budobjptrarray", "structgwtfmimodule_1_1budobjptrarray.html", null ],
-    [ "topologymodule::cellwithnbrstype", "structtopologymodule_1_1cellwithnbrstype.html", null ],
+    [ "cellwithnbrsmodule::cellwithnbrstype", "structcellwithnbrsmodule_1_1cellwithnbrstype.html", null ],
     [ "stringlistmodule::charactercontainertype", "structstringlistmodule_1_1charactercontainertype.html", null ],
     [ "gwfbuymodule::concentrationpointer", "structgwfbuymodule_1_1concentrationpointer.html", null ],
     [ "connectionbuildermodule::connectionbuildertype", "structconnectionbuildermodule_1_1connectionbuildertype.html", null ],
@@ -114,7 +114,7 @@ var hierarchy =
     [ "arrayhandlersmodule::expandarraywrapper", "interfacearrayhandlersmodule_1_1expandarraywrapper.html", null ],
     [ "arrayhandlersmodule::extendptrarray", "interfacearrayhandlersmodule_1_1extendptrarray.html", null ],
     [ "tvbasemodule::get_pointer_to_value", "interfacetvbasemodule_1_1get__pointer__to__value.html", null ],
-    [ "topologymodule::globalcelltype", "structtopologymodule_1_1globalcelltype.html", null ],
+    [ "cellwithnbrsmodule::globalcelltype", "structcellwithnbrsmodule_1_1globalcelltype.html", null ],
     [ "gridconnectionmodule::gridconnectiontype", "structgridconnectionmodule_1_1gridconnectiontype.html", null ],
     [ "gwfbuyinputdatamodule::gwfbuyinputdatatype", "structgwfbuyinputdatamodule_1_1gwfbuyinputdatatype.html", null ],
     [ "gwfictype", null, [
@@ -162,7 +162,6 @@ var hierarchy =
     [ "memorylistmodule::memorylisttype", "structmemorylistmodule_1_1memorylisttype.html", null ],
     [ "memorytypemodule::memorytype", "structmemorytypemodule_1_1memorytype.html", null ],
     [ "messagemodule::messagetype", "structmessagemodule_1_1messagetype.html", null ],
-    [ "topologymodule::modelwithnbrstype", "structtopologymodule_1_1modelwithnbrstype.html", null ],
     [ "mvrmodule::mvrtype", "structmvrmodule_1_1mvrtype.html", null ],
     [ "namefilemodule::namefiletype", "structnamefilemodule_1_1namefiletype.html", null ],
     [ "numericalexchangetype", null, [
@@ -197,17 +196,17 @@ var hierarchy =
     [ "observemodule::observetype", "structobservemodule_1_1observetype.html", null ],
     [ "obsoutputlistmodule::obsoutputlisttype", "structobsoutputlistmodule_1_1obsoutputlisttype.html", null ],
     [ "obsoutputmodule::obsoutputtype", "structobsoutputmodule_1_1obsoutputtype.html", null ],
-    [ "obsmodule::obstype", "structobsmodule_1_1obstype.html", null ],
     [ "obstype", null, [
       [ "gwfobsmodule::gwfobstype", "structgwfobsmodule_1_1gwfobstype.html", null ],
       [ "gwtobsmodule::gwtobstype", "structgwtobsmodule_1_1gwtobstype.html", null ]
     ] ],
+    [ "obsmodule::obstype", "structobsmodule_1_1obstype.html", null ],
     [ "outputcontroldatamodule::outputcontroldatatype", "structoutputcontroldatamodule_1_1outputcontroldatatype.html", null ],
-    [ "outputcontrolmodule::outputcontroltype", "structoutputcontrolmodule_1_1outputcontroltype.html", null ],
     [ "outputcontroltype", null, [
       [ "gwfocmodule::gwfoctype", "structgwfocmodule_1_1gwfoctype.html", null ],
       [ "gwtocmodule::gwtoctype", "structgwtocmodule_1_1gwtoctype.html", null ]
     ] ],
+    [ "outputcontrolmodule::outputcontroltype", "structoutputcontrolmodule_1_1outputcontroltype.html", null ],
     [ "packagebudgetmodule::packagebudgettype", "structpackagebudgetmodule_1_1packagebudgettype.html", null ],
     [ "packagemovermodule::packagemovertype", "structpackagemovermodule_1_1packagemovertype.html", null ],
     [ "printsavemanagermodule::printsavemanagertype", "structprintsavemanagermodule_1_1printsavemanagertype.html", null ],
