@@ -18,6 +18,7 @@ var structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype =
     [ "saveexchangeflows", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a61f4313cfc2d30cde5257500ec7a813d", null ],
     [ "setflowtoexchange", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a70ad9327d5ac36766e967cb00fe8b109", null ],
     [ "setgridextent", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a23ea0c0a886b3dbc40d57374ba98f49d", null ],
+    [ "setnpfedgeprops", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#add3f16f7bc63449b28b7f263922e4483", null ],
     [ "syncinterfacemodel", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#aad7f46377c47255769873a238866d62d", null ],
     [ "validateconnection", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a648e5118d1fd55332a4ab8e5913d50f6", null ],
     [ "validategwfexchange", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#ad016a0da0cab6a1c5fd342c68653c2d8", null ],

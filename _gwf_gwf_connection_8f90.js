@@ -19,6 +19,7 @@ var _gwf_gwf_connection_8f90 =
     [ "saveexchangeflows", "_gwf_gwf_connection_8f90.html#a2feb4df88189153941c59d3c4bc26794", null ],
     [ "setflowtoexchange", "_gwf_gwf_connection_8f90.html#a291611921ff15f7740f1338af43f7ccf", null ],
     [ "setgridextent", "_gwf_gwf_connection_8f90.html#aad9155bba93f2641d5a3cc027e337565", null ],
+    [ "setnpfedgeprops", "_gwf_gwf_connection_8f90.html#a6e1d16d424140c9c0c79587cf1b4e7a0", null ],
     [ "syncinterfacemodel", "_gwf_gwf_connection_8f90.html#a732eadb72a63d42952c2979898afe572", null ],
     [ "validateconnection", "_gwf_gwf_connection_8f90.html#ad0f962351553b6ce91cd26559c4702de", null ],
     [ "validategwfexchange", "_gwf_gwf_connection_8f90.html#a8cc6f811d911509b9457bc06b6d0bbf4", null ]
