@@ -8,6 +8,7 @@ var structgwtinterfacemodelmodule_1_1gwtinterfacemodeltype =
     [ "setdspgriddata", "structgwtinterfacemodelmodule_1_1gwtinterfacemodeltype.html#a85005cadd686f04c9be7e7fc5caad57e", null ],
     [ "gridconnection", "structgwtinterfacemodelmodule_1_1gwtinterfacemodeltype.html#a9641af99642554a344505285c0516f46", null ],
     [ "iadvscheme", "structgwtinterfacemodelmodule_1_1gwtinterfacemodeltype.html#a7bdd1952036254a13dac395cd98c6955", null ],
+    [ "ixt3d", "structgwtinterfacemodelmodule_1_1gwtinterfacemodeltype.html#ad07893d02f4eca4c1ba1de7c2256b5ff", null ],
     [ "owner", "structgwtinterfacemodelmodule_1_1gwtinterfacemodeltype.html#a11c511ba5f45251b35f49f2fb28be855", null ],
     [ "porosity", "structgwtinterfacemodelmodule_1_1gwtinterfacemodeltype.html#a5e96b6558489695c61d7c9b411571dea", null ]
 ];

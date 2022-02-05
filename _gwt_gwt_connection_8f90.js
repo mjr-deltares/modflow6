@@ -5,6 +5,7 @@ var _gwt_gwt_connection_8f90 =
     [ "allocate_scalars", "_gwt_gwt_connection_8f90.html#afdcaa27caca11972704a9c3f66827325", null ],
     [ "castasgwtgwtconnection", "_gwt_gwt_connection_8f90.html#a23c026c8d893f128a2a5752d040d63d7", null ],
     [ "gwtgwtcon_ac", "_gwt_gwt_connection_8f90.html#a79fda07a9f2ef20297a96687bf1049de", null ],
+    [ "gwtgwtcon_ad", "_gwt_gwt_connection_8f90.html#a2dac57a33619184b4165476a9339d6e2", null ],
     [ "gwtgwtcon_ar", "_gwt_gwt_connection_8f90.html#ac36a6f50ccd95ddd2eadede21822de2d", null ],
     [ "gwtgwtcon_bd", "_gwt_gwt_connection_8f90.html#a3be1699f19511b1b2e00fcd5aac1710d", null ],
     [ "gwtgwtcon_cf", "_gwt_gwt_connection_8f90.html#a8cd06e6cdb6800b3119c6be337645d2e", null ],

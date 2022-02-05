@@ -4,6 +4,7 @@ var structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype =
     [ "allocate_scalars", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#a436605a0b801aa3747c22821b4f74cf8", null ],
     [ "construct", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#ac29d98da5f5f127df670763ef642b937", null ],
     [ "exg_ac", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#a214fe19b2c8190fdff682b1f6609e9eb", null ],
+    [ "exg_ad", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#a23ec032aed5abf7f1eddd1eadf3fc5c5", null ],
     [ "exg_ar", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#ad7050a07fa6f2e2a805c34f59bb008d4", null ],
     [ "exg_bd", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#a7b15398958ae14d8017365b83fbff6b9", null ],
     [ "exg_cf", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#a0dd9c782b994d38754857f24ef26b3a5", null ],
