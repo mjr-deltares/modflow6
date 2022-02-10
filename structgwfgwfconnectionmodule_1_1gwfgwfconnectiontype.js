@@ -14,7 +14,6 @@ var structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype =
     [ "exg_ot", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a454715eff3e2a0620eee035f79530503", null ],
     [ "exg_rp", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#aec8e0218393344774408884847ebf9ca", null ],
     [ "gwfgwfconnection_ctor", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a9559232d1f1e87f1ee1b9178856e59f1", null ],
-    [ "printexchangeflow", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#abee1a63d4022896cf1c3524fb925675e", null ],
     [ "saveexchangeflows", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a61f4313cfc2d30cde5257500ec7a813d", null ],
     [ "setflowtoexchange", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a70ad9327d5ac36766e967cb00fe8b109", null ],
     [ "setgridextent", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a23ea0c0a886b3dbc40d57374ba98f49d", null ],

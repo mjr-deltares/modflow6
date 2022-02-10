@@ -15,7 +15,6 @@ var _gwf_gwf_connection_8f90 =
     [ "gwfgwfcon_ot", "_gwf_gwf_connection_8f90.html#ae286593e3e2bec7d82c7db74f2b32d31", null ],
     [ "gwfgwfcon_rp", "_gwf_gwf_connection_8f90.html#aaf3865fadc52af410f084229710c4c6e", null ],
     [ "gwfgwfconnection_ctor", "_gwf_gwf_connection_8f90.html#adf69ded6447b65b3eea555039e4ae491", null ],
-    [ "printexchangeflow", "_gwf_gwf_connection_8f90.html#ad829025b112235665259b4145b202e05", null ],
     [ "saveexchangeflows", "_gwf_gwf_connection_8f90.html#a2feb4df88189153941c59d3c4bc26794", null ],
     [ "setflowtoexchange", "_gwf_gwf_connection_8f90.html#a291611921ff15f7740f1338af43f7ccf", null ],
     [ "setgridextent", "_gwf_gwf_connection_8f90.html#aad9155bba93f2641d5a3cc027e337565", null ],
