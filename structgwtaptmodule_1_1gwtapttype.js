@@ -21,6 +21,7 @@ var structgwtaptmodule_1_1gwtapttype =
     [ "bnd_ad", "structgwtaptmodule_1_1gwtapttype.html#af62a9679274a7fdeb309592f98db988c", null ],
     [ "bnd_ar", "structgwtaptmodule_1_1gwtapttype.html#a10959a41f507be1f889704e8d548eae6", null ],
     [ "bnd_bd_obs", "structgwtaptmodule_1_1gwtapttype.html#ab0b0440b3daa40fa499d804b5793f5b1", null ],
+    [ "bnd_cf", "structgwtaptmodule_1_1gwtapttype.html#aba1ccc4b5d2a96194ff8be4c58477af4", null ],
     [ "bnd_cq", "structgwtaptmodule_1_1gwtapttype.html#a0dc660d29ebb4b51e415b161a494eed4", null ],
     [ "bnd_da", "structgwtaptmodule_1_1gwtapttype.html#a918fe54bbe494eb395c18f807fe9e246", null ],
     [ "bnd_df_obs", "structgwtaptmodule_1_1gwtapttype.html#a83403d34aa2a6b96265c3240903241f7", null ],

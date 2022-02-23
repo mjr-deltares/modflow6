@@ -1,5 +1,6 @@
 <map id="gwfgwfexchangemodule::read_mvr" name="gwfgwfexchangemodule::read_mvr">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,188,47"/>
+<area shape="rect" id="node1" title="@ brief Read mover" alt="" coords="5,5,188,47"/>
 <area shape="rect" id="node2" href="$namespacegwfmvrmodule.html#a179c35a501fee8f0e98b62f5560f157e" title=" " alt="" coords="236,13,411,39"/>
-<area shape="rect" id="node3" href="$namespacebudgetmodule.html#a5d07ccf1026ac718f510c44519685c0f" title="@ brief Create a new budget object" alt="" coords="459,13,647,39"/>
+<area shape="rect" id="node3" href="$namespacebudgetmodule.html#a5d07ccf1026ac718f510c44519685c0f" title="@ brief Create a new budget object" alt="" coords="663,13,851,39"/>
+<area shape="rect" id="node4" href="$namespacebudgetobjectmodule.html#a0b10034ed28f5a4131a181f960908a1d" title=" " alt="" coords="459,35,615,76"/>
 </map>

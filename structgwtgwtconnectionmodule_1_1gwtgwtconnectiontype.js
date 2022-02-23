@@ -15,6 +15,7 @@ var structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype =
     [ "exg_ot", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#a6d17b6bd995396039af9a7a25e72ab12", null ],
     [ "exg_rp", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#aabf6cf0447d13605d818a753d25eaec6", null ],
     [ "gwtgwtconnection_ctor", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#af891c843f22b4d7c12c6966108ec5d9d", null ],
+    [ "setflowtoexchange", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#aec3f047b13f2e9100a87435def6776d8", null ],
     [ "setgridextent", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#a97727c455881670ac925d7da2538c1f8", null ],
     [ "syncinterfacemodel", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#aa52d5993cf28d7ec1e30684aadf1d134", null ],
     [ "validateconnection", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#ad97c30e6e535a0cdb39498a082f11087", null ],

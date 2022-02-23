@@ -1,6 +1,6 @@
 <map id="gwfgwfexchangemodule::gwf_gwf_df_obs" name="gwfgwfexchangemodule::gwf_gwf_df_obs">
-<area shape="rect" id="node1" title=" " alt="" coords="5,89,188,131"/>
-<area shape="rect" id="node2" href="$namespacegwfgwfexchangemodule.html#a239e8be3dbc3db266c6a1ddac648bd5b" title=" " alt="" coords="236,89,420,131"/>
+<area shape="rect" id="node1" title="@ brief Define observations" alt="" coords="5,89,188,131"/>
+<area shape="rect" id="node2" href="$namespacegwfgwfexchangemodule.html#a239e8be3dbc3db266c6a1ddac648bd5b" title="@ brief Obs ID processer" alt="" coords="236,89,420,131"/>
 <area shape="rect" id="node3" href="$namespaceinputoutputmodule.html#a653efe7e8a111c5e477fea26e0b04fe5" title=" " alt="" coords="468,89,623,131"/>
 <area shape="rect" id="node4" href="$namespaceinputoutputmodule.html#a5d0681efcccbea67f1d521a6729cbb4f" title=" " alt="" coords="697,5,851,47"/>
 <area shape="rect" id="node5" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1341,64,1509,105"/>

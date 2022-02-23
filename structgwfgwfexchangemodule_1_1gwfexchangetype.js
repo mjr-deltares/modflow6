@@ -19,6 +19,7 @@ var structgwfgwfexchangemodule_1_1gwfexchangetype =
     [ "exg_ot", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a7b131d3c15f1bad43e4bf41433bc640d", null ],
     [ "exg_rp", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#aea4a31d3c1278733c49e52647b05e39a", null ],
     [ "get_iasym", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a3092ec10535f3d9a1c968be8ebf50898", null ],
+    [ "gwf_gwf_add_to_flowja", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a0f42cf5f8a111835316b0f9a813114e4", null ],
     [ "gwf_gwf_bdsav", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#aff6ca973df75464118aaa000e3da0987", null ],
     [ "gwf_gwf_calc_simvals", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a11b9c4de1a30bc7ca5d7aa5b2d9f781e", null ],
     [ "gwf_gwf_df_obs", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a2a65c692bc32ac02717bee51f333ba25", null ],

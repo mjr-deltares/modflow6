@@ -200,7 +200,7 @@ Functions/Subroutines</h2></td></tr>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">call </span>ic%allocate_scalars()</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    ic%inunit = inunit</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    ic%iout = iout</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    ic%iout = <a class="code" href="namespacesimvariablesmodule.html#a70ea2f76b35a03119367efdd0dd88ccc">iout</a></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment">! -- set pointers</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    ic%dis =&gt; dis</div>
@@ -293,9 +293,9 @@ Here is the caller graph for this function:</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                                         this%parser%iuactive, this%strt, &amp;</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                                         aname(1))</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="keywordflow">          case default</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            <span class="keyword">write</span>(<a class="code" href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">errmsg</a>,<span class="stringliteral">&#39;(4x,a,a)&#39;</span>)<span class="stringliteral">&#39;ERROR. UNKNOWN GRIDDATA TAG: &#39;</span>,             &amp;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            <span class="keyword">write</span>(errmsg,<span class="stringliteral">&#39;(4x,a,a)&#39;</span>)<span class="stringliteral">&#39;ERROR. UNKNOWN GRIDDATA TAG: &#39;</span>,             &amp;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                                     trim(keyword)</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(<a class="code" href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">errmsg</a>)</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(errmsg)</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keywordflow">        end select</span></div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keywordflow">      end do</span></div>
@@ -326,16 +326,16 @@ Here is the call graph for this function:</div>
 </div>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="anamespacesimvariablesmodule_html_a08c1a8900029e311ac640e2319c6a234"><div class="ttname"><a href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">simvariablesmodule::errmsg</a></div><div class="ttdeci">character(len=maxcharlen) errmsg</div><div class="ttdoc">error message string</div><div class="ttdef"><b>Definition:</b> <a href="_sim_variables_8f90_source.html#l00017">SimVariables.f90:17</a></div></div>
 <div class="ttc" id="anamespacesimmodule_html_a21870712a1166225fdcd5b60bffb353e"><div class="ttname"><a href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">simmodule::store_error</a></div><div class="ttdeci">subroutine, public store_error(msg, terminate)</div><div class="ttdoc">Store error message.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_8f90_source.html#l00129">Sim.f90:129</a></div></div>
 <div class="ttc" id="anamespacesimmodule_html"><div class="ttname"><a href="namespacesimmodule.html">simmodule</a></div><div class="ttdoc">This module contains simulation methods.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_8f90_source.html#l00010">Sim.f90:10</a></div></div>
 <div class="ttc" id="anamespaceconstantsmodule_html_a060d310ded5535ce2dc85bd1ca1afd3d"><div class="ttname"><a href="namespaceconstantsmodule.html#a060d310ded5535ce2dc85bd1ca1afd3d">constantsmodule::linelength</a></div><div class="ttdeci">integer(i4b), parameter linelength</div><div class="ttdoc">maximum length of a standard line</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00037">Constants.f90:37</a></div></div>
+<div class="ttc" id="anamespacesimvariablesmodule_html_a70ea2f76b35a03119367efdd0dd88ccc"><div class="ttname"><a href="namespacesimvariablesmodule.html#a70ea2f76b35a03119367efdd0dd88ccc">simvariablesmodule::iout</a></div><div class="ttdeci">integer(i4b) iout</div><div class="ttdoc">file unit number for simulation output</div><div class="ttdef"><b>Definition:</b> <a href="_sim_variables_8f90_source.html#l00022">SimVariables.f90:22</a></div></div>
 <div class="ttc" id="anamespaceconstantsmodule_html"><div class="ttname"><a href="namespaceconstantsmodule.html">constantsmodule</a></div><div class="ttdoc">This module contains simulation constants.</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00009">Constants.f90:9</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacegwticmodule.html">gwticmodule</a></li>
-    <li class="footer">Generated on Thu Feb 10 2022 11:12:36 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Feb 23 2022 16:01:00 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

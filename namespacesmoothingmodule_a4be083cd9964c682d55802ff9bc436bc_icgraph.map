@@ -18,9 +18,9 @@
 <area shape="rect" id="node7" href="$namespacegwfnpfmodule.html#a259ac5d9076a2478f1b5b7020b3c7ecd" title="Calculate CONDSAT array entries for the given node." alt="" coords="46,60,197,101"/>
 <area shape="rect" id="node8" href="$namespacegwfbuymodule.html#afad33f0e9d7a6436b40c52758f6dca6f" title=" " alt="" coords="33,126,210,153"/>
 <area shape="rect" id="node9" href="$namespacegwfbuymodule.html#a1c7119e85ddd46a92c3ca038d987ab8c" title=" " alt="" coords="18,177,225,203"/>
-<area shape="rect" id="node10" href="$namespacegwfgwfexchangemodule.html#adfb483eb5e84ad0053aebe4b8b8d3093" title=" " alt="" coords="30,228,213,269"/>
-<area shape="rect" id="node11" href="$namespacegwfgwfexchangemodule.html#a606cd0dc2dc02ddd2d446b0cdbb829cb" title=" " alt="" coords="30,293,213,335"/>
-<area shape="rect" id="node12" href="$namespacegwfgwfexchangemodule.html#a28dd63adddbc183cb48ed05500678144" title=" " alt="" coords="30,359,213,400"/>
+<area shape="rect" id="node10" href="$namespacegwfgwfexchangemodule.html#adfb483eb5e84ad0053aebe4b8b8d3093" title="@ brief Calculate the conductance" alt="" coords="30,228,213,269"/>
+<area shape="rect" id="node11" href="$namespacegwfgwfexchangemodule.html#a606cd0dc2dc02ddd2d446b0cdbb829cb" title="@ brief Allocate and read" alt="" coords="30,293,213,335"/>
+<area shape="rect" id="node12" href="$namespacegwfgwfexchangemodule.html#a28dd63adddbc183cb48ed05500678144" title="@ brief Fill coefficients" alt="" coords="30,359,213,400"/>
 <area shape="rect" id="node13" href="$namespacegwfnpfmodule.html#ae8ff97fa2c799a484b0453dba8647ae8" title=" " alt="" coords="39,425,203,451"/>
 <area shape="rect" id="node14" href="$namespacegwfnpfmodule.html#ac8f968c7606140cdf62f98ce4872d957" title=" " alt="" coords="44,476,199,517"/>
 <area shape="rect" id="node25" href="$namespacegwfnpfmodule.html#a838bc577fc2fa1a76824043bf322ab30" title=" " alt="" coords="46,784,197,825"/>

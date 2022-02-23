@@ -1,6 +1,6 @@
 <map id="gwfgwfexchangemodule::castasgwfexchange" name="gwfgwfexchangemodule::castasgwfexchange">
-<area shape="rect" id="node1" title=" " alt="" coords="483,43,665,84"/>
-<area shape="rect" id="node2" href="$namespacegwfgwfexchangemodule.html#a212a97d08a5d235f4aa6a96c92e715fa" title=" " alt="" coords="245,8,434,49"/>
+<area shape="rect" id="node1" title="@ brief Cast polymorphic object as exchange" alt="" coords="483,43,665,84"/>
+<area shape="rect" id="node2" href="$namespacegwfgwfexchangemodule.html#a212a97d08a5d235f4aa6a96c92e715fa" title="@ brief Get exchange from list" alt="" coords="245,8,434,49"/>
 <area shape="rect" id="node4" href="$namespacegwfgwfconnectionmodule.html#adf69ded6447b65b3eea555039e4ae491" title="Basic construction of the connection." alt="" coords="244,75,435,116"/>
 <area shape="rect" id="node3" href="$namespacegwfgwtexchangemodule.html#a186c9181959e0a9abaa5eca74675574a" title="Link GWT connections to GWF connections or exchanges." alt="" coords="9,5,192,47"/>
 <area shape="rect" id="node5" href="$structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a781048d4e008b7a7adfb445f7071796a" title=" " alt="" coords="5,71,196,127"/>

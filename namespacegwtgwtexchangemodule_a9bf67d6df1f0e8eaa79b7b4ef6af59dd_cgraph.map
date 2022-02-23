@@ -1,5 +1,5 @@
-<map id="gwfgwfexchangemodule::read_gnc" name="gwfgwfexchangemodule::read_gnc">
-<area shape="rect" id="node1" title=" " alt="" coords="5,49,188,90"/>
+<map id="gwtgwtexchangemodule::gwt_gwt_rp_obs" name="gwtgwtexchangemodule::gwt_gwt_rp_obs">
+<area shape="rect" id="node1" title="@ brief Read and prepare observations" alt="" coords="5,49,188,90"/>
 <area shape="rect" id="node2" href="$namespacesimmodule.html#a4c46e49de78d4498dd4ec106357775e6" title="Return number of errors." alt="" coords="247,5,431,32"/>
 <area shape="rect" id="node3" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="252,56,427,83"/>
 <area shape="rect" id="node9" href="$namespacesimmodule.html#a83910ed20af1fec9bdf46cad8c276538" title="Store the file unit number." alt="" coords="236,107,443,133"/>

@@ -697,27 +697,34 @@ $(document).ready(function(){initNavTree('_sim_8f90_source.html',''); initResiza
 <div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;      <span class="comment">! -- local variables</span></div>
 <div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;      <span class="keywordtype">integer(I4B)</span> :: i</div>
 <div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;      <span class="keywordtype">logical</span> :: opened</div>
-<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;      <span class="comment">!</span></div>
-<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;      <span class="comment">! -- close all open file units</span></div>
-<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;      <span class="keywordflow">do</span> i = <a class="code" href="namespaceconstantsmodule.html#a4c97c83c0354b0d18b16ed8ff425aaa4">iustart</a>, <a class="code" href="namespacesimvariablesmodule.html#ac87057f451f4edc7a01396270becd8dd">iunext</a> - 1</div>
-<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;        <span class="comment">!</span></div>
-<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;        <span class="comment">! -- determine if file unit i is open</span></div>
-<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;        <span class="keyword">inquire</span>(unit=i, opened=opened)</div>
-<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;        <span class="comment">!</span></div>
-<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;        <span class="comment">! -- skip file units that are no longer open</span></div>
-<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;        <span class="keywordflow">if</span>(.not. opened) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;          cycle</div>
-<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;<span class="keywordflow">        end if</span></div>
-<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;        <span class="comment">!</span></div>
-<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;        <span class="comment">! -- close file unit i</span></div>
-<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;        <span class="keyword">close</span>(i)</div>
-<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;<span class="keywordflow">      end do</span></div>
-<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;      <span class="comment">!</span></div>
-<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;      <span class="comment">! -- return</span></div>
-<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;      <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;    <span class="keyword">end subroutine </span><a class="code" href="namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297">sim_closefiles</a></div>
-<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;  </div>
-<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;<span class="keyword">end module </span><a class="code" href="namespacesimmodule.html">simmodule</a></div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;      <span class="keywordtype">character(len=7)</span> :: output_file</div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;      <span class="comment">!</span></div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;      <span class="comment">! -- close all open file units</span></div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;      <span class="keywordflow">do</span> i = <a class="code" href="namespaceconstantsmodule.html#a4c97c83c0354b0d18b16ed8ff425aaa4">iustart</a>, <a class="code" href="namespacesimvariablesmodule.html#ac87057f451f4edc7a01396270becd8dd">iunext</a> - 1</div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;        <span class="comment">!</span></div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;        <span class="comment">! -- determine if file unit i is open</span></div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;        <span class="keyword">inquire</span>(unit=i, opened=opened)</div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;        <span class="comment">!</span></div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;        <span class="comment">! -- skip file units that are no longer open</span></div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;        <span class="keywordflow">if</span>(.not. opened) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;          cycle</div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;<span class="keywordflow">        end if</span></div>
+<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;        <span class="comment">!</span></div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;        <span class="comment">! -- flush the file if it can be written to</span></div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;        <span class="keyword">inquire</span>(unit=i, write=output_file)</div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;        <span class="keywordflow">if</span> (trim(adjustl(output_file)) == <span class="stringliteral">&#39;YES&#39;</span>) <span class="keywordflow">then</span> </div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;          <span class="keyword">flush</span>(i)</div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;<span class="keywordflow">        end if</span></div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;        <span class="comment">!</span></div>
+<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;        <span class="comment">! -- close file unit i</span></div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;        <span class="keyword">close</span>(i)</div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;<span class="keywordflow">      end do</span></div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;      <span class="comment">!</span></div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;      <span class="comment">! -- return</span></div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;      <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;    <span class="keyword">end subroutine </span><a class="code" href="namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297">sim_closefiles</a></div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;  </div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;<span class="keyword">end module </span><a class="code" href="namespacesimmodule.html">simmodule</a></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="anamespaceconstantsmodule_html_a4c97c83c0354b0d18b16ed8ff425aaa4"><div class="ttname"><a href="namespaceconstantsmodule.html#a4c97c83c0354b0d18b16ed8ff425aaa4">constantsmodule::iustart</a></div><div class="ttdeci">integer(i4b), parameter iustart</div><div class="ttdoc">starting file unit number</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00047">Constants.f90:47</a></div></div>
@@ -781,7 +788,7 @@ $(document).ready(function(){initNavTree('_sim_8f90_source.html',''); initResiza
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ff383ddf1aa4eab0c4ce7910366d05a5.html">Utilities</a></li><li class="navelem"><a class="el" href="_sim_8f90.html">Sim.f90</a></li>
-    <li class="footer">Generated on Thu Feb 10 2022 11:12:33 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Feb 23 2022 16:00:56 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -1,6 +1,6 @@
 <map id="gwfgwfconnectionmodule::gwfgwfconnection_ctor" name="gwfgwfconnectionmodule::gwfgwfconnection_ctor">
 <area shape="rect" id="node1" title="Basic construction of the connection." alt="" coords="5,93,196,135"/>
-<area shape="rect" id="node2" href="$namespacegwfgwfexchangemodule.html#aac43e7dbf0b8ccd7642cbc9a28badd77" title=" " alt="" coords="258,5,441,47"/>
+<area shape="rect" id="node2" href="$namespacegwfgwfexchangemodule.html#aac43e7dbf0b8ccd7642cbc9a28badd77" title="@ brief Cast polymorphic object as exchange" alt="" coords="258,5,441,47"/>
 <area shape="rect" id="node3" href="$namespacegwfmodule.html#a540f61ff5972e75dba8d751050ca347f" title="Cast to GWF model." alt="" coords="244,71,455,98"/>
 <area shape="rect" id="node4" href="$namespaceinputoutputmodule.html#ae97851e3edae8d9809e384058a1a4d52" title=" " alt="" coords="272,123,427,164"/>
 <area shape="rect" id="node7" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="725,159,864,186"/>

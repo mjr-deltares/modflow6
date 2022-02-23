@@ -1,5 +1,5 @@
 <map id="gwfgwfexchangemodule::read_options" name="gwfgwfexchangemodule::read_options">
-<area shape="rect" id="node1" title=" " alt="" coords="5,61,188,102"/>
+<area shape="rect" id="node1" title="@ brief Read options" alt="" coords="5,61,188,102"/>
 <area shape="rect" id="node2" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="252,43,427,69"/>
 <area shape="rect" id="node8" href="$namespacesimmodule.html#a83910ed20af1fec9bdf46cad8c276538" title="Store the file unit number." alt="" coords="236,93,443,120"/>
 <area shape="rect" id="node3" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="491,68,629,95"/>

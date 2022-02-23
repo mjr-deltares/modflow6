@@ -12,6 +12,7 @@ var structgwtmodule_1_1gwtmodeltype =
     [ "model_ad", "structgwtmodule_1_1gwtmodeltype.html#a11a0953c8f40d44baf2ce841d93c20bf", null ],
     [ "model_ar", "structgwtmodule_1_1gwtmodeltype.html#a00f562020123977b22cc88f456e2ec3a", null ],
     [ "model_bd", "structgwtmodule_1_1gwtmodeltype.html#aae7b7eea41e7c0ef728447c1a1dc0868", null ],
+    [ "model_bdentry", "structgwtmodule_1_1gwtmodeltype.html#ad09875f7965bed3208c62693be3662fc", null ],
     [ "model_cc", "structgwtmodule_1_1gwtmodeltype.html#a269618635bbbec495c44bbcfbda06bb5", null ],
     [ "model_cf", "structgwtmodule_1_1gwtmodeltype.html#a572084f4bd0b34bbb94c677f4c753d16", null ],
     [ "model_cq", "structgwtmodule_1_1gwtmodeltype.html#ab4f19ce6cbfa06fd540205d9b76f13c1", null ],

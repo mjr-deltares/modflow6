@@ -34,19 +34,19 @@
 <area shape="rect" id="node23" href="$namespacemf6coremodule.html#ae17efa5a9e03fd31617a08c08e20ae03" title="Finalize the simulation." alt="" coords="248,633,455,659"/>
 <area shape="rect" id="node28" href="$namespacegwtaptmodule.html#aabee2672c80ab9c60c6bf31f9d068e57" title=" " alt="" coords="251,1558,451,1585"/>
 <area shape="rect" id="node29" href="$namespacenumericalexchangemodule.html#a239b2a2d899d88530dc46adb70d7705b" title=" " alt="" coords="252,1609,451,1651"/>
-<area shape="rect" id="node30" href="$namespacegwfgwfexchangemodule.html#a8fd62a7c8068962d77882edcf4ff2216" title=" " alt="" coords="260,1675,443,1716"/>
+<area shape="rect" id="node30" href="$namespacegwfgwfexchangemodule.html#a8fd62a7c8068962d77882edcf4ff2216" title="@ brief Define GWF GWF exchange" alt="" coords="260,1675,443,1716"/>
 <area shape="rect" id="node31" href="$namespacegwfgwfconnectionmodule.html#adf69ded6447b65b3eea555039e4ae491" title="Basic construction of the connection." alt="" coords="256,1740,447,1781"/>
-<area shape="rect" id="node32" href="$namespacegwtgwtexchangemodule.html#a1d4e55ab2cf2de75b7304f5a35f07dbc" title="read the data from the input file" alt="" coords="260,735,443,776"/>
+<area shape="rect" id="node32" href="$namespacegwtgwtexchangemodule.html#a2f3760476d75091fc095441afce4289b" title="@ brief Define GWT GWT exchange" alt="" coords="260,735,443,776"/>
 <area shape="rect" id="node33" href="$namespacegwtgwtconnectionmodule.html#a0f6be4b0e1fb989189e1749e459bc2bf" title="Basic construction of the connection." alt="" coords="256,800,447,841"/>
 <area shape="rect" id="node34" href="$namespacelakmodule.html#a96af648392010fe6f8771ab9357d69c6" title=" " alt="" coords="264,866,439,893"/>
 <area shape="rect" id="node35" href="$namespacelakmodule.html#aceb19911a7be283f611b1693532035e8" title=" " alt="" coords="274,917,429,959"/>
 <area shape="rect" id="node36" href="$namespacemawmodule.html#a87afdb6d07439759d215f5e0dc96c18e" title=" " alt="" coords="262,983,441,1024"/>
 <area shape="rect" id="node37" href="$namespacenamefilemodule.html#a8447d145db7cfa2ee7c6820b406fe005" title=" " alt="" coords="241,1049,462,1075"/>
-<area shape="rect" id="node38" href="$namespacegwfgwfexchangemodule.html#a3a1a567692279b362a294d7b6b8ae971" title="parse option from exchange file" alt="" coords="260,1100,443,1141"/>
-<area shape="rect" id="node39" href="$namespacearrayreadersmodule.html#a1707e96f6079c135eb5f5575948a3202" title=" " alt="" coords="274,1165,429,1207"/>
-<area shape="rect" id="node40" href="$namespaceobsmodule.html#a0e39fd82e1d2b282f8789b064f750f72" title=" " alt="" coords="271,1231,432,1272"/>
-<area shape="rect" id="node41" href="$namespaceoutputcontrolmodule.html#ad27d8d7ea48709c696438593c34991a2" title="@ brief Read options for OutputControlType" alt="" coords="272,1296,431,1337"/>
-<area shape="rect" id="node42" href="$namespacegwtmvtmodule.html#adb6db25e518b2e84edd7ca0b53b1e1c3" title=" " alt="" coords="272,1361,431,1403"/>
+<area shape="rect" id="node38" href="$namespacegwtgwtexchangemodule.html#a18679192b7bf35223fc014cc929afdff" title="parse option from exchange file" alt="" coords="260,1100,443,1141"/>
+<area shape="rect" id="node39" href="$namespacegwfgwfexchangemodule.html#a3a1a567692279b362a294d7b6b8ae971" title="parse option from exchange file" alt="" coords="260,1165,443,1207"/>
+<area shape="rect" id="node40" href="$namespacearrayreadersmodule.html#a1707e96f6079c135eb5f5575948a3202" title=" " alt="" coords="274,1231,429,1272"/>
+<area shape="rect" id="node41" href="$namespaceobsmodule.html#a0e39fd82e1d2b282f8789b064f750f72" title=" " alt="" coords="271,1296,432,1337"/>
+<area shape="rect" id="node42" href="$namespaceoutputcontrolmodule.html#ad27d8d7ea48709c696438593c34991a2" title="@ brief Read options for OutputControlType" alt="" coords="272,1361,431,1403"/>
 <area shape="rect" id="node43" href="$namespacegwfcsubmodule.html#a1576ca3a5da563e697ae4e94e64af607" title="@ brief Read options for package" alt="" coords="270,1427,433,1468"/>
-<area shape="rect" id="node44" href="$namespacegwtfmimodule.html#a60564215454aae02e410b196ffc1dc4a" title=" " alt="" coords="274,1492,429,1533"/>
+<area shape="rect" id="node44" href="$namespacegwtmvtmodule.html#adb6db25e518b2e84edd7ca0b53b1e1c3" title=" " alt="" coords="272,1492,431,1533"/>
 </map>
