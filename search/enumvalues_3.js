@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['stepwise_8436',['stepwise',['../namespaceconstantsmodule.html#a896fdc3ba8703eb14cd44af957f6954dabef93d9514beed308224dc3f9f35324e',1,'constantsmodule']]]
+  ['oslinux_8440',['oslinux',['../namespaceconstantsmodule.html#ad42d3d1f8acd7ecec8e05c6ce719639ca2f78338ba7ed09167bd8b4c75a528da0',1,'constantsmodule']]],
+  ['osmac_8441',['osmac',['../namespaceconstantsmodule.html#ad42d3d1f8acd7ecec8e05c6ce719639cafc8d66647716db47bed65e382db38e07',1,'constantsmodule']]],
+  ['osundef_8442',['osundef',['../namespaceconstantsmodule.html#ad42d3d1f8acd7ecec8e05c6ce719639ca57a4c10cfca9aaf56aa1f56b60301d22',1,'constantsmodule']]],
+  ['oswin_8443',['oswin',['../namespaceconstantsmodule.html#ad42d3d1f8acd7ecec8e05c6ce719639ca863eaf06c1e6b552a704823880ecd0e4',1,'constantsmodule']]]
 ];

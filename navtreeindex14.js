@@ -1,5 +1,9 @@
 var NAVTREEINDEX14 =
 {
+"namespacesfrcrosssectionmanager.html":[3,0,105],
+"namespacesfrmodule.html":[2,0,130],
+"namespacesfrmodule.html":[3,0,106],
+"namespacesimmodule.html":[2,0,131],
 "namespacesimulationcreatemodule.html":[2,0,132],
 "namespacesimvariablesmodule.html":[2,0,133],
 "namespacesmoothingmodule.html":[2,0,134],
@@ -245,9 +249,5 @@ var NAVTREEINDEX14 =
 "structbasemodelmodule_1_1basemodeltype.html#afe4c36e359c324fe8e308ff15891d6bb":[3,0,6,0,7],
 "structbasesolutionmodule_1_1basesolutiontype.html":[3,0,7,1],
 "structbasesolutionmodule_1_1basesolutiontype.html#a053e9c928c793ca8c5913abacfccc26a":[3,0,7,1,1],
-"structbasesolutionmodule_1_1basesolutiontype.html#a18fa6139b6580f73eea34eee70ecb63b":[3,0,7,1,6],
-"structbasesolutionmodule_1_1basesolutiontype.html#a1bc8c6fde27afd4e0b18e372a0583a3f":[3,0,7,1,0],
-"structbasesolutionmodule_1_1basesolutiontype.html#a369061d3ae57f848e1fb45bdc0189a42":[3,0,7,1,7],
-"structbasesolutionmodule_1_1basesolutiontype.html#a4917035eed8dd760d328f7d8e488d2e8":[3,0,7,1,2],
-"structbasesolutionmodule_1_1basesolutiontype.html#a611c657c76796670e70a83d7277d129c":[3,0,7,1,8]
+"structbasesolutionmodule_1_1basesolutiontype.html#a18fa6139b6580f73eea34eee70ecb63b":[3,0,7,1,6]
 };

@@ -32,7 +32,7 @@
   <td id="projectlogo"><img alt="Logo" src="mf6-triangular-grid.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">MODFLOW 6
-   &#160;<span id="projectnumber">version 6.3.0</span>
+   &#160;<span id="projectnumber">version 6.4.0</span>
    </div>
    <div id="projectbrief">MODFLOW 6 Code Documentation</div>
   </td>
@@ -176,11 +176,11 @@ $(document).ready(function(){initNavTree('_spatial_model_connection_8f90_source.
 <div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html#a9a8646d6e793d99f3a83e81a05d8a9f1">   60</a></span>&#160;    generic :: construct =&gt; <a class="code" href="namespacespatialmodelconnectionmodule.html#a76507ae198dd17cba071ffdbeb4d801e">spatialconnection_ctor</a></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="comment">! partly overriding NumericalExchangeType:</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html#a377a6495116d98550882eca9ef727c6f">   63</a></span>&#160;    <span class="keywordtype">procedure</span>, pass(this) :: exg_df =&gt; <a class="code" href="namespacespatialmodelconnectionmodule.html#a33bf848774c4a590db0f35095e21f84d">spatialcon_df</a>    </div>
-<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html#ae3bcc69b44a524c04eea3739ae2b6875">   64</a></span>&#160;    <span class="keywordtype">procedure</span>, pass(this) :: exg_ar =&gt; <a class="code" href="namespacespatialmodelconnectionmodule.html#afce8ea9e92b18b6ea282c8ae1fc6c4f7">spatialcon_ar</a></div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html#a7507960b42413a623d9cb5d7d8603a37">   65</a></span>&#160;    <span class="keywordtype">procedure</span>, pass(this) :: exg_ac =&gt; spatialcon_ac</div>
-<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html#a5d202351dc36c892ce614445a607cd86">   66</a></span>&#160;    <span class="keywordtype">procedure</span>, pass(this) :: exg_mc =&gt; spatialcon_mc</div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html#a63961eceb8f061d702377a0b5c847a09">   67</a></span>&#160;    <span class="keywordtype">procedure</span>, pass(this) :: exg_da =&gt; spatialcon_da</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html#aa3b4408ba2510cb08453bcc56cc8fef8">   63</a></span>&#160;    <span class="keywordtype">procedure</span> :: exg_df =&gt; <a class="code" href="namespacespatialmodelconnectionmodule.html#a33bf848774c4a590db0f35095e21f84d">spatialcon_df</a>    </div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html#a8ae5c68bfb40cec58310650d126baf52">   64</a></span>&#160;    <span class="keywordtype">procedure</span> :: exg_ar =&gt; <a class="code" href="namespacespatialmodelconnectionmodule.html#afce8ea9e92b18b6ea282c8ae1fc6c4f7">spatialcon_ar</a></div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html#a8347e50da91acd1c079e5c7b0ba8b9c9">   65</a></span>&#160;    <span class="keywordtype">procedure</span> :: exg_ac =&gt; spatialcon_ac</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html#a7201234e098962b46f960bd3f75bdbc7">   66</a></span>&#160;    <span class="keywordtype">procedure</span> :: exg_mc =&gt; spatialcon_mc</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html#a23222eba84b8abafae8e811ea9fc674b">   67</a></span>&#160;    <span class="keywordtype">procedure</span> :: exg_da =&gt; spatialcon_da</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    </div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="comment">! protected</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html#a7e866aaef09216aa3f86c6970d2d8722">   70</a></span>&#160;    <span class="keywordtype">procedure</span>, pass(this) :: <a class="code" href="namespacespatialmodelconnectionmodule.html#a33bf848774c4a590db0f35095e21f84d">spatialcon_df</a>    </div>
@@ -689,7 +689,7 @@ $(document).ready(function(){initNavTree('_spatial_model_connection_8f90_source.
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_32e188284d239da8bb14ec1dabb0c35f.html">Model</a></li><li class="navelem"><a class="el" href="dir_4602b8d0a0ef27d9d0b14db2c16038ea.html">Connection</a></li><li class="navelem"><a class="el" href="_spatial_model_connection_8f90.html">SpatialModelConnection.f90</a></li>
-    <li class="footer">Generated on Mon Feb 28 2022 09:54:10 for MODFLOW 6 by
+    <li class="footer">Generated on Tue Mar 8 2022 08:49:11 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
