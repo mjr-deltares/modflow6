@@ -1,5 +1,7 @@
 var NAVTREEINDEX15 =
 {
+"structbasesolutionmodule_1_1basesolutiontype.html#a053e9c928c793ca8c5913abacfccc26a":[3,0,7,1,1],
+"structbasesolutionmodule_1_1basesolutiontype.html#a18fa6139b6580f73eea34eee70ecb63b":[3,0,7,1,6],
 "structbasesolutionmodule_1_1basesolutiontype.html#a1bc8c6fde27afd4e0b18e372a0583a3f":[3,0,7,1,0],
 "structbasesolutionmodule_1_1basesolutiontype.html#a369061d3ae57f848e1fb45bdc0189a42":[3,0,7,1,7],
 "structbasesolutionmodule_1_1basesolutiontype.html#a4917035eed8dd760d328f7d8e488d2e8":[3,0,7,1,2],
@@ -247,7 +249,5 @@ var NAVTREEINDEX15 =
 "structbudgetobjectmodule_1_1budgetobjecttype.html#a8e7008cbbfbf7589068119274653c2a8":[3,0,13,0,21],
 "structbudgetobjectmodule_1_1budgetobjecttype.html#a9257294cf534f1eb35849c05a311c940":[3,0,13,0,8],
 "structbudgetobjectmodule_1_1budgetobjecttype.html#a95d48af4818c0082843f411fc1adce03":[3,0,13,0,6],
-"structbudgetobjectmodule_1_1budgetobjecttype.html#a9ca5a1ff8fd03d1334f2db13ff7a0d82":[3,0,13,0,1],
-"structbudgetobjectmodule_1_1budgetobjecttype.html#aa1c7c39226466036f645372d72c8e728":[3,0,13,0,22],
-"structbudgetobjectmodule_1_1budgetobjecttype.html#aaa6b2a28bc1a670660949b2956e871c6":[3,0,13,0,13]
+"structbudgetobjectmodule_1_1budgetobjecttype.html#a9ca5a1ff8fd03d1334f2db13ff7a0d82":[3,0,13,0,1]
 };

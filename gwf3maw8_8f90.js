@@ -41,6 +41,8 @@ var gwf3maw8_8f90 =
     [ "maw_read_options", "gwf3maw8_8f90.html#a87afdb6d07439759d215f5e0dc96c18e", null ],
     [ "maw_read_well_connections", "gwf3maw8_8f90.html#adbbd235a2248f5cbb9de33ed35dbdec6", null ],
     [ "maw_read_wells", "gwf3maw8_8f90.html#ab9d34d80cf4ce1f210154c476f915248", null ],
+    [ "maw_redflow_csv_init", "gwf3maw8_8f90.html#aa0f84d24d628e949136537aededb6d93", null ],
+    [ "maw_redflow_csv_write", "gwf3maw8_8f90.html#a99ef9141be8db197864e03574e15543d", null ],
     [ "maw_rp", "gwf3maw8_8f90.html#a0de7eaf9aea27ae56cfce92103fe7add", null ],
     [ "maw_rp_obs", "gwf3maw8_8f90.html#a485c0d9716a8fa72a0252e3c076dc41f", null ],
     [ "maw_set_attribute_error", "gwf3maw8_8f90.html#a3f6d58cc61bc3a94d4d4a6860b055c73", null ],
