@@ -8,8 +8,8 @@
 <area shape="rect" id="node5" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="1544,418,1739,445"/>
 <area shape="rect" id="node6" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1557,469,1725,511"/>
 <area shape="rect" id="node9" href="$namespaceadaptivetimestepmodule.html#a3e2c6ad757cfd226850cbde7bb96ad25" title="@ brief Create ATS object" alt="" coords="429,473,616,515"/>
-<area shape="rect" id="node21" href="$namespaceinputoutputmodule.html#a535bdfca3d31ebc3a8e4bd5af6890d55" title=" " alt="" coords="680,903,835,944"/>
-<area shape="rect" id="node23" href="$namespaceinputoutputmodule.html#ae97851e3edae8d9809e384058a1a4d52" title=" " alt="" coords="680,837,835,879"/>
+<area shape="rect" id="node21" href="$namespaceinputoutputmodule.html#a535bdfca3d31ebc3a8e4bd5af6890d55" title="Get a free unit number." alt="" coords="680,903,835,944"/>
+<area shape="rect" id="node23" href="$namespaceinputoutputmodule.html#ae97851e3edae8d9809e384058a1a4d52" title="Open a file." alt="" coords="680,837,835,879"/>
 <area shape="rect" id="node25" href="$namespacetdismodule.html#aa2f32eaa136046dfc784db94f5b64081" title=" " alt="" coords="429,896,616,937"/>
 <area shape="rect" id="node26" href="$namespacetdismodule.html#af1887bd8a7ebb2717e0425556674aa25" title=" " alt="" coords="429,961,616,1003"/>
 <area shape="rect" id="node27" href="$namespacetdismodule.html#a0ae7bae9a14b63ce86f5352cb213e336" title=" " alt="" coords="441,713,604,755"/>
@@ -26,7 +26,7 @@
 <area shape="rect" id="node13" href="$namespacesimmodule.html#a4c46e49de78d4498dd4ec106357775e6" title="Return number of errors." alt="" coords="904,123,1088,150"/>
 <area shape="rect" id="node14" href="$namespacesimmodule.html#a0c10520244b0246773a188954a67ec9e" title="Store warning message." alt="" coords="899,182,1093,209"/>
 <area shape="rect" id="node16" href="$namespacetablemodule.html#a7632d784ec9e94277a76705ef56725f2" title=" " alt="" coords="914,51,1078,78"/>
-<area shape="rect" id="node22" href="$namespaceinputoutputmodule.html#ac5134655c31ac9beeb4688f504efd801" title=" " alt="" coords="919,903,1073,944"/>
-<area shape="rect" id="node24" href="$namespaceinputoutputmodule.html#a3418ad9e27e9d9caac6f541863e1c522" title=" " alt="" coords="919,837,1073,879"/>
+<area shape="rect" id="node22" href="$namespaceinputoutputmodule.html#ac5134655c31ac9beeb4688f504efd801" title="Assign a free unopened unit number." alt="" coords="919,903,1073,944"/>
+<area shape="rect" id="node24" href="$namespaceinputoutputmodule.html#a8290bae8ca0756e38ce13459dfebe985" title="Convert to upper case." alt="" coords="919,837,1073,879"/>
 <area shape="rect" id="node30" href="$namespacetdismodule.html#aeadc4d3e568eee1ff5bb151979614178" title=" " alt="" coords="671,109,843,151"/>
 </map>

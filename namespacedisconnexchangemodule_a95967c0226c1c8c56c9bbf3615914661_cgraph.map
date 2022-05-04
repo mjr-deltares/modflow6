@@ -1,8 +1,8 @@
 <map id="disconnexchangemodule::parse_option" name="disconnexchangemodule::parse_option">
 <area shape="rect" id="node1" title="Parse option from exchange file." alt="" coords="5,89,189,131"/>
 <area shape="rect" id="node2" href="$namespaceinputoutputmodule.html#a12462c53c53955327093c22ab7b89d99" title=" " alt="" coords="237,89,392,131"/>
-<area shape="rect" id="node3" href="$namespaceinputoutputmodule.html#a653efe7e8a111c5e477fea26e0b04fe5" title=" " alt="" coords="440,89,595,131"/>
-<area shape="rect" id="node4" href="$namespaceinputoutputmodule.html#a5d0681efcccbea67f1d521a6729cbb4f" title=" " alt="" coords="669,5,823,47"/>
+<area shape="rect" id="node3" href="$namespaceinputoutputmodule.html#a653efe7e8a111c5e477fea26e0b04fe5" title="Extract a word from a string." alt="" coords="440,89,595,131"/>
+<area shape="rect" id="node4" href="$namespaceinputoutputmodule.html#a5d0681efcccbea67f1d521a6729cbb4f" title="Convert to lower case." alt="" coords="669,5,823,47"/>
 <area shape="rect" id="node5" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1313,64,1481,105"/>
 <area shape="rect" id="node6" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="659,122,833,149"/>
 <area shape="rect" id="node11" href="$namespacesimmodule.html#a83910ed20af1fec9bdf46cad8c276538" title="Store the file unit number." alt="" coords="643,173,849,199"/>

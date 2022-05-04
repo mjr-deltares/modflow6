@@ -4271,7 +4271,7 @@ Here is the caller graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="_memory_manager_8f90_source.html#l02439">2439</a> of file <a class="el" href="_memory_manager_8f90_source.html">MemoryManager.f90</a>.</p>
 <div class="fragment"><div class="line"><a name="l02439"></a><span class="lineno"> 2439</span>&#160;    <span class="comment">! -- modules</span></div>
 <div class="line"><a name="l02440"></a><span class="lineno"> 2440</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceversionmodule.html">versionmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceversionmodule.html#ab82d1ea64df56737f03bbbe06c1499bd">idevelopmode</a></div>
-<div class="line"><a name="l02441"></a><span class="lineno"> 2441</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceinputoutputmodule.html">inputoutputmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceinputoutputmodule.html#a3418ad9e27e9d9caac6f541863e1c522">upcase</a></div>
+<div class="line"><a name="l02441"></a><span class="lineno"> 2441</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceinputoutputmodule.html">inputoutputmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceinputoutputmodule.html#a8290bae8ca0756e38ce13459dfebe985">upcase</a></div>
 <div class="line"><a name="l02442"></a><span class="lineno"> 2442</span>&#160;    <span class="comment">! -- local</span></div>
 <div class="line"><a name="l02443"></a><span class="lineno"> 2443</span>&#160;    <span class="keywordtype">class</span>(MemoryType), <span class="keywordtype">pointer</span> :: mt</div>
 <div class="line"><a name="l02444"></a><span class="lineno"> 2444</span>&#160;    <span class="keywordtype">character(len=LINELENGTH)</span> :: error_msg</div>
@@ -4291,7 +4291,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><a name="l02458"></a><span class="lineno"> 2458</span>&#160;        <span class="comment">!</span></div>
 <div class="line"><a name="l02459"></a><span class="lineno"> 2459</span>&#160;        <span class="comment">! -- check case of varname</span></div>
 <div class="line"><a name="l02460"></a><span class="lineno"> 2460</span>&#160;        ucname = mt%name</div>
-<div class="line"><a name="l02461"></a><span class="lineno"> 2461</span>&#160;        <span class="keyword">call </span><a class="code" href="namespaceinputoutputmodule.html#a3418ad9e27e9d9caac6f541863e1c522">upcase</a>(ucname)</div>
+<div class="line"><a name="l02461"></a><span class="lineno"> 2461</span>&#160;        <span class="keyword">call </span><a class="code" href="namespaceinputoutputmodule.html#a8290bae8ca0756e38ce13459dfebe985">upcase</a>(ucname)</div>
 <div class="line"><a name="l02462"></a><span class="lineno"> 2462</span>&#160;        <span class="keywordflow">if</span> (mt%name /= ucname) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l02463"></a><span class="lineno"> 2463</span>&#160;          error_msg = trim(adjustl(mt%path)) // <span class="stringliteral">&#39; &#39;</span> // &amp;</div>
 <div class="line"><a name="l02464"></a><span class="lineno"> 2464</span>&#160;                      trim(adjustl(mt%name)) // <span class="stringliteral">&#39; not upper case&#39;</span></div>
@@ -4317,7 +4317,7 @@ Here is the call graph for this function:</div>
 <area shape="rect" title="Deallocate memory in the memory manager." alt="" coords="5,61,189,102"/>
 <area shape="rect" href="namespacesimmodule.html#a4c46e49de78d4498dd4ec106357775e6" title="Return number of errors." alt="" coords="237,17,421,44"/>
 <area shape="rect" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="242,68,417,95"/>
-<area shape="rect" href="namespaceinputoutputmodule.html#a3418ad9e27e9d9caac6f541863e1c522" title=" " alt="" coords="252,119,407,161"/>
+<area shape="rect" href="namespaceinputoutputmodule.html#a8290bae8ca0756e38ce13459dfebe985" title="Convert to upper case." alt="" coords="252,119,407,161"/>
 <area shape="rect" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="469,68,608,95"/>
 <area shape="rect" href="namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="656,27,824,69"/>
 <area shape="rect" href="namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="656,93,824,134"/>
@@ -7294,8 +7294,8 @@ Here is the call graph for this function:</div>
 </div><!-- doc-content -->
 <div class="ttc" id="anamespacesimmodule_html_a21870712a1166225fdcd5b60bffb353e"><div class="ttname"><a href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">simmodule::store_error</a></div><div class="ttdeci">subroutine, public store_error(msg, terminate)</div><div class="ttdoc">Store error message.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_8f90_source.html#l00129">Sim.f90:129</a></div></div>
 <div class="ttc" id="ainterfacearrayhandlersmodule_1_1ifind_html"><div class="ttname"><a href="interfacearrayhandlersmodule_1_1ifind.html">arrayhandlersmodule::ifind</a></div><div class="ttdef"><b>Definition:</b> <a href="_array_handlers_8f90_source.html#l00030">ArrayHandlers.f90:30</a></div></div>
+<div class="ttc" id="anamespaceinputoutputmodule_html_a8290bae8ca0756e38ce13459dfebe985"><div class="ttname"><a href="namespaceinputoutputmodule.html#a8290bae8ca0756e38ce13459dfebe985">inputoutputmodule::upcase</a></div><div class="ttdeci">subroutine, public upcase(word)</div><div class="ttdoc">Convert to upper case.</div><div class="ttdef"><b>Definition:</b> <a href="_input_output_8f90_source.html#l00553">InputOutput.f90:553</a></div></div>
 <div class="ttc" id="ainterfacearrayhandlersmodule_1_1expandarray_html"><div class="ttname"><a href="interfacearrayhandlersmodule_1_1expandarray.html">arrayhandlersmodule::expandarray</a></div><div class="ttdef"><b>Definition:</b> <a href="_array_handlers_8f90_source.html#l00016">ArrayHandlers.f90:16</a></div></div>
-<div class="ttc" id="anamespaceinputoutputmodule_html_a3418ad9e27e9d9caac6f541863e1c522"><div class="ttname"><a href="namespaceinputoutputmodule.html#a3418ad9e27e9d9caac6f541863e1c522">inputoutputmodule::upcase</a></div><div class="ttdeci">subroutine, public upcase(WORD)</div><div class="ttdef"><b>Definition:</b> <a href="_input_output_8f90_source.html#l00568">InputOutput.f90:568</a></div></div>
 <div class="ttc" id="anamespacearrayhandlersmodule_html"><div class="ttname"><a href="namespacearrayhandlersmodule.html">arrayhandlersmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_array_handlers_8f90_source.html#l00001">ArrayHandlers.f90:1</a></div></div>
 <div class="ttc" id="anamespaceinputoutputmodule_html"><div class="ttname"><a href="namespaceinputoutputmodule.html">inputoutputmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_input_output_8f90_source.html#l00003">InputOutput.f90:3</a></div></div>
 <div class="ttc" id="anamespaceversionmodule_html_ab82d1ea64df56737f03bbbe06c1499bd"><div class="ttname"><a href="namespaceversionmodule.html#ab82d1ea64df56737f03bbbe06c1499bd">versionmodule::idevelopmode</a></div><div class="ttdeci">integer(i4b), parameter idevelopmode</div><div class="ttdef"><b>Definition:</b> <a href="version_8f90_source.html#l00017">version.f90:17</a></div></div>
@@ -7305,7 +7305,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacememorymanagermodule.html">memorymanagermodule</a></li>
-    <li class="footer">Generated on Mon Apr 11 2022 09:57:54 for MODFLOW 6 by
+    <li class="footer">Generated on Wed May 4 2022 09:14:41 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

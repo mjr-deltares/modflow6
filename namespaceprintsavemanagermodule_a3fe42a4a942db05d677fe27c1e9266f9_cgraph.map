@@ -1,12 +1,12 @@
 <map id="printsavemanagermodule::rp" name="printsavemanagermodule::rp">
 <area shape="rect" id="node1" title="@ brief Read and prepare for PrintSaveManager" alt="" coords="5,65,216,91"/>
 <area shape="rect" id="node2" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="483,35,657,62"/>
-<area shape="rect" id="node8" href="$namespaceinputoutputmodule.html#a653efe7e8a111c5e477fea26e0b04fe5" title=" " alt="" coords="264,87,419,128"/>
+<area shape="rect" id="node8" href="$namespaceinputoutputmodule.html#a653efe7e8a111c5e477fea26e0b04fe5" title="Extract a word from a string." alt="" coords="264,87,419,128"/>
 <area shape="rect" id="node3" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="721,57,860,83"/>
 <area shape="rect" id="node4" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="908,71,1076,112"/>
 <area shape="rect" id="node7" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="908,5,1076,47"/>
 <area shape="rect" id="node5" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="1124,78,1319,105"/>
 <area shape="rect" id="node6" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1137,129,1305,171"/>
-<area shape="rect" id="node9" href="$namespaceinputoutputmodule.html#a5d0681efcccbea67f1d521a6729cbb4f" title=" " alt="" coords="493,188,647,229"/>
+<area shape="rect" id="node9" href="$namespaceinputoutputmodule.html#a5d0681efcccbea67f1d521a6729cbb4f" title="Convert to lower case." alt="" coords="493,188,647,229"/>
 <area shape="rect" id="node10" href="$namespacesimmodule.html#a83910ed20af1fec9bdf46cad8c276538" title="Store the file unit number." alt="" coords="467,86,673,113"/>
 </map>

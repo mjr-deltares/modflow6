@@ -1,7 +1,7 @@
 <map id="inputoutputmodule::u8rdcom" name="inputoutputmodule::u8rdcom">
-<area shape="rect" id="node1" title=" " alt="" coords="1075,136,1229,177"/>
+<area shape="rect" id="node1" title="Get the next non&#45;comment line." alt="" coords="1075,136,1229,177"/>
 <area shape="rect" id="node2" href="$namespacearrayreadersmodule.html#a1d5b2f522a63e8c76a839f93baa4916e" title=" " alt="" coords="872,103,1027,144"/>
-<area shape="rect" id="node15" href="$namespaceinputoutputmodule.html#af209b520fbdd0605302a384d20f5b4d8" title=" " alt="" coords="872,168,1027,209"/>
+<area shape="rect" id="node15" href="$namespaceinputoutputmodule.html#af209b520fbdd0605302a384d20f5b4d8" title="Get line from a block." alt="" coords="872,168,1027,209"/>
 <area shape="rect" id="node3" href="$namespacearrayreadersmodule.html#a625dd01503b4f3b75ae03a3c0b7f37f8" title=" " alt="" coords="669,71,824,112"/>
 <area shape="rect" id="node9" href="$namespacearrayreadersmodule.html#abfd34de27a0604b93fe896fb9f31eea9" title=" " alt="" coords="669,136,824,177"/>
 <area shape="rect" id="node4" href="$namespacearrayreadersmodule.html#a73be11caa9b10328ef69f70e117bf4d8" title=" " alt="" coords="467,5,621,47"/>

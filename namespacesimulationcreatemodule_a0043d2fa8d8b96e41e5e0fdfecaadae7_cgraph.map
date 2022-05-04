@@ -26,15 +26,15 @@
 <area shape="rect" id="node26" href="$namespacegwfocmodule.html#a699f579ecdcdca4077ae6135a5b75393" title="@ brief Create GwfOcType" alt="" coords="528,448,680,475"/>
 <area shape="rect" id="node27" href="$namespaceinputoutputmodule.html#a6c54d102f5c67defd36241a197a7ca56" title=" " alt="" coords="527,1393,681,1434"/>
 <area shape="rect" id="node32" href="$namespacegwfstomodule.html#a359c206ff287ddbe2b9122729f2d9e3a" title="@ brief Create a new package object" alt="" coords="523,499,685,525"/>
-<area shape="rect" id="node33" href="$namespaceinputoutputmodule.html#a3418ad9e27e9d9caac6f541863e1c522" title=" " alt="" coords="527,1057,681,1098"/>
+<area shape="rect" id="node33" href="$namespaceinputoutputmodule.html#a8290bae8ca0756e38ce13459dfebe985" title="Convert to upper case." alt="" coords="527,1057,681,1098"/>
 <area shape="rect" id="node34" href="$namespacegenericutilitiesmodule.html#aa9380deee7f1629af2bda7df7f589714" title="Write centered text." alt="" coords="808,635,976,677"/>
 <area shape="rect" id="node35" href="$namespaceversionmodule.html#a0eedbf1f3bd80a688acb3f014addc767" title="@ brief Write program header" alt="" coords="524,1275,684,1317"/>
 <area shape="rect" id="node40" href="$namespacext3dmodule.html#ad20f01d9a9fe69c0d007ba046a0435eb" title=" " alt="" coords="526,600,682,627"/>
 <area shape="rect" id="node14" href="$namespacememoryhelpermodule.html#a5405f58247a0962e5449ebc1e4dcff0f" title="Generic routine to check the length of (parts of) the memory address." alt="" coords="1051,575,1217,617"/>
 <area shape="rect" id="node24" href="$namespacebudgetobjectmodule.html#a0b10034ed28f5a4131a181f960908a1d" title=" " alt="" coords="814,854,970,895"/>
-<area shape="rect" id="node28" href="$namespaceinputoutputmodule.html#a87643079f91094dcead5dcc634ce1b4d" title=" " alt="" coords="815,1342,969,1383"/>
-<area shape="rect" id="node29" href="$namespaceinputoutputmodule.html#a653efe7e8a111c5e477fea26e0b04fe5" title=" " alt="" coords="1057,1371,1211,1413"/>
-<area shape="rect" id="node30" href="$namespaceinputoutputmodule.html#a5d0681efcccbea67f1d521a6729cbb4f" title=" " alt="" coords="1302,1262,1457,1303"/>
+<area shape="rect" id="node28" href="$namespaceinputoutputmodule.html#a87643079f91094dcead5dcc634ce1b4d" title="Get the number of words in a string." alt="" coords="815,1342,969,1383"/>
+<area shape="rect" id="node29" href="$namespaceinputoutputmodule.html#a653efe7e8a111c5e477fea26e0b04fe5" title="Extract a word from a string." alt="" coords="1057,1371,1211,1413"/>
+<area shape="rect" id="node30" href="$namespaceinputoutputmodule.html#a5d0681efcccbea67f1d521a6729cbb4f" title="Convert to lower case." alt="" coords="1302,1262,1457,1303"/>
 <area shape="rect" id="node31" href="$namespacesimmodule.html#a83910ed20af1fec9bdf46cad8c276538" title="Store the file unit number." alt="" coords="1276,1328,1483,1355"/>
 <area shape="rect" id="node36" href="$namespacecompilerversion.html#a85cc70f8c5b07f026dd10963d0b24944" title="@ brief Get compilation options" alt="" coords="814,1109,970,1150"/>
 <area shape="rect" id="node37" href="$namespacecompilerversion.html#a340e9d1856b5f223fa830a94697e6608" title="@ brief Get compiler information" alt="" coords="814,1174,970,1215"/>

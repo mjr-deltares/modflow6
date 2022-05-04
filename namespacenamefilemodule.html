@@ -307,7 +307,7 @@ Functions/Subroutines</h2></td></tr>
 <div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    <span class="comment">! -- modules</span></div>
 <div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacesimmodule.html">simmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a></div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceinputoutputmodule.html">inputoutputmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceinputoutputmodule.html#a3418ad9e27e9d9caac6f541863e1c522">upcase</a></div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceinputoutputmodule.html">inputoutputmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceinputoutputmodule.html#a8290bae8ca0756e38ce13459dfebe985">upcase</a></div>
 <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;    <span class="comment">! -- dummy</span></div>
 <div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    <span class="keywordtype">class</span>(NameFileType) :: this</div>
 <div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: irow</div>
@@ -336,7 +336,7 @@ Functions/Subroutines</h2></td></tr>
 <div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;        <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(errmsg, terminate=.true.)</div>
 <div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;<span class="keywordflow">      endif</span></div>
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;      pakname = trim(adjustl(words(3)))</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;      <span class="keyword">call </span><a class="code" href="namespaceinputoutputmodule.html#a3418ad9e27e9d9caac6f541863e1c522">upcase</a>(pakname)</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;      <span class="keyword">call </span><a class="code" href="namespaceinputoutputmodule.html#a8290bae8ca0756e38ce13459dfebe985">upcase</a>(pakname)</div>
 <div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;<span class="keywordflow">    endif</span></div>
 <div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    <span class="comment">! -- return</span></div>
@@ -348,7 +348,7 @@ Here is the call graph for this function:</div>
 <map name="namespacenamefilemodule_a48943659df9116b2d66118d8fefc9977_cgraph" id="namespacenamefilemodule_a48943659df9116b2d66118d8fefc9977_cgraph">
 <area shape="rect" title=" " alt="" coords="5,90,199,131"/>
 <area shape="rect" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="247,68,421,95"/>
-<area shape="rect" href="namespaceinputoutputmodule.html#a3418ad9e27e9d9caac6f541863e1c522" title=" " alt="" coords="257,119,411,161"/>
+<area shape="rect" href="namespaceinputoutputmodule.html#a8290bae8ca0756e38ce13459dfebe985" title="Convert to upper case." alt="" coords="257,119,411,161"/>
 <area shape="rect" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="469,68,608,95"/>
 <area shape="rect" href="namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="656,27,824,69"/>
 <area shape="rect" href="namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="656,93,824,134"/>
@@ -630,11 +630,11 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="namespacenamefilemodule_a8447d145db7cfa2ee7c6820b406fe005_cgraph.png" border="0" usemap="#namespacenamefilemodule_a8447d145db7cfa2ee7c6820b406fe005_cgraph" alt=""/></div>
 <map name="namespacenamefilemodule_a8447d145db7cfa2ee7c6820b406fe005_cgraph" id="namespacenamefilemodule_a8447d145db7cfa2ee7c6820b406fe005_cgraph">
 <area shape="rect" title=" " alt="" coords="5,78,227,105"/>
-<area shape="rect" href="namespaceinputoutputmodule.html#a535bdfca3d31ebc3a8e4bd5af6890d55" title=" " alt="" coords="275,5,429,47"/>
-<area shape="rect" href="namespaceinputoutputmodule.html#ae97851e3edae8d9809e384058a1a4d52" title=" " alt="" coords="275,71,429,112"/>
+<area shape="rect" href="namespaceinputoutputmodule.html#a535bdfca3d31ebc3a8e4bd5af6890d55" title="Get a free unit number." alt="" coords="275,5,429,47"/>
+<area shape="rect" href="namespaceinputoutputmodule.html#ae97851e3edae8d9809e384058a1a4d52" title="Open a file." alt="" coords="275,71,429,112"/>
 <area shape="rect" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="477,137,652,163"/>
-<area shape="rect" href="namespaceinputoutputmodule.html#ac5134655c31ac9beeb4688f504efd801" title=" " alt="" coords="487,5,642,47"/>
-<area shape="rect" href="namespaceinputoutputmodule.html#a3418ad9e27e9d9caac6f541863e1c522" title=" " alt="" coords="487,71,642,112"/>
+<area shape="rect" href="namespaceinputoutputmodule.html#ac5134655c31ac9beeb4688f504efd801" title="Assign a free unopened unit number." alt="" coords="487,5,642,47"/>
+<area shape="rect" href="namespaceinputoutputmodule.html#a8290bae8ca0756e38ce13459dfebe985" title="Convert to upper case." alt="" coords="487,71,642,112"/>
 <area shape="rect" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="700,137,839,163"/>
 <area shape="rect" href="namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="887,96,1055,137"/>
 <area shape="rect" href="namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="887,161,1055,203"/>
@@ -679,7 +679,7 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;<span class="comment">!    SPECIFICATIONS:</span></div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <span class="comment">! -- modules</span></div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceinputoutputmodule.html">inputoutputmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceinputoutputmodule.html#a535bdfca3d31ebc3a8e4bd5af6890d55">getunit</a>, <a class="code" href="namespaceinputoutputmodule.html#a3418ad9e27e9d9caac6f541863e1c522">upcase</a></div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceinputoutputmodule.html">inputoutputmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceinputoutputmodule.html#a535bdfca3d31ebc3a8e4bd5af6890d55">getunit</a>, <a class="code" href="namespaceinputoutputmodule.html#a8290bae8ca0756e38ce13459dfebe985">upcase</a></div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    <span class="comment">! -- dummy</span></div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="keywordtype">class</span>(NameFileType) :: this</div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: iout</div>
@@ -695,7 +695,7 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;      <span class="comment">!</span></div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;      <span class="comment">! -- Parse the line and set defaults</span></div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;      <span class="keyword">call </span>parseline(this%input_files(i), nwords, words)</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;      <span class="keyword">call </span><a class="code" href="namespaceinputoutputmodule.html#a3418ad9e27e9d9caac6f541863e1c522">upcase</a>(words(1))</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;      <span class="keyword">call </span><a class="code" href="namespaceinputoutputmodule.html#a8290bae8ca0756e38ce13459dfebe985">upcase</a>(words(1))</div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;      ftype = words(1)(1:20)</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;      accarg = <span class="stringliteral">&#39;SEQUENTIAL&#39;</span></div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;      fmtarg = <span class="stringliteral">&#39;FORMATTED&#39;</span></div>
@@ -718,9 +718,9 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="namespacenamefilemodule_a557a3b9fe5867a78d612a11b998dc81d_cgraph.png" border="0" usemap="#namespacenamefilemodule_a557a3b9fe5867a78d612a11b998dc81d_cgraph" alt=""/></div>
 <map name="namespacenamefilemodule_a557a3b9fe5867a78d612a11b998dc81d_cgraph" id="namespacenamefilemodule_a557a3b9fe5867a78d612a11b998dc81d_cgraph">
 <area shape="rect" title=" " alt="" coords="5,39,199,80"/>
-<area shape="rect" href="namespaceinputoutputmodule.html#a535bdfca3d31ebc3a8e4bd5af6890d55" title=" " alt="" coords="247,5,401,47"/>
-<area shape="rect" href="namespaceinputoutputmodule.html#a3418ad9e27e9d9caac6f541863e1c522" title=" " alt="" coords="247,71,401,112"/>
-<area shape="rect" href="namespaceinputoutputmodule.html#ac5134655c31ac9beeb4688f504efd801" title=" " alt="" coords="449,5,604,47"/>
+<area shape="rect" href="namespaceinputoutputmodule.html#a535bdfca3d31ebc3a8e4bd5af6890d55" title="Get a free unit number." alt="" coords="247,5,401,47"/>
+<area shape="rect" href="namespaceinputoutputmodule.html#a8290bae8ca0756e38ce13459dfebe985" title="Convert to upper case." alt="" coords="247,71,401,112"/>
+<area shape="rect" href="namespaceinputoutputmodule.html#ac5134655c31ac9beeb4688f504efd801" title="Assign a free unopened unit number." alt="" coords="449,5,604,47"/>
 </map>
 </div>
 
@@ -768,7 +768,7 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="comment">!    SPECIFICATIONS:</span></div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="comment">! -- modules</span></div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceinputoutputmodule.html">inputoutputmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceinputoutputmodule.html#a535bdfca3d31ebc3a8e4bd5af6890d55">getunit</a>, <a class="code" href="namespaceinputoutputmodule.html#a3418ad9e27e9d9caac6f541863e1c522">upcase</a></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceinputoutputmodule.html">inputoutputmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceinputoutputmodule.html#a535bdfca3d31ebc3a8e4bd5af6890d55">getunit</a>, <a class="code" href="namespaceinputoutputmodule.html#a8290bae8ca0756e38ce13459dfebe985">upcase</a></div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="comment">! -- dummy</span></div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keywordtype">class</span>(NameFileType) :: this</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(inout)</span> :: iout</div>
@@ -787,7 +787,7 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    ipos = 0</div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    findloop: <span class="keywordflow">do</span> i = 1, <span class="keyword">size</span>(this%opts)</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;      <span class="keyword">call </span>parseline(this%opts(i), nwords, words)</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;      <span class="keyword">call </span><a class="code" href="namespaceinputoutputmodule.html#a3418ad9e27e9d9caac6f541863e1c522">upcase</a>(words(1))</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;      <span class="keyword">call </span><a class="code" href="namespaceinputoutputmodule.html#a8290bae8ca0756e38ce13459dfebe985">upcase</a>(words(1))</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;      <span class="keywordflow">if</span>(words(1) == <span class="stringliteral">&#39;LIST&#39;</span>) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        fname = words(2)</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        ipos = i</div>
@@ -833,10 +833,10 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="namespacenamefilemodule_a2fcd31b122268848c427692d0290d7e7_cgraph.png" border="0" usemap="#namespacenamefilemodule_a2fcd31b122268848c427692d0290d7e7_cgraph" alt=""/></div>
 <map name="namespacenamefilemodule_a2fcd31b122268848c427692d0290d7e7_cgraph" id="namespacenamefilemodule_a2fcd31b122268848c427692d0290d7e7_cgraph">
 <area shape="rect" title=" " alt="" coords="5,71,199,112"/>
-<area shape="rect" href="namespaceinputoutputmodule.html#a535bdfca3d31ebc3a8e4bd5af6890d55" title=" " alt="" coords="250,5,405,47"/>
+<area shape="rect" href="namespaceinputoutputmodule.html#a535bdfca3d31ebc3a8e4bd5af6890d55" title="Get a free unit number." alt="" coords="250,5,405,47"/>
 <area shape="rect" href="namespacearrayhandlersmodule.html#a6f3ceef8df3f4f56d24d45fdf6685050" title=" " alt="" coords="247,71,408,112"/>
-<area shape="rect" href="namespaceinputoutputmodule.html#a3418ad9e27e9d9caac6f541863e1c522" title=" " alt="" coords="250,136,405,177"/>
-<area shape="rect" href="namespaceinputoutputmodule.html#ac5134655c31ac9beeb4688f504efd801" title=" " alt="" coords="463,5,617,47"/>
+<area shape="rect" href="namespaceinputoutputmodule.html#a8290bae8ca0756e38ce13459dfebe985" title="Convert to upper case." alt="" coords="250,136,405,177"/>
+<area shape="rect" href="namespaceinputoutputmodule.html#ac5134655c31ac9beeb4688f504efd801" title="Assign a free unopened unit number." alt="" coords="463,5,617,47"/>
 <area shape="rect" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="456,71,624,112"/>
 <area shape="rect" href="namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="456,136,624,177"/>
 </map>
@@ -847,16 +847,16 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="anamespacesimmodule_html_a21870712a1166225fdcd5b60bffb353e"><div class="ttname"><a href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">simmodule::store_error</a></div><div class="ttdeci">subroutine, public store_error(msg, terminate)</div><div class="ttdoc">Store error message.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_8f90_source.html#l00129">Sim.f90:129</a></div></div>
+<div class="ttc" id="anamespaceinputoutputmodule_html_a8290bae8ca0756e38ce13459dfebe985"><div class="ttname"><a href="namespaceinputoutputmodule.html#a8290bae8ca0756e38ce13459dfebe985">inputoutputmodule::upcase</a></div><div class="ttdeci">subroutine, public upcase(word)</div><div class="ttdoc">Convert to upper case.</div><div class="ttdef"><b>Definition:</b> <a href="_input_output_8f90_source.html#l00553">InputOutput.f90:553</a></div></div>
 <div class="ttc" id="anamespacesimmodule_html"><div class="ttname"><a href="namespacesimmodule.html">simmodule</a></div><div class="ttdoc">This module contains simulation methods.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_8f90_source.html#l00010">Sim.f90:10</a></div></div>
 <div class="ttc" id="ainterfacearrayhandlersmodule_1_1expandarray_html"><div class="ttname"><a href="interfacearrayhandlersmodule_1_1expandarray.html">arrayhandlersmodule::expandarray</a></div><div class="ttdef"><b>Definition:</b> <a href="_array_handlers_8f90_source.html#l00016">ArrayHandlers.f90:16</a></div></div>
-<div class="ttc" id="anamespaceinputoutputmodule_html_a3418ad9e27e9d9caac6f541863e1c522"><div class="ttname"><a href="namespaceinputoutputmodule.html#a3418ad9e27e9d9caac6f541863e1c522">inputoutputmodule::upcase</a></div><div class="ttdeci">subroutine, public upcase(WORD)</div><div class="ttdef"><b>Definition:</b> <a href="_input_output_8f90_source.html#l00568">InputOutput.f90:568</a></div></div>
-<div class="ttc" id="anamespaceinputoutputmodule_html_a535bdfca3d31ebc3a8e4bd5af6890d55"><div class="ttname"><a href="namespaceinputoutputmodule.html#a535bdfca3d31ebc3a8e4bd5af6890d55">inputoutputmodule::getunit</a></div><div class="ttdeci">integer(i4b) function, public getunit()</div><div class="ttdef"><b>Definition:</b> <a href="_input_output_8f90_source.html#l00204">InputOutput.f90:204</a></div></div>
+<div class="ttc" id="anamespaceinputoutputmodule_html_a535bdfca3d31ebc3a8e4bd5af6890d55"><div class="ttname"><a href="namespaceinputoutputmodule.html#a535bdfca3d31ebc3a8e4bd5af6890d55">inputoutputmodule::getunit</a></div><div class="ttdeci">integer(i4b) function, public getunit()</div><div class="ttdoc">Get a free unit number.</div><div class="ttdef"><b>Definition:</b> <a href="_input_output_8f90_source.html#l00189">InputOutput.f90:189</a></div></div>
 <div class="ttc" id="anamespaceinputoutputmodule_html"><div class="ttname"><a href="namespaceinputoutputmodule.html">inputoutputmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_input_output_8f90_source.html#l00003">InputOutput.f90:3</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacenamefilemodule.html">namefilemodule</a></li>
-    <li class="footer">Generated on Mon Apr 11 2022 09:57:54 for MODFLOW 6 by
+    <li class="footer">Generated on Wed May 4 2022 09:14:42 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

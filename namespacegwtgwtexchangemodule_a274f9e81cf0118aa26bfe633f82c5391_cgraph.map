@@ -1,8 +1,8 @@
 <map id="gwtgwtexchangemodule::gwt_gwt_df_obs" name="gwtgwtexchangemodule::gwt_gwt_df_obs">
 <area shape="rect" id="node1" title="@ brief Define observations" alt="" coords="5,89,188,131"/>
 <area shape="rect" id="node2" href="$namespacegwtgwtexchangemodule.html#a337faf72cc7776ddaa2fbd73cadd5117" title="@ brief Obs ID processer" alt="" coords="236,89,420,131"/>
-<area shape="rect" id="node3" href="$namespaceinputoutputmodule.html#a653efe7e8a111c5e477fea26e0b04fe5" title=" " alt="" coords="468,89,623,131"/>
-<area shape="rect" id="node4" href="$namespaceinputoutputmodule.html#a5d0681efcccbea67f1d521a6729cbb4f" title=" " alt="" coords="697,5,851,47"/>
+<area shape="rect" id="node3" href="$namespaceinputoutputmodule.html#a653efe7e8a111c5e477fea26e0b04fe5" title="Extract a word from a string." alt="" coords="468,89,623,131"/>
+<area shape="rect" id="node4" href="$namespaceinputoutputmodule.html#a5d0681efcccbea67f1d521a6729cbb4f" title="Convert to lower case." alt="" coords="697,5,851,47"/>
 <area shape="rect" id="node5" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1341,64,1509,105"/>
 <area shape="rect" id="node6" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="687,122,861,149"/>
 <area shape="rect" id="node11" href="$namespacesimmodule.html#a83910ed20af1fec9bdf46cad8c276538" title="Store the file unit number." alt="" coords="671,173,877,199"/>

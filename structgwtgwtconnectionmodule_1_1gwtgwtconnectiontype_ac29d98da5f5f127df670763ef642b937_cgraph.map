@@ -3,10 +3,10 @@
 <area shape="rect" id="node2" href="$namespacegwtgwtconnectionmodule.html#a0f6be4b0e1fb989189e1749e459bc2bf" title="Basic construction of the connection." alt="" coords="244,64,435,105"/>
 <area shape="rect" id="node3" href="$namespacegwtgwtexchangemodule.html#a08bbc7d9be3830728fa5fe99349a8dcc" title="@ brief Cast polymorphic object as exchange" alt="" coords="497,5,679,47"/>
 <area shape="rect" id="node4" href="$namespacegwtmodule.html#a69c21c98d464d85dd10f6126bba5b07f" title="Cast to GwtModelType." alt="" coords="483,71,693,98"/>
-<area shape="rect" id="node5" href="$namespaceinputoutputmodule.html#ae97851e3edae8d9809e384058a1a4d52" title=" " alt="" coords="511,123,665,164"/>
-<area shape="rect" id="node6" href="$namespaceinputoutputmodule.html#ac5134655c31ac9beeb4688f504efd801" title=" " alt="" coords="751,64,906,105"/>
+<area shape="rect" id="node5" href="$namespaceinputoutputmodule.html#ae97851e3edae8d9809e384058a1a4d52" title="Open a file." alt="" coords="511,123,665,164"/>
+<area shape="rect" id="node6" href="$namespaceinputoutputmodule.html#ac5134655c31ac9beeb4688f504efd801" title="Assign a free unopened unit number." alt="" coords="751,64,906,105"/>
 <area shape="rect" id="node7" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="741,130,916,157"/>
-<area shape="rect" id="node13" href="$namespaceinputoutputmodule.html#a3418ad9e27e9d9caac6f541863e1c522" title=" " alt="" coords="751,181,906,223"/>
+<area shape="rect" id="node13" href="$namespaceinputoutputmodule.html#a8290bae8ca0756e38ce13459dfebe985" title="Convert to upper case." alt="" coords="751,181,906,223"/>
 <area shape="rect" id="node8" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="964,130,1103,157"/>
 <area shape="rect" id="node9" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="1151,89,1319,131"/>
 <area shape="rect" id="node12" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="1151,155,1319,196"/>

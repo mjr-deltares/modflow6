@@ -1,9 +1,9 @@
 <map id="inputoutputmodule::unitinquire" name="inputoutputmodule::unitinquire">
 <area shape="rect" id="node1" title=" " alt="" coords="1293,267,1448,308"/>
-<area shape="rect" id="node2" href="$namespaceinputoutputmodule.html#a3d64e8296053c71aa0b91118fa940c4d" title=" " alt="" coords="1091,168,1245,209"/>
+<area shape="rect" id="node2" href="$namespaceinputoutputmodule.html#a3d64e8296053c71aa0b91118fa940c4d" title="Get the next non&#45;comment line." alt="" coords="1091,168,1245,209"/>
 <area shape="rect" id="node17" href="$namespaceinputoutputmodule.html#a8a875888681ccf032a27de648aeab670" title=" " alt="" coords="1091,364,1245,405"/>
 <area shape="rect" id="node3" href="$namespacearrayreadersmodule.html#a1d5b2f522a63e8c76a839f93baa4916e" title=" " alt="" coords="880,103,1035,144"/>
-<area shape="rect" id="node16" href="$namespaceinputoutputmodule.html#af209b520fbdd0605302a384d20f5b4d8" title=" " alt="" coords="880,168,1035,209"/>
+<area shape="rect" id="node16" href="$namespaceinputoutputmodule.html#af209b520fbdd0605302a384d20f5b4d8" title="Get line from a block." alt="" coords="880,168,1035,209"/>
 <area shape="rect" id="node4" href="$namespacearrayreadersmodule.html#a625dd01503b4f3b75ae03a3c0b7f37f8" title=" " alt="" coords="669,71,824,112"/>
 <area shape="rect" id="node10" href="$namespacearrayreadersmodule.html#abfd34de27a0604b93fe896fb9f31eea9" title=" " alt="" coords="669,136,824,177"/>
 <area shape="rect" id="node5" href="$namespacearrayreadersmodule.html#a73be11caa9b10328ef69f70e117bf4d8" title=" " alt="" coords="467,5,621,47"/>
@@ -20,7 +20,7 @@
 <area shape="rect" id="node19" href="$namespacelistreadermodule.html#af55f6c0e639acdcf492451a838e3b6e6" title=" " alt="" coords="872,299,1043,340"/>
 <area shape="rect" id="node20" href="$namespacelistreadermodule.html#ac55f27096c57bb340123bf6895886ccc" title=" " alt="" coords="872,364,1043,405"/>
 <area shape="rect" id="node21" href="$namespacelistreadermodule.html#ad93f48ece6b06b57701729bae687bd76" title=" " alt="" coords="877,429,1038,471"/>
-<area shape="rect" id="node22" href="$namespaceinputoutputmodule.html#af8210d966b5f8c713705093125f7fa9a" title=" " alt="" coords="880,495,1035,536"/>
-<area shape="rect" id="node24" href="$namespaceinputoutputmodule.html#a6611145e558ff23a60efe4fdc2206173" title=" " alt="" coords="880,560,1035,601"/>
+<area shape="rect" id="node22" href="$namespaceinputoutputmodule.html#af8210d966b5f8c713705093125f7fa9a" title="Find the next block in a file." alt="" coords="880,495,1035,536"/>
+<area shape="rect" id="node24" href="$namespaceinputoutputmodule.html#a6611145e558ff23a60efe4fdc2206173" title="Find a block in a file." alt="" coords="880,560,1035,601"/>
 <area shape="rect" id="node23" href="$namespaceblockparsermodule.html#ad613c29f1ef4353e328024b2eae59016" title="@ brief Get block" alt="" coords="669,527,824,568"/>
 </map>

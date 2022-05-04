@@ -19,7 +19,7 @@
 <area shape="rect" id="node36" href="$namespacetimermodule.html#aabd6b77317f11bb9dd7d89c52317c104" title=" " alt="" coords="973,565,1155,592"/>
 <area shape="rect" id="node38" href="$namespacetdismodule.html#abd45660eec3b564280930a654ab2f71d" title=" " alt="" coords="987,1267,1141,1309"/>
 <area shape="rect" id="node40" href="$namespaceinputoutputmodule.html#aed168c613cffe0624967b9f66da1901d" title=" " alt="" coords="987,1333,1141,1374"/>
-<area shape="rect" id="node43" href="$namespaceinputoutputmodule.html#a653efe7e8a111c5e477fea26e0b04fe5" title=" " alt="" coords="987,1478,1141,1519"/>
+<area shape="rect" id="node43" href="$namespaceinputoutputmodule.html#a653efe7e8a111c5e477fea26e0b04fe5" title="Extract a word from a string." alt="" coords="987,1478,1141,1519"/>
 <area shape="rect" id="node48" href="$namespacegenericutilitiesmodule.html#aa9380deee7f1629af2bda7df7f589714" title="Write centered text." alt="" coords="980,1398,1148,1439"/>
 <area shape="rect" id="node49" href="$namespacegenericutilitiesmodule.html#a79d1b03a42785a805abc5ed2a7499b36" title="Write messages." alt="" coords="980,1150,1148,1191"/>
 <area shape="rect" id="node50" href="$namespacecommandarguments.html#a7ad0d7d4ccdd20a850ca314ac3973f40" title="Write command line argument usage." alt="" coords="673,1186,872,1227"/>
@@ -43,7 +43,7 @@
 <area shape="rect" id="node34" href="$namespacenamefilemodule.html#a2fcd31b122268848c427692d0290d7e7" title=" " alt="" coords="676,711,869,753"/>
 <area shape="rect" id="node37" href="$namespacemf6coremodule.html#afe0de61eeb946afc5c3934b86b0082bd" title="Print info to screen." alt="" coords="679,660,867,687"/>
 <area shape="rect" id="node39" href="$namespacemf6coremodule.html#a40b8130d3cf17bc47fcb54c254aada8a" title="Read and prepare time step." alt="" coords="639,1252,906,1279"/>
-<area shape="rect" id="node41" href="$namespaceinputoutputmodule.html#a3d64e8296053c71aa0b91118fa940c4d" title=" " alt="" coords="695,1369,850,1410"/>
+<area shape="rect" id="node41" href="$namespaceinputoutputmodule.html#a3d64e8296053c71aa0b91118fa940c4d" title="Get the next non&#45;comment line." alt="" coords="695,1369,850,1410"/>
 <area shape="rect" id="node42" href="$namespaceinputoutputmodule.html#a8a875888681ccf032a27de648aeab670" title=" " alt="" coords="695,1303,850,1345"/>
 <area shape="rect" id="node44" href="$namespacegwtaptmodule.html#aabee2672c80ab9c60c6bf31f9d068e57" title=" " alt="" coords="673,1587,873,1613"/>
 <area shape="rect" id="node45" href="$namespaceuzfmodule.html#ac34f036fde0021fe77d19a312ff92a4a" title=" " alt="" coords="671,1435,874,1461"/>

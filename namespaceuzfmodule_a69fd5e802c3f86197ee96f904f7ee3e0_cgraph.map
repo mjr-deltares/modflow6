@@ -1,7 +1,7 @@
 <map id="uzfmodule::uzf_process_obsid" name="uzfmodule::uzf_process_obsid">
 <area shape="rect" id="node1" title=" " alt="" coords="5,89,181,131"/>
-<area shape="rect" id="node2" href="$namespaceinputoutputmodule.html#a653efe7e8a111c5e477fea26e0b04fe5" title=" " alt="" coords="229,89,384,131"/>
-<area shape="rect" id="node3" href="$namespaceinputoutputmodule.html#a5d0681efcccbea67f1d521a6729cbb4f" title=" " alt="" coords="458,5,613,47"/>
+<area shape="rect" id="node2" href="$namespaceinputoutputmodule.html#a653efe7e8a111c5e477fea26e0b04fe5" title="Extract a word from a string." alt="" coords="229,89,384,131"/>
+<area shape="rect" id="node3" href="$namespaceinputoutputmodule.html#a5d0681efcccbea67f1d521a6729cbb4f" title="Convert to lower case." alt="" coords="458,5,613,47"/>
 <area shape="rect" id="node4" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1103,64,1271,105"/>
 <area shape="rect" id="node5" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="448,122,623,149"/>
 <area shape="rect" id="node10" href="$namespacesimmodule.html#a83910ed20af1fec9bdf46cad8c276538" title="Store the file unit number." alt="" coords="432,173,639,199"/>

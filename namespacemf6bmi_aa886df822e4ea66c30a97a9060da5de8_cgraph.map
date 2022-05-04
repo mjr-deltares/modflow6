@@ -1,8 +1,8 @@
 <map id="mf6bmi::bmi_initialize" name="mf6bmi::bmi_initialize">
 <area shape="rect" id="node1" title="Initialize the computational core." alt="" coords="5,224,175,251"/>
-<area shape="rect" id="node2" href="$namespaceinputoutputmodule.html#a535bdfca3d31ebc3a8e4bd5af6890d55" title=" " alt="" coords="1679,298,1833,340"/>
+<area shape="rect" id="node2" href="$namespaceinputoutputmodule.html#a535bdfca3d31ebc3a8e4bd5af6890d55" title="Get a free unit number." alt="" coords="1679,298,1833,340"/>
 <area shape="rect" id="node4" href="$namespacemf6coremodule.html#aa847da5116e01f4fad8885b0c4f96757" title="Initialize a simulation." alt="" coords="223,342,437,368"/>
-<area shape="rect" id="node3" href="$namespaceinputoutputmodule.html#ac5134655c31ac9beeb4688f504efd801" title=" " alt="" coords="1979,298,2134,340"/>
+<area shape="rect" id="node3" href="$namespaceinputoutputmodule.html#ac5134655c31ac9beeb4688f504efd801" title="Assign a free unopened unit number." alt="" coords="1979,298,2134,340"/>
 <area shape="rect" id="node5" href="$namespacemf6coremodule.html#afe0de61eeb946afc5c3934b86b0082bd" title="Print info to screen." alt="" coords="1007,107,1195,134"/>
 <area shape="rect" id="node15" href="$namespacemf6coremodule.html#a622ba9fa9473eb16b9f17553d6483ae9" title="Simulation allocate and read." alt="" coords="989,1598,1212,1624"/>
 <area shape="rect" id="node24" href="$namespacesimulationcreatemodule.html#afcbe0fd3c140a3ba4f0a5409e5dc8781" title="Read the simulation name file and initialize the models, exchanges." alt="" coords="485,334,667,376"/>
@@ -24,10 +24,10 @@
 <area shape="rect" id="node19" href="$namespacebasemodelmodule.html#a6612a181104601a56b8227e88e5dc8f5" title=" " alt="" coords="1607,1547,1905,1574"/>
 <area shape="rect" id="node21" href="$namespacebasesolutionmodule.html#afef773355b6646b420b266d7387099d7" title=" " alt="" coords="1662,1481,1850,1522"/>
 <area shape="rect" id="node23" href="$namespacespatialmodelconnectionmodule.html#aef271cf59d66fe8e5baef704109028fc" title="Cast to SpatialModelConnectionType." alt="" coords="1625,1677,1887,1718"/>
-<area shape="rect" id="node25" href="$namespaceinputoutputmodule.html#ae97851e3edae8d9809e384058a1a4d52" title=" " alt="" coords="1679,490,1833,532"/>
+<area shape="rect" id="node25" href="$namespaceinputoutputmodule.html#ae97851e3edae8d9809e384058a1a4d52" title="Open a file." alt="" coords="1679,490,1833,532"/>
 <area shape="rect" id="node29" href="$namespacesimulationcreatemodule.html#a7d37a8b63b2b0874f875f45b6cf93f03" title="Read the simulation name file." alt="" coords="727,781,925,822"/>
 <area shape="rect" id="node26" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="1969,1028,2144,1055"/>
-<area shape="rect" id="node28" href="$namespaceinputoutputmodule.html#a3418ad9e27e9d9caac6f541863e1c522" title=" " alt="" coords="1979,625,2134,666"/>
+<area shape="rect" id="node28" href="$namespaceinputoutputmodule.html#a8290bae8ca0756e38ce13459dfebe985" title="Convert to upper case." alt="" coords="1979,625,2134,666"/>
 <area shape="rect" id="node27" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="2223,1054,2361,1080"/>
 <area shape="rect" id="node30" href="$namespacesimulationcreatemodule.html#adf3e84522c23244a50903a4214a97395" title="Assign exchanges to solutions." alt="" coords="1010,1481,1191,1522"/>
 <area shape="rect" id="node31" href="$namespacesimulationcreatemodule.html#a5248c082acee396032a2c0123cfc01d3" title="Check for dangling models, and break with error when found." alt="" coords="1001,1177,1200,1218"/>

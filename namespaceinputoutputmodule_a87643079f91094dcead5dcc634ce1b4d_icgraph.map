@@ -1,5 +1,5 @@
 <map id="inputoutputmodule::get_nwords" name="inputoutputmodule::get_nwords">
-<area shape="rect" id="node1" title=" " alt="" coords="1789,125,1944,166"/>
+<area shape="rect" id="node1" title="Get the number of words in a string." alt="" coords="1789,125,1944,166"/>
 <area shape="rect" id="node2" href="$namespaceinputoutputmodule.html#a6c54d102f5c67defd36241a197a7ca56" title=" " alt="" coords="1587,125,1741,166"/>
 <area shape="rect" id="node3" href="$namespacegwfmodule.html#ab7c4f16fdcabd8814e3649d4950a4c9b" title="Create a new groundwater flow model object." alt="" coords="1347,5,1494,32"/>
 <area shape="rect" id="node11" href="$namespacegwtmodule.html#ad4f6eefd4112176d49bd99d8944bdef3" title=" " alt="" coords="1347,56,1494,83"/>

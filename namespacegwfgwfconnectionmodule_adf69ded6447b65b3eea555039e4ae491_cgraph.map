@@ -2,10 +2,10 @@
 <area shape="rect" id="node1" title="Basic construction of the connection." alt="" coords="5,64,196,105"/>
 <area shape="rect" id="node2" href="$namespacegwfgwfexchangemodule.html#aac43e7dbf0b8ccd7642cbc9a28badd77" title="@ brief Cast polymorphic object as exchange" alt="" coords="258,5,441,47"/>
 <area shape="rect" id="node3" href="$namespacegwfmodule.html#a540f61ff5972e75dba8d751050ca347f" title="Cast to GWF model." alt="" coords="244,71,455,98"/>
-<area shape="rect" id="node4" href="$namespaceinputoutputmodule.html#ae97851e3edae8d9809e384058a1a4d52" title=" " alt="" coords="272,123,427,164"/>
-<area shape="rect" id="node5" href="$namespaceinputoutputmodule.html#ac5134655c31ac9beeb4688f504efd801" title=" " alt="" coords="513,64,667,105"/>
+<area shape="rect" id="node4" href="$namespaceinputoutputmodule.html#ae97851e3edae8d9809e384058a1a4d52" title="Open a file." alt="" coords="272,123,427,164"/>
+<area shape="rect" id="node5" href="$namespaceinputoutputmodule.html#ac5134655c31ac9beeb4688f504efd801" title="Assign a free unopened unit number." alt="" coords="513,64,667,105"/>
 <area shape="rect" id="node6" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="503,130,677,157"/>
-<area shape="rect" id="node12" href="$namespaceinputoutputmodule.html#a3418ad9e27e9d9caac6f541863e1c522" title=" " alt="" coords="513,181,667,223"/>
+<area shape="rect" id="node12" href="$namespaceinputoutputmodule.html#a8290bae8ca0756e38ce13459dfebe985" title="Convert to upper case." alt="" coords="513,181,667,223"/>
 <area shape="rect" id="node7" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="725,130,864,157"/>
 <area shape="rect" id="node8" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="912,89,1080,131"/>
 <area shape="rect" id="node11" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="912,155,1080,196"/>

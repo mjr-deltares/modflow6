@@ -1,7 +1,7 @@
 <map id="inputoutputmodule::uget_block_line" name="inputoutputmodule::uget_block_line">
-<area shape="rect" id="node1" title=" " alt="" coords="5,77,160,119"/>
-<area shape="rect" id="node2" href="$namespaceinputoutputmodule.html#a3d64e8296053c71aa0b91118fa940c4d" title=" " alt="" coords="208,44,363,85"/>
-<area shape="rect" id="node10" href="$namespaceinputoutputmodule.html#a653efe7e8a111c5e477fea26e0b04fe5" title=" " alt="" coords="208,109,363,151"/>
+<area shape="rect" id="node1" title="Get line from a block." alt="" coords="5,77,160,119"/>
+<area shape="rect" id="node2" href="$namespaceinputoutputmodule.html#a3d64e8296053c71aa0b91118fa940c4d" title="Get the next non&#45;comment line." alt="" coords="208,44,363,85"/>
+<area shape="rect" id="node10" href="$namespaceinputoutputmodule.html#a653efe7e8a111c5e477fea26e0b04fe5" title="Extract a word from a string." alt="" coords="208,109,363,151"/>
 <area shape="rect" id="node3" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="427,58,601,85"/>
 <area shape="rect" id="node9" href="$namespaceinputoutputmodule.html#aed168c613cffe0624967b9f66da1901d" title=" " alt="" coords="665,5,820,47"/>
 <area shape="rect" id="node4" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="673,97,812,123"/>
@@ -9,6 +9,6 @@
 <area shape="rect" id="node8" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="868,143,1036,184"/>
 <area shape="rect" id="node6" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="1084,114,1279,141"/>
 <area shape="rect" id="node7" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1097,48,1265,89"/>
-<area shape="rect" id="node11" href="$namespaceinputoutputmodule.html#a5d0681efcccbea67f1d521a6729cbb4f" title=" " alt="" coords="437,160,591,201"/>
+<area shape="rect" id="node11" href="$namespaceinputoutputmodule.html#a5d0681efcccbea67f1d521a6729cbb4f" title="Convert to lower case." alt="" coords="437,160,591,201"/>
 <area shape="rect" id="node12" href="$namespacesimmodule.html#a83910ed20af1fec9bdf46cad8c276538" title="Store the file unit number." alt="" coords="411,109,617,135"/>
 </map>

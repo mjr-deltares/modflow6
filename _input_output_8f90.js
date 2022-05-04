@@ -36,7 +36,7 @@ var _input_output_8f90 =
     [ "ulasav", "_input_output_8f90.html#a07b5a678851f1bbbca15c9c058818e28", null ],
     [ "ulstlb", "_input_output_8f90.html#a8b610cd194aad47e01e108c64b22aa61", null ],
     [ "unitinquire", "_input_output_8f90.html#aed168c613cffe0624967b9f66da1901d", null ],
-    [ "upcase", "_input_output_8f90.html#a3418ad9e27e9d9caac6f541863e1c522", null ],
+    [ "upcase", "_input_output_8f90.html#a8290bae8ca0756e38ce13459dfebe985", null ],
     [ "urdaux", "_input_output_8f90.html#a12462c53c53955327093c22ab7b89d99", null ],
     [ "urword", "_input_output_8f90.html#a653efe7e8a111c5e477fea26e0b04fe5", null ],
     [ "uterminate_block", "_input_output_8f90.html#a3f586cec81e1b2c7ebdd88fdf2e3f6c9", null ],

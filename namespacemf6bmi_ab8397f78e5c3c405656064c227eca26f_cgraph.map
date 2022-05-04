@@ -24,7 +24,7 @@
 <area shape="rect" id="node18" href="$namespacespatialmodelconnectionmodule.html#aef271cf59d66fe8e5baef704109028fc" title="Cast to SpatialModelConnectionType." alt="" coords="829,360,1091,401"/>
 <area shape="rect" id="node21" href="$namespacesimmodule.html#a4c46e49de78d4498dd4ec106357775e6" title="Return number of errors." alt="" coords="868,426,1052,453"/>
 <area shape="rect" id="node22" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="1403,573,1578,599"/>
-<area shape="rect" id="node24" href="$namespaceinputoutputmodule.html#a3418ad9e27e9d9caac6f541863e1c522" title=" " alt="" coords="883,477,1037,519"/>
+<area shape="rect" id="node24" href="$namespaceinputoutputmodule.html#a8290bae8ca0756e38ce13459dfebe985" title="Convert to upper case." alt="" coords="883,477,1037,519"/>
 <area shape="rect" id="node23" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="1669,573,1808,599"/>
 <area shape="rect" id="node26" href="$namespacememorymanagermodule.html#a430466a5feab54cd89c60302f87a3740" title="Generic function to clean a memory manager table." alt="" coords="1157,947,1341,988"/>
 <area shape="rect" id="node27" href="$namespacememorymanagermodule.html#a26996233617cac05b555c6b28709ebee" title="Create a table if memory_print_option is &#39;ALL&#39;." alt="" coords="868,725,1052,767"/>

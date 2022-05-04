@@ -1,11 +1,11 @@
 <map id="listreadermodule::read_control_record" name="listreadermodule::read_control_record">
 <area shape="rect" id="node1" title=" " alt="" coords="5,123,176,164"/>
 <area shape="rect" id="node2" href="$namespaceinputoutputmodule.html#a8a875888681ccf032a27de648aeab670" title=" " alt="" coords="224,64,379,105"/>
-<area shape="rect" id="node6" href="$namespaceinputoutputmodule.html#a653efe7e8a111c5e477fea26e0b04fe5" title=" " alt="" coords="224,177,379,219"/>
+<area shape="rect" id="node6" href="$namespaceinputoutputmodule.html#a653efe7e8a111c5e477fea26e0b04fe5" title="Extract a word from a string." alt="" coords="224,177,379,219"/>
 <area shape="rect" id="node3" href="$namespaceinputoutputmodule.html#a5c6e044368434dc29fe6191d7875b380" title=" " alt="" coords="453,5,607,47"/>
 <area shape="rect" id="node4" href="$namespaceinputoutputmodule.html#aed168c613cffe0624967b9f66da1901d" title=" " alt="" coords="681,60,836,101"/>
 <area shape="rect" id="node5" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1113,119,1281,160"/>
-<area shape="rect" id="node7" href="$namespaceinputoutputmodule.html#a5d0681efcccbea67f1d521a6729cbb4f" title=" " alt="" coords="453,177,607,219"/>
+<area shape="rect" id="node7" href="$namespaceinputoutputmodule.html#a5d0681efcccbea67f1d521a6729cbb4f" title="Convert to lower case." alt="" coords="453,177,607,219"/>
 <area shape="rect" id="node8" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="443,243,617,270"/>
 <area shape="rect" id="node13" href="$namespacesimmodule.html#a83910ed20af1fec9bdf46cad8c276538" title="Store the file unit number." alt="" coords="427,294,633,321"/>
 <area shape="rect" id="node9" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="689,247,828,274"/>

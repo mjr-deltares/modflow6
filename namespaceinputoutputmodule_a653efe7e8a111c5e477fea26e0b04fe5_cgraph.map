@@ -1,6 +1,6 @@
 <map id="inputoutputmodule::urword" name="inputoutputmodule::urword">
-<area shape="rect" id="node1" title=" " alt="" coords="5,89,160,131"/>
-<area shape="rect" id="node2" href="$namespaceinputoutputmodule.html#a5d0681efcccbea67f1d521a6729cbb4f" title=" " alt="" coords="234,5,389,47"/>
+<area shape="rect" id="node1" title="Extract a word from a string." alt="" coords="5,89,160,131"/>
+<area shape="rect" id="node2" href="$namespaceinputoutputmodule.html#a5d0681efcccbea67f1d521a6729cbb4f" title="Convert to lower case." alt="" coords="234,5,389,47"/>
 <area shape="rect" id="node3" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="879,64,1047,105"/>
 <area shape="rect" id="node4" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="224,122,399,149"/>
 <area shape="rect" id="node9" href="$namespacesimmodule.html#a83910ed20af1fec9bdf46cad8c276538" title="Store the file unit number." alt="" coords="208,173,415,199"/>

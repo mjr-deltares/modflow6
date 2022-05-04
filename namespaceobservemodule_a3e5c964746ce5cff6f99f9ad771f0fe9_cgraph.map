@@ -1,7 +1,7 @@
 <map id="observemodule::constructobservation" name="observemodule::constructobservation">
 <area shape="rect" id="node1" title=" " alt="" coords="5,97,273,123"/>
-<area shape="rect" id="node2" href="$namespaceinputoutputmodule.html#a653efe7e8a111c5e477fea26e0b04fe5" title=" " alt="" coords="321,89,476,131"/>
-<area shape="rect" id="node3" href="$namespaceinputoutputmodule.html#a5d0681efcccbea67f1d521a6729cbb4f" title=" " alt="" coords="550,5,705,47"/>
+<area shape="rect" id="node2" href="$namespaceinputoutputmodule.html#a653efe7e8a111c5e477fea26e0b04fe5" title="Extract a word from a string." alt="" coords="321,89,476,131"/>
+<area shape="rect" id="node3" href="$namespaceinputoutputmodule.html#a5d0681efcccbea67f1d521a6729cbb4f" title="Convert to lower case." alt="" coords="550,5,705,47"/>
 <area shape="rect" id="node4" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1195,64,1363,105"/>
 <area shape="rect" id="node5" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="540,122,715,149"/>
 <area shape="rect" id="node10" href="$namespacesimmodule.html#a83910ed20af1fec9bdf46cad8c276538" title="Store the file unit number." alt="" coords="524,173,731,199"/>

@@ -1,5 +1,5 @@
 <map id="inputoutputmodule::upcase" name="inputoutputmodule::upcase">
-<area shape="rect" id="node1" title=" " alt="" coords="911,829,1065,871"/>
+<area shape="rect" id="node1" title="Convert to upper case." alt="" coords="911,829,1065,871"/>
 <area shape="rect" id="node2" href="$namespacetimearrayserieslinkmodule.html#afc99a91da5788dc510bdfb25be102a6c" title=" " alt="" coords="581,55,799,96"/>
 <area shape="rect" id="node4" href="$namespacetimeserieslinkmodule.html#a1969df94e787ccdaf7260cce3421172b" title=" " alt="" coords="599,169,781,211"/>
 <area shape="rect" id="node6" href="$namespaceinputoutputmodule.html#a2f708dffa1b89bf951c41031434cc724" title=" " alt="" coords="588,332,792,373"/>
@@ -14,13 +14,13 @@
 <area shape="rect" id="node24" href="$namespacenamefilemodule.html#a48943659df9116b2d66118d8fefc9977" title=" " alt="" coords="593,888,787,929"/>
 <area shape="rect" id="node25" href="$namespacenamefilemodule.html#a557a3b9fe5867a78d612a11b998dc81d" title=" " alt="" coords="593,953,787,995"/>
 <area shape="rect" id="node26" href="$namespacenamefilemodule.html#a2fcd31b122268848c427692d0290d7e7" title=" " alt="" coords="593,1019,787,1060"/>
-<area shape="rect" id="node27" href="$namespaceinputoutputmodule.html#ae97851e3edae8d9809e384058a1a4d52" title=" " alt="" coords="613,1084,767,1125"/>
+<area shape="rect" id="node27" href="$namespaceinputoutputmodule.html#ae97851e3edae8d9809e384058a1a4d52" title="Open a file." alt="" coords="613,1084,767,1125"/>
 <area shape="rect" id="node45" href="$namespaceinputoutputmodule.html#a98f6deb576ab4d90ea3ddf849aa1ec8d" title=" " alt="" coords="274,1805,429,1847"/>
 <area shape="rect" id="node46" href="$namespacetimeseriesmanagermodule.html#ac4f8c90d5ffe4459f6a631b0bfea9bce" title=" " alt="" coords="587,1201,793,1243"/>
 <area shape="rect" id="node47" href="$namespacetimeseriesmanagermodule.html#a2075a4c123cb1167bfbdaaf4ceae7666" title=" " alt="" coords="572,1267,808,1308"/>
 <area shape="rect" id="node48" href="$namespaceinputoutputmodule.html#a20fd69114074fcbe01dcc8219d4bbd79" title=" " alt="" coords="613,1332,767,1373"/>
 <area shape="rect" id="node49" href="$namespaceobsmodule.html#aa798af6bf30f959ddea76b5581fbefcb" title=" " alt="" coords="597,1398,783,1425"/>
-<area shape="rect" id="node50" href="$namespaceinputoutputmodule.html#a8e4aeea8abff018a14a4a05a627215f5" title=" " alt="" coords="613,1449,767,1491"/>
+<area shape="rect" id="node50" href="$namespaceinputoutputmodule.html#a8e4aeea8abff018a14a4a05a627215f5" title="Create a formatted line." alt="" coords="613,1449,767,1491"/>
 <area shape="rect" id="node3" href="$namespacetimearrayseriesmanagermodule.html#a6ec6a50176fc83a28ba539bba8490a12" title=" " alt="" coords="235,5,467,47"/>
 <area shape="rect" id="node5" href="$namespacetimeseriesmanagermodule.html#a142b9ea7f0a86ff5593807cec33ae413" title=" " alt="" coords="252,71,451,112"/>
 <area shape="rect" id="node7" href="$namespacegwtaptmodule.html#abb56c327ba1e85187d14771a059b816c" title=" " alt="" coords="250,136,453,177"/>

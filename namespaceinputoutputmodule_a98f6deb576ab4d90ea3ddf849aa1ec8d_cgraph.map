@@ -5,10 +5,10 @@
 <area shape="rect" id="node4" href="$namespaceinputoutputmodule.html#a07be8efc92928c5953dad31edaae4a91" title=" " alt="" coords="208,136,363,177"/>
 <area shape="rect" id="node5" href="$namespaceinputoutputmodule.html#a6c54d102f5c67defd36241a197a7ca56" title=" " alt="" coords="208,201,363,243"/>
 <area shape="rect" id="node16" href="$namespaceinputoutputmodule.html#a20fd69114074fcbe01dcc8219d4bbd79" title=" " alt="" coords="208,267,363,308"/>
-<area shape="rect" id="node17" href="$namespaceinputoutputmodule.html#a3418ad9e27e9d9caac6f541863e1c522" title=" " alt="" coords="411,295,565,336"/>
-<area shape="rect" id="node6" href="$namespaceinputoutputmodule.html#a87643079f91094dcead5dcc634ce1b4d" title=" " alt="" coords="411,175,565,216"/>
-<area shape="rect" id="node7" href="$namespaceinputoutputmodule.html#a653efe7e8a111c5e477fea26e0b04fe5" title=" " alt="" coords="613,204,768,245"/>
-<area shape="rect" id="node8" href="$namespaceinputoutputmodule.html#a5d0681efcccbea67f1d521a6729cbb4f" title=" " alt="" coords="842,120,997,161"/>
+<area shape="rect" id="node17" href="$namespaceinputoutputmodule.html#a8290bae8ca0756e38ce13459dfebe985" title="Convert to upper case." alt="" coords="411,295,565,336"/>
+<area shape="rect" id="node6" href="$namespaceinputoutputmodule.html#a87643079f91094dcead5dcc634ce1b4d" title="Get the number of words in a string." alt="" coords="411,175,565,216"/>
+<area shape="rect" id="node7" href="$namespaceinputoutputmodule.html#a653efe7e8a111c5e477fea26e0b04fe5" title="Extract a word from a string." alt="" coords="613,204,768,245"/>
+<area shape="rect" id="node8" href="$namespaceinputoutputmodule.html#a5d0681efcccbea67f1d521a6729cbb4f" title="Convert to lower case." alt="" coords="842,120,997,161"/>
 <area shape="rect" id="node9" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1487,179,1655,220"/>
 <area shape="rect" id="node10" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="832,237,1007,263"/>
 <area shape="rect" id="node15" href="$namespacesimmodule.html#a83910ed20af1fec9bdf46cad8c276538" title="Store the file unit number." alt="" coords="816,287,1023,314"/>

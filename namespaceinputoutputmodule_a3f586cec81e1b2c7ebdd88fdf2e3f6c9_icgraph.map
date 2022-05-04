@@ -1,4 +1,4 @@
 <map id="inputoutputmodule::uterminate_block" name="inputoutputmodule::uterminate_block">
-<area shape="rect" id="node1" title=" " alt="" coords="208,5,363,47"/>
+<area shape="rect" id="node1" title="Evaluate if the end of a block has been found." alt="" coords="208,5,363,47"/>
 <area shape="rect" id="node2" href="$namespaceblockparsermodule.html#a61be802352292aef08522c6e7d1a9f05" title="@ brief Get the next line" alt="" coords="5,5,160,47"/>
 </map>
