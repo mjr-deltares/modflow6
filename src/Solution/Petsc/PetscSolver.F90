@@ -151,8 +151,9 @@ module PetscSolverModule
       ! Set preconditioner
       call KSPGetPC(this%ksp, pc, ierr)
       CHKERRQ(ierr)
-      call PCSetType(pc, PCILU, ierr)
-      CHKERRQ(ierr)
+      ! ILU doesn't seem to be compatible with parallel
+      ! call PCSetType(pc, PCILU, ierr)
+      ! CHKERRQ(ierr)
 
       call KSPSetOperators(this%ksp, this%Amat_petsc, this%Amat_petsc, ierr)
       CHKERRQ(ierr)
