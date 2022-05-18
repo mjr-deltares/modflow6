@@ -35,15 +35,21 @@ module SimulationCreateModule
   !<
   subroutine simulation_cr()
     ! -- modules
+#include <petsc/finclude/petscksp.h>
+    use petscksp
     ! -- local
     character(len=LINELENGTH) :: line
+    integer :: rank
+    integer :: ierror
 ! ------------------------------------------------------------------------------
     !
     ! -- initialize iout 
     iout = 0
+    call mpi_comm_rank(PETSC_COMM_WORLD, rank, ierror)
     !
     ! -- Open simulation list file
     iout = getunit()
+    write(simlstfile,'(a,i0)') trim(simlstfile), rank
     call openfile(iout, 0, simlstfile, 'LIST', filstat_opt='REPLACE')
     !
     ! -- write simlstfile to stdout

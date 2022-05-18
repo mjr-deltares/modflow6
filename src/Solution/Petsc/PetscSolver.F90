@@ -45,6 +45,8 @@ module PetscSolverModule
     Vec :: x_petsc
     Vec :: rhs_petsc
     KSP :: ksp
+    Vec :: x_petsc_buffer
+    VecScatter :: ctx_x_petsc
     
     ! procedures (methods)
     contains
@@ -104,10 +106,11 @@ module PetscSolverModule
       this%iout = iout
       this%lin_accel = imslinear%ILINMETH
       
-      !  Create matrix
-      ! TODO: Calculate number of nonzeros per row properly instead of hardcoding to 13
-      call MatCreateSeqAIJ(PETSC_COMM_WORLD, this%neq, size(this%x), 13,         &
-                           PETSC_NULL_INTEGER, this%Amat_petsc,ierr)
+      ! Create matrix
+      ! TODO: Use MatCreateAIJ for better performance
+      call MatCreate(PETSC_COMM_WORLD, this%Amat_petsc, ierr)
+      CHKERRQ(ierr)
+      call MatSetSizes(this%Amat_petsc, PETSC_DECIDE, PETSC_DECIDE, this%neq, this%neq, ierr)
       CHKERRQ(ierr)
       call MatSetFromOptions(this%Amat_petsc, ierr)
       CHKERRQ(ierr)
@@ -115,11 +118,15 @@ module PetscSolverModule
       CHKERRQ(ierr)
 
       !  Create petsc vectors.
-      call VecCreateSeq(PETSC_COMM_WORLD, size(this%x), this%x_petsc, ierr)
+      call VecCreateMPI(PETSC_COMM_WORLD, PETSC_DECIDE, size(this%x), this%x_petsc, ierr)
       CHKERRQ(ierr)
       call VecSetFromOptions(this%x_petsc, ierr)
       CHKERRQ(ierr)
       call VecDuplicate(this%x_petsc, this%rhs_petsc, ierr)
+      CHKERRQ(ierr)
+
+      ! Create x_petsc_buffer and corresponding context
+      call VecScatterCreateToAll(this%x_petsc, this%ctx_x_petsc, this%x_petsc_buffer, ierr)
       CHKERRQ(ierr)
 
       !  Create linear solver context
@@ -328,12 +335,16 @@ module PetscSolverModule
       CHKERRQ(ierr)
 
       ! copy solution
-      call VecGetArrayReadF90(this%x_petsc, x_pointer, ierr)
+      call VecScatterBegin(this%ctx_x_petsc, this%x_petsc, this%x_petsc_buffer, INSERT_VALUES, SCATTER_FORWARD, ierr)
+      CHKERRQ(ierr)
+      call VecScatterEnd(this%ctx_x_petsc, this%x_petsc, this%x_petsc_buffer, INSERT_VALUES, SCATTER_FORWARD, ierr)
+      CHKERRQ(ierr)
+      call VecGetArrayReadF90(this%x_petsc_buffer, x_pointer, ierr)
       CHKERRQ(ierr)
       do n = 1, size(this%x)
         this%x(n) = x_pointer(n)
       end do
-      call VecRestoreArrayReadF90(this%x_petsc, x_pointer, ierr)
+      call VecRestoreArrayReadF90(this%x_petsc_buffer, x_pointer, ierr)
       CHKERRQ(ierr)
 
     end subroutine execute
