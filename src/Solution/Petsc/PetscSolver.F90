@@ -275,11 +275,15 @@ module PetscSolverModule
       ! local
       PetscErrorCode :: ierr
       PetscInt :: ione = 1
+      PetscInt :: row_start
+      PetscInt :: row_end
       PetscScalar, pointer :: x_pointer(:)
       integer(I4B) :: row, ipos, n
 
       !  Fill matrix
-      do row = 1, this%neq
+      call MatGetOwnershipRange(this%Amat_petsc, row_start, row_end, ierr)
+      CHKERRQ(ierr)
+      do row = row_start, row_end
         do ipos = this%ia(row), this%ia(row+1) - 1
           call MatSetValues(this%Amat_petsc, ione, row-1, ione, this%ja(ipos)-1, this%amat(ipos), INSERT_VALUES, ierr)
           CHKERRQ(ierr)
