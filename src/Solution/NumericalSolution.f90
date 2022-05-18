@@ -313,7 +313,7 @@ subroutine solution_create(filename, id)
     this%iouttot_timestep = 0
     this%itertot_sim = 0
     this%mxiter = 0
-    this%linear_solver = LIN_SOLVER_INTERNAL ! TODO: change that back to LIN_SOLVER_INTERNAL
+    this%linear_solver = LIN_SOLVER_PETSC ! TODO: change that back to LIN_SOLVER_INTERNAL
     this%nonmeth = 0
     this%iprims = 0
     this%theta = DONE
