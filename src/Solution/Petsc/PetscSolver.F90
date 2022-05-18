@@ -11,6 +11,7 @@ module PetscSolverModule
   use GenericUtilitiesModule, only: sim_message
   use BlockParserModule, only: BlockParserType
   use IMSLinearModule, only: ImsLinearDataType
+  use TimerModule, only: code_timer
 
   implicit none
   private
@@ -262,14 +263,18 @@ module PetscSolverModule
 
     !> @brief Solve linear equation
     !< 
-    subroutine execute(this, kiter)
+    subroutine execute(this, kiter, total_time_petsc_copy)
       class(PetscSolverDataType), intent(inout) :: this !< PetscSolverDataType instance
       integer(I4B) :: kiter
+      REAL(DP), POINTER :: total_time_petsc_copy
       ! local
       PetscErrorCode :: ierr
       PetscInt :: ione = 1
       PetscScalar, pointer :: x_pointer(:)
       integer(I4B) :: row, ipos, n
+      real(DP) :: time_petsc_copy
+
+      call code_timer(0, time_petsc_copy, total_time_petsc_copy)
 
       !  Fill matrix
       do row = 1, this%neq
@@ -306,6 +311,8 @@ module PetscSolverModule
       CHKERRQ(ierr)
       call VecAssemblyEnd(this%rhs_petsc, ierr)
       CHKERRQ(ierr)
+
+      call code_timer(1, time_petsc_copy, total_time_petsc_copy)
       
       ! ! print system
       ! if (kiter == 1) then
@@ -327,6 +334,8 @@ module PetscSolverModule
       call KSPSolve(this%ksp, this%rhs_petsc, this%x_petsc, ierr)
       CHKERRQ(ierr)
 
+      call code_timer(0, time_petsc_copy, total_time_petsc_copy)
+
       ! copy solution
       call VecGetArrayReadF90(this%x_petsc, x_pointer, ierr)
       CHKERRQ(ierr)
@@ -335,6 +344,8 @@ module PetscSolverModule
       end do
       call VecRestoreArrayReadF90(this%x_petsc, x_pointer, ierr)
       CHKERRQ(ierr)
+
+      call code_timer(1, time_petsc_copy, total_time_petsc_copy)
 
     end subroutine execute
 

@@ -54,6 +54,7 @@ module NumericalSolutionModule
     integer(I4B), pointer                            :: iu                    !< input file unit
     real(DP), pointer                                :: ttform                !< timer - total formulation time
     real(DP), pointer                                :: ttsoln                !< timer - total solution time
+    real(DP), pointer                                :: total_time_petsc_copy !< timer - total time spent on copying data structures to PETSc
     integer(I4B), pointer                            :: isymmetric => null()  !< flag indicating if matrix symmetry is required
     integer(I4B), pointer                            :: neq => null()         !< number of equations
     integer(I4B), pointer                            :: nja => null()         !< number of non-zero entries
@@ -254,6 +255,7 @@ subroutine solution_create(filename, id)
     call mem_allocate(this%iu, 'IU', this%memoryPath)
     call mem_allocate(this%ttform, 'TTFORM', this%memoryPath)
     call mem_allocate(this%ttsoln, 'TTSOLN', this%memoryPath)
+    call mem_allocate(this%total_time_petsc_copy, 'TTPETSCCOPY', this%memoryPath)
     call mem_allocate(this%isymmetric, 'ISYMMETRIC', this%memoryPath)
     call mem_allocate(this%neq, 'NEQ', this%memoryPath)
     call mem_allocate(this%nja, 'NJA', this%memoryPath)
@@ -301,6 +303,7 @@ subroutine solution_create(filename, id)
     this%iu = 0
     this%ttform = DZERO
     this%ttsoln = DZERO
+    this%total_time_petsc_copy = DZERO
     this%neq = 0
     this%nja = 0
     this%dvclose = DZERO
@@ -1115,17 +1118,17 @@ subroutine solution_create(filename, id)
     ! -- dummy variables
     class(NumericalSolutionType) :: this  !< NumericalSolutionType instance
     !
-    if (this%linear_solver == LIN_SOLVER_INTERNAL) then
-      ! -- write timer output 
-      if (IDEVELOPMODE == 1) then
-        write(this%imslinear%iout, '(//1x,a,1x,a,1x,a)')                         &
-          'Solution', trim(adjustl(this%name)), 'summary'
-        write(this%imslinear%iout, "(1x,70('-'))")
-        write(this%imslinear%iout, '(1x,a,1x,g0,1x,a)')                          &
-          'Total formulate time: ', this%ttform, 'seconds'
-        write(this%imslinear%iout, '(1x,a,1x,g0,1x,a,/)')                        &
-          'Total solution time:  ', this%ttsoln, 'seconds'
-      end if
+    ! -- write timer output 
+    if (IDEVELOPMODE == 1) then
+      write(this%imslinear%iout, '(//1x,a,1x,a,1x,a)')                         &
+        'Solution', trim(adjustl(this%name)), 'summary'
+      write(this%imslinear%iout, "(1x,70('-'))")
+      write(this%imslinear%iout, '(1x,a,1x,g0,1x,a)')                          &
+        'Total formulate time: ', this%ttform, 'seconds'
+      write(this%imslinear%iout, '(1x,a,1x,g0,1x,a,/)')                        &
+        'Total solution time:  ', this%ttsoln, 'seconds'
+      write(this%imslinear%iout, '(1x,a,1x,g0,1x,a,/)')                        &
+        'Total time spent on copying PETSc datastructures:  ', this%total_time_petsc_copy, 'seconds'
     end if
     !
     ! -- return
@@ -1204,6 +1207,7 @@ subroutine solution_create(filename, id)
     call mem_deallocate(this%iu)
     call mem_deallocate(this%ttform)
     call mem_deallocate(this%ttsoln)
+    call mem_deallocate(this%total_time_petsc_copy)
     call mem_deallocate(this%isymmetric)
     call mem_deallocate(this%neq)
     call mem_deallocate(this%nja)
@@ -2560,7 +2564,7 @@ subroutine solution_create(filename, id)
                                           this%convdvmax, this%convdrmax)
     ! -- PETSc solver
     else if (this%linear_solver == LIN_SOLVER_PETSC) then
-      call this%petsc_solver%execute(kiter)
+      call this%petsc_solver%execute(kiter, this%total_time_petsc_copy)
       call KSPGetIterationNumber(this%petsc_solver%ksp, its, ierr)
       in_iter = its
       this%icnvg = 1
