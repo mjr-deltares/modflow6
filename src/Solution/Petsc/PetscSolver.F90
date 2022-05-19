@@ -263,6 +263,10 @@ module PetscSolverModule
       CHKERRQ(ierr)
       call KSPDestroy(this%ksp, ierr)
       CHKERRQ(ierr)
+      call VecDestroy(this%x_petsc_buffer, ierr)
+      CHKERRQ(ierr)
+      call VecScatterDestroy(this%ctx_x_petsc, ierr)
+      CHKERRQ(ierr)
       ! -- return
       return
     end subroutine deallocate
