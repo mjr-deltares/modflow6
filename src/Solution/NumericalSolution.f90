@@ -1116,17 +1116,15 @@ subroutine solution_create(filename, id)
     ! -- dummy variables
     class(NumericalSolutionType) :: this  !< NumericalSolutionType instance
     !
-    if (this%linear_solver == LIN_SOLVER_INTERNAL) then
-      ! -- write timer output 
-      if (IDEVELOPMODE == 1) then
-        write(this%imslinear%iout, '(//1x,a,1x,a,1x,a)')                         &
-          'Solution', trim(adjustl(this%name)), 'summary'
-        write(this%imslinear%iout, "(1x,70('-'))")
-        write(this%imslinear%iout, '(1x,a,1x,g0,1x,a)')                          &
-          'Total formulate time: ', this%ttform, 'seconds'
-        write(this%imslinear%iout, '(1x,a,1x,g0,1x,a,/)')                        &
-          'Total solution time:  ', this%ttsoln, 'seconds'
-      end if
+    ! -- write timer output 
+    if (IDEVELOPMODE == 1) then
+      write(this%imslinear%iout, '(//1x,a,1x,a,1x,a)')                         &
+        'Solution', trim(adjustl(this%name)), 'summary'
+      write(this%imslinear%iout, "(1x,70('-'))")
+      write(this%imslinear%iout, '(1x,a,1x,g0,1x,a)')                          &
+        'Total formulate time: ', this%ttform, 'seconds'
+      write(this%imslinear%iout, '(1x,a,1x,g0,1x,a,/)')                        &
+        'Total solution time:  ', this%ttsoln, 'seconds'
     end if
     !
     ! -- return
