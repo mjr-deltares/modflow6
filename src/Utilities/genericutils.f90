@@ -408,7 +408,8 @@ module GenericUtilitiesModule
     ! -- return the correct return code
     select case (ireturn_err)
       case (0)
-        stop
+        ! TODO: Change that to proper exit of PETSc
+        write (*, *) "Not stopping just yet"
       case (1)
         stop 1
       case (2)
