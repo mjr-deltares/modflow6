@@ -219,7 +219,7 @@ Variables</h2></td></tr>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keywordtype">    real</span>(DP) :: area_wet</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment">! -- dummy</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">class</span>(BaseGeometryType) :: this</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">intent(in)</span> :: depth    </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">intent(in)</span> :: depth</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    area_wet = 0.d0</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment">! -- return</span></div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">return</span></div>
@@ -300,7 +300,7 @@ Variables</h2></td></tr>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keywordtype">    real</span>(DP) :: perimeter_wet</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="comment">! -- dummy</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">class</span>(BaseGeometryType) :: this</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">intent(in)</span> :: depth    </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">intent(in)</span> :: depth</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    perimeter_wet = 0.d0</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="comment">! -- return</span></div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">return</span></div>
@@ -357,9 +357,9 @@ Variables</h2></td></tr>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">parameter</span> :: fmtnm = <span class="stringliteral">&quot;(4x,a,a)&quot;</span></div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">write</span>(iout, fmtid) <span class="stringliteral">&#39;ID = &#39;</span>, this%id</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keyword">write</span>(iout, fmtnm) <span class="stringliteral">&#39;NAME = &#39;</span>, trim(adjustl(this%name))</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keyword">write</span>(iout, fmtnm) <span class="stringliteral">&#39;GEOMETRY TYPE = &#39;</span>, trim(adjustl(this%geo_type))</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">write</span> (iout, fmtid) <span class="stringliteral">&#39;ID = &#39;</span>, this%id</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keyword">write</span> (iout, fmtnm) <span class="stringliteral">&#39;NAME = &#39;</span>, trim(adjustl(this%name))</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keyword">write</span> (iout, fmtnm) <span class="stringliteral">&#39;GEOMETRY TYPE = &#39;</span>, trim(adjustl(this%geo_type))</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="comment">! -- return</span></div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">return</span></div>
@@ -441,7 +441,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacebasegeometrymodule.html">basegeometrymodule</a></li>
-    <li class="footer">Generated on Wed May 4 2022 09:14:34 for MODFLOW 6 by
+    <li class="footer">Generated on Mon Jun 27 2022 12:20:44 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

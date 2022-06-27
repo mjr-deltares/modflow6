@@ -27,7 +27,7 @@ var structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype =
     [ "gwfflowja", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#a01bee805a614665c95fbdb1765b252ea", null ],
     [ "gwfhead", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#ac969cfaa01f2119465a2d0aa551df63c", null ],
     [ "gwfsat", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#a57a754841563cdd251ad67b0020d068c", null ],
-    [ "gwfspdis", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#af57868958932c7eeac7d526a033d70dd", null ],
+    [ "gwfspdis", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#a12711cb80190d558cb30f88914faad58", null ],
     [ "gwtexchange", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#a2df7cba5a788434d75a64bf3fb6f5b89", null ],
     [ "gwtinterfacemodel", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#a73fbf27fce1d332e4f82c41cbad061b6", null ],
     [ "gwtmodel", "structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#aecb1cc7fd9581202f91f37bd56748129", null ],

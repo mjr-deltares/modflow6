@@ -1,6 +1,6 @@
 <map id="csrutilsmodule::getcsrindex" name="csrutilsmodule::getcsrindex">
 <area shape="rect" id="node1" title="Return index for element i,j in CSR storage,." alt="" coords="280,209,483,235"/>
-<area shape="rect" id="node2" href="$namespacegridconnectionmodule.html#a15b3330e2cde669c59a26c20afd8676d" title="Create lookup tables for efficient access" alt="" coords="35,5,202,47"/>
+<area shape="rect" id="node2" href="$namespacegridconnectionmodule.html#a15b3330e2cde669c59a26c20afd8676d" title="Create lookup tables for efficient access." alt="" coords="35,5,202,47"/>
 <area shape="rect" id="node3" href="$namespacespatialmodelconnectionmodule.html#aec90536f741cddef194442f90e8d7aa7" title="Mask the owner&#39;s connections." alt="" coords="5,71,232,112"/>
 <area shape="rect" id="node4" href="$namespacegwfgwfconnectionmodule.html#a2feb4df88189153941c59d3c4bc26794" title="Copy interface model flowja between models, to." alt="" coords="23,136,214,177"/>
 <area shape="rect" id="node5" href="$namespacegwtgwtconnectionmodule.html#a3acd4f56715e42bf78f922b2b19a05e1" title="Set the flows (flowja from interface model) to the." alt="" coords="23,201,214,243"/>

@@ -1,5 +1,5 @@
 <map id="gwfcsubmodule::csub_delay_sln" name="gwfcsubmodule::csub_delay_sln">
 <area shape="rect" id="node1" title="Solve delay interbed continuity equation." alt="" coords="5,27,168,69"/>
 <area shape="rect" id="node2" href="$namespacesimmodule.html#a4c46e49de78d4498dd4ec106357775e6" title="Return number of errors." alt="" coords="216,5,400,32"/>
-<area shape="rect" id="node3" href="$namespacegwfcsubmodule.html#a3a5310d2e8da71802bc99a1dda4dc2f6" title="Delay interbed linear solution." alt="" coords="227,57,389,98"/>
+<area shape="rect" id="node3" href="$namespaceimslinearmisc.html#a47362c9dbe45f05427c13362667aba95" title="Tridiagonal solve using the Thomas algorithm." alt="" coords="235,57,381,98"/>
 </map>

@@ -1,4 +1,4 @@
 <map id="gridconnectionmodule::createlookuptable" name="gridconnectionmodule::createlookuptable">
-<area shape="rect" id="node1" title="Create lookup tables for efficient access" alt="" coords="5,5,172,47"/>
+<area shape="rect" id="node1" title="Create lookup tables for efficient access." alt="" coords="5,5,172,47"/>
 <area shape="rect" id="node2" href="$namespacecsrutilsmodule.html#a0fbb240524fa0172b9ee6a14844f4470" title="Return index for element i,j in CSR storage,." alt="" coords="220,13,423,39"/>
 </map>

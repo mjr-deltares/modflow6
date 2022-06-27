@@ -115,18 +115,18 @@ $(document).ready(function(){initNavTree('_base_exchange_8f90_source.html',''); 
 </div><!--header-->
 <div class="contents">
 <a href="_base_exchange_8f90.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="namespacebaseexchangemodule.html">    1</a></span>&#160;<span class="keyword">module</span> <a class="code" href="namespacebaseexchangemodule.html">baseexchangemodule</a></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;  </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacekindmodule.html">kindmodule</a>,         <span class="keywordtype">only</span>: dp, i4b, lgp</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespaceconstantsmodule.html">constantsmodule</a>,    <span class="keywordtype">only</span>: <a class="code" href="namespaceconstantsmodule.html#a2c636eb1c2af29a8d9b384896408f12d">lenexchangename</a>, <a class="code" href="namespaceconstantsmodule.html#ae1ec6380bd0e8e6c89a40d3b97306586">lenmempath</a></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacelistmodule.html">listmodule</a>,         <span class="keywordtype">only</span>: <a class="code" href="structlistmodule_1_1listtype.html">listtype</a>  </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacebasemodelmodule.html">basemodelmodule</a>,    <span class="keywordtype">only</span>: basemodeltype</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacekindmodule.html">kindmodule</a>, <span class="keywordtype">only</span>: dp, i4b, lgp</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespaceconstantsmodule.html">constantsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceconstantsmodule.html#a2c636eb1c2af29a8d9b384896408f12d">lenexchangename</a>, <a class="code" href="namespaceconstantsmodule.html#ae1ec6380bd0e8e6c89a40d3b97306586">lenmempath</a></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacelistmodule.html">listmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structlistmodule_1_1listtype.html">listtype</a></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacebasemodelmodule.html">basemodelmodule</a>, <span class="keywordtype">only</span>: basemodeltype</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;  <span class="keywordtype">implicit none</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  <span class="keywordtype">private</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <span class="keywordtype">public</span> :: baseexchangetype, <a class="code" href="namespacebaseexchangemodule.html#a67919a88cc5ebe70bb4a38eaf9ef9144">addbaseexchangetolist</a>, <a class="code" href="namespacebaseexchangemodule.html#ad92f8ec5d783349adc5a61e4e3d31f4b">getbaseexchangefromlist</a></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  <span class="keywordtype">private</span> :: <a class="code" href="namespacebaseexchangemodule.html#a471891cf69ccccc8dcca6ee6ee3e6993">castasbaseexchangeclass</a></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
 <div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="structbaseexchangemodule_1_1baseexchangetype.html">   14</a></span>&#160;  <span class="keyword">type</span>, <span class="keyword">abstract</span> :: baseexchangetype</div>
 <div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structbaseexchangemodule_1_1baseexchangetype.html#a856b65a0fafc0ff269f4e2c78bdc2221">   15</a></span>&#160;    <span class="keywordtype">character(len=LENEXCHANGENAME)</span>   :: name<span class="comment">                !&lt; the name of this exchange</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structbaseexchangemodule_1_1baseexchangetype.html#acda28385984c10f4e8025585fa118a48">   16</a></span>&#160;    <span class="keywordtype">character(len=LENMEMPATH)</span>        :: memorypath<span class="comment">          !&lt; the location in the memory manager where the variables are stored</span></div>
@@ -155,9 +155,9 @@ $(document).ready(function(){initNavTree('_base_exchange_8f90_source.html',''); 
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">end subroutine</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keyword">end interface</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keyword">contains</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;     </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">contains</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacebaseexchangemodule.html#a14658f7d92ce8988581bad3eb97a67a3">exg_rp</a>(this)</div>
 <div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="namespacebaseexchangemodule.html#a14658f7d92ce8988581bad3eb97a67a3">   46</a></span>&#160;<span class="comment">! ******************************************************************************</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">! exg_rp -- Read and prepare</span></div>
@@ -179,7 +179,7 @@ $(document).ready(function(){initNavTree('_base_exchange_8f90_source.html',''); 
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="comment">! -- Return</span></div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">return</span></div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacebaseexchangemodule.html#a14658f7d92ce8988581bad3eb97a67a3">exg_rp</a></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacebaseexchangemodule.html#a6c03a68869ed845745c143f05500af31">exg_calculate_delt</a>(this)</div>
 <div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="namespacebaseexchangemodule.html#a6c03a68869ed845745c143f05500af31">   68</a></span>&#160;<span class="comment">! ******************************************************************************</span></div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">! exg_calculate_delt -- Calculate time step length</span></div>
@@ -197,7 +197,7 @@ $(document).ready(function(){initNavTree('_base_exchange_8f90_source.html',''); 
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="comment">! -- Return</span></div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">return</span></div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacebaseexchangemodule.html#a6c03a68869ed845745c143f05500af31">exg_calculate_delt</a></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacebaseexchangemodule.html#a6fc8431edb219ca8393059976fa1ce39">exg_ot</a>(this)</div>
 <div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="namespacebaseexchangemodule.html#a6fc8431edb219ca8393059976fa1ce39">   86</a></span>&#160;<span class="comment">! ******************************************************************************</span></div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">! exg_ot -- Output</span></div>
@@ -213,7 +213,7 @@ $(document).ready(function(){initNavTree('_base_exchange_8f90_source.html',''); 
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="comment">! -- Return</span></div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">return</span></div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacebaseexchangemodule.html#a6fc8431edb219ca8393059976fa1ce39">exg_ot</a></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacebaseexchangemodule.html#a0590fd9a44070806ddbbddec96a9594f">exg_fp</a>(this)</div>
 <div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="namespacebaseexchangemodule.html#a0590fd9a44070806ddbbddec96a9594f">  102</a></span>&#160;<span class="comment">! ******************************************************************************</span></div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment">! exg_fp -- Final processing</span></div>
@@ -229,7 +229,7 @@ $(document).ready(function(){initNavTree('_base_exchange_8f90_source.html',''); 
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="comment">! -- Return</span></div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordflow">return</span></div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacebaseexchangemodule.html#a0590fd9a44070806ddbbddec96a9594f">exg_fp</a></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacebaseexchangemodule.html#a07956c894fee0fc6c30a071ff2df0bd6">exg_da</a>(this)</div>
 <div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="namespacebaseexchangemodule.html#a07956c894fee0fc6c30a071ff2df0bd6">  118</a></span>&#160;<span class="comment">! ******************************************************************************</span></div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment">! exg_da -- Deallocate</span></div>
@@ -258,7 +258,7 @@ $(document).ready(function(){initNavTree('_base_exchange_8f90_source.html',''); 
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;  <span class="keyword">end function</span></div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  <span class="keyword">function </span><a class="code" href="namespacebaseexchangemodule.html#a471891cf69ccccc8dcca6ee6ee3e6993">castasbaseexchangeclass</a>(obj) <span class="keyword">result</span> (res)</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  <span class="keyword">function </span><a class="code" href="namespacebaseexchangemodule.html#a471891cf69ccccc8dcca6ee6ee3e6993">castasbaseexchangeclass</a>(obj) <span class="keyword">result</span>(res)</div>
 <div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="namespacebaseexchangemodule.html#a471891cf69ccccc8dcca6ee6ee3e6993">  146</a></span>&#160;<span class="comment">! ******************************************************************************</span></div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="comment">! CastAsBaseExchangeClass</span></div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="comment">! ******************************************************************************</span></div>
@@ -289,7 +289,7 @@ $(document).ready(function(){initNavTree('_base_exchange_8f90_source.html',''); 
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="comment">!    SPECIFICATIONS:</span></div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structlistmodule_1_1listtype.html">listtype</a>),       <span class="keywordtype">intent(inout)</span> :: list</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structlistmodule_1_1listtype.html">listtype</a>), <span class="keywordtype">intent(inout)</span> :: list</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keywordtype">class</span>(baseexchangetype), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(inout)</span> :: exchange</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="comment">! -- local</span></div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span> :: obj</div>
@@ -300,8 +300,8 @@ $(document).ready(function(){initNavTree('_base_exchange_8f90_source.html',''); 
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="keywordflow">return</span></div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacebaseexchangemodule.html#a67919a88cc5ebe70bb4a38eaf9ef9144">addbaseexchangetolist</a></div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;  </div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;  <span class="keyword">function </span><a class="code" href="namespacebaseexchangemodule.html#ad92f8ec5d783349adc5a61e4e3d31f4b">getbaseexchangefromlist</a>(list, idx) <span class="keyword">result</span> (res)</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;  <span class="keyword">function </span><a class="code" href="namespacebaseexchangemodule.html#ad92f8ec5d783349adc5a61e4e3d31f4b">getbaseexchangefromlist</a>(list, idx) <span class="keyword">result</span>(res)</div>
 <div class="line"><a name="l00189"></a><span class="lineno"><a class="line" href="namespacebaseexchangemodule.html#ad92f8ec5d783349adc5a61e4e3d31f4b">  189</a></span>&#160;<span class="comment">! ******************************************************************************</span></div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="comment">! GetBaseExchangeFromList</span></div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="comment">! ******************************************************************************</span></div>
@@ -309,8 +309,8 @@ $(document).ready(function(){initNavTree('_base_exchange_8f90_source.html',''); 
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="comment">!    SPECIFICATIONS:</span></div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structlistmodule_1_1listtype.html">listtype</a>),       <span class="keywordtype">intent(inout)</span> :: list</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="keywordtype">integer(I4B)</span>,              <span class="keywordtype">intent(in)</span>    :: idx</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structlistmodule_1_1listtype.html">listtype</a>), <span class="keywordtype">intent(inout)</span> :: list</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span>    :: idx</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="keywordtype">class</span>(baseexchangetype), <span class="keywordtype">pointer</span>    :: res</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="comment">! -- local</span></div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span> :: obj</div>
@@ -350,7 +350,7 @@ $(document).ready(function(){initNavTree('_base_exchange_8f90_source.html',''); 
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_95d5cc30a66cc7502f2f5157978bb5c3.html">Exchange</a></li><li class="navelem"><a class="el" href="_base_exchange_8f90.html">BaseExchange.f90</a></li>
-    <li class="footer">Generated on Wed May 4 2022 09:14:32 for MODFLOW 6 by
+    <li class="footer">Generated on Mon Jun 27 2022 12:20:42 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

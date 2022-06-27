@@ -123,62 +123,63 @@ $(document).ready(function(){initNavTree('_cell_with_nbrs_8f90_source.html','');
 <div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="namespacecellwithnbrsmodule.html#aa213068f8fe414cf86536f1bfba94fe7">    7</a></span>&#160;  <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">parameter</span> :: <a class="code" href="namespacecellwithnbrsmodule.html#aa213068f8fe414cf86536f1bfba94fe7">defaultcapacity</a> = 6</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">  !&gt; Data structure to hold a global cell identifier,</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">  !! using a pointer to the model and its local cell </span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">  !! using a pointer to the model and its local cell</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">  !&lt; index</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="structcellwithnbrsmodule_1_1globalcelltype.html">   12</a></span>&#160;  <span class="keyword">type</span>, <span class="keyword">public</span> :: <a class="code" href="structcellwithnbrsmodule_1_1globalcelltype.html">globalcelltype</a></div>
 <div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="structcellwithnbrsmodule_1_1globalcelltype.html#aa86fae723638af16fe090b0a8aae388b">   13</a></span>&#160;    <span class="keywordtype">integer(I4B)</span> :: index<span class="comment">                                 !&lt; the index on the model grid</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="structcellwithnbrsmodule_1_1globalcelltype.html#a39ec8a1992757a8a6c1d06a97c4a5a1d">   14</a></span>&#160;    <span class="keywordtype">class</span>(numericalmodeltype), <span class="keywordtype">pointer</span> :: model =&gt; null() <span class="comment">!&lt; the model</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="keyword">end type</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <span class="comment">! a global cell with neighbors</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structcellwithnbrsmodule_1_1cellwithnbrstype.html">   18</a></span>&#160;  <span class="keyword">type</span>, <span class="keyword">public</span> :: <a class="code" href="structcellwithnbrsmodule_1_1cellwithnbrstype.html">cellwithnbrstype</a></div>
 <div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structcellwithnbrsmodule_1_1cellwithnbrstype.html#a21c84ad798c7111b341e4abf52a9b23c">   19</a></span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structcellwithnbrsmodule_1_1globalcelltype.html">globalcelltype</a>) :: cell</div>
 <div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structcellwithnbrsmodule_1_1cellwithnbrstype.html#aba692221fba4491d17a6af0f7168b04f">   20</a></span>&#160;    <span class="keywordtype">integer(I4B)</span> :: nrofnbrs = 0</div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="structcellwithnbrsmodule_1_1cellwithnbrstype.html#a6c36d5e0ffb7d0629dab9ea97e1e41c6">   21</a></span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structcellwithnbrsmodule_1_1cellwithnbrstype.html">cellwithnbrstype</a>), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: neighbors =&gt; null()</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keyword">contains</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="structcellwithnbrsmodule_1_1cellwithnbrstype.html#a8268e5e2f5cbdcc6797c43356d9f0f87">   23</a></span>&#160;    <span class="keywordtype">procedure</span> :: <a class="code" href="namespacecellwithnbrsmodule.html#a890dbabee79f7e694942731325fb687d">addnbrcell</a></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keyword">end type</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keyword">contains</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacecellwithnbrsmodule.html#a890dbabee79f7e694942731325fb687d">addnbrcell</a>(this, index, modelToAdd)</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="namespacecellwithnbrsmodule.html#a890dbabee79f7e694942731325fb687d">   29</a></span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structcellwithnbrsmodule_1_1cellwithnbrstype.html">cellwithnbrstype</a>) :: this</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: index</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">class</span>(numericalmodeltype), <span class="keywordtype">pointer</span> :: modelToAdd</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: nbrCnt, currentSize, i</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structcellwithnbrsmodule_1_1cellwithnbrstype.html">cellwithnbrstype</a>), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>,  <span class="keywordtype">contiguous</span> :: newNeighbors</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structcellwithnbrsmodule_1_1cellwithnbrstype.html">cellwithnbrstype</a>), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>,  <span class="keywordtype">contiguous</span> :: oldNeighbors</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">if</span> (.not. <span class="keyword">associated</span>(this%neighbors)) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      <span class="keyword">allocate</span>(this%neighbors(<a class="code" href="namespacecellwithnbrsmodule.html#aa213068f8fe414cf86536f1bfba94fe7">defaultcapacity</a>))</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;      this%nrOfNbrs = 0</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    nbrcnt = this%nrOfNbrs</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    currentsize = <span class="keyword">size</span>(this%neighbors)</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">if</span> (nbrcnt + 1 &gt; currentsize) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      <span class="comment">! inflate</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      oldneighbors =&gt; this%neighbors</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      <span class="keyword">allocate</span>(newneighbors(currentsize + <a class="code" href="namespacecellwithnbrsmodule.html#aa213068f8fe414cf86536f1bfba94fe7">defaultcapacity</a>))</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      <span class="keywordflow">do</span> i=1, currentsize</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        newneighbors(i) = oldneighbors(i)</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keywordflow">      end do</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      this%neighbors =&gt; newneighbors</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      <span class="comment">! clean up</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      <span class="keyword">deallocate</span>(oldneighbors)</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      <span class="keyword">nullify</span>(oldneighbors)</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    this%neighbors(nbrcnt + 1)%cell%index = index</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    this%neighbors(nbrcnt + 1)%cell%model =&gt; modeltoadd</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    this%nrOfNbrs = nbrcnt + 1</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacecellwithnbrsmodule.html#a890dbabee79f7e694942731325fb687d">addnbrcell</a></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">end module</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="structcellwithnbrsmodule_1_1cellwithnbrstype.html#a6c36d5e0ffb7d0629dab9ea97e1e41c6">   21</a></span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structcellwithnbrsmodule_1_1cellwithnbrstype.html">cellwithnbrstype</a>), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, &amp;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;      <span class="keywordtype">contiguous</span> :: neighbors =&gt; null()</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keyword">contains</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="structcellwithnbrsmodule_1_1cellwithnbrstype.html#a8268e5e2f5cbdcc6797c43356d9f0f87">   24</a></span>&#160;    <span class="keywordtype">procedure</span> :: <a class="code" href="namespacecellwithnbrsmodule.html#a890dbabee79f7e694942731325fb687d">addnbrcell</a></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keyword">end type</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">contains</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacecellwithnbrsmodule.html#a890dbabee79f7e694942731325fb687d">addnbrcell</a>(this, index, modelToAdd)</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="namespacecellwithnbrsmodule.html#a890dbabee79f7e694942731325fb687d">   30</a></span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structcellwithnbrsmodule_1_1cellwithnbrstype.html">cellwithnbrstype</a>) :: this</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: index</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">class</span>(numericalmodeltype), <span class="keywordtype">pointer</span> :: modelToAdd</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: nbrCnt, currentSize, i</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structcellwithnbrsmodule_1_1cellwithnbrstype.html">cellwithnbrstype</a>), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: newNeighbors</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structcellwithnbrsmodule_1_1cellwithnbrstype.html">cellwithnbrstype</a>), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: oldNeighbors</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">if</span> (.not. <span class="keyword">associated</span>(this%neighbors)) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;      <span class="keyword">allocate</span> (this%neighbors(<a class="code" href="namespacecellwithnbrsmodule.html#aa213068f8fe414cf86536f1bfba94fe7">defaultcapacity</a>))</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      this%nrOfNbrs = 0</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    nbrcnt = this%nrOfNbrs</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    currentsize = <span class="keyword">size</span>(this%neighbors)</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">if</span> (nbrcnt + 1 &gt; currentsize) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      <span class="comment">! inflate</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      oldneighbors =&gt; this%neighbors</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      <span class="keyword">allocate</span> (newneighbors(currentsize + <a class="code" href="namespacecellwithnbrsmodule.html#aa213068f8fe414cf86536f1bfba94fe7">defaultcapacity</a>))</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      <span class="keywordflow">do</span> i = 1, currentsize</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        newneighbors(i) = oldneighbors(i)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keywordflow">      end do</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      this%neighbors =&gt; newneighbors</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      <span class="comment">! clean up</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      <span class="keyword">deallocate</span> (oldneighbors)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <span class="keyword">nullify</span> (oldneighbors)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    this%neighbors(nbrcnt + 1)%cell%index = index</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    this%neighbors(nbrcnt + 1)%cell%model =&gt; modeltoadd</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    this%nrOfNbrs = nbrcnt + 1</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacecellwithnbrsmodule.html#a890dbabee79f7e694942731325fb687d">addnbrcell</a></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">end module</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="anamespacekindmodule_html"><div class="ttname"><a href="namespacekindmodule.html">kindmodule</a></div><div class="ttdoc">This module defines variable data types.</div><div class="ttdef"><b>Definition:</b> <a href="kind_8f90_source.html#l00008">kind.f90:8</a></div></div>
@@ -186,13 +187,13 @@ $(document).ready(function(){initNavTree('_cell_with_nbrs_8f90_source.html','');
 <div class="ttc" id="anamespacecellwithnbrsmodule_html"><div class="ttname"><a href="namespacecellwithnbrsmodule.html">cellwithnbrsmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_cell_with_nbrs_8f90_source.html#l00001">CellWithNbrs.f90:1</a></div></div>
 <div class="ttc" id="astructcellwithnbrsmodule_1_1cellwithnbrstype_html"><div class="ttname"><a href="structcellwithnbrsmodule_1_1cellwithnbrstype.html">cellwithnbrsmodule::cellwithnbrstype</a></div><div class="ttdef"><b>Definition:</b> <a href="_cell_with_nbrs_8f90_source.html#l00018">CellWithNbrs.f90:18</a></div></div>
 <div class="ttc" id="anamespacenumericalmodelmodule_html"><div class="ttname"><a href="namespacenumericalmodelmodule.html">numericalmodelmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_numerical_model_8f90_source.html#l00001">NumericalModel.f90:1</a></div></div>
-<div class="ttc" id="anamespacecellwithnbrsmodule_html_a890dbabee79f7e694942731325fb687d"><div class="ttname"><a href="namespacecellwithnbrsmodule.html#a890dbabee79f7e694942731325fb687d">cellwithnbrsmodule::addnbrcell</a></div><div class="ttdeci">subroutine addnbrcell(this, index, modelToAdd)</div><div class="ttdef"><b>Definition:</b> <a href="_cell_with_nbrs_8f90_source.html#l00029">CellWithNbrs.f90:29</a></div></div>
+<div class="ttc" id="anamespacecellwithnbrsmodule_html_a890dbabee79f7e694942731325fb687d"><div class="ttname"><a href="namespacecellwithnbrsmodule.html#a890dbabee79f7e694942731325fb687d">cellwithnbrsmodule::addnbrcell</a></div><div class="ttdeci">subroutine addnbrcell(this, index, modelToAdd)</div><div class="ttdef"><b>Definition:</b> <a href="_cell_with_nbrs_8f90_source.html#l00030">CellWithNbrs.f90:30</a></div></div>
 <div class="ttc" id="anamespacecellwithnbrsmodule_html_aa213068f8fe414cf86536f1bfba94fe7"><div class="ttname"><a href="namespacecellwithnbrsmodule.html#aa213068f8fe414cf86536f1bfba94fe7">cellwithnbrsmodule::defaultcapacity</a></div><div class="ttdeci">integer(i4b), parameter defaultcapacity</div><div class="ttdoc">index</div><div class="ttdef"><b>Definition:</b> <a href="_cell_with_nbrs_8f90_source.html#l00007">CellWithNbrs.f90:7</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_32e188284d239da8bb14ec1dabb0c35f.html">Model</a></li><li class="navelem"><a class="el" href="dir_4602b8d0a0ef27d9d0b14db2c16038ea.html">Connection</a></li><li class="navelem"><a class="el" href="_cell_with_nbrs_8f90.html">CellWithNbrs.f90</a></li>
-    <li class="footer">Generated on Wed May 4 2022 09:14:32 for MODFLOW 6 by
+    <li class="footer">Generated on Mon Jun 27 2022 12:20:42 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

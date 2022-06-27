@@ -181,22 +181,22 @@ Functions/Subroutines</h2></td></tr>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: csrIndex<span class="comment">                      !&lt; the CSR ndex of element i,j</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="comment">! local</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: idx</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    csrindex = -1</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">do</span> idx = ia(i), ia(i+1)-1</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">do</span> idx = ia(i), ia(i + 1) - 1</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;      <span class="keywordflow">if</span> (ja(idx) == j) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        csrindex = idx</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordflow">return</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordflow">      end if</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacecsrutilsmodule_a0fbb240524fa0172b9ee6a14844f4470_icgraph.png" border="0" usemap="#namespacecsrutilsmodule_a0fbb240524fa0172b9ee6a14844f4470_icgraph" alt=""/></div>
 <map name="namespacecsrutilsmodule_a0fbb240524fa0172b9ee6a14844f4470_icgraph" id="namespacecsrutilsmodule_a0fbb240524fa0172b9ee6a14844f4470_icgraph">
 <area shape="rect" title="Return index for element i,j in CSR storage,." alt="" coords="280,209,483,235"/>
-<area shape="rect" href="namespacegridconnectionmodule.html#a15b3330e2cde669c59a26c20afd8676d" title="Create lookup tables for efficient access" alt="" coords="35,5,202,47"/>
+<area shape="rect" href="namespacegridconnectionmodule.html#a15b3330e2cde669c59a26c20afd8676d" title="Create lookup tables for efficient access." alt="" coords="35,5,202,47"/>
 <area shape="rect" href="namespacespatialmodelconnectionmodule.html#aec90536f741cddef194442f90e8d7aa7" title="Mask the owner&#39;s connections." alt="" coords="5,71,232,112"/>
 <area shape="rect" href="namespacegwfgwfconnectionmodule.html#a2feb4df88189153941c59d3c4bc26794" title="Copy interface model flowja between models, to." alt="" coords="23,136,214,177"/>
 <area shape="rect" href="namespacegwtgwtconnectionmodule.html#a3acd4f56715e42bf78f922b2b19a05e1" title="Set the flows (flowja from interface model) to the." alt="" coords="23,201,214,243"/>
@@ -215,7 +215,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacecsrutilsmodule.html">csrutilsmodule</a></li>
-    <li class="footer">Generated on Wed May 4 2022 09:14:34 for MODFLOW 6 by
+    <li class="footer">Generated on Mon Jun 27 2022 12:20:44 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
