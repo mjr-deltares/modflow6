@@ -1,5 +1,7 @@
 var NAVTREEINDEX14 =
 {
+"namespaceoutputcontroldatamodule.html":[2,0,123],
+"namespaceoutputcontroldatamodule.html":[3,0,98],
 "namespaceoutputcontrolmodule.html":[2,0,124],
 "namespaceoutputcontrolmodule.html":[3,0,99],
 "namespacepackagebudgetmodule.html":[2,0,125],
@@ -247,7 +249,5 @@ var NAVTREEINDEX14 =
 "structbasemodelmodule_1_1basemodeltype.html":[3,0,6,0],
 "structbasemodelmodule_1_1basemodeltype.html#a0147f5de3f5b742b3a2c8e2283966e92":[3,0,6,0,14],
 "structbasemodelmodule_1_1basemodeltype.html#a02f2f566b2812b7d2009f52af3d93950":[3,0,6,0,12],
-"structbasemodelmodule_1_1basemodeltype.html#a05d9832fbb88cf01471fd9c3e59873f8":[3,0,6,0,0],
-"structbasemodelmodule_1_1basemodeltype.html#a0cd77a2ab380a04be1bd3f2aceace642":[3,0,6,0,10],
-"structbasemodelmodule_1_1basemodeltype.html#a26a52409976e07184975d4b7d0ec43df":[3,0,6,0,17]
+"structbasemodelmodule_1_1basemodeltype.html#a05d9832fbb88cf01471fd9c3e59873f8":[3,0,6,0,0]
 };

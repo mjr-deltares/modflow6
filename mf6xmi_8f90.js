@@ -5,6 +5,7 @@ var mf6xmi_8f90 =
     [ "xmi_finalize_solve", "mf6xmi_8f90.html#acf0c5a0b42fa9e0423156b713b22761b", null ],
     [ "xmi_finalize_time_step", "mf6xmi_8f90.html#ac693e2880714e2c5d97a752123b19b7b", null ],
     [ "xmi_get_subcomponent_count", "mf6xmi_8f90.html#ab2f6b3177bb1b462e5e6d9280aa5ae3e", null ],
+    [ "xmi_get_version", "mf6xmi_8f90.html#a0eab9b665690ba23232b60a15d75b2d6", null ],
     [ "xmi_prepare_solve", "mf6xmi_8f90.html#aacc5f2206867e41a039b174c491b5fca", null ],
     [ "xmi_prepare_time_step", "mf6xmi_8f90.html#aa078192e78aa3e261fc712bbdf6b38f0", null ],
     [ "xmi_solve", "mf6xmi_8f90.html#a9f45fa8ef43555f9fbb049977c1e0de9", null ],

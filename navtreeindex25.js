@@ -1,5 +1,7 @@
 var NAVTREEINDEX25 =
 {
+"structmawmodule_1_1mawtype.html#a871ca3064920a19f4b28da334bb863bc":[3,0,81,0,95],
+"structmawmodule_1_1mawtype.html#a8adfa7474a9530cbb6b0d7be12b3c4a9":[3,0,81,0,74],
 "structmawmodule_1_1mawtype.html#a8b9d9b96a9cf35405f4396704d0ae657":[3,0,81,0,77],
 "structmawmodule_1_1mawtype.html#a8bcd5166d8d0d07628cfe9c5f1ebcdbb":[3,0,81,0,111],
 "structmawmodule_1_1mawtype.html#a8c4379a6e40b7cf0aac35f347f0e9606":[3,0,81,0,121],
@@ -247,7 +249,5 @@ var NAVTREEINDEX25 =
 "structnumericalsolutionmodule_1_1numericalsolutiontype.html#a389f47e173908b1fd1c149e69a008aae":[3,0,92,0,17],
 "structnumericalsolutionmodule_1_1numericalsolutiontype.html#a3a0f6c75460e44936e409d1ffc68714f":[3,0,92,0,45],
 "structnumericalsolutionmodule_1_1numericalsolutiontype.html#a3a1c9c39853e7d3fa04f843572d7b20b":[3,0,92,0,19],
-"structnumericalsolutionmodule_1_1numericalsolutiontype.html#a3eaeca99e0895ab648743eb60e6b960e":[3,0,92,0,74],
-"structnumericalsolutionmodule_1_1numericalsolutiontype.html#a3fa623755bb0fde7e9c7588ce8686aca":[3,0,92,0,111],
-"structnumericalsolutionmodule_1_1numericalsolutiontype.html#a41fceddae7945d115636bed695c93150":[3,0,92,0,42]
+"structnumericalsolutionmodule_1_1numericalsolutiontype.html#a3eaeca99e0895ab648743eb60e6b960e":[3,0,92,0,74]
 };

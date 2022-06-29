@@ -144,6 +144,9 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:acf0c5a0b42fa9e0423156b713b22761b"><td class="memItemLeft" align="right" valign="top">integer(kind=c_int) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemf6xmi.html#acf0c5a0b42fa9e0423156b713b22761b">xmi_finalize_solve</a> (subcomponent_idx)</td></tr>
 <tr class="memdesc:acf0c5a0b42fa9e0423156b713b22761b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finalize the solve of the system.  <a href="namespacemf6xmi.html#acf0c5a0b42fa9e0423156b713b22761b">More...</a><br /></td></tr>
 <tr class="separator:acf0c5a0b42fa9e0423156b713b22761b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0eab9b665690ba23232b60a15d75b2d6"><td class="memItemLeft" align="right" valign="top">integer(kind=c_int) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemf6xmi.html#a0eab9b665690ba23232b60a15d75b2d6">xmi_get_version</a> (mf_version)</td></tr>
+<tr class="memdesc:a0eab9b665690ba23232b60a15d75b2d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the version string for this component.  <a href="namespacemf6xmi.html#a0eab9b665690ba23232b60a15d75b2d6">More...</a><br /></td></tr>
+<tr class="separator:a0eab9b665690ba23232b60a15d75b2d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8d28c72dda6783a01843bcc2ed56fe3"><td class="memItemLeft" align="right" valign="top">integer(kind=c_int) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemf6xmi.html#af8d28c72dda6783a01843bcc2ed56fe3">get_var_address</a> (c_component_name, c_subcomponent_name, c_var_name, c_var_address)</td></tr>
 <tr class="memdesc:af8d28c72dda6783a01843bcc2ed56fe3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the full address string for a variable.  <a href="namespacemf6xmi.html#af8d28c72dda6783a01843bcc2ed56fe3">More...</a><br /></td></tr>
 <tr class="separator:af8d28c72dda6783a01843bcc2ed56fe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -266,43 +269,43 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>BMI status code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="mf6xmi_8f90_source.html#l00314">314</a> of file <a class="el" href="mf6xmi_8f90_source.html">mf6xmi.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    <span class="comment">!DIR$ ATTRIBUTES DLLEXPORT :: get_var_address</span></div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    <span class="comment">! -- modules</span></div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacememoryhelpermodule.html">memoryhelpermodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacememoryhelpermodule.html#a3791dbc2d4a06a0b9112158cff21f738">create_mem_path</a>, <a class="code" href="namespacememoryhelpermodule.html#abda60b8cd05bba132ea82b23bf12c36c">create_mem_address</a></div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceconstantsmodule.html">constantsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceconstantsmodule.html#a07b1e4cc3a2d7bf5c88fd4426d00279d">lencomponentname</a>, <a class="code" href="namespaceconstantsmodule.html#a8a23c620a738ea7c5a9b5c4893b6bfbb">lenvarname</a>, <a class="code" href="namespaceconstantsmodule.html#ae1ec6380bd0e8e6c89a40d3b97306586">lenmempath</a>, <a class="code" href="namespaceconstantsmodule.html#a124df3d46105cc5604d4a2d748342a9c">lenmemaddress</a></div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    <span class="comment">! -- dummy variables</span></div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    <span class="keywordtype">character(kind=c_char)</span>, <span class="keywordtype">intent(in)</span> :: c_component_name(*)<span class="comment">               !&lt; name of the component (a Model or Solution)</span></div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    <span class="keywordtype">character(kind=c_char)</span>, <span class="keywordtype">intent(in)</span> :: c_subcomponent_name(*)<span class="comment">            !&lt; name of the subcomponent (Package), or an empty</span></div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<span class="comment">                                                                            !! string&#39;&#39; when not applicable</span></div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <span class="keywordtype">character(kind=c_char)</span>, <span class="keywordtype">intent(in)</span> :: c_var_name(*)<span class="comment">                     !&lt; name of the variable</span></div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    <span class="keywordtype">character(kind=c_char)</span>, <span class="keywordtype">intent(out)</span> :: c_var_address(BMI_LENVARADDRESS)<span class="comment"> !&lt; full address of the variable</span></div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    <span class="keywordtype">integer(kind=c_int)</span> :: bmi_status<span class="comment">                                       !&lt; BMI status code</span></div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    <span class="comment">! -- local variables</span></div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    <span class="keywordtype">character(len=LENCOMPONENTNAME)</span> :: component_name</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    <span class="keywordtype">character(len=LENCOMPONENTNAME)</span> :: subcomponent_name</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    <span class="keywordtype">character(len=LENVARNAME)</span> :: variable_name</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    <span class="keywordtype">character(len=LENMEMPATH)</span> :: mem_path</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    <span class="keywordtype">character(len=LENMEMADDRESS)</span> :: mem_address</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160; </div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    <span class="comment">! convert to Fortran strings</span></div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    component_name = char_array_to_string(c_component_name, strlen(c_component_name))</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    subcomponent_name = char_array_to_string(c_subcomponent_name, strlen(c_subcomponent_name))</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    variable_name = char_array_to_string(c_var_name, strlen(c_var_name))</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160; </div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <span class="comment">! create memory address</span></div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    <span class="keywordflow">if</span> (subcomponent_name == <span class="stringliteral">&#39;&#39;</span>) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;      mem_path = <a class="code" href="namespacememoryhelpermodule.html#a3791dbc2d4a06a0b9112158cff21f738">create_mem_path</a>(component_name)</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;      mem_path = <a class="code" href="namespacememoryhelpermodule.html#a3791dbc2d4a06a0b9112158cff21f738">create_mem_path</a>(component_name, subcomponent_name)</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    mem_address = <a class="code" href="namespacememoryhelpermodule.html#abda60b8cd05bba132ea82b23bf12c36c">create_mem_address</a>(mem_path, variable_name)</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160; </div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    <span class="comment">! convert to c string:</span></div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    c_var_address(1:len(trim(mem_address)) + 1) = string_to_char_array(trim(mem_address), len(trim(mem_address)))</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160; </div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    bmi_status = bmi_success</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="mf6xmi_8f90_source.html#l00338">338</a> of file <a class="el" href="mf6xmi_8f90_source.html">mf6xmi.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    <span class="comment">!DIR$ ATTRIBUTES DLLEXPORT :: get_var_address</span></div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    <span class="comment">! -- modules</span></div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacememoryhelpermodule.html">memoryhelpermodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacememoryhelpermodule.html#a3791dbc2d4a06a0b9112158cff21f738">create_mem_path</a>, <a class="code" href="namespacememoryhelpermodule.html#abda60b8cd05bba132ea82b23bf12c36c">create_mem_address</a></div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceconstantsmodule.html">constantsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceconstantsmodule.html#a07b1e4cc3a2d7bf5c88fd4426d00279d">lencomponentname</a>, <a class="code" href="namespaceconstantsmodule.html#a8a23c620a738ea7c5a9b5c4893b6bfbb">lenvarname</a>, <a class="code" href="namespaceconstantsmodule.html#ae1ec6380bd0e8e6c89a40d3b97306586">lenmempath</a>, <a class="code" href="namespaceconstantsmodule.html#a124df3d46105cc5604d4a2d748342a9c">lenmemaddress</a></div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    <span class="comment">! -- dummy variables</span></div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    <span class="keywordtype">character(kind=c_char)</span>, <span class="keywordtype">intent(in)</span> :: c_component_name(*)<span class="comment">               !&lt; name of the component (a Model or Solution)</span></div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;    <span class="keywordtype">character(kind=c_char)</span>, <span class="keywordtype">intent(in)</span> :: c_subcomponent_name(*)<span class="comment">            !&lt; name of the subcomponent (Package), or an empty</span></div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;<span class="comment">                                                                            !! string&#39;&#39; when not applicable</span></div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    <span class="keywordtype">character(kind=c_char)</span>, <span class="keywordtype">intent(in)</span> :: c_var_name(*)<span class="comment">                     !&lt; name of the variable</span></div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    <span class="keywordtype">character(kind=c_char)</span>, <span class="keywordtype">intent(out)</span> :: c_var_address(BMI_LENVARADDRESS)<span class="comment"> !&lt; full address of the variable</span></div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    <span class="keywordtype">integer(kind=c_int)</span> :: bmi_status<span class="comment">                                       !&lt; BMI status code</span></div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    <span class="comment">! -- local variables</span></div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    <span class="keywordtype">character(len=LENCOMPONENTNAME)</span> :: component_name</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    <span class="keywordtype">character(len=LENCOMPONENTNAME)</span> :: subcomponent_name</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    <span class="keywordtype">character(len=LENVARNAME)</span> :: variable_name</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    <span class="keywordtype">character(len=LENMEMPATH)</span> :: mem_path</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    <span class="keywordtype">character(len=LENMEMADDRESS)</span> :: mem_address</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160; </div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    <span class="comment">! convert to Fortran strings</span></div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;    component_name = char_array_to_string(c_component_name, strlen(c_component_name))</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    subcomponent_name = char_array_to_string(c_subcomponent_name, strlen(c_subcomponent_name))</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    variable_name = char_array_to_string(c_var_name, strlen(c_var_name))</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160; </div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    <span class="comment">! create memory address</span></div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    <span class="keywordflow">if</span> (subcomponent_name == <span class="stringliteral">&#39;&#39;</span>) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;      mem_path = <a class="code" href="namespacememoryhelpermodule.html#a3791dbc2d4a06a0b9112158cff21f738">create_mem_path</a>(component_name)</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;      mem_path = <a class="code" href="namespacememoryhelpermodule.html#a3791dbc2d4a06a0b9112158cff21f738">create_mem_path</a>(component_name, subcomponent_name)</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;    mem_address = <a class="code" href="namespacememoryhelpermodule.html#abda60b8cd05bba132ea82b23bf12c36c">create_mem_address</a>(mem_path, variable_name)</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160; </div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;    <span class="comment">! convert to c string:</span></div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;    c_var_address(1:len(trim(mem_address)) + 1) = string_to_char_array(trim(mem_address), len(trim(mem_address)))</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160; </div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    bmi_status = bmi_success</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160; </div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -550,6 +553,53 @@ Here is the call graph for this function:</div>
 </div><!-- fragment -->
 </div>
 </div>
+<a id="a0eab9b665690ba23232b60a15d75b2d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0eab9b665690ba23232b60a15d75b2d6">&#9670;&nbsp;</a></span>xmi_get_version()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer(kind=c_int) function mf6xmi::xmi_get_version </td>
+          <td>(</td>
+          <td class="paramtype">character(kind=c_char), dimension(bmi_lenversion), intent(out)&#160;</td>
+          <td class="paramname"><em>mf_version</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>BMI status code </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="mf6xmi_8f90_source.html#l00308">308</a> of file <a class="el" href="mf6xmi_8f90_source.html">mf6xmi.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    <span class="comment">!DIR$ ATTRIBUTES DLLEXPORT :: xmi_get_version</span></div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <span class="comment">! -- modules</span></div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceversionmodule.html">versionmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceversionmodule.html#ac744f0c8e9c7b16dc127baeb9fd9b3de">versionnumber</a>, <a class="code" href="namespaceversionmodule.html#ab82d1ea64df56737f03bbbe06c1499bd">idevelopmode</a></div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    <span class="comment">! -- dummy variables</span></div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    <span class="keywordtype">character(kind=c_char)</span>, <span class="keywordtype">intent(out)</span> :: mf_version(BMI_LENVERSION)</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    <span class="keywordtype">integer(kind=c_int)</span> :: bmi_status<span class="comment"> !&lt; BMI status code</span></div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    <span class="comment">! -- local variables</span></div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    <span class="keywordtype">character(len=BMI_LENVERSION)</span> :: vstr</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160; </div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="namespaceversionmodule.html#ab82d1ea64df56737f03bbbe06c1499bd">idevelopmode</a> == 1) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;      vstr = <a class="code" href="namespaceversionmodule.html#ac744f0c8e9c7b16dc127baeb9fd9b3de">versionnumber</a>//<span class="stringliteral">&#39;-dev&#39;</span></div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;      vstr = <a class="code" href="namespaceversionmodule.html#ac744f0c8e9c7b16dc127baeb9fd9b3de">versionnumber</a></div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    mf_version = string_to_char_array(vstr, len_trim(vstr))</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    bmi_status = bmi_success</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160; </div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacemf6xmi_a0eab9b665690ba23232b60a15d75b2d6_cgraph.png" border="0" usemap="#namespacemf6xmi_a0eab9b665690ba23232b60a15d75b2d6_cgraph" alt=""/></div>
+<map name="namespacemf6xmi_a0eab9b665690ba23232b60a15d75b2d6_cgraph" id="namespacemf6xmi_a0eab9b665690ba23232b60a15d75b2d6_cgraph">
+<area shape="rect" title="Get the version string for this component." alt="" coords="5,13,195,39"/>
+<area shape="rect" href="namespacemf6bmiutil.html#aa74929c0ef09b51a9d623d04322fff96" title="Convert Fortran string to C&#45;style character string." alt="" coords="243,5,381,47"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="aacc5f2206867e41a039b174c491b5fca"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aacc5f2206867e41a039b174c491b5fca">&#9670;&nbsp;</a></span>xmi_prepare_solve()</h2>
 
@@ -788,18 +838,21 @@ Here is the call graph for this function:</div>
 <div class="ttc" id="anamespaceconstantsmodule_html_a124df3d46105cc5604d4a2d748342a9c"><div class="ttname"><a href="namespaceconstantsmodule.html#a124df3d46105cc5604d4a2d748342a9c">constantsmodule::lenmemaddress</a></div><div class="ttdeci">integer(i4b), parameter lenmemaddress</div><div class="ttdoc">maximum length of the full memory address, including variable name</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00028">Constants.f90:28</a></div></div>
 <div class="ttc" id="anamespacesimvariablesmodule_html"><div class="ttname"><a href="namespacesimvariablesmodule.html">simvariablesmodule</a></div><div class="ttdoc">This module contains simulation variables.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_variables_8f90_source.html#l00009">SimVariables.f90:9</a></div></div>
 <div class="ttc" id="anamespacememoryhelpermodule_html_abda60b8cd05bba132ea82b23bf12c36c"><div class="ttname"><a href="namespacememoryhelpermodule.html#abda60b8cd05bba132ea82b23bf12c36c">memoryhelpermodule::create_mem_address</a></div><div class="ttdeci">character(len=lenmemaddress) function create_mem_address(mem_path, var_name)</div><div class="ttdoc">returns the address string of the memory object</div><div class="ttdef"><b>Definition:</b> <a href="_memory_helper_8f90_source.html#l00043">MemoryHelper.f90:43</a></div></div>
+<div class="ttc" id="anamespaceversionmodule_html_ab82d1ea64df56737f03bbbe06c1499bd"><div class="ttname"><a href="namespaceversionmodule.html#ab82d1ea64df56737f03bbbe06c1499bd">versionmodule::idevelopmode</a></div><div class="ttdeci">integer(i4b), parameter idevelopmode</div><div class="ttdef"><b>Definition:</b> <a href="version_8f90_source.html#l00017">version.f90:17</a></div></div>
 <div class="ttc" id="anamespacenumericalsolutionmodule_html"><div class="ttname"><a href="namespacenumericalsolutionmodule.html">numericalsolutionmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_numerical_solution_8f90_source.html#l00003">NumericalSolution.f90:3</a></div></div>
 <div class="ttc" id="anamespacesimvariablesmodule_html_ae1046045ef436d5259b217750d7490fe"><div class="ttname"><a href="namespacesimvariablesmodule.html#ae1046045ef436d5259b217750d7490fe">simvariablesmodule::istdout</a></div><div class="ttdeci">integer(i4b) istdout</div><div class="ttdoc">unit number for stdout</div><div class="ttdef"><b>Definition:</b> <a href="_sim_variables_8f90_source.html#l00019">SimVariables.f90:19</a></div></div>
+<div class="ttc" id="anamespaceversionmodule_html"><div class="ttname"><a href="namespaceversionmodule.html">versionmodule</a></div><div class="ttdoc">This module contains version information.</div><div class="ttdef"><b>Definition:</b> <a href="version_8f90_source.html#l00007">version.f90:7</a></div></div>
 <div class="ttc" id="anamespaceconstantsmodule_html"><div class="ttname"><a href="namespaceconstantsmodule.html">constantsmodule</a></div><div class="ttdoc">This module contains simulation constants.</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00009">Constants.f90:9</a></div></div>
 <div class="ttc" id="anamespacelistsmodule_html_a733280dd05725ffbe3969344a79a964c"><div class="ttname"><a href="namespacelistsmodule.html#a733280dd05725ffbe3969344a79a964c">listsmodule::solutiongrouplist</a></div><div class="ttdeci">type(listtype), public solutiongrouplist</div><div class="ttdef"><b>Definition:</b> <a href="mf6lists_8f90_source.html#l00022">mf6lists.f90:22</a></div></div>
 <div class="ttc" id="anamespacegwtspcmodule_html_a8af090fd1933a8dc32415504f583aa58"><div class="ttname"><a href="namespacegwtspcmodule.html#a8af090fd1933a8dc32415504f583aa58">gwtspcmodule::initialize</a></div><div class="ttdeci">subroutine initialize(this, dis, id, inunit, iout, name_model, packNameFlow)</div><div class="ttdoc">@ brief Initialize the SPC type</div><div class="ttdef"><b>Definition:</b> <a href="_gwt_spc_8f90_source.html#l00087">GwtSpc.f90:87</a></div></div>
+<div class="ttc" id="anamespaceversionmodule_html_ac744f0c8e9c7b16dc127baeb9fd9b3de"><div class="ttname"><a href="namespaceversionmodule.html#ac744f0c8e9c7b16dc127baeb9fd9b3de">versionmodule::versionnumber</a></div><div class="ttdeci">character(len= *), parameter versionnumber</div><div class="ttdef"><b>Definition:</b> <a href="version_8f90_source.html#l00018">version.f90:18</a></div></div>
 <div class="ttc" id="anamespaceuzfcellgroupmodule_html_a68a93b49ca3845fd453bab598522b55b"><div class="ttname"><a href="namespaceuzfcellgroupmodule.html#a68a93b49ca3845fd453bab598522b55b">uzfcellgroupmodule::solve</a></div><div class="ttdeci">subroutine solve(this, thiswork, jbelow, icell, totfluxtot, ietflag, issflag, iseepflag, hgwf, qfrommvr, ierr, reset_state, trhs, thcof, deriv, watercontent)</div><div class="ttdef"><b>Definition:</b> <a href="_uzf_cell_group_8f90_source.html#l00655">UzfCellGroup.f90:655</a></div></div>
 <div class="ttc" id="anamespaceconstantsmodule_html_a8a23c620a738ea7c5a9b5c4893b6bfbb"><div class="ttname"><a href="namespaceconstantsmodule.html#a8a23c620a738ea7c5a9b5c4893b6bfbb">constantsmodule::lenvarname</a></div><div class="ttdeci">integer(i4b), parameter lenvarname</div><div class="ttdoc">maximum length of a variable name</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00017">Constants.f90:17</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemf6xmi.html">mf6xmi</a></li>
-    <li class="footer">Generated on Mon Jun 27 2022 12:20:53 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Jun 29 2022 08:06:57 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -1,0 +1,4 @@
+<map id="mf6xmi::xmi_get_version" name="mf6xmi::xmi_get_version">
+<area shape="rect" id="node1" title="Get the version string for this component." alt="" coords="5,13,195,39"/>
+<area shape="rect" id="node2" href="$namespacemf6bmiutil.html#aa74929c0ef09b51a9d623d04322fff96" title="Convert Fortran string to C&#45;style character string." alt="" coords="243,5,381,47"/>
+</map>

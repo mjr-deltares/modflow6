@@ -14,5 +14,6 @@ var mf6bmi_util_8f90 =
     [ "bmi_lengridtype", "mf6bmi_util_8f90.html#a6b776f4d76a3146357f84df01776fc98", null ],
     [ "bmi_lenvaraddress", "mf6bmi_util_8f90.html#afb854f164b45b8ef66a1667d42233d08", null ],
     [ "bmi_lenvartype", "mf6bmi_util_8f90.html#a0c556784cad700427c597a7bfcef6acb", null ],
+    [ "bmi_lenversion", "mf6bmi_util_8f90.html#a349be0cd89376c779cbbf2dcf8651432", null ],
     [ "lengridtype", "mf6bmi_util_8f90.html#a8c4009ff210d708a002d99d63d05140b", null ]
 ];
