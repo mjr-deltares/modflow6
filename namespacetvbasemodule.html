@@ -210,7 +210,7 @@ Functions/Subroutines</h2></td></tr>
 <div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;    <span class="comment">! -- If there are no time series property changes,</span></div>
 <div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;    <span class="comment">! -- there is nothing else to be done</span></div>
 <div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;    numlinks = this%tsmanager%CountLinks(<span class="stringliteral">&#39;BND&#39;</span>)</div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;    <span class="keywordflow">if</span>(numlinks &lt;= 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;    <span class="keywordflow">if</span> (numlinks &lt;= 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;      <span class="keywordflow">return</span></div>
 <div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;    <span class="comment">!</span></div>
@@ -220,7 +220,7 @@ Functions/Subroutines</h2></td></tr>
 <div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;    <span class="comment">! -- Reset node K change flags at all time steps except the first of each</span></div>
 <div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;    <span class="comment">! -- period (the first is done in rp(), to allow non-time series changes)</span></div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="namespacetdismodule.html#ad3443c7d7da2a67a75174c39c6d40c84">kstp</a> /= 1) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="namespacetdismodule.html#ad3443c7d7da2a67a75174c39c6d40c84">kstp</a> /= 1) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;      <span class="keyword">call </span>this%reset_change_flags()</div>
 <div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;    <span class="comment">!</span></div>
@@ -232,7 +232,7 @@ Functions/Subroutines</h2></td></tr>
 <div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;<span class="keywordflow">    end do</span></div>
 <div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;    <span class="comment">! -- Terminate if there were errors</span></div>
-<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;    <span class="keywordflow">if</span>(count_errors() &gt; 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;    <span class="keywordflow">if</span> (count_errors() &gt; 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;      <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
 <div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;      <span class="keyword">call </span>ustop()</div>
 <div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;<span class="keywordflow">    end if</span></div>
@@ -302,8 +302,8 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="comment">! -- Create time series manager</span></div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <span class="keyword">call </span>tsmanager_cr(this%tsmanager, &amp;</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;                      this%iout, &amp;</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;                      removetslinksoncompletion = .true., &amp;</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;                      extendtstoendofsimulation = .true.)</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;                      removetslinksoncompletion=.true., &amp;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;                      extendtstoendofsimulation=.true.)</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <span class="comment">! -- Read options</span></div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <span class="keyword">call </span>this%read_options()</div>
@@ -313,7 +313,7 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="keyword">call </span>this%tsmanager%tsmanager_df()</div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="comment">! -- Terminate if any errors were encountered</span></div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="keywordflow">if</span>(count_errors() &gt; 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="keywordflow">if</span> (count_errors() &gt; 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;      <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;      <span class="keyword">call </span>ustop()</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span class="keywordflow">    end if</span></div>
@@ -443,54 +443,54 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: ierr</div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    <span class="comment">! -- formats</span></div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">parameter</span> :: fmtts = &amp;</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;      <span class="stringliteral">&quot;(4x, &#39;TIME-SERIES DATA WILL BE READ FROM FILE: &#39;, a)&quot;</span></div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;      &amp;<span class="stringliteral">&quot;(4x, &#39;TIME-SERIES DATA WILL BE READ FROM FILE: &#39;, a)&quot;</span></div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    <span class="comment">! -- Get options block</span></div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    <span class="keyword">call </span>this%parser%GetBlock(<span class="stringliteral">&#39;OPTIONS&#39;</span>, isfound, ierr, &amp;</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;                              blockrequired=.false., supportopenclose=.true.)</div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    <span class="comment">! -- Parse options block if detected</span></div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="keywordflow">if</span>(isfound) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;      <span class="keyword">write</span>(this%iout, <span class="stringliteral">&#39;(1x,a)&#39;</span>) &amp;</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        <span class="stringliteral">&#39;PROCESSING &#39;</span> // trim(adjustl(this%packName)) // <span class="stringliteral">&#39; OPTIONS&#39;</span></div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="keywordflow">if</span> (isfound) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;      <span class="keyword">write</span> (this%iout, <span class="stringliteral">&#39;(1x,a)&#39;</span>) &amp;</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        <span class="stringliteral">&#39;PROCESSING &#39;</span>//trim(adjustl(this%packName))//<span class="stringliteral">&#39; OPTIONS&#39;</span></div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;      <span class="keywordflow">do</span></div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        <span class="keyword">call </span>this%parser%GetNextLine(endofblock)</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        <span class="keywordflow">if</span>(endofblock) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        <span class="keywordflow">if</span> (endofblock) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;          <span class="keywordflow">exit</span></div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;<span class="keywordflow">        end if</span></div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        <span class="keyword">call </span>this%parser%GetStringCaps(keyword)</div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        <span class="keywordflow">select case</span> (keyword)</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;          <span class="keywordflow">case</span> (<span class="stringliteral">&#39;PRINT_INPUT&#39;</span>)</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;            this%iprpak = 1</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;            <span class="keyword">write</span>(this%iout,<span class="stringliteral">&#39;(4x,a)&#39;</span>) <span class="stringliteral">&#39;TIME-VARYING INPUT WILL BE PRINTED.&#39;</span></div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;          <span class="keywordflow">case</span> (<span class="stringliteral">&#39;TS6&#39;</span>)</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;            <span class="comment">!</span></div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;            <span class="comment">! -- Add a time series file</span></div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;            <span class="keyword">call </span>this%parser%GetStringCaps(keyword)</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;            <span class="keywordflow">if</span>(trim(adjustl(keyword)) /= <span class="stringliteral">&#39;FILEIN&#39;</span>) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;              errmsg = &amp;</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;                <span class="stringliteral">&#39;TS6 keyword must be followed by &quot;FILEIN&quot; then by filename.&#39;</span></div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;              <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(errmsg)</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;              <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;              <span class="keyword">call </span>ustop()</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="keywordflow">            end if</span></div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;            <span class="keyword">call </span>this%parser%GetString(fname)</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;            <span class="keyword">write</span>(this%iout, fmtts) trim(fname)</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;            <span class="keyword">call </span>this%tsmanager%add_tsfile(fname, this%inunit)</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;<span class="keywordflow">          case default</span></div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;            <span class="comment">!</span></div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;            <span class="comment">! -- Defer to subtype to read the option;</span></div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;            <span class="comment">! -- if the subtype can&#39;t handle it, report an error</span></div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;            <span class="keywordflow">if</span>(.not. this%read_option(keyword)) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;              <span class="keyword">write</span>(errmsg, <span class="stringliteral">&#39;(a,3(1x,a),a)&#39;</span>) &amp;</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;                <span class="stringliteral">&#39;Unknown&#39;</span>, trim(adjustl(this%packName)), <span class="stringliteral">&quot;option &#39;&quot;</span>, &amp;</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;                trim(keyword), <span class="stringliteral">&quot;&#39;.&quot;</span></div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;              <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(errmsg)</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;<span class="keywordflow">            end if</span></div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        <span class="keywordflow">case</span> (<span class="stringliteral">&#39;PRINT_INPUT&#39;</span>)</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;          this%iprpak = 1</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;          <span class="keyword">write</span> (this%iout, <span class="stringliteral">&#39;(4x,a)&#39;</span>) <span class="stringliteral">&#39;TIME-VARYING INPUT WILL BE PRINTED.&#39;</span></div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        <span class="keywordflow">case</span> (<span class="stringliteral">&#39;TS6&#39;</span>)</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;          <span class="comment">!</span></div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;          <span class="comment">! -- Add a time series file</span></div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;          <span class="keyword">call </span>this%parser%GetStringCaps(keyword)</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;          <span class="keywordflow">if</span> (trim(adjustl(keyword)) /= <span class="stringliteral">&#39;FILEIN&#39;</span>) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;            errmsg = &amp;</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;              <span class="stringliteral">&#39;TS6 keyword must be followed by &quot;FILEIN&quot; then by filename.&#39;</span></div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;            <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(errmsg)</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;            <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;            <span class="keyword">call </span>ustop()</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="keywordflow">          end if</span></div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;          <span class="keyword">call </span>this%parser%GetString(fname)</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;          <span class="keyword">write</span> (this%iout, fmtts) trim(fname)</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;          <span class="keyword">call </span>this%tsmanager%add_tsfile(fname, this%inunit)</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;<span class="keywordflow">        case default</span></div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;          <span class="comment">!</span></div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;          <span class="comment">! -- Defer to subtype to read the option;</span></div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;          <span class="comment">! -- if the subtype can&#39;t handle it, report an error</span></div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;          <span class="keywordflow">if</span> (.not. this%read_option(keyword)) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;            <span class="keyword">write</span> (errmsg, <span class="stringliteral">&#39;(a,3(1x,a),a)&#39;</span>) &amp;</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;              <span class="stringliteral">&#39;Unknown&#39;</span>, trim(adjustl(this%packName)), <span class="stringliteral">&quot;option &#39;&quot;</span>, &amp;</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;              trim(keyword), <span class="stringliteral">&quot;&#39;.&quot;</span></div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;            <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(errmsg)</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;<span class="keywordflow">          end if</span></div>
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;<span class="keywordflow">        end select</span></div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;<span class="keywordflow">      end do</span></div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;      <span class="keyword">write</span>(this%iout, <span class="stringliteral">&#39;(1x,a)&#39;</span>) &amp;</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        <span class="stringliteral">&#39;END OF &#39;</span> // trim(adjustl(this%packName)) // <span class="stringliteral">&#39; OPTIONS&#39;</span></div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;      <span class="keyword">write</span> (this%iout, <span class="stringliteral">&#39;(1x,a)&#39;</span>) &amp;</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        <span class="stringliteral">&#39;END OF &#39;</span>//trim(adjustl(this%packName))//<span class="stringliteral">&#39; OPTIONS&#39;</span></div>
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    <span class="keywordflow">return</span></div>
@@ -546,40 +546,40 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">pointer</span> :: bndElem =&gt; null()</div>
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <span class="comment">! -- formats</span></div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">parameter</span> :: fmtblkerr = &amp;</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;      <span class="stringliteral">&quot;(&#39;Looking for BEGIN PERIOD iper.  Found &#39;, a, &#39; instead.&#39;)&quot;</span></div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">parameter</span> :: fmtvalchg = &amp;</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;      &amp;<span class="stringliteral">&quot;(&#39;Looking for BEGIN PERIOD iper.  Found &#39;, a, &#39; instead.&#39;)&quot;</span></div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    character(len=*), <span class="keywordtype">parameter</span> :: fmtvalchg = &amp;</div>
 <div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;      <span class="stringliteral">&quot;(a, &#39; package: Setting &#39;, a, &#39; value for cell &#39;, a, &#39; at start of &amp;</span></div>
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;<span class="stringliteral"></span><span class="stringliteral">      &amp;stress period &#39;, i0, &#39; = &#39;, g12.5)&quot;</span></div>
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    <span class="keywordflow">if</span>(this%inunit == 0) <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    <span class="keywordflow">if</span> (this%inunit == 0) <span class="keywordflow">return</span></div>
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    <span class="comment">! -- Get stress period data</span></div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="keywordflow">if</span>(this%ionper &lt; <a class="code" href="namespacetdismodule.html#ae84d6ee69d7bba12d20a6255a398935b">kper</a>) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="keywordflow">if</span> (this%ionper &lt; <a class="code" href="namespacetdismodule.html#ae84d6ee69d7bba12d20a6255a398935b">kper</a>) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;      <span class="comment">!</span></div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;      <span class="comment">! -- Get PERIOD block</span></div>
 <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;      <span class="keyword">call </span>this%parser%GetBlock(<span class="stringliteral">&#39;PERIOD&#39;</span>, isfound, ierr, &amp;</div>
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;                                supportopenclose=.true.)</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;      <span class="keywordflow">if</span>(isfound) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;      <span class="keywordflow">if</span> (isfound) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        <span class="comment">!</span></div>
 <div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;        <span class="comment">! -- Read ionper and check for increasing period numbers</span></div>
 <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        <span class="keyword">call </span>this%read_check_ionper()</div>
 <div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;      <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;        <span class="comment">!</span></div>
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;        <span class="comment">! -- PERIOD block not found</span></div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        <span class="keywordflow">if</span>(ierr &lt; 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        <span class="keywordflow">if</span> (ierr &lt; 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;          <span class="comment">! -- End of file found; data applies for remainder of simulation.</span></div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;          this%ionper = nper + 1</div>
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;          <span class="comment">! -- Found invalid block</span></div>
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;          <span class="keyword">call </span>this%parser%GetCurrentLine(line)</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;          <span class="keyword">write</span>(errmsg, fmtblkerr) adjustl(trim(line))</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;          <span class="keyword">write</span> (errmsg, fmtblkerr) adjustl(trim(line))</div>
 <div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;          <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(errmsg)</div>
 <div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;<span class="keywordflow">        end if</span></div>
 <div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;<span class="keywordflow">      end if</span></div>
 <div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    <span class="comment">! -- Read data if ionper == kper</span></div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    <span class="keywordflow">if</span>(this%ionper == <a class="code" href="namespacetdismodule.html#ae84d6ee69d7bba12d20a6255a398935b">kper</a>) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    <span class="keywordflow">if</span> (this%ionper == <a class="code" href="namespacetdismodule.html#ae84d6ee69d7bba12d20a6255a398935b">kper</a>) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;      <span class="comment">!</span></div>
 <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;      <span class="comment">! -- Reset per-node property change flags</span></div>
 <div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;      <span class="keyword">call </span>this%reset_change_flags()</div>
@@ -587,7 +587,7 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;      havechanges = .false.</div>
 <div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;      <span class="keywordflow">do</span></div>
 <div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;        <span class="keyword">call </span>this%parser%GetNextLine(endofblock)</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;        <span class="keywordflow">if</span>(endofblock) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;        <span class="keywordflow">if</span> (endofblock) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;          <span class="keywordflow">exit</span></div>
 <div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;<span class="keywordflow">        end if</span></div>
 <div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;        <span class="comment">!</span></div>
@@ -597,8 +597,8 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;                                          this%iout)</div>
 <div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;        <span class="comment">!</span></div>
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;        <span class="comment">! -- Validate cell ID</span></div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;        <span class="keywordflow">if</span>(node &lt; 1 .or. node &gt; this%dis%nodes) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;          <span class="keyword">write</span>(errmsg, <span class="stringliteral">&#39;(a,2(1x,a))&#39;</span>) &amp;</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;        <span class="keywordflow">if</span> (node &lt; 1 .or. node &gt; this%dis%nodes) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;          <span class="keyword">write</span> (errmsg, <span class="stringliteral">&#39;(a,2(1x,a))&#39;</span>) &amp;</div>
 <div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;            <span class="stringliteral">&#39;CELLID&#39;</span>, cellid, <span class="stringliteral">&#39;is not in the active model domain.&#39;</span></div>
 <div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;          <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(errmsg)</div>
 <div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;          cycle</div>
@@ -610,8 +610,8 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;        <span class="comment">! -- Get a pointer to the property value given by varName for the node</span></div>
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;        <span class="comment">! -- with the specified cell ID</span></div>
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;        bndelem =&gt; this%get_pointer_to_value(node, varname)</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;        <span class="keywordflow">if</span>(.not. <span class="keyword">associated</span>(bndelem)) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;          <span class="keyword">write</span>(errmsg, <span class="stringliteral">&#39;(a,3(1x,a),a)&#39;</span>) &amp;</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;        <span class="keywordflow">if</span> (.not. <span class="keyword">associated</span>(bndelem)) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;          <span class="keyword">write</span> (errmsg, <span class="stringliteral">&#39;(a,3(1x,a),a)&#39;</span>) &amp;</div>
 <div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;            <span class="stringliteral">&#39;Unknown&#39;</span>, trim(adjustl(this%packName)), <span class="stringliteral">&quot;variable &#39;&quot;</span>, &amp;</div>
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;            trim(varname), <span class="stringliteral">&quot;&#39;.&quot;</span></div>
 <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;          <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(errmsg)</div>
@@ -627,7 +627,7 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;        <span class="comment">!</span></div>
 <div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;        <span class="comment">! -- Report value change</span></div>
 <div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;        <span class="keywordflow">if</span> (this%iprpak /= 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;          <span class="keyword">write</span>(this%iout, fmtvalchg) &amp;</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;          <span class="keyword">write</span> (this%iout, fmtvalchg) &amp;</div>
 <div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;            trim(adjustl(this%packName)), trim(varname), trim(cellid), &amp;</div>
 <div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;            <a class="code" href="namespacetdismodule.html#ae84d6ee69d7bba12d20a6255a398935b">kper</a>, bndelem</div>
 <div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;<span class="keywordflow">        end if</span></div>
@@ -639,13 +639,13 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;      <span class="comment">!</span></div>
 <div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;      <span class="comment">! -- Record that any changes were made at the first time step of the</span></div>
 <div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;      <span class="comment">! -- stress period</span></div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;      <span class="keywordflow">if</span>(havechanges) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;      <span class="keywordflow">if</span> (havechanges) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;        <span class="keyword">call </span>this%set_changed_at(<a class="code" href="namespacetdismodule.html#ae84d6ee69d7bba12d20a6255a398935b">kper</a>, 1)</div>
 <div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;<span class="keywordflow">      end if</span></div>
 <div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;    <span class="comment">! -- Terminate if errors were encountered in the PERIOD block</span></div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    <span class="keywordflow">if</span>(count_errors() &gt; 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    <span class="keywordflow">if</span> (count_errors() &gt; 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;      <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
 <div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;      <span class="keyword">call </span>ustop()</div>
 <div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;<span class="keywordflow">    end if</span></div>
@@ -706,7 +706,7 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keyword">call </span>this%NumericalPackageType%allocate_scalars()</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <span class="comment">! -- Allocate time series manager</span></div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keyword">allocate</span>(this%tsmanager)</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keyword">allocate</span> (this%tsmanager)</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="keywordflow">return</span></div>
 </div><!-- fragment -->
@@ -734,7 +734,7 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;    <span class="keywordtype">class</span>(TvBaseType) :: this</div>
 <div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;    <span class="comment">! -- Deallocate time series manager</span></div>
-<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;    <span class="keyword">deallocate</span>(this%tsmanager)</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;    <span class="keyword">deallocate</span> (this%tsmanager)</div>
 <div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;    <span class="comment">! -- Deallocate parent</span></div>
 <div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;    <span class="keyword">call </span>this%NumericalPackageType%da()</div>
@@ -763,7 +763,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetvbasemodule.html">tvbasemodule</a></li>
-    <li class="footer">Generated on Wed Jun 29 2022 08:07:02 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Jul 13 2022 07:46:54 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -115,12 +115,12 @@ $(document).ready(function(){initNavTree('_solution_group_8f90_source.html','');
 </div><!--header-->
 <div class="contents">
 <a href="_solution_group_8f90.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="namespacesolutiongroupmodule.html">    1</a></span>&#160;<span class="keyword">module</span> <a class="code" href="namespacesolutiongroupmodule.html">solutiongroupmodule</a></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacekindmodule.html">kindmodule</a>,         <span class="keywordtype">only</span>: dp, i4b</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacelistsmodule.html">listsmodule</a>,        <span class="keywordtype">only</span>: <a class="code" href="namespacelistsmodule.html#aa1a3cd1509449addb1bb6d6f4ff0b7fb">basesolutionlist</a></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacekindmodule.html">kindmodule</a>, <span class="keywordtype">only</span>: dp, i4b</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacelistsmodule.html">listsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacelistsmodule.html#aa1a3cd1509449addb1bb6d6f4ff0b7fb">basesolutionlist</a></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacebasesolutionmodule.html">basesolutionmodule</a>, <span class="keywordtype">only</span>: basesolutiontype, <a class="code" href="namespacebasesolutionmodule.html#a325c28d7b2f545c1febe4491f9dcc811">addbasesolutiontolist</a>, &amp;</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;                                <a class="code" href="namespacebasesolutionmodule.html#ad00fcf57eca44c1f8995e3904b1593de">getbasesolutionfromlist</a></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacelistmodule.html">listmodule</a>,         <span class="keywordtype">only</span>: <a class="code" href="structlistmodule_1_1listtype.html">listtype</a></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;  </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacelistmodule.html">listmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structlistmodule_1_1listtype.html">listtype</a></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;  <span class="keywordtype">implicit none</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  <span class="keywordtype">private</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  <span class="keywordtype">public</span> :: <a class="code" href="structsolutiongroupmodule_1_1solutiongrouptype.html">solutiongrouptype</a>, <a class="code" href="namespacesolutiongroupmodule.html#aab26abd6ed674b4c192fa240f2f70b00">addsolutiongrouptolist</a>, &amp;</div>
@@ -128,19 +128,19 @@ $(document).ready(function(){initNavTree('_solution_group_8f90_source.html','');
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  <span class="keywordtype">private</span> :: <a class="code" href="namespacesolutiongroupmodule.html#a24edb8f47b612f3c62752756210e9cca">castassolutiongroupclass</a></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
 <div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="structsolutiongroupmodule_1_1solutiongrouptype.html">   14</a></span>&#160;  <span class="keyword">type</span> :: <a class="code" href="structsolutiongroupmodule_1_1solutiongrouptype.html">solutiongrouptype</a></div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structsolutiongroupmodule_1_1solutiongrouptype.html#a0b4d19e763797889a4be63137cc018e5">   15</a></span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                                :: id</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structsolutiongroupmodule_1_1solutiongrouptype.html#a8997a125230a69a41a02e8631ca13001">   16</a></span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                                :: mxiter</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structsolutiongroupmodule_1_1solutiongrouptype.html#aa33ca04359d57a5d576f0ddbcb488048">   17</a></span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                                :: nsolutions</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structsolutiongroupmodule_1_1solutiongrouptype.html#a5f3a0ebe031aa68d0c81f66a81cb7d90">   18</a></span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">allocatable</span>              :: idsolutions          <span class="comment">!array of solution ids in basesolutionlist</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structsolutiongroupmodule_1_1solutiongrouptype.html#a0b4d19e763797889a4be63137cc018e5">   15</a></span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: id</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structsolutiongroupmodule_1_1solutiongrouptype.html#a8997a125230a69a41a02e8631ca13001">   16</a></span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: mxiter</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structsolutiongroupmodule_1_1solutiongrouptype.html#aa33ca04359d57a5d576f0ddbcb488048">   17</a></span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: nsolutions</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structsolutiongroupmodule_1_1solutiongrouptype.html#a5f3a0ebe031aa68d0c81f66a81cb7d90">   18</a></span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">allocatable</span> :: idsolutions <span class="comment">!array of solution ids in basesolutionlist</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <span class="keyword">contains</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structsolutiongroupmodule_1_1solutiongrouptype.html#af869ee4207f50c5a4869bdaba3c89d65">   20</a></span>&#160;    <span class="keywordtype">procedure</span>          :: <a class="code" href="namespacesolutiongroupmodule.html#aaa5fd45bcce0c9d0a8274a7fc4997050">sgp_ca</a></div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="structsolutiongroupmodule_1_1solutiongrouptype.html#ab7c4aaa420c9484ec440da3e61e6f599">   21</a></span>&#160;    <span class="keywordtype">procedure</span>          :: <a class="code" href="namespacesolutiongroupmodule.html#a91c60a27be3a8223668833373fc927ef">sgp_da</a></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structsolutiongroupmodule_1_1solutiongrouptype.html#af869ee4207f50c5a4869bdaba3c89d65">   20</a></span>&#160;    <span class="keywordtype">procedure</span> :: <a class="code" href="namespacesolutiongroupmodule.html#aaa5fd45bcce0c9d0a8274a7fc4997050">sgp_ca</a></div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="structsolutiongroupmodule_1_1solutiongrouptype.html#ab7c4aaa420c9484ec440da3e61e6f599">   21</a></span>&#160;    <span class="keywordtype">procedure</span> :: <a class="code" href="namespacesolutiongroupmodule.html#a91c60a27be3a8223668833373fc927ef">sgp_da</a></div>
 <div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="structsolutiongroupmodule_1_1solutiongrouptype.html#a8a9394f8809d3271d3f7d3f6323c1a88">   22</a></span>&#160;    <span class="keywordtype">procedure</span>, <span class="keywordtype">private</span> :: <a class="code" href="namespacesolutiongroupmodule.html#ad9b417d7b0708ffc98ebad394156943e">allocate_scalars</a></div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="structsolutiongroupmodule_1_1solutiongrouptype.html#a9d3ac6cc06f43b489b2f7769283e7e54">   23</a></span>&#160;    <span class="keywordtype">procedure</span>          :: <a class="code" href="namespacesolutiongroupmodule.html#a672917943d0ecb296d2d18422b92a731">add_solution</a></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="structsolutiongroupmodule_1_1solutiongrouptype.html#a9d3ac6cc06f43b489b2f7769283e7e54">   23</a></span>&#160;    <span class="keywordtype">procedure</span> :: <a class="code" href="namespacesolutiongroupmodule.html#a672917943d0ecb296d2d18422b92a731">add_solution</a></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keyword">end type </span><a class="code" href="structsolutiongroupmodule_1_1solutiongrouptype.html">solutiongrouptype</a></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keyword">contains</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">contains</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacesolutiongroupmodule.html#a80234e288af53849ccc1c4582e6e6f08">solutiongroup_create</a>(sgp, id)</div>
 <div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="namespacesolutiongroupmodule.html#a80234e288af53849ccc1c4582e6e6f08">   29</a></span>&#160;<span class="comment">! ******************************************************************************</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">! solutiongroup_create -- Create a new solution group</span></div>
@@ -149,17 +149,17 @@ $(document).ready(function(){initNavTree('_solution_group_8f90_source.html','');
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">!    SPECIFICATIONS:</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structsolutiongroupmodule_1_1solutiongrouptype.html">solutiongrouptype</a>), <span class="keywordtype">pointer</span> :: sgp</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span>              :: id</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: id</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">allocate</span>(sgp)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">allocate</span> (sgp)</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">call </span>sgp%allocate_scalars()</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    sgp%id = id</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="comment">! -- return</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">return</span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacesolutiongroupmodule.html#a80234e288af53849ccc1c4582e6e6f08">solutiongroup_create</a></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacesolutiongroupmodule.html#aaa5fd45bcce0c9d0a8274a7fc4997050">sgp_ca</a>(this)</div>
 <div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="namespacesolutiongroupmodule.html#aaa5fd45bcce0c9d0a8274a7fc4997050">   48</a></span>&#160;<span class="comment">! ******************************************************************************</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">! sgp_ca -- Calculate the solution group</span></div>
@@ -171,27 +171,27 @@ $(document).ready(function(){initNavTree('_solution_group_8f90_source.html','');
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">!    SPECIFICATIONS:</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment">! -- modules</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceconstantsmodule.html">constantsmodule</a>,        <span class="keywordtype">only</span>: <a class="code" href="namespaceconstantsmodule.html#a060d310ded5535ce2dc85bd1ca1afd3d">linelength</a></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacesimvariablesmodule.html">simvariablesmodule</a>,     <span class="keywordtype">only</span>: <a class="code" href="namespacesimvariablesmodule.html#a70ea2f76b35a03119367efdd0dd88ccc">iout</a>, <a class="code" href="namespacesimvariablesmodule.html#af3d93d4f351b7a9dd241be0c168954be">isimcnvg</a>, <a class="code" href="namespacesimvariablesmodule.html#a60aca8a96874ad92369d2d692c97da85">laststepfailed</a></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacetdismodule.html">tdismodule</a>,             <span class="keywordtype">only</span>: <a class="code" href="namespacetdismodule.html#ad3443c7d7da2a67a75174c39c6d40c84">kstp</a>, <a class="code" href="namespacetdismodule.html#ae84d6ee69d7bba12d20a6255a398935b">kper</a></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceconstantsmodule.html">constantsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceconstantsmodule.html#a060d310ded5535ce2dc85bd1ca1afd3d">linelength</a></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacesimvariablesmodule.html">simvariablesmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacesimvariablesmodule.html#a70ea2f76b35a03119367efdd0dd88ccc">iout</a>, <a class="code" href="namespacesimvariablesmodule.html#af3d93d4f351b7a9dd241be0c168954be">isimcnvg</a>, <a class="code" href="namespacesimvariablesmodule.html#a60aca8a96874ad92369d2d692c97da85">laststepfailed</a></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacetdismodule.html">tdismodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacetdismodule.html#ad3443c7d7da2a67a75174c39c6d40c84">kstp</a>, <a class="code" href="namespacetdismodule.html#ae84d6ee69d7bba12d20a6255a398935b">kper</a></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="comment">! -- dummy</span></div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structsolutiongroupmodule_1_1solutiongrouptype.html">solutiongrouptype</a>) :: this</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="comment">! -- local</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">class</span>(basesolutiontype),  <span class="keywordtype">pointer</span> :: sp</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">class</span>(basesolutiontype), <span class="keywordtype">pointer</span> :: sp</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: kpicard, isgcnvg, isuppress_output</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: is, isoln</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="comment">! -- formats</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">parameter</span> :: fmtnocnvg =                                 &amp;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;      <span class="stringliteral">&quot;(1X,&#39;Solution Group &#39;, i0, &#39; did not converge for stress period &#39;, i0,  &amp;</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">parameter</span> :: fmtnocnvg = &amp;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;      <span class="stringliteral">&quot;(1X,&#39;Solution Group &#39;, i0, &#39; did not converge for stress period &#39;, i0, &amp;</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="stringliteral"></span><span class="stringliteral">       &amp;&#39; and time step &#39;, i0)&quot;</span></div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="comment">! -- Suppress output during picard iterations</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">if</span>(this%mxiter &gt; 1) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">if</span> (this%mxiter &gt; 1) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      isuppress_output = 1</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      isuppress_output = 0</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keywordflow">    endif</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="comment">! -- set failed flag</span></div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <a class="code" href="namespacesimvariablesmodule.html#a60aca8a96874ad92369d2d692c97da85">laststepfailed</a> = 0</div>
@@ -199,35 +199,35 @@ $(document).ready(function(){initNavTree('_solution_group_8f90_source.html','');
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="comment">! -- Picard loop</span></div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    picardloop: <span class="keywordflow">do</span> kpicard = 1, this%mxiter</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;      <span class="keywordflow">if</span> (this%mxiter &gt; 1) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keyword">write</span>(<a class="code" href="namespacesimvariablesmodule.html#a70ea2f76b35a03119367efdd0dd88ccc">iout</a>,<span class="stringliteral">&#39;(/a,i6/)&#39;</span>) <span class="stringliteral">&#39;SOLUTION GROUP PICARD ITERATION: &#39;</span>, kpicard</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keyword">write</span> (<a class="code" href="namespacesimvariablesmodule.html#a70ea2f76b35a03119367efdd0dd88ccc">iout</a>, <span class="stringliteral">&#39;(/a,i6/)&#39;</span>) <span class="stringliteral">&#39;SOLUTION GROUP PICARD ITERATION: &#39;</span>, kpicard</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keywordflow">      end if</span></div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;      isgcnvg = 1</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;      <span class="keywordflow">do</span> is = 1, this%nsolutions</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        isoln = this%idsolutions(is)</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        sp =&gt; <a class="code" href="namespacebasesolutionmodule.html#ad00fcf57eca44c1f8995e3904b1593de">getbasesolutionfromlist</a>(<a class="code" href="namespacelistsmodule.html#aa1a3cd1509449addb1bb6d6f4ff0b7fb">basesolutionlist</a>, isoln)</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keyword">call </span>sp%sln_ca(isgcnvg, isuppress_output)</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keywordflow">      enddo</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      <span class="keywordflow">if</span>(isgcnvg == 1) <span class="keywordflow">exit</span> picardloop</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keywordflow">    enddo</span> picardloop</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keywordflow">      end do</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      <span class="keywordflow">if</span> (isgcnvg == 1) <span class="keywordflow">exit</span> picardloop</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keywordflow">    end do</span> picardloop</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="comment">! -- if a picard loop was used and the solution group converged</span></div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="comment">!    then rerun the timestep and save the output.  Or if there</span></div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="comment">!    is only one picard iteration, then do nothing as models</span></div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="comment">!    are assumed to be explicitly coupled.</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">if</span>(isgcnvg == 1) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;      <span class="keywordflow">if</span>(this%mxiter &gt; 1) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">if</span> (isgcnvg == 1) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;      <span class="keywordflow">if</span> (this%mxiter &gt; 1) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        isuppress_output = 0</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordflow">do</span> is = 1, this%nsolutions</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;          isoln = this%idsolutions(is)</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;          sp =&gt; <a class="code" href="namespacebasesolutionmodule.html#ad00fcf57eca44c1f8995e3904b1593de">getbasesolutionfromlist</a>(<a class="code" href="namespacelistsmodule.html#aa1a3cd1509449addb1bb6d6f4ff0b7fb">basesolutionlist</a>, isoln)</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;          <span class="keyword">call </span>sp%sln_ca(isgcnvg, isuppress_output)</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keywordflow">        enddo</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keywordflow">      endif</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keywordflow">        end do</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keywordflow">      end if</span></div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;      <a class="code" href="namespacesimvariablesmodule.html#af3d93d4f351b7a9dd241be0c168954be">isimcnvg</a> = 0</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;      <a class="code" href="namespacesimvariablesmodule.html#a60aca8a96874ad92369d2d692c97da85">laststepfailed</a> = 1</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;      <span class="keyword">write</span>(<a class="code" href="namespacesimvariablesmodule.html#a70ea2f76b35a03119367efdd0dd88ccc">iout</a>, fmtnocnvg) this%id, <a class="code" href="namespacetdismodule.html#ae84d6ee69d7bba12d20a6255a398935b">kper</a>, <a class="code" href="namespacetdismodule.html#ad3443c7d7da2a67a75174c39c6d40c84">kstp</a></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="keywordflow">    endif</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;      <span class="keyword">write</span> (<a class="code" href="namespacesimvariablesmodule.html#a70ea2f76b35a03119367efdd0dd88ccc">iout</a>, fmtnocnvg) this%id, <a class="code" href="namespacetdismodule.html#ae84d6ee69d7bba12d20a6255a398935b">kper</a>, <a class="code" href="namespacetdismodule.html#ad3443c7d7da2a67a75174c39c6d40c84">kstp</a></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="comment">! -- return</span></div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordflow">return</span></div>
@@ -243,10 +243,10 @@ $(document).ready(function(){initNavTree('_solution_group_8f90_source.html','');
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structsolutiongroupmodule_1_1solutiongrouptype.html">solutiongrouptype</a>) :: this</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keyword">deallocate</span>(this%id)</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keyword">deallocate</span>(this%mxiter)</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keyword">deallocate</span>(this%nsolutions)</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keyword">deallocate</span>(this%idsolutions)</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keyword">deallocate</span> (this%id)</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keyword">deallocate</span> (this%mxiter)</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keyword">deallocate</span> (this%nsolutions)</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keyword">deallocate</span> (this%idsolutions)</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="comment">! -- return</span></div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keywordflow">return</span></div>
@@ -262,9 +262,9 @@ $(document).ready(function(){initNavTree('_solution_group_8f90_source.html','');
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structsolutiongroupmodule_1_1solutiongrouptype.html">solutiongrouptype</a>) :: this</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keyword">allocate</span>(this%id)</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keyword">allocate</span>(this%mxiter)</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keyword">allocate</span>(this%nsolutions)</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keyword">allocate</span> (this%id)</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keyword">allocate</span> (this%mxiter)</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keyword">allocate</span> (this%nsolutions)</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    this%id = 0</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    this%mxiter = 1</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    this%nsolutions = 0</div>
@@ -299,7 +299,7 @@ $(document).ready(function(){initNavTree('_solution_group_8f90_source.html','');
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keywordflow">return</span></div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacesolutiongroupmodule.html#a672917943d0ecb296d2d18422b92a731">add_solution</a></div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;  <span class="keyword">function </span><a class="code" href="namespacesolutiongroupmodule.html#a24edb8f47b612f3c62752756210e9cca">castassolutiongroupclass</a>(obj) <span class="keyword">result</span> (res)</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;  <span class="keyword">function </span><a class="code" href="namespacesolutiongroupmodule.html#a24edb8f47b612f3c62752756210e9cca">castassolutiongroupclass</a>(obj) <span class="keyword">result</span>(res)</div>
 <div class="line"><a name="l00187"></a><span class="lineno"><a class="line" href="namespacesolutiongroupmodule.html#a24edb8f47b612f3c62752756210e9cca">  187</a></span>&#160;    <span class="keywordtype">implicit none</span></div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(inout)</span> :: obj</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structsolutiongroupmodule_1_1solutiongrouptype.html">solutiongrouptype</a>), <span class="keywordtype">pointer</span> :: res</div>
@@ -317,7 +317,7 @@ $(document).ready(function(){initNavTree('_solution_group_8f90_source.html','');
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacesolutiongroupmodule.html#aab26abd6ed674b4c192fa240f2f70b00">addsolutiongrouptolist</a>(list, solutiongroup)</div>
 <div class="line"><a name="l00202"></a><span class="lineno"><a class="line" href="namespacesolutiongroupmodule.html#aab26abd6ed674b4c192fa240f2f70b00">  202</a></span>&#160;    <span class="keywordtype">implicit none</span></div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structlistmodule_1_1listtype.html">listtype</a>),       <span class="keywordtype">intent(inout)</span> :: list</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structlistmodule_1_1listtype.html">listtype</a>), <span class="keywordtype">intent(inout)</span> :: list</div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structsolutiongroupmodule_1_1solutiongrouptype.html">solutiongrouptype</a>), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(inout)</span> :: solutiongroup</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <span class="comment">! -- local</span></div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span> :: obj</div>
@@ -327,13 +327,13 @@ $(document).ready(function(){initNavTree('_solution_group_8f90_source.html','');
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="keywordflow">return</span></div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacesolutiongroupmodule.html#aab26abd6ed674b4c192fa240f2f70b00">addsolutiongrouptolist</a></div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;  </div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;  <span class="keyword">function </span><a class="code" href="namespacesolutiongroupmodule.html#a7adf638009121f69976a00aa98c604b5">getsolutiongroupfromlist</a>(list, idx) <span class="keyword">result</span> (res)</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;  <span class="keyword">function </span><a class="code" href="namespacesolutiongroupmodule.html#a7adf638009121f69976a00aa98c604b5">getsolutiongroupfromlist</a>(list, idx) <span class="keyword">result</span>(res)</div>
 <div class="line"><a name="l00216"></a><span class="lineno"><a class="line" href="namespacesolutiongroupmodule.html#a7adf638009121f69976a00aa98c604b5">  216</a></span>&#160;    <span class="keywordtype">implicit none</span></div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structlistmodule_1_1listtype.html">listtype</a>),           <span class="keywordtype">intent(inout)</span> :: list</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="keywordtype">integer(I4B)</span>,                  <span class="keywordtype">intent(in)</span>    :: idx</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structsolutiongroupmodule_1_1solutiongrouptype.html">solutiongrouptype</a>), <span class="keywordtype">pointer</span>       :: res</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structlistmodule_1_1listtype.html">listtype</a>), <span class="keywordtype">intent(inout)</span> :: list</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: idx</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structsolutiongroupmodule_1_1solutiongrouptype.html">solutiongrouptype</a>), <span class="keywordtype">pointer</span> :: res</div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="comment">! -- local</span></div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span> :: obj</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="comment">!</span></div>
@@ -379,7 +379,7 @@ $(document).ready(function(){initNavTree('_solution_group_8f90_source.html','');
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_45e973df69963bbfe985a1f7e6db2b6f.html">Solution</a></li><li class="navelem"><a class="el" href="_solution_group_8f90.html">SolutionGroup.f90</a></li>
-    <li class="footer">Generated on Wed Jun 29 2022 08:06:47 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Jul 13 2022 07:46:41 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

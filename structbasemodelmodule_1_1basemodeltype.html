@@ -156,8 +156,7 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:a26a52409976e07184975d4b7d0ec43df"><td class="mdescLeft">&#160;</td><td class="mdescRight">the location in the memory manager where the variables are stored  <a href="structbasemodelmodule_1_1basemodeltype.html#a26a52409976e07184975d4b7d0ec43df">More...</a><br /></td></tr>
 <tr class="separator:a26a52409976e07184975d4b7d0ec43df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68d8d5b3b231a9359787e186f9e19c64"><td class="memItemLeft" align="right" valign="top">character(len=lenmodelname), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbasemodelmodule_1_1basemodeltype.html#a68d8d5b3b231a9359787e186f9e19c64">name</a> =&gt; null()</td></tr>
-<tr class="memdesc:a68d8d5b3b231a9359787e186f9e19c64"><td class="mdescLeft">&#160;</td><td class="mdescRight">name of the model <br  />
-  <a href="structbasemodelmodule_1_1basemodeltype.html#a68d8d5b3b231a9359787e186f9e19c64">More...</a><br /></td></tr>
+<tr class="memdesc:a68d8d5b3b231a9359787e186f9e19c64"><td class="mdescLeft">&#160;</td><td class="mdescRight">name of the model  <a href="structbasemodelmodule_1_1basemodeltype.html#a68d8d5b3b231a9359787e186f9e19c64">More...</a><br /></td></tr>
 <tr class="separator:a68d8d5b3b231a9359787e186f9e19c64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5dcba53267ec5a80b0dd24b806ad9e0"><td class="memItemLeft" align="right" valign="top">character(len=3), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbasemodelmodule_1_1basemodeltype.html#ae5dcba53267ec5a80b0dd24b806ad9e0">macronym</a> =&gt; null()</td></tr>
 <tr class="memdesc:ae5dcba53267ec5a80b0dd24b806ad9e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">3 letter model acronym (GWF, GWT, ...)  <a href="structbasemodelmodule_1_1basemodeltype.html#ae5dcba53267ec5a80b0dd24b806ad9e0">More...</a><br /></td></tr>
@@ -429,7 +428,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="_base_model_8f90_source.html#l00020">20</a> of file <a class="el" href="_base_model_8f90_source.html">BaseModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                :: id               =&gt; null()           <span class="comment">!&lt; model id</span></div>
+<div class="fragment"><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: id =&gt; null() <span class="comment">!&lt; model id</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -454,7 +453,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="_base_model_8f90_source.html#l00019">19</a> of file <a class="el" href="_base_model_8f90_source.html">BaseModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                :: idsoln           =&gt; null()           <span class="comment">!&lt; id of the solution model is in</span></div>
+<div class="fragment"><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: idsoln =&gt; null() <span class="comment">!&lt; id of the solution model is in</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -479,7 +478,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="_base_model_8f90_source.html#l00022">22</a> of file <a class="el" href="_base_model_8f90_source.html">BaseModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                :: inewton          =&gt; null()           <span class="comment">!&lt; newton-raphson flag</span></div>
+<div class="fragment"><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: inewton =&gt; null() <span class="comment">!&lt; newton-raphson flag</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -504,7 +503,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="_base_model_8f90_source.html#l00021">21</a> of file <a class="el" href="_base_model_8f90_source.html">BaseModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                :: iout             =&gt; null()           <span class="comment">!&lt; output unit number</span></div>
+<div class="fragment"><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: iout =&gt; null() <span class="comment">!&lt; output unit number</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -529,7 +528,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="_base_model_8f90_source.html#l00025">25</a> of file <a class="el" href="_base_model_8f90_source.html">BaseModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                :: ipakcb           =&gt; null()           <span class="comment">!&lt; save_flows flag</span></div>
+<div class="fragment"><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: ipakcb =&gt; null() <span class="comment">!&lt; save_flows flag</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -554,7 +553,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="_base_model_8f90_source.html#l00024">24</a> of file <a class="el" href="_base_model_8f90_source.html">BaseModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                :: iprflow          =&gt; null()           <span class="comment">!&lt; flag to print simulated flows</span></div>
+<div class="fragment"><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: iprflow =&gt; null() <span class="comment">!&lt; flag to print simulated flows</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -579,7 +578,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="_base_model_8f90_source.html#l00023">23</a> of file <a class="el" href="_base_model_8f90_source.html">BaseModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                :: iprpak           =&gt; null()           <span class="comment">!&lt; integer flag to echo input</span></div>
+<div class="fragment"><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: iprpak =&gt; null() <span class="comment">!&lt; integer flag to echo input</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -604,7 +603,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="_base_model_8f90_source.html#l00018">18</a> of file <a class="el" href="_base_model_8f90_source.html">BaseModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">character(len=3)</span>, <span class="keywordtype">pointer</span>            :: macronym         =&gt; null()           <span class="comment">!&lt; 3 letter model acronym (GWF, GWT, ...)</span></div>
+<div class="fragment"><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">character(len=3)</span>, <span class="keywordtype">pointer</span> :: macronym =&gt; null() <span class="comment">!&lt; 3 letter model acronym (GWF, GWT, ...)</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -629,7 +628,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="_base_model_8f90_source.html#l00015">15</a> of file <a class="el" href="_base_model_8f90_source.html">BaseModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">character(len=LENMEMPATH)</span>            :: memoryPath<span class="comment">                           !&lt; the location in the memory manager where the variables are stored</span></div>
+<div class="fragment"><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">character(len=LENMEMPATH)</span> :: memoryPath<span class="comment"> !&lt; the location in the memory manager where the variables are stored</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -654,7 +653,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="_base_model_8f90_source.html#l00017">17</a> of file <a class="el" href="_base_model_8f90_source.html">BaseModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">character(len=LENMODELNAME)</span>, <span class="keywordtype">pointer</span> :: name             =&gt; null()           <span class="comment">!&lt; name of the model    </span></div>
+<div class="fragment"><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">character(len=LENMODELNAME)</span>, <span class="keywordtype">pointer</span> :: name =&gt; null() <span class="comment">!&lt; name of the model</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -679,7 +678,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="_base_model_8f90_source.html#l00026">26</a> of file <a class="el" href="_base_model_8f90_source.html">BaseModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">logical</span>, <span class="keywordtype">pointer</span>                     :: single_model_run =&gt; null()           <span class="comment">!&lt; indicate if it is a single model run</span></div>
+<div class="fragment"><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">logical</span>, <span class="keywordtype">pointer</span> :: single_model_run =&gt; null() <span class="comment">!&lt; indicate if it is a single model run</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -692,7 +691,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacebasemodelmodule.html">basemodelmodule</a></li><li class="navelem"><a class="el" href="structbasemodelmodule_1_1basemodeltype.html">basemodeltype</a></li>
-    <li class="footer">Generated on Wed Jun 29 2022 08:06:47 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Jul 13 2022 07:46:42 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -217,8 +217,7 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:a2f45de914ff1fc47b6b8df86f494b425"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This derived type corresponds to the SSM Package, which adds the effects of groundwater sources and sinks to the solute transport equation. <br  />
- </p>
+<div class="textblock"><p>This derived type corresponds to the SSM Package, which adds the effects of groundwater sources and sinks to the solute transport equation. </p>
 
 <p class="definition">Definition at line <a class="el" href="gwt1ssm1_8f90_source.html#l00036">36</a> of file <a class="el" href="gwt1ssm1_8f90_source.html">gwt1ssm1.f90</a>.</p>
 </div><h2 class="groupheader">Member Function/Subroutine Documentation</h2>
@@ -636,7 +635,7 @@ Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwt1ssm1_8f90_source.html#l00042">42</a> of file <a class="el" href="gwt1ssm1_8f90_source.html">gwt1ssm1.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>        :: cnew =&gt; null()        <span class="comment">!&lt; pointer to gwt%x</span></div>
+<div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: cnew =&gt; null() <span class="comment">!&lt; pointer to gwt%x</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -653,7 +652,7 @@ Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwt1ssm1_8f90_source.html#l00043">43</a> of file <a class="el" href="gwt1ssm1_8f90_source.html">gwt1ssm1.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">type</span>(GwtFmiType), <span class="keywordtype">pointer</span>                          :: fmi =&gt; null()         <span class="comment">!&lt; pointer to fmi object</span></div>
+<div class="fragment"><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">type</span>(GwtFmiType), <span class="keywordtype">pointer</span> :: fmi =&gt; null() <span class="comment">!&lt; pointer to fmi object</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -670,7 +669,7 @@ Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwt1ssm1_8f90_source.html#l00040">40</a> of file <a class="el" href="gwt1ssm1_8f90_source.html">gwt1ssm1.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>    :: iauxpak =&gt; null()     <span class="comment">!&lt; aux col for concentration</span></div>
+<div class="fragment"><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: iauxpak =&gt; null() <span class="comment">!&lt; aux col for concentration</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -687,7 +686,7 @@ Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwt1ssm1_8f90_source.html#l00041">41</a> of file <a class="el" href="gwt1ssm1_8f90_source.html">gwt1ssm1.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>    :: ibound =&gt; null()      <span class="comment">!&lt; pointer to model ibound</span></div>
+<div class="fragment"><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: ibound =&gt; null() <span class="comment">!&lt; pointer to model ibound</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -704,7 +703,7 @@ Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwt1ssm1_8f90_source.html#l00039">39</a> of file <a class="el" href="gwt1ssm1_8f90_source.html">gwt1ssm1.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>    :: isrctype =&gt; null()    <span class="comment">!&lt; source type 0 is unspecified, 1 is aux, 2 is auxmixed, 3 is ssmi, 4 is ssmimixed</span></div>
+<div class="fragment"><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: isrctype =&gt; null() <span class="comment">!&lt; source type 0 is unspecified, 1 is aux, 2 is auxmixed, 3 is ssmi, 4 is ssmimixed</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -721,7 +720,7 @@ Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwt1ssm1_8f90_source.html#l00038">38</a> of file <a class="el" href="gwt1ssm1_8f90_source.html">gwt1ssm1.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                              :: nbound<span class="comment">                !&lt; total number of flow boundaries in this time step</span></div>
+<div class="fragment"><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: nbound<span class="comment"> !&lt; total number of flow boundaries in this time step</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -738,7 +737,7 @@ Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwt1ssm1_8f90_source.html#l00044">44</a> of file <a class="el" href="gwt1ssm1_8f90_source.html">gwt1ssm1.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">type</span>(TableType), <span class="keywordtype">pointer</span>                           :: outputtab =&gt; null()   <span class="comment">!&lt; output table object</span></div>
+<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">type</span>(TableType), <span class="keywordtype">pointer</span> :: outputtab =&gt; null() <span class="comment">!&lt; output table object</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -755,7 +754,7 @@ Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwt1ssm1_8f90_source.html#l00045">45</a> of file <a class="el" href="gwt1ssm1_8f90_source.html">gwt1ssm1.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">type</span>(GwtSpcType), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>            :: ssmivec =&gt; null()     <span class="comment">!&lt; array of stress package concentration objects</span></div>
+<div class="fragment"><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">type</span>(GwtSpcType), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: ssmivec =&gt; null() <span class="comment">!&lt; array of stress package concentration objects</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -768,7 +767,7 @@ Private Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacegwtssmmodule.html">gwtssmmodule</a></li><li class="navelem"><a class="el" href="structgwtssmmodule_1_1gwtssmtype.html">gwtssmtype</a></li>
-    <li class="footer">Generated on Wed Jun 29 2022 08:06:52 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Jul 13 2022 07:46:46 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

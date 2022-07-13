@@ -322,8 +322,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:af317fe6b0a9b2ccad4f419a923b6a627"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeddb6197326a485d00beee1e4b5af0d2"><td class="memItemLeft" align="right" valign="top">real(dp), dimension(:), pointer, contiguous&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structuzfmodule_1_1uzftype.html#aeddb6197326a485d00beee1e4b5af0d2">rootact</a> =&gt; null()</td></tr>
 <tr class="separator:aeddb6197326a485d00beee1e4b5af0d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a812ea9ee10b5f26dc7757db87858a765"><td class="memItemLeft" align="right" valign="top">real(dp), dimension(:,:), pointer, contiguous&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structuzfmodule_1_1uzftype.html#a812ea9ee10b5f26dc7757db87858a765">uauxvar</a> =&gt; null()</td></tr>
-<tr class="separator:a812ea9ee10b5f26dc7757db87858a765"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e8063b9734926f9426c2b9fb08641e8"><td class="memItemLeft" align="right" valign="top">real(dp), dimension(:, :), pointer, contiguous&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structuzfmodule_1_1uzftype.html#a7e8063b9734926f9426c2b9fb08641e8">uauxvar</a> =&gt; null()</td></tr>
+<tr class="separator:a7e8063b9734926f9426c2b9fb08641e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f98c18d7aa7a613c4d212e0b6b9a726"><td class="memItemLeft" align="right" valign="top">integer(i4b), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structuzfmodule_1_1uzftype.html#a7f98c18d7aa7a613c4d212e0b6b9a726">iconvchk</a> =&gt; null()</td></tr>
 <tr class="separator:a7f98c18d7aa7a613c4d212e0b6b9a726"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0564672146430aba164bcd2648787dd5"><td class="memItemLeft" align="right" valign="top">real(dp), dimension(:), pointer, contiguous&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structuzfmodule_1_1uzftype.html#a0564672146430aba164bcd2648787dd5">deriv</a> =&gt; null()</td></tr>
@@ -1057,7 +1057,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00085">85</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>         :: appliedinf   =&gt; null()</div>
+<div class="fragment"><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: appliedinf =&gt; null()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1082,7 +1082,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00048">48</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                              :: bditems     =&gt; null()  <span class="comment">!&lt; number of budget items</span></div>
+<div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: bditems =&gt; null() <span class="comment">!&lt; number of budget items</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1107,8 +1107,8 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00050">50</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">character(len=LENBUDTXT)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>,                            &amp;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                              <span class="keywordtype">contiguous</span>               :: bdtxt       =&gt; null()  <span class="comment">!&lt; budget items written to cbc file</span></div>
+<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">character(len=LENBUDTXT)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, &amp;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      <span class="keywordtype">contiguous</span> :: bdtxt =&gt; null() <span class="comment">!&lt; budget items written to cbc file</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1133,7 +1133,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00047">47</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">type</span>(BudgetObjectType), <span class="keywordtype">pointer</span>                    :: budobj      =&gt; null()</div>
+<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">type</span>(BudgetObjectType), <span class="keywordtype">pointer</span> :: budobj =&gt; null()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1283,7 +1283,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00092">92</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>         :: gwd          =&gt; null()</div>
+<div class="fragment"><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: gwd =&gt; null()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1308,7 +1308,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00093">93</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>         :: gwd0         =&gt; null()</div>
+<div class="fragment"><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: gwd0 =&gt; null()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1333,7 +1333,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00094">94</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>         :: gwdtomvr     =&gt; null()</div>
+<div class="fragment"><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: gwdtomvr =&gt; null()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1358,7 +1358,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00090">90</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>         :: gwet         =&gt; null()</div>
+<div class="fragment"><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: gwet =&gt; null()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1383,7 +1383,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00066">66</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>        :: gwfarea     =&gt; null()</div>
+<div class="fragment"><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: gwfarea =&gt; null()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1408,7 +1408,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00065">65</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>        :: gwfbot      =&gt; null()</div>
+<div class="fragment"><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: gwfbot =&gt; null()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1433,7 +1433,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00067">67</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>        :: gwfhcond    =&gt; null()</div>
+<div class="fragment"><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: gwfhcond =&gt; null()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1458,7 +1458,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00063">63</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                              :: gwfiss      =&gt; null()</div>
+<div class="fragment"><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: gwfiss =&gt; null()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1483,7 +1483,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00064">64</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>        :: gwftop      =&gt; null()</div>
+<div class="fragment"><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: gwftop =&gt; null()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1558,7 +1558,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00082">82</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>     :: ia =&gt; null()</div>
+<div class="fragment"><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: ia =&gt; null()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1583,7 +1583,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00044">44</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: ibudcsv =&gt; null()  <span class="comment">!&lt; unit number for csv budget output file</span></div>
+<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: ibudcsv =&gt; null() <span class="comment">!&lt; unit number for csv budget output file</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1658,7 +1658,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00075">75</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                               :: ietflag      =&gt; null()  <span class="comment">!&lt; et flag, 0 is off, 1 or 2 are different types</span></div>
+<div class="fragment"><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: ietflag =&gt; null() <span class="comment">!&lt; et flag, 0 is off, 1 or 2 are different types</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1683,7 +1683,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00076">76</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                               :: igwetflag    =&gt; null()</div>
+<div class="fragment"><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: igwetflag =&gt; null()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1708,7 +1708,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00081">81</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>     :: igwfnode     =&gt; null()</div>
+<div class="fragment"><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: igwfnode =&gt; null()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1733,7 +1733,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00078">78</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                               :: imaxcellcnt  =&gt; null()</div>
+<div class="fragment"><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: imaxcellcnt =&gt; null()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1758,7 +1758,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00089">89</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>         :: infiltration =&gt; null()</div>
+<div class="fragment"><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: infiltration =&gt; null()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1833,7 +1833,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00077">77</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                               :: iseepflag    =&gt; null()</div>
+<div class="fragment"><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: iseepflag =&gt; null()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1858,7 +1858,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00119">119</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                      :: issflag     =&gt; null()</div>
+<div class="fragment"><div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: issflag =&gt; null()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1883,7 +1883,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00120">120</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                      :: issflagold  =&gt; null()</div>
+<div class="fragment"><div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: issflagold =&gt; null()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1908,7 +1908,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00121">121</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                      :: istocb      =&gt; null()</div>
+<div class="fragment"><div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: istocb =&gt; null()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1933,7 +1933,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00079">79</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                               :: iuzf2uzf     =&gt; null()</div>
+<div class="fragment"><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: iuzf2uzf =&gt; null()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1983,7 +1983,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00083">83</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>     :: ja =&gt; null()</div>
+<div class="fragment"><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: ja =&gt; null()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2008,7 +2008,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00049">49</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                              :: nbdtxt      =&gt; null()  <span class="comment">!&lt; number of budget text items</span></div>
+<div class="fragment"><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: nbdtxt =&gt; null() <span class="comment">!&lt; number of budget text items</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2033,7 +2033,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00073">73</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                               :: nodes        =&gt; null()</div>
+<div class="fragment"><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: nodes =&gt; null()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2058,7 +2058,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00071">71</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                               :: nsets        =&gt; null()</div>
+<div class="fragment"><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: nsets =&gt; null()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2083,7 +2083,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00070">70</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                               :: ntrail       =&gt; null()</div>
+<div class="fragment"><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: ntrail =&gt; null()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2108,7 +2108,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00072">72</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                               :: nwav         =&gt; null()</div>
+<div class="fragment"><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: nwav =&gt; null()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2133,7 +2133,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00056">56</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">type</span>(TableType), <span class="keywordtype">pointer</span>                           :: pakcsvtab   =&gt; null()</div>
+<div class="fragment"><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">type</span>(TableType), <span class="keywordtype">pointer</span> :: pakcsvtab =&gt; null()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2208,7 +2208,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00097">97</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>         :: qsto         =&gt; null()  <span class="comment">!&lt; change in stored mobile water per time for this time step</span></div>
+<div class="fragment"><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: qsto =&gt; null() <span class="comment">!&lt; change in stored mobile water per time for this time step</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2233,7 +2233,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00095">95</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>         :: rch          =&gt; null()</div>
+<div class="fragment"><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: rch =&gt; null()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2258,7 +2258,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00096">96</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>         :: rch0         =&gt; null()</div>
+<div class="fragment"><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: rch0 =&gt; null()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2283,7 +2283,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00074">74</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                               :: readflag     =&gt; null()</div>
+<div class="fragment"><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: readflag =&gt; null()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2308,7 +2308,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00086">86</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>         :: rejinf       =&gt; null()</div>
+<div class="fragment"><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: rejinf =&gt; null()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2333,7 +2333,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00087">87</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>         :: rejinf0      =&gt; null()</div>
+<div class="fragment"><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: rejinf0 =&gt; null()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2358,7 +2358,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00088">88</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>         :: rejinftomvr  =&gt; null()</div>
+<div class="fragment"><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: rejinftomvr =&gt; null()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2433,12 +2433,12 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00118">118</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">pointer</span>                          :: totfluxtot  =&gt; null()</div>
+<div class="fragment"><div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">pointer</span> :: totfluxtot =&gt; null()</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a812ea9ee10b5f26dc7757db87858a765"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a812ea9ee10b5f26dc7757db87858a765">&#9670;&nbsp;</a></span>uauxvar</h2>
+<a id="a7e8063b9734926f9426c2b9fb08641e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e8063b9734926f9426c2b9fb08641e8">&#9670;&nbsp;</a></span>uauxvar</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2447,7 +2447,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">real(dp), dimension(:,:), pointer, contiguous uzfmodule::uzftype::uauxvar =&gt; null()</td>
+          <td class="memname">real(dp), dimension(:, :), pointer, contiguous uzfmodule::uzftype::uauxvar =&gt; null()</td>
         </tr>
       </table>
   </td>
@@ -2458,7 +2458,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00109">109</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:,:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: uauxvar =&gt; null()</div>
+<div class="fragment"><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:, :)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: uauxvar =&gt; null()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2483,7 +2483,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00091">91</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>         :: uzet         =&gt; null()</div>
+<div class="fragment"><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: uzet =&gt; null()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2508,8 +2508,8 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00052">52</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">character(len=LENBOUNDNAME)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>,                         &amp;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                                 <span class="keywordtype">contiguous</span> :: uzfname =&gt; null()</div>
+<div class="fragment"><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">character(len=LENBOUNDNAME)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, &amp;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      <span class="keywordtype">contiguous</span> :: uzfname =&gt; null()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2534,7 +2534,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00059">59</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">type</span>(UzfCellGroupType), <span class="keywordtype">pointer</span>                    :: uzfobj      =&gt; null()</div>
+<div class="fragment"><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">type</span>(UzfCellGroupType), <span class="keywordtype">pointer</span> :: uzfobj =&gt; null()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2559,7 +2559,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00060">60</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">type</span>(UzfCellGroupType)                             :: uzfobjwork</div>
+<div class="fragment"><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">type</span>(UzfCellGroupType) :: uzfobjwork</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2584,7 +2584,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00098">98</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>         :: wcnew        =&gt; null()  <span class="comment">!&lt; water content for this time step</span></div>
+<div class="fragment"><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: wcnew =&gt; null() <span class="comment">!&lt; water content for this time step</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2609,7 +2609,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwf3uzf8_8f90_source.html#l00099">99</a> of file <a class="el" href="gwf3uzf8_8f90_source.html">gwf3uzf8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>         :: wcold        =&gt; null()  <span class="comment">!&lt; water content for previous time step</span></div>
+<div class="fragment"><div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: wcold =&gt; null() <span class="comment">!&lt; water content for previous time step</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2622,7 +2622,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceuzfmodule.html">uzfmodule</a></li><li class="navelem"><a class="el" href="structuzfmodule_1_1uzftype.html">uzftype</a></li>
-    <li class="footer">Generated on Wed Jun 29 2022 08:07:04 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Jul 13 2022 07:46:56 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

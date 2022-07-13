@@ -197,8 +197,8 @@ Functions/Subroutines</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="_spatial_model_connection_8f90_source.html#l00512">512</a> of file <a class="el" href="_spatial_model_connection_8f90_source.html">SpatialModelConnection.f90</a>.</p>
 <div class="fragment"><div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;    <span class="keywordtype">implicit none</span></div>
 <div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;    <span class="keywordtype">type</span>(ListType), <span class="keywordtype">intent(inout)</span> :: list<span class="comment">                           !&lt; the list</span></div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;    <span class="keywordtype">class</span>(SpatialModelConnectionType), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(in)</span> :: conn<span class="comment">  !&lt; the connection</span></div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;    <span class="keywordtype">type</span>(ListType), <span class="keywordtype">intent(inout)</span> :: list<span class="comment"> !&lt; the list</span></div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;    <span class="keywordtype">class</span>(SpatialModelConnectionType), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(in)</span> :: conn<span class="comment"> !&lt; the connection</span></div>
 <div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;    <span class="comment">! -- local</span></div>
 <div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span> :: obj</div>
 <div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;    <span class="comment">!</span></div>
@@ -243,7 +243,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_spatial_model_connection_8f90_source.html#l00495">495</a> of file <a class="el" href="_spatial_model_connection_8f90_source.html">SpatialModelConnection.f90</a>.</p>
 <div class="fragment"><div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;    <span class="keywordtype">implicit none</span></div>
-<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(inout)</span> :: obj<span class="comment">           !&lt; object to be cast</span></div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(inout)</span> :: obj<span class="comment"> !&lt; object to be cast</span></div>
 <div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;    <span class="keywordtype">class</span>(SpatialModelConnectionType), <span class="keywordtype">pointer</span> :: res<span class="comment"> !&lt; the instance of SpatialModelConnectionType</span></div>
 <div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;    res =&gt; null()</div>
@@ -318,7 +318,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_spatial_model_connection_8f90_source.html#l00443">443</a> of file <a class="el" href="_spatial_model_connection_8f90_source.html">SpatialModelConnection.f90</a>.</p>
 <div class="fragment"><div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacesimmodule.html">simmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61">ustop</a></div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;    <span class="keywordtype">class</span>(SpatialModelConnectionType) :: this<span class="comment">   !&lt; this connection</span></div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;    <span class="keywordtype">class</span>(SpatialModelConnectionType) :: this<span class="comment"> !&lt; this connection</span></div>
 <div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;    <span class="keywordtype">type</span>(sparsematrix), <span class="keywordtype">intent(inout)</span> :: sparse<span class="comment"> !&lt; the sparse matrix with the cell connections</span></div>
 <div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;    <span class="comment">! local</span></div>
 <div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: ierror</div>
@@ -387,8 +387,8 @@ Here is the call graph for this function:</div>
 <dl class="section return"><dt>Returns</dt><dd>the returned connection </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_spatial_model_connection_8f90_source.html#l00528">528</a> of file <a class="el" href="_spatial_model_connection_8f90_source.html">SpatialModelConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;    <span class="keywordtype">type</span>(ListType), <span class="keywordtype">intent(inout)</span> :: list<span class="comment">             !&lt; the list</span></div>
-<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: idx<span class="comment">                   !&lt; the index of the connection</span></div>
+<div class="fragment"><div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;    <span class="keywordtype">type</span>(ListType), <span class="keywordtype">intent(inout)</span> :: list<span class="comment"> !&lt; the list</span></div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: idx<span class="comment"> !&lt; the index of the connection</span></div>
 <div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;    <span class="keywordtype">class</span>(SpatialModelConnectionType), <span class="keywordtype">pointer</span> :: res<span class="comment"> !&lt; the returned connection</span></div>
 <div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160; </div>
 <div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;    <span class="comment">! local</span></div>
@@ -783,11 +783,11 @@ Here is the call graph for this function:</div>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="_spatial_model_connection_8f90_source.html#l00095">95</a> of file <a class="el" href="_spatial_model_connection_8f90_source.html">SpatialModelConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">class</span>(SpatialModelConnectionType) :: this<span class="comment">                   !&lt; the connection</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType), <span class="keywordtype">intent(in)</span>, <span class="keywordtype">pointer</span> :: model<span class="comment">     !&lt; the model that owns the connection</span></div>
+<div class="fragment"><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">class</span>(SpatialModelConnectionType) :: this<span class="comment"> !&lt; the connection</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType), <span class="keywordtype">intent(in)</span>, <span class="keywordtype">pointer</span> :: model<span class="comment"> !&lt; the model that owns the connection</span></div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">class</span>(DisConnExchangeType), <span class="keywordtype">intent(in)</span>, <span class="keywordtype">pointer</span> :: exchange<span class="comment"> !&lt; the primary exchange from which</span></div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">                                                                !! the connection is created</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: name<span class="comment">                        !&lt; the connection name (for memory management mostly)</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: name<span class="comment"> !&lt; the connection name (for memory management mostly)</span></div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    this%name = name</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    this%memoryPath = <a class="code" href="namespacememoryhelpermodule.html#a3791dbc2d4a06a0b9112158cff21f738">create_mem_path</a>(this%name)</div>
@@ -912,7 +912,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacespatialmodelconnectionmodule.html">spatialmodelconnectionmodule</a></li>
-    <li class="footer">Generated on Wed Jun 29 2022 08:07:01 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Jul 13 2022 07:46:53 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

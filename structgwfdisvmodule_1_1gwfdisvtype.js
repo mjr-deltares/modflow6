@@ -34,7 +34,7 @@ var structgwfdisvmodule_1_1gwfdisvtype =
     [ "bot3d", "structgwfdisvmodule_1_1gwfdisvtype.html#a3ec2ecd66bab74eaa8ff921c6b2f4e5a", null ],
     [ "cell1", "structgwfdisvmodule_1_1gwfdisvtype.html#a40624916cf965f2fdddf1f02db371b93", null ],
     [ "cell2", "structgwfdisvmodule_1_1gwfdisvtype.html#a2ef76eee5d106e11dc0385fd4e11b09a", null ],
-    [ "cellxy", "structgwfdisvmodule_1_1gwfdisvtype.html#a6e6c334d831e386ae66fd64760c536b0", null ],
+    [ "cellxy", "structgwfdisvmodule_1_1gwfdisvtype.html#a9b63844e98e0779cd785f7e7991f1d5c", null ],
     [ "iavert", "structgwfdisvmodule_1_1gwfdisvtype.html#af188d4909c95a8d23bd10ed947ee94ff", null ],
     [ "idomain", "structgwfdisvmodule_1_1gwfdisvtype.html#a4099c2d4fdfe5cf043f82cef3bda3eb0", null ],
     [ "javert", "structgwfdisvmodule_1_1gwfdisvtype.html#afa650821a5076ad4c25cf4586a6737e5", null ],
@@ -42,5 +42,5 @@ var structgwfdisvmodule_1_1gwfdisvtype =
     [ "nlay", "structgwfdisvmodule_1_1gwfdisvtype.html#aa29f7a1dad76a8d8950920d7e4fa3b84", null ],
     [ "nvert", "structgwfdisvmodule_1_1gwfdisvtype.html#a332a967c9271d9a7218681a6788ebd43", null ],
     [ "top2d", "structgwfdisvmodule_1_1gwfdisvtype.html#ac05f2d7cc4ead9f7d2b208a112722928", null ],
-    [ "vertices", "structgwfdisvmodule_1_1gwfdisvtype.html#a790a1b4b9960d67eb883a5b34d959e11", null ]
+    [ "vertices", "structgwfdisvmodule_1_1gwfdisvtype.html#aeefe9d0b223fe22978ba9e6eab195a55", null ]
 ];

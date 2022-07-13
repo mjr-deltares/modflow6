@@ -116,11 +116,11 @@ $(document).ready(function(){initNavTree('gwt1oc1_8f90_source.html',''); initRes
 <div class="contents">
 <a href="gwt1oc1_8f90.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="namespacegwtocmodule.html">    1</a></span>&#160;<span class="keyword">module</span> <a class="code" href="namespacegwtocmodule.html">gwtocmodule</a></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacebasedismodule.html">basedismodule</a>,             <span class="keywordtype">only</span>: disbasetype</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacekindmodule.html">kindmodule</a>,                <span class="keywordtype">only</span>: dp, i4b</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespaceconstantsmodule.html">constantsmodule</a>,           <span class="keywordtype">only</span>: <a class="code" href="namespaceconstantsmodule.html#a2371bf2667814198ff255350fa3e3edd">lenmodelname</a></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespaceoutputcontrolmodule.html">outputcontrolmodule</a>,       <span class="keywordtype">only</span>: outputcontroltype</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespaceoutputcontroldatamodule.html">outputcontroldatamodule</a>,   <span class="keywordtype">only</span>: <a class="code" href="structoutputcontroldatamodule_1_1outputcontroldatatype.html">outputcontroldatatype</a>, <a class="code" href="namespaceoutputcontroldatamodule.html#ad72aec6cda8603dc2702b9aeedadb413">ocd_cr</a></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacebasedismodule.html">basedismodule</a>, <span class="keywordtype">only</span>: disbasetype</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacekindmodule.html">kindmodule</a>, <span class="keywordtype">only</span>: dp, i4b</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespaceconstantsmodule.html">constantsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceconstantsmodule.html#a2371bf2667814198ff255350fa3e3edd">lenmodelname</a></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespaceoutputcontrolmodule.html">outputcontrolmodule</a>, <span class="keywordtype">only</span>: outputcontroltype</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespaceoutputcontroldatamodule.html">outputcontroldatamodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structoutputcontroldatamodule_1_1outputcontroldatatype.html">outputcontroldatatype</a>, <a class="code" href="namespaceoutputcontroldatamodule.html#ad72aec6cda8603dc2702b9aeedadb413">ocd_cr</a></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  <span class="keywordtype">implicit none</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  <span class="keywordtype">private</span></div>
@@ -135,8 +135,8 @@ $(document).ready(function(){initNavTree('gwt1oc1_8f90_source.html',''); initRes
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <span class="keyword">contains</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structgwtocmodule_1_1gwtoctype.html#a8f9d8212d343fdd0f1117cd02d5fca04">   20</a></span>&#160;    <span class="keywordtype">procedure</span> :: <a class="code" href="namespacegwtocmodule.html#a88b4a70f671943b59bb3d807d61d3fef">oc_ar</a></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keyword">end type </span><a class="code" href="structgwtocmodule_1_1gwtoctype.html">gwtoctype</a></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keyword">contains</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">contains</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">  !&gt; @ brief Create GwtOcType</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">  !!</span></div>
@@ -146,13 +146,13 @@ $(document).ready(function(){initNavTree('gwt1oc1_8f90_source.html',''); initRes
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">  !&lt;</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacegwtocmodule.html#a4573cefa4035ffea21ddd641703700b8">oc_cr</a>(ocobj, name_model, inunit, iout)</div>
 <div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="namespacegwtocmodule.html#a4573cefa4035ffea21ddd641703700b8">   32</a></span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structgwtocmodule_1_1gwtoctype.html">gwtoctype</a>), <span class="keywordtype">pointer</span> :: ocobj<span class="comment">            !&lt; GwtOcType object</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: name_model<span class="comment">   !&lt; name of the model</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: inunit<span class="comment">           !&lt; unit number for input</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: iout<span class="comment">             !&lt; unit number for output</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structgwtocmodule_1_1gwtoctype.html">gwtoctype</a>), <span class="keywordtype">pointer</span> :: ocobj<span class="comment"> !&lt; GwtOcType object</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: name_model<span class="comment"> !&lt; name of the model</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: inunit<span class="comment"> !&lt; unit number for input</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: iout<span class="comment"> !&lt; unit number for output</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">! -- Create the object</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">allocate</span>(ocobj)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">allocate</span> (ocobj)</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="comment">! -- Allocate scalars</span></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">call </span>ocobj%allocate_scalars(name_model)</div>
@@ -175,39 +175,39 @@ $(document).ready(function(){initNavTree('gwt1oc1_8f90_source.html',''); initRes
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">  !&lt;</span></div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacegwtocmodule.html#a88b4a70f671943b59bb3d807d61d3fef">oc_ar</a>(this, conc, dis, dnodata)</div>
 <div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="namespacegwtocmodule.html#a88b4a70f671943b59bb3d807d61d3fef">   61</a></span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structgwtocmodule_1_1gwtoctype.html">gwtoctype</a>) :: this<span class="comment">                                          !&lt; GwtOcType object</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>, <span class="keywordtype">intent(in)</span> :: conc<span class="comment">   !&lt; model concentration</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">class</span>(disbasetype), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(in)</span> :: dis<span class="comment">                    !&lt; model discretization package</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">intent(in)</span> :: dnodata<span class="comment">                                   !&lt; no data value</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structgwtocmodule_1_1gwtoctype.html">gwtoctype</a>) :: this<span class="comment"> !&lt; GwtOcType object</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>, <span class="keywordtype">intent(in)</span> :: conc<span class="comment"> !&lt; model concentration</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">class</span>(disbasetype), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(in)</span> :: dis<span class="comment"> !&lt; model discretization package</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">intent(in)</span> :: dnodata<span class="comment"> !&lt; no data value</span></div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="comment">! -- local</span></div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i, nocdobj, inodata</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structoutputcontroldatamodule_1_1outputcontroldatatype.html">outputcontroldatatype</a>), <span class="keywordtype">pointer</span>   :: ocdobjptr</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structoutputcontroldatamodule_1_1outputcontroldatatype.html">outputcontroldatatype</a>), <span class="keywordtype">pointer</span> :: ocdobjptr</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: nullvec =&gt; null()</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="comment">! -- Initialize variables</span></div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    inodata = 0</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    nocdobj = 2</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">allocate</span>(this%ocdobj(nocdobj))</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">allocate</span> (this%ocdobj(nocdobj))</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">do</span> i = 1, nocdobj</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      <span class="keyword">call </span><a class="code" href="namespaceoutputcontroldatamodule.html#ad72aec6cda8603dc2702b9aeedadb413">ocd_cr</a>(ocdobjptr)</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      <span class="keywordflow">select case</span> (i)</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      <span class="keywordflow">case</span> (1)</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keyword">call </span>ocdobjptr%init_dbl(<span class="stringliteral">&#39;BUDGET&#39;</span>, nullvec, dis, <span class="stringliteral">&#39;PRINT LAST &#39;</span>,         &amp;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                                <span class="stringliteral">&#39;COLUMNS 10 WIDTH 11 DIGITS 4 GENERAL &#39;</span>,       &amp;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keyword">call </span>ocdobjptr%init_dbl(<span class="stringliteral">&#39;BUDGET&#39;</span>, nullvec, dis, <span class="stringliteral">&#39;PRINT LAST &#39;</span>, &amp;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                                <span class="stringliteral">&#39;COLUMNS 10 WIDTH 11 DIGITS 4 GENERAL &#39;</span>, &amp;</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                                this%iout, dnodata)</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      <span class="keywordflow">case</span> (2)</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keyword">call </span>ocdobjptr%init_dbl(<span class="stringliteral">&#39;CONCENTRATION&#39;</span>, conc, dis, <span class="stringliteral">&#39;PRINT LAST &#39;</span>,     &amp;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                                <span class="stringliteral">&#39;COLUMNS 10 WIDTH 11 DIGITS 4 GENERAL &#39;</span>,       &amp;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keyword">call </span>ocdobjptr%init_dbl(<span class="stringliteral">&#39;CONCENTRATION&#39;</span>, conc, dis, <span class="stringliteral">&#39;PRINT LAST &#39;</span>, &amp;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                                <span class="stringliteral">&#39;COLUMNS 10 WIDTH 11 DIGITS 4 GENERAL &#39;</span>, &amp;</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                                this%iout, dnodata)</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keywordflow">      end select</span></div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      this%ocdobj(i) = ocdobjptr</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;      <span class="keyword">deallocate</span>(ocdobjptr)</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keywordflow">    enddo</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;      <span class="keyword">deallocate</span> (ocdobjptr)</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keywordflow">    end do</span></div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="comment">! -- Read options or set defaults if this package not on</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">if</span>(this%inunit &gt; 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">if</span> (this%inunit &gt; 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      <span class="keyword">call </span>this%read_options()</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keywordflow">    endif</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="comment">! -- Return</span></div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">return</span></div>
@@ -232,7 +232,7 @@ $(document).ready(function(){initNavTree('gwt1oc1_8f90_source.html',''); initRes
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_32e188284d239da8bb14ec1dabb0c35f.html">Model</a></li><li class="navelem"><a class="el" href="dir_5ac382e795535087161f2a8b7f95a830.html">GroundWaterTransport</a></li><li class="navelem"><a class="el" href="gwt1oc1_8f90.html">gwt1oc1.f90</a></li>
-    <li class="footer">Generated on Wed Jun 29 2022 08:06:46 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Jul 13 2022 07:46:41 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

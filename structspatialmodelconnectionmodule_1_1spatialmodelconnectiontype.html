@@ -672,7 +672,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="_spatial_model_connection_8f90_source.html#l00049">49</a> of file <a class="el" href="_spatial_model_connection_8f90_source.html">SpatialModelConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>     :: active =&gt; null()   <span class="comment">!&lt; cell status (c.f. ibound) of interface system</span></div>
+<div class="fragment"><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: active =&gt; null() <span class="comment">!&lt; cell status (c.f. ibound) of interface system</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -689,7 +689,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="_spatial_model_connection_8f90_source.html#l00046">46</a> of file <a class="el" href="_spatial_model_connection_8f90_source.html">SpatialModelConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>         :: amat =&gt; null()     <span class="comment">!&lt; matrix coefficients</span></div>
+<div class="fragment"><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: amat =&gt; null() <span class="comment">!&lt; matrix coefficients</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -706,7 +706,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="_spatial_model_connection_8f90_source.html#l00038">38</a> of file <a class="el" href="_spatial_model_connection_8f90_source.html">SpatialModelConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>               :: exchangeStencilDepth =&gt; null() <span class="comment">!&lt; size of the computational stencil at the interface</span></div>
+<div class="fragment"><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: exchangeStencilDepth =&gt; null() <span class="comment">!&lt; size of the computational stencil at the interface</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -723,7 +723,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="_spatial_model_connection_8f90_source.html#l00035">35</a> of file <a class="el" href="_spatial_model_connection_8f90_source.html">SpatialModelConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">type</span>(ListType)                      :: globalExchanges<span class="comment">                !&lt; all exchanges in the same solution</span></div>
+<div class="fragment"><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">type</span>(ListType) :: globalExchanges<span class="comment"> !&lt; all exchanges in the same solution</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -757,7 +757,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="_spatial_model_connection_8f90_source.html#l00044">44</a> of file <a class="el" href="_spatial_model_connection_8f90_source.html">SpatialModelConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>     :: ia =&gt; null()       <span class="comment">!&lt; sparse indexing IA</span></div>
+<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: ia =&gt; null() <span class="comment">!&lt; sparse indexing IA</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -774,7 +774,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="_spatial_model_connection_8f90_source.html#l00031">31</a> of file <a class="el" href="_spatial_model_connection_8f90_source.html">SpatialModelConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType), <span class="keywordtype">pointer</span>  :: interfaceModel =&gt; null()       <span class="comment">!&lt; the interface model</span></div>
+<div class="fragment"><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType), <span class="keywordtype">pointer</span> :: interfaceModel =&gt; null() <span class="comment">!&lt; the interface model</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -791,7 +791,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="_spatial_model_connection_8f90_source.html#l00036">36</a> of file <a class="el" href="_spatial_model_connection_8f90_source.html">SpatialModelConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>               :: internalStencilDepth =&gt; null() <span class="comment">!&lt; size of the computational stencil for the interior</span></div>
+<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: internalStencilDepth =&gt; null() <span class="comment">!&lt; size of the computational stencil for the interior</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -808,7 +808,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="_spatial_model_connection_8f90_source.html#l00045">45</a> of file <a class="el" href="_spatial_model_connection_8f90_source.html">SpatialModelConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>     :: ja =&gt; null()       <span class="comment">!&lt; sparse indexing JA</span></div>
+<div class="fragment"><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: ja =&gt; null() <span class="comment">!&lt; sparse indexing JA</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -825,7 +825,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="_spatial_model_connection_8f90_source.html#l00053">53</a> of file <a class="el" href="_spatial_model_connection_8f90_source.html">SpatialModelConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: mapIdxToSln =&gt; null()   <span class="comment">!&lt; mapping between interface matrix and the solution matrix</span></div>
+<div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: mapIdxToSln =&gt; null() <span class="comment">!&lt; mapping between interface matrix and the solution matrix</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -842,7 +842,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="_spatial_model_connection_8f90_source.html#l00042">42</a> of file <a class="el" href="_spatial_model_connection_8f90_source.html">SpatialModelConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                               :: neq =&gt; null()      <span class="comment">!&lt; nr. of equations in matrix system</span></div>
+<div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: neq =&gt; null() <span class="comment">!&lt; nr. of equations in matrix system</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -859,7 +859,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="_spatial_model_connection_8f90_source.html#l00043">43</a> of file <a class="el" href="_spatial_model_connection_8f90_source.html">SpatialModelConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                               :: nja =&gt; null()      <span class="comment">!&lt; nr. of nonzero matrix elements</span></div>
+<div class="fragment"><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: nja =&gt; null() <span class="comment">!&lt; nr. of nonzero matrix elements</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -876,7 +876,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="_spatial_model_connection_8f90_source.html#l00032">32</a> of file <a class="el" href="_spatial_model_connection_8f90_source.html">SpatialModelConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>               :: nrOfConnections =&gt; null()      <span class="comment">!&lt; total nr. of connected cells (primary)</span></div>
+<div class="fragment"><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: nrOfConnections =&gt; null() <span class="comment">!&lt; total nr. of connected cells (primary)</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -893,7 +893,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="_spatial_model_connection_8f90_source.html#l00030">30</a> of file <a class="el" href="_spatial_model_connection_8f90_source.html">SpatialModelConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType), <span class="keywordtype">pointer</span>  :: owner =&gt; null()                <span class="comment">!&lt; the model whose connection this is</span></div>
+<div class="fragment"><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType), <span class="keywordtype">pointer</span> :: owner =&gt; null() <span class="comment">!&lt; the model whose connection this is</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -910,7 +910,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="_spatial_model_connection_8f90_source.html#l00034">34</a> of file <a class="el" href="_spatial_model_connection_8f90_source.html">SpatialModelConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">class</span>(DisConnExchangeType), <span class="keywordtype">pointer</span> :: primaryExchange =&gt; null()      <span class="comment">!&lt; the exchange for which the interface model is created</span></div>
+<div class="fragment"><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">class</span>(DisConnExchangeType), <span class="keywordtype">pointer</span> :: primaryExchange =&gt; null() <span class="comment">!&lt; the exchange for which the interface model is created</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -927,7 +927,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="_spatial_model_connection_8f90_source.html#l00047">47</a> of file <a class="el" href="_spatial_model_connection_8f90_source.html">SpatialModelConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>         :: rhs =&gt; null()      <span class="comment">!&lt; rhs of interface system</span></div>
+<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: rhs =&gt; null() <span class="comment">!&lt; rhs of interface system</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -944,7 +944,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="_spatial_model_connection_8f90_source.html#l00048">48</a> of file <a class="el" href="_spatial_model_connection_8f90_source.html">SpatialModelConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>         :: x =&gt; null()        <span class="comment">!&lt; dependent variable of interface system</span></div>
+<div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: x =&gt; null() <span class="comment">!&lt; dependent variable of interface system</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -957,7 +957,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacespatialmodelconnectionmodule.html">spatialmodelconnectionmodule</a></li><li class="navelem"><a class="el" href="structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html">spatialmodelconnectiontype</a></li>
-    <li class="footer">Generated on Wed Jun 29 2022 08:07:01 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Jul 13 2022 07:46:53 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

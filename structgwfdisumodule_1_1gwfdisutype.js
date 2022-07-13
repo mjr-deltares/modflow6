@@ -32,7 +32,7 @@ var structgwfdisumodule_1_1gwfdisutype =
     [ "angldegxinp", "structgwfdisumodule_1_1gwfdisutype.html#adb80147afd2baa40bdacd2c06dfc416f", null ],
     [ "area1d", "structgwfdisumodule_1_1gwfdisutype.html#a7f1a09e782b572fc495755347f9e6768", null ],
     [ "bot1d", "structgwfdisumodule_1_1gwfdisutype.html#a0658c2a7921415c5578963ecc0dba89b", null ],
-    [ "cellxy", "structgwfdisumodule_1_1gwfdisutype.html#a20faac347f948a109681d61c91670c37", null ],
+    [ "cellxy", "structgwfdisumodule_1_1gwfdisutype.html#aff580e792fc84766477ca3ce4e91e2fd", null ],
     [ "cl12inp", "structgwfdisumodule_1_1gwfdisutype.html#a3be61249b6d51e26d1d38beadb8250f4", null ],
     [ "hwvainp", "structgwfdisumodule_1_1gwfdisutype.html#a65669baa030d8c53caf06af7da1a5623", null ],
     [ "iainp", "structgwfdisumodule_1_1gwfdisutype.html#a8f0038708197d67a50716edc4b947c6d", null ],
@@ -46,6 +46,6 @@ var structgwfdisumodule_1_1gwfdisutype =
     [ "nvert", "structgwfdisumodule_1_1gwfdisutype.html#a859a0e22b75560c5bcbeb1b0ee85f125", null ],
     [ "readfromfile", "structgwfdisumodule_1_1gwfdisutype.html#abc2eddaea68f2a2f834afb187e30457b", null ],
     [ "top1d", "structgwfdisumodule_1_1gwfdisutype.html#a256c0942b5b78acb41b00e31d7e5a844", null ],
-    [ "vertices", "structgwfdisumodule_1_1gwfdisutype.html#a0ba198b7bf00580b8446b9f6ccd7903f", null ],
+    [ "vertices", "structgwfdisumodule_1_1gwfdisutype.html#ab21429ce1501b7f62b37f8ca3a86c83c", null ],
     [ "voffsettol", "structgwfdisumodule_1_1gwfdisutype.html#a2cc16026a05eb1b57325b08276271f01", null ]
 ];

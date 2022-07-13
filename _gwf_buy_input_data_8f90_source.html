@@ -126,15 +126,15 @@ $(document).ready(function(){initNavTree('_gwf_buy_input_data_8f90_source.html',
 <div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="structgwfbuyinputdatamodule_1_1gwfbuyinputdatatype.html">   10</a></span>&#160;  <span class="keyword">type</span>, <span class="keyword">public</span> :: <a class="code" href="structgwfbuyinputdatamodule_1_1gwfbuyinputdatatype.html">gwfbuyinputdatatype</a></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="comment">! options</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="structgwfbuyinputdatamodule_1_1gwfbuyinputdatatype.html#a8f9443f582354e36ec51562a59b2b503">   13</a></span>&#160;    <span class="keywordtype">integer(I4B)</span> :: iform<span class="comment">                                                   !&lt; see BUY for description</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="structgwfbuyinputdatamodule_1_1gwfbuyinputdatatype.html#afbcc7bac8f3aa5a77270c21b82e6a6d5">   14</a></span>&#160;<span class="keywordtype">    real</span>(dp) :: denseref<span class="comment">                                                    !&lt; see BUY for description</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="structgwfbuyinputdatamodule_1_1gwfbuyinputdatatype.html#a8f9443f582354e36ec51562a59b2b503">   13</a></span>&#160;    <span class="keywordtype">integer(I4B)</span> :: iform<span class="comment"> !&lt; see BUY for description</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="structgwfbuyinputdatamodule_1_1gwfbuyinputdatatype.html#afbcc7bac8f3aa5a77270c21b82e6a6d5">   14</a></span>&#160;<span class="keywordtype">    real</span>(dp) :: denseref<span class="comment"> !&lt; see BUY for description</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="comment">! dim</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structgwfbuyinputdatamodule_1_1gwfbuyinputdatatype.html#a6c8ae2ef74395592782894e4bdfaba87">   16</a></span>&#160;    <span class="keywordtype">integer(I4B)</span> :: nrhospecies<span class="comment">                                             !&lt; see BUY for description</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structgwfbuyinputdatamodule_1_1gwfbuyinputdatatype.html#a6c8ae2ef74395592782894e4bdfaba87">   16</a></span>&#160;    <span class="keywordtype">integer(I4B)</span> :: nrhospecies<span class="comment"> !&lt; see BUY for description</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="comment">! pkg data</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structgwfbuyinputdatamodule_1_1gwfbuyinputdatatype.html#aaecf8096682cc8e06305a86a40d4735f">   19</a></span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: drhodc  =&gt; null()        <span class="comment">!&lt; see BUY for description</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structgwfbuyinputdatamodule_1_1gwfbuyinputdatatype.html#ad91f0dcdea70f17c702051656e8d6496">   20</a></span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: crhoref =&gt; null()        <span class="comment">!&lt; see BUY for description</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="structgwfbuyinputdatamodule_1_1gwfbuyinputdatatype.html#a889b4d7a7671929b5e05a9372db354f9">   21</a></span>&#160;    <span class="keywordtype">character(len=LENMODELNAME)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">allocatable</span> :: cmodelname<span class="comment">    !&lt; see BUY for description</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structgwfbuyinputdatamodule_1_1gwfbuyinputdatatype.html#aaecf8096682cc8e06305a86a40d4735f">   19</a></span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: drhodc =&gt; null() <span class="comment">!&lt; see BUY for description</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structgwfbuyinputdatamodule_1_1gwfbuyinputdatatype.html#ad91f0dcdea70f17c702051656e8d6496">   20</a></span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: crhoref =&gt; null() <span class="comment">!&lt; see BUY for description</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="structgwfbuyinputdatamodule_1_1gwfbuyinputdatatype.html#a889b4d7a7671929b5e05a9372db354f9">   21</a></span>&#160;    <span class="keywordtype">character(len=LENMODELNAME)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">allocatable</span> :: cmodelname<span class="comment"> !&lt; see BUY for description</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="structgwfbuyinputdatamodule_1_1gwfbuyinputdatatype.html#aa73750ff3785c9b8b4ec57e064a88237">   22</a></span>&#160;    <span class="keywordtype">character(len=LENAUXNAME)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">allocatable</span> :: cauxspeciesname<span class="comment"> !&lt; see BUY for description</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keyword">contains</span></div>
@@ -148,12 +148,12 @@ $(document).ready(function(){initNavTree('_gwf_buy_input_data_8f90_source.html',
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">!&lt;</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacegwfbuyinputdatamodule.html#aed4c4c1b01f38abb9d96617cb591d592">construct</a>(this, nrhospecies)</div>
 <div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="namespacegwfbuyinputdatamodule.html#aed4c4c1b01f38abb9d96617cb591d592">   34</a></span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structgwfbuyinputdatamodule_1_1gwfbuyinputdatatype.html">gwfbuyinputdatatype</a>) :: this<span class="comment"> !&lt; the input data block</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: nrhospecies<span class="comment">        !&lt; the number of species</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: nrhospecies<span class="comment"> !&lt; the number of species</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">allocate</span>(this%drhodc(nrhospecies))</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">allocate</span>(this%crhoref(nrhospecies))</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">allocate</span>(this%cmodelname(nrhospecies))</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">allocate</span>(this%cauxspeciesname(nrhospecies))</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">allocate</span> (this%drhodc(nrhospecies))</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">allocate</span> (this%crhoref(nrhospecies))</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">allocate</span> (this%cmodelname(nrhospecies))</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">allocate</span> (this%cauxspeciesname(nrhospecies))</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacegwfbuyinputdatamodule.html#aed4c4c1b01f38abb9d96617cb591d592">construct</a></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment"></span> </div>
@@ -162,14 +162,14 @@ $(document).ready(function(){initNavTree('_gwf_buy_input_data_8f90_source.html',
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacegwfbuyinputdatamodule.html#a08b5ff47ea6f1a5698c56ef328080179">destruct</a>(this)</div>
 <div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="namespacegwfbuyinputdatamodule.html#a08b5ff47ea6f1a5698c56ef328080179">   47</a></span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structgwfbuyinputdatamodule_1_1gwfbuyinputdatatype.html">gwfbuyinputdatatype</a>) :: this<span class="comment"> !&lt; the input data block</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">deallocate</span>(this%drhodc)</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">deallocate</span>(this%crhoref)</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">deallocate</span>(this%cmodelname)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">deallocate</span>(this%cauxspeciesname)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">deallocate</span> (this%drhodc)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">deallocate</span> (this%crhoref)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">deallocate</span> (this%cmodelname)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">deallocate</span> (this%cauxspeciesname)</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacegwfbuyinputdatamodule.html#a08b5ff47ea6f1a5698c56ef328080179">destruct</a></div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">end module </span>GwfBuyInputDataModule</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">end module </span><a class="code" href="namespacegwfbuyinputdatamodule.html">gwfbuyinputdatamodule</a></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="anamespacekindmodule_html"><div class="ttname"><a href="namespacekindmodule.html">kindmodule</a></div><div class="ttdoc">This module defines variable data types.</div><div class="ttdef"><b>Definition:</b> <a href="kind_8f90_source.html#l00008">kind.f90:8</a></div></div>
@@ -185,7 +185,7 @@ $(document).ready(function(){initNavTree('_gwf_buy_input_data_8f90_source.html',
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_32e188284d239da8bb14ec1dabb0c35f.html">Model</a></li><li class="navelem"><a class="el" href="dir_c1f30da02202fb3f19a3c29076dafee1.html">ModelUtilities</a></li><li class="navelem"><a class="el" href="_gwf_buy_input_data_8f90.html">GwfBuyInputData.f90</a></li>
-    <li class="footer">Generated on Wed Jun 29 2022 08:06:46 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Jul 13 2022 07:46:41 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

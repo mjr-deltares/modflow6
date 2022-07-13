@@ -60,7 +60,7 @@ var structxt3dmodule_1_1xt3dtype =
     [ "nozee", "structxt3dmodule_1_1xt3dtype.html#a7eb5ba8f3e9fbe40cd697a2c1e1193ea", null ],
     [ "numextnbrs", "structxt3dmodule_1_1xt3dtype.html#ab02d2924d43cd0b7f2f6b59ba12c799b", null ],
     [ "qsat", "structxt3dmodule_1_1xt3dtype.html#a7c33effc1f2b7c476b4d25c1222c6608", null ],
-    [ "rmatck", "structxt3dmodule_1_1xt3dtype.html#a2d8a724bd5bacf70389cbd1b802de4e4", null ],
+    [ "rmatck", "structxt3dmodule_1_1xt3dtype.html#a6aabeaa4574abba3bf4793f7fcc52283", null ],
     [ "sat", "structxt3dmodule_1_1xt3dtype.html#ae7498daacc5c9092e40bf6fd72b2ec82", null ],
     [ "vcthresh", "structxt3dmodule_1_1xt3dtype.html#abacfb2e287d1137cfee9772536f745fb", null ]
 ];

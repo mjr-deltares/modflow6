@@ -169,12 +169,12 @@ Functions/Subroutines</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_gwf_buy_input_data_8f90_source.html#l00034">34</a> of file <a class="el" href="_gwf_buy_input_data_8f90_source.html">GwfBuyInputData.f90</a>.</p>
 <div class="fragment"><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">class</span>(GwfBuyInputDataType) :: this<span class="comment"> !&lt; the input data block</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: nrhospecies<span class="comment">        !&lt; the number of species</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: nrhospecies<span class="comment"> !&lt; the number of species</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">allocate</span>(this%drhodc(nrhospecies))</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">allocate</span>(this%crhoref(nrhospecies))</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">allocate</span>(this%cmodelname(nrhospecies))</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">allocate</span>(this%cauxspeciesname(nrhospecies))</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">allocate</span> (this%drhodc(nrhospecies))</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">allocate</span> (this%crhoref(nrhospecies))</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">allocate</span> (this%cmodelname(nrhospecies))</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">allocate</span> (this%cauxspeciesname(nrhospecies))</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
 </div><!-- fragment -->
 </div>
@@ -212,10 +212,10 @@ Functions/Subroutines</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="_gwf_buy_input_data_8f90_source.html#l00047">47</a> of file <a class="el" href="_gwf_buy_input_data_8f90_source.html">GwfBuyInputData.f90</a>.</p>
 <div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">class</span>(GwfBuyInputDataType) :: this<span class="comment"> !&lt; the input data block</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">deallocate</span>(this%drhodc)</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">deallocate</span>(this%crhoref)</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">deallocate</span>(this%cmodelname)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">deallocate</span>(this%cauxspeciesname)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">deallocate</span> (this%drhodc)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">deallocate</span> (this%crhoref)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">deallocate</span> (this%cmodelname)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">deallocate</span> (this%cauxspeciesname)</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
 </div><!-- fragment -->
 </div>
@@ -226,7 +226,7 @@ Functions/Subroutines</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacegwfbuyinputdatamodule.html">gwfbuyinputdatamodule</a></li>
-    <li class="footer">Generated on Wed Jun 29 2022 08:06:48 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Jul 13 2022 07:46:42 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

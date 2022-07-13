@@ -10,7 +10,7 @@
 <area shape="rect" id="node13" href="$namespacememorymanagermodule.html#a7474cd696cb9b1c1fe44574ea103060e" title="Allocate a 3&#45;dimensional integer array." alt="" coords="489,463,673,504"/>
 <area shape="rect" id="node14" href="$namespacememorymanagermodule.html#a0a88357b0c068c805e19b63fee0620b1" title="Allocate a logical scalar." alt="" coords="489,528,673,569"/>
 <area shape="rect" id="node15" href="$namespacememorymanagermodule.html#a4780db4c21eb164665232983b1be0dca" title="Allocate a character string." alt="" coords="489,593,673,635"/>
-<area shape="rect" id="node16" href="$namespacememorymanagermodule.html#a0c5bf39cf785030754c02899af6e29e9" title="Allocate a 1&#45;dimensional defined length string array." alt="" coords="489,659,673,700"/>
+<area shape="rect" id="node16" href="$namespacememorymanagermodule.html#a4577ed4305f7523f6947f8798fb0ecf0" title="Allocate a 1&#45;dimensional defined length string array." alt="" coords="489,659,673,700"/>
 <area shape="rect" id="node17" href="$namespacememorymanagermodule.html#ad803a305fe80202cdbbee23dd5c347fa" title="Check in an existing 1d double precision array with a new address (name + path)" alt="" coords="489,724,673,765"/>
 <area shape="rect" id="node18" href="$namespacememorymanagermodule.html#adaebe968303549959b18bfe9a922ca9a" title="Check in an existing 1d integer array with a new address (name + path)" alt="" coords="489,789,673,831"/>
 <area shape="rect" id="node19" href="$namespacememoryhelpermodule.html#abda60b8cd05bba132ea82b23bf12c36c" title="returns the address string of the memory object" alt="" coords="496,855,667,896"/>

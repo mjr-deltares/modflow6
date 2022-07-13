@@ -191,9 +191,9 @@ Functions/Subroutines</h2></td></tr>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="_connection_builder_8f90_source.html#l00256">256</a> of file <a class="el" href="_connection_builder_8f90_source.html">ConnectionBuilder.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <span class="keywordtype">class</span>(ConnectionBuilderType) :: this<span class="comment">              !&lt; the connection builder object</span></div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keywordtype">type</span>(ListType), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(in)</span> :: exchanges<span class="comment">  !&lt; all exchanges in a solution</span></div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <span class="keywordtype">type</span>(ListType), <span class="keywordtype">intent(inout)</span> :: connections<span class="comment">         !&lt; all connections that are created for this solution</span></div>
+<div class="fragment"><div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <span class="keywordtype">class</span>(ConnectionBuilderType) :: this<span class="comment"> !&lt; the connection builder object</span></div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keywordtype">type</span>(ListType), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(in)</span> :: exchanges<span class="comment"> !&lt; all exchanges in a solution</span></div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <span class="keywordtype">type</span>(ListType), <span class="keywordtype">intent(inout)</span> :: connections<span class="comment"> !&lt; all connections that are created for this solution</span></div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <span class="comment">! local</span></div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: iex, iconn</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="keywordtype">class</span>(DisConnExchangeType), <span class="keywordtype">pointer</span> :: conEx</div>
@@ -279,9 +279,9 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacegwtgwtconnectionmodule.html">gwtgwtconnectionmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html">gwtgwtconnectiontype</a></div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacegwfmodule.html">gwfmodule</a>, <span class="keywordtype">only</span>: gwfmodeltype</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(in)</span> :: model<span class="comment">     !&lt; the model for which the connection will be created</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(in)</span> :: model<span class="comment"> !&lt; the model for which the connection will be created</span></div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="keywordtype">class</span>(DisConnExchangeType), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(in)</span> :: exchange<span class="comment"> !&lt; the type of connection</span></div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordtype">class</span>(SpatialModelConnectionType), <span class="keywordtype">pointer</span> :: connection<span class="comment">    !&lt; the created connection</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordtype">class</span>(SpatialModelConnectionType), <span class="keywordtype">pointer</span> :: connection<span class="comment"> !&lt; the created connection</span></div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="comment">! different concrete connection types:</span></div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordtype">class</span>(GwfGwfConnectionType), <span class="keywordtype">pointer</span> :: flowConnection =&gt; null()</div>
@@ -384,9 +384,9 @@ Here is the caller graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="_connection_builder_8f90_source.html#l00081">81</a> of file <a class="el" href="_connection_builder_8f90_source.html">ConnectionBuilder.f90</a>.</p>
 <div class="fragment"><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacelistsmodule.html">listsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacelistsmodule.html#aa04fa4e835743f2005800850259f8014">baseconnectionlist</a>, <a class="code" href="namespacelistsmodule.html#a3e857b53bd777fd84ebcc75f2d7fe273">baseexchangelist</a></div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceversionmodule.html">versionmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceversionmodule.html#ab82d1ea64df56737f03bbbe06c1499bd">idevelopmode</a></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">class</span>(ConnectionBuilderType) :: this<span class="comment">              !&lt; the connection builder object</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">type</span>(ListType), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(in)</span> :: exchanges<span class="comment">  !&lt; the list of exchanges to process</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">type</span>(ListType), <span class="keywordtype">intent(inout)</span> :: newConnections<span class="comment">   !&lt; the newly created connections</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">class</span>(ConnectionBuilderType) :: this<span class="comment"> !&lt; the connection builder object</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">type</span>(ListType), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(in)</span> :: exchanges<span class="comment"> !&lt; the list of exchanges to process</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">type</span>(ListType), <span class="keywordtype">intent(inout)</span> :: newConnections<span class="comment"> !&lt; the newly created connections</span></div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="comment">! local</span></div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">class</span>(DisConnExchangeType), <span class="keywordtype">pointer</span> :: conEx</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">class</span>(BaseExchangeType), <span class="keywordtype">pointer</span> :: baseEx</div>
@@ -507,8 +507,8 @@ Here is the call graph for this function:</div>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="_connection_builder_8f90_source.html#l00039">39</a> of file <a class="el" href="_connection_builder_8f90_source.html">ConnectionBuilder.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">class</span>(ConnectionBuilderType) :: this<span class="comment">            !&lt; the connection builder object</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">class</span>(BaseSolutionType), <span class="keywordtype">pointer</span> :: solution<span class="comment">    !&lt; the solution for which the exchanges are processed</span></div>
+<div class="fragment"><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">class</span>(ConnectionBuilderType) :: this<span class="comment"> !&lt; the connection builder object</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">class</span>(BaseSolutionType), <span class="keywordtype">pointer</span> :: solution<span class="comment"> !&lt; the solution for which the exchanges are processed</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="comment">! local</span></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">class</span>(NumericalSolutionType), <span class="keywordtype">pointer</span> :: numSol</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">type</span>(ListType) :: newConnections</div>
@@ -584,8 +584,8 @@ Here is the call graph for this function:</div>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="_connection_builder_8f90_source.html#l00199">199</a> of file <a class="el" href="_connection_builder_8f90_source.html">ConnectionBuilder.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="keywordtype">class</span>(ConnectionBuilderType) :: this<span class="comment">                          !&lt; the connection builder object</span></div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keywordtype">type</span>(ListType), <span class="keywordtype">intent(inout)</span> :: connections<span class="comment">                  !&lt; the connections created for the solution</span></div>
+<div class="fragment"><div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="keywordtype">class</span>(ConnectionBuilderType) :: this<span class="comment"> !&lt; the connection builder object</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keywordtype">type</span>(ListType), <span class="keywordtype">intent(inout)</span> :: connections<span class="comment"> !&lt; the connections created for the solution</span></div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <span class="keywordtype">class</span>(NumericalSolutionType), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(in)</span> :: solution<span class="comment"> !&lt; the solution to which the connections are set</span></div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="comment">! local</span></div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <span class="keywordtype">type</span>(ListType) :: keepList</div>
@@ -661,7 +661,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceconnectionbuildermodule.html">connectionbuildermodule</a></li>
-    <li class="footer">Generated on Wed Jun 29 2022 08:06:47 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Jul 13 2022 07:46:42 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

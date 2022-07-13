@@ -117,13 +117,13 @@ $(document).ready(function(){initNavTree('gwf3obs8_8f90_source.html',''); initRe
 <a href="gwf3obs8_8f90.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="namespacegwfobsmodule.html">    1</a></span>&#160;<span class="keyword">module</span> <a class="code" href="namespacegwfobsmodule.html">gwfobsmodule</a></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacekindmodule.html">kindmodule</a>, <span class="keywordtype">only</span>: dp, i4b</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespaceconstantsmodule.html">constantsmodule</a>,  <span class="keywordtype">only</span>: <a class="code" href="namespaceconstantsmodule.html#a060d310ded5535ce2dc85bd1ca1afd3d">linelength</a>, <a class="code" href="namespaceconstantsmodule.html#a7bc1680f8ee7a7b1b5d8ad6927951da7">maxobstypes</a></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacebasedismodule.html">basedismodule</a>,    <span class="keywordtype">only</span>: disbasetype</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacegwficmodule.html">gwficmodule</a>,      <span class="keywordtype">only</span>: gwfictype</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespaceobservemodule.html">observemodule</a>,    <span class="keywordtype">only</span>: <a class="code" href="structobservemodule_1_1observetype.html">observetype</a></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespaceobsmodule.html">obsmodule</a>,        <span class="keywordtype">only</span>: obstype</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacesimmodule.html">simmodule</a>,        <span class="keywordtype">only</span>: <a class="code" href="namespacesimmodule.html#a4c46e49de78d4498dd4ec106357775e6">count_errors</a>, <a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>, &amp;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;                              <a class="code" href="namespacesimmodule.html#a83910ed20af1fec9bdf46cad8c276538">store_error_unit</a></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespaceconstantsmodule.html">constantsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceconstantsmodule.html#a060d310ded5535ce2dc85bd1ca1afd3d">linelength</a>, <a class="code" href="namespaceconstantsmodule.html#a7bc1680f8ee7a7b1b5d8ad6927951da7">maxobstypes</a></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacebasedismodule.html">basedismodule</a>, <span class="keywordtype">only</span>: disbasetype</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacegwficmodule.html">gwficmodule</a>, <span class="keywordtype">only</span>: gwfictype</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespaceobservemodule.html">observemodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structobservemodule_1_1observetype.html">observetype</a></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespaceobsmodule.html">obsmodule</a>, <span class="keywordtype">only</span>: obstype</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacesimmodule.html">simmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacesimmodule.html#a4c46e49de78d4498dd4ec106357775e6">count_errors</a>, <a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>, &amp;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;                       <a class="code" href="namespacesimmodule.html#a83910ed20af1fec9bdf46cad8c276538">store_error_unit</a></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <span class="keywordtype">implicit none</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  <span class="keywordtype">private</span></div>
@@ -131,9 +131,9 @@ $(document).ready(function(){initNavTree('gwf3obs8_8f90_source.html',''); initRe
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
 <div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structgwfobsmodule_1_1gwfobstype.html">   16</a></span>&#160;  <span class="keyword">type</span>, <span class="keyword">extends</span>(obstype) :: <a class="code" href="structgwfobsmodule_1_1gwfobstype.html">gwfobstype</a></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="comment">! -- Private members</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structgwfobsmodule_1_1gwfobstype.html#a420b8b845681ae9ff03981cece8ac34a">   18</a></span>&#160;    <span class="keywordtype">type</span>(gwfictype), <span class="keywordtype">pointer</span>, <span class="keywordtype">private</span>                    :: ic =&gt; null()         <span class="comment">! initial conditions</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structgwfobsmodule_1_1gwfobstype.html#a823bde9fcfcc2450f6452a3ecc6db92d">   19</a></span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>, <span class="keywordtype">private</span> :: x =&gt; null()          <span class="comment">! head</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structgwfobsmodule_1_1gwfobstype.html#a7d3fc3c69b7fe171098e23f56986d7b7">   20</a></span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>, <span class="keywordtype">private</span> :: flowja =&gt; null()     <span class="comment">! intercell flows</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structgwfobsmodule_1_1gwfobstype.html#a420b8b845681ae9ff03981cece8ac34a">   18</a></span>&#160;    <span class="keywordtype">type</span>(gwfictype), <span class="keywordtype">pointer</span>, <span class="keywordtype">private</span> :: ic =&gt; null() <span class="comment">! initial conditions</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structgwfobsmodule_1_1gwfobstype.html#a823bde9fcfcc2450f6452a3ecc6db92d">   19</a></span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>, <span class="keywordtype">private</span> :: x =&gt; null() <span class="comment">! head</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structgwfobsmodule_1_1gwfobstype.html#a7d3fc3c69b7fe171098e23f56986d7b7">   20</a></span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>, <span class="keywordtype">private</span> :: flowja =&gt; null() <span class="comment">! intercell flows</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keyword">contains</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">! -- Public procedures</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="structgwfobsmodule_1_1gwfobstype.html#a235593b2cded577645dab2a16f8a34b6">   23</a></span>&#160;    <span class="keywordtype">procedure</span>, <span class="keywordtype">public</span> :: <a class="code" href="namespacegwfobsmodule.html#aee574da00623c4df1424a343bb58666a">gwf_obs_ar</a></div>
@@ -158,11 +158,11 @@ $(document).ready(function(){initNavTree('gwf3obs8_8f90_source.html',''); initRe
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">!    SPECIFICATIONS:</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structgwfobsmodule_1_1gwfobstype.html">gwfobstype</a>), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(out)</span>   :: obs</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structgwfobsmodule_1_1gwfobstype.html">gwfobstype</a>), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(out)</span> :: obs</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(in)</span> :: inobs</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">allocate</span>(obs)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">allocate</span> (obs)</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">call </span>obs%allocate_scalars()</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    obs%active = .false.</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    obs%inputFilename = <span class="stringliteral">&#39;&#39;</span></div>
@@ -179,8 +179,8 @@ $(document).ready(function(){initNavTree('gwf3obs8_8f90_source.html',''); initRe
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">!    SPECIFICATIONS:</span></div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structgwfobsmodule_1_1gwfobstype.html">gwfobstype</a>),                    <span class="keywordtype">intent(inout)</span> :: this</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">type</span>(gwfictype),  <span class="keywordtype">pointer</span>,               <span class="keywordtype">intent(in)</span> :: ic</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structgwfobsmodule_1_1gwfobstype.html">gwfobstype</a>), <span class="keywordtype">intent(inout)</span> :: this</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">type</span>(gwfictype), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(in)</span> :: ic</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>, <span class="keywordtype">intent(in)</span> :: x</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>, <span class="keywordtype">intent(in)</span> :: flowja</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
@@ -206,7 +206,7 @@ $(document).ready(function(){initNavTree('gwf3obs8_8f90_source.html',''); initRe
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: iout</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: pkgname</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: filtyp</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">class</span>(disbasetype), <span class="keywordtype">pointer</span>  :: dis</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">class</span>(disbasetype), <span class="keywordtype">pointer</span> :: dis</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="comment">! -- local</span></div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: indx</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
@@ -240,7 +240,7 @@ $(document).ready(function(){initNavTree('gwf3obs8_8f90_source.html',''); initRe
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="comment">!    SPECIFICATIONS:</span></div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structgwfobsmodule_1_1gwfobstype.html">gwfobstype</a>),       <span class="keywordtype">intent(inout)</span> :: this</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structgwfobsmodule_1_1gwfobstype.html">gwfobstype</a>), <span class="keywordtype">intent(inout)</span> :: this</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="comment">! -- local</span></div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i, jaindex, nodenumber</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="keywordtype">    real</span>(DP) :: v</div>
@@ -265,7 +265,7 @@ $(document).ready(function(){initNavTree('gwf3obs8_8f90_source.html',''); initRe
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        <span class="keywordflow">case</span> (<span class="stringliteral">&#39;FLOW-JA-FACE&#39;</span>)</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;          <span class="keyword">call </span>this%SaveOneSimval(obsrv, this%flowja(jaindex))</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="keywordflow">        case default</span></div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;          msg = <span class="stringliteral">&#39;Error: Unrecognized observation type: &#39;</span> // trim(obsrv%ObsTypeId)</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;          msg = <span class="stringliteral">&#39;Error: Unrecognized observation type: &#39;</span>//trim(obsrv%ObsTypeId)</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;          <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(msg)</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="keywordflow">        end select</span></div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="keywordflow">      end do</span></div>
@@ -304,9 +304,9 @@ $(document).ready(function(){initNavTree('gwf3obs8_8f90_source.html',''); initRe
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structgwfobsmodule_1_1gwfobstype.html">gwfobstype</a>), <span class="keywordtype">intent(inout)</span> :: this</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="keyword">nullify</span>(this%ic)</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keyword">nullify</span>(this%x)</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keyword">nullify</span>(this%flowja)</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="keyword">nullify</span> (this%ic)</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keyword">nullify</span> (this%x)</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keyword">nullify</span> (this%flowja)</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="keyword">call </span>this%ObsType%obs_da()</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keywordflow">return</span></div>
@@ -342,10 +342,10 @@ $(document).ready(function(){initNavTree('gwf3obs8_8f90_source.html',''); initRe
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;<span class="comment">!    SPECIFICATIONS:</span></div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structobservemodule_1_1observetype.html">observetype</a>),  <span class="keywordtype">intent(inout)</span> :: obsrv</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="keywordtype">class</span>(disbasetype), <span class="keywordtype">intent(in)</span>    :: dis</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <span class="keywordtype">integer(I4B)</span>,            <span class="keywordtype">intent(in)</span>    :: inunitobs</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="keywordtype">integer(I4B)</span>,            <span class="keywordtype">intent(in)</span>    :: iout</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structobservemodule_1_1observetype.html">observetype</a>), <span class="keywordtype">intent(inout)</span> :: obsrv</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="keywordtype">class</span>(disbasetype), <span class="keywordtype">intent(in)</span> :: dis</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: inunitobs</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: iout</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <span class="comment">! -- local</span></div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: nn1</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: icol, istart, istop</div>
@@ -367,7 +367,7 @@ $(document).ready(function(){initNavTree('gwf3obs8_8f90_source.html',''); initRe
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;      ermsg = <span class="stringliteral">&#39;Error reading data from ID string&#39;</span></div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(ermsg)</div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a83910ed20af1fec9bdf46cad8c276538">store_error_unit</a>(inunitobs)</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;<span class="keywordflow">    endif</span></div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <span class="keywordflow">return</span></div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacegwfobsmodule.html#a1f9f966f198f0896b7945ed61f87f180">gwf_process_head_drawdown_obs_id</a></div>
@@ -380,16 +380,16 @@ $(document).ready(function(){initNavTree('gwf3obs8_8f90_source.html',''); initRe
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="comment">!    SPECIFICATIONS:</span></div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structobservemodule_1_1observetype.html">observetype</a>),  <span class="keywordtype">intent(inout)</span> :: obsrv</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="keywordtype">class</span>(disbasetype), <span class="keywordtype">intent(in)</span>    :: dis</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="keywordtype">integer(I4B)</span>,            <span class="keywordtype">intent(in)</span>    :: inunitobs</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <span class="keywordtype">integer(I4B)</span>,            <span class="keywordtype">intent(in)</span>    :: iout</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structobservemodule_1_1observetype.html">observetype</a>), <span class="keywordtype">intent(inout)</span> :: obsrv</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="keywordtype">class</span>(disbasetype), <span class="keywordtype">intent(in)</span> :: dis</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: inunitobs</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: iout</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    <span class="comment">! -- local</span></div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: nn1, nn2</div>
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: icol, istart, istop, jaidx</div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <span class="keywordtype">character(len=LINELENGTH)</span> :: ermsg, strng</div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <span class="comment">! formats</span></div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160; 70 <span class="keyword">format</span>(<span class="stringliteral">&#39;Error: No connection exists between cells identified in text: &#39;</span>,a)</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;70  <span class="keyword">format</span>(<span class="stringliteral">&#39;Error: No connection exists between cells identified in text: &#39;</span>, a)</div>
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="comment">! -- Initialize variables</span></div>
@@ -404,32 +404,32 @@ $(document).ready(function(){initNavTree('gwf3obs8_8f90_source.html',''); initRe
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="keywordflow">if</span> (nn1 &gt; 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;      obsrv%NodeNumber = nn1</div>
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;      ermsg = <span class="stringliteral">&#39;Error reading data from ID string: &#39;</span> // strng(istart:istop)</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;      ermsg = <span class="stringliteral">&#39;Error reading data from ID string: &#39;</span>//strng(istart:istop)</div>
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(ermsg)</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;<span class="keywordflow">    endif</span></div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    <span class="comment">! Get node number, with option for ID string to be either node</span></div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    <span class="comment">! number or lay, row, column (when dis is structured).</span></div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    nn2 = dis%noder_from_string(icol, istart, istop, inunitobs, &amp;</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;                                   iout, strng, .false.)</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;                                iout, strng, .false.)</div>
 <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <span class="keywordflow">if</span> (nn2 &gt; 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;      obsrv%NodeNumber2 = nn2</div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;      ermsg = <span class="stringliteral">&#39;Error reading data from ID string: &#39;</span> // strng(istart:istop)</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;      ermsg = <span class="stringliteral">&#39;Error reading data from ID string: &#39;</span>//strng(istart:istop)</div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(ermsg)</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;<span class="keywordflow">    endif</span></div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    <span class="comment">! -- store JA index</span></div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    jaidx = dis%con%getjaindex(nn1,nn2)</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    <span class="keywordflow">if</span> (jaidx==0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;      <span class="keyword">write</span>(ermsg,70)trim(strng)</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    jaidx = dis%con%getjaindex(nn1, nn2)</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    <span class="keywordflow">if</span> (jaidx == 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;      <span class="keyword">write</span> (ermsg, 70) trim(strng)</div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(ermsg)</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;<span class="keywordflow">    endif</span></div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    obsrv%JaIndex = jaidx</div>
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="namespacesimmodule.html#a4c46e49de78d4498dd4ec106357775e6">count_errors</a>() &gt; 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a83910ed20af1fec9bdf46cad8c276538">store_error_unit</a>(inunitobs)</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;<span class="keywordflow">    endif</span></div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    <span class="keywordflow">return</span></div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacegwfobsmodule.html#aedd654226f9da332115725c00e7de707">gwf_process_intercell_obs_id</a></div>
@@ -465,7 +465,7 @@ $(document).ready(function(){initNavTree('gwf3obs8_8f90_source.html',''); initRe
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_32e188284d239da8bb14ec1dabb0c35f.html">Model</a></li><li class="navelem"><a class="el" href="dir_5aefb7a434fc869900e7ccf685166f81.html">GroundWaterFlow</a></li><li class="navelem"><a class="el" href="gwf3obs8_8f90.html">gwf3obs8.f90</a></li>
-    <li class="footer">Generated on Wed Jun 29 2022 08:06:46 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Jul 13 2022 07:46:41 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

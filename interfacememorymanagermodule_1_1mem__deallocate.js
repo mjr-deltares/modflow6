@@ -10,5 +10,5 @@ var interfacememorymanagermodule_1_1mem__deallocate =
     [ "deallocate_int3d", "interfacememorymanagermodule_1_1mem__deallocate.html#a8e3b81f2e20d24ac0d5054e0da76253c", null ],
     [ "deallocate_logical", "interfacememorymanagermodule_1_1mem__deallocate.html#ad6c824535e379b3958aada59c9b3513f", null ],
     [ "deallocate_str", "interfacememorymanagermodule_1_1mem__deallocate.html#ab4b6807a4a5f7c460b662419d892cde5", null ],
-    [ "deallocate_str1d", "interfacememorymanagermodule_1_1mem__deallocate.html#ae9843b213451d3a15875a4ebe24ae250", null ]
+    [ "deallocate_str1d", "interfacememorymanagermodule_1_1mem__deallocate.html#aab226e29ba6ef38a1d46760ec3f60458", null ]
 ];

@@ -13,7 +13,7 @@
 <area shape="rect" id="node21" href="$namespacememorymanagermodule.html#a7049f4eecd31d511dbf351b06517e398" title="Deallocate a 2&#45;dimensional integer array." alt="" coords="497,1001,681,1042"/>
 <area shape="rect" id="node22" href="$namespacememorymanagermodule.html#a6c5469ceb27feb4b31c4ccd7106ebefa" title="Deallocate a 3&#45;dimensional integer array." alt="" coords="497,1066,681,1107"/>
 <area shape="rect" id="node23" href="$namespacememorymanagermodule.html#ad2d3e314c67f87d4d955cd5a8441266b" title="Deallocate a variable&#45;length character string." alt="" coords="497,1131,681,1173"/>
-<area shape="rect" id="node24" href="$namespacememorymanagermodule.html#af8d43ac5b8236a26c69546ae9a5e1d62" title="Deallocate an array of variable&#45;length character strings." alt="" coords="497,1197,681,1238"/>
+<area shape="rect" id="node24" href="$namespacememorymanagermodule.html#a21e2a81806fa9b491271a52cb866afb1" title="Deallocate an array of variable&#45;length character strings." alt="" coords="497,1197,681,1238"/>
 <area shape="rect" id="node25" href="$namespacememorymanagermodule.html#ad0c684aa838f08c32710dbd0da08a520" title="@ brief Get the number of elements for this variable" alt="" coords="255,383,439,425"/>
 <area shape="rect" id="node26" href="$namespacememorymanagermodule.html#ae5bac6c9ab6024213a0b4b857bc37ae4" title="@ brief Get the memory size of a single element of the stored variable" alt="" coords="255,318,439,359"/>
 <area shape="rect" id="node27" href="$namespacememorymanagermodule.html#ad59d62832cbff0a81e1fca5ff4ee6d5d" title="@ brief Get the variable rank" alt="" coords="255,135,439,177"/>

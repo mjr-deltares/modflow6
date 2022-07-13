@@ -290,7 +290,7 @@ Functions/Subroutines</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_gwt_gwt_connection_8f90_source.html#l00625">625</a> of file <a class="el" href="_gwt_gwt_connection_8f90_source.html">GwtGwtConnection.f90</a>.</p>
 <div class="fragment"><div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;    <span class="keywordtype">implicit none</span></div>
-<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(inout)</span> :: obj<span class="comment">     !&lt; object to be cast</span></div>
+<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(inout)</span> :: obj<span class="comment"> !&lt; object to be cast</span></div>
 <div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;    <span class="keywordtype">class</span>(GwtGwtConnectionType), <span class="keywordtype">pointer</span> :: res<span class="comment"> !&lt; the GwtGwtConnection</span></div>
 <div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160; </div>
 <div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;    res =&gt; null()</div>
@@ -347,7 +347,7 @@ Here is the caller graph for this function:</div>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="_gwt_gwt_connection_8f90_source.html#l00339">339</a> of file <a class="el" href="_gwt_gwt_connection_8f90_source.html">GwtGwtConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    <span class="keywordtype">class</span>(GwtGwtConnectionType) :: this<span class="comment">         !&lt; this connection</span></div>
+<div class="fragment"><div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    <span class="keywordtype">class</span>(GwtGwtConnectionType) :: this<span class="comment"> !&lt; this connection</span></div>
 <div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <span class="keywordtype">type</span>(sparsematrix), <span class="keywordtype">intent(inout)</span> :: sparse<span class="comment"> !&lt; sparse matrix to store the connections</span></div>
 <div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    <span class="comment">! local</span></div>
 <div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: ic, iglo, jglo</div>
@@ -553,10 +553,10 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_gwt_gwt_connection_8f90_source.html#l00560">560</a> of file <a class="el" href="_gwt_gwt_connection_8f90_source.html">GwtGwtConnection.f90</a>.</p>
 <div class="fragment"><div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacebudgetmodule.html">budgetmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacebudgetmodule.html#a917d4897942de165ea88d0c1f0850d8e">rate_accumulator</a></div>
-<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;    <span class="keywordtype">class</span>(GwtGwtConnectionType) :: this<span class="comment">           !&lt; the connection</span></div>
-<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(inout)</span> :: icnvg<span class="comment">          !&lt; convergence flag</span></div>
-<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: isuppress_output<span class="comment">  !&lt; suppress output when =1</span></div>
-<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: isolnid<span class="comment">           !&lt; solution id</span></div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;    <span class="keywordtype">class</span>(GwtGwtConnectionType) :: this<span class="comment"> !&lt; the connection</span></div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(inout)</span> :: icnvg<span class="comment"> !&lt; convergence flag</span></div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: isuppress_output<span class="comment"> !&lt; suppress output when =1</span></div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: isolnid<span class="comment"> !&lt; solution id</span></div>
 <div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160; </div>
 <div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;    <span class="comment">! call exchange budget routine, also calls bd</span></div>
 <div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;    <span class="comment">! for movers.</span></div>
@@ -619,7 +619,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_gwt_gwt_connection_8f90_source.html#l00388">388</a> of file <a class="el" href="_gwt_gwt_connection_8f90_source.html">GwtGwtConnection.f90</a>.</p>
 <div class="fragment"><div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;    <span class="keywordtype">class</span>(GwtGwtConnectionType) :: this<span class="comment"> !&lt; the connection</span></div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: kiter<span class="comment">   !&lt; the iteration counter</span></div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: kiter<span class="comment"> !&lt; the iteration counter</span></div>
 <div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;    <span class="comment">! local</span></div>
 <div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i</div>
 <div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160; </div>
@@ -696,10 +696,10 @@ Here is the call graph for this function:</div>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="_gwt_gwt_connection_8f90_source.html#l00518">518</a> of file <a class="el" href="_gwt_gwt_connection_8f90_source.html">GwtGwtConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;    <span class="keywordtype">class</span>(GwtGwtConnectionType) :: this<span class="comment">          !&lt; the connection</span></div>
-<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(inout)</span> :: icnvg<span class="comment">         !&lt; convergence flag</span></div>
+<div class="fragment"><div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;    <span class="keywordtype">class</span>(GwtGwtConnectionType) :: this<span class="comment"> !&lt; the connection</span></div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(inout)</span> :: icnvg<span class="comment"> !&lt; convergence flag</span></div>
 <div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: isuppress_output<span class="comment"> !&lt; suppress output when =1</span></div>
-<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: isolnid<span class="comment">          !&lt; solution id</span></div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: isolnid<span class="comment"> !&lt; solution id</span></div>
 <div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160; </div>
 <div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;    <span class="keyword">call </span>this%gwtInterfaceModel%model_cq(icnvg, isuppress_output)</div>
 <div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;    <span class="keyword">call </span>this%setFlowToExchange()</div>
@@ -926,12 +926,12 @@ Here is the call graph for this function:</div>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="_gwt_gwt_connection_8f90_source.html#l00479">479</a> of file <a class="el" href="_gwt_gwt_connection_8f90_source.html">GwtGwtConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;    <span class="keywordtype">class</span>(GwtGwtConnectionType) :: this<span class="comment">               !&lt; the connection</span></div>
-<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: kiter<span class="comment">                 !&lt; the iteration counter</span></div>
-<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">intent(in)</span> :: iasln<span class="comment">   !&lt; global system&#39;s IA array</span></div>
-<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">intent(inout)</span> :: amatsln<span class="comment">  !&lt; global system matrix coefficients</span></div>
-<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">intent(inout)</span> ::rhssln<span class="comment">    !&lt; global right-hand-side</span></div>
-<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">optional</span>, <span class="keywordtype">intent(in)</span> :: inwtflag<span class="comment">    !&lt; newton-raphson flag</span></div>
+<div class="fragment"><div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;    <span class="keywordtype">class</span>(GwtGwtConnectionType) :: this<span class="comment"> !&lt; the connection</span></div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: kiter<span class="comment"> !&lt; the iteration counter</span></div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">intent(in)</span> :: iasln<span class="comment"> !&lt; global system&#39;s IA array</span></div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">intent(inout)</span> :: amatsln<span class="comment"> !&lt; global system matrix coefficients</span></div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">intent(inout)</span> :: rhssln<span class="comment"> !&lt; global right-hand-side</span></div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">optional</span>, <span class="keywordtype">intent(in)</span> :: inwtflag<span class="comment"> !&lt; newton-raphson flag</span></div>
 <div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;    <span class="comment">! local</span></div>
 <div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: n, nglo, ipos</div>
 <div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160; </div>
@@ -1083,10 +1083,10 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_gwt_gwt_connection_8f90_source.html#l00085">85</a> of file <a class="el" href="_gwt_gwt_connection_8f90_source.html">GwtGwtConnection.f90</a>.</p>
 <div class="fragment"><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceinputoutputmodule.html">inputoutputmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceinputoutputmodule.html#ae97851e3edae8d9809e384058a1a4d52">openfile</a></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">class</span>(GwtGwtConnectionType) :: this<span class="comment">             !&lt; the connection</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType), <span class="keywordtype">pointer</span> :: model<span class="comment">     !&lt; the model owning this connection,</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">                                                  !! this must be a GwtModelType</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">class</span>(DisConnExchangeType), <span class="keywordtype">pointer</span> :: gwtEx<span class="comment">    !&lt; the GWT-GWT exchange the interface model is created for</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">class</span>(GwtGwtConnectionType) :: this<span class="comment"> !&lt; the connection</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType), <span class="keywordtype">pointer</span> :: model<span class="comment"> !&lt; the model owning this connection,</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">                                                !! this must be a GwtModelType</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">class</span>(DisConnExchangeType), <span class="keywordtype">pointer</span> :: gwtEx<span class="comment"> !&lt; the GWT-GWT exchange the interface model is created for</span></div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="comment">! local</span></div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">character(len=LINELENGTH)</span> :: fname</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordtype">character(len=LENCOMPONENTNAME)</span> :: name</div>
@@ -1322,7 +1322,7 @@ Here is the call graph for this function:</div>
 <div class="fragment"><div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;    <span class="keywordtype">class</span>(GwtGwtConnectionType) :: this<span class="comment"> !&lt; the connection</span></div>
 <div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;    <span class="comment">! local</span></div>
 <div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i, n, m, ipos, iposLoc, idx</div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;    <span class="keywordtype">type</span>(ConnectionsType), <span class="keywordtype">pointer</span> :: imCon<span class="comment">                 !&lt; interface model connections</span></div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;    <span class="keywordtype">type</span>(ConnectionsType), <span class="keywordtype">pointer</span> :: imCon<span class="comment"> !&lt; interface model connections</span></div>
 <div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;    <span class="keywordtype">type</span>(GlobalCellType), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: toGlobal<span class="comment"> !&lt; map interface index to global cell</span></div>
 <div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;    <span class="keywordtype">type</span>(GlobalCellType), <span class="keywordtype">pointer</span> :: boundaryCell, connectedCell</div>
 <div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;    <span class="keywordtype">class</span>(GwtModelType), <span class="keywordtype">pointer</span> :: gwtModel</div>
@@ -1497,7 +1497,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacegwtgwtconnectionmodule.html">gwtgwtconnectionmodule</a></li>
-    <li class="footer">Generated on Wed Jun 29 2022 08:06:51 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Jul 13 2022 07:46:45 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -86,7 +86,7 @@ var structuzfmodule_1_1uzftype =
     [ "rootact", "structuzfmodule_1_1uzftype.html#aeddb6197326a485d00beee1e4b5af0d2", null ],
     [ "sinf", "structuzfmodule_1_1uzftype.html#a589dfb03461a378aafe585706d91bee3", null ],
     [ "totfluxtot", "structuzfmodule_1_1uzftype.html#a1db0bdec10aae179fb1b381270b2eb6b", null ],
-    [ "uauxvar", "structuzfmodule_1_1uzftype.html#a812ea9ee10b5f26dc7757db87858a765", null ],
+    [ "uauxvar", "structuzfmodule_1_1uzftype.html#a7e8063b9734926f9426c2b9fb08641e8", null ],
     [ "uzet", "structuzfmodule_1_1uzftype.html#af132205ddcab6b6766365b14a818228d", null ],
     [ "uzfname", "structuzfmodule_1_1uzftype.html#a8d45e767d1e14b03b2c9929ab81c7b93", null ],
     [ "uzfobj", "structuzfmodule_1_1uzftype.html#a325db0354fd1af3e43c4be25b5ac0748", null ],

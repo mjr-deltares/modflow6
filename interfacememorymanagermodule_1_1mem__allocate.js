@@ -10,5 +10,5 @@ var interfacememorymanagermodule_1_1mem__allocate =
     [ "allocate_int3d", "interfacememorymanagermodule_1_1mem__allocate.html#ac44f81357e462b74fcdf795d8b0ae3ce", null ],
     [ "allocate_logical", "interfacememorymanagermodule_1_1mem__allocate.html#a028472cc7f1938ee6e1f7da7bd2eeef4", null ],
     [ "allocate_str", "interfacememorymanagermodule_1_1mem__allocate.html#a59e7cd1208ba7f087e8a2c39ad98070b", null ],
-    [ "allocate_str1d", "interfacememorymanagermodule_1_1mem__allocate.html#a8c58b1e9b13f2b7e638af7ccefae0fc6", null ]
+    [ "allocate_str1d", "interfacememorymanagermodule_1_1mem__allocate.html#a028e14c51257045dc92d79ac13396320", null ]
 ];

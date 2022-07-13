@@ -234,7 +234,7 @@ Functions/Subroutines</h2></td></tr>
 <div class="fragment"><div class="line"><a name="l01032"></a><span class="lineno"> 1032</span>&#160;    <span class="comment">! -- modules</span></div>
 <div class="line"><a name="l01033"></a><span class="lineno"> 1033</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacememorymanagermodule.html">memorymanagermodule</a>, <span class="keywordtype">only</span>: <a class="code" href="interfacememorymanagermodule_1_1mem__allocate.html">mem_allocate</a></div>
 <div class="line"><a name="l01034"></a><span class="lineno"> 1034</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l01035"></a><span class="lineno"> 1035</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment">  !&lt;  GwtExchangeType</span></div>
+<div class="line"><a name="l01035"></a><span class="lineno"> 1035</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment"> !&lt;  GwtExchangeType</span></div>
 <div class="line"><a name="l01036"></a><span class="lineno"> 1036</span>&#160;    <span class="comment">! -- local</span></div>
 <div class="line"><a name="l01037"></a><span class="lineno"> 1037</span>&#160;    <span class="keywordtype">character(len=LINELENGTH)</span> :: text</div>
 <div class="line"><a name="l01038"></a><span class="lineno"> 1038</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: ntabcol, i</div>
@@ -330,7 +330,7 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00947"></a><span class="lineno">  947</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacememorymanagermodule.html">memorymanagermodule</a>, <span class="keywordtype">only</span>: <a class="code" href="interfacememorymanagermodule_1_1mem__allocate.html">mem_allocate</a></div>
 <div class="line"><a name="l00948"></a><span class="lineno">  948</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceconstantsmodule.html">constantsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
 <div class="line"><a name="l00949"></a><span class="lineno">  949</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00950"></a><span class="lineno">  950</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment">  !&lt;  GwtExchangeType</span></div>
+<div class="line"><a name="l00950"></a><span class="lineno">  950</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment"> !&lt;  GwtExchangeType</span></div>
 <div class="line"><a name="l00951"></a><span class="lineno">  951</span>&#160;    <span class="comment">! -- local</span></div>
 <div class="line"><a name="l00952"></a><span class="lineno">  952</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00953"></a><span class="lineno">  953</span>&#160;    <span class="keyword">call </span>this%DisConnExchangeType%allocate_scalars()</div>
@@ -430,8 +430,8 @@ Here is the caller graph for this function:</div>
 <div class="fragment"><div class="line"><a name="l01348"></a><span class="lineno"> 1348</span>&#160;    <span class="keywordtype">implicit none</span></div>
 <div class="line"><a name="l01349"></a><span class="lineno"> 1349</span>&#160;    <span class="comment">! -- dummy</span></div>
 <div class="line"><a name="l01350"></a><span class="lineno"> 1350</span>&#160;    <span class="keywordtype">type</span>(ListType), <span class="keywordtype">intent(inout)</span> :: list</div>
-<div class="line"><a name="l01351"></a><span class="lineno"> 1351</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span>    :: idx</div>
-<div class="line"><a name="l01352"></a><span class="lineno"> 1352</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType), <span class="keywordtype">pointer</span>    :: res</div>
+<div class="line"><a name="l01351"></a><span class="lineno"> 1351</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: idx</div>
+<div class="line"><a name="l01352"></a><span class="lineno"> 1352</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType), <span class="keywordtype">pointer</span> :: res</div>
 <div class="line"><a name="l01353"></a><span class="lineno"> 1353</span>&#160;    <span class="comment">! -- local</span></div>
 <div class="line"><a name="l01354"></a><span class="lineno"> 1354</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span> :: obj</div>
 <div class="line"><a name="l01355"></a><span class="lineno"> 1355</span>&#160;    <span class="comment">!</span></div>
@@ -476,7 +476,7 @@ Here is the call graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="_gwt_gwt_exchange_8f90_source.html#l00357">357</a> of file <a class="el" href="_gwt_gwt_exchange_8f90_source.html">GwtGwtExchange.f90</a>.</p>
 <div class="fragment"><div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;    <span class="comment">! -- modules</span></div>
 <div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment">  !&lt;  GwtExchangeType</span></div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment"> !&lt;  GwtExchangeType</span></div>
 <div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    <span class="comment">! -- local</span></div>
 <div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    <span class="comment">! -- Advance mover</span></div>
@@ -523,7 +523,7 @@ Here is the call graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="_gwt_gwt_exchange_8f90_source.html#l00312">312</a> of file <a class="el" href="_gwt_gwt_exchange_8f90_source.html">GwtGwtExchange.f90</a>.</p>
 <div class="fragment"><div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    <span class="comment">! -- modules</span></div>
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment">  !&lt;  GwtExchangeType</span></div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment"> !&lt;  GwtExchangeType</span></div>
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    <span class="comment">! -- local</span></div>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="comment">! -- If mover is active, then call ar routine</span></div>
@@ -594,7 +594,7 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceconstantsmodule.html">constantsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a>, <a class="code" href="namespaceconstantsmodule.html#adda4cd91b9096b31d5e48d2215359311">lenbudtxt</a>, <a class="code" href="namespaceconstantsmodule.html#a2e75f10abe62e57d87d7d468c2bf763d">lenpackagename</a></div>
 <div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacebudgetmodule.html">budgetmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacebudgetmodule.html#a917d4897942de165ea88d0c1f0850d8e">rate_accumulator</a></div>
 <div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment">  !&lt;  GwtExchangeType</span></div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment"> !&lt;  GwtExchangeType</span></div>
 <div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(inout)</span> :: icnvg</div>
 <div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: isuppress_output</div>
 <div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: isolnid</div>
@@ -664,7 +664,7 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceconstantsmodule.html">constantsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a>, <a class="code" href="namespaceconstantsmodule.html#adda4cd91b9096b31d5e48d2215359311">lenbudtxt</a>, <a class="code" href="namespaceconstantsmodule.html#a2e75f10abe62e57d87d7d468c2bf763d">lenpackagename</a></div>
 <div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacetdismodule.html">tdismodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacetdismodule.html#ad3443c7d7da2a67a75174c39c6d40c84">kstp</a>, <a class="code" href="namespacetdismodule.html#ae84d6ee69d7bba12d20a6255a398935b">kper</a></div>
 <div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment">  !&lt;  GwtExchangeType</span></div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment"> !&lt;  GwtExchangeType</span></div>
 <div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;    <span class="comment">! -- local</span></div>
 <div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;    <span class="keywordtype">character(len=LENBOUNDNAME)</span> :: bname</div>
 <div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;    <span class="keywordtype">character(len=LENPACKAGENAME + 4)</span> :: packname1</div>
@@ -943,9 +943,9 @@ Here is the call graph for this function:</div>
 <dl class="section return"><dt>Returns</dt><dd>true, when connected </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_gwt_gwt_exchange_8f90_source.html#l01205">1205</a> of file <a class="el" href="_gwt_gwt_exchange_8f90_source.html">GwtGwtExchange.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l01205"></a><span class="lineno"> 1205</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment">                      !&lt;  GwtExchangeType</span></div>
-<div class="line"><a name="l01206"></a><span class="lineno"> 1206</span>&#160;    <span class="keywordtype">class</span>(BaseModelType), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(in)</span> :: model<span class="comment">  !&lt; the model to which the exchange might hold a connection</span></div>
-<div class="line"><a name="l01207"></a><span class="lineno"> 1207</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: is_connected<span class="comment">                        !&lt; true, when connected</span></div>
+<div class="fragment"><div class="line"><a name="l01205"></a><span class="lineno"> 1205</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment"> !&lt;  GwtExchangeType</span></div>
+<div class="line"><a name="l01206"></a><span class="lineno"> 1206</span>&#160;    <span class="keywordtype">class</span>(BaseModelType), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(in)</span> :: model<span class="comment"> !&lt; the model to which the exchange might hold a connection</span></div>
+<div class="line"><a name="l01207"></a><span class="lineno"> 1207</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: is_connected<span class="comment"> !&lt; true, when connected</span></div>
 <div class="line"><a name="l01208"></a><span class="lineno"> 1208</span>&#160; </div>
 <div class="line"><a name="l01209"></a><span class="lineno"> 1209</span>&#160;    is_connected = .false.</div>
 <div class="line"><a name="l01210"></a><span class="lineno"> 1210</span>&#160;    <span class="comment">! only connected when model is GwtModelType of course</span></div>
@@ -987,7 +987,7 @@ Here is the call graph for this function:</div>
 <div class="fragment"><div class="line"><a name="l00980"></a><span class="lineno">  980</span>&#160;    <span class="comment">! -- modules</span></div>
 <div class="line"><a name="l00981"></a><span class="lineno">  981</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacememorymanagermodule.html">memorymanagermodule</a>, <span class="keywordtype">only</span>: <a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a></div>
 <div class="line"><a name="l00982"></a><span class="lineno">  982</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00983"></a><span class="lineno">  983</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment">  !&lt;  GwtExchangeType</span></div>
+<div class="line"><a name="l00983"></a><span class="lineno">  983</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment"> !&lt;  GwtExchangeType</span></div>
 <div class="line"><a name="l00984"></a><span class="lineno">  984</span>&#160;    <span class="comment">! -- local</span></div>
 <div class="line"><a name="l00985"></a><span class="lineno">  985</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00986"></a><span class="lineno">  986</span>&#160;    <span class="comment">! -- objects</span></div>
@@ -1059,7 +1059,7 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceinputoutputmodule.html">inputoutputmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceinputoutputmodule.html#a535bdfca3d31ebc3a8e4bd5af6890d55">getunit</a>, <a class="code" href="namespaceinputoutputmodule.html#ae97851e3edae8d9809e384058a1a4d52">openfile</a></div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceghostnodemodule.html">ghostnodemodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceghostnodemodule.html#a3f4539c3f97fd80471d86f2e9a347558">gnc_cr</a></div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment">  !&lt;  GwtExchangeType</span></div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment"> !&lt;  GwtExchangeType</span></div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="comment">! -- local</span></div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: inunit</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <span class="comment">!</span></div>
@@ -1155,7 +1155,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_gwt_gwt_exchange_8f90_source.html#l01100">1100</a> of file <a class="el" href="_gwt_gwt_exchange_8f90_source.html">GwtGwtExchange.f90</a>.</p>
 <div class="fragment"><div class="line"><a name="l01100"></a><span class="lineno"> 1100</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l01101"></a><span class="lineno"> 1101</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment">  !&lt;  GwtExchangeType</span></div>
+<div class="line"><a name="l01101"></a><span class="lineno"> 1101</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment"> !&lt;  GwtExchangeType</span></div>
 <div class="line"><a name="l01102"></a><span class="lineno"> 1102</span>&#160;    <span class="comment">! -- local</span></div>
 <div class="line"><a name="l01103"></a><span class="lineno"> 1103</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: indx</div>
 <div class="line"><a name="l01104"></a><span class="lineno"> 1104</span>&#160;    <span class="comment">!</span></div>
@@ -1254,11 +1254,11 @@ Here is the call graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="_gwt_gwt_exchange_8f90_source.html#l00378">378</a> of file <a class="el" href="_gwt_gwt_exchange_8f90_source.html">GwtGwtExchange.f90</a>.</p>
 <div class="fragment"><div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;    <span class="comment">! -- modules</span></div>
 <div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment">  !&lt;  GwtExchangeType</span></div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment"> !&lt;  GwtExchangeType</span></div>
 <div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: kiter</div>
 <div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">intent(in)</span> :: iasln</div>
 <div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">intent(inout)</span> :: amatsln</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">intent(inout)</span> ::rhssln</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">intent(inout)</span> :: rhssln</div>
 <div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">optional</span>, <span class="keywordtype">intent(in)</span> :: inwtflag</div>
 <div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;    <span class="comment">! -- local</span></div>
 <div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;    <span class="comment">!</span></div>
@@ -1294,7 +1294,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_gwt_gwt_exchange_8f90_source.html#l01195">1195</a> of file <a class="el" href="_gwt_gwt_exchange_8f90_source.html">GwtGwtExchange.f90</a>.</p>
 <div class="fragment"><div class="line"><a name="l01195"></a><span class="lineno"> 1195</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l01196"></a><span class="lineno"> 1196</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment">  !&lt;  GwtExchangeType</span></div>
+<div class="line"><a name="l01196"></a><span class="lineno"> 1196</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment"> !&lt;  GwtExchangeType</span></div>
 <div class="line"><a name="l01197"></a><span class="lineno"> 1197</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l01198"></a><span class="lineno"> 1198</span>&#160;    <span class="keywordflow">return</span></div>
 </div><!-- fragment -->
@@ -1327,7 +1327,7 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacesimvariablesmodule.html">simvariablesmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacesimvariablesmodule.html#a70ea2f76b35a03119367efdd0dd88ccc">iout</a></div>
 <div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceconstantsmodule.html">constantsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a>, <a class="code" href="namespaceconstantsmodule.html#a060d310ded5535ce2dc85bd1ca1afd3d">linelength</a></div>
 <div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment">  !&lt;  GwtExchangeType</span></div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment"> !&lt;  GwtExchangeType</span></div>
 <div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;    <span class="comment">! -- local</span></div>
 <div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: iexg, n1, n2</div>
 <div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: ibudfl</div>
@@ -1335,10 +1335,10 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;    <span class="keywordtype">character(len=LINELENGTH)</span> :: node1str, node2str</div>
 <div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;    <span class="comment">! -- format</span></div>
 <div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">parameter</span> :: fmtheader = &amp;</div>
-<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;     <span class="stringliteral">&quot;(/1x, &#39;SUMMARY OF EXCHANGE RATES FOR EXCHANGE &#39;, a, &#39; WITH ID &#39;, i0, /,  &amp;</span></div>
+<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;     <span class="stringliteral">&quot;(/1x, &#39;SUMMARY OF EXCHANGE RATES FOR EXCHANGE &#39;, a, &#39; WITH ID &#39;, i0, /, &amp;</span></div>
 <div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;<span class="stringliteral"></span><span class="stringliteral">       &amp;2a16, 5a16, /, 112(&#39;-&#39;))&quot;</span></div>
 <div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">parameter</span> :: fmtheader2 = &amp;</div>
-<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;     <span class="stringliteral">&quot;(/1x, &#39;SUMMARY OF EXCHANGE RATES FOR EXCHANGE &#39;, a, &#39; WITH ID &#39;, i0, /,  &amp;</span></div>
+<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;     <span class="stringliteral">&quot;(/1x, &#39;SUMMARY OF EXCHANGE RATES FOR EXCHANGE &#39;, a, &#39; WITH ID &#39;, i0, /, &amp;</span></div>
 <div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;<span class="stringliteral"></span><span class="stringliteral">       &amp;2a16, 4a16, /, 96(&#39;-&#39;))&quot;</span></div>
 <div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">parameter</span> :: fmtdata = &amp;</div>
 <div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;                                   <span class="stringliteral">&quot;(2a16, 5(1pg16.6))&quot;</span></div>
@@ -1423,9 +1423,9 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l01290"></a><span class="lineno"> 1290</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacebasedismodule.html">basedismodule</a>, <span class="keywordtype">only</span>: disbasetype</div>
 <div class="line"><a name="l01291"></a><span class="lineno"> 1291</span>&#160;    <span class="comment">! -- dummy</span></div>
 <div class="line"><a name="l01292"></a><span class="lineno"> 1292</span>&#160;    <span class="keywordtype">type</span>(ObserveType), <span class="keywordtype">intent(inout)</span> :: obsrv</div>
-<div class="line"><a name="l01293"></a><span class="lineno"> 1293</span>&#160;    <span class="keywordtype">class</span>(DisBaseType), <span class="keywordtype">intent(in)</span>    :: dis</div>
-<div class="line"><a name="l01294"></a><span class="lineno"> 1294</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span>    :: inunitobs</div>
-<div class="line"><a name="l01295"></a><span class="lineno"> 1295</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span>    :: iout</div>
+<div class="line"><a name="l01293"></a><span class="lineno"> 1293</span>&#160;    <span class="keywordtype">class</span>(DisBaseType), <span class="keywordtype">intent(in)</span> :: dis</div>
+<div class="line"><a name="l01294"></a><span class="lineno"> 1294</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: inunitobs</div>
+<div class="line"><a name="l01295"></a><span class="lineno"> 1295</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: iout</div>
 <div class="line"><a name="l01296"></a><span class="lineno"> 1296</span>&#160;    <span class="comment">! -- local</span></div>
 <div class="line"><a name="l01297"></a><span class="lineno"> 1297</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: n, iexg, istat</div>
 <div class="line"><a name="l01298"></a><span class="lineno"> 1298</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: icol, istart, istop</div>
@@ -1513,7 +1513,7 @@ Here is the caller graph for this function:</div>
 <div class="fragment"><div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    <span class="comment">! -- modules</span></div>
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacetdismodule.html">tdismodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacetdismodule.html#a894366d099576e075e2cd7cb3fa37dba">readnewdata</a></div>
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment">  !&lt;  GwtExchangeType</span></div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment"> !&lt;  GwtExchangeType</span></div>
 <div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    <span class="comment">! -- Check with TDIS on whether or not it is time to RP</span></div>
 <div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    <span class="keywordflow">if</span> (.not. <a class="code" href="namespacetdismodule.html#a894366d099576e075e2cd7cb3fa37dba">readnewdata</a>) <span class="keywordflow">return</span></div>
@@ -1563,7 +1563,7 @@ Here is the caller graph for this function:</div>
 <div class="fragment"><div class="line"><a name="l01120"></a><span class="lineno"> 1120</span>&#160;    <span class="comment">! -- modules</span></div>
 <div class="line"><a name="l01121"></a><span class="lineno"> 1121</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceconstantsmodule.html">constantsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
 <div class="line"><a name="l01122"></a><span class="lineno"> 1122</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l01123"></a><span class="lineno"> 1123</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment">  !&lt;  GwtExchangeType</span></div>
+<div class="line"><a name="l01123"></a><span class="lineno"> 1123</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment"> !&lt;  GwtExchangeType</span></div>
 <div class="line"><a name="l01124"></a><span class="lineno"> 1124</span>&#160;    <span class="comment">! -- local</span></div>
 <div class="line"><a name="l01125"></a><span class="lineno"> 1125</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i</div>
 <div class="line"><a name="l01126"></a><span class="lineno"> 1126</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: j</div>
@@ -1785,10 +1785,10 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceobsmodule.html">obsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceobsmodule.html#a57372fbf202fe90e2d12383ce1b15eee">obs_cr</a></div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacememoryhelpermodule.html">memoryhelpermodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacememoryhelpermodule.html#a3791dbc2d4a06a0b9112158cff21f738">create_mem_path</a></div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: filename<span class="comment">   !&lt; filename for reading</span></div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: id<span class="comment">            !&lt; id for the exchange</span></div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: m1id<span class="comment">          !&lt; id for model 1</span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: m2id<span class="comment">          !&lt; id for model 2</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: filename<span class="comment"> !&lt; filename for reading</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: id<span class="comment"> !&lt; id for the exchange</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: m1id<span class="comment"> !&lt; id for model 1</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: m2id<span class="comment"> !&lt; id for model 2</span></div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="comment">! -- local</span></div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordtype">type</span>(GwtExchangeType), <span class="keywordtype">pointer</span> :: exchange</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordtype">class</span>(BaseModelType), <span class="keywordtype">pointer</span> :: mb</div>
@@ -1929,10 +1929,10 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_gwt_gwt_exchange_8f90_source.html#l00799">799</a> of file <a class="el" href="_gwt_gwt_exchange_8f90_source.html">GwtGwtExchange.f90</a>.</p>
 <div class="fragment"><div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceinputoutputmodule.html">inputoutputmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceinputoutputmodule.html#a535bdfca3d31ebc3a8e4bd5af6890d55">getunit</a>, <a class="code" href="namespaceinputoutputmodule.html#ae97851e3edae8d9809e384058a1a4d52">openfile</a></div>
-<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment">                   !&lt;  GwtExchangeType</span></div>
+<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment"> !&lt;  GwtExchangeType</span></div>
 <div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;    <span class="keywordtype">character(len=LINELENGTH)</span>, <span class="keywordtype">intent(in)</span> :: keyword<span class="comment"> !&lt; the option name</span></div>
-<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: iout<span class="comment">                 !&lt; for logging</span></div>
-<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: parsed<span class="comment">                           !&lt; true when parsed</span></div>
+<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: iout<span class="comment"> !&lt; for logging</span></div>
+<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: parsed<span class="comment"> !&lt; true when parsed</span></div>
 <div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;    <span class="comment">! local</span></div>
 <div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;    <span class="keywordtype">character(len=LINELENGTH)</span> :: fname</div>
 <div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: inobs, ilen</div>
@@ -2099,7 +2099,7 @@ Here is the call graph for this function:</div>
 <div class="fragment"><div class="line"><a name="l00921"></a><span class="lineno">  921</span>&#160;    <span class="comment">! -- modules</span></div>
 <div class="line"><a name="l00922"></a><span class="lineno">  922</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacegwtmvtmodule.html">gwtmvtmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacegwtmvtmodule.html#a96ad00a2f178a3bac426414fe86e0cc3">mvt_cr</a></div>
 <div class="line"><a name="l00923"></a><span class="lineno">  923</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00924"></a><span class="lineno">  924</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment">  !&lt;  GwtExchangeType</span></div>
+<div class="line"><a name="l00924"></a><span class="lineno">  924</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment"> !&lt;  GwtExchangeType</span></div>
 <div class="line"><a name="l00925"></a><span class="lineno">  925</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: iout</div>
 <div class="line"><a name="l00926"></a><span class="lineno">  926</span>&#160;    <span class="comment">! -- local</span></div>
 <div class="line"><a name="l00927"></a><span class="lineno">  927</span>&#160;    <span class="comment">!</span></div>
@@ -2165,7 +2165,7 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacememorymanagermodule.html">memorymanagermodule</a>, <span class="keywordtype">only</span>: <a class="code" href="interfacememorymanagermodule_1_1mem__allocate.html">mem_allocate</a></div>
 <div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacesimmodule.html">simmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>, <a class="code" href="namespacesimmodule.html#a83910ed20af1fec9bdf46cad8c276538">store_error_unit</a></div>
 <div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment">  !&lt;  GwtExchangeType</span></div>
+<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment"> !&lt;  GwtExchangeType</span></div>
 <div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: iout</div>
 <div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;    <span class="comment">! -- local</span></div>
 <div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;    <span class="keywordtype">character(len=LINELENGTH)</span> :: keyword</div>
@@ -2259,7 +2259,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_gwt_gwt_exchange_8f90_source.html#l01225">1225</a> of file <a class="el" href="_gwt_gwt_exchange_8f90_source.html">GwtGwtExchange.f90</a>.</p>
 <div class="fragment"><div class="line"><a name="l01225"></a><span class="lineno"> 1225</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment"> !&lt;  GwtExchangeType</span></div>
-<div class="line"><a name="l01226"></a><span class="lineno"> 1226</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: useIM<span class="comment">          !&lt; true when interface model should be used</span></div>
+<div class="line"><a name="l01226"></a><span class="lineno"> 1226</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: useIM<span class="comment"> !&lt; true when interface model should be used</span></div>
 <div class="line"><a name="l01227"></a><span class="lineno"> 1227</span>&#160; </div>
 <div class="line"><a name="l01228"></a><span class="lineno"> 1228</span>&#160;    useim = (this%ixt3d &gt; 0)</div>
 <div class="line"><a name="l01229"></a><span class="lineno"> 1229</span>&#160; </div>
@@ -2289,7 +2289,7 @@ Here is the call graph for this function:</div>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="_gwt_gwt_exchange_8f90_source.html#l00253">253</a> of file <a class="el" href="_gwt_gwt_exchange_8f90_source.html">GwtGwtExchange.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment">  !&lt;  GwtExchangeType</span></div>
+<div class="fragment"><div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <span class="keywordtype">class</span>(GwtExchangeType) :: this<span class="comment"> !&lt;  GwtExchangeType</span></div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="comment">! local</span></div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160; </div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <span class="comment">! Ensure gwfmodel names were entered</span></div>
@@ -2405,7 +2405,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacegwtgwtexchangemodule.html">gwtgwtexchangemodule</a></li>
-    <li class="footer">Generated on Wed Jun 29 2022 08:06:51 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Jul 13 2022 07:46:45 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

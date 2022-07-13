@@ -120,7 +120,7 @@ $(document).ready(function(){initNavTree('ims8misc_8f90_source.html',''); initRe
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespaceconstantsmodule.html">constantsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a>, <a class="code" href="namespaceconstantsmodule.html#af918ac22cd0b232deea67660bfbc9ce1">done</a></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;  <span class="keywordtype">private</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;  <span class="keywordtype">public</span> ::  <a class="code" href="namespaceimslinearmisc.html#a47362c9dbe45f05427c13362667aba95">ims_misc_thomas</a></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;  <span class="keywordtype">public</span> :: <a class="code" href="namespaceimslinearmisc.html#a47362c9dbe45f05427c13362667aba95">ims_misc_thomas</a></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">CONTAINS</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"></span> </div>
@@ -133,13 +133,13 @@ $(document).ready(function(){initNavTree('ims8misc_8f90_source.html',''); initRe
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespaceimslinearmisc.html#a47362c9dbe45f05427c13362667aba95">ims_misc_thomas</a>(n, tl, td, tu, b, x, w)</div>
 <div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="namespaceimslinearmisc.html#a47362c9dbe45f05427c13362667aba95">   18</a></span>&#160;    <span class="keywordtype">implicit none</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="comment">! -- dummy variables</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: n<span class="comment">                 !&lt; number of matrix rows</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">dimension(n)</span>, <span class="keywordtype">intent(in)</span> :: tl<span class="comment">      !&lt; lower matrix terms</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">dimension(n)</span>, <span class="keywordtype">intent(in)</span> :: td<span class="comment">      !&lt; diagonal matrix terms</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">dimension(n)</span>, <span class="keywordtype">intent(in)</span> :: tu<span class="comment">      !&lt; upper matrix terms</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">dimension(n)</span>, <span class="keywordtype">intent(in)</span> :: b<span class="comment">       !&lt; right-hand side vector</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">dimension(n)</span>, <span class="keywordtype">intent(inout)</span> :: x<span class="comment">    !&lt; solution vector</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">dimension(n)</span>, <span class="keywordtype">intent(inout)</span> :: w<span class="comment">    !&lt; work vector</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: n<span class="comment"> !&lt; number of matrix rows</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">dimension(n)</span>, <span class="keywordtype">intent(in)</span> :: tl<span class="comment"> !&lt; lower matrix terms</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">dimension(n)</span>, <span class="keywordtype">intent(in)</span> :: td<span class="comment"> !&lt; diagonal matrix terms</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">dimension(n)</span>, <span class="keywordtype">intent(in)</span> :: tu<span class="comment"> !&lt; upper matrix terms</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">dimension(n)</span>, <span class="keywordtype">intent(in)</span> :: b<span class="comment"> !&lt; right-hand side vector</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">dimension(n)</span>, <span class="keywordtype">intent(inout)</span> :: x<span class="comment"> !&lt; solution vector</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">dimension(n)</span>, <span class="keywordtype">intent(inout)</span> :: w<span class="comment"> !&lt; work vector</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="comment">! -- local variables</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: j</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keywordtype">    real</span>(dp) :: bet</div>
@@ -180,7 +180,7 @@ $(document).ready(function(){initNavTree('ims8misc_8f90_source.html',''); initRe
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_45e973df69963bbfe985a1f7e6db2b6f.html">Solution</a></li><li class="navelem"><a class="el" href="dir_6b50ae4d1892d5da5d82b9cffe6c220d.html">LinearMethods</a></li><li class="navelem"><a class="el" href="ims8misc_8f90.html">ims8misc.f90</a></li>
-    <li class="footer">Generated on Wed Jun 29 2022 08:06:46 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Jul 13 2022 07:46:41 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

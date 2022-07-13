@@ -168,6 +168,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:ac30f438d005fc45897a14e34fe59292b"><td class="memItemLeft" align="right" valign="top">logical(lgp)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmemorytypemodule_1_1memorytype.html#ac30f438d005fc45897a14e34fe59292b">master</a> = .true.</td></tr>
 <tr class="memdesc:ac30f438d005fc45897a14e34fe59292b"><td class="mdescLeft">&#160;</td><td class="mdescRight">master copy, others point to this one  <a href="structmemorytypemodule_1_1memorytype.html#ac30f438d005fc45897a14e34fe59292b">More...</a><br /></td></tr>
 <tr class="separator:ac30f438d005fc45897a14e34fe59292b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6396fcc0eb84b1cf7ef4074579f4cc80"><td class="memItemLeft" align="right" valign="top">character(len=:), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmemorytypemodule_1_1memorytype.html#a6396fcc0eb84b1cf7ef4074579f4cc80">strsclr</a> =&gt; null()</td></tr>
+<tr class="memdesc:a6396fcc0eb84b1cf7ef4074579f4cc80"><td class="mdescLeft">&#160;</td><td class="mdescRight">pointer to the character string  <a href="structmemorytypemodule_1_1memorytype.html#a6396fcc0eb84b1cf7ef4074579f4cc80">More...</a><br /></td></tr>
+<tr class="separator:a6396fcc0eb84b1cf7ef4074579f4cc80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acff7180f38cc0d29e513dd26d2ce45a4"><td class="memItemLeft" align="right" valign="top">logical(lgp), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmemorytypemodule_1_1memorytype.html#acff7180f38cc0d29e513dd26d2ce45a4">logicalsclr</a> =&gt; null()</td></tr>
 <tr class="memdesc:acff7180f38cc0d29e513dd26d2ce45a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">pointer to the logical  <a href="structmemorytypemodule_1_1memorytype.html#acff7180f38cc0d29e513dd26d2ce45a4">More...</a><br /></td></tr>
 <tr class="separator:acff7180f38cc0d29e513dd26d2ce45a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -177,6 +180,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:aaa82277b12c090f9e20dff7ccd8d0f41"><td class="memItemLeft" align="right" valign="top">real(dp), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmemorytypemodule_1_1memorytype.html#aaa82277b12c090f9e20dff7ccd8d0f41">dblsclr</a> =&gt; null()</td></tr>
 <tr class="memdesc:aaa82277b12c090f9e20dff7ccd8d0f41"><td class="mdescLeft">&#160;</td><td class="mdescRight">pointer to the double  <a href="structmemorytypemodule_1_1memorytype.html#aaa82277b12c090f9e20dff7ccd8d0f41">More...</a><br /></td></tr>
 <tr class="separator:aaa82277b12c090f9e20dff7ccd8d0f41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecd5764f290a5f995d14763d4d6ca560"><td class="memItemLeft" align="right" valign="top">character(len=:), dimension(:), pointer, contiguous&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmemorytypemodule_1_1memorytype.html#aecd5764f290a5f995d14763d4d6ca560">astr1d</a> =&gt; null()</td></tr>
+<tr class="memdesc:aecd5764f290a5f995d14763d4d6ca560"><td class="mdescLeft">&#160;</td><td class="mdescRight">pointer to the 1d character string array  <a href="structmemorytypemodule_1_1memorytype.html#aecd5764f290a5f995d14763d4d6ca560">More...</a><br /></td></tr>
+<tr class="separator:aecd5764f290a5f995d14763d4d6ca560"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb55ec71a9681457e061ba9d36e1e531"><td class="memItemLeft" align="right" valign="top">integer(i4b), dimension(:), pointer, contiguous&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmemorytypemodule_1_1memorytype.html#acb55ec71a9681457e061ba9d36e1e531">aint1d</a> =&gt; null()</td></tr>
 <tr class="memdesc:acb55ec71a9681457e061ba9d36e1e531"><td class="mdescLeft">&#160;</td><td class="mdescRight">pointer to 1d integer array  <a href="structmemorytypemodule_1_1memorytype.html#acb55ec71a9681457e061ba9d36e1e531">More...</a><br /></td></tr>
 <tr class="separator:acb55ec71a9681457e061ba9d36e1e531"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -220,7 +226,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_memory_8f90_source.html#l00037">37</a> of file <a class="el" href="_memory_8f90_source.html">Memory.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_memory_8f90_source.html#l00039">39</a> of file <a class="el" href="_memory_8f90_source.html">Memory.f90</a>.</p>
 
 </div>
 </div>
@@ -244,7 +250,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_memory_8f90_source.html#l00036">36</a> of file <a class="el" href="_memory_8f90_source.html">Memory.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_memory_8f90_source.html#l00038">38</a> of file <a class="el" href="_memory_8f90_source.html">Memory.f90</a>.</p>
 
 </div>
 </div>
@@ -269,8 +275,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_memory_8f90_source.html#l00032">32</a> of file <a class="el" href="_memory_8f90_source.html">Memory.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>            :: adbl1d      =&gt; null()  <span class="comment">!&lt; pointer to 1d double array</span></div>
+<p class="definition">Definition at line <a class="el" href="_memory_8f90_source.html#l00034">34</a> of file <a class="el" href="_memory_8f90_source.html">Memory.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>            :: adbl1d      =&gt; null()  <span class="comment">!&lt; pointer to 1d double array</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -294,8 +300,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_memory_8f90_source.html#l00033">33</a> of file <a class="el" href="_memory_8f90_source.html">Memory.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:, :)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>         :: adbl2d      =&gt; null()  <span class="comment">!&lt; pointer to 2d double array</span></div>
+<p class="definition">Definition at line <a class="el" href="_memory_8f90_source.html#l00035">35</a> of file <a class="el" href="_memory_8f90_source.html">Memory.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:, :)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>         :: adbl2d      =&gt; null()  <span class="comment">!&lt; pointer to 2d double array</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -319,8 +325,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_memory_8f90_source.html#l00034">34</a> of file <a class="el" href="_memory_8f90_source.html">Memory.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:, :, :)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>      :: adbl3d      =&gt; null()  <span class="comment">!&lt; pointer to 3d double array</span></div>
+<p class="definition">Definition at line <a class="el" href="_memory_8f90_source.html#l00036">36</a> of file <a class="el" href="_memory_8f90_source.html">Memory.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:, :, :)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>      :: adbl3d      =&gt; null()  <span class="comment">!&lt; pointer to 3d double array</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -344,8 +350,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_memory_8f90_source.html#l00029">29</a> of file <a class="el" href="_memory_8f90_source.html">Memory.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>        :: aint1d      =&gt; null()  <span class="comment">!&lt; pointer to 1d integer array</span></div>
+<p class="definition">Definition at line <a class="el" href="_memory_8f90_source.html#l00031">31</a> of file <a class="el" href="_memory_8f90_source.html">Memory.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>        :: aint1d      =&gt; null()  <span class="comment">!&lt; pointer to 1d integer array</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -369,8 +375,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_memory_8f90_source.html#l00030">30</a> of file <a class="el" href="_memory_8f90_source.html">Memory.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:, :)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>     :: aint2d      =&gt; null()  <span class="comment">!&lt; pointer to 2d integer array</span></div>
+<p class="definition">Definition at line <a class="el" href="_memory_8f90_source.html#l00032">32</a> of file <a class="el" href="_memory_8f90_source.html">Memory.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:, :)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>     :: aint2d      =&gt; null()  <span class="comment">!&lt; pointer to 2d integer array</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -394,8 +400,33 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_memory_8f90_source.html#l00031">31</a> of file <a class="el" href="_memory_8f90_source.html">Memory.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:, :, :)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>  :: aint3d      =&gt; null()  <span class="comment">!&lt; pointer to 3d integer array</span></div>
+<p class="definition">Definition at line <a class="el" href="_memory_8f90_source.html#l00033">33</a> of file <a class="el" href="_memory_8f90_source.html">Memory.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:, :, :)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>  :: aint3d      =&gt; null()  <span class="comment">!&lt; pointer to 3d integer array</span></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aecd5764f290a5f995d14763d4d6ca560"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecd5764f290a5f995d14763d4d6ca560">&#9670;&nbsp;</a></span>astr1d</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">character(len=:), dimension(:), pointer, contiguous memorytypemodule::memorytype::astr1d =&gt; null()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_memory_8f90_source.html#l00030">30</a> of file <a class="el" href="_memory_8f90_source.html">Memory.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">character(len=:)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>    :: astr1d      =&gt; null()  <span class="comment">!&lt; pointer to the 1d character string array</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -419,8 +450,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_memory_8f90_source.html#l00028">28</a> of file <a class="el" href="_memory_8f90_source.html">Memory.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">pointer</span>                                      :: dblsclr     =&gt; null()  <span class="comment">!&lt; pointer to the double</span></div>
+<p class="definition">Definition at line <a class="el" href="_memory_8f90_source.html#l00029">29</a> of file <a class="el" href="_memory_8f90_source.html">Memory.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">pointer</span>                                      :: dblsclr     =&gt; null()  <span class="comment">!&lt; pointer to the double</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -469,8 +500,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_memory_8f90_source.html#l00027">27</a> of file <a class="el" href="_memory_8f90_source.html">Memory.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                                  :: intsclr     =&gt; null()  <span class="comment">!&lt; pointer to the integer</span></div>
+<p class="definition">Definition at line <a class="el" href="_memory_8f90_source.html#l00028">28</a> of file <a class="el" href="_memory_8f90_source.html">Memory.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>                                  :: intsclr     =&gt; null()  <span class="comment">!&lt; pointer to the integer</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -519,8 +550,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_memory_8f90_source.html#l00026">26</a> of file <a class="el" href="_memory_8f90_source.html">Memory.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">logical(LGP)</span>, <span class="keywordtype">pointer</span>                                  :: logicalsclr =&gt; null()  <span class="comment">!&lt; pointer to the logical</span></div>
+<p class="definition">Definition at line <a class="el" href="_memory_8f90_source.html#l00027">27</a> of file <a class="el" href="_memory_8f90_source.html">Memory.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">logical(LGP)</span>, <span class="keywordtype">pointer</span>                                  :: logicalsclr =&gt; null()  <span class="comment">!&lt; pointer to the logical</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -724,6 +755,31 @@ Private Attributes</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
+<a id="a6396fcc0eb84b1cf7ef4074579f4cc80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6396fcc0eb84b1cf7ef4074579f4cc80">&#9670;&nbsp;</a></span>strsclr</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">character(len=:), pointer memorytypemodule::memorytype::strsclr =&gt; null()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_memory_8f90_source.html#l00026">26</a> of file <a class="el" href="_memory_8f90_source.html">Memory.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">character(len=:)</span>, <span class="keywordtype">pointer</span>                              :: strsclr     =&gt; null()  <span class="comment">!&lt; pointer to the character string</span></div>
+</div><!-- fragment -->
+</div>
+</div>
 <hr/>The documentation for this type was generated from the following file:<ul>
 <li>/home/runner/work/modflow6/modflow6/src/Utilities/Memory/<a class="el" href="_memory_8f90_source.html">Memory.f90</a></li>
 </ul>
@@ -733,7 +789,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacememorytypemodule.html">memorytypemodule</a></li><li class="navelem"><a class="el" href="structmemorytypemodule_1_1memorytype.html">memorytype</a></li>
-    <li class="footer">Generated on Wed Jun 29 2022 08:06:56 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Jul 13 2022 07:46:50 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

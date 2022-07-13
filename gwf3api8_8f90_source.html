@@ -118,10 +118,10 @@ $(document).ready(function(){initNavTree('gwf3api8_8f90_source.html',''); initRe
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">!!</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">!! This module contains the overridden methods from the base model package</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">!! class for the API package. The API package is designed to be used with the</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">!! shared object and have period data specified using the MODFLOW API. Several </span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">!! methods need to be overridden since no period data are specified in the </span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">!! shared object and have period data specified using the MODFLOW API. Several</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">!! methods need to be overridden since no period data are specified in the</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">!! API input file. Overridden methods include:</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">!!   - bnd_rp no period data is specified </span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">!!   - bnd_rp no period data is specified</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">!!   - bnd_fc BOUND array is not filled. hcof and rhs are specified dierctly</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">!!</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">!&lt;</span></div>
@@ -140,7 +140,7 @@ $(document).ready(function(){initNavTree('gwf3api8_8f90_source.html',''); initRe
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keywordtype">public</span> :: <a class="code" href="namespaceapimodule.html#a69610802564ad710cb88863117b38a46">api_create</a></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keywordtype">public</span> :: <a class="code" href="structapimodule_1_1apitype.html">apitype</a></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="comment">!</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="namespaceapimodule.html#a770e354aa31c1c9d325730b13f0b01b0">   27</a></span>&#160;  <span class="keywordtype">character(len=LENFTYPE)</span>       :: <a class="code" href="namespaceapimodule.html#a770e354aa31c1c9d325730b13f0b01b0">ftype</a> = <span class="stringliteral">&#39;API&#39;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="namespaceapimodule.html#a770e354aa31c1c9d325730b13f0b01b0">   27</a></span>&#160;  <span class="keywordtype">character(len=LENFTYPE)</span> :: <a class="code" href="namespaceapimodule.html#a770e354aa31c1c9d325730b13f0b01b0">ftype</a> = <span class="stringliteral">&#39;API&#39;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="namespaceapimodule.html#a4b58807b8b592f09b508d899816e87e2">   28</a></span>&#160;  <span class="keywordtype">character(len=LENPACKAGENAME)</span> :: <a class="code" href="namespaceapimodule.html#a4b58807b8b592f09b508d899816e87e2">text</a> = <span class="stringliteral">&#39;             API&#39;</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="comment">!</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="structapimodule_1_1apitype.html">   30</a></span>&#160;  <span class="keyword">type</span>, <span class="keyword">extends</span>(bndtype) :: <a class="code" href="structapimodule_1_1apitype.html">apitype</a></div>
@@ -162,13 +162,13 @@ $(document).ready(function(){initNavTree('gwf3api8_8f90_source.html',''); initRe
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">  !&lt;</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespaceapimodule.html#a69610802564ad710cb88863117b38a46">api_create</a>(packobj, id, ibcnum, inunit, iout, namemodel, pakname)</div>
 <div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="namespaceapimodule.html#a69610802564ad710cb88863117b38a46">   48</a></span>&#160;    <span class="comment">! -- dummy variables</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">class</span>(bndtype), <span class="keywordtype">pointer</span> :: packobj<span class="comment">          !&lt; pointer to default package type</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: id<span class="comment">              !&lt; package id</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: ibcnum<span class="comment">          !&lt; boundary condition number</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: inunit<span class="comment">          !&lt; unit number of USR package input file</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: iout<span class="comment">            !&lt; unit number of model listing file</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: namemodel<span class="comment">   !&lt; model name</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: pakname<span class="comment">     !&lt; package name</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">class</span>(bndtype), <span class="keywordtype">pointer</span> :: packobj<span class="comment"> !&lt; pointer to default package type</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: id<span class="comment"> !&lt; package id</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: ibcnum<span class="comment"> !&lt; boundary condition number</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: inunit<span class="comment"> !&lt; unit number of USR package input file</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: iout<span class="comment"> !&lt; unit number of model listing file</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: namemodel<span class="comment"> !&lt; model name</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: pakname<span class="comment"> !&lt; package name</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment">! -- local variables</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structapimodule_1_1apitype.html">apitype</a>), <span class="keywordtype">pointer</span> :: apiobj</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="comment">!</span></div>
@@ -249,10 +249,10 @@ $(document).ready(function(){initNavTree('gwf3api8_8f90_source.html',''); initRe
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespaceapimodule.html#a0e5247e92d2e864a38d970921b8d3ff5">api_fc</a>(this, rhs, ia, idxglo, amatsln)</div>
 <div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="namespaceapimodule.html#a0e5247e92d2e864a38d970921b8d3ff5">  134</a></span>&#160;    <span class="comment">! -- dummy variables</span></div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structapimodule_1_1apitype.html">apitype</a>) :: this</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">intent(inout)</span> :: rhs<span class="comment">      !&lt; right-hand side vector</span></div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">intent(in)</span> :: ia<span class="comment">      !&lt; pointer to the rows in A matrix</span></div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">intent(in)</span> :: idxglo<span class="comment">  !&lt; position of entries in A matrix</span></div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">intent(inout)</span> :: amatsln<span class="comment">  !&lt; A matrix for solution</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">intent(inout)</span> :: rhs<span class="comment"> !&lt; right-hand side vector</span></div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">intent(in)</span> :: ia<span class="comment"> !&lt; pointer to the rows in A matrix</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">intent(in)</span> :: idxglo<span class="comment"> !&lt; position of entries in A matrix</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">intent(inout)</span> :: amatsln<span class="comment"> !&lt; A matrix for solution</span></div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="comment">! -- local variables</span></div>
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i</div>
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: n</div>
@@ -273,7 +273,7 @@ $(document).ready(function(){initNavTree('gwf3api8_8f90_source.html',''); initRe
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;      <span class="comment">!</span></div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;      <span class="comment">! -- If mover is active and this boundary is discharging,</span></div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;      <span class="comment">!    store available water (as positive value).</span></div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;      qusr = this%rhs(i) - this%hcof(i)*this%xnew(n)</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;      qusr = this%rhs(i) - this%hcof(i) * this%xnew(n)</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;      <span class="keywordflow">if</span> (this%imover == 1 .and. qusr &gt; <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a>) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        <span class="keyword">call </span>this%pakmvrobj%accumulate_qformvr(i, qusr)</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="keywordflow">      end if</span></div>
@@ -356,7 +356,7 @@ $(document).ready(function(){initNavTree('gwf3api8_8f90_source.html',''); initRe
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_32e188284d239da8bb14ec1dabb0c35f.html">Model</a></li><li class="navelem"><a class="el" href="dir_5aefb7a434fc869900e7ccf685166f81.html">GroundWaterFlow</a></li><li class="navelem"><a class="el" href="gwf3api8_8f90.html">gwf3api8.f90</a></li>
-    <li class="footer">Generated on Wed Jun 29 2022 08:06:46 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Jul 13 2022 07:46:40 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

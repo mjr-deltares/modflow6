@@ -140,7 +140,7 @@ $(document).ready(function(){initNavTree('_gwf_storage_utils_8f90_source.html','
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">  !&gt; @brief Calculate the specific storage terms</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">  !!</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">  !! Subroutine to calculate the specific storage terms for a cell using</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">  !! the cell geometry, current and previous specific storage capacity, </span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">  !! the cell geometry, current and previous specific storage capacity,</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">  !! current and previous cell saturation, and the current and previous head.</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">  !! Subroutine can optionally return the flow rate from specific storage.</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">  !!</span></div>
@@ -149,19 +149,19 @@ $(document).ready(function(){initNavTree('_gwf_storage_utils_8f90_source.html','
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                          rho1, rho1old, snnew, snold, hnew, hold, &amp;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                          aterm, rhsterm, rate)</div>
 <div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="namespacegwfstorageutilsmodule.html#a7b4b9fbc31b583968ffda1abc761c54d">   35</a></span>&#160;    <span class="comment">! -- dummy variables</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: iconvert<span class="comment">      !&lt; flag indicating if cell is convertible</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: iorig_ss<span class="comment">      !&lt; flag indicating if the original MODFLOW 6 specific storage formulation is being used</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: iconf_ss<span class="comment">      !&lt; flag indicating if specific storage only applies under confined conditions</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: top<span class="comment">               !&lt; top of cell</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: bot<span class="comment">               !&lt; bottom of cell</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: rho1<span class="comment">              !&lt; current specific storage capacity</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: rho1old<span class="comment">           !&lt; previous specific storage capacity</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: snnew<span class="comment">             !&lt; current cell saturation</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: snold<span class="comment">             !&lt; previous cell saturation</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: hnew<span class="comment">              !&lt; current head</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: hold<span class="comment">              !&lt; previous head</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(inout)</span> :: aterm<span class="comment">          !&lt; coefficient matrix term</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(inout)</span> :: rhsterm<span class="comment">        !&lt; right-hand side term</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: iconvert<span class="comment"> !&lt; flag indicating if cell is convertible</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: iorig_ss<span class="comment"> !&lt; flag indicating if the original MODFLOW 6 specific storage formulation is being used</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: iconf_ss<span class="comment"> !&lt; flag indicating if specific storage only applies under confined conditions</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: top<span class="comment"> !&lt; top of cell</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: bot<span class="comment"> !&lt; bottom of cell</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: rho1<span class="comment"> !&lt; current specific storage capacity</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: rho1old<span class="comment"> !&lt; previous specific storage capacity</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: snnew<span class="comment"> !&lt; current cell saturation</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: snold<span class="comment"> !&lt; previous cell saturation</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: hnew<span class="comment"> !&lt; current head</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: hold<span class="comment"> !&lt; previous head</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(inout)</span> :: aterm<span class="comment"> !&lt; coefficient matrix term</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(inout)</span> :: rhsterm<span class="comment"> !&lt; right-hand side term</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(inout)</span>, <span class="keywordtype">optional</span> :: rate<span class="comment"> !&lt; calculated specific storage rate</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="comment">! -- local variables</span></div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keywordtype">    real</span>(dp) :: tthk</div>
@@ -209,22 +209,22 @@ $(document).ready(function(){initNavTree('_gwf_storage_utils_8f90_source.html','
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">  !&gt; @brief Calculate the specific yield storage terms</span></div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">  !!</span></div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment">  !! Subroutine to calculate the specific yield storage terms for a cell</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment">  !! using the cell geometry, current and previous specific yield storage </span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment">  !! capacity, and the current and previous cell saturation. Subroutine </span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment">  !! using the cell geometry, current and previous specific yield storage</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment">  !! capacity, and the current and previous cell saturation. Subroutine</span></div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">  !! can optionally return the flow rate from specific yield.</span></div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment">  !!</span></div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment">  !&lt;</span></div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  <span class="keywordtype">pure</span> <span class="keyword">subroutine </span><a class="code" href="namespacegwfstorageutilsmodule.html#a5ad13e9f2d26ae09d3e9adf2b9eac6d3">syterms</a>(top, bot, rho2, rho2old, snnew, snold, &amp;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                          aterm, rhsterm, rate)</div>
 <div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="namespacegwfstorageutilsmodule.html#a5ad13e9f2d26ae09d3e9adf2b9eac6d3">  103</a></span>&#160;    <span class="comment">! -- dummy variables</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: top<span class="comment">               !&lt; top of cell</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: bot<span class="comment">               !&lt; bottom of cell</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: rho2<span class="comment">              !&lt; current specific yield storage capacity</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: rho2old<span class="comment">           !&lt; previous specific yield storage capacity</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: snnew<span class="comment">             !&lt; current cell saturation</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: snold<span class="comment">             !&lt; previous cell saturation</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(inout)</span> :: aterm<span class="comment">          !&lt; coefficient matrix term</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(inout)</span> :: rhsterm<span class="comment">        !&lt; right-hand side term</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: top<span class="comment"> !&lt; top of cell</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: bot<span class="comment"> !&lt; bottom of cell</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: rho2<span class="comment"> !&lt; current specific yield storage capacity</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: rho2old<span class="comment"> !&lt; previous specific yield storage capacity</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: snnew<span class="comment"> !&lt; current cell saturation</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: snold<span class="comment"> !&lt; previous cell saturation</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(inout)</span> :: aterm<span class="comment"> !&lt; coefficient matrix term</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(inout)</span> :: rhsterm<span class="comment"> !&lt; right-hand side term</span></div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(inout)</span>, <span class="keywordtype">optional</span> :: rate<span class="comment"> !&lt; calculated specific yield rate</span></div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="comment">! -- local variables</span></div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="keywordtype">    real</span>(dp) :: tthk</div>
@@ -241,7 +241,7 @@ $(document).ready(function(){initNavTree('_gwf_storage_utils_8f90_source.html','
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;      <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        rhsterm = tthk * (<a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a> - rho2old * snold)</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="keywordflow">      end if</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="comment">! -- known flow from specific yield</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;      <span class="comment">! -- known flow from specific yield</span></div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;      rhsterm = tthk * (rho2 * snnew - rho2old * snold)</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="keywordflow">    end if</span></div>
@@ -264,11 +264,11 @@ $(document).ready(function(){initNavTree('_gwf_storage_utils_8f90_source.html','
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="comment">  !&lt;</span></div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  <span class="keywordtype">pure</span> <span class="keyword">function </span><a class="code" href="namespacegwfstorageutilsmodule.html#ad0a1ef63059b5b016feca7cbb978b3bd">sscapacity</a>(istor_coef, top, bot, area, ss) <span class="keyword">result</span>(sc1)</div>
 <div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="namespacegwfstorageutilsmodule.html#ad0a1ef63059b5b016feca7cbb978b3bd">  150</a></span>&#160;    <span class="comment">! -- dummy variables</span></div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: istor_coef<span class="comment">  !&lt; flag indicating if ss is the storage coefficient</span></div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: top<span class="comment">             !&lt; top of cell</span></div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: bot<span class="comment">             !&lt; bottom of cell</span></div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: area<span class="comment">            !&lt; horizontal cell area</span></div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: ss<span class="comment">              !&lt; specific storage or storage coefficient</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: istor_coef<span class="comment"> !&lt; flag indicating if ss is the storage coefficient</span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: top<span class="comment"> !&lt; top of cell</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: bot<span class="comment"> !&lt; bottom of cell</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: area<span class="comment"> !&lt; horizontal cell area</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: ss<span class="comment"> !&lt; specific storage or storage coefficient</span></div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="comment">! -- local variables</span></div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="keywordtype">    real</span>(dp) :: sc1</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="keywordtype">    real</span>(dp) :: thick</div>
@@ -278,7 +278,7 @@ $(document).ready(function(){initNavTree('_gwf_storage_utils_8f90_source.html','
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;      thick = <a class="code" href="namespaceconstantsmodule.html#af918ac22cd0b232deea67660bfbc9ce1">done</a></div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    sc1 = ss*thick*area</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    sc1 = ss * thick * area</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="comment">! -- return</span></div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordflow">return</span></div>
@@ -293,12 +293,12 @@ $(document).ready(function(){initNavTree('_gwf_storage_utils_8f90_source.html','
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="comment">  !&lt;</span></div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;  <span class="keywordtype">pure</span> <span class="keyword">function </span><a class="code" href="namespacegwfstorageutilsmodule.html#a472a281b8bb5723a001f761bfe8a51e8">sycapacity</a>(area, sy) <span class="keyword">result</span>(sc2)</div>
 <div class="line"><a name="l00179"></a><span class="lineno"><a class="line" href="namespacegwfstorageutilsmodule.html#a472a281b8bb5723a001f761bfe8a51e8">  179</a></span>&#160;    <span class="comment">! -- dummy variables</span></div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: area<span class="comment">       !&lt; horizontal cell area</span></div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: sy<span class="comment">         !&lt; specific yield</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: area<span class="comment"> !&lt; horizontal cell area</span></div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="keywordtype">    real</span>(dp), <span class="keywordtype">intent(in)</span> :: sy<span class="comment"> !&lt; specific yield</span></div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <span class="comment">! -- local variables</span></div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="keywordtype">    real</span>(dp) :: sc2</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="comment">! -- calculate specific yield capacity</span></div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    sc2 = sy*area</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    sc2 = sy * area</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="comment">! -- return</span></div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    <span class="keywordflow">return</span></div>
@@ -321,7 +321,7 @@ $(document).ready(function(){initNavTree('_gwf_storage_utils_8f90_source.html','
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_32e188284d239da8bb14ec1dabb0c35f.html">Model</a></li><li class="navelem"><a class="el" href="dir_c1f30da02202fb3f19a3c29076dafee1.html">ModelUtilities</a></li><li class="navelem"><a class="el" href="_gwf_storage_utils_8f90.html">GwfStorageUtils.f90</a></li>
-    <li class="footer">Generated on Wed Jun 29 2022 08:06:46 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Jul 13 2022 07:46:41 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -195,13 +195,13 @@ Functions/Subroutines</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="ims8misc_8f90_source.html#l00018">18</a> of file <a class="el" href="ims8misc_8f90_source.html">ims8misc.f90</a>.</p>
 <div class="fragment"><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">implicit none</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="comment">! -- dummy variables</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: n<span class="comment">                 !&lt; number of matrix rows</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(n)</span>, <span class="keywordtype">intent(in)</span> :: tl<span class="comment">      !&lt; lower matrix terms</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(n)</span>, <span class="keywordtype">intent(in)</span> :: td<span class="comment">      !&lt; diagonal matrix terms</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(n)</span>, <span class="keywordtype">intent(in)</span> :: tu<span class="comment">      !&lt; upper matrix terms</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(n)</span>, <span class="keywordtype">intent(in)</span> :: b<span class="comment">       !&lt; right-hand side vector</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(n)</span>, <span class="keywordtype">intent(inout)</span> :: x<span class="comment">    !&lt; solution vector</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(n)</span>, <span class="keywordtype">intent(inout)</span> :: w<span class="comment">    !&lt; work vector</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: n<span class="comment"> !&lt; number of matrix rows</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(n)</span>, <span class="keywordtype">intent(in)</span> :: tl<span class="comment"> !&lt; lower matrix terms</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(n)</span>, <span class="keywordtype">intent(in)</span> :: td<span class="comment"> !&lt; diagonal matrix terms</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(n)</span>, <span class="keywordtype">intent(in)</span> :: tu<span class="comment"> !&lt; upper matrix terms</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(n)</span>, <span class="keywordtype">intent(in)</span> :: b<span class="comment"> !&lt; right-hand side vector</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(n)</span>, <span class="keywordtype">intent(inout)</span> :: x<span class="comment"> !&lt; solution vector</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(n)</span>, <span class="keywordtype">intent(inout)</span> :: w<span class="comment"> !&lt; work vector</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="comment">! -- local variables</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: j</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keywordtype">    real</span>(DP) :: bet</div>
@@ -245,7 +245,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceimslinearmisc.html">imslinearmisc</a></li>
-    <li class="footer">Generated on Wed Jun 29 2022 08:06:53 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Jul 13 2022 07:46:46 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
