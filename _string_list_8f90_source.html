@@ -115,7 +115,7 @@ $(document).ready(function(){initNavTree('_string_list_8f90_source.html',''); in
 </div><!--header-->
 <div class="contents">
 <a href="_string_list_8f90.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="namespacestringlistmodule.html">    1</a></span>&#160;<span class="keyword">module</span> <a class="code" href="namespacestringlistmodule.html">stringlistmodule</a></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;  </div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacekindmodule.html">kindmodule</a>, <span class="keywordtype">only</span>: dp, i4b</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacelistmodule.html">listmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structlistmodule_1_1listtype.html">listtype</a></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
@@ -128,17 +128,17 @@ $(document).ready(function(){initNavTree('_string_list_8f90_source.html',''); in
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">contains</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacestringlistmodule.html#abe89f14c075108e6db8993932ec5b122">constructcharactercontainer</a> (newCharCont, text)</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacestringlistmodule.html#abe89f14c075108e6db8993932ec5b122">constructcharactercontainer</a>(newCharCont, text)</div>
 <div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="namespacestringlistmodule.html#abe89f14c075108e6db8993932ec5b122">   16</a></span>&#160;    <span class="keywordtype">implicit none</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structstringlistmodule_1_1charactercontainertype.html">charactercontainertype</a>), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(out)</span> :: newCharCont</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: text</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">allocate</span>(newcharcont)</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">allocate</span> (newcharcont)</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    newcharcont%charstring = text</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">return</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacestringlistmodule.html#abe89f14c075108e6db8993932ec5b122">constructcharactercontainer</a></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keyword">function </span><a class="code" href="namespacestringlistmodule.html#afbf23e96ca6993a591e26dbefd0a1e10">castascharactercontainertype</a>(obj) <span class="keyword">result</span> (res)</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keyword">function </span><a class="code" href="namespacestringlistmodule.html#afbf23e96ca6993a591e26dbefd0a1e10">castascharactercontainertype</a>(obj) <span class="keyword">result</span>(res)</div>
 <div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="namespacestringlistmodule.html#afbf23e96ca6993a591e26dbefd0a1e10">   26</a></span>&#160;    <span class="keywordtype">implicit none</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(inout)</span> :: obj</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structstringlistmodule_1_1charactercontainertype.html">charactercontainertype</a>), <span class="keywordtype">pointer</span> :: res</div>
@@ -167,12 +167,12 @@ $(document).ready(function(){initNavTree('_string_list_8f90_source.html',''); in
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">associated</span>(newcharactercontainer)) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      obj =&gt; newcharactercontainer</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      <span class="keyword">call </span>list%Add(obj)</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keywordflow">    endif</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">return</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacestringlistmodule.html#af6b239eb51dad2fa982f2d381823cb49">addstringtolist</a></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keyword">function </span><a class="code" href="namespacestringlistmodule.html#ad1b54086a65c589895e7349ac5eae451">getstringfromlist</a>(list, indx) <span class="keyword">result</span> (string)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keyword">function </span><a class="code" href="namespacestringlistmodule.html#ad1b54086a65c589895e7349ac5eae451">getstringfromlist</a>(list, indx) <span class="keyword">result</span>(string)</div>
 <div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="namespacestringlistmodule.html#ad1b54086a65c589895e7349ac5eae451">   60</a></span>&#160;    <span class="keywordtype">implicit none</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="comment">! -- dummy</span></div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structlistmodule_1_1listtype.html">listtype</a>), <span class="keywordtype">intent(inout)</span> :: list</div>
@@ -187,7 +187,7 @@ $(document).ready(function(){initNavTree('_string_list_8f90_source.html',''); in
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    charcont =&gt; <a class="code" href="namespacestringlistmodule.html#afbf23e96ca6993a591e26dbefd0a1e10">castascharactercontainertype</a>(obj)</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">associated</span>(charcont)) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      string = charcont%charstring</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keywordflow">    endif</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">return</span></div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="keyword">end function </span><a class="code" href="namespacestringlistmodule.html#ad1b54086a65c589895e7349ac5eae451">getstringfromlist</a></div>
@@ -208,7 +208,7 @@ $(document).ready(function(){initNavTree('_string_list_8f90_source.html',''); in
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ff383ddf1aa4eab0c4ce7910366d05a5.html">Utilities</a></li><li class="navelem"><a class="el" href="_string_list_8f90.html">StringList.f90</a></li>
-    <li class="footer">Generated on Wed Jul 13 2022 07:46:41 for MODFLOW 6 by
+    <li class="footer">Generated on Mon Aug 8 2022 09:27:12 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

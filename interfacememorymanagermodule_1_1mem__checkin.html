@@ -203,43 +203,43 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_memory_manager_8f90_source.html#l00887">887</a> of file <a class="el" href="_memory_manager_8f90_source.html">MemoryManager.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00887"></a><span class="lineno">  887</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>, <span class="keywordtype">intent(inout)</span> :: adbl<span class="comment">  !&lt; the existing array</span></div>
-<div class="line"><a name="l00888"></a><span class="lineno">  888</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: name<span class="comment">                                !&lt; new variable name</span></div>
-<div class="line"><a name="l00889"></a><span class="lineno">  889</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: mem_path<span class="comment">                            !&lt; new path where variable is stored</span></div>
-<div class="line"><a name="l00890"></a><span class="lineno">  890</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: name2<span class="comment">                               !&lt; existing variable name</span></div>
-<div class="line"><a name="l00891"></a><span class="lineno">  891</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: mem_path2<span class="comment">                           !&lt; existing path where variable is stored</span></div>
-<div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160;    <span class="comment">! -- local</span></div>
-<div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160;    <span class="keywordtype">type</span>(MemoryType), <span class="keywordtype">pointer</span> :: mt</div>
-<div class="line"><a name="l00894"></a><span class="lineno">  894</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: isize</div>
-<div class="line"><a name="l00895"></a><span class="lineno">  895</span>&#160;    <span class="comment">! -- code</span></div>
-<div class="line"><a name="l00896"></a><span class="lineno">  896</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00897"></a><span class="lineno">  897</span>&#160;    <span class="comment">! -- check the variable name length</span></div>
-<div class="line"><a name="l00898"></a><span class="lineno">  898</span>&#160;    <span class="keyword">call </span>mem_check_length(name, lenvarname, <span class="stringliteral">&quot;variable&quot;</span>)</div>
-<div class="line"><a name="l00899"></a><span class="lineno">  899</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00900"></a><span class="lineno">  900</span>&#160;    <span class="comment">! -- set isize</span></div>
-<div class="line"><a name="l00901"></a><span class="lineno">  901</span>&#160;    isize = <span class="keyword">size</span>(adbl)</div>
-<div class="line"><a name="l00902"></a><span class="lineno">  902</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00903"></a><span class="lineno">  903</span>&#160;    <span class="comment">! -- allocate memory type</span></div>
-<div class="line"><a name="l00904"></a><span class="lineno">  904</span>&#160;    <span class="keyword">allocate</span>(mt)</div>
-<div class="line"><a name="l00905"></a><span class="lineno">  905</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00906"></a><span class="lineno">  906</span>&#160;    <span class="comment">! -- set memory type</span></div>
-<div class="line"><a name="l00907"></a><span class="lineno">  907</span>&#160;    mt%adbl1d =&gt; adbl</div>
-<div class="line"><a name="l00908"></a><span class="lineno">  908</span>&#160;    mt%isize = isize</div>
-<div class="line"><a name="l00909"></a><span class="lineno">  909</span>&#160;    mt%name = name</div>
-<div class="line"><a name="l00910"></a><span class="lineno">  910</span>&#160;    mt%path = mem_path</div>
-<div class="line"><a name="l00911"></a><span class="lineno">  911</span>&#160;    <span class="keyword">write</span>(mt%memtype, <span class="stringliteral">&quot;(a,&#39; (&#39;,i0,&#39;)&#39;)&quot;</span>) <span class="stringliteral">&#39;DOUBLE&#39;</span>, isize</div>
-<div class="line"><a name="l00912"></a><span class="lineno">  912</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00913"></a><span class="lineno">  913</span>&#160;    <span class="comment">! -- set master information</span></div>
-<div class="line"><a name="l00914"></a><span class="lineno">  914</span>&#160;    mt%master = .false.</div>
-<div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160;    mt%mastername = name2</div>
-<div class="line"><a name="l00916"></a><span class="lineno">  916</span>&#160;    mt%masterPath = mem_path2</div>
-<div class="line"><a name="l00917"></a><span class="lineno">  917</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00918"></a><span class="lineno">  918</span>&#160;    <span class="comment">! -- add memory type to the memory list</span></div>
-<div class="line"><a name="l00919"></a><span class="lineno">  919</span>&#160;    <span class="keyword">call </span>memorylist%add(mt)</div>
-<div class="line"><a name="l00920"></a><span class="lineno">  920</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00921"></a><span class="lineno">  921</span>&#160;    <span class="comment">! -- return</span></div>
-<div class="line"><a name="l00922"></a><span class="lineno">  922</span>&#160;    <span class="keywordflow">return</span></div>
+<p class="definition">Definition at line <a class="el" href="_memory_manager_8f90_source.html#l00888">888</a> of file <a class="el" href="_memory_manager_8f90_source.html">MemoryManager.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00888"></a><span class="lineno">  888</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>, <span class="keywordtype">intent(inout)</span> :: adbl<span class="comment"> !&lt; the existing array</span></div>
+<div class="line"><a name="l00889"></a><span class="lineno">  889</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: name<span class="comment"> !&lt; new variable name</span></div>
+<div class="line"><a name="l00890"></a><span class="lineno">  890</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: mem_path<span class="comment"> !&lt; new path where variable is stored</span></div>
+<div class="line"><a name="l00891"></a><span class="lineno">  891</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: name2<span class="comment"> !&lt; existing variable name</span></div>
+<div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: mem_path2<span class="comment"> !&lt; existing path where variable is stored</span></div>
+<div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160;    <span class="comment">! -- local</span></div>
+<div class="line"><a name="l00894"></a><span class="lineno">  894</span>&#160;    <span class="keywordtype">type</span>(MemoryType), <span class="keywordtype">pointer</span> :: mt</div>
+<div class="line"><a name="l00895"></a><span class="lineno">  895</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: isize</div>
+<div class="line"><a name="l00896"></a><span class="lineno">  896</span>&#160;    <span class="comment">! -- code</span></div>
+<div class="line"><a name="l00897"></a><span class="lineno">  897</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00898"></a><span class="lineno">  898</span>&#160;    <span class="comment">! -- check the variable name length</span></div>
+<div class="line"><a name="l00899"></a><span class="lineno">  899</span>&#160;    <span class="keyword">call </span>mem_check_length(name, lenvarname, <span class="stringliteral">&quot;variable&quot;</span>)</div>
+<div class="line"><a name="l00900"></a><span class="lineno">  900</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00901"></a><span class="lineno">  901</span>&#160;    <span class="comment">! -- set isize</span></div>
+<div class="line"><a name="l00902"></a><span class="lineno">  902</span>&#160;    isize = <span class="keyword">size</span>(adbl)</div>
+<div class="line"><a name="l00903"></a><span class="lineno">  903</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00904"></a><span class="lineno">  904</span>&#160;    <span class="comment">! -- allocate memory type</span></div>
+<div class="line"><a name="l00905"></a><span class="lineno">  905</span>&#160;    <span class="keyword">allocate</span> (mt)</div>
+<div class="line"><a name="l00906"></a><span class="lineno">  906</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00907"></a><span class="lineno">  907</span>&#160;    <span class="comment">! -- set memory type</span></div>
+<div class="line"><a name="l00908"></a><span class="lineno">  908</span>&#160;    mt%adbl1d =&gt; adbl</div>
+<div class="line"><a name="l00909"></a><span class="lineno">  909</span>&#160;    mt%isize = isize</div>
+<div class="line"><a name="l00910"></a><span class="lineno">  910</span>&#160;    mt%name = name</div>
+<div class="line"><a name="l00911"></a><span class="lineno">  911</span>&#160;    mt%path = mem_path</div>
+<div class="line"><a name="l00912"></a><span class="lineno">  912</span>&#160;    <span class="keyword">write</span> (mt%memtype, <span class="stringliteral">&quot;(a,&#39; (&#39;,i0,&#39;)&#39;)&quot;</span>) <span class="stringliteral">&#39;DOUBLE&#39;</span>, isize</div>
+<div class="line"><a name="l00913"></a><span class="lineno">  913</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00914"></a><span class="lineno">  914</span>&#160;    <span class="comment">! -- set master information</span></div>
+<div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160;    mt%master = .false.</div>
+<div class="line"><a name="l00916"></a><span class="lineno">  916</span>&#160;    mt%mastername = name2</div>
+<div class="line"><a name="l00917"></a><span class="lineno">  917</span>&#160;    mt%masterPath = mem_path2</div>
+<div class="line"><a name="l00918"></a><span class="lineno">  918</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00919"></a><span class="lineno">  919</span>&#160;    <span class="comment">! -- add memory type to the memory list</span></div>
+<div class="line"><a name="l00920"></a><span class="lineno">  920</span>&#160;    <span class="keyword">call </span>memorylist%add(mt)</div>
+<div class="line"><a name="l00921"></a><span class="lineno">  921</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00922"></a><span class="lineno">  922</span>&#160;    <span class="comment">! -- return</span></div>
+<div class="line"><a name="l00923"></a><span class="lineno">  923</span>&#160;    <span class="keywordflow">return</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -305,43 +305,43 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_memory_manager_8f90_source.html#l00846">846</a> of file <a class="el" href="_memory_manager_8f90_source.html">MemoryManager.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00846"></a><span class="lineno">  846</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>, <span class="keywordtype">intent(in)</span> :: aint<span class="comment"> !&lt; the existing array</span></div>
-<div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: name<span class="comment">                                !&lt; new variable name</span></div>
-<div class="line"><a name="l00848"></a><span class="lineno">  848</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: mem_path<span class="comment">                            !&lt; new path where variable is stored</span></div>
-<div class="line"><a name="l00849"></a><span class="lineno">  849</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: name2<span class="comment">                               !&lt; existing variable name</span></div>
-<div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: mem_path2<span class="comment">                           !&lt; existing path where variable is stored</span></div>
-<div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160;    <span class="comment">! --local</span></div>
-<div class="line"><a name="l00852"></a><span class="lineno">  852</span>&#160;    <span class="keywordtype">type</span>(MemoryType), <span class="keywordtype">pointer</span> :: mt</div>
-<div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: isize</div>
-<div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160;    <span class="comment">! -- code</span></div>
-<div class="line"><a name="l00855"></a><span class="lineno">  855</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00856"></a><span class="lineno">  856</span>&#160;    <span class="comment">! -- check variable name length</span></div>
-<div class="line"><a name="l00857"></a><span class="lineno">  857</span>&#160;    <span class="keyword">call </span>mem_check_length(name, lenvarname, <span class="stringliteral">&quot;variable&quot;</span>)</div>
-<div class="line"><a name="l00858"></a><span class="lineno">  858</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00859"></a><span class="lineno">  859</span>&#160;    <span class="comment">! -- set isize</span></div>
-<div class="line"><a name="l00860"></a><span class="lineno">  860</span>&#160;    isize = <span class="keyword">size</span>(aint)</div>
-<div class="line"><a name="l00861"></a><span class="lineno">  861</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;    <span class="comment">! -- allocate memory type</span></div>
-<div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;    <span class="keyword">allocate</span>(mt)</div>
-<div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;    <span class="comment">! -- set memory type</span></div>
-<div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160;    mt%aint1d =&gt; aint</div>
-<div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160;    mt%isize = isize</div>
-<div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;    mt%name = name</div>
-<div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160;    mt%path = mem_path</div>
-<div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;    <span class="keyword">write</span>(mt%memtype, <span class="stringliteral">&quot;(a,&#39; (&#39;,i0,&#39;)&#39;)&quot;</span>) <span class="stringliteral">&#39;INTEGER&#39;</span>, isize</div>
-<div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;    <span class="comment">! -- set master information</span></div>
-<div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;    mt%master = .false.</div>
-<div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;    mt%mastername = name2</div>
-<div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;    mt%masterPath = mem_path2</div>
-<div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160;    <span class="comment">! -- add memory type to the memory list</span></div>
-<div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160;    <span class="keyword">call </span>memorylist%add(mt)</div>
-<div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;    <span class="comment">! -- return</span></div>
-<div class="line"><a name="l00881"></a><span class="lineno">  881</span>&#160;    <span class="keywordflow">return</span></div>
+<p class="definition">Definition at line <a class="el" href="_memory_manager_8f90_source.html#l00847">847</a> of file <a class="el" href="_memory_manager_8f90_source.html">MemoryManager.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>, <span class="keywordtype">intent(in)</span> :: aint<span class="comment"> !&lt; the existing array</span></div>
+<div class="line"><a name="l00848"></a><span class="lineno">  848</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: name<span class="comment"> !&lt; new variable name</span></div>
+<div class="line"><a name="l00849"></a><span class="lineno">  849</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: mem_path<span class="comment"> !&lt; new path where variable is stored</span></div>
+<div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: name2<span class="comment"> !&lt; existing variable name</span></div>
+<div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: mem_path2<span class="comment"> !&lt; existing path where variable is stored</span></div>
+<div class="line"><a name="l00852"></a><span class="lineno">  852</span>&#160;    <span class="comment">! --local</span></div>
+<div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;    <span class="keywordtype">type</span>(MemoryType), <span class="keywordtype">pointer</span> :: mt</div>
+<div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: isize</div>
+<div class="line"><a name="l00855"></a><span class="lineno">  855</span>&#160;    <span class="comment">! -- code</span></div>
+<div class="line"><a name="l00856"></a><span class="lineno">  856</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00857"></a><span class="lineno">  857</span>&#160;    <span class="comment">! -- check variable name length</span></div>
+<div class="line"><a name="l00858"></a><span class="lineno">  858</span>&#160;    <span class="keyword">call </span>mem_check_length(name, lenvarname, <span class="stringliteral">&quot;variable&quot;</span>)</div>
+<div class="line"><a name="l00859"></a><span class="lineno">  859</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00860"></a><span class="lineno">  860</span>&#160;    <span class="comment">! -- set isize</span></div>
+<div class="line"><a name="l00861"></a><span class="lineno">  861</span>&#160;    isize = <span class="keyword">size</span>(aint)</div>
+<div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;    <span class="comment">! -- allocate memory type</span></div>
+<div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160;    <span class="keyword">allocate</span> (mt)</div>
+<div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160;    <span class="comment">! -- set memory type</span></div>
+<div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160;    mt%aint1d =&gt; aint</div>
+<div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;    mt%isize = isize</div>
+<div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160;    mt%name = name</div>
+<div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;    mt%path = mem_path</div>
+<div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;    <span class="keyword">write</span> (mt%memtype, <span class="stringliteral">&quot;(a,&#39; (&#39;,i0,&#39;)&#39;)&quot;</span>) <span class="stringliteral">&#39;INTEGER&#39;</span>, isize</div>
+<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;    <span class="comment">! -- set master information</span></div>
+<div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;    mt%master = .false.</div>
+<div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;    mt%mastername = name2</div>
+<div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;    mt%masterPath = mem_path2</div>
+<div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160;    <span class="comment">! -- add memory type to the memory list</span></div>
+<div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160;    <span class="keyword">call </span>memorylist%add(mt)</div>
+<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00881"></a><span class="lineno">  881</span>&#160;    <span class="comment">! -- return</span></div>
+<div class="line"><a name="l00882"></a><span class="lineno">  882</span>&#160;    <span class="keywordflow">return</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -354,7 +354,7 @@ Private Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacememorymanagermodule.html">memorymanagermodule</a></li><li class="navelem"><a class="el" href="interfacememorymanagermodule_1_1mem__checkin.html">mem_checkin</a></li>
-    <li class="footer">Generated on Wed Jul 13 2022 07:46:49 for MODFLOW 6 by
+    <li class="footer">Generated on Mon Aug 8 2022 09:27:20 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

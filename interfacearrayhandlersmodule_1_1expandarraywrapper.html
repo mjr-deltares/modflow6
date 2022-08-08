@@ -220,11 +220,11 @@ Private Member Functions</h2></td></tr>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      <span class="keywordflow">if</span> (loginc) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        increment = int(log10(real(nsize, dp)), i4b)</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        increment = int(dten**increment, i4b)</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      <span class="comment">!</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;      <span class="comment">! -- increase increment by a multiplier and a value no</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      <span class="comment">!    smaller than a default or specified minimum size</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="comment">!</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="comment">! -- increase increment by a multiplier and a value no</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="comment">!    smaller than a default or specified minimum size</span></div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        increment =  int(nsize * 0.2_dp)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        increment = int(nsize * 0.2_dp)</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        increment = max(minimum_increment, increment)</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keywordflow">      end if</span></div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      <span class="comment">!</span></div>
@@ -251,7 +251,7 @@ Private Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacearrayhandlersmodule.html">arrayhandlersmodule</a></li><li class="navelem"><a class="el" href="interfacearrayhandlersmodule_1_1expandarraywrapper.html">expandarraywrapper</a></li>
-    <li class="footer">Generated on Wed Jul 13 2022 07:46:42 for MODFLOW 6 by
+    <li class="footer">Generated on Mon Aug 8 2022 09:27:13 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

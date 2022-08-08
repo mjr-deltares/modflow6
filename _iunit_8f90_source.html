@@ -118,7 +118,7 @@ $(document).ready(function(){initNavTree('_iunit_8f90_source.html',''); initResi
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">! -- assigned to a single package type, as shown below.</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">! --    row(i)   cunit(i) iunit(i)%nval   iunit(i)%iunit  iunit(i)%ipos</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">! --         1      BCF6              1           (1000)            (1)</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">! --         2       WEL              3 (1001,1003,1005)        (2,5,7) </span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">! --         2       WEL              3 (1001,1003,1005)        (2,5,7)</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">! --         3       GHB              1           (1002)            (4)</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">! --         4       EVT              2      (1004,1006)         (6,10)</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">! --         5       RIV              0               ()             ()</span></div>
@@ -135,8 +135,8 @@ $(document).ready(function(){initNavTree('_iunit_8f90_source.html',''); initResi
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
 <div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structiunitmodule_1_1iunitrowtype.html">   20</a></span>&#160;  <span class="keyword">type</span> :: <a class="code" href="structiunitmodule_1_1iunitrowtype.html">iunitrowtype</a></div>
 <div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="structiunitmodule_1_1iunitrowtype.html#a91ecb26c00c67b870318b48c13b5fe43">   21</a></span>&#160;    <span class="keywordtype">integer(I4B)</span> :: nval = 0</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="structiunitmodule_1_1iunitrowtype.html#a2bc516b318ba3fab76d83d8886973c6a">   22</a></span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">allocatable</span>, <span class="keywordtype">dimension(:)</span> :: iunit                             <span class="comment">! unit numbers for this row</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="structiunitmodule_1_1iunitrowtype.html#a04a1018c1338450de08c4093c8aa9c91">   23</a></span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">allocatable</span>, <span class="keywordtype">dimension(:)</span> :: ipos                              <span class="comment">! position in the input files character array</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="structiunitmodule_1_1iunitrowtype.html#a2bc516b318ba3fab76d83d8886973c6a">   22</a></span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">allocatable</span>, <span class="keywordtype">dimension(:)</span> :: iunit <span class="comment">! unit numbers for this row</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="structiunitmodule_1_1iunitrowtype.html#a04a1018c1338450de08c4093c8aa9c91">   23</a></span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">allocatable</span>, <span class="keywordtype">dimension(:)</span> :: ipos <span class="comment">! position in the input files character array</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keyword">end type </span><a class="code" href="structiunitmodule_1_1iunitrowtype.html">iunitrowtype</a></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
 <div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="structiunitmodule_1_1iunittype.html">   26</a></span>&#160;  <span class="keyword">type</span> :: <a class="code" href="structiunitmodule_1_1iunittype.html">iunittype</a></div>
@@ -149,7 +149,7 @@ $(document).ready(function(){initNavTree('_iunit_8f90_source.html',''); initResi
 <div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="structiunitmodule_1_1iunittype.html#a0cf3700da8e68630869dda313585d09d">   33</a></span>&#160;    <span class="keywordtype">procedure</span> :: <a class="code" href="namespaceiunitmodule.html#a70e4f954422325716523e14f793474bf">getunitnumber</a></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keyword">end type </span><a class="code" href="structiunitmodule_1_1iunittype.html">iunittype</a></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keyword">contains</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">contains</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="_grid_sorting_8f90.html#a8d6fb88aa9b65a273f65b89226533321">init</a>(this, niunit, cunit)</div>
 <div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="namespaceiunitmodule.html#aea23aff0eac27ab8be6ea5cebe20c3f9">   39</a></span>&#160;<span class="comment">! ******************************************************************************</span></div>
@@ -167,12 +167,12 @@ $(document).ready(function(){initNavTree('_iunit_8f90_source.html',''); initResi
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">allocate</span>(this%cunit(niunit))</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">allocate</span>(this%iunit(niunit))</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">allocate</span> (this%cunit(niunit))</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">allocate</span> (this%iunit(niunit))</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    this%niunit = niunit</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">do</span> i=1,niunit</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      this%cunit(i)=cunit(i)</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keywordflow">    enddo</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">do</span> i = 1, niunit</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      this%cunit(i) = cunit(i)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keywordflow">    end do</span></div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="comment">! -- Return</span></div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">return</span></div>
@@ -202,41 +202,41 @@ $(document).ready(function(){initNavTree('_iunit_8f90_source.html',''); initResi
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="comment">! -- Find the row containing ftyp</span></div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    irow = 0</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">do</span> i = 1, this%niunit</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;      <span class="keywordflow">if</span>(this%cunit(i) == ftyp) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;      <span class="keywordflow">if</span> (this%cunit(i) == ftyp) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        irow = i</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordflow">exit</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keywordflow">      endif</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keywordflow">    enddo</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">if</span>(irow == 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;      <span class="keyword">write</span>(errmsg, <span class="stringliteral">&#39;(a,a)&#39;</span>) <span class="stringliteral">&#39;Package type not supported: &#39;</span>, ftyp</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keywordflow">      end if</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">if</span> (irow == 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;      <span class="keyword">write</span> (errmsg, <span class="stringliteral">&#39;(a,a)&#39;</span>) <span class="stringliteral">&#39;Package type not supported: &#39;</span>, ftyp</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(errmsg)</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a82b12515d9862bb8976671f47ddb667c">store_error_filename</a>(namefilename, terminate=.true.)</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keywordflow">    endif</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="comment">! -- Store the iunit number for this ftyp</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">if</span>(this%iunit(irow)%nval == 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;      <span class="keyword">allocate</span>(this%iunit(irow)%iunit(1))</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;      <span class="keyword">allocate</span>(this%iunit(irow)%ipos(1))</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;      this%iunit(irow)%nval=1</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">if</span> (this%iunit(irow)%nval == 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;      <span class="keyword">allocate</span> (this%iunit(irow)%iunit(1))</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;      <span class="keyword">allocate</span> (this%iunit(irow)%ipos(1))</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;      this%iunit(irow)%nval = 1</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;      <span class="comment">!</span></div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;      <span class="comment">! -- increase size of iunit</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;      <span class="keyword">allocate</span>(itemp(this%iunit(irow)%nval))</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;      <span class="keyword">allocate</span> (itemp(this%iunit(irow)%nval))</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;      itemp(:) = this%iunit(irow)%iunit(:)</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;      <span class="keyword">deallocate</span>(this%iunit(irow)%iunit)</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;      <span class="keyword">deallocate</span> (this%iunit(irow)%iunit)</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;      this%iunit(irow)%nval = this%iunit(irow)%nval + 1</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;      <span class="keyword">allocate</span>(this%iunit(irow)%iunit(this%iunit(irow)%nval))</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;      <span class="keyword">allocate</span> (this%iunit(irow)%iunit(this%iunit(irow)%nval))</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;      this%iunit(irow)%iunit(1:this%iunit(irow)%nval - 1) = itemp(:)</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;      <span class="comment">!</span></div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;      <span class="comment">! -- increase size of ipos</span></div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;      itemp(:) = this%iunit(irow)%ipos(:)</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;      <span class="keyword">deallocate</span>(this%iunit(irow)%ipos)</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;      <span class="keyword">allocate</span>(this%iunit(irow)%ipos(this%iunit(irow)%nval))</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;      <span class="keyword">deallocate</span> (this%iunit(irow)%ipos)</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;      <span class="keyword">allocate</span> (this%iunit(irow)%ipos(this%iunit(irow)%nval))</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;      this%iunit(irow)%ipos(1:this%iunit(irow)%nval - 1) = itemp(:)</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;      <span class="comment">!</span></div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;      <span class="comment">! -- cleanup temp</span></div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;      <span class="keyword">deallocate</span>(itemp)</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="keywordflow">    endif</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;      <span class="keyword">deallocate</span> (itemp)</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    this%iunit(irow)%iunit(this%iunit(irow)%nval) = iunit</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    this%iunit(irow)%ipos(this%iunit(irow)%nval) = ipos</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="comment">!</span></div>
@@ -262,26 +262,26 @@ $(document).ready(function(){initNavTree('_iunit_8f90_source.html',''); initResi
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="comment">! -- Find the row</span></div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    irow = 0</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordflow">do</span> i = 1, this%niunit</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;      <span class="keywordflow">if</span>(this%cunit(i) == ftyp) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;      <span class="keywordflow">if</span> (this%cunit(i) == ftyp) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        irow = i</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        <span class="keywordflow">exit</span></div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="keywordflow">      endif</span></div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="keywordflow">    enddo</span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="keywordflow">      end if</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="keywordflow">    end do</span></div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="comment">! -- Find the unit number.</span></div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    iunit = 0</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keywordflow">if</span>(irow &gt; 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keywordflow">if</span> (irow &gt; 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;      nval = this%iunit(irow)%nval</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;      <span class="keywordflow">if</span>(nval &gt; 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;      <span class="keywordflow">if</span> (nval &gt; 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        iunit = this%iunit(irow)%iunit(nval)</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        <span class="keywordflow">if</span>(iremove &gt; 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        <span class="keywordflow">if</span> (iremove &gt; 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;          this%iunit(irow)%iunit(nval) = 0</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;          this%iunit(irow)%nval = nval - 1</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="keywordflow">        endif</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="keywordflow">        end if</span></div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;      <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        iunit = 0</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="keywordflow">      endif</span></div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="keywordflow">    endif</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="keywordflow">      end if</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespaceiunitmodule.html#a70e4f954422325716523e14f793474bf">getunitnumber</a></div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="keyword">end module </span><a class="code" href="namespaceiunitmodule.html">iunitmodule</a></div>
@@ -304,7 +304,7 @@ $(document).ready(function(){initNavTree('_iunit_8f90_source.html',''); initResi
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ff383ddf1aa4eab0c4ce7910366d05a5.html">Utilities</a></li><li class="navelem"><a class="el" href="_iunit_8f90.html">Iunit.f90</a></li>
-    <li class="footer">Generated on Wed Jul 13 2022 07:46:41 for MODFLOW 6 by
+    <li class="footer">Generated on Mon Aug 8 2022 09:27:12 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

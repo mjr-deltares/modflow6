@@ -114,9 +114,9 @@ $(document).ready(function(){initNavTree('_memory_set_handler_8f90_source.html',
 <div class="title">MemorySetHandler.f90</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_memory_set_handler_8f90.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="namespacememorysethandlermodule.html">    1</a></span>&#160;<span class="keyword">module</span> <a class="code" href="namespacememorysethandlermodule.html">memorysethandlermodule</a> </div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacekindmodule.html">kindmodule</a>, <span class="keywordtype">only</span>: i4b, lgp </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacelistmodule.html">listmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structlistmodule_1_1listtype.html">listtype</a>  </div>
+<a href="_memory_set_handler_8f90.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="namespacememorysethandlermodule.html">    1</a></span>&#160;<span class="keyword">module</span> <a class="code" href="namespacememorysethandlermodule.html">memorysethandlermodule</a></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacekindmodule.html">kindmodule</a>, <span class="keywordtype">only</span>: i4b, lgp</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacelistmodule.html">listmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structlistmodule_1_1listtype.html">listtype</a></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacememorytypemodule.html">memorytypemodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structmemorytypemodule_1_1memorytype.html">memorytype</a></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacememorymanagermodule.html">memorymanagermodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacememorymanagermodule.html#a8e6f199b7218d6ec1ab68f383cb6e20f">get_from_memorylist</a></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespaceconstantsmodule.html">constantsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceconstantsmodule.html#ae1ec6380bd0e8e6c89a40d3b97306586">lenmempath</a>, <a class="code" href="namespaceconstantsmodule.html#a8a23c620a738ea7c5a9b5c4893b6bfbb">lenvarname</a></div>
@@ -143,20 +143,20 @@ $(document).ready(function(){initNavTree('_memory_set_handler_8f90_source.html',
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">end subroutine</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keyword">end interface</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keyword">contains</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">contains</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">  !&gt; @brief Register the event handler and context for this variable</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">  !!</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">  !! The event handler and its ctx are called whenever the trigger</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">  !! is given by calling @p on_set_memory(). This allows to handle </span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">  !! side effects, e.g. when a variable is from outside a class </span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">  !! is given by calling @p on_set_memory(). This allows to handle</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">  !! side effects, e.g. when a variable is from outside a class</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">  !! (the context) such as happens with the BMI.</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">  !&lt;</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacememorysethandlermodule.html#a22298f4c80fed5e929971b29d4c57a7b">mem_register_handler</a>(var_name, mem_path, handler, ctx)</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="namespacememorysethandlermodule.html#a22298f4c80fed5e929971b29d4c57a7b">   40</a></span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: var_name<span class="comment">            !&lt; the variable name</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: mem_path<span class="comment">            !&lt; the memory path</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">procedure</span>(<a class="code" href="interfacememorysethandlermodule_1_1set__handler__iface.html">set_handler_iface</a>), <span class="keywordtype">pointer</span> :: handler<span class="comment">    !&lt; called after memory is set</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span> :: ctx<span class="comment">                            !&lt; the context with which the handler should be called</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="namespacememorysethandlermodule.html#a22298f4c80fed5e929971b29d4c57a7b">   40</a></span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: var_name<span class="comment"> !&lt; the variable name</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: mem_path<span class="comment"> !&lt; the memory path</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">procedure</span>(<a class="code" href="interfacememorysethandlermodule_1_1set__handler__iface.html">set_handler_iface</a>), <span class="keywordtype">pointer</span> :: handler<span class="comment"> !&lt; called after memory is set</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span> :: ctx<span class="comment"> !&lt; the context with which the handler should be called</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">! local</span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: handler_idx</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structmemorysethandlermodule_1_1eventhandlerdatatype.html">eventhandlerdatatype</a>), <span class="keywordtype">pointer</span> :: handler_data =&gt; null()</div>
@@ -165,7 +165,7 @@ $(document).ready(function(){initNavTree('_memory_set_handler_8f90_source.html',
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: found</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment">! first store the handler data</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">allocate</span>(handler_data)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">allocate</span> (handler_data)</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    handler_data%handler =&gt; handler</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    handler_data%handlerContext =&gt; ctx</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
@@ -190,9 +190,9 @@ $(document).ready(function(){initNavTree('_memory_set_handler_8f90_source.html',
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">  !! because the data in memory is no longer consistent...</span></div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">  !&lt;</span></div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacememorysethandlermodule.html#a696105cae7404befd7025d5757933bb5">on_memory_set</a>(var_name, mem_path, status)</div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="namespacememorysethandlermodule.html#a696105cae7404befd7025d5757933bb5">   77</a></span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: var_name<span class="comment">  !&lt; the variable name</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: mem_path<span class="comment">  !&lt; the memory path</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(out)</span> :: status<span class="comment">       !&lt; status: 0 for success, -1 when failed</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="namespacememorysethandlermodule.html#a696105cae7404befd7025d5757933bb5">   77</a></span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: var_name<span class="comment"> !&lt; the variable name</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: mem_path<span class="comment"> !&lt; the memory path</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(out)</span> :: status<span class="comment"> !&lt; status: 0 for success, -1 when failed</span></div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="comment">! local</span></div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structmemorytypemodule_1_1memorytype.html">memorytype</a>), <span class="keywordtype">pointer</span> :: mt</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: found</div>
@@ -208,13 +208,13 @@ $(document).ready(function(){initNavTree('_memory_set_handler_8f90_source.html',
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;      status = 0</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      <span class="keywordflow">return</span></div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    handler_data_genptr =&gt; <a class="code" href="namespacememorysethandlermodule.html#a92d89d35116dc4a2f903fc377171d1a2">handler_list</a>%GetItem(mt%set_handler_idx)</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">select type</span>(handler_data_genptr)</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">select type</span> (handler_data_genptr)</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keywordflow">    class is</span> (<a class="code" href="structmemorysethandlermodule_1_1eventhandlerdatatype.html">eventhandlerdatatype</a>)</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;      evt_handler_data =&gt; handler_data_genptr</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keywordflow">    end select</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="comment">! call the function</span></div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keyword">call </span>evt_handler_data%handler(evt_handler_data%handlerContext, status)</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  <span class="keyword">end subroutine</span></div>
@@ -242,7 +242,7 @@ $(document).ready(function(){initNavTree('_memory_set_handler_8f90_source.html',
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ff383ddf1aa4eab0c4ce7910366d05a5.html">Utilities</a></li><li class="navelem"><a class="el" href="dir_21ddf0b5f18acd5e64826f246466c9e1.html">Memory</a></li><li class="navelem"><a class="el" href="_memory_set_handler_8f90.html">MemorySetHandler.f90</a></li>
-    <li class="footer">Generated on Wed Jul 13 2022 07:46:41 for MODFLOW 6 by
+    <li class="footer">Generated on Mon Aug 8 2022 09:27:12 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

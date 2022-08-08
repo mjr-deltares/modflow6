@@ -159,17 +159,17 @@ Functions/Subroutines</h2></td></tr>
 <div class="fragment"><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">class</span>(MemoryType) :: this</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">logical</span> :: al</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    al = .false.</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">associated</span>(this%strsclr)) al = .true.</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">associated</span>(this%logicalsclr)) al = .true.</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">associated</span>(this%intsclr)) al = .true.</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">associated</span>(this%dblsclr)) al = .true.</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">associated</span>(this%astr1d)) al = .true.</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">associated</span>(this%aint1d)) al = .true.</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">associated</span>(this%aint2d)) al = .true.</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">associated</span>(this%aint3d)) al = .true.</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">associated</span>(this%adbl1d)) al = .true.</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">associated</span>(this%adbl2d)) al = .true. </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">if</span>(<span class="keyword">associated</span>(this%adbl3d)) al = .true. </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">associated</span>(this%strsclr)) al = .true.</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">associated</span>(this%logicalsclr)) al = .true.</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">associated</span>(this%intsclr)) al = .true.</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">associated</span>(this%dblsclr)) al = .true.</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">associated</span>(this%astr1d)) al = .true.</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">associated</span>(this%aint1d)) al = .true.</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">associated</span>(this%aint2d)) al = .true.</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">associated</span>(this%aint3d)) al = .true.</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">associated</span>(this%adbl1d)) al = .true.</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">associated</span>(this%adbl2d)) al = .true.</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">associated</span>(this%adbl3d)) al = .true.</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -222,7 +222,7 @@ Functions/Subroutines</h2></td></tr>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">if</span> (ipos &lt; 1) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      ipos = 16</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      ipos = min(16,ipos-1)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      ipos = min(16, ipos - 1)</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    cmem = this%memtype(1:ipos)</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="comment">!</span></div>
@@ -266,7 +266,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacememorytypemodule.html">memorytypemodule</a></li>
-    <li class="footer">Generated on Wed Jul 13 2022 07:46:50 for MODFLOW 6 by
+    <li class="footer">Generated on Mon Aug 8 2022 09:27:20 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

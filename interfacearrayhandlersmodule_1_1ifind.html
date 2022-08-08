@@ -185,12 +185,12 @@ Private Member Functions</h2></td></tr>
 <div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    <span class="comment">! -- local</span></div>
 <div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i</div>
 <div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    ifind_character = -1</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    findloop: <span class="keywordflow">do</span> i=1,<span class="keyword">size</span>(array)</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;      <span class="keywordflow">if</span>(array(i) == str) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    findloop: <span class="keywordflow">do</span> i = 1, <span class="keyword">size</span>(array)</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;      <span class="keywordflow">if</span> (array(i) == str) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;        ifind_character = i</div>
 <div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;        <span class="keywordflow">exit</span> findloop</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;<span class="keywordflow">      endif</span></div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;<span class="keywordflow">    enddo</span> findloop</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;<span class="keywordflow">      end if</span></div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;<span class="keywordflow">    end do</span> findloop</div>
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    <span class="keywordflow">return</span></div>
 </div><!-- fragment -->
 </div>
@@ -242,11 +242,11 @@ Private Member Functions</h2></td></tr>
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i</div>
 <div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    ifind_integer = -1</div>
 <div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    findloop: <span class="keywordflow">do</span> i = 1, <span class="keyword">size</span>(iarray)</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;      <span class="keywordflow">if</span>(iarray(i) == ival) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;      <span class="keywordflow">if</span> (iarray(i) == ival) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;        ifind_integer = i</div>
 <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;        <span class="keywordflow">exit</span> findloop</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;<span class="keywordflow">      endif</span></div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;<span class="keywordflow">    enddo</span> findloop</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;<span class="keywordflow">      end if</span></div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;<span class="keywordflow">    end do</span> findloop</div>
 <div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    <span class="keywordflow">return</span></div>
 </div><!-- fragment -->
 </div>
@@ -260,7 +260,7 @@ Private Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacearrayhandlersmodule.html">arrayhandlersmodule</a></li><li class="navelem"><a class="el" href="interfacearrayhandlersmodule_1_1ifind.html">ifind</a></li>
-    <li class="footer">Generated on Wed Jul 13 2022 07:46:42 for MODFLOW 6 by
+    <li class="footer">Generated on Mon Aug 8 2022 09:27:13 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -120,44 +120,44 @@ $(document).ready(function(){initNavTree('_vector_int_8f90_source.html',''); ini
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacearrayhandlersmodule.html">arrayhandlersmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="interfacearrayhandlersmodule_1_1expandarray.html">expandarray</a></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;  <span class="keywordtype">implicit none</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;  <span class="keywordtype">private</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;  <span class="keywordtype">public</span> :: <a class="code" href="structvectorintmodule_1_1vectorint.html">vectorint</a>  </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;  </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;  <span class="keywordtype">public</span> :: <a class="code" href="structvectorintmodule_1_1vectorint.html">vectorint</a></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
 <div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="namespacevectorintmodule.html#a408b223e7aad0dc0333d98eb18b86312">    9</a></span>&#160;  <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">parameter</span> :: <a class="code" href="namespacevectorintmodule.html#a408b223e7aad0dc0333d98eb18b86312">defaultinitialcapacity</a> = 4</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <span class="comment">! This is a dynamic vector type for integers</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="structvectorintmodule_1_1vectorint.html">   12</a></span>&#160;  <span class="keyword">type</span> :: <a class="code" href="structvectorintmodule_1_1vectorint.html">vectorint</a></div>
 <div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="structvectorintmodule_1_1vectorint.html#a7cf6323f43ee3c02a35abc28aef609d4">   13</a></span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">private</span>, <span class="keywordtype">allocatable</span> :: values(:) <span class="comment">! the internal array for storage</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="structvectorintmodule_1_1vectorint.html#aa3732c25467f28cdb434aac035f76865">   14</a></span>&#160;    <span class="keywordtype">integer(I4B)</span> :: size                            <span class="comment">! the number of elements (technically this stuff should be unsigned)</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structvectorintmodule_1_1vectorint.html#af90de7599c44fbd5514d7c9eef596e96">   15</a></span>&#160;    <span class="keywordtype">integer(I4B)</span> :: capacity                        <span class="comment">! the reserved storage</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="structvectorintmodule_1_1vectorint.html#aa3732c25467f28cdb434aac035f76865">   14</a></span>&#160;    <span class="keywordtype">integer(I4B)</span> :: size <span class="comment">! the number of elements (technically this stuff should be unsigned)</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structvectorintmodule_1_1vectorint.html#af90de7599c44fbd5514d7c9eef596e96">   15</a></span>&#160;    <span class="keywordtype">integer(I4B)</span> :: capacity <span class="comment">! the reserved storage</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="keyword">contains</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structvectorintmodule_1_1vectorint.html#acf1c147c4e23ca10fa5f15a04b88bf13">   17</a></span>&#160;    <span class="keywordtype">procedure</span>, pass(this) :: <a class="code" href="_grid_sorting_8f90.html#a8d6fb88aa9b65a273f65b89226533321">init</a>                   <span class="comment">! allocate memory, init size and capacity</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structvectorintmodule_1_1vectorint.html#a6ca22e70f21d3027f3b563998534f733">   18</a></span>&#160;    <span class="keywordtype">procedure</span>, pass(this) :: <a class="code" href="namespacevectorintmodule.html#a96f0f194eed7a7ad542e9f8206b2881c">push_back</a>              <span class="comment">! adds an element at the end of the vector</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structvectorintmodule_1_1vectorint.html#aef0870bca42a1fe2ff4e92f0f12d0a65">   19</a></span>&#160;    <span class="keywordtype">procedure</span>, pass(this) :: <a class="code" href="namespacevectorintmodule.html#af8671611587fa5f89a2edbf3a5786d83">at</a>                     <span class="comment">! random access, unsafe, no bounds checking</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structvectorintmodule_1_1vectorint.html#a41e535843d0dcbdfeed86918dbcd0724">   20</a></span>&#160;    <span class="keywordtype">procedure</span>, pass(this) :: <a class="code" href="namespacevectorintmodule.html#a2267cbcf11a2d8fe18ade0ef7848e356">at_safe</a>                <span class="comment">! random access with bounds checking</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="structvectorintmodule_1_1vectorint.html#a06654572bafe96b702b767c9d82252cb">   21</a></span>&#160;    <span class="keywordtype">procedure</span>, pass(this) :: <a class="code" href="namespacevectorintmodule.html#a654c4fd2789df7c2a225df1fade59062">clear</a>                  <span class="comment">! empties the vector, leaves memory unchanged</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="structvectorintmodule_1_1vectorint.html#a3013cc8580ffd816850b8dc60d188b35">   22</a></span>&#160;    <span class="keywordtype">procedure</span>, pass(this) :: <a class="code" href="namespacevectorintmodule.html#aece9f76fdf55c9aa89b9dac0ddd3fbe1">shrink_to_fit</a>          <span class="comment">! reduces the allocated memory to fit the actual vector size</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="structvectorintmodule_1_1vectorint.html#a67bdf7b67808526d2babfdd08bf85026">   23</a></span>&#160;    <span class="keywordtype">procedure</span>, pass(this) :: <a class="code" href="namespacevectorintmodule.html#aed6572fa2f1a9b0371e7edfc65099012">destroy</a>                <span class="comment">! deletes the memory</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structvectorintmodule_1_1vectorint.html#acf1c147c4e23ca10fa5f15a04b88bf13">   17</a></span>&#160;    <span class="keywordtype">procedure</span>, pass(this) :: <a class="code" href="_grid_sorting_8f90.html#a8d6fb88aa9b65a273f65b89226533321">init</a> <span class="comment">! allocate memory, init size and capacity</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structvectorintmodule_1_1vectorint.html#a6ca22e70f21d3027f3b563998534f733">   18</a></span>&#160;    <span class="keywordtype">procedure</span>, pass(this) :: <a class="code" href="namespacevectorintmodule.html#a96f0f194eed7a7ad542e9f8206b2881c">push_back</a> <span class="comment">! adds an element at the end of the vector</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structvectorintmodule_1_1vectorint.html#aef0870bca42a1fe2ff4e92f0f12d0a65">   19</a></span>&#160;    <span class="keywordtype">procedure</span>, pass(this) :: <a class="code" href="namespacevectorintmodule.html#af8671611587fa5f89a2edbf3a5786d83">at</a> <span class="comment">! random access, unsafe, no bounds checking</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structvectorintmodule_1_1vectorint.html#a41e535843d0dcbdfeed86918dbcd0724">   20</a></span>&#160;    <span class="keywordtype">procedure</span>, pass(this) :: <a class="code" href="namespacevectorintmodule.html#a2267cbcf11a2d8fe18ade0ef7848e356">at_safe</a> <span class="comment">! random access with bounds checking</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="structvectorintmodule_1_1vectorint.html#a06654572bafe96b702b767c9d82252cb">   21</a></span>&#160;    <span class="keywordtype">procedure</span>, pass(this) :: <a class="code" href="namespacevectorintmodule.html#a654c4fd2789df7c2a225df1fade59062">clear</a> <span class="comment">! empties the vector, leaves memory unchanged</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="structvectorintmodule_1_1vectorint.html#a3013cc8580ffd816850b8dc60d188b35">   22</a></span>&#160;    <span class="keywordtype">procedure</span>, pass(this) :: <a class="code" href="namespacevectorintmodule.html#aece9f76fdf55c9aa89b9dac0ddd3fbe1">shrink_to_fit</a> <span class="comment">! reduces the allocated memory to fit the actual vector size</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="structvectorintmodule_1_1vectorint.html#a67bdf7b67808526d2babfdd08bf85026">   23</a></span>&#160;    <span class="keywordtype">procedure</span>, pass(this) :: <a class="code" href="namespacevectorintmodule.html#aed6572fa2f1a9b0371e7edfc65099012">destroy</a> <span class="comment">! deletes the memory</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="comment">! private</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="structvectorintmodule_1_1vectorint.html#ab8cb86dde3f96629aaf1c24da7ce8379">   25</a></span>&#160;    <span class="keywordtype">procedure</span>, <span class="keywordtype">private</span>, pass(this) :: <a class="code" href="namespacevectorintmodule.html#aeb33ffcc1beb39c90b79bfb0d55a254d">expand</a></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keyword">end type </span><a class="code" href="structvectorintmodule_1_1vectorint.html">vectorint</a></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">contains</span> <span class="comment">! module routines</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="_grid_sorting_8f90.html#a8d6fb88aa9b65a273f65b89226533321">init</a>(this, capacity)</div>
 <div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="namespacevectorintmodule.html#a36139243b32bf3ee6f7da90035ed5f09">   31</a></span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvectorintmodule_1_1vectorint.html">vectorint</a>), <span class="keywordtype">intent(inout)</span> :: this</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span>, <span class="keywordtype">optional</span> :: capacity <span class="comment">! the initial capacity, when given</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">present</span>(capacity)) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      this%capacity = capacity</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      this%capacity = <a class="code" href="namespacevectorintmodule.html#a408b223e7aad0dc0333d98eb18b86312">defaultinitialcapacity</a></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordflow">    end if</span>    </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">allocate</span>(this%values(this%capacity))</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">allocate</span> (this%values(this%capacity))</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    this%size = 0</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="_grid_sorting_8f90.html#a8d6fb88aa9b65a273f65b89226533321">init</a></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacevectorintmodule.html#a96f0f194eed7a7ad542e9f8206b2881c">push_back</a>(this, newValue)</div>
 <div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="namespacevectorintmodule.html#a96f0f194eed7a7ad542e9f8206b2881c">   46</a></span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvectorintmodule_1_1vectorint.html">vectorint</a>), <span class="keywordtype">intent(inout)</span> :: this</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: newValue</div>
@@ -165,103 +165,104 @@ $(document).ready(function(){initNavTree('_vector_int_8f90_source.html',''); ini
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">if</span> (this%size + 1 &gt; this%capacity) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      <span class="keyword">call </span>this%expand()</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    this%size = this%size + 1</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    this%values(this%size) = newvalue</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacevectorintmodule.html#a96f0f194eed7a7ad542e9f8206b2881c">push_back</a></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;   </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keyword">function </span><a class="code" href="namespacevectorintmodule.html#af8671611587fa5f89a2edbf3a5786d83">at</a>(this, idx) <span class="keyword">result</span>(value)</div>
 <div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="namespacevectorintmodule.html#af8671611587fa5f89a2edbf3a5786d83">   59</a></span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvectorintmodule_1_1vectorint.html">vectorint</a>), <span class="keywordtype">intent(inout)</span> :: this</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span>        :: idx</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">integer(I4B)</span>                    :: <span class="keywordtype">value</span> </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: idx</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: value</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">value</span> = this%values(idx)</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keyword">end function </span><a class="code" href="namespacevectorintmodule.html#af8671611587fa5f89a2edbf3a5786d83">at</a></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keyword">function </span><a class="code" href="namespacevectorintmodule.html#a2267cbcf11a2d8fe18ade0ef7848e356">at_safe</a>(this, idx) <span class="keyword">result</span>(value)</div>
 <div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="namespacevectorintmodule.html#a2267cbcf11a2d8fe18ade0ef7848e356">   68</a></span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvectorintmodule_1_1vectorint.html">vectorint</a>), <span class="keywordtype">intent(inout)</span> :: this</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span>        :: idx</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">integer(I4B)</span>                    :: <span class="keywordtype">value</span> </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: idx</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: value</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">if</span> (idx &gt; this%size) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      <span class="keyword">write</span>(*,*) <span class="stringliteral">&#39;VectorInt exception: access out of bounds, index &#39;</span>, idx, <span class="stringliteral">&#39; exceeds actual size (&#39;</span>, this%size, <span class="stringliteral">&#39;)&#39;</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61">ustop</a>()</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">value</span> = this%at(idx)</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keyword">end function </span><a class="code" href="namespacevectorintmodule.html#a2267cbcf11a2d8fe18ade0ef7848e356">at_safe</a></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacevectorintmodule.html#a654c4fd2789df7c2a225df1fade59062">clear</a>(this)</div>
-<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="namespacevectorintmodule.html#a654c4fd2789df7c2a225df1fade59062">   81</a></span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvectorintmodule_1_1vectorint.html">vectorint</a>), <span class="keywordtype">intent(inout)</span> :: this</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="comment">! really, this is all there is to it...</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    this%size = 0</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacevectorintmodule.html#a654c4fd2789df7c2a225df1fade59062">clear</a></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacevectorintmodule.html#aece9f76fdf55c9aa89b9dac0ddd3fbe1">shrink_to_fit</a>(this)</div>
-<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="namespacevectorintmodule.html#aece9f76fdf55c9aa89b9dac0ddd3fbe1">   89</a></span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvectorintmodule_1_1vectorint.html">vectorint</a>), <span class="keywordtype">intent(inout)</span> :: this</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">allocatable</span> :: tempValues(:)</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i, newSize</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">if</span> (this%size == this%capacity) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;      <span class="keywordflow">return</span> </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="comment">! store temp</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    newsize = this%size</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keyword">allocate</span>(tempvalues(newsize))</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">do</span> i = 1, newsize</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        tempvalues(i) = this%values(i)</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="comment">! reinit</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keyword">call </span>this%destroy()</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keyword">call </span>this%init(newsize)</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="comment">! copy back</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordflow">do</span> i = 1, newsize</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keyword">call </span>this%push_back(tempvalues(i))</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    </div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacevectorintmodule.html#aece9f76fdf55c9aa89b9dac0ddd3fbe1">shrink_to_fit</a></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  </div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacevectorintmodule.html#aed6572fa2f1a9b0371e7edfc65099012">destroy</a>(this)</div>
-<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="namespacevectorintmodule.html#aed6572fa2f1a9b0371e7edfc65099012">  117</a></span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvectorintmodule_1_1vectorint.html">vectorint</a>), <span class="keywordtype">intent(inout)</span> :: this</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    </div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">allocated</span>(this%values)) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;      <span class="keyword">deallocate</span>(this%values)</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;      this%size = 0</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;      this%capacity = 0</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;      <span class="keyword">write</span>(*,*) <span class="stringliteral">&#39;VectorInt exception: cannot delete an unallocated array&#39;</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61">ustop</a>()</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    </div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacevectorintmodule.html#aed6572fa2f1a9b0371e7edfc65099012">destroy</a></div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  </div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  <span class="comment">! expand the array with the given strategy, at</span></div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  <span class="comment">! least by 1</span></div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacevectorintmodule.html#aeb33ffcc1beb39c90b79bfb0d55a254d">expand</a>(this)</div>
-<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="namespacevectorintmodule.html#aeb33ffcc1beb39c90b79bfb0d55a254d">  133</a></span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvectorintmodule_1_1vectorint.html">vectorint</a>), <span class="keywordtype">intent(inout)</span> :: this</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: increment</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    </div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="comment">! expansion strategy</span></div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    increment = this%capacity/2 + 1</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacearrayhandlersmodule_1_1expandarray.html">expandarray</a>(this%values, increment)</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    this%capacity = this%capacity + increment</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;      </div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacevectorintmodule.html#aeb33ffcc1beb39c90b79bfb0d55a254d">expand</a></div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;  </div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="keyword">end module </span><a class="code" href="namespacevectorintmodule.html">vectorintmodule</a></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      <span class="keyword">write</span> (*, *) <span class="stringliteral">&#39;VectorInt exception: access out of bounds, index &#39;</span>, idx, &amp;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="stringliteral">&#39; exceeds actual size (&#39;</span>, this%size, <span class="stringliteral">&#39;)&#39;</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61">ustop</a>()</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">value</span> = this%at(idx)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <span class="keyword">end function </span><a class="code" href="namespacevectorintmodule.html#a2267cbcf11a2d8fe18ade0ef7848e356">at_safe</a></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacevectorintmodule.html#a654c4fd2789df7c2a225df1fade59062">clear</a>(this)</div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="namespacevectorintmodule.html#a654c4fd2789df7c2a225df1fade59062">   82</a></span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvectorintmodule_1_1vectorint.html">vectorint</a>), <span class="keywordtype">intent(inout)</span> :: this</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="comment">! really, this is all there is to it...</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    this%size = 0</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacevectorintmodule.html#a654c4fd2789df7c2a225df1fade59062">clear</a></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacevectorintmodule.html#aece9f76fdf55c9aa89b9dac0ddd3fbe1">shrink_to_fit</a>(this)</div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="namespacevectorintmodule.html#aece9f76fdf55c9aa89b9dac0ddd3fbe1">   90</a></span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvectorintmodule_1_1vectorint.html">vectorint</a>), <span class="keywordtype">intent(inout)</span> :: this</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">allocatable</span> :: tempValues(:)</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i, newSize</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">if</span> (this%size == this%capacity) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;      <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="comment">! store temp</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    newsize = this%size</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keyword">allocate</span> (tempvalues(newsize))</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordflow">do</span> i = 1, newsize</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;      tempvalues(i) = this%values(i)</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="comment">! reinit</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keyword">call </span>this%destroy()</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keyword">call </span>this%init(newsize)</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="comment">! copy back</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordflow">do</span> i = 1, newsize</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;      <span class="keyword">call </span>this%push_back(tempvalues(i))</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacevectorintmodule.html#aece9f76fdf55c9aa89b9dac0ddd3fbe1">shrink_to_fit</a></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacevectorintmodule.html#aed6572fa2f1a9b0371e7edfc65099012">destroy</a>(this)</div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="namespacevectorintmodule.html#aed6572fa2f1a9b0371e7edfc65099012">  118</a></span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvectorintmodule_1_1vectorint.html">vectorint</a>), <span class="keywordtype">intent(inout)</span> :: this</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">allocated</span>(this%values)) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;      <span class="keyword">deallocate</span> (this%values)</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;      this%size = 0</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;      this%capacity = 0</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;      <span class="keyword">write</span> (*, *) <span class="stringliteral">&#39;VectorInt exception: cannot delete an unallocated array&#39;</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61">ustop</a>()</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacevectorintmodule.html#aed6572fa2f1a9b0371e7edfc65099012">destroy</a></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  <span class="comment">! expand the array with the given strategy, at</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  <span class="comment">! least by 1</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacevectorintmodule.html#aeb33ffcc1beb39c90b79bfb0d55a254d">expand</a>(this)</div>
+<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="namespacevectorintmodule.html#aeb33ffcc1beb39c90b79bfb0d55a254d">  134</a></span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvectorintmodule_1_1vectorint.html">vectorint</a>), <span class="keywordtype">intent(inout)</span> :: this</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: increment</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="comment">! expansion strategy</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    increment = this%capacity / 2 + 1</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacearrayhandlersmodule_1_1expandarray.html">expandarray</a>(this%values, increment)</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    this%capacity = this%capacity + increment</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacevectorintmodule.html#aeb33ffcc1beb39c90b79bfb0d55a254d">expand</a></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="keyword">end module </span><a class="code" href="namespacevectorintmodule.html">vectorintmodule</a></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="anamespacekindmodule_html"><div class="ttname"><a href="namespacekindmodule.html">kindmodule</a></div><div class="ttdoc">This module defines variable data types.</div><div class="ttdef"><b>Definition:</b> <a href="kind_8f90_source.html#l00008">kind.f90:8</a></div></div>
 <div class="ttc" id="anamespacevectorintmodule_html_af8671611587fa5f89a2edbf3a5786d83"><div class="ttname"><a href="namespacevectorintmodule.html#af8671611587fa5f89a2edbf3a5786d83">vectorintmodule::at</a></div><div class="ttdeci">integer(i4b) function at(this, idx)</div><div class="ttdef"><b>Definition:</b> <a href="_vector_int_8f90_source.html#l00059">VectorInt.f90:59</a></div></div>
-<div class="ttc" id="anamespacevectorintmodule_html_aeb33ffcc1beb39c90b79bfb0d55a254d"><div class="ttname"><a href="namespacevectorintmodule.html#aeb33ffcc1beb39c90b79bfb0d55a254d">vectorintmodule::expand</a></div><div class="ttdeci">subroutine expand(this)</div><div class="ttdef"><b>Definition:</b> <a href="_vector_int_8f90_source.html#l00133">VectorInt.f90:133</a></div></div>
+<div class="ttc" id="anamespacevectorintmodule_html_aeb33ffcc1beb39c90b79bfb0d55a254d"><div class="ttname"><a href="namespacevectorintmodule.html#aeb33ffcc1beb39c90b79bfb0d55a254d">vectorintmodule::expand</a></div><div class="ttdeci">subroutine expand(this)</div><div class="ttdef"><b>Definition:</b> <a href="_vector_int_8f90_source.html#l00134">VectorInt.f90:134</a></div></div>
 <div class="ttc" id="astructvectorintmodule_1_1vectorint_html"><div class="ttname"><a href="structvectorintmodule_1_1vectorint.html">vectorintmodule::vectorint</a></div><div class="ttdef"><b>Definition:</b> <a href="_vector_int_8f90_source.html#l00012">VectorInt.f90:12</a></div></div>
 <div class="ttc" id="anamespacesimmodule_html"><div class="ttname"><a href="namespacesimmodule.html">simmodule</a></div><div class="ttdoc">This module contains simulation methods.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_8f90_source.html#l00010">Sim.f90:10</a></div></div>
 <div class="ttc" id="ainterfacearrayhandlersmodule_1_1expandarray_html"><div class="ttname"><a href="interfacearrayhandlersmodule_1_1expandarray.html">arrayhandlersmodule::expandarray</a></div><div class="ttdef"><b>Definition:</b> <a href="_array_handlers_8f90_source.html#l00016">ArrayHandlers.f90:16</a></div></div>
@@ -269,17 +270,17 @@ $(document).ready(function(){initNavTree('_vector_int_8f90_source.html',''); ini
 <div class="ttc" id="anamespacesimmodule_html_a0be97214c1d4fcf42bc4ddc27b111b61"><div class="ttname"><a href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61">simmodule::ustop</a></div><div class="ttdeci">subroutine, public ustop(stopmess, ioutlocal)</div><div class="ttdoc">Stop the simulation.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_8f90_source.html#l00364">Sim.f90:364</a></div></div>
 <div class="ttc" id="anamespacevectorintmodule_html_a96f0f194eed7a7ad542e9f8206b2881c"><div class="ttname"><a href="namespacevectorintmodule.html#a96f0f194eed7a7ad542e9f8206b2881c">vectorintmodule::push_back</a></div><div class="ttdeci">subroutine push_back(this, newValue)</div><div class="ttdef"><b>Definition:</b> <a href="_vector_int_8f90_source.html#l00046">VectorInt.f90:46</a></div></div>
 <div class="ttc" id="anamespacevectorintmodule_html"><div class="ttname"><a href="namespacevectorintmodule.html">vectorintmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_vector_int_8f90_source.html#l00001">VectorInt.f90:1</a></div></div>
-<div class="ttc" id="anamespacevectorintmodule_html_aece9f76fdf55c9aa89b9dac0ddd3fbe1"><div class="ttname"><a href="namespacevectorintmodule.html#aece9f76fdf55c9aa89b9dac0ddd3fbe1">vectorintmodule::shrink_to_fit</a></div><div class="ttdeci">subroutine shrink_to_fit(this)</div><div class="ttdef"><b>Definition:</b> <a href="_vector_int_8f90_source.html#l00089">VectorInt.f90:89</a></div></div>
-<div class="ttc" id="anamespacevectorintmodule_html_aed6572fa2f1a9b0371e7edfc65099012"><div class="ttname"><a href="namespacevectorintmodule.html#aed6572fa2f1a9b0371e7edfc65099012">vectorintmodule::destroy</a></div><div class="ttdeci">subroutine destroy(this)</div><div class="ttdef"><b>Definition:</b> <a href="_vector_int_8f90_source.html#l00117">VectorInt.f90:117</a></div></div>
+<div class="ttc" id="anamespacevectorintmodule_html_aece9f76fdf55c9aa89b9dac0ddd3fbe1"><div class="ttname"><a href="namespacevectorintmodule.html#aece9f76fdf55c9aa89b9dac0ddd3fbe1">vectorintmodule::shrink_to_fit</a></div><div class="ttdeci">subroutine shrink_to_fit(this)</div><div class="ttdef"><b>Definition:</b> <a href="_vector_int_8f90_source.html#l00090">VectorInt.f90:90</a></div></div>
+<div class="ttc" id="anamespacevectorintmodule_html_aed6572fa2f1a9b0371e7edfc65099012"><div class="ttname"><a href="namespacevectorintmodule.html#aed6572fa2f1a9b0371e7edfc65099012">vectorintmodule::destroy</a></div><div class="ttdeci">subroutine destroy(this)</div><div class="ttdef"><b>Definition:</b> <a href="_vector_int_8f90_source.html#l00118">VectorInt.f90:118</a></div></div>
 <div class="ttc" id="anamespacevectorintmodule_html_a2267cbcf11a2d8fe18ade0ef7848e356"><div class="ttname"><a href="namespacevectorintmodule.html#a2267cbcf11a2d8fe18ade0ef7848e356">vectorintmodule::at_safe</a></div><div class="ttdeci">integer(i4b) function at_safe(this, idx)</div><div class="ttdef"><b>Definition:</b> <a href="_vector_int_8f90_source.html#l00068">VectorInt.f90:68</a></div></div>
 <div class="ttc" id="anamespacevectorintmodule_html_a408b223e7aad0dc0333d98eb18b86312"><div class="ttname"><a href="namespacevectorintmodule.html#a408b223e7aad0dc0333d98eb18b86312">vectorintmodule::defaultinitialcapacity</a></div><div class="ttdeci">integer(i4b), parameter defaultinitialcapacity</div><div class="ttdef"><b>Definition:</b> <a href="_vector_int_8f90_source.html#l00009">VectorInt.f90:9</a></div></div>
-<div class="ttc" id="anamespacevectorintmodule_html_a654c4fd2789df7c2a225df1fade59062"><div class="ttname"><a href="namespacevectorintmodule.html#a654c4fd2789df7c2a225df1fade59062">vectorintmodule::clear</a></div><div class="ttdeci">subroutine clear(this)</div><div class="ttdef"><b>Definition:</b> <a href="_vector_int_8f90_source.html#l00081">VectorInt.f90:81</a></div></div>
+<div class="ttc" id="anamespacevectorintmodule_html_a654c4fd2789df7c2a225df1fade59062"><div class="ttname"><a href="namespacevectorintmodule.html#a654c4fd2789df7c2a225df1fade59062">vectorintmodule::clear</a></div><div class="ttdeci">subroutine clear(this)</div><div class="ttdef"><b>Definition:</b> <a href="_vector_int_8f90_source.html#l00082">VectorInt.f90:82</a></div></div>
 <div class="ttc" id="a_grid_sorting_8f90_html_a8d6fb88aa9b65a273f65b89226533321"><div class="ttname"><a href="_grid_sorting_8f90.html#a8d6fb88aa9b65a273f65b89226533321">init</a></div><div class="ttdeci">subroutine init()</div><div class="ttdef"><b>Definition:</b> <a href="_grid_sorting_8f90_source.html#l00023">GridSorting.f90:23</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ff383ddf1aa4eab0c4ce7910366d05a5.html">Utilities</a></li><li class="navelem"><a class="el" href="_vector_int_8f90.html">VectorInt.f90</a></li>
-    <li class="footer">Generated on Wed Jul 13 2022 07:46:41 for MODFLOW 6 by
+    <li class="footer">Generated on Mon Aug 8 2022 09:27:12 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

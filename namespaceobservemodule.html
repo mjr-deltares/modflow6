@@ -186,7 +186,7 @@ Functions/Subroutines</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="_observe_8f90_source.html#l00193">193</a> of file <a class="el" href="_observe_8f90_source.html">Observe.f90</a>.</p>
 <div class="fragment"><div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="comment">! **************************************************************************</span></div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="comment">! AddObsIndex -- Add the observation index to the observation index array</span></div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="comment">!                (indbnds). The observation index count (indxbnds_count)  </span></div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="comment">!                (indbnds). The observation index count (indxbnds_count)</span></div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="comment">!                is also incremented by one and the observation index array</span></div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="comment">!                is expanded, if necessary.</span></div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="comment">! **************************************************************************</span></div>
@@ -239,7 +239,7 @@ Functions/Subroutines</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_observe_8f90_source.html#l00323">323</a> of file <a class="el" href="_observe_8f90_source.html">Observe.f90</a>.</p>
 <div class="fragment"><div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    <span class="keywordtype">type</span>(ListType),             <span class="keywordtype">intent(inout)</span> :: list</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    <span class="keywordtype">type</span>(ListType), <span class="keywordtype">intent(inout)</span> :: list</div>
 <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    <span class="keywordtype">type</span>(ObserveType), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(inout)</span> :: obs</div>
 <div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    <span class="comment">! -- local</span></div>
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span> :: obj</div>
@@ -374,13 +374,13 @@ Here is the caller graph for this function:</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="comment">!    SPECIFICATIONS:</span></div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="comment">! --------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    <span class="comment">! -- dummy variables</span></div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="keywordtype">type</span>(ObserveType),    <span class="keywordtype">pointer</span> :: newObservation</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    <span class="keywordtype">character(len=*)</span>,  <span class="keywordtype">intent(in)</span> :: defLine</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="keywordtype">integer(I4B)</span>,      <span class="keywordtype">intent(in)</span> :: numunit   <span class="comment">! Output unit number</span></div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="keywordtype">logical</span>,           <span class="keywordtype">intent(in)</span> :: formatted <span class="comment">! Formatted output?</span></div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <span class="keywordtype">integer(I4B)</span>,      <span class="keywordtype">intent(in)</span> :: indx      <span class="comment">! Index in ObsOutput array</span></div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="keywordtype">type</span>(ObserveType), <span class="keywordtype">pointer</span> :: newObservation</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: defLine</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: numunit <span class="comment">! Output unit number</span></div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="keywordtype">logical</span>, <span class="keywordtype">intent(in)</span> :: formatted <span class="comment">! Formatted output?</span></div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: indx <span class="comment">! Index in ObsOutput array</span></div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <span class="keywordtype">type</span>(ObsDataType), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(in)</span> :: obsData</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="keywordtype">integer(I4B)</span>,      <span class="keywordtype">intent(in)</span> :: inunit</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: inunit</div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <span class="comment">! -- local</span></div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;<span class="keywordtype">    real</span>(DP) :: r</div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i, icol, iout, istart, istop, n</div>
@@ -391,8 +391,8 @@ Here is the caller graph for this function:</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    icol = 1</div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    <span class="comment">! -- Allocate an ObserveType object.</span></div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="keyword">allocate</span>(newobservation)</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <span class="keyword">allocate</span>(newobservation%indxbnds(0))</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="keyword">allocate</span> (newobservation)</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <span class="keyword">allocate</span> (newobservation%indxbnds(0))</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="comment">! -- Set indxbnds_count to 0</span></div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    newobservation%indxbnds_count = 0</div>
@@ -401,22 +401,22 @@ Here is the caller graph for this function:</div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="comment">!    contents of defLine.</span></div>
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <span class="comment">! -- Get observation name and store it</span></div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <span class="keyword">call </span>urword(defline,icol,istart,istop,1,n,r,<a class="code" href="namespacesimvariablesmodule.html#a70ea2f76b35a03119367efdd0dd88ccc">iout</a>,inunit)</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <span class="keyword">call </span>urword(defline, icol, istart, istop, 1, n, r, <a class="code" href="namespacesimvariablesmodule.html#a70ea2f76b35a03119367efdd0dd88ccc">iout</a>, inunit)</div>
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    newobservation%Name = defline(istart:istop)</div>
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <span class="comment">! -- Get observation type, convert it to uppercase, and store it.</span></div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="keyword">call </span>urword(defline,icol,istart,istop,1,n,r,<a class="code" href="namespacesimvariablesmodule.html#a70ea2f76b35a03119367efdd0dd88ccc">iout</a>,inunit)</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="keyword">call </span>urword(defline, icol, istart, istop, 1, n, r, <a class="code" href="namespacesimvariablesmodule.html#a70ea2f76b35a03119367efdd0dd88ccc">iout</a>, inunit)</div>
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    newobservation%ObsTypeId = defline(istart:istop)</div>
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <span class="comment">! -- Look up package ID for this observation type and store it</span></div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keywordflow">do</span> i=1,maxobstypes</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keywordflow">do</span> i = 1, maxobstypes</div>
 <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;      <span class="keywordflow">if</span> (obsdata(i)%ObsTypeID == newobservation%ObsTypeId) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        newobservation%obsDatum =&gt; obsdata(i)</div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        <span class="keywordflow">exit</span></div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;      <span class="keywordflow">elseif</span> (obsdata(i)%ObsTypeID == <span class="stringliteral">&#39;&#39;</span>) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        <span class="keywordflow">exit</span></div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;<span class="keywordflow">      endif</span></div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;<span class="keywordflow">    enddo</span></div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;<span class="keywordflow">      end if</span></div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;<span class="keywordflow">    end do</span></div>
 <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    <span class="comment">! -- Remaining text is ID [and ID2]; store the remainder of the string</span></div>
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    istart = istop + 1</div>
@@ -495,7 +495,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <span class="comment">! -- dummy</span></div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <span class="keywordtype">class</span>(ObserveType), <span class="keywordtype">intent(inout)</span> :: this</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">allocated</span>(this%indxbnds)) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;      <span class="keyword">deallocate</span>(this%indxbnds)</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;      <span class="keyword">deallocate</span> (this%indxbnds)</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="comment">! -- return</span></div>
@@ -532,8 +532,8 @@ Here is the caller graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="_observe_8f90_source.html#l00336">336</a> of file <a class="el" href="_observe_8f90_source.html">Observe.f90</a>.</p>
 <div class="fragment"><div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    <span class="comment">! -- dummy</span></div>
 <div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <span class="keywordtype">type</span>(ListType), <span class="keywordtype">intent(inout)</span> :: list</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    <span class="keywordtype">integer(I4B)</span>,        <span class="keywordtype">intent(in)</span>    :: idx</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    <span class="keywordtype">type</span>(ObserveType), <span class="keywordtype">pointer</span>    :: res</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: idx</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    <span class="keywordtype">type</span>(ObserveType), <span class="keywordtype">pointer</span> :: res</div>
 <div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <span class="comment">! -- local</span></div>
 <div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span> :: obj</div>
 <div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    <span class="comment">!</span></div>
@@ -633,11 +633,11 @@ Here is the caller graph for this function:</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="comment">! -- Deallocate observation index array, if necessary</span></div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">allocated</span>(this%indxbnds)) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;      <span class="keyword">deallocate</span>(this%indxbnds)</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;      <span class="keyword">deallocate</span> (this%indxbnds)</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="comment">! -- Allocate observation index array to size 0</span></div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keyword">allocate</span>(this%indxbnds(0))</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keyword">allocate</span> (this%indxbnds(0))</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    <span class="comment">! -- return</span></div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keywordflow">return</span></div>
@@ -711,21 +711,21 @@ Here is the caller graph for this function:</div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keywordflow">if</span> (len_trim(btagfound) &gt; 12) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;      tag = btagfound(1:12)</div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;      <span class="keyword">write</span>(tag, <span class="stringliteral">&#39;(a12)&#39;</span>) btagfound</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;      <span class="keyword">write</span> (tag, <span class="stringliteral">&#39;(a12)&#39;</span>) btagfound</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="comment">! -- write fnamein to fnameout</span></div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keywordflow">if</span> (len_trim(fnamein) &gt; 80) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;      fnameout = fnamein(1:80)</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;      <span class="keyword">write</span>(fnameout, <span class="stringliteral">&#39;(a80)&#39;</span>) fnamein</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;      <span class="keyword">write</span> (fnameout, <span class="stringliteral">&#39;(a80)&#39;</span>) fnamein</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="comment">! -- write data to observation table</span></div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keyword">call </span>obstab%add_term(this%Name)</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keyword">call </span>obstab%add_term(tag // trim(this%ObsTypeId))</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keyword">call </span>obstab%add_term(tag//trim(this%ObsTypeId))</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keyword">call </span>obstab%add_term(<span class="stringliteral">&#39;ALL TIMES&#39;</span>)</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keyword">call </span>obstab%add_term(<span class="stringliteral">&#39;&quot;&#39;</span> // trim(this%IDstring) // <span class="stringliteral">&#39;&quot;&#39;</span>)</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keyword">call </span>obstab%add_term(<span class="stringliteral">&#39;&quot;&#39;</span>//trim(this%IDstring)//<span class="stringliteral">&#39;&quot;&#39;</span>)</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="keyword">call </span>obstab%add_term(fnameout)</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="comment">! -- return</span></div>
@@ -742,7 +742,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceobservemodule.html">observemodule</a></li>
-    <li class="footer">Generated on Wed Jul 13 2022 07:46:51 for MODFLOW 6 by
+    <li class="footer">Generated on Mon Aug 8 2022 09:27:21 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

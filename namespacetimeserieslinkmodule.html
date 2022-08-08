@@ -164,7 +164,7 @@ Functions/Subroutines</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="_time_series_link_8f90_source.html#l00111">111</a> of file <a class="el" href="_time_series_link_8f90_source.html">TimeSeriesLink.f90</a>.</p>
 <div class="fragment"><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordtype">implicit none</span></div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordtype">type</span>(ListType),             <span class="keywordtype">intent(inout)</span> :: list</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordtype">type</span>(ListType), <span class="keywordtype">intent(inout)</span> :: list</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordtype">type</span>(TimeSeriesLinkType), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(inout)</span> :: tslink</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="comment">! -- local</span></div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span> :: obj</div>
@@ -331,7 +331,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment">! -- local</span></div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">character(len=LENPACKAGENAME)</span> :: pkgNameTemp</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">allocate</span>(newtslink)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">allocate</span> (newtslink)</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="comment">! Store package name as all caps</span></div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    pkgnametemp = pkgname</div>
@@ -346,7 +346,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">present</span>(text)) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      newtslink%Text = text</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keywordflow">    endif</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">return</span></div>
 </div><!-- fragment --><div class="dynheader">
@@ -449,7 +449,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacetimeserieslinkmodule.html">timeserieslinkmodule</a></li>
-    <li class="footer">Generated on Wed Jul 13 2022 07:46:54 for MODFLOW 6 by
+    <li class="footer">Generated on Mon Aug 8 2022 09:27:24 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

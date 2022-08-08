@@ -120,7 +120,7 @@ $(document).ready(function(){initNavTree('_open_spec_8f90_source.html',''); init
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">!  specifiers is not included in ANSI FORTRAN 77. The included</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">!  specifiers are ACCESS, FORM and ACTION.</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">!</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="namespaceopenspecmodule.html#ade3198b3fa7a2972dae70d888f866536">    7</a></span>&#160;      <span class="keywordtype">CHARACTER(len=20)</span> :: <a class="code" href="namespaceopenspecmodule.html#a5cd9b8ccff306158f81ed8cc744b1e46">access</a>,<a class="code" href="namespaceopenspecmodule.html#ade3198b3fa7a2972dae70d888f866536">form</a>,<a class="code" href="namespaceopenspecmodule.html#a70135a25b66da5205955e723bb58d743">action</a>(2)</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="namespaceopenspecmodule.html#ade3198b3fa7a2972dae70d888f866536">    7</a></span>&#160;  <span class="keywordtype">CHARACTER(len=20)</span> :: <a class="code" href="namespaceopenspecmodule.html#a5cd9b8ccff306158f81ed8cc744b1e46">access</a>, <a class="code" href="namespaceopenspecmodule.html#ade3198b3fa7a2972dae70d888f866536">form</a>, <a class="code" href="namespaceopenspecmodule.html#a70135a25b66da5205955e723bb58d743">action</a>(2)</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">!</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">!</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">!  Specifiers for OPEN statements for unformatted files, which are</span></div>
@@ -131,14 +131,14 @@ $(document).ready(function(){initNavTree('_open_spec_8f90_source.html',''); init
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">!</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">!    Standard Fortran -- Use unless there is a reason to do otherwise.</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">!      DATA ACCESS/&#39;SEQUENTIAL&#39;/</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;       <span class="keyword">DATA</span> <a class="code" href="namespaceopenspecmodule.html#a5cd9b8ccff306158f81ed8cc744b1e46">access</a>/<span class="stringliteral">&#39;STREAM&#39;</span>/</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <span class="keyword">DATA</span> <a class="code" href="namespaceopenspecmodule.html#a5cd9b8ccff306158f81ed8cc744b1e46">access</a>/<span class="stringliteral">&#39;STREAM&#39;</span>/</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">!</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">!</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">!  FORM specifier --</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">!</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">!    Standard Fortran, which results in vendor dependent (non-portable)</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">!    files.  Use unless there is a reason to do otherwise.</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;      <span class="keyword">DATA</span> <a class="code" href="namespaceopenspecmodule.html#ade3198b3fa7a2972dae70d888f866536">form</a>/<span class="stringliteral">&#39;UNFORMATTED&#39;</span>/</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keyword">DATA</span> <a class="code" href="namespaceopenspecmodule.html#ade3198b3fa7a2972dae70d888f866536">form</a>/<span class="stringliteral">&#39;UNFORMATTED&#39;</span>/</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">!</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">!    Non-standard Fortran that causes code compiled by Compaq (Digital)</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">!    Fortran on personal computers to use unstructured non-formatted</span></div>
@@ -157,7 +157,7 @@ $(document).ready(function(){initNavTree('_open_spec_8f90_source.html',''); init
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">!</span></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">!    Standard Fortran 90 and 95 -- Use unless there is a reason to do</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">!    otherwise.</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      <span class="keyword">DATA</span> (<a class="code" href="namespaceopenspecmodule.html#a70135a25b66da5205955e723bb58d743">action</a>(iact),iact=1,2)/<span class="stringliteral">&#39;READ&#39;</span>,<span class="stringliteral">&#39;READWRITE&#39;</span>/</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keyword">DATA</span>(<a class="code" href="namespaceopenspecmodule.html#a70135a25b66da5205955e723bb58d743">action</a>(iact), iact=1, 2)/<span class="stringliteral">&#39;READ&#39;</span>, <span class="stringliteral">&#39;READWRITE&#39;</span>/</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">!</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">!    Non-standard Fortran that causes code compiled by the Lahey LF90</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">!    compiler to create files that can be shared.  For use when parallel</span></div>
@@ -165,7 +165,7 @@ $(document).ready(function(){initNavTree('_open_spec_8f90_source.html',''); init
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">!    while the program is running.</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">!      DATA (ACTION(I),I=1,2)/&#39;READ,DENYWRITE&#39;,&#39;READWRITE,DENYNONE&#39;/</span></div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">!</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">end module </span>OpenSpecModule</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">end module </span><a class="code" href="namespaceopenspecmodule.html">openspecmodule</a></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="anamespaceopenspecmodule_html_a70135a25b66da5205955e723bb58d743"><div class="ttname"><a href="namespaceopenspecmodule.html#a70135a25b66da5205955e723bb58d743">openspecmodule::action</a></div><div class="ttdeci">character(len=20), dimension(2) action</div><div class="ttdef"><b>Definition:</b> <a href="_open_spec_8f90_source.html#l00007">OpenSpec.f90:7</a></div></div>
@@ -176,7 +176,7 @@ $(document).ready(function(){initNavTree('_open_spec_8f90_source.html',''); init
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ff383ddf1aa4eab0c4ce7910366d05a5.html">Utilities</a></li><li class="navelem"><a class="el" href="_open_spec_8f90.html">OpenSpec.f90</a></li>
-    <li class="footer">Generated on Wed Jul 13 2022 07:46:41 for MODFLOW 6 by
+    <li class="footer">Generated on Mon Aug 8 2022 09:27:12 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -189,10 +189,10 @@ Variables</h2></td></tr>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="_memory_set_handler_8f90_source.html#l00040">40</a> of file <a class="el" href="_memory_set_handler_8f90_source.html">MemorySetHandler.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: var_name<span class="comment">            !&lt; the variable name</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: mem_path<span class="comment">            !&lt; the memory path</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">procedure</span>(set_handler_iface), <span class="keywordtype">pointer</span> :: handler<span class="comment">    !&lt; called after memory is set</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span> :: ctx<span class="comment">                            !&lt; the context with which the handler should be called</span></div>
+<div class="fragment"><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: var_name<span class="comment"> !&lt; the variable name</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: mem_path<span class="comment"> !&lt; the memory path</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">procedure</span>(set_handler_iface), <span class="keywordtype">pointer</span> :: handler<span class="comment"> !&lt; called after memory is set</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span> :: ctx<span class="comment"> !&lt; the context with which the handler should be called</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">! local</span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: handler_idx</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">class</span>(EventHandlerDataType), <span class="keywordtype">pointer</span> :: handler_data =&gt; null()</div>
@@ -201,7 +201,7 @@ Variables</h2></td></tr>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: found</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment">! first store the handler data</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">allocate</span>(handler_data)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">allocate</span> (handler_data)</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    handler_data%handler =&gt; handler</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    handler_data%handlerContext =&gt; ctx</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
@@ -276,9 +276,9 @@ Here is the call graph for this function:</div>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="_memory_set_handler_8f90_source.html#l00077">77</a> of file <a class="el" href="_memory_set_handler_8f90_source.html">MemorySetHandler.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: var_name<span class="comment">  !&lt; the variable name</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: mem_path<span class="comment">  !&lt; the memory path</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(out)</span> :: status<span class="comment">       !&lt; status: 0 for success, -1 when failed</span></div>
+<div class="fragment"><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: var_name<span class="comment"> !&lt; the variable name</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: mem_path<span class="comment"> !&lt; the memory path</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(out)</span> :: status<span class="comment"> !&lt; status: 0 for success, -1 when failed</span></div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="comment">! local</span></div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">type</span>(MemoryType), <span class="keywordtype">pointer</span> :: mt</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: found</div>
@@ -294,13 +294,13 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;      status = 0</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      <span class="keywordflow">return</span></div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    handler_data_genptr =&gt; handler_list%GetItem(mt%set_handler_idx)</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">select type</span>(handler_data_genptr)</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">select type</span> (handler_data_genptr)</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keywordflow">    class is</span> (eventhandlerdatatype)</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;      evt_handler_data =&gt; handler_data_genptr</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keywordflow">    end select</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="comment">! call the function</span></div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keyword">call </span>evt_handler_data%handler(evt_handler_data%handlerContext, status)</div>
 </div><!-- fragment --><div class="dynheader">
@@ -365,7 +365,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacememorysethandlermodule.html">memorysethandlermodule</a></li>
-    <li class="footer">Generated on Wed Jul 13 2022 07:46:50 for MODFLOW 6 by
+    <li class="footer">Generated on Mon Aug 8 2022 09:27:20 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

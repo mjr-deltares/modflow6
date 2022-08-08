@@ -42,5 +42,5 @@ var structobsmodule_1_1obstype =
     [ "outputfilename", "structobsmodule_1_1obstype.html#a103b2d5382609957818f437ca145659f", null ],
     [ "pakobs", "structobsmodule_1_1obstype.html#a8c80c9fdc59b74dfd523908482ef01ed", null ],
     [ "parser", "structobsmodule_1_1obstype.html#aae23e78e2497a62832fe62e340254fbc", null ],
-    [ "pkgname", "structobsmodule_1_1obstype.html#a78809b2e7675c24de384de4060b43dae", null ]
+    [ "pkgname", "structobsmodule_1_1obstype.html#a81b9aaa40397521849d701535cf67f37", null ]
 ];

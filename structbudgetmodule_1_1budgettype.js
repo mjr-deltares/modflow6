@@ -25,6 +25,6 @@ var structbudgetmodule_1_1budgettype =
     [ "msum", "structbudgetmodule_1_1budgettype.html#a02b2fb1238011cd969ceb0e6bf72dba0", null ],
     [ "rowlabel", "structbudgetmodule_1_1budgettype.html#a568b85f9598889321e09e9cf5d2a14df", null ],
     [ "vbnm", "structbudgetmodule_1_1budgettype.html#a07b3aa2d314a5b88fb1ecda17dc60b17", null ],
-    [ "vbvl", "structbudgetmodule_1_1budgettype.html#ad1e71adf44fbe07faf49202e15037a47", null ],
+    [ "vbvl", "structbudgetmodule_1_1budgettype.html#a8e7806895d2c6df05c448a4ea4a9f6cf", null ],
     [ "written_once", "structbudgetmodule_1_1budgettype.html#a2d4532bcba1b7db3a29e14c73d802fe0", null ]
 ];
