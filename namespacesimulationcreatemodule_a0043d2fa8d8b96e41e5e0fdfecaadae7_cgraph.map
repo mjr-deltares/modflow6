@@ -2,7 +2,7 @@
 <area shape="rect" id="node1" title="Set the models to be used for the simulation." alt="" coords="5,318,187,359"/>
 <area shape="rect" id="node2" href="$namespacesimulationcreatemodule.html#a54efe7fa57d3ceb3904343cfe258b6db" title="Add the model to the list of modelnames, check that the model name is valid." alt="" coords="235,193,416,234"/>
 <area shape="rect" id="node3" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="1292,701,1467,728"/>
-<area shape="rect" id="node8" href="$namespacegwfmodule.html#ab7c4f16fdcabd8814e3649d4950a4c9b" title="Create a new groundwater flow model object." alt="" coords="252,625,399,652"/>
+<area shape="rect" id="node8" href="$namespacegwfmodule.html#a0cb07c0232ce3627b9120eb42e7e164f" title="Create a new groundwater flow model object." alt="" coords="252,625,399,652"/>
 <area shape="rect" id="node41" href="$namespacegwtmodule.html#ad4f6eefd4112176d49bd99d8944bdef3" title=" " alt="" coords="252,1341,399,1368"/>
 <area shape="rect" id="node4" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="1545,1149,1684,1176"/>
 <area shape="rect" id="node5" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="1747,1174,1915,1215"/>

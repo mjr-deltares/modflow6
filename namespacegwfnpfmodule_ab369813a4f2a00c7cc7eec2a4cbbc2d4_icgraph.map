@@ -1,6 +1,6 @@
 <map id="gwfnpfmodule::npf_cr" name="gwfnpfmodule::npf_cr">
 <area shape="rect" id="node1" title=" " alt="" coords="1539,60,1703,87"/>
-<area shape="rect" id="node2" href="$namespacegwfmodule.html#ab7c4f16fdcabd8814e3649d4950a4c9b" title="Create a new groundwater flow model object." alt="" coords="1321,31,1467,57"/>
+<area shape="rect" id="node2" href="$namespacegwfmodule.html#a0cb07c0232ce3627b9120eb42e7e164f" title="Create a new groundwater flow model object." alt="" coords="1321,31,1467,57"/>
 <area shape="rect" id="node10" href="$namespacegwfinterfacemodelmodule.html#a3a10d1462f3b13cb9dfff3831a24c9ac" title="set up the interface model, analogously to what" alt="" coords="1297,82,1491,123"/>
 <area shape="rect" id="node3" href="$namespacesimulationcreatemodule.html#a0043d2fa8d8b96e41e5e0fdfecaadae7" title="Set the models to be used for the simulation." alt="" coords="1068,23,1249,65"/>
 <area shape="rect" id="node4" href="$namespacesimulationcreatemodule.html#a7d37a8b63b2b0874f875f45b6cf93f03" title="Read the simulation name file." alt="" coords="821,23,1020,65"/>

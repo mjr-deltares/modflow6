@@ -17,6 +17,7 @@ var namespaces_dup =
     [ "budgetobjectmodule", "namespacebudgetobjectmodule.html", null ],
     [ "budgettermmodule", "namespacebudgettermmodule.html", null ],
     [ "cellwithnbrsmodule", "namespacecellwithnbrsmodule.html", null ],
+    [ "characterstringmodule", "namespacecharacterstringmodule.html", null ],
     [ "chdmodule", "namespacechdmodule.html", null ],
     [ "circulargeometrymodule", "namespacecirculargeometrymodule.html", null ],
     [ "commandarguments", "namespacecommandarguments.html", null ],

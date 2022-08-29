@@ -18,6 +18,5 @@ var structbasemodelmodule_1_1basemodeltype =
     [ "iprpak", "structbasemodelmodule_1_1basemodeltype.html#ad4a2660de7279a535ed6c94b4265586c", null ],
     [ "macronym", "structbasemodelmodule_1_1basemodeltype.html#ae5dcba53267ec5a80b0dd24b806ad9e0", null ],
     [ "memorypath", "structbasemodelmodule_1_1basemodeltype.html#a26a52409976e07184975d4b7d0ec43df", null ],
-    [ "name", "structbasemodelmodule_1_1basemodeltype.html#a68d8d5b3b231a9359787e186f9e19c64", null ],
-    [ "single_model_run", "structbasemodelmodule_1_1basemodeltype.html#acb9cc09b7c8e72f6a1b8a6c5ed9004db", null ]
+    [ "name", "structbasemodelmodule_1_1basemodeltype.html#a68d8d5b3b231a9359787e186f9e19c64", null ]
 ];

@@ -50,7 +50,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.html"><span>Modules</span></a></li>
       <li class="current"><a href="annotated.html"><span>Data&#160;Types&#160;List</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
@@ -196,7 +195,7 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:a25496c0a3253be0c08d689f242ad7490"><td class="mdescLeft">&#160;</td><td class="mdescRight">order of decay rate (0:none, 1:first, 2:zero)  <a href="structgwtistmodule_1_1gwtisttype.html#a25496c0a3253be0c08d689f242ad7490">More...</a><br /></td></tr>
 <tr class="separator:a25496c0a3253be0c08d689f242ad7490"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04874017ccb3d489cab3490cdfc99638"><td class="memItemLeft" align="right" valign="top">integer(i4b), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgwtistmodule_1_1gwtisttype.html#a04874017ccb3d489cab3490cdfc99638">isrb</a> =&gt; null()</td></tr>
-<tr class="memdesc:a04874017ccb3d489cab3490cdfc99638"><td class="mdescLeft">&#160;</td><td class="mdescRight">sorption active flag (0:off, 1:on)  <a href="structgwtistmodule_1_1gwtisttype.html#a04874017ccb3d489cab3490cdfc99638">More...</a><br /></td></tr>
+<tr class="memdesc:a04874017ccb3d489cab3490cdfc99638"><td class="mdescLeft">&#160;</td><td class="mdescRight">sorption active flag (0:off, 1:on); only linear is supported in ist  <a href="structgwtistmodule_1_1gwtisttype.html#a04874017ccb3d489cab3490cdfc99638">More...</a><br /></td></tr>
 <tr class="separator:a04874017ccb3d489cab3490cdfc99638"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a015498371309f83dbffc28cd729d5807"><td class="memItemLeft" align="right" valign="top">integer(i4b), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgwtistmodule_1_1gwtisttype.html#a015498371309f83dbffc28cd729d5807">kiter</a> =&gt; null()</td></tr>
 <tr class="memdesc:a015498371309f83dbffc28cd729d5807"><td class="mdescLeft">&#160;</td><td class="mdescRight">picard iteration counter  <a href="structgwtistmodule_1_1gwtisttype.html#a015498371309f83dbffc28cd729d5807">More...</a><br /></td></tr>
@@ -1034,7 +1033,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="gwt1ist1_8f90_source.html#l00058">58</a> of file <a class="el" href="gwt1ist1_8f90_source.html">gwt1ist1.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: isrb =&gt; null() <span class="comment">!&lt; sorption active flag (0:off, 1:on)</span></div>
+<div class="fragment"><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: isrb =&gt; null() <span class="comment">!&lt; sorption active flag (0:off, 1:on); only linear is supported in ist</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1197,7 +1196,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacegwtistmodule.html">gwtistmodule</a></li><li class="navelem"><a class="el" href="structgwtistmodule_1_1gwtisttype.html">gwtisttype</a></li>
-    <li class="footer">Generated on Mon Aug 8 2022 09:27:16 for MODFLOW 6 by
+    <li class="footer">Generated on Mon Aug 29 2022 06:53:54 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

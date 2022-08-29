@@ -1,5 +1,5 @@
 <map id="memorymanagermodule::deallocate_str1d" name="memorymanagermodule::deallocate_str1d">
-<area shape="rect" id="node1" title="Deallocate an array of variable&#45;length character strings." alt="" coords="5,61,189,102"/>
+<area shape="rect" id="node1" title="Deallocate an array of defined&#45;length character strings." alt="" coords="5,61,189,102"/>
 <area shape="rect" id="node2" href="$namespacememorymanagermodule.html#a8e6f199b7218d6ec1ab68f383cb6e20f" title="@ brief Get a memory type entry from the memory list" alt="" coords="237,31,421,73"/>
 <area shape="rect" id="node3" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="469,68,644,95"/>
 <area shape="rect" id="node4" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="692,68,831,95"/>

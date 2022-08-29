@@ -1,5 +1,6 @@
 var interfacememorymanagermodule_1_1mem__allocate =
 [
+    [ "allocate_charstr1d", "interfacememorymanagermodule_1_1mem__allocate.html#a211d2d576be31c8ea95cae5d8f9f7162", null ],
     [ "allocate_dbl", "interfacememorymanagermodule_1_1mem__allocate.html#ac86472a17acd7ce965f8c630fab1ab18", null ],
     [ "allocate_dbl1d", "interfacememorymanagermodule_1_1mem__allocate.html#a3e76e237001b24631d8fca9fcaf91d84", null ],
     [ "allocate_dbl2d", "interfacememorymanagermodule_1_1mem__allocate.html#a46b0c744c37c1a8d47e02b967f8e4ea3", null ],

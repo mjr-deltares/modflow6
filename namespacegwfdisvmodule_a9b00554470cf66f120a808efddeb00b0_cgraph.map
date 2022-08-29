@@ -1,11 +1,5 @@
 <map id="gwfdisvmodule::connection_vector" name="gwfdisvmodule::connection_vector">
-<area shape="rect" id="node1" title=" " alt="" coords="5,71,207,112"/>
-<area shape="rect" id="node2" href="$namespaceinputoutputmodule.html#a388280a4614d755a3738b4480be94598" title=" " alt="" coords="265,5,419,47"/>
-<area shape="rect" id="node3" href="$namespacedisvgeom.html#acbbbe029b690dc57bf45c0a2e2a1167d" title=" " alt="" coords="267,71,417,112"/>
-<area shape="rect" id="node4" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="255,137,429,163"/>
-<area shape="rect" id="node5" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="477,137,616,163"/>
-<area shape="rect" id="node6" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="664,96,832,137"/>
-<area shape="rect" id="node9" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="664,161,832,203"/>
-<area shape="rect" id="node7" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="880,74,1075,101"/>
-<area shape="rect" id="node8" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="893,125,1061,167"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,39,207,80"/>
+<area shape="rect" id="node2" href="$namespaceinputoutputmodule.html#a388280a4614d755a3738b4480be94598" title=" " alt="" coords="255,5,409,47"/>
+<area shape="rect" id="node3" href="$namespacedisvgeom.html#acbbbe029b690dc57bf45c0a2e2a1167d" title=" " alt="" coords="257,71,407,112"/>
 </map>

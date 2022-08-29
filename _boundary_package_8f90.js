@@ -36,6 +36,7 @@ var _boundary_package_8f90 =
     [ "bnd_rp_obs", "_boundary_package_8f90.html#ad32c856bd156b7b5aa3b8761f43077d4", null ],
     [ "bnd_rp_ts", "_boundary_package_8f90.html#a461dd6c45dcdde87b27fd256fa5202f7", null ],
     [ "castasbndclass", "_boundary_package_8f90.html#ae966cec4d8ca214ecfe519e29adf6b7e", null ],
+    [ "copy_boundname", "_boundary_package_8f90.html#aabcb4cbf47b155225de65ad2894560ff", null ],
     [ "define_listlabel", "_boundary_package_8f90.html#af88b9a67acd09f0482e5ca77679e77a9", null ],
     [ "getbndfromlist", "_boundary_package_8f90.html#a7ac2e1c143722a28d1f0ecb4c67a4a0a", null ],
     [ "pack_initialize", "_boundary_package_8f90.html#af9193af18cae3e4bebb4c31facd11f4e", null ],

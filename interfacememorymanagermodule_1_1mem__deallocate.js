@@ -1,5 +1,6 @@
 var interfacememorymanagermodule_1_1mem__deallocate =
 [
+    [ "deallocate_charstr1d", "interfacememorymanagermodule_1_1mem__deallocate.html#a9f62e37423e06fb08f3f143ca2b2fd17", null ],
     [ "deallocate_dbl", "interfacememorymanagermodule_1_1mem__deallocate.html#abc336be7f409a2cc2fc5f54c781e1eb6", null ],
     [ "deallocate_dbl1d", "interfacememorymanagermodule_1_1mem__deallocate.html#a4078ecb67a87955f08a6e85c1911451d", null ],
     [ "deallocate_dbl2d", "interfacememorymanagermodule_1_1mem__deallocate.html#a3f0636faa99d766b685240a1f654d199", null ],

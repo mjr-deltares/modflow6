@@ -1,5 +1,6 @@
 var interfacememorymanagermodule_1_1mem__reallocate =
 [
+    [ "reallocate_charstr1d", "interfacememorymanagermodule_1_1mem__reallocate.html#a4e15c3a581838391ab996275b924e2f9", null ],
     [ "reallocate_dbl1d", "interfacememorymanagermodule_1_1mem__reallocate.html#a740fea19ddb798327e902996ea63e970", null ],
     [ "reallocate_dbl2d", "interfacememorymanagermodule_1_1mem__reallocate.html#afb00cddd0fb2758f6fb9badbc0120069", null ],
     [ "reallocate_int1d", "interfacememorymanagermodule_1_1mem__reallocate.html#a3c2e9709edbfc2cb05a8773557c7efe0", null ],
