@@ -24,6 +24,7 @@ var structgwtgwtexchangemodule_1_1gwtexchangetype =
     [ "cond", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#ac0de96596943a48fb41558975e4512cc", null ],
     [ "gwfmodelname1", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#a1b7bb8d2d387724b014c8fdc0e72e38e", null ],
     [ "gwfmodelname2", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#a9f5794035c3f9982716fad5f45b89300", null ],
+    [ "gwfsimvals", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#a0ce20f91acc04bcc761527dcaf15223b", null ],
     [ "gwtmodel1", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#a87e27586fd115090a0267be484acb0e0", null ],
     [ "gwtmodel2", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#a319dd4ae554b32d449c75c516711087c", null ],
     [ "iadvscheme", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#ab7ac991b3d500341ab74ef0c3adce07c", null ],

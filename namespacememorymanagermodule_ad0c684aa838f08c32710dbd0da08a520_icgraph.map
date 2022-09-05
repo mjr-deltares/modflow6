@@ -1,4 +1,5 @@
 <map id="memorymanagermodule::get_isize" name="memorymanagermodule::get_isize">
-<area shape="rect" id="node1" title="@ brief Get the number of elements for this variable" alt="" coords="235,5,419,47"/>
-<area shape="rect" id="node2" href="$namespacemf6bmi.html#a66624bcfe63949d6338d7df22b2c4da8" title="Get size of the variable, in bytes." alt="" coords="5,13,187,39"/>
+<area shape="rect" id="node1" title="@ brief Get the number of elements for this variable" alt="" coords="243,23,427,65"/>
+<area shape="rect" id="node2" href="$namespacemf6bmi.html#adead93d5d8e83e6b85bbaf10cfcdd74a" title="Copy the string(s) of a variable into the array." alt="" coords="5,5,195,32"/>
+<area shape="rect" id="node3" href="$namespacemf6bmi.html#a66624bcfe63949d6338d7df22b2c4da8" title="Get size of the variable, in bytes." alt="" coords="9,56,191,83"/>
 </map>

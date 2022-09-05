@@ -1,9 +1,10 @@
 <map id="disconnexchangemodule::castasdisconnexchangeclass" name="disconnexchangemodule::castasdisconnexchangeclass">
-<area shape="rect" id="node1" title=" " alt="" coords="563,136,781,177"/>
-<area shape="rect" id="node2" href="$namespacedisconnexchangemodule.html#a63ac91d936c8b44104f8e091a81e7ac2" title=" " alt="" coords="300,136,515,177"/>
+<area shape="rect" id="node1" title=" " alt="" coords="563,169,781,211"/>
+<area shape="rect" id="node2" href="$namespacedisconnexchangemodule.html#a63ac91d936c8b44104f8e091a81e7ac2" title=" " alt="" coords="300,169,515,211"/>
 <area shape="rect" id="node3" href="$namespacegridconnectionmodule.html#a06ccbd72eefccf0b86eea4631b58706a" title="Add neighbors and nbrs&#45;of&#45;nbrs to the model tree." alt="" coords="45,5,212,47"/>
 <area shape="rect" id="node4" href="$namespacegridconnectionmodule.html#ac869fee445f0b36077c881eeabab8b5b" title="Add cell neighbors across models using the stored exchange data structures." alt="" coords="45,71,212,112"/>
 <area shape="rect" id="node5" href="$namespaceconnectionbuildermodule.html#aa5b7a09a35bdd2b85e44caea16bb075e" title="Add global exchanges from a certain numerical solution to the connections." alt="" coords="12,136,245,177"/>
 <area shape="rect" id="node6" href="$namespacegridconnectionmodule.html#a377a3a2cf20792c946eefd52cf4ff6cb" title="Fill connection data (ihc, cl1, ...) for." alt="" coords="5,201,252,243"/>
-<area shape="rect" id="node7" href="$namespaceconnectionbuildermodule.html#aef408e9381f69a203549fc5e8a355041" title="Create connections from exchanges." alt="" coords="35,267,222,308"/>
+<area shape="rect" id="node7" href="$namespacegridconnectionmodule.html#a9f98f1ba9bbfc2287925f0b13fedaecc" title="Build interface map object for outside use,." alt="" coords="45,267,212,308"/>
+<area shape="rect" id="node8" href="$namespaceconnectionbuildermodule.html#aef408e9381f69a203549fc5e8a355041" title="Create connections from exchanges." alt="" coords="35,332,222,373"/>
 </map>

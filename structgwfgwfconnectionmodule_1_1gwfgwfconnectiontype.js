@@ -1,6 +1,5 @@
 var structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype =
 [
-    [ "allocate_arrays", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a109c2e3d5149b08519927d181b4d1233", null ],
     [ "allocatescalars", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#aa12244c892f1f6cd21923e7fcf270b8f", null ],
     [ "construct", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a781048d4e008b7a7adfb445f7071796a", null ],
     [ "exg_ad", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a31ed3823f87521b01a832e2f4b09a78b", null ],
@@ -14,15 +13,12 @@ var structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype =
     [ "exg_ot", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#acf4aaf3742f15e05aafbc0e434ee1984", null ],
     [ "exg_rp", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a8314638116f2ba483741592c37240474", null ],
     [ "gwfgwfconnection_ctor", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a9559232d1f1e87f1ee1b9178856e59f1", null ],
-    [ "saveexchangeflows", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a61f4313cfc2d30cde5257500ec7a813d", null ],
     [ "setflowtoexchange", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a70ad9327d5ac36766e967cb00fe8b109", null ],
     [ "setgridextent", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a23ea0c0a886b3dbc40d57374ba98f49d", null ],
     [ "setnpfedgeprops", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#add3f16f7bc63449b28b7f263922e4483", null ],
-    [ "syncinterfacemodel", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#aad7f46377c47255769873a238866d62d", null ],
     [ "validateconnection", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a648e5118d1fd55332a4ab8e5913d50f6", null ],
     [ "validategwfexchange", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#ad016a0da0cab6a1c5fd342c68653c2d8", null ],
     [ "exchangeisowned", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a63a2c3fff5fc2d83bb8cacda9c1d7049", null ],
-    [ "exgflowja", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#acd56b40a2f895dda4682c305f71925f7", null ],
     [ "gwfexchange", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#acc38bdc6d7b06bd4955226a68717c40c", null ],
     [ "gwfinterfacemodel", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#acab9164b54eddf76f9ba206dde278a34", null ],
     [ "gwfmodel", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#ae8ab38adb45837f3dfee76085eb49104", null ],

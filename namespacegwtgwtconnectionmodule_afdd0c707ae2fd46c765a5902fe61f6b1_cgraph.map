@@ -1,5 +1,0 @@
-<map id="gwtgwtconnectionmodule::syncinterfacemodel" name="gwtgwtconnectionmodule::syncinterfacemodel">
-<area shape="rect" id="node1" title="called during advance (*_ad), to copy the data from the models into the connection&#39;s placeholder arra..." alt="" coords="5,23,196,65"/>
-<area shape="rect" id="node2" href="$namespacegwtmodule.html#a69c21c98d464d85dd10f6126bba5b07f" title="Cast to GwtModelType." alt="" coords="244,5,455,32"/>
-<area shape="rect" id="node3" href="$namespacecsrutilsmodule.html#a0fbb240524fa0172b9ee6a14844f4470" title="Return index for element i,j in CSR storage,." alt="" coords="248,56,451,83"/>
-</map>

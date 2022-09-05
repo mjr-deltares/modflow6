@@ -5,7 +5,7 @@
 <area shape="rect" id="node11" href="$namespacemf6bmigrid.html#ad88efccd58e4838c717b0ba1aa59cd03" title=" " alt="" coords="251,188,410,229"/>
 <area shape="rect" id="node16" href="$namespacemf6bmiutil.html#a1e8692c600f23ba6b0468dff63f2b29b" title="Get the model name from the grid id." alt="" coords="707,187,921,214"/>
 <area shape="rect" id="node19" href="$namespacemf6bmigrid.html#a5e0d6dfe9c6e1601a0a7a8b165407f56" title=" " alt="" coords="464,305,659,331"/>
-<area shape="rect" id="node21" href="$namespacemf6bmiutil.html#ad90047b980bdc8a87f71ea3a588b75c5" title="Returns the string length without the trailing null character." alt="" coords="261,305,400,331"/>
+<area shape="rect" id="node21" href="$namespacemf6bmiutil.html#aa8b12e6f8f554760cbdad20d57567df2" title="Returns the string length without the trailing null character." alt="" coords="261,305,400,331"/>
 <area shape="rect" id="node4" href="$namespacememoryhelpermodule.html#a5405f58247a0962e5449ebc1e4dcff0f" title="Generic routine to check the length of (parts of) the memory address." alt="" coords="731,71,897,112"/>
 <area shape="rect" id="node5" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="1029,78,1204,105"/>
 <area shape="rect" id="node6" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="1392,78,1531,105"/>

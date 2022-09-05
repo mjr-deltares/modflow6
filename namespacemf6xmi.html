@@ -290,25 +290,29 @@ Variables</h2></td></tr>
 <div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160; </div>
 <div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    <span class="comment">! convert to Fortran strings</span></div>
 <div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    component_name = char_array_to_string(c_component_name, &amp;</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;                                          strlen(c_component_name))</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;    subcomponent_name = char_array_to_string(c_subcomponent_name, &amp;</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;                                             strlen(c_subcomponent_name))</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;    variable_name = char_array_to_string(c_var_name, strlen(c_var_name))</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160; </div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    <span class="comment">! create memory address</span></div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    <span class="keywordflow">if</span> (subcomponent_name == <span class="stringliteral">&#39;&#39;</span>) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;      mem_path = <a class="code" href="namespacememoryhelpermodule.html#a3791dbc2d4a06a0b9112158cff21f738">create_mem_path</a>(component_name)</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;      mem_path = <a class="code" href="namespacememoryhelpermodule.html#a3791dbc2d4a06a0b9112158cff21f738">create_mem_path</a>(component_name, subcomponent_name)</div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;    mem_address = <a class="code" href="namespacememoryhelpermodule.html#abda60b8cd05bba132ea82b23bf12c36c">create_mem_address</a>(mem_path, variable_name)</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160; </div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    <span class="comment">! convert to c string:</span></div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    c_var_address(1:len(trim(mem_address)) + 1) = &amp;</div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;      string_to_char_array(trim(mem_address), len(trim(mem_address)))</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;                                          strlen(c_component_name, &amp;</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;                                                 <a class="code" href="namespaceconstantsmodule.html#a07b1e4cc3a2d7bf5c88fd4426d00279d">lencomponentname</a> + 1))</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    subcomponent_name = char_array_to_string(c_subcomponent_name, &amp;</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;                                             strlen(c_subcomponent_name, &amp;</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;                                                    <a class="code" href="namespaceconstantsmodule.html#a07b1e4cc3a2d7bf5c88fd4426d00279d">lencomponentname</a> + 1))</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    variable_name = char_array_to_string(c_var_name, &amp;</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;                                         strlen(c_var_name, &amp;</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;                                                <a class="code" href="namespaceconstantsmodule.html#a8a23c620a738ea7c5a9b5c4893b6bfbb">lenvarname</a> + 1))</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160; </div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    <span class="comment">! create memory address</span></div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;    <span class="keywordflow">if</span> (subcomponent_name == <span class="stringliteral">&#39;&#39;</span>) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;      mem_path = <a class="code" href="namespacememoryhelpermodule.html#a3791dbc2d4a06a0b9112158cff21f738">create_mem_path</a>(component_name)</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;      mem_path = <a class="code" href="namespacememoryhelpermodule.html#a3791dbc2d4a06a0b9112158cff21f738">create_mem_path</a>(component_name, subcomponent_name)</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    mem_address = <a class="code" href="namespacememoryhelpermodule.html#abda60b8cd05bba132ea82b23bf12c36c">create_mem_address</a>(mem_path, variable_name)</div>
 <div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160; </div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;    bmi_status = bmi_success</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160; </div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;    <span class="comment">! convert to c string:</span></div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;    c_var_address(1:len(trim(mem_address)) + 1) = &amp;</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;      string_to_char_array(trim(mem_address), len(trim(mem_address)))</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160; </div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;    bmi_status = bmi_success</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160; </div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -319,7 +323,7 @@ Here is the call graph for this function:</div>
 <area shape="rect" href="namespacememoryhelpermodule.html#abda60b8cd05bba132ea82b23bf12c36c" title="returns the address string of the memory object" alt="" coords="241,71,412,112"/>
 <area shape="rect" href="namespacememoryhelpermodule.html#a3791dbc2d4a06a0b9112158cff21f738" title="returns the path to the memory object" alt="" coords="243,136,410,177"/>
 <area shape="rect" href="namespacemf6bmiutil.html#aa74929c0ef09b51a9d623d04322fff96" title="Convert Fortran string to C&#45;style character string." alt="" coords="257,201,396,243"/>
-<area shape="rect" href="namespacemf6bmiutil.html#ad90047b980bdc8a87f71ea3a588b75c5" title="Returns the string length without the trailing null character." alt="" coords="257,267,396,294"/>
+<area shape="rect" href="namespacemf6bmiutil.html#aa8b12e6f8f554760cbdad20d57567df2" title="Returns the string length without the trailing null character." alt="" coords="257,267,396,294"/>
 <area shape="rect" href="namespacememoryhelpermodule.html#a5405f58247a0962e5449ebc1e4dcff0f" title="Generic routine to check the length of (parts of) the memory address." alt="" coords="460,104,627,145"/>
 <area shape="rect" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="675,111,849,138"/>
 <area shape="rect" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="897,111,1036,138"/>
@@ -857,7 +861,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemf6xmi.html">mf6xmi</a></li>
-    <li class="footer">Generated on Mon Aug 29 2022 06:53:59 for MODFLOW 6 by
+    <li class="footer">Generated on Mon Sep 5 2022 11:35:53 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

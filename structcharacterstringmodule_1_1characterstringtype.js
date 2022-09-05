@@ -6,6 +6,7 @@ var structcharacterstringmodule_1_1characterstringtype =
     [ "character_eq_charstring", "structcharacterstringmodule_1_1characterstringtype.html#ab8d307f0363f62e69ab651ed22b6ef85", null ],
     [ "charstring_eq_character", "structcharacterstringmodule_1_1characterstringtype.html#a1a9032c74651d5295b8f2b76f9f79413", null ],
     [ "operator", "structcharacterstringmodule_1_1characterstringtype.html#a640d56887bcea609eaae6d0ebe8dd035", null ],
+    [ "strlen", "structcharacterstringmodule_1_1characterstringtype.html#a967453ba399a473eceb23474e37b3ee3", null ],
     [ "write_unformatted", "structcharacterstringmodule_1_1characterstringtype.html#aa728318c84c22668a98bcb984ca6390d", null ],
     [ "charstring", "structcharacterstringmodule_1_1characterstringtype.html#a39d9fe03744af3a73cb71483819dcf1e", null ]
 ];

@@ -16,6 +16,7 @@ var mf6bmi_8f90 =
     [ "get_value_int", "mf6bmi_8f90.html#ab8420782c84a71ce8317f0d150bcb009", null ],
     [ "get_value_ptr_double", "mf6bmi_8f90.html#a153a9442109bd76c780fee6c9df0b98f", null ],
     [ "get_value_ptr_int", "mf6bmi_8f90.html#a28ea5f7ea56d55ff4f5c3ffebce9542a", null ],
+    [ "get_value_string", "mf6bmi_8f90.html#adead93d5d8e83e6b85bbaf10cfcdd74a", null ],
     [ "get_var_itemsize", "mf6bmi_8f90.html#a7577d21a969c2b60a882ce5eeae541ba", null ],
     [ "get_var_nbytes", "mf6bmi_8f90.html#a66624bcfe63949d6338d7df22b2c4da8", null ],
     [ "get_var_rank", "mf6bmi_8f90.html#a3265848af6c1473c9efac7e1ad33fc55", null ],

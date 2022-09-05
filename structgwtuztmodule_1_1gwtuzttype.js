@@ -9,6 +9,7 @@ var structgwtuztmodule_1_1gwtuzttype =
     [ "pak_fc_expanded", "structgwtuztmodule_1_1gwtuzttype.html#a55ab881bf9baf937a015673b90c52133", null ],
     [ "pak_fill_budobj", "structgwtuztmodule_1_1gwtuzttype.html#a575c8148fe2b2764cd7fab1ab33b10cd", null ],
     [ "pak_get_nbudterms", "structgwtuztmodule_1_1gwtuzttype.html#ab7ed276115f35c1988fe363982b8147a", null ],
+    [ "pak_rp_obs", "structgwtuztmodule_1_1gwtuzttype.html#aeefbff78e5b1dc37bfdf20602ebea93a", null ],
     [ "pak_set_stressperiod", "structgwtuztmodule_1_1gwtuzttype.html#af1634630a15d108561b949da62fd9c51", null ],
     [ "pak_setup_budobj", "structgwtuztmodule_1_1gwtuzttype.html#a9c476abad05bb9c60e377959c1def5a9", null ],
     [ "pak_solve", "structgwtuztmodule_1_1gwtuzttype.html#abcf6e1280787e887e0e5048c1f887e6a", null ],

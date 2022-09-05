@@ -16,6 +16,7 @@ var gwt1sft1_8f90 =
     [ "sft_outf_term", "gwt1sft1_8f90.html#a5db985d9f939a688bffc6cf47a1b2378", null ],
     [ "sft_rain_term", "gwt1sft1_8f90.html#aec6822449463d1ebf93ab6c99edf0b8d", null ],
     [ "sft_roff_term", "gwt1sft1_8f90.html#a7c427fb2651c7e9b0f5f4211013bdefd", null ],
+    [ "sft_rp_obs", "gwt1sft1_8f90.html#a93c875e8b98006853620c829e9e65ed8", null ],
     [ "sft_set_stressperiod", "gwt1sft1_8f90.html#aa9e09bd28dfe66323d6bafa062b7f368", null ],
     [ "sft_setup_budobj", "gwt1sft1_8f90.html#ac8f22fc28635eace83c9b1adf6d52901", null ],
     [ "sft_solve", "gwt1sft1_8f90.html#a030c2c8209012a4e7543547ce37b9ec2", null ],

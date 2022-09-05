@@ -123,7 +123,7 @@ Collaboration diagram for memorymanagermodule::mem_setptr:</div>
 <div class="dyncontent">
 <div class="center"><img src="interfacememorymanagermodule_1_1mem__setptr__coll__graph.png" border="0" usemap="#memorymanagermodule_1_1mem__setptr_coll__map" alt="Collaboration graph"/></div>
 <map name="memorymanagermodule_1_1mem__setptr_coll__map" id="memorymanagermodule_1_1mem__setptr_coll__map">
-<area shape="rect" title=" " alt="" coords="5,5,189,215"/>
+<area shape="rect" title=" " alt="" coords="5,5,189,259"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -156,11 +156,85 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a115a4e3c5710e0d64b75c0950d1ec28c"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacememorymanagermodule_1_1mem__setptr.html#a115a4e3c5710e0d64b75c0950d1ec28c">setptr_dbl3d</a> (adbl, name, mem_path)</td></tr>
 <tr class="memdesc:a115a4e3c5710e0d64b75c0950d1ec28c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set pointer to a 3d real array.  <a href="interfacememorymanagermodule_1_1mem__setptr.html#a115a4e3c5710e0d64b75c0950d1ec28c">More...</a><br /></td></tr>
 <tr class="separator:a115a4e3c5710e0d64b75c0950d1ec28c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01c8dc0865181b038eecadd0b9766623"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacememorymanagermodule_1_1mem__setptr.html#a01c8dc0865181b038eecadd0b9766623">setptr_str</a> (asrt, name, mem_path)</td></tr>
+<tr class="memdesc:a01c8dc0865181b038eecadd0b9766623"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set pointer to a string (scalar)  <a href="interfacememorymanagermodule_1_1mem__setptr.html#a01c8dc0865181b038eecadd0b9766623">More...</a><br /></td></tr>
+<tr class="separator:a01c8dc0865181b038eecadd0b9766623"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4cc99e87859e10fa4d524947596ebb1"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacememorymanagermodule_1_1mem__setptr.html#ad4cc99e87859e10fa4d524947596ebb1">setptr_str1d</a> (astr1d, name, mem_path)</td></tr>
+<tr class="memdesc:ad4cc99e87859e10fa4d524947596ebb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set pointer to a fixed-length string array.  <a href="interfacememorymanagermodule_1_1mem__setptr.html#ad4cc99e87859e10fa4d524947596ebb1">More...</a><br /></td></tr>
+<tr class="separator:ad4cc99e87859e10fa4d524947596ebb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a371b201a4a20e65063edba81b409b20e"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfacememorymanagermodule_1_1mem__setptr.html#a371b201a4a20e65063edba81b409b20e">setptr_charstr1d</a> (acharstr1d, name, mem_path)</td></tr>
+<tr class="memdesc:a371b201a4a20e65063edba81b409b20e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set pointer to an array of CharacterStringType.  <a href="interfacememorymanagermodule_1_1mem__setptr.html#a371b201a4a20e65063edba81b409b20e">More...</a><br /></td></tr>
+<tr class="separator:a371b201a4a20e65063edba81b409b20e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_memory_manager_8f90_source.html#l00082">82</a> of file <a class="el" href="_memory_manager_8f90_source.html">MemoryManager.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_memory_manager_8f90_source.html#l00083">83</a> of file <a class="el" href="_memory_manager_8f90_source.html">MemoryManager.f90</a>.</p>
 </div><h2 class="groupheader">Member Function/Subroutine Documentation</h2>
+<a id="a371b201a4a20e65063edba81b409b20e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a371b201a4a20e65063edba81b409b20e">&#9670;&nbsp;</a></span>setptr_charstr1d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine memorymanagermodule::mem_setptr::setptr_charstr1d </td>
+          <td>(</td>
+          <td class="paramtype">type(characterstringtype), dimension(:), intent(inout), pointer, contiguous&#160;</td>
+          <td class="paramname"><em>acharstr1d</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>mem_path</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">acharstr1d</td><td>the reallocated charstring array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>variable name </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mem_path</td><td>path where variable is stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_memory_manager_8f90_source.html#l01635">1635</a> of file <a class="el" href="_memory_manager_8f90_source.html">MemoryManager.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l01635"></a><span class="lineno"> 1635</span>&#160;    <span class="keywordtype">type</span>(CharacterStringType), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>, &amp;</div>
+<div class="line"><a name="l01636"></a><span class="lineno"> 1636</span>&#160;      <span class="keywordtype">intent(inout)</span> :: acharstr1d<span class="comment"> !&lt; the reallocated charstring array</span></div>
+<div class="line"><a name="l01637"></a><span class="lineno"> 1637</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: name<span class="comment"> !&lt; variable name</span></div>
+<div class="line"><a name="l01638"></a><span class="lineno"> 1638</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: mem_path<span class="comment"> !&lt; path where variable is stored</span></div>
+<div class="line"><a name="l01639"></a><span class="lineno"> 1639</span>&#160;    <span class="comment">! -- local</span></div>
+<div class="line"><a name="l01640"></a><span class="lineno"> 1640</span>&#160;    <span class="keywordtype">type</span>(MemoryType), <span class="keywordtype">pointer</span> :: mt</div>
+<div class="line"><a name="l01641"></a><span class="lineno"> 1641</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: found</div>
+<div class="line"><a name="l01642"></a><span class="lineno"> 1642</span>&#160;    <span class="comment">! -- code</span></div>
+<div class="line"><a name="l01643"></a><span class="lineno"> 1643</span>&#160;    <span class="keyword">call </span>get_from_memorylist(name, mem_path, mt, found)</div>
+<div class="line"><a name="l01644"></a><span class="lineno"> 1644</span>&#160;    acharstr1d =&gt; mt%acharstr1d</div>
+<div class="line"><a name="l01645"></a><span class="lineno"> 1645</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l01646"></a><span class="lineno"> 1646</span>&#160;    <span class="comment">! -- return</span></div>
+<div class="line"><a name="l01647"></a><span class="lineno"> 1647</span>&#160;    <span class="keywordflow">return</span></div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="ae4b872e7963cf5c16e7b03e7c99a6f0c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae4b872e7963cf5c16e7b03e7c99a6f0c">&#9670;&nbsp;</a></span>setptr_dbl()</h2>
 
@@ -209,19 +283,19 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_memory_manager_8f90_source.html#l01479">1479</a> of file <a class="el" href="_memory_manager_8f90_source.html">MemoryManager.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l01479"></a><span class="lineno"> 1479</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(inout)</span> :: sclr<span class="comment"> !&lt; pointer to a real scalar</span></div>
-<div class="line"><a name="l01480"></a><span class="lineno"> 1480</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: name<span class="comment"> !&lt; variable name</span></div>
-<div class="line"><a name="l01481"></a><span class="lineno"> 1481</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: mem_path<span class="comment"> !&lt; path where variable is stored</span></div>
-<div class="line"><a name="l01482"></a><span class="lineno"> 1482</span>&#160;    <span class="comment">! -- local</span></div>
-<div class="line"><a name="l01483"></a><span class="lineno"> 1483</span>&#160;    <span class="keywordtype">type</span>(MemoryType), <span class="keywordtype">pointer</span> :: mt</div>
-<div class="line"><a name="l01484"></a><span class="lineno"> 1484</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: found</div>
-<div class="line"><a name="l01485"></a><span class="lineno"> 1485</span>&#160;    <span class="comment">! -- code</span></div>
-<div class="line"><a name="l01486"></a><span class="lineno"> 1486</span>&#160;    <span class="keyword">call </span>get_from_memorylist(name, mem_path, mt, found)</div>
-<div class="line"><a name="l01487"></a><span class="lineno"> 1487</span>&#160;    sclr =&gt; mt%dblsclr</div>
-<div class="line"><a name="l01488"></a><span class="lineno"> 1488</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l01489"></a><span class="lineno"> 1489</span>&#160;    <span class="comment">! -- return</span></div>
-<div class="line"><a name="l01490"></a><span class="lineno"> 1490</span>&#160;    <span class="keywordflow">return</span></div>
+<p class="definition">Definition at line <a class="el" href="_memory_manager_8f90_source.html#l01532">1532</a> of file <a class="el" href="_memory_manager_8f90_source.html">MemoryManager.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l01532"></a><span class="lineno"> 1532</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(inout)</span> :: sclr<span class="comment"> !&lt; pointer to a real scalar</span></div>
+<div class="line"><a name="l01533"></a><span class="lineno"> 1533</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: name<span class="comment"> !&lt; variable name</span></div>
+<div class="line"><a name="l01534"></a><span class="lineno"> 1534</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: mem_path<span class="comment"> !&lt; path where variable is stored</span></div>
+<div class="line"><a name="l01535"></a><span class="lineno"> 1535</span>&#160;    <span class="comment">! -- local</span></div>
+<div class="line"><a name="l01536"></a><span class="lineno"> 1536</span>&#160;    <span class="keywordtype">type</span>(MemoryType), <span class="keywordtype">pointer</span> :: mt</div>
+<div class="line"><a name="l01537"></a><span class="lineno"> 1537</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: found</div>
+<div class="line"><a name="l01538"></a><span class="lineno"> 1538</span>&#160;    <span class="comment">! -- code</span></div>
+<div class="line"><a name="l01539"></a><span class="lineno"> 1539</span>&#160;    <span class="keyword">call </span>get_from_memorylist(name, mem_path, mt, found)</div>
+<div class="line"><a name="l01540"></a><span class="lineno"> 1540</span>&#160;    sclr =&gt; mt%dblsclr</div>
+<div class="line"><a name="l01541"></a><span class="lineno"> 1541</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l01542"></a><span class="lineno"> 1542</span>&#160;    <span class="comment">! -- return</span></div>
+<div class="line"><a name="l01543"></a><span class="lineno"> 1543</span>&#160;    <span class="keywordflow">return</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -273,19 +347,19 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_memory_manager_8f90_source.html#l01496">1496</a> of file <a class="el" href="_memory_manager_8f90_source.html">MemoryManager.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l01496"></a><span class="lineno"> 1496</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>, <span class="keywordtype">intent(inout)</span> :: adbl<span class="comment"> !&lt; pointer to 1d real array</span></div>
-<div class="line"><a name="l01497"></a><span class="lineno"> 1497</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: name<span class="comment"> !&lt; variable name</span></div>
-<div class="line"><a name="l01498"></a><span class="lineno"> 1498</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: mem_path<span class="comment"> !&lt; path where variable is stored</span></div>
-<div class="line"><a name="l01499"></a><span class="lineno"> 1499</span>&#160;    <span class="comment">! -- local</span></div>
-<div class="line"><a name="l01500"></a><span class="lineno"> 1500</span>&#160;    <span class="keywordtype">type</span>(MemoryType), <span class="keywordtype">pointer</span> :: mt</div>
-<div class="line"><a name="l01501"></a><span class="lineno"> 1501</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: found</div>
-<div class="line"><a name="l01502"></a><span class="lineno"> 1502</span>&#160;    <span class="comment">! -- code</span></div>
-<div class="line"><a name="l01503"></a><span class="lineno"> 1503</span>&#160;    <span class="keyword">call </span>get_from_memorylist(name, mem_path, mt, found)</div>
-<div class="line"><a name="l01504"></a><span class="lineno"> 1504</span>&#160;    adbl =&gt; mt%adbl1d</div>
-<div class="line"><a name="l01505"></a><span class="lineno"> 1505</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l01506"></a><span class="lineno"> 1506</span>&#160;    <span class="comment">! -- return</span></div>
-<div class="line"><a name="l01507"></a><span class="lineno"> 1507</span>&#160;    <span class="keywordflow">return</span></div>
+<p class="definition">Definition at line <a class="el" href="_memory_manager_8f90_source.html#l01549">1549</a> of file <a class="el" href="_memory_manager_8f90_source.html">MemoryManager.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l01549"></a><span class="lineno"> 1549</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>, <span class="keywordtype">intent(inout)</span> :: adbl<span class="comment"> !&lt; pointer to 1d real array</span></div>
+<div class="line"><a name="l01550"></a><span class="lineno"> 1550</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: name<span class="comment"> !&lt; variable name</span></div>
+<div class="line"><a name="l01551"></a><span class="lineno"> 1551</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: mem_path<span class="comment"> !&lt; path where variable is stored</span></div>
+<div class="line"><a name="l01552"></a><span class="lineno"> 1552</span>&#160;    <span class="comment">! -- local</span></div>
+<div class="line"><a name="l01553"></a><span class="lineno"> 1553</span>&#160;    <span class="keywordtype">type</span>(MemoryType), <span class="keywordtype">pointer</span> :: mt</div>
+<div class="line"><a name="l01554"></a><span class="lineno"> 1554</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: found</div>
+<div class="line"><a name="l01555"></a><span class="lineno"> 1555</span>&#160;    <span class="comment">! -- code</span></div>
+<div class="line"><a name="l01556"></a><span class="lineno"> 1556</span>&#160;    <span class="keyword">call </span>get_from_memorylist(name, mem_path, mt, found)</div>
+<div class="line"><a name="l01557"></a><span class="lineno"> 1557</span>&#160;    adbl =&gt; mt%adbl1d</div>
+<div class="line"><a name="l01558"></a><span class="lineno"> 1558</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l01559"></a><span class="lineno"> 1559</span>&#160;    <span class="comment">! -- return</span></div>
+<div class="line"><a name="l01560"></a><span class="lineno"> 1560</span>&#160;    <span class="keywordflow">return</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -337,19 +411,19 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_memory_manager_8f90_source.html#l01513">1513</a> of file <a class="el" href="_memory_manager_8f90_source.html">MemoryManager.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l01513"></a><span class="lineno"> 1513</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:, :)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>, <span class="keywordtype">intent(inout)</span> :: adbl<span class="comment"> !&lt; pointer to 2d real array</span></div>
-<div class="line"><a name="l01514"></a><span class="lineno"> 1514</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: name<span class="comment"> !&lt; variable name</span></div>
-<div class="line"><a name="l01515"></a><span class="lineno"> 1515</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: mem_path<span class="comment"> !&lt; path where variable is stored</span></div>
-<div class="line"><a name="l01516"></a><span class="lineno"> 1516</span>&#160;    <span class="comment">! -- local</span></div>
-<div class="line"><a name="l01517"></a><span class="lineno"> 1517</span>&#160;    <span class="keywordtype">type</span>(MemoryType), <span class="keywordtype">pointer</span> :: mt</div>
-<div class="line"><a name="l01518"></a><span class="lineno"> 1518</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: found</div>
-<div class="line"><a name="l01519"></a><span class="lineno"> 1519</span>&#160;    <span class="comment">! -- code</span></div>
-<div class="line"><a name="l01520"></a><span class="lineno"> 1520</span>&#160;    <span class="keyword">call </span>get_from_memorylist(name, mem_path, mt, found)</div>
-<div class="line"><a name="l01521"></a><span class="lineno"> 1521</span>&#160;    adbl =&gt; mt%adbl2d</div>
-<div class="line"><a name="l01522"></a><span class="lineno"> 1522</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l01523"></a><span class="lineno"> 1523</span>&#160;    <span class="comment">! -- return</span></div>
-<div class="line"><a name="l01524"></a><span class="lineno"> 1524</span>&#160;    <span class="keywordflow">return</span></div>
+<p class="definition">Definition at line <a class="el" href="_memory_manager_8f90_source.html#l01566">1566</a> of file <a class="el" href="_memory_manager_8f90_source.html">MemoryManager.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l01566"></a><span class="lineno"> 1566</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:, :)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>, <span class="keywordtype">intent(inout)</span> :: adbl<span class="comment"> !&lt; pointer to 2d real array</span></div>
+<div class="line"><a name="l01567"></a><span class="lineno"> 1567</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: name<span class="comment"> !&lt; variable name</span></div>
+<div class="line"><a name="l01568"></a><span class="lineno"> 1568</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: mem_path<span class="comment"> !&lt; path where variable is stored</span></div>
+<div class="line"><a name="l01569"></a><span class="lineno"> 1569</span>&#160;    <span class="comment">! -- local</span></div>
+<div class="line"><a name="l01570"></a><span class="lineno"> 1570</span>&#160;    <span class="keywordtype">type</span>(MemoryType), <span class="keywordtype">pointer</span> :: mt</div>
+<div class="line"><a name="l01571"></a><span class="lineno"> 1571</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: found</div>
+<div class="line"><a name="l01572"></a><span class="lineno"> 1572</span>&#160;    <span class="comment">! -- code</span></div>
+<div class="line"><a name="l01573"></a><span class="lineno"> 1573</span>&#160;    <span class="keyword">call </span>get_from_memorylist(name, mem_path, mt, found)</div>
+<div class="line"><a name="l01574"></a><span class="lineno"> 1574</span>&#160;    adbl =&gt; mt%adbl2d</div>
+<div class="line"><a name="l01575"></a><span class="lineno"> 1575</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l01576"></a><span class="lineno"> 1576</span>&#160;    <span class="comment">! -- return</span></div>
+<div class="line"><a name="l01577"></a><span class="lineno"> 1577</span>&#160;    <span class="keywordflow">return</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -401,19 +475,19 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_memory_manager_8f90_source.html#l01530">1530</a> of file <a class="el" href="_memory_manager_8f90_source.html">MemoryManager.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l01530"></a><span class="lineno"> 1530</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:, :, :)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>, <span class="keywordtype">intent(inout)</span> :: adbl<span class="comment"> !&lt; pointer to 3d real array</span></div>
-<div class="line"><a name="l01531"></a><span class="lineno"> 1531</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: name<span class="comment"> !&lt; variable name</span></div>
-<div class="line"><a name="l01532"></a><span class="lineno"> 1532</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: mem_path<span class="comment"> !&lt; path where variable is stored</span></div>
-<div class="line"><a name="l01533"></a><span class="lineno"> 1533</span>&#160;    <span class="comment">! -- local</span></div>
-<div class="line"><a name="l01534"></a><span class="lineno"> 1534</span>&#160;    <span class="keywordtype">type</span>(MemoryType), <span class="keywordtype">pointer</span> :: mt</div>
-<div class="line"><a name="l01535"></a><span class="lineno"> 1535</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: found</div>
-<div class="line"><a name="l01536"></a><span class="lineno"> 1536</span>&#160;    <span class="comment">! -- code</span></div>
-<div class="line"><a name="l01537"></a><span class="lineno"> 1537</span>&#160;    <span class="keyword">call </span>get_from_memorylist(name, mem_path, mt, found)</div>
-<div class="line"><a name="l01538"></a><span class="lineno"> 1538</span>&#160;    adbl =&gt; mt%adbl3d</div>
-<div class="line"><a name="l01539"></a><span class="lineno"> 1539</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l01540"></a><span class="lineno"> 1540</span>&#160;    <span class="comment">! -- return</span></div>
-<div class="line"><a name="l01541"></a><span class="lineno"> 1541</span>&#160;    <span class="keywordflow">return</span></div>
+<p class="definition">Definition at line <a class="el" href="_memory_manager_8f90_source.html#l01583">1583</a> of file <a class="el" href="_memory_manager_8f90_source.html">MemoryManager.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l01583"></a><span class="lineno"> 1583</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:, :, :)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>, <span class="keywordtype">intent(inout)</span> :: adbl<span class="comment"> !&lt; pointer to 3d real array</span></div>
+<div class="line"><a name="l01584"></a><span class="lineno"> 1584</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: name<span class="comment"> !&lt; variable name</span></div>
+<div class="line"><a name="l01585"></a><span class="lineno"> 1585</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: mem_path<span class="comment"> !&lt; path where variable is stored</span></div>
+<div class="line"><a name="l01586"></a><span class="lineno"> 1586</span>&#160;    <span class="comment">! -- local</span></div>
+<div class="line"><a name="l01587"></a><span class="lineno"> 1587</span>&#160;    <span class="keywordtype">type</span>(MemoryType), <span class="keywordtype">pointer</span> :: mt</div>
+<div class="line"><a name="l01588"></a><span class="lineno"> 1588</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: found</div>
+<div class="line"><a name="l01589"></a><span class="lineno"> 1589</span>&#160;    <span class="comment">! -- code</span></div>
+<div class="line"><a name="l01590"></a><span class="lineno"> 1590</span>&#160;    <span class="keyword">call </span>get_from_memorylist(name, mem_path, mt, found)</div>
+<div class="line"><a name="l01591"></a><span class="lineno"> 1591</span>&#160;    adbl =&gt; mt%adbl3d</div>
+<div class="line"><a name="l01592"></a><span class="lineno"> 1592</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l01593"></a><span class="lineno"> 1593</span>&#160;    <span class="comment">! -- return</span></div>
+<div class="line"><a name="l01594"></a><span class="lineno"> 1594</span>&#160;    <span class="keywordflow">return</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -465,19 +539,19 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_memory_manager_8f90_source.html#l01411">1411</a> of file <a class="el" href="_memory_manager_8f90_source.html">MemoryManager.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l01411"></a><span class="lineno"> 1411</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(inout)</span> :: sclr<span class="comment"> !&lt; pointer to integer scalar</span></div>
-<div class="line"><a name="l01412"></a><span class="lineno"> 1412</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: name<span class="comment"> !&lt; variable name</span></div>
-<div class="line"><a name="l01413"></a><span class="lineno"> 1413</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: mem_path<span class="comment"> !&lt; path where variable is stored</span></div>
-<div class="line"><a name="l01414"></a><span class="lineno"> 1414</span>&#160;    <span class="comment">! -- local</span></div>
-<div class="line"><a name="l01415"></a><span class="lineno"> 1415</span>&#160;    <span class="keywordtype">type</span>(MemoryType), <span class="keywordtype">pointer</span> :: mt</div>
-<div class="line"><a name="l01416"></a><span class="lineno"> 1416</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: found</div>
-<div class="line"><a name="l01417"></a><span class="lineno"> 1417</span>&#160;    <span class="comment">! -- code</span></div>
-<div class="line"><a name="l01418"></a><span class="lineno"> 1418</span>&#160;    <span class="keyword">call </span>get_from_memorylist(name, mem_path, mt, found)</div>
-<div class="line"><a name="l01419"></a><span class="lineno"> 1419</span>&#160;    sclr =&gt; mt%intsclr</div>
-<div class="line"><a name="l01420"></a><span class="lineno"> 1420</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l01421"></a><span class="lineno"> 1421</span>&#160;    <span class="comment">! -- return</span></div>
-<div class="line"><a name="l01422"></a><span class="lineno"> 1422</span>&#160;    <span class="keywordflow">return</span></div>
+<p class="definition">Definition at line <a class="el" href="_memory_manager_8f90_source.html#l01464">1464</a> of file <a class="el" href="_memory_manager_8f90_source.html">MemoryManager.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l01464"></a><span class="lineno"> 1464</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(inout)</span> :: sclr<span class="comment"> !&lt; pointer to integer scalar</span></div>
+<div class="line"><a name="l01465"></a><span class="lineno"> 1465</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: name<span class="comment"> !&lt; variable name</span></div>
+<div class="line"><a name="l01466"></a><span class="lineno"> 1466</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: mem_path<span class="comment"> !&lt; path where variable is stored</span></div>
+<div class="line"><a name="l01467"></a><span class="lineno"> 1467</span>&#160;    <span class="comment">! -- local</span></div>
+<div class="line"><a name="l01468"></a><span class="lineno"> 1468</span>&#160;    <span class="keywordtype">type</span>(MemoryType), <span class="keywordtype">pointer</span> :: mt</div>
+<div class="line"><a name="l01469"></a><span class="lineno"> 1469</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: found</div>
+<div class="line"><a name="l01470"></a><span class="lineno"> 1470</span>&#160;    <span class="comment">! -- code</span></div>
+<div class="line"><a name="l01471"></a><span class="lineno"> 1471</span>&#160;    <span class="keyword">call </span>get_from_memorylist(name, mem_path, mt, found)</div>
+<div class="line"><a name="l01472"></a><span class="lineno"> 1472</span>&#160;    sclr =&gt; mt%intsclr</div>
+<div class="line"><a name="l01473"></a><span class="lineno"> 1473</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l01474"></a><span class="lineno"> 1474</span>&#160;    <span class="comment">! -- return</span></div>
+<div class="line"><a name="l01475"></a><span class="lineno"> 1475</span>&#160;    <span class="keywordflow">return</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -529,19 +603,19 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_memory_manager_8f90_source.html#l01428">1428</a> of file <a class="el" href="_memory_manager_8f90_source.html">MemoryManager.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l01428"></a><span class="lineno"> 1428</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>, <span class="keywordtype">intent(inout)</span> :: aint<span class="comment"> !&lt; pointer to 1d integer array</span></div>
-<div class="line"><a name="l01429"></a><span class="lineno"> 1429</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: name<span class="comment"> !&lt; variable name</span></div>
-<div class="line"><a name="l01430"></a><span class="lineno"> 1430</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: mem_path<span class="comment"> !&lt; path where variable is stored</span></div>
-<div class="line"><a name="l01431"></a><span class="lineno"> 1431</span>&#160;    <span class="comment">! -- local</span></div>
-<div class="line"><a name="l01432"></a><span class="lineno"> 1432</span>&#160;    <span class="keywordtype">type</span>(MemoryType), <span class="keywordtype">pointer</span> :: mt</div>
-<div class="line"><a name="l01433"></a><span class="lineno"> 1433</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: found</div>
-<div class="line"><a name="l01434"></a><span class="lineno"> 1434</span>&#160;    <span class="comment">! -- code</span></div>
-<div class="line"><a name="l01435"></a><span class="lineno"> 1435</span>&#160;    <span class="keyword">call </span>get_from_memorylist(name, mem_path, mt, found)</div>
-<div class="line"><a name="l01436"></a><span class="lineno"> 1436</span>&#160;    aint =&gt; mt%aint1d</div>
-<div class="line"><a name="l01437"></a><span class="lineno"> 1437</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l01438"></a><span class="lineno"> 1438</span>&#160;    <span class="comment">! -- return</span></div>
-<div class="line"><a name="l01439"></a><span class="lineno"> 1439</span>&#160;    <span class="keywordflow">return</span></div>
+<p class="definition">Definition at line <a class="el" href="_memory_manager_8f90_source.html#l01481">1481</a> of file <a class="el" href="_memory_manager_8f90_source.html">MemoryManager.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l01481"></a><span class="lineno"> 1481</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>, <span class="keywordtype">intent(inout)</span> :: aint<span class="comment"> !&lt; pointer to 1d integer array</span></div>
+<div class="line"><a name="l01482"></a><span class="lineno"> 1482</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: name<span class="comment"> !&lt; variable name</span></div>
+<div class="line"><a name="l01483"></a><span class="lineno"> 1483</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: mem_path<span class="comment"> !&lt; path where variable is stored</span></div>
+<div class="line"><a name="l01484"></a><span class="lineno"> 1484</span>&#160;    <span class="comment">! -- local</span></div>
+<div class="line"><a name="l01485"></a><span class="lineno"> 1485</span>&#160;    <span class="keywordtype">type</span>(MemoryType), <span class="keywordtype">pointer</span> :: mt</div>
+<div class="line"><a name="l01486"></a><span class="lineno"> 1486</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: found</div>
+<div class="line"><a name="l01487"></a><span class="lineno"> 1487</span>&#160;    <span class="comment">! -- code</span></div>
+<div class="line"><a name="l01488"></a><span class="lineno"> 1488</span>&#160;    <span class="keyword">call </span>get_from_memorylist(name, mem_path, mt, found)</div>
+<div class="line"><a name="l01489"></a><span class="lineno"> 1489</span>&#160;    aint =&gt; mt%aint1d</div>
+<div class="line"><a name="l01490"></a><span class="lineno"> 1490</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l01491"></a><span class="lineno"> 1491</span>&#160;    <span class="comment">! -- return</span></div>
+<div class="line"><a name="l01492"></a><span class="lineno"> 1492</span>&#160;    <span class="keywordflow">return</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -593,19 +667,19 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_memory_manager_8f90_source.html#l01445">1445</a> of file <a class="el" href="_memory_manager_8f90_source.html">MemoryManager.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l01445"></a><span class="lineno"> 1445</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:, :)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>, <span class="keywordtype">intent(inout)</span> :: aint<span class="comment"> !&lt; pointer to 2d integer array</span></div>
-<div class="line"><a name="l01446"></a><span class="lineno"> 1446</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: name<span class="comment"> !&lt; variable name</span></div>
-<div class="line"><a name="l01447"></a><span class="lineno"> 1447</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: mem_path<span class="comment"> !&lt; path where variable is stored</span></div>
-<div class="line"><a name="l01448"></a><span class="lineno"> 1448</span>&#160;    <span class="comment">! -- local</span></div>
-<div class="line"><a name="l01449"></a><span class="lineno"> 1449</span>&#160;    <span class="keywordtype">type</span>(MemoryType), <span class="keywordtype">pointer</span> :: mt</div>
-<div class="line"><a name="l01450"></a><span class="lineno"> 1450</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: found</div>
-<div class="line"><a name="l01451"></a><span class="lineno"> 1451</span>&#160;    <span class="comment">! -- code</span></div>
-<div class="line"><a name="l01452"></a><span class="lineno"> 1452</span>&#160;    <span class="keyword">call </span>get_from_memorylist(name, mem_path, mt, found)</div>
-<div class="line"><a name="l01453"></a><span class="lineno"> 1453</span>&#160;    aint =&gt; mt%aint2d</div>
-<div class="line"><a name="l01454"></a><span class="lineno"> 1454</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l01455"></a><span class="lineno"> 1455</span>&#160;    <span class="comment">! -- return</span></div>
-<div class="line"><a name="l01456"></a><span class="lineno"> 1456</span>&#160;    <span class="keywordflow">return</span></div>
+<p class="definition">Definition at line <a class="el" href="_memory_manager_8f90_source.html#l01498">1498</a> of file <a class="el" href="_memory_manager_8f90_source.html">MemoryManager.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l01498"></a><span class="lineno"> 1498</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:, :)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>, <span class="keywordtype">intent(inout)</span> :: aint<span class="comment"> !&lt; pointer to 2d integer array</span></div>
+<div class="line"><a name="l01499"></a><span class="lineno"> 1499</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: name<span class="comment"> !&lt; variable name</span></div>
+<div class="line"><a name="l01500"></a><span class="lineno"> 1500</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: mem_path<span class="comment"> !&lt; path where variable is stored</span></div>
+<div class="line"><a name="l01501"></a><span class="lineno"> 1501</span>&#160;    <span class="comment">! -- local</span></div>
+<div class="line"><a name="l01502"></a><span class="lineno"> 1502</span>&#160;    <span class="keywordtype">type</span>(MemoryType), <span class="keywordtype">pointer</span> :: mt</div>
+<div class="line"><a name="l01503"></a><span class="lineno"> 1503</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: found</div>
+<div class="line"><a name="l01504"></a><span class="lineno"> 1504</span>&#160;    <span class="comment">! -- code</span></div>
+<div class="line"><a name="l01505"></a><span class="lineno"> 1505</span>&#160;    <span class="keyword">call </span>get_from_memorylist(name, mem_path, mt, found)</div>
+<div class="line"><a name="l01506"></a><span class="lineno"> 1506</span>&#160;    aint =&gt; mt%aint2d</div>
+<div class="line"><a name="l01507"></a><span class="lineno"> 1507</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l01508"></a><span class="lineno"> 1508</span>&#160;    <span class="comment">! -- return</span></div>
+<div class="line"><a name="l01509"></a><span class="lineno"> 1509</span>&#160;    <span class="keywordflow">return</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -657,19 +731,19 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_memory_manager_8f90_source.html#l01462">1462</a> of file <a class="el" href="_memory_manager_8f90_source.html">MemoryManager.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l01462"></a><span class="lineno"> 1462</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:, :, :)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>, <span class="keywordtype">intent(inout)</span> :: aint<span class="comment"> !&lt; pointer to 3d integer array</span></div>
-<div class="line"><a name="l01463"></a><span class="lineno"> 1463</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: name<span class="comment"> !&lt; variable name</span></div>
-<div class="line"><a name="l01464"></a><span class="lineno"> 1464</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: mem_path<span class="comment"> !&lt; path where variable is stored</span></div>
-<div class="line"><a name="l01465"></a><span class="lineno"> 1465</span>&#160;    <span class="comment">! -- local</span></div>
-<div class="line"><a name="l01466"></a><span class="lineno"> 1466</span>&#160;    <span class="keywordtype">type</span>(MemoryType), <span class="keywordtype">pointer</span> :: mt</div>
-<div class="line"><a name="l01467"></a><span class="lineno"> 1467</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: found</div>
-<div class="line"><a name="l01468"></a><span class="lineno"> 1468</span>&#160;    <span class="comment">! -- code</span></div>
-<div class="line"><a name="l01469"></a><span class="lineno"> 1469</span>&#160;    <span class="keyword">call </span>get_from_memorylist(name, mem_path, mt, found)</div>
-<div class="line"><a name="l01470"></a><span class="lineno"> 1470</span>&#160;    aint =&gt; mt%aint3d</div>
-<div class="line"><a name="l01471"></a><span class="lineno"> 1471</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l01472"></a><span class="lineno"> 1472</span>&#160;    <span class="comment">! -- return</span></div>
-<div class="line"><a name="l01473"></a><span class="lineno"> 1473</span>&#160;    <span class="keywordflow">return</span></div>
+<p class="definition">Definition at line <a class="el" href="_memory_manager_8f90_source.html#l01515">1515</a> of file <a class="el" href="_memory_manager_8f90_source.html">MemoryManager.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l01515"></a><span class="lineno"> 1515</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:, :, :)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>, <span class="keywordtype">intent(inout)</span> :: aint<span class="comment"> !&lt; pointer to 3d integer array</span></div>
+<div class="line"><a name="l01516"></a><span class="lineno"> 1516</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: name<span class="comment"> !&lt; variable name</span></div>
+<div class="line"><a name="l01517"></a><span class="lineno"> 1517</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: mem_path<span class="comment"> !&lt; path where variable is stored</span></div>
+<div class="line"><a name="l01518"></a><span class="lineno"> 1518</span>&#160;    <span class="comment">! -- local</span></div>
+<div class="line"><a name="l01519"></a><span class="lineno"> 1519</span>&#160;    <span class="keywordtype">type</span>(MemoryType), <span class="keywordtype">pointer</span> :: mt</div>
+<div class="line"><a name="l01520"></a><span class="lineno"> 1520</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: found</div>
+<div class="line"><a name="l01521"></a><span class="lineno"> 1521</span>&#160;    <span class="comment">! -- code</span></div>
+<div class="line"><a name="l01522"></a><span class="lineno"> 1522</span>&#160;    <span class="keyword">call </span>get_from_memorylist(name, mem_path, mt, found)</div>
+<div class="line"><a name="l01523"></a><span class="lineno"> 1523</span>&#160;    aint =&gt; mt%aint3d</div>
+<div class="line"><a name="l01524"></a><span class="lineno"> 1524</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l01525"></a><span class="lineno"> 1525</span>&#160;    <span class="comment">! -- return</span></div>
+<div class="line"><a name="l01526"></a><span class="lineno"> 1526</span>&#160;    <span class="keywordflow">return</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -721,19 +795,148 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_memory_manager_8f90_source.html#l01394">1394</a> of file <a class="el" href="_memory_manager_8f90_source.html">MemoryManager.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l01394"></a><span class="lineno"> 1394</span>&#160;    <span class="keywordtype">logical(LGP)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(inout)</span> :: sclr<span class="comment"> !&lt; pointer to logical scalar</span></div>
-<div class="line"><a name="l01395"></a><span class="lineno"> 1395</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: name<span class="comment"> !&lt; variable name</span></div>
-<div class="line"><a name="l01396"></a><span class="lineno"> 1396</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: mem_path<span class="comment"> !&lt; path where variable is stored</span></div>
-<div class="line"><a name="l01397"></a><span class="lineno"> 1397</span>&#160;    <span class="comment">! -- local</span></div>
-<div class="line"><a name="l01398"></a><span class="lineno"> 1398</span>&#160;    <span class="keywordtype">type</span>(MemoryType), <span class="keywordtype">pointer</span> :: mt</div>
-<div class="line"><a name="l01399"></a><span class="lineno"> 1399</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: found</div>
-<div class="line"><a name="l01400"></a><span class="lineno"> 1400</span>&#160;    <span class="comment">! -- code</span></div>
-<div class="line"><a name="l01401"></a><span class="lineno"> 1401</span>&#160;    <span class="keyword">call </span>get_from_memorylist(name, mem_path, mt, found)</div>
-<div class="line"><a name="l01402"></a><span class="lineno"> 1402</span>&#160;    sclr =&gt; mt%logicalsclr</div>
-<div class="line"><a name="l01403"></a><span class="lineno"> 1403</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l01404"></a><span class="lineno"> 1404</span>&#160;    <span class="comment">! -- return</span></div>
-<div class="line"><a name="l01405"></a><span class="lineno"> 1405</span>&#160;    <span class="keywordflow">return</span></div>
+<p class="definition">Definition at line <a class="el" href="_memory_manager_8f90_source.html#l01447">1447</a> of file <a class="el" href="_memory_manager_8f90_source.html">MemoryManager.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l01447"></a><span class="lineno"> 1447</span>&#160;    <span class="keywordtype">logical(LGP)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(inout)</span> :: sclr<span class="comment"> !&lt; pointer to logical scalar</span></div>
+<div class="line"><a name="l01448"></a><span class="lineno"> 1448</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: name<span class="comment"> !&lt; variable name</span></div>
+<div class="line"><a name="l01449"></a><span class="lineno"> 1449</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: mem_path<span class="comment"> !&lt; path where variable is stored</span></div>
+<div class="line"><a name="l01450"></a><span class="lineno"> 1450</span>&#160;    <span class="comment">! -- local</span></div>
+<div class="line"><a name="l01451"></a><span class="lineno"> 1451</span>&#160;    <span class="keywordtype">type</span>(MemoryType), <span class="keywordtype">pointer</span> :: mt</div>
+<div class="line"><a name="l01452"></a><span class="lineno"> 1452</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: found</div>
+<div class="line"><a name="l01453"></a><span class="lineno"> 1453</span>&#160;    <span class="comment">! -- code</span></div>
+<div class="line"><a name="l01454"></a><span class="lineno"> 1454</span>&#160;    <span class="keyword">call </span>get_from_memorylist(name, mem_path, mt, found)</div>
+<div class="line"><a name="l01455"></a><span class="lineno"> 1455</span>&#160;    sclr =&gt; mt%logicalsclr</div>
+<div class="line"><a name="l01456"></a><span class="lineno"> 1456</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l01457"></a><span class="lineno"> 1457</span>&#160;    <span class="comment">! -- return</span></div>
+<div class="line"><a name="l01458"></a><span class="lineno"> 1458</span>&#160;    <span class="keywordflow">return</span></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a01c8dc0865181b038eecadd0b9766623"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01c8dc0865181b038eecadd0b9766623">&#9670;&nbsp;</a></span>setptr_str()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine memorymanagermodule::mem_setptr::setptr_str </td>
+          <td>(</td>
+          <td class="paramtype">character(len=:), pointer&#160;</td>
+          <td class="paramname"><em>asrt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>mem_path</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">asrt</td><td>pointer to the character string </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>variable name </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mem_path</td><td>path where variable is stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_memory_manager_8f90_source.html#l01600">1600</a> of file <a class="el" href="_memory_manager_8f90_source.html">MemoryManager.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l01600"></a><span class="lineno"> 1600</span>&#160;    <span class="keywordtype">character(len=:)</span>, <span class="keywordtype">pointer</span> :: asrt<span class="comment"> !&lt; pointer to the character string</span></div>
+<div class="line"><a name="l01601"></a><span class="lineno"> 1601</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: name<span class="comment"> !&lt; variable name</span></div>
+<div class="line"><a name="l01602"></a><span class="lineno"> 1602</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: mem_path<span class="comment"> !&lt; path where variable is stored</span></div>
+<div class="line"><a name="l01603"></a><span class="lineno"> 1603</span>&#160;    <span class="comment">! -- local</span></div>
+<div class="line"><a name="l01604"></a><span class="lineno"> 1604</span>&#160;    <span class="keywordtype">type</span>(MemoryType), <span class="keywordtype">pointer</span> :: mt</div>
+<div class="line"><a name="l01605"></a><span class="lineno"> 1605</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: found</div>
+<div class="line"><a name="l01606"></a><span class="lineno"> 1606</span>&#160;    <span class="comment">! -- code</span></div>
+<div class="line"><a name="l01607"></a><span class="lineno"> 1607</span>&#160;    <span class="keyword">call </span>get_from_memorylist(name, mem_path, mt, found)</div>
+<div class="line"><a name="l01608"></a><span class="lineno"> 1608</span>&#160;    asrt =&gt; mt%strsclr</div>
+<div class="line"><a name="l01609"></a><span class="lineno"> 1609</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l01610"></a><span class="lineno"> 1610</span>&#160;    <span class="comment">! -- return</span></div>
+<div class="line"><a name="l01611"></a><span class="lineno"> 1611</span>&#160;    <span class="keywordflow">return</span></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ad4cc99e87859e10fa4d524947596ebb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4cc99e87859e10fa4d524947596ebb1">&#9670;&nbsp;</a></span>setptr_str1d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine memorymanagermodule::mem_setptr::setptr_str1d </td>
+          <td>(</td>
+          <td class="paramtype">character(len=:), dimension(:), intent(inout), pointer, contiguous&#160;</td>
+          <td class="paramname"><em>astr1d</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), intent(in)&#160;</td>
+          <td class="paramname"><em>mem_path</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">astr1d</td><td>pointer to the string array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>variable name </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mem_path</td><td>path where variable is stored </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_memory_manager_8f90_source.html#l01617">1617</a> of file <a class="el" href="_memory_manager_8f90_source.html">MemoryManager.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l01617"></a><span class="lineno"> 1617</span>&#160;    <span class="keywordtype">character(len=:)</span>, <span class="keywordtype">dimension(:)</span>, &amp;</div>
+<div class="line"><a name="l01618"></a><span class="lineno"> 1618</span>&#160;      <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>, <span class="keywordtype">intent(inout)</span> :: astr1d<span class="comment"> !&lt; pointer to the string array</span></div>
+<div class="line"><a name="l01619"></a><span class="lineno"> 1619</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: name<span class="comment"> !&lt; variable name</span></div>
+<div class="line"><a name="l01620"></a><span class="lineno"> 1620</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: mem_path<span class="comment"> !&lt; path where variable is stored</span></div>
+<div class="line"><a name="l01621"></a><span class="lineno"> 1621</span>&#160;    <span class="comment">! -- local</span></div>
+<div class="line"><a name="l01622"></a><span class="lineno"> 1622</span>&#160;    <span class="keywordtype">type</span>(MemoryType), <span class="keywordtype">pointer</span> :: mt</div>
+<div class="line"><a name="l01623"></a><span class="lineno"> 1623</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: found</div>
+<div class="line"><a name="l01624"></a><span class="lineno"> 1624</span>&#160;    <span class="comment">! -- code</span></div>
+<div class="line"><a name="l01625"></a><span class="lineno"> 1625</span>&#160;    <span class="keyword">call </span>get_from_memorylist(name, mem_path, mt, found)</div>
+<div class="line"><a name="l01626"></a><span class="lineno"> 1626</span>&#160;    astr1d =&gt; mt%astr1d</div>
+<div class="line"><a name="l01627"></a><span class="lineno"> 1627</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l01628"></a><span class="lineno"> 1628</span>&#160;    <span class="comment">! -- return</span></div>
+<div class="line"><a name="l01629"></a><span class="lineno"> 1629</span>&#160;    <span class="keywordflow">return</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -746,7 +949,7 @@ Private Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacememorymanagermodule.html">memorymanagermodule</a></li><li class="navelem"><a class="el" href="interfacememorymanagermodule_1_1mem__setptr.html">mem_setptr</a></li>
-    <li class="footer">Generated on Mon Aug 29 2022 06:53:59 for MODFLOW 6 by
+    <li class="footer">Generated on Mon Sep 5 2022 11:35:52 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

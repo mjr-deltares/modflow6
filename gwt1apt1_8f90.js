@@ -27,6 +27,7 @@ var gwt1apt1_8f90 =
     [ "apt_ot_dv", "gwt1apt1_8f90.html#a90727dfbea84f61004b2c513c004171c", null ],
     [ "apt_ot_package_flows", "gwt1apt1_8f90.html#ad39891abdbecdf7a8a113d627c8a8ee7", null ],
     [ "apt_process_obsid", "gwt1apt1_8f90.html#abb56c327ba1e85187d14771a059b816c", null ],
+    [ "apt_process_obsid12", "gwt1apt1_8f90.html#aa40689d8e2fc865dacc707808163e47a", null ],
     [ "apt_read_cvs", "gwt1apt1_8f90.html#a76a25077028a175ab5efe00ca8c997ef", null ],
     [ "apt_read_dimensions", "gwt1apt1_8f90.html#aeefa303e93862dd91d6d076d9a537983", null ],
     [ "apt_read_initial_attr", "gwt1apt1_8f90.html#a1e8922a2b5914568394ce0894b253669", null ],
@@ -47,9 +48,13 @@ var gwt1apt1_8f90 =
     [ "pak_fc_expanded", "gwt1apt1_8f90.html#afaebffde2a5da2f76a641387a1a658cf", null ],
     [ "pak_fill_budobj", "gwt1apt1_8f90.html#a8324a8f2d7b1ce8184a0bc2197696ce0", null ],
     [ "pak_get_nbudterms", "gwt1apt1_8f90.html#ae51d1e58ad9d8c5ac22c4f219bde2bb2", null ],
+    [ "pak_rp_obs", "gwt1apt1_8f90.html#ad0a084a2ec9a8c52e5780c7f2b440871", null ],
     [ "pak_set_stressperiod", "gwt1apt1_8f90.html#a75c23d31665b74ad0185e8625789f86f", null ],
     [ "pak_setup_budobj", "gwt1apt1_8f90.html#aa7519e35249578dd891159384cd2faaf", null ],
     [ "pak_solve", "gwt1apt1_8f90.html#a6dc6e56a084774f6587a293fa3dbe918", null ],
+    [ "rp_obs_budterm", "gwt1apt1_8f90.html#a2d2c8687ce6eafe350f1d75ad3ba79fe", null ],
+    [ "rp_obs_byfeature", "gwt1apt1_8f90.html#af2a2de8100265dd5960435110cb440ff", null ],
+    [ "rp_obs_flowjaface", "gwt1apt1_8f90.html#a1762531b111184eba3d046ab0ffc7a4f", null ],
     [ "ftype", "gwt1apt1_8f90.html#a4edfe9702ce75d78ac7dbddec75929aa", null ],
     [ "text", "gwt1apt1_8f90.html#aa728bd05c78c73026c4909912c7777c0", null ]
 ];

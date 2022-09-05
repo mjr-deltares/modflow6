@@ -1,9 +1,7 @@
 <map id="gwtmodule::castasgwtmodel" name="gwtmodule::castasgwtmodel">
-<area shape="rect" id="node1" title="Cast to GwtModelType." alt="" coords="487,143,697,170"/>
-<area shape="rect" id="node2" href="$namespacegwtgwtconnectionmodule.html#ac36a6f50ccd95ddd2eadede21822de2d" title="allocate and read/set the connection&#39;s data structures" alt="" coords="246,5,437,47"/>
-<area shape="rect" id="node3" href="$namespacegwtgwtconnectionmodule.html#a0f6be4b0e1fb989189e1749e459bc2bf" title="Basic construction of the connection." alt="" coords="246,71,437,112"/>
-<area shape="rect" id="node5" href="$namespacegwtinterfacemodelmodule.html#ada68ea42046fb1af9fbae3faf24bfc38" title="Create the interface model, analogously to what." alt="" coords="244,136,439,177"/>
-<area shape="rect" id="node6" href="$namespacegwtinterfacemodelmodule.html#a48befcecbb4854efba3fb6f82f41ba86" title="set dsp grid data from models" alt="" coords="244,201,439,243"/>
-<area shape="rect" id="node7" href="$namespacegwtgwtconnectionmodule.html#afdd0c707ae2fd46c765a5902fe61f6b1" title="called during advance (*_ad), to copy the data from the models into the connection&#39;s placeholder arra..." alt="" coords="246,267,437,308"/>
-<area shape="rect" id="node4" href="$structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#ac29d98da5f5f127df670763ef642b937" title=" " alt="" coords="5,63,196,119"/>
+<area shape="rect" id="node1" title="Cast to GwtModelType." alt="" coords="487,85,697,112"/>
+<area shape="rect" id="node2" href="$namespacegwtgwtconnectionmodule.html#a0f6be4b0e1fb989189e1749e459bc2bf" title="Basic construction of the connection." alt="" coords="246,13,437,54"/>
+<area shape="rect" id="node4" href="$namespacegwtinterfacemodelmodule.html#ada68ea42046fb1af9fbae3faf24bfc38" title="Create the interface model, analogously to what." alt="" coords="244,78,439,119"/>
+<area shape="rect" id="node5" href="$namespacegwtinterfacemodelmodule.html#a48befcecbb4854efba3fb6f82f41ba86" title="set dsp grid data from models" alt="" coords="244,143,439,185"/>
+<area shape="rect" id="node3" href="$structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#ac29d98da5f5f127df670763ef642b937" title=" " alt="" coords="5,5,196,61"/>
 </map>

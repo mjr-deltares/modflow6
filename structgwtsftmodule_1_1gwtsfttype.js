@@ -9,6 +9,7 @@ var structgwtsftmodule_1_1gwtsfttype =
     [ "pak_fc_expanded", "structgwtsftmodule_1_1gwtsfttype.html#a8dccfb1ae4779eb81eb9fdc8d6306457", null ],
     [ "pak_fill_budobj", "structgwtsftmodule_1_1gwtsfttype.html#aba0e479d3120ee0304c694c2ea07bd71", null ],
     [ "pak_get_nbudterms", "structgwtsftmodule_1_1gwtsfttype.html#a1e4de4cd9d9e5a5b4fd9c8d7158523d6", null ],
+    [ "pak_rp_obs", "structgwtsftmodule_1_1gwtsfttype.html#aa1a8e46ed635ac87fd3c566f5d4da50c", null ],
     [ "pak_set_stressperiod", "structgwtsftmodule_1_1gwtsfttype.html#aaf94e4a7dea717ad5195f9e7c31eec2a", null ],
     [ "pak_setup_budobj", "structgwtsftmodule_1_1gwtsfttype.html#a236ab8e8373a8f141656bbd835d35110", null ],
     [ "pak_solve", "structgwtsftmodule_1_1gwtsfttype.html#a920fba3e8916307a320f8c9eecbb56b7", null ],

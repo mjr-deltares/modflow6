@@ -18,6 +18,5 @@ var _gwt_gwt_connection_8f90 =
     [ "gwtgwtconnection_ctor", "_gwt_gwt_connection_8f90.html#a0f6be4b0e1fb989189e1749e459bc2bf", null ],
     [ "setflowtoexchange", "_gwt_gwt_connection_8f90.html#a3acd4f56715e42bf78f922b2b19a05e1", null ],
     [ "setgridextent", "_gwt_gwt_connection_8f90.html#a266b9469a3f44ccd3e7239a4d9263f8a", null ],
-    [ "syncinterfacemodel", "_gwt_gwt_connection_8f90.html#afdd0c707ae2fd46c765a5902fe61f6b1", null ],
     [ "validateconnection", "_gwt_gwt_connection_8f90.html#a727e6e5d9343fc4c1e2d1703568538ac", null ]
 ];

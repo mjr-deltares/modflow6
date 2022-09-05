@@ -1,7 +1,6 @@
 var _gwf_gwf_connection_8f90 =
 [
     [ "gwfgwfconnectiontype", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html", "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype" ],
-    [ "allocate_arrays", "_gwf_gwf_connection_8f90.html#a08be1b3f7d1d5c316fc8961166bcc3bd", null ],
     [ "allocatescalars", "_gwf_gwf_connection_8f90.html#a90b6da38ce4d4a0e3de35d1955ac6107", null ],
     [ "castasgwfgwfconnection", "_gwf_gwf_connection_8f90.html#a6c3e0778394e43c4098266172b6838b9", null ],
     [ "gwfgwfcon_ad", "_gwf_gwf_connection_8f90.html#a1d4bd0ac8079d488ca11911da22b67ff", null ],
@@ -15,11 +14,9 @@ var _gwf_gwf_connection_8f90 =
     [ "gwfgwfcon_ot", "_gwf_gwf_connection_8f90.html#ae286593e3e2bec7d82c7db74f2b32d31", null ],
     [ "gwfgwfcon_rp", "_gwf_gwf_connection_8f90.html#aaf3865fadc52af410f084229710c4c6e", null ],
     [ "gwfgwfconnection_ctor", "_gwf_gwf_connection_8f90.html#adf69ded6447b65b3eea555039e4ae491", null ],
-    [ "saveexchangeflows", "_gwf_gwf_connection_8f90.html#a2feb4df88189153941c59d3c4bc26794", null ],
     [ "setflowtoexchange", "_gwf_gwf_connection_8f90.html#a291611921ff15f7740f1338af43f7ccf", null ],
     [ "setgridextent", "_gwf_gwf_connection_8f90.html#aad9155bba93f2641d5a3cc027e337565", null ],
     [ "setnpfedgeprops", "_gwf_gwf_connection_8f90.html#a6e1d16d424140c9c0c79587cf1b4e7a0", null ],
-    [ "syncinterfacemodel", "_gwf_gwf_connection_8f90.html#a732eadb72a63d42952c2979898afe572", null ],
     [ "validateconnection", "_gwf_gwf_connection_8f90.html#ad0f962351553b6ce91cd26559c4702de", null ],
     [ "validategwfexchange", "_gwf_gwf_connection_8f90.html#a8cc6f811d911509b9457bc06b6d0bbf4", null ]
 ];

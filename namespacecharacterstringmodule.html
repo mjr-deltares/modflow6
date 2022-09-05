@@ -135,6 +135,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="separator:a3e68828cc12348bc479078e670d965d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61f7ea14502c84154d1235b4c53a0e31"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecharacterstringmodule.html#a61f7ea14502c84154d1235b4c53a0e31">write_unformatted</a> (this, unit, iostat, iomsg)</td></tr>
 <tr class="separator:a61f7ea14502c84154d1235b4c53a0e31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac06c8bbb48d720e9e8d977a832699b0"><td class="memItemLeft" align="right" valign="top">integer function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecharacterstringmodule.html#aac06c8bbb48d720e9e8d977a832699b0">strlen</a> (this)</td></tr>
+<tr class="separator:aac06c8bbb48d720e9e8d977a832699b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function/Subroutine Documentation</h2>
 <a id="a8a3bf61d70969828744929c7e26a338a"></a>
@@ -171,14 +173,14 @@ Functions/Subroutines</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_char_string_8f90_source.html#l00061">61</a> of file <a class="el" href="_char_string_8f90_source.html">CharString.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(out)</span> :: lhs</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">class</span>(CharacterStringType), <span class="keywordtype">intent(in)</span> :: rhs</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">allocated</span>(rhs%charstring)) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;      lhs = rhs%charstring</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;      lhs = <span class="stringliteral">&#39;&#39;</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keywordflow">    end if</span></div>
+<p class="definition">Definition at line <a class="el" href="_char_string_8f90_source.html#l00062">62</a> of file <a class="el" href="_char_string_8f90_source.html">CharString.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(out)</span> :: lhs</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">class</span>(CharacterStringType), <span class="keywordtype">intent(in)</span> :: rhs</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">allocated</span>(rhs%charstring)) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      lhs = rhs%charstring</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      lhs = <span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keywordflow">    end if</span></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -225,23 +227,23 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_char_string_8f90_source.html#l00042">42</a> of file <a class="el" href="_char_string_8f90_source.html">CharString.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">class</span>(CharacterStringType), <span class="keywordtype">intent(out)</span> :: lhs</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: rhs</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">logical</span> :: allocate_charstring</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    allocate_charstring = .false.</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">allocated</span>(lhs%charstring)) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      <span class="keywordflow">if</span> (len(lhs%charstring) &lt;= len(rhs)) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        lhs%charstring(:) = rhs</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        allocate_charstring = .true.</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keywordflow">      end if</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      allocate_charstring = .true.</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">if</span> (allocate_charstring) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      lhs%charstring = rhs</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keywordflow">    end if</span></div>
+<p class="definition">Definition at line <a class="el" href="_char_string_8f90_source.html#l00043">43</a> of file <a class="el" href="_char_string_8f90_source.html">CharString.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">class</span>(CharacterStringType), <span class="keywordtype">intent(out)</span> :: lhs</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: rhs</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">logical</span> :: allocate_charstring</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    allocate_charstring = .false.</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">allocated</span>(lhs%charstring)) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      <span class="keywordflow">if</span> (len(lhs%charstring) &lt;= len(rhs)) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        lhs%charstring(:) = rhs</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        allocate_charstring = .true.</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keywordflow">      end if</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      allocate_charstring = .true.</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">if</span> (allocate_charstring) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      lhs%charstring = rhs</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keywordflow">    end if</span></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -288,15 +290,15 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_char_string_8f90_source.html#l00071">71</a> of file <a class="el" href="_char_string_8f90_source.html">CharString.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: lhs</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">class</span>(CharacterStringType), <span class="keywordtype">intent(in)</span> :: rhs</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">logical</span> :: equals</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">allocated</span>(rhs%charstring)) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      equals = lhs == rhs%charstring</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      equals = lhs == <span class="stringliteral">&#39;&#39;</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keywordflow">    end if</span></div>
+<p class="definition">Definition at line <a class="el" href="_char_string_8f90_source.html#l00072">72</a> of file <a class="el" href="_char_string_8f90_source.html">CharString.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: lhs</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">class</span>(CharacterStringType), <span class="keywordtype">intent(in)</span> :: rhs</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">logical</span> :: equals</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">allocated</span>(rhs%charstring)) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      equals = lhs == rhs%charstring</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      equals = lhs == <span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keywordflow">    end if</span></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -343,15 +345,15 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_char_string_8f90_source.html#l00082">82</a> of file <a class="el" href="_char_string_8f90_source.html">CharString.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">class</span>(CharacterStringType), <span class="keywordtype">intent(in)</span> :: lhs</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: rhs</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">logical</span> :: equals</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">allocated</span>(lhs%charstring)) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      equals = lhs%charstring == rhs</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;      equals = rhs == <span class="stringliteral">&#39;&#39;</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keywordflow">    end if</span></div>
+<p class="definition">Definition at line <a class="el" href="_char_string_8f90_source.html#l00083">83</a> of file <a class="el" href="_char_string_8f90_source.html">CharString.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">class</span>(CharacterStringType), <span class="keywordtype">intent(in)</span> :: lhs</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: rhs</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">logical</span> :: equals</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">allocated</span>(lhs%charstring)) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      equals = lhs%charstring == rhs</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;      equals = rhs == <span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keywordflow">    end if</span></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -362,6 +364,42 @@ Here is the caller graph for this function:</div>
 </map>
 </div>
 
+</div>
+</div>
+<a id="aac06c8bbb48d720e9e8d977a832699b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac06c8bbb48d720e9e8d977a832699b0">&#9670;&nbsp;</a></span>strlen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer function characterstringmodule::strlen </td>
+          <td>(</td>
+          <td class="paramtype">class(<a class="el" href="structcharacterstringmodule_1_1characterstringtype.html">characterstringtype</a>), intent(in)&#160;</td>
+          <td class="paramname"><em>this</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_char_string_8f90_source.html#l00105">105</a> of file <a class="el" href="_char_string_8f90_source.html">CharString.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordtype">class</span>(CharacterStringType), <span class="keywordtype">intent(in)</span> :: this</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">integer</span> :: length</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">allocated</span>(this%charstring)) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;      length = len(this%charstring)</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;      length = 0</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="keywordflow">    end if</span></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a61f7ea14502c84154d1235b4c53a0e31"></a>
@@ -410,15 +448,15 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_char_string_8f90_source.html#l00093">93</a> of file <a class="el" href="_char_string_8f90_source.html">CharString.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">class</span>(CharacterStringType), <span class="keywordtype">intent(in)</span> :: this</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span> :: unit</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">integer</span>, <span class="keywordtype">intent(out)</span> :: iostat</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(inout)</span> :: iomsg</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    iostat = 0</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">allocated</span>(this%charstring)) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;      <span class="keyword">write</span> (unit, iostat=iostat) this%charstring</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keywordflow">    end if</span></div>
+<p class="definition">Definition at line <a class="el" href="_char_string_8f90_source.html#l00094">94</a> of file <a class="el" href="_char_string_8f90_source.html">CharString.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">class</span>(CharacterStringType), <span class="keywordtype">intent(in)</span> :: this</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span> :: unit</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">integer</span>, <span class="keywordtype">intent(out)</span> :: iostat</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(inout)</span> :: iomsg</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    iostat = 0</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">allocated</span>(this%charstring)) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;      <span class="keyword">write</span> (unit, iostat=iostat) this%charstring</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keywordflow">    end if</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -428,7 +466,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacecharacterstringmodule.html">characterstringmodule</a></li>
-    <li class="footer">Generated on Mon Aug 29 2022 06:53:52 for MODFLOW 6 by
+    <li class="footer">Generated on Mon Sep 5 2022 11:35:43 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

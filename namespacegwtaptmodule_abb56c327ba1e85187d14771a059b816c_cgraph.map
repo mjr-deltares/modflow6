@@ -1,5 +1,5 @@
 <map id="gwtaptmodule::apt_process_obsid" name="gwtaptmodule::apt_process_obsid">
-<area shape="rect" id="node1" title=" " alt="" coords="5,57,208,99"/>
+<area shape="rect" id="node1" title="Process observation IDs for a package." alt="" coords="5,57,208,99"/>
 <area shape="rect" id="node2" href="$namespaceinputoutputmodule.html#a2f708dffa1b89bf951c41031434cc724" title=" " alt="" coords="256,57,460,99"/>
 <area shape="rect" id="node3" href="$namespaceinputoutputmodule.html#a8290bae8ca0756e38ce13459dfebe985" title="Convert to upper case." alt="" coords="508,24,663,65"/>
 <area shape="rect" id="node4" href="$namespaceinputoutputmodule.html#a653efe7e8a111c5e477fea26e0b04fe5" title="Extract a word from a string." alt="" coords="508,89,663,131"/>

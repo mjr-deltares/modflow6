@@ -14,6 +14,7 @@ var gwt1mwt1_8f90 =
     [ "mwt_fwrt_term", "gwt1mwt1_8f90.html#a51dd3fbea62e3fbe73dda125f617f7cb", null ],
     [ "mwt_get_nbudterms", "gwt1mwt1_8f90.html#ab3b3d7002839fa5e801e8c2b6ea31742", null ],
     [ "mwt_rate_term", "gwt1mwt1_8f90.html#add0cab6e90effbab0e5dc8343bb08f8a", null ],
+    [ "mwt_rp_obs", "gwt1mwt1_8f90.html#a91032fbd253c6cf4d24c8619a66e097c", null ],
     [ "mwt_rtmv_term", "gwt1mwt1_8f90.html#ad7a87a3c2088221f834c767bea0f039e", null ],
     [ "mwt_set_stressperiod", "gwt1mwt1_8f90.html#af3e56a2c66e386aac3ac2bde3ca7c541", null ],
     [ "mwt_setup_budobj", "gwt1mwt1_8f90.html#a6d8f835780724fba9e9673b7f355ecf4", null ],

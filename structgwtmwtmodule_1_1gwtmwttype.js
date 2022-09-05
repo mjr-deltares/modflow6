@@ -13,6 +13,7 @@ var structgwtmwtmodule_1_1gwtmwttype =
     [ "pak_fc_expanded", "structgwtmwtmodule_1_1gwtmwttype.html#ab67d2b36545ae4751180c8d647fe485c", null ],
     [ "pak_fill_budobj", "structgwtmwtmodule_1_1gwtmwttype.html#ab6eaa3360273db996e141b9d50092ddf", null ],
     [ "pak_get_nbudterms", "structgwtmwtmodule_1_1gwtmwttype.html#a5e3e5dd67e7ebc48b5baf481722f458e", null ],
+    [ "pak_rp_obs", "structgwtmwtmodule_1_1gwtmwttype.html#a0fd7cb21459a66de84d9b878e81c873b", null ],
     [ "pak_set_stressperiod", "structgwtmwtmodule_1_1gwtmwttype.html#a3664f6c7a8db3c424fd67bdb619b999c", null ],
     [ "pak_setup_budobj", "structgwtmwtmodule_1_1gwtmwttype.html#ac17b950d0a850ac8e7d3797eac96529a", null ],
     [ "pak_solve", "structgwtmwtmodule_1_1gwtmwttype.html#a997132560ae4e8440fb4bd6de1354c98", null ],

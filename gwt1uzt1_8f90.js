@@ -14,6 +14,7 @@ var gwt1uzt1_8f90 =
     [ "uzt_infl_term", "gwt1uzt1_8f90.html#abb4d920309a9a038035155a83e2d6428", null ],
     [ "uzt_rinf_term", "gwt1uzt1_8f90.html#acbe48bba498e7cc2b8024343a416b389", null ],
     [ "uzt_ritm_term", "gwt1uzt1_8f90.html#a11dd82343d68ef84ac4efb2456e2e430", null ],
+    [ "uzt_rp_obs", "gwt1uzt1_8f90.html#a1877117343001bdf84383d4aa6401cdb", null ],
     [ "uzt_set_stressperiod", "gwt1uzt1_8f90.html#af735f03ee57e99c4b0c6412a186096f7", null ],
     [ "uzt_setup_budobj", "gwt1uzt1_8f90.html#aa446b88d1194bed5d6aaa5d304d83388", null ],
     [ "uzt_solve", "gwt1uzt1_8f90.html#a3af60370103bb112f16a7013f5c10df4", null ],

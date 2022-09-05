@@ -178,17 +178,19 @@ $(document).ready(function(){initNavTree('_string_list_8f90_source.html',''); in
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span> :: obj</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structcharacterstringmodule_1_1characterstringtype.html">characterstringtype</a>), <span class="keywordtype">pointer</span> :: charcont</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    string = <span class="stringliteral">&#39;&#39;</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    obj =&gt; list%GetItem(indx)</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    charcont =&gt; <a class="code" href="namespacestringlistmodule.html#acf9201b7d3c610ed5e4bc5d32fcc84b4">castascharacterstringtype</a>(obj)</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">associated</span>(charcont)) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      string = charcont</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <span class="keyword">end function </span><a class="code" href="namespacestringlistmodule.html#ad1b54086a65c589895e7349ac5eae451">getstringfromlist</a></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">end module </span><a class="code" href="namespacestringlistmodule.html">stringlistmodule</a></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    obj =&gt; list%GetItem(indx)</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    charcont =&gt; <a class="code" href="namespacestringlistmodule.html#acf9201b7d3c610ed5e4bc5d32fcc84b4">castascharacterstringtype</a>(obj)</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">associated</span>(charcont)) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;      <span class="keyword">allocate</span> (<span class="keywordtype">character(len=charcont%strlen())</span> :: string)</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      string(:) = charcont</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      string = <span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <span class="keyword">end function </span><a class="code" href="namespacestringlistmodule.html#ad1b54086a65c589895e7349ac5eae451">getstringfromlist</a></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">end module </span><a class="code" href="namespacestringlistmodule.html">stringlistmodule</a></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="anamespacestringlistmodule_html_ad1b54086a65c589895e7349ac5eae451"><div class="ttname"><a href="namespacestringlistmodule.html#ad1b54086a65c589895e7349ac5eae451">stringlistmodule::getstringfromlist</a></div><div class="ttdeci">character(len=:) function, allocatable, public getstringfromlist(list, indx)</div><div class="ttdef"><b>Definition:</b> <a href="_string_list_8f90_source.html#l00057">StringList.f90:57</a></div></div>
@@ -205,7 +207,7 @@ $(document).ready(function(){initNavTree('_string_list_8f90_source.html',''); in
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ff383ddf1aa4eab0c4ce7910366d05a5.html">Utilities</a></li><li class="navelem"><a class="el" href="_string_list_8f90.html">StringList.f90</a></li>
-    <li class="footer">Generated on Mon Aug 29 2022 06:53:51 for MODFLOW 6 by
+    <li class="footer">Generated on Mon Sep 5 2022 11:35:43 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

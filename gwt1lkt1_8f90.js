@@ -16,6 +16,7 @@ var gwt1lkt1_8f90 =
     [ "lkt_outf_term", "gwt1lkt1_8f90.html#a3213dbb003e18ed1402072a1363eed87", null ],
     [ "lkt_rain_term", "gwt1lkt1_8f90.html#ab43f10e506870b2f3b9977624f58e79c", null ],
     [ "lkt_roff_term", "gwt1lkt1_8f90.html#a138477ae6b20ba095ef1b83c693b6aeb", null ],
+    [ "lkt_rp_obs", "gwt1lkt1_8f90.html#a357beaf0de2caaed28a942620d078568", null ],
     [ "lkt_set_stressperiod", "gwt1lkt1_8f90.html#aedd5951e1deff0073f2feb19b9962e89", null ],
     [ "lkt_setup_budobj", "gwt1lkt1_8f90.html#add698937a0987289b81de8d134abc110", null ],
     [ "lkt_solve", "gwt1lkt1_8f90.html#a769f85f4c402cb9f3d41f44a40e50d6a", null ],
