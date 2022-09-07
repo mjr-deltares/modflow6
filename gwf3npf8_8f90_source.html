@@ -1192,8 +1192,8 @@ $(document).ready(function(){initNavTree('gwf3npf8_8f90_source.html',''); initRe
 <div class="line"><a name="l01077"></a><span class="lineno"> 1077</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%ithickstartflag)</div>
 <div class="line"><a name="l01078"></a><span class="lineno"> 1078</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%icelltype)</div>
 <div class="line"><a name="l01079"></a><span class="lineno"> 1079</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%k11)</div>
-<div class="line"><a name="l01080"></a><span class="lineno"> 1080</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%k22, <span class="stringliteral">&#39;K22&#39;</span>, trim(this%memoryPath))</div>
-<div class="line"><a name="l01081"></a><span class="lineno"> 1081</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%k33, <span class="stringliteral">&#39;K33&#39;</span>, trim(this%memoryPath))</div>
+<div class="line"><a name="l01080"></a><span class="lineno"> 1080</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%k22)</div>
+<div class="line"><a name="l01081"></a><span class="lineno"> 1081</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%k33)</div>
 <div class="line"><a name="l01082"></a><span class="lineno"> 1082</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%sat)</div>
 <div class="line"><a name="l01083"></a><span class="lineno"> 1083</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%condsat)</div>
 <div class="line"><a name="l01084"></a><span class="lineno"> 1084</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%wetdry)</div>
@@ -1874,93 +1874,93 @@ $(document).ready(function(){initNavTree('gwf3npf8_8f90_source.html',''); initRe
 <div class="line"><a name="l01759"></a><span class="lineno"> 1759</span>&#160;        <span class="keyword">write</span> (errmsg, <span class="stringliteral">&#39;(a)&#39;</span>) <span class="stringliteral">&#39;K33OVERK option specified but K33 not specified.&#39;</span></div>
 <div class="line"><a name="l01760"></a><span class="lineno"> 1760</span>&#160;        <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(errmsg)</div>
 <div class="line"><a name="l01761"></a><span class="lineno"> 1761</span>&#160;<span class="keywordflow">      end if</span></div>
-<div class="line"><a name="l01762"></a><span class="lineno"> 1762</span>&#160;      <span class="keyword">write</span> (this%iout, <span class="stringliteral">&#39;(1x, a)&#39;</span>) <span class="stringliteral">&#39;K33 not provided.  Assuming K33 = K.&#39;</span></div>
-<div class="line"><a name="l01763"></a><span class="lineno"> 1763</span>&#160;      <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__reassignptr.html">mem_reassignptr</a>(this%k33, <span class="stringliteral">&#39;K33&#39;</span>, trim(this%memoryPath), &amp;</div>
-<div class="line"><a name="l01764"></a><span class="lineno"> 1764</span>&#160;                           <span class="stringliteral">&#39;K11&#39;</span>, trim(this%memoryPath))</div>
-<div class="line"><a name="l01765"></a><span class="lineno"> 1765</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l01766"></a><span class="lineno"> 1766</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l01767"></a><span class="lineno"> 1767</span>&#160;    <span class="comment">! -- set ik22 flag</span></div>
-<div class="line"><a name="l01768"></a><span class="lineno"> 1768</span>&#160;    <span class="keywordflow">if</span> (lname(4)) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l01769"></a><span class="lineno"> 1769</span>&#160;      this%ik22 = 1</div>
-<div class="line"><a name="l01770"></a><span class="lineno"> 1770</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l01771"></a><span class="lineno"> 1771</span>&#160;      <span class="keywordflow">if</span> (this%ik22overk /= 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l01772"></a><span class="lineno"> 1772</span>&#160;        <span class="keyword">write</span> (errmsg, <span class="stringliteral">&#39;(a)&#39;</span>) <span class="stringliteral">&#39;K22OVERK option specified but K22 not specified.&#39;</span></div>
-<div class="line"><a name="l01773"></a><span class="lineno"> 1773</span>&#160;        <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(errmsg)</div>
-<div class="line"><a name="l01774"></a><span class="lineno"> 1774</span>&#160;<span class="keywordflow">      end if</span></div>
-<div class="line"><a name="l01775"></a><span class="lineno"> 1775</span>&#160;      <span class="keyword">write</span> (this%iout, <span class="stringliteral">&#39;(1x, a)&#39;</span>) <span class="stringliteral">&#39;K22 not provided.  Assuming K22 = K.&#39;</span></div>
-<div class="line"><a name="l01776"></a><span class="lineno"> 1776</span>&#160;      <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__reassignptr.html">mem_reassignptr</a>(this%k22, <span class="stringliteral">&#39;K22&#39;</span>, trim(this%memoryPath), &amp;</div>
-<div class="line"><a name="l01777"></a><span class="lineno"> 1777</span>&#160;                           <span class="stringliteral">&#39;K11&#39;</span>, trim(this%memoryPath))</div>
-<div class="line"><a name="l01778"></a><span class="lineno"> 1778</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l01779"></a><span class="lineno"> 1779</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l01780"></a><span class="lineno"> 1780</span>&#160;    <span class="comment">! -- Set WETDRY</span></div>
-<div class="line"><a name="l01781"></a><span class="lineno"> 1781</span>&#160;    <span class="keywordflow">if</span> (lname(5)) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l01782"></a><span class="lineno"> 1782</span>&#160;      this%iwetdry = 1</div>
-<div class="line"><a name="l01783"></a><span class="lineno"> 1783</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l01784"></a><span class="lineno"> 1784</span>&#160;      <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__reallocate.html">mem_reallocate</a>(this%wetdry, 1, <span class="stringliteral">&#39;WETDRY&#39;</span>, trim(this%memoryPath))</div>
-<div class="line"><a name="l01785"></a><span class="lineno"> 1785</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l01786"></a><span class="lineno"> 1786</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l01787"></a><span class="lineno"> 1787</span>&#160;    <span class="comment">! -- set angle flags</span></div>
-<div class="line"><a name="l01788"></a><span class="lineno"> 1788</span>&#160;    <span class="keywordflow">if</span> (lname(6)) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l01789"></a><span class="lineno"> 1789</span>&#160;      this%iangle1 = 1</div>
-<div class="line"><a name="l01790"></a><span class="lineno"> 1790</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l01791"></a><span class="lineno"> 1791</span>&#160;      <span class="keywordflow">if</span> (this%ixt3d == 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l01792"></a><span class="lineno"> 1792</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__reallocate.html">mem_reallocate</a>(this%angle1, 1, <span class="stringliteral">&#39;ANGLE1&#39;</span>, trim(this%memoryPath))</div>
-<div class="line"><a name="l01793"></a><span class="lineno"> 1793</span>&#160;<span class="keywordflow">      end if</span></div>
-<div class="line"><a name="l01794"></a><span class="lineno"> 1794</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l01795"></a><span class="lineno"> 1795</span>&#160;    <span class="keywordflow">if</span> (lname(7)) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l01796"></a><span class="lineno"> 1796</span>&#160;      this%iangle2 = 1</div>
-<div class="line"><a name="l01797"></a><span class="lineno"> 1797</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l01798"></a><span class="lineno"> 1798</span>&#160;      <span class="keywordflow">if</span> (this%ixt3d == 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l01799"></a><span class="lineno"> 1799</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__reallocate.html">mem_reallocate</a>(this%angle2, 1, <span class="stringliteral">&#39;ANGLE2&#39;</span>, trim(this%memoryPath))</div>
-<div class="line"><a name="l01800"></a><span class="lineno"> 1800</span>&#160;<span class="keywordflow">      end if</span></div>
-<div class="line"><a name="l01801"></a><span class="lineno"> 1801</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l01802"></a><span class="lineno"> 1802</span>&#160;    <span class="keywordflow">if</span> (lname(8)) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l01803"></a><span class="lineno"> 1803</span>&#160;      this%iangle3 = 1</div>
-<div class="line"><a name="l01804"></a><span class="lineno"> 1804</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l01805"></a><span class="lineno"> 1805</span>&#160;      <span class="keywordflow">if</span> (this%ixt3d == 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l01806"></a><span class="lineno"> 1806</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__reallocate.html">mem_reallocate</a>(this%angle3, 1, <span class="stringliteral">&#39;ANGLE3&#39;</span>, trim(this%memoryPath))</div>
-<div class="line"><a name="l01807"></a><span class="lineno"> 1807</span>&#160;<span class="keywordflow">      end if</span></div>
-<div class="line"><a name="l01808"></a><span class="lineno"> 1808</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l01809"></a><span class="lineno"> 1809</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l01810"></a><span class="lineno"> 1810</span>&#160;    <span class="comment">! -- terminate if read errors encountered</span></div>
-<div class="line"><a name="l01811"></a><span class="lineno"> 1811</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="namespacesimmodule.html#a4c46e49de78d4498dd4ec106357775e6">count_errors</a>() &gt; 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l01812"></a><span class="lineno"> 1812</span>&#160;      <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
-<div class="line"><a name="l01813"></a><span class="lineno"> 1813</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l01814"></a><span class="lineno"> 1814</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l01815"></a><span class="lineno"> 1815</span>&#160;    <span class="comment">! -- Final NPFDATA message</span></div>
-<div class="line"><a name="l01816"></a><span class="lineno"> 1816</span>&#160;    <span class="keyword">write</span> (this%iout, <span class="stringliteral">&#39;(1x,a)&#39;</span>) <span class="stringliteral">&#39;END PROCESSING GRIDDATA&#39;</span></div>
-<div class="line"><a name="l01817"></a><span class="lineno"> 1817</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l01818"></a><span class="lineno"> 1818</span>&#160;    <span class="comment">! -- Return</span></div>
-<div class="line"><a name="l01819"></a><span class="lineno"> 1819</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l01820"></a><span class="lineno"> 1820</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacegwfnpfmodule.html#a40957147ebdb87c0ef1c37b444f0b1ea">read_grid_data</a></div>
-<div class="line"><a name="l01821"></a><span class="lineno"> 1821</span>&#160; </div>
-<div class="line"><a name="l01822"></a><span class="lineno"> 1822</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacegwfnpfmodule.html#a8dc3680eccbf93a5c74bc19974adffb8">set_grid_data</a>(this, npf_data)</div>
-<div class="line"><a name="l01823"></a><span class="lineno"><a class="line" href="namespacegwfnpfmodule.html#a8dc3680eccbf93a5c74bc19974adffb8"> 1823</a></span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacememorymanagermodule.html">memorymanagermodule</a>, <span class="keywordtype">only</span>: <a class="code" href="interfacememorymanagermodule_1_1mem__reallocate.html">mem_reallocate</a>, <a class="code" href="interfacememorymanagermodule_1_1mem__reassignptr.html">mem_reassignptr</a></div>
-<div class="line"><a name="l01824"></a><span class="lineno"> 1824</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structgwfnpfmodule_1_1gwfnpftype.html">gwfnpftype</a>), <span class="keywordtype">intent(inout)</span> :: this</div>
-<div class="line"><a name="l01825"></a><span class="lineno"> 1825</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structgwfnpfgriddatamodule_1_1gwfnpfgriddatatype.html">gwfnpfgriddatatype</a>), <span class="keywordtype">intent(in)</span> :: npf_data</div>
-<div class="line"><a name="l01826"></a><span class="lineno"> 1826</span>&#160; </div>
-<div class="line"><a name="l01827"></a><span class="lineno"> 1827</span>&#160;    <span class="comment">! fill grid arrays</span></div>
-<div class="line"><a name="l01828"></a><span class="lineno"> 1828</span>&#160;    <span class="keyword">call </span>this%dis%fill_grid_array(npf_data%icelltype, this%icelltype)</div>
-<div class="line"><a name="l01829"></a><span class="lineno"> 1829</span>&#160;    <span class="keyword">call </span>this%dis%fill_grid_array(npf_data%k11, this%k11)</div>
-<div class="line"><a name="l01830"></a><span class="lineno"> 1830</span>&#160; </div>
-<div class="line"><a name="l01831"></a><span class="lineno"> 1831</span>&#160;    <span class="keywordflow">if</span> (npf_data%ik22 == 1) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l01832"></a><span class="lineno"> 1832</span>&#160;      this%ik22 = 1</div>
-<div class="line"><a name="l01833"></a><span class="lineno"> 1833</span>&#160;      <span class="keyword">call </span>this%dis%fill_grid_array(npf_data%k22, this%k22)</div>
-<div class="line"><a name="l01834"></a><span class="lineno"> 1834</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l01835"></a><span class="lineno"> 1835</span>&#160;      <span class="comment">! if not present, then K22 = K11</span></div>
-<div class="line"><a name="l01836"></a><span class="lineno"> 1836</span>&#160;      this%ik22 = 0</div>
-<div class="line"><a name="l01837"></a><span class="lineno"> 1837</span>&#160;      <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__reassignptr.html">mem_reassignptr</a>(this%k22, <span class="stringliteral">&#39;K22&#39;</span>, trim(this%memoryPath), &amp;</div>
-<div class="line"><a name="l01838"></a><span class="lineno"> 1838</span>&#160;                           <span class="stringliteral">&#39;K11&#39;</span>, trim(this%memoryPath))</div>
-<div class="line"><a name="l01839"></a><span class="lineno"> 1839</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l01840"></a><span class="lineno"> 1840</span>&#160; </div>
-<div class="line"><a name="l01841"></a><span class="lineno"> 1841</span>&#160;    <span class="keywordflow">if</span> (npf_data%ik33 == 1) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l01842"></a><span class="lineno"> 1842</span>&#160;      this%ik33 = 1</div>
-<div class="line"><a name="l01843"></a><span class="lineno"> 1843</span>&#160;      <span class="keyword">call </span>this%dis%fill_grid_array(npf_data%k33, this%k33)</div>
-<div class="line"><a name="l01844"></a><span class="lineno"> 1844</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l01845"></a><span class="lineno"> 1845</span>&#160;      <span class="comment">! if not present, then K33 = K11</span></div>
-<div class="line"><a name="l01846"></a><span class="lineno"> 1846</span>&#160;      this%ik33 = 0</div>
-<div class="line"><a name="l01847"></a><span class="lineno"> 1847</span>&#160;      <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__reassignptr.html">mem_reassignptr</a>(this%k33, <span class="stringliteral">&#39;K33&#39;</span>, trim(this%memoryPath), &amp;</div>
-<div class="line"><a name="l01848"></a><span class="lineno"> 1848</span>&#160;                           <span class="stringliteral">&#39;K11&#39;</span>, trim(this%memoryPath))</div>
+<div class="line"><a name="l01762"></a><span class="lineno"> 1762</span>&#160;      <span class="keyword">write</span> (this%iout, <span class="stringliteral">&#39;(1x, a)&#39;</span>) <span class="stringliteral">&#39;K33 not provided.  Setting K33 = K.&#39;</span></div>
+<div class="line"><a name="l01763"></a><span class="lineno"> 1763</span>&#160;      <span class="keywordflow">do</span> n = 1, <span class="keyword">size</span>(this%k11)</div>
+<div class="line"><a name="l01764"></a><span class="lineno"> 1764</span>&#160;        this%k33(n) = this%k11(n)</div>
+<div class="line"><a name="l01765"></a><span class="lineno"> 1765</span>&#160;<span class="keywordflow">      end do</span></div>
+<div class="line"><a name="l01766"></a><span class="lineno"> 1766</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l01767"></a><span class="lineno"> 1767</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l01768"></a><span class="lineno"> 1768</span>&#160;    <span class="comment">! -- set ik22 flag</span></div>
+<div class="line"><a name="l01769"></a><span class="lineno"> 1769</span>&#160;    <span class="keywordflow">if</span> (lname(4)) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l01770"></a><span class="lineno"> 1770</span>&#160;      this%ik22 = 1</div>
+<div class="line"><a name="l01771"></a><span class="lineno"> 1771</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l01772"></a><span class="lineno"> 1772</span>&#160;      <span class="keywordflow">if</span> (this%ik22overk /= 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l01773"></a><span class="lineno"> 1773</span>&#160;        <span class="keyword">write</span> (errmsg, <span class="stringliteral">&#39;(a)&#39;</span>) <span class="stringliteral">&#39;K22OVERK option specified but K22 not specified.&#39;</span></div>
+<div class="line"><a name="l01774"></a><span class="lineno"> 1774</span>&#160;        <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(errmsg)</div>
+<div class="line"><a name="l01775"></a><span class="lineno"> 1775</span>&#160;<span class="keywordflow">      end if</span></div>
+<div class="line"><a name="l01776"></a><span class="lineno"> 1776</span>&#160;      <span class="keyword">write</span> (this%iout, <span class="stringliteral">&#39;(1x, a)&#39;</span>) <span class="stringliteral">&#39;K22 not provided.  Setting K22 = K.&#39;</span></div>
+<div class="line"><a name="l01777"></a><span class="lineno"> 1777</span>&#160;      <span class="keywordflow">do</span> n = 1, <span class="keyword">size</span>(this%k11)</div>
+<div class="line"><a name="l01778"></a><span class="lineno"> 1778</span>&#160;        this%k22(n) = this%k11(n)</div>
+<div class="line"><a name="l01779"></a><span class="lineno"> 1779</span>&#160;<span class="keywordflow">      end do</span></div>
+<div class="line"><a name="l01780"></a><span class="lineno"> 1780</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l01781"></a><span class="lineno"> 1781</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l01782"></a><span class="lineno"> 1782</span>&#160;    <span class="comment">! -- Set WETDRY</span></div>
+<div class="line"><a name="l01783"></a><span class="lineno"> 1783</span>&#160;    <span class="keywordflow">if</span> (lname(5)) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l01784"></a><span class="lineno"> 1784</span>&#160;      this%iwetdry = 1</div>
+<div class="line"><a name="l01785"></a><span class="lineno"> 1785</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l01786"></a><span class="lineno"> 1786</span>&#160;      <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__reallocate.html">mem_reallocate</a>(this%wetdry, 1, <span class="stringliteral">&#39;WETDRY&#39;</span>, trim(this%memoryPath))</div>
+<div class="line"><a name="l01787"></a><span class="lineno"> 1787</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l01788"></a><span class="lineno"> 1788</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l01789"></a><span class="lineno"> 1789</span>&#160;    <span class="comment">! -- set angle flags</span></div>
+<div class="line"><a name="l01790"></a><span class="lineno"> 1790</span>&#160;    <span class="keywordflow">if</span> (lname(6)) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l01791"></a><span class="lineno"> 1791</span>&#160;      this%iangle1 = 1</div>
+<div class="line"><a name="l01792"></a><span class="lineno"> 1792</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l01793"></a><span class="lineno"> 1793</span>&#160;      <span class="keywordflow">if</span> (this%ixt3d == 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l01794"></a><span class="lineno"> 1794</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__reallocate.html">mem_reallocate</a>(this%angle1, 1, <span class="stringliteral">&#39;ANGLE1&#39;</span>, trim(this%memoryPath))</div>
+<div class="line"><a name="l01795"></a><span class="lineno"> 1795</span>&#160;<span class="keywordflow">      end if</span></div>
+<div class="line"><a name="l01796"></a><span class="lineno"> 1796</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l01797"></a><span class="lineno"> 1797</span>&#160;    <span class="keywordflow">if</span> (lname(7)) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l01798"></a><span class="lineno"> 1798</span>&#160;      this%iangle2 = 1</div>
+<div class="line"><a name="l01799"></a><span class="lineno"> 1799</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l01800"></a><span class="lineno"> 1800</span>&#160;      <span class="keywordflow">if</span> (this%ixt3d == 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l01801"></a><span class="lineno"> 1801</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__reallocate.html">mem_reallocate</a>(this%angle2, 1, <span class="stringliteral">&#39;ANGLE2&#39;</span>, trim(this%memoryPath))</div>
+<div class="line"><a name="l01802"></a><span class="lineno"> 1802</span>&#160;<span class="keywordflow">      end if</span></div>
+<div class="line"><a name="l01803"></a><span class="lineno"> 1803</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l01804"></a><span class="lineno"> 1804</span>&#160;    <span class="keywordflow">if</span> (lname(8)) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l01805"></a><span class="lineno"> 1805</span>&#160;      this%iangle3 = 1</div>
+<div class="line"><a name="l01806"></a><span class="lineno"> 1806</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l01807"></a><span class="lineno"> 1807</span>&#160;      <span class="keywordflow">if</span> (this%ixt3d == 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l01808"></a><span class="lineno"> 1808</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__reallocate.html">mem_reallocate</a>(this%angle3, 1, <span class="stringliteral">&#39;ANGLE3&#39;</span>, trim(this%memoryPath))</div>
+<div class="line"><a name="l01809"></a><span class="lineno"> 1809</span>&#160;<span class="keywordflow">      end if</span></div>
+<div class="line"><a name="l01810"></a><span class="lineno"> 1810</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l01811"></a><span class="lineno"> 1811</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l01812"></a><span class="lineno"> 1812</span>&#160;    <span class="comment">! -- terminate if read errors encountered</span></div>
+<div class="line"><a name="l01813"></a><span class="lineno"> 1813</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="namespacesimmodule.html#a4c46e49de78d4498dd4ec106357775e6">count_errors</a>() &gt; 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l01814"></a><span class="lineno"> 1814</span>&#160;      <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
+<div class="line"><a name="l01815"></a><span class="lineno"> 1815</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l01816"></a><span class="lineno"> 1816</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l01817"></a><span class="lineno"> 1817</span>&#160;    <span class="comment">! -- Final NPFDATA message</span></div>
+<div class="line"><a name="l01818"></a><span class="lineno"> 1818</span>&#160;    <span class="keyword">write</span> (this%iout, <span class="stringliteral">&#39;(1x,a)&#39;</span>) <span class="stringliteral">&#39;END PROCESSING GRIDDATA&#39;</span></div>
+<div class="line"><a name="l01819"></a><span class="lineno"> 1819</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l01820"></a><span class="lineno"> 1820</span>&#160;    <span class="comment">! -- Return</span></div>
+<div class="line"><a name="l01821"></a><span class="lineno"> 1821</span>&#160;    <span class="keywordflow">return</span></div>
+<div class="line"><a name="l01822"></a><span class="lineno"> 1822</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacegwfnpfmodule.html#a40957147ebdb87c0ef1c37b444f0b1ea">read_grid_data</a></div>
+<div class="line"><a name="l01823"></a><span class="lineno"> 1823</span>&#160; </div>
+<div class="line"><a name="l01824"></a><span class="lineno"> 1824</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacegwfnpfmodule.html#a8dc3680eccbf93a5c74bc19974adffb8">set_grid_data</a>(this, npf_data)</div>
+<div class="line"><a name="l01825"></a><span class="lineno"><a class="line" href="namespacegwfnpfmodule.html#a8dc3680eccbf93a5c74bc19974adffb8"> 1825</a></span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacememorymanagermodule.html">memorymanagermodule</a>, <span class="keywordtype">only</span>: <a class="code" href="interfacememorymanagermodule_1_1mem__reallocate.html">mem_reallocate</a>, <a class="code" href="interfacememorymanagermodule_1_1mem__reassignptr.html">mem_reassignptr</a></div>
+<div class="line"><a name="l01826"></a><span class="lineno"> 1826</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structgwfnpfmodule_1_1gwfnpftype.html">gwfnpftype</a>), <span class="keywordtype">intent(inout)</span> :: this</div>
+<div class="line"><a name="l01827"></a><span class="lineno"> 1827</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structgwfnpfgriddatamodule_1_1gwfnpfgriddatatype.html">gwfnpfgriddatatype</a>), <span class="keywordtype">intent(in)</span> :: npf_data</div>
+<div class="line"><a name="l01828"></a><span class="lineno"> 1828</span>&#160; </div>
+<div class="line"><a name="l01829"></a><span class="lineno"> 1829</span>&#160;    <span class="comment">! fill grid arrays</span></div>
+<div class="line"><a name="l01830"></a><span class="lineno"> 1830</span>&#160;    <span class="keyword">call </span>this%dis%fill_grid_array(npf_data%icelltype, this%icelltype)</div>
+<div class="line"><a name="l01831"></a><span class="lineno"> 1831</span>&#160;    <span class="keyword">call </span>this%dis%fill_grid_array(npf_data%k11, this%k11)</div>
+<div class="line"><a name="l01832"></a><span class="lineno"> 1832</span>&#160; </div>
+<div class="line"><a name="l01833"></a><span class="lineno"> 1833</span>&#160;    <span class="keywordflow">if</span> (npf_data%ik22 == 1) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l01834"></a><span class="lineno"> 1834</span>&#160;      this%ik22 = 1</div>
+<div class="line"><a name="l01835"></a><span class="lineno"> 1835</span>&#160;      <span class="keyword">call </span>this%dis%fill_grid_array(npf_data%k22, this%k22)</div>
+<div class="line"><a name="l01836"></a><span class="lineno"> 1836</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l01837"></a><span class="lineno"> 1837</span>&#160;      <span class="comment">! if not present, then K22 = K11</span></div>
+<div class="line"><a name="l01838"></a><span class="lineno"> 1838</span>&#160;      this%ik22 = 0</div>
+<div class="line"><a name="l01839"></a><span class="lineno"> 1839</span>&#160;      <span class="keyword">call </span>this%dis%fill_grid_array(this%k11, this%k22)</div>
+<div class="line"><a name="l01840"></a><span class="lineno"> 1840</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l01841"></a><span class="lineno"> 1841</span>&#160; </div>
+<div class="line"><a name="l01842"></a><span class="lineno"> 1842</span>&#160;    <span class="keywordflow">if</span> (npf_data%ik33 == 1) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l01843"></a><span class="lineno"> 1843</span>&#160;      this%ik33 = 1</div>
+<div class="line"><a name="l01844"></a><span class="lineno"> 1844</span>&#160;      <span class="keyword">call </span>this%dis%fill_grid_array(npf_data%k33, this%k33)</div>
+<div class="line"><a name="l01845"></a><span class="lineno"> 1845</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l01846"></a><span class="lineno"> 1846</span>&#160;      <span class="comment">! if not present, then K33 = K11</span></div>
+<div class="line"><a name="l01847"></a><span class="lineno"> 1847</span>&#160;      this%ik33 = 0</div>
+<div class="line"><a name="l01848"></a><span class="lineno"> 1848</span>&#160;      <span class="keyword">call </span>this%dis%fill_grid_array(this%k11, this%k33)</div>
 <div class="line"><a name="l01849"></a><span class="lineno"> 1849</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l01850"></a><span class="lineno"> 1850</span>&#160; </div>
 <div class="line"><a name="l01851"></a><span class="lineno"> 1851</span>&#160;    <span class="keywordflow">if</span> (npf_data%iwetdry == 1) <span class="keywordflow">then</span></div>
@@ -2752,8 +2752,8 @@ $(document).ready(function(){initNavTree('gwf3npf8_8f90_source.html',''); initRe
 <div class="line"><a name="l02637"></a><span class="lineno"> 2637</span>&#160;    hy11 = this%k11(n)</div>
 <div class="line"><a name="l02638"></a><span class="lineno"> 2638</span>&#160;    hy22 = this%k11(n)</div>
 <div class="line"><a name="l02639"></a><span class="lineno"> 2639</span>&#160;    hy33 = this%k11(n)</div>
-<div class="line"><a name="l02640"></a><span class="lineno"> 2640</span>&#160;    <span class="keywordflow">if</span> (this%ik22 /= 0) hy22 = this%k22(n)</div>
-<div class="line"><a name="l02641"></a><span class="lineno"> 2641</span>&#160;    <span class="keywordflow">if</span> (this%ik33 /= 0) hy33 = this%k33(n)</div>
+<div class="line"><a name="l02640"></a><span class="lineno"> 2640</span>&#160;    hy22 = this%k22(n)</div>
+<div class="line"><a name="l02641"></a><span class="lineno"> 2641</span>&#160;    hy33 = this%k33(n)</div>
 <div class="line"><a name="l02642"></a><span class="lineno"> 2642</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l02643"></a><span class="lineno"> 2643</span>&#160;    <span class="comment">! -- Calculate effective K based on whether connection is vertical</span></div>
 <div class="line"><a name="l02644"></a><span class="lineno"> 2644</span>&#160;    <span class="comment">!    or horizontal</span></div>
@@ -3918,7 +3918,7 @@ $(document).ready(function(){initNavTree('gwf3npf8_8f90_source.html',''); initRe
 <div class="ttc" id="anamespacegwfnpfmodule_html_a838bc577fc2fa1a76824043bf322ab30"><div class="ttname"><a href="namespacegwfnpfmodule.html#a838bc577fc2fa1a76824043bf322ab30">gwfnpfmodule::calc_spdis</a></div><div class="ttdeci">subroutine calc_spdis(this, flowja)</div><div class="ttdef"><b>Definition:</b> <a href="gwf3npf8_8f90_source.html#l03176">gwf3npf8.f90:3176</a></div></div>
 <div class="ttc" id="anamespacegwfnpfmodule_html_a4b59ec3a2906a9e7a9530f564a4f3073"><div class="ttname"><a href="namespacegwfnpfmodule.html#a4b59ec3a2906a9e7a9530f564a4f3073">gwfnpfmodule::npf_fn</a></div><div class="ttdeci">subroutine npf_fn(this, kiter, njasln, amat, idxglo, rhs, hnew)</div><div class="ttdef"><b>Definition:</b> <a href="gwf3npf8_8f90_source.html#l00580">gwf3npf8.f90:580</a></div></div>
 <div class="ttc" id="anamespacesmoothingmodule_html_a4be083cd9964c682d55802ff9bc436bc"><div class="ttname"><a href="namespacesmoothingmodule.html#a4be083cd9964c682d55802ff9bc436bc">smoothingmodule::squadraticsaturation</a></div><div class="ttdeci">real(dp) function squadraticsaturation(top, bot, x, eps, bmin)</div><div class="ttdef"><b>Definition:</b> <a href="_smoothing_functions_8f90_source.html#l00306">SmoothingFunctions.f90:306</a></div></div>
-<div class="ttc" id="anamespacegwfnpfmodule_html_a8dc3680eccbf93a5c74bc19974adffb8"><div class="ttname"><a href="namespacegwfnpfmodule.html#a8dc3680eccbf93a5c74bc19974adffb8">gwfnpfmodule::set_grid_data</a></div><div class="ttdeci">subroutine set_grid_data(this, npf_data)</div><div class="ttdef"><b>Definition:</b> <a href="gwf3npf8_8f90_source.html#l01823">gwf3npf8.f90:1823</a></div></div>
+<div class="ttc" id="anamespacegwfnpfmodule_html_a8dc3680eccbf93a5c74bc19974adffb8"><div class="ttname"><a href="namespacegwfnpfmodule.html#a8dc3680eccbf93a5c74bc19974adffb8">gwfnpfmodule::set_grid_data</a></div><div class="ttdeci">subroutine set_grid_data(this, npf_data)</div><div class="ttdef"><b>Definition:</b> <a href="gwf3npf8_8f90_source.html#l01825">gwf3npf8.f90:1825</a></div></div>
 <div class="ttc" id="anamespacesimmodule_html_a4c46e49de78d4498dd4ec106357775e6"><div class="ttname"><a href="namespacesimmodule.html#a4c46e49de78d4498dd4ec106357775e6">simmodule::count_errors</a></div><div class="ttdeci">integer(i4b) function, public count_errors()</div><div class="ttdoc">Return number of errors.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_8f90_source.html#l00059">Sim.f90:59</a></div></div>
 <div class="ttc" id="anamespaceconstantsmodule_html_ad1788cb8fb28394f71afb55c9d4193dd"><div class="ttname"><a href="namespaceconstantsmodule.html#ad1788cb8fb28394f71afb55c9d4193dd">constantsmodule::dlnhigh</a></div><div class="ttdeci">real(dp), parameter dlnhigh</div><div class="ttdoc">real constant high ratio used to calculate log mean of K</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00113">Constants.f90:113</a></div></div>
 <div class="ttc" id="anamespaceconstantsmodule_html_aba95664cbd721a2d72df12ac8bb78da8"><div class="ttname"><a href="namespaceconstantsmodule.html#aba95664cbd721a2d72df12ac8bb78da8">constantsmodule::dem6</a></div><div class="ttdeci">real(dp), parameter dem6</div><div class="ttdoc">real constant 1e-6</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00097">Constants.f90:97</a></div></div>
@@ -3999,7 +3999,7 @@ $(document).ready(function(){initNavTree('gwf3npf8_8f90_source.html',''); initRe
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_32e188284d239da8bb14ec1dabb0c35f.html">Model</a></li><li class="navelem"><a class="el" href="dir_5aefb7a434fc869900e7ccf685166f81.html">GroundWaterFlow</a></li><li class="navelem"><a class="el" href="gwf3npf8_8f90.html">gwf3npf8.f90</a></li>
-    <li class="footer">Generated on Mon Sep 5 2022 11:35:42 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Sep 7 2022 10:04:14 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
