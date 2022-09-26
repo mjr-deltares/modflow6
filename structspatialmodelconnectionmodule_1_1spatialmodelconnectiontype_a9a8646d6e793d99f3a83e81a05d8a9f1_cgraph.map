@@ -1,7 +1,7 @@
 <map id="spatialmodelconnectionmodule::spatialmodelconnectiontype::construct" name="spatialmodelconnectionmodule::spatialmodelconnectiontype::construct">
 <area shape="rect" id="node1" title=" " alt="" coords="5,53,232,109"/>
 <area shape="rect" id="node2" href="$namespacespatialmodelconnectionmodule.html#a76507ae198dd17cba071ffdbeb4d801e" title="Construct the spatial connection base." alt="" coords="280,61,507,102"/>
-<area shape="rect" id="node3" href="$namespacememoryhelpermodule.html#a3791dbc2d4a06a0b9112158cff21f738" title="returns the path to the memory object" alt="" coords="555,61,721,102"/>
+<area shape="rect" id="node3" href="$namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d" title="returns the path to the memory object" alt="" coords="555,61,721,102"/>
 <area shape="rect" id="node4" href="$namespacememoryhelpermodule.html#a5405f58247a0962e5449ebc1e4dcff0f" title="Generic routine to check the length of (parts of) the memory address." alt="" coords="769,61,936,102"/>
 <area shape="rect" id="node5" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="984,68,1159,95"/>
 <area shape="rect" id="node6" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="1207,68,1345,95"/>

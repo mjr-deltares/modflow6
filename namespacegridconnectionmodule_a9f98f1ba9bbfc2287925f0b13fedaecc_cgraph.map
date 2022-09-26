@@ -3,7 +3,7 @@
 <area shape="rect" id="node2" href="$namespacegridconnectionmodule.html#a87ac728c2f1d2e08efc0154afe01b01c" title="Helper function to get model names when ids are given." alt="" coords="244,61,411,102"/>
 <area shape="rect" id="node11" href="$namespacebasemodelmodule.html#a79adefc92f4f7d0d032babb551c571f8" title=" " alt="" coords="483,127,777,153"/>
 <area shape="rect" id="node13" href="$namespacedisconnexchangemodule.html#a63ac91d936c8b44104f8e091a81e7ac2" title=" " alt="" coords="220,178,435,219"/>
-<area shape="rect" id="node3" href="$namespacememoryhelpermodule.html#a3791dbc2d4a06a0b9112158cff21f738" title="returns the path to the memory object" alt="" coords="547,61,713,102"/>
+<area shape="rect" id="node3" href="$namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d" title="returns the path to the memory object" alt="" coords="547,61,713,102"/>
 <area shape="rect" id="node4" href="$namespacememoryhelpermodule.html#a5405f58247a0962e5449ebc1e4dcff0f" title="Generic routine to check the length of (parts of) the memory address." alt="" coords="891,61,1058,102"/>
 <area shape="rect" id="node5" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="1172,68,1347,95"/>
 <area shape="rect" id="node6" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="1395,68,1533,95"/>

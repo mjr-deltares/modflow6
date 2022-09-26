@@ -1,6 +1,6 @@
 <map id="drnmodule::drn_create" name="drnmodule::drn_create">
 <area shape="rect" id="node1" title=" " alt="" coords="5,68,175,95"/>
-<area shape="rect" id="node2" href="$namespacememoryhelpermodule.html#a3791dbc2d4a06a0b9112158cff21f738" title="returns the path to the memory object" alt="" coords="223,61,389,102"/>
+<area shape="rect" id="node2" href="$namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d" title="returns the path to the memory object" alt="" coords="223,61,389,102"/>
 <area shape="rect" id="node3" href="$namespacememoryhelpermodule.html#a5405f58247a0962e5449ebc1e4dcff0f" title="Generic routine to check the length of (parts of) the memory address." alt="" coords="437,61,604,102"/>
 <area shape="rect" id="node4" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="652,68,827,95"/>
 <area shape="rect" id="node5" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="875,68,1013,95"/>

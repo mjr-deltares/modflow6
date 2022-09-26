@@ -1,6 +1,6 @@
 <map id="gwtspcmodule::initialize" name="gwtspcmodule::initialize">
 <area shape="rect" id="node1" title="@ brief Initialize the SPC type" alt="" coords="5,133,187,160"/>
-<area shape="rect" id="node2" href="$namespacememoryhelpermodule.html#a3791dbc2d4a06a0b9112158cff21f738" title="returns the path to the memory object" alt="" coords="267,61,434,102"/>
+<area shape="rect" id="node2" href="$namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d" title="returns the path to the memory object" alt="" coords="267,61,434,102"/>
 <area shape="rect" id="node10" href="$namespacetimearrayseriesmanagermodule.html#af550fdda774ed2ca74a4fd14635d4eb9" title=" " alt="" coords="235,126,467,167"/>
 <area shape="rect" id="node11" href="$namespacetimeseriesmanagermodule.html#abd6baa3f1522c5c5dff9f8fd8d53fb58" title=" " alt="" coords="251,191,450,233"/>
 <area shape="rect" id="node3" href="$namespacememoryhelpermodule.html#a5405f58247a0962e5449ebc1e4dcff0f" title="Generic routine to check the length of (parts of) the memory address." alt="" coords="515,61,681,102"/>

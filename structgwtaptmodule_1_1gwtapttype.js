@@ -3,6 +3,7 @@ var structgwtaptmodule_1_1gwtapttype =
     [ "allocate_scalars", "structgwtaptmodule_1_1gwtapttype.html#a9e687d9c6f9f853411734bff74b607e8", null ],
     [ "apt_accumulate_ccterm", "structgwtaptmodule_1_1gwtapttype.html#a51527fbfc7060e15613f8dc34fceb5e0", null ],
     [ "apt_allocate_arrays", "structgwtaptmodule_1_1gwtapttype.html#a615b287a5b68d34c90dacb9491444c7c", null ],
+    [ "apt_allocate_index_arrays", "structgwtaptmodule_1_1gwtapttype.html#a18f7b1496f5276dbb9db056c514b7c25", null ],
     [ "apt_cfupdate", "structgwtaptmodule_1_1gwtapttype.html#a0e4e04e75bb2a0fa748c9b93308b6cd2", null ],
     [ "apt_check_valid", "structgwtaptmodule_1_1gwtapttype.html#a2892f2b46c9a400c6b9f9802d3b30163", null ],
     [ "apt_copy2flowp", "structgwtaptmodule_1_1gwtapttype.html#a80c0ce3b027cdd999441aac99068a1b6", null ],

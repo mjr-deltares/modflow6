@@ -481,7 +481,7 @@ Here is the caller graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="_boundary_package_8f90_source.html#l00988">988</a> of file <a class="el" href="_boundary_package_8f90_source.html">BoundaryPackage.f90</a>.</p>
 <div class="fragment"><div class="line"><a name="l00988"></a><span class="lineno">  988</span>&#160;    <span class="comment">! -- modules</span></div>
 <div class="line"><a name="l00989"></a><span class="lineno">  989</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacememorymanagermodule.html">memorymanagermodule</a>, <span class="keywordtype">only</span>: <a class="code" href="interfacememorymanagermodule_1_1mem__allocate.html">mem_allocate</a>, <a class="code" href="interfacememorymanagermodule_1_1mem__setptr.html">mem_setptr</a></div>
-<div class="line"><a name="l00990"></a><span class="lineno">  990</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacememoryhelpermodule.html">memoryhelpermodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacememoryhelpermodule.html#a3791dbc2d4a06a0b9112158cff21f738">create_mem_path</a></div>
+<div class="line"><a name="l00990"></a><span class="lineno">  990</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacememoryhelpermodule.html">memoryhelpermodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d">create_mem_path</a></div>
 <div class="line"><a name="l00991"></a><span class="lineno">  991</span>&#160;    <span class="comment">! -- dummy variables</span></div>
 <div class="line"><a name="l00992"></a><span class="lineno">  992</span>&#160;    <span class="keywordtype">class</span>(BndType) :: this<span class="comment"> !&lt; BndType object</span></div>
 <div class="line"><a name="l00993"></a><span class="lineno">  993</span>&#160;    <span class="comment">! -- local variables</span></div>
@@ -538,7 +538,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><a name="l01044"></a><span class="lineno"> 1044</span>&#160;    this%ioffset = 0</div>
 <div class="line"><a name="l01045"></a><span class="lineno"> 1045</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l01046"></a><span class="lineno"> 1046</span>&#160;    <span class="comment">! -- Set pointer to model inewton variable</span></div>
-<div class="line"><a name="l01047"></a><span class="lineno"> 1047</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__setptr.html">mem_setptr</a>(imodelnewton, <span class="stringliteral">&#39;INEWTON&#39;</span>, <a class="code" href="namespacememoryhelpermodule.html#a3791dbc2d4a06a0b9112158cff21f738">create_mem_path</a>(this%name_model))</div>
+<div class="line"><a name="l01047"></a><span class="lineno"> 1047</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__setptr.html">mem_setptr</a>(imodelnewton, <span class="stringliteral">&#39;INEWTON&#39;</span>, <a class="code" href="namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d">create_mem_path</a>(this%name_model))</div>
 <div class="line"><a name="l01048"></a><span class="lineno"> 1048</span>&#160;    this%inewton = imodelnewton</div>
 <div class="line"><a name="l01049"></a><span class="lineno"> 1049</span>&#160;    imodelnewton =&gt; null()</div>
 <div class="line"><a name="l01050"></a><span class="lineno"> 1050</span>&#160;    <span class="comment">!</span></div>
@@ -550,7 +550,7 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="namespacebndmodule_a20ea539a7c70f9999cfb0e133195b1df_cgraph.png" border="0" usemap="#namespacebndmodule_a20ea539a7c70f9999cfb0e133195b1df_cgraph" alt=""/></div>
 <map name="namespacebndmodule_a20ea539a7c70f9999cfb0e133195b1df_cgraph" id="namespacebndmodule_a20ea539a7c70f9999cfb0e133195b1df_cgraph">
 <area shape="rect" title="@ brief Allocate package scalars" alt="" coords="5,61,160,102"/>
-<area shape="rect" href="namespacememoryhelpermodule.html#a3791dbc2d4a06a0b9112158cff21f738" title="returns the path to the memory object" alt="" coords="208,61,375,102"/>
+<area shape="rect" href="namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d" title="returns the path to the memory object" alt="" coords="208,61,375,102"/>
 <area shape="rect" href="namespacememoryhelpermodule.html#a5405f58247a0962e5449ebc1e4dcff0f" title="Generic routine to check the length of (parts of) the memory address." alt="" coords="423,61,589,102"/>
 <area shape="rect" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="637,68,812,95"/>
 <area shape="rect" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="860,68,999,95"/>
@@ -3156,8 +3156,8 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacebndmodule_ae966cec4d8ca214ecfe519e29adf6b7e_icgraph.png" border="0" usemap="#namespacebndmodule_ae966cec4d8ca214ecfe519e29adf6b7e_icgraph" alt=""/></div>
 <map name="namespacebndmodule_ae966cec4d8ca214ecfe519e29adf6b7e_icgraph" id="namespacebndmodule_ae966cec4d8ca214ecfe519e29adf6b7e_icgraph">
-<area shape="rect" title="Cast as a boundary tyoe." alt="" coords="532,1214,735,1241"/>
-<area shape="rect" href="namespacebndmodule.html#a7ac2e1c143722a28d1f0ecb4c67a4a0a" title="Get boundary from package list." alt="" coords="285,1214,484,1241"/>
+<area shape="rect" title="Cast as a boundary tyoe." alt="" coords="532,1239,735,1266"/>
+<area shape="rect" href="namespacebndmodule.html#a7ac2e1c143722a28d1f0ecb4c67a4a0a" title="Get boundary from package list." alt="" coords="285,1239,484,1266"/>
 <area shape="rect" href="namespacegwtlktmodule.html#a4166e3ade5657271c4d67bcc1f498e05" title=" " alt="" coords="49,5,193,47"/>
 <area shape="rect" href="namespacegwtmwtmodule.html#a1d6cd34d84e34659a009d6aa4d21cf65" title=" " alt="" coords="43,71,199,112"/>
 <area shape="rect" href="namespacegwtsftmodule.html#a82cdac4544a05dfdf08455fb2cf7db12" title=" " alt="" coords="50,136,193,177"/>
@@ -3193,15 +3193,16 @@ Here is the caller graph for this function:</div>
 <area shape="rect" href="namespacegwtmodule.html#a69629985a6c43e03e8214901351a07f1" title=" " alt="" coords="46,1762,197,1789"/>
 <area shape="rect" href="namespacegwtmodule.html#aa8a2c3beb0e2fe4bd28929c010414a29" title=" " alt="" coords="48,1813,195,1839"/>
 <area shape="rect" href="namespacegwtmodule.html#a832c6f619129e26cfd807727281d557c" title=" " alt="" coords="48,1863,195,1890"/>
-<area shape="rect" href="namespacegwtmodule.html#a214ec56dd092c1f4d34a79b4a66c0d99" title=" " alt="" coords="44,1914,199,1941"/>
-<area shape="rect" href="namespacegwtmodule.html#a0bc5c7638a212eaba70a487f4580f15b" title=" " alt="" coords="5,1965,237,1991"/>
-<area shape="rect" href="namespacegwtmodule.html#a33de02707188e09bce46b4e474dbecb2" title=" " alt="" coords="36,2015,207,2042"/>
-<area shape="rect" href="namespacegwtmodule.html#ac33a03cf46b04dfc7e31f9a0962d552b" title=" " alt="" coords="31,2066,212,2093"/>
-<area shape="rect" href="namespacegwtmodule.html#a7b3d4cf2875044880b857e7e127aedf8" title=" " alt="" coords="33,2117,210,2143"/>
-<area shape="rect" href="namespacegwtmodule.html#acca96b95166226845d54a16ed9c7103a" title=" " alt="" coords="48,2167,195,2194"/>
-<area shape="rect" href="namespacegwtfmimodule.html#aa3ad0ba07365254a8f6145b05e0a8a40" title=" " alt="" coords="20,2219,223,2260"/>
-<area shape="rect" href="namespacegwtmodule.html#af18b6e0a8010b0b5ac1eae25d179c0dd" title=" " alt="" coords="43,2284,200,2325"/>
-<area shape="rect" href="namespacegwfmodule.html#a9fc339c6daad0503d34ef42f994a98ec" title="Create boundary condition packages for this model." alt="" coords="43,2349,200,2391"/>
+<area shape="rect" href="namespacegwtmodule.html#a970ccf3c0dca5082e0d6a5c371ba85f9" title="return 1 if any package causes the matrix to be asymmetric. Otherwise return 0." alt="" coords="44,1915,199,1956"/>
+<area shape="rect" href="namespacegwtmodule.html#a214ec56dd092c1f4d34a79b4a66c0d99" title=" " alt="" coords="44,1981,199,2007"/>
+<area shape="rect" href="namespacegwtmodule.html#a0bc5c7638a212eaba70a487f4580f15b" title=" " alt="" coords="5,2031,237,2058"/>
+<area shape="rect" href="namespacegwtmodule.html#a33de02707188e09bce46b4e474dbecb2" title=" " alt="" coords="36,2082,207,2109"/>
+<area shape="rect" href="namespacegwtmodule.html#ac33a03cf46b04dfc7e31f9a0962d552b" title=" " alt="" coords="31,2133,212,2159"/>
+<area shape="rect" href="namespacegwtmodule.html#a7b3d4cf2875044880b857e7e127aedf8" title=" " alt="" coords="33,2183,210,2210"/>
+<area shape="rect" href="namespacegwtmodule.html#acca96b95166226845d54a16ed9c7103a" title=" " alt="" coords="48,2234,195,2261"/>
+<area shape="rect" href="namespacegwtfmimodule.html#aa3ad0ba07365254a8f6145b05e0a8a40" title=" " alt="" coords="20,2285,223,2327"/>
+<area shape="rect" href="namespacegwtmodule.html#af18b6e0a8010b0b5ac1eae25d179c0dd" title=" " alt="" coords="43,2351,200,2392"/>
+<area shape="rect" href="namespacegwfmodule.html#a9fc339c6daad0503d34ef42f994a98ec" title="Create boundary condition packages for this model." alt="" coords="43,2416,200,2457"/>
 </map>
 </div>
 
@@ -3358,7 +3359,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacebndmodule_a7ac2e1c143722a28d1f0ecb4c67a4a0a_icgraph.png" border="0" usemap="#namespacebndmodule_a7ac2e1c143722a28d1f0ecb4c67a4a0a_icgraph" alt=""/></div>
 <map name="namespacebndmodule_a7ac2e1c143722a28d1f0ecb4c67a4a0a_icgraph" id="namespacebndmodule_a7ac2e1c143722a28d1f0ecb4c67a4a0a_icgraph">
-<area shape="rect" title="Get boundary from package list." alt="" coords="285,1214,484,1241"/>
+<area shape="rect" title="Get boundary from package list." alt="" coords="285,1239,484,1266"/>
 <area shape="rect" href="namespacegwtlktmodule.html#a4166e3ade5657271c4d67bcc1f498e05" title=" " alt="" coords="49,5,193,47"/>
 <area shape="rect" href="namespacegwtmwtmodule.html#a1d6cd34d84e34659a009d6aa4d21cf65" title=" " alt="" coords="43,71,199,112"/>
 <area shape="rect" href="namespacegwtsftmodule.html#a82cdac4544a05dfdf08455fb2cf7db12" title=" " alt="" coords="50,136,193,177"/>
@@ -3394,15 +3395,16 @@ Here is the caller graph for this function:</div>
 <area shape="rect" href="namespacegwtmodule.html#a69629985a6c43e03e8214901351a07f1" title=" " alt="" coords="46,1762,197,1789"/>
 <area shape="rect" href="namespacegwtmodule.html#aa8a2c3beb0e2fe4bd28929c010414a29" title=" " alt="" coords="48,1813,195,1839"/>
 <area shape="rect" href="namespacegwtmodule.html#a832c6f619129e26cfd807727281d557c" title=" " alt="" coords="48,1863,195,1890"/>
-<area shape="rect" href="namespacegwtmodule.html#a214ec56dd092c1f4d34a79b4a66c0d99" title=" " alt="" coords="44,1914,199,1941"/>
-<area shape="rect" href="namespacegwtmodule.html#a0bc5c7638a212eaba70a487f4580f15b" title=" " alt="" coords="5,1965,237,1991"/>
-<area shape="rect" href="namespacegwtmodule.html#a33de02707188e09bce46b4e474dbecb2" title=" " alt="" coords="36,2015,207,2042"/>
-<area shape="rect" href="namespacegwtmodule.html#ac33a03cf46b04dfc7e31f9a0962d552b" title=" " alt="" coords="31,2066,212,2093"/>
-<area shape="rect" href="namespacegwtmodule.html#a7b3d4cf2875044880b857e7e127aedf8" title=" " alt="" coords="33,2117,210,2143"/>
-<area shape="rect" href="namespacegwtmodule.html#acca96b95166226845d54a16ed9c7103a" title=" " alt="" coords="48,2167,195,2194"/>
-<area shape="rect" href="namespacegwtfmimodule.html#aa3ad0ba07365254a8f6145b05e0a8a40" title=" " alt="" coords="20,2219,223,2260"/>
-<area shape="rect" href="namespacegwtmodule.html#af18b6e0a8010b0b5ac1eae25d179c0dd" title=" " alt="" coords="43,2284,200,2325"/>
-<area shape="rect" href="namespacegwfmodule.html#a9fc339c6daad0503d34ef42f994a98ec" title="Create boundary condition packages for this model." alt="" coords="43,2349,200,2391"/>
+<area shape="rect" href="namespacegwtmodule.html#a970ccf3c0dca5082e0d6a5c371ba85f9" title="return 1 if any package causes the matrix to be asymmetric. Otherwise return 0." alt="" coords="44,1915,199,1956"/>
+<area shape="rect" href="namespacegwtmodule.html#a214ec56dd092c1f4d34a79b4a66c0d99" title=" " alt="" coords="44,1981,199,2007"/>
+<area shape="rect" href="namespacegwtmodule.html#a0bc5c7638a212eaba70a487f4580f15b" title=" " alt="" coords="5,2031,237,2058"/>
+<area shape="rect" href="namespacegwtmodule.html#a33de02707188e09bce46b4e474dbecb2" title=" " alt="" coords="36,2082,207,2109"/>
+<area shape="rect" href="namespacegwtmodule.html#ac33a03cf46b04dfc7e31f9a0962d552b" title=" " alt="" coords="31,2133,212,2159"/>
+<area shape="rect" href="namespacegwtmodule.html#a7b3d4cf2875044880b857e7e127aedf8" title=" " alt="" coords="33,2183,210,2210"/>
+<area shape="rect" href="namespacegwtmodule.html#acca96b95166226845d54a16ed9c7103a" title=" " alt="" coords="48,2234,195,2261"/>
+<area shape="rect" href="namespacegwtfmimodule.html#aa3ad0ba07365254a8f6145b05e0a8a40" title=" " alt="" coords="20,2285,223,2327"/>
+<area shape="rect" href="namespacegwtmodule.html#af18b6e0a8010b0b5ac1eae25d179c0dd" title=" " alt="" coords="43,2351,200,2392"/>
+<area shape="rect" href="namespacegwfmodule.html#a9fc339c6daad0503d34ef42f994a98ec" title="Create boundary condition packages for this model." alt="" coords="43,2416,200,2457"/>
 </map>
 </div>
 
@@ -3956,16 +3958,16 @@ Here is the caller graph for this function:</div>
 <div class="ttc" id="anamespacetimearrayseriesmanagermodule_html"><div class="ttname"><a href="namespacetimearrayseriesmanagermodule.html">timearrayseriesmanagermodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_time_array_series_manager_8f90_source.html#l00001">TimeArraySeriesManager.f90:1</a></div></div>
 <div class="ttc" id="ainterfacememorymanagermodule_1_1mem__reallocate_html"><div class="ttname"><a href="interfacememorymanagermodule_1_1mem__reallocate.html">memorymanagermodule::mem_reallocate</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00073">MemoryManager.f90:73</a></div></div>
 <div class="ttc" id="anamespacesimmodule_html_a21870712a1166225fdcd5b60bffb353e"><div class="ttname"><a href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">simmodule::store_error</a></div><div class="ttdeci">subroutine, public store_error(msg, terminate)</div><div class="ttdoc">Store error message.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_8f90_source.html#l00129">Sim.f90:129</a></div></div>
+<div class="ttc" id="anamespacememoryhelpermodule_html_abe77d18fe02d108d80f414f9fafa592d"><div class="ttname"><a href="namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d">memoryhelpermodule::create_mem_path</a></div><div class="ttdeci">character(len=lenmempath) function create_mem_path(component, subcomponent, context)</div><div class="ttdoc">returns the path to the memory object</div><div class="ttdef"><b>Definition:</b> <a href="_memory_helper_8f90_source.html#l00022">MemoryHelper.f90:22</a></div></div>
 <div class="ttc" id="anamespacetimeseriesmanagermodule_html"><div class="ttname"><a href="namespacetimeseriesmanagermodule.html">timeseriesmanagermodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_time_series_manager_8f90_source.html#l00001">TimeSeriesManager.f90:1</a></div></div>
 <div class="ttc" id="anamespacebudgetmodule_html_a917d4897942de165ea88d0c1f0850d8e"><div class="ttname"><a href="namespacebudgetmodule.html#a917d4897942de165ea88d0c1f0850d8e">budgetmodule::rate_accumulator</a></div><div class="ttdeci">subroutine, public rate_accumulator(flow, rin, rout)</div><div class="ttdoc">@ brief Rate accumulator subroutine</div><div class="ttdef"><b>Definition:</b> <a href="_budget_8f90_source.html#l00652">Budget.f90:652</a></div></div>
 <div class="ttc" id="anamespaceinputoutputmodule_html_a12462c53c53955327093c22ab7b89d99"><div class="ttname"><a href="namespaceinputoutputmodule.html#a12462c53c53955327093c22ab7b89d99">inputoutputmodule::urdaux</a></div><div class="ttdeci">subroutine, public urdaux(naux, inunit, iout, lloc, istart, istop, auxname, line, text)</div><div class="ttdef"><b>Definition:</b> <a href="_input_output_8f90_source.html#l01776">InputOutput.f90:1776</a></div></div>
 <div class="ttc" id="anamespacesimmodule_html"><div class="ttname"><a href="namespacesimmodule.html">simmodule</a></div><div class="ttdoc">This module contains simulation methods.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_8f90_source.html#l00010">Sim.f90:10</a></div></div>
 <div class="ttc" id="astructsparsemodule_1_1sparsematrix_html"><div class="ttname"><a href="structsparsemodule_1_1sparsematrix.html">sparsemodule::sparsematrix</a></div><div class="ttdef"><b>Definition:</b> <a href="_sparse_8f90_source.html#l00014">Sparse.f90:14</a></div></div>
 <div class="ttc" id="anamespacememoryhelpermodule_html"><div class="ttname"><a href="namespacememoryhelpermodule.html">memoryhelpermodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_helper_8f90_source.html#l00001">MemoryHelper.f90:1</a></div></div>
-<div class="ttc" id="anamespacememoryhelpermodule_html_a3791dbc2d4a06a0b9112158cff21f738"><div class="ttname"><a href="namespacememoryhelpermodule.html#a3791dbc2d4a06a0b9112158cff21f738">memoryhelpermodule::create_mem_path</a></div><div class="ttdeci">character(len=lenmempath) function create_mem_path(component, subcomponent)</div><div class="ttdoc">returns the path to the memory object</div><div class="ttdef"><b>Definition:</b> <a href="_memory_helper_8f90_source.html#l00022">MemoryHelper.f90:22</a></div></div>
 <div class="ttc" id="ainterfacememorymanagermodule_1_1mem__allocate_html"><div class="ttname"><a href="interfacememorymanagermodule_1_1mem__allocate.html">memorymanagermodule::mem_allocate</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00050">MemoryManager.f90:50</a></div></div>
 <div class="ttc" id="anamespaceinputoutputmodule_html"><div class="ttname"><a href="namespaceinputoutputmodule.html">inputoutputmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_input_output_8f90_source.html#l00003">InputOutput.f90:3</a></div></div>
-<div class="ttc" id="anamespaceconstantsmodule_html_aa63ca3273e52df46471c4746566f46bd"><div class="ttname"><a href="namespaceconstantsmodule.html#aa63ca3273e52df46471c4746566f46bd">constantsmodule::lenboundname</a></div><div class="ttdeci">integer(i4b), parameter lenboundname</div><div class="ttdoc">maximum length of a bound name</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00033">Constants.f90:33</a></div></div>
+<div class="ttc" id="anamespaceconstantsmodule_html_aa63ca3273e52df46471c4746566f46bd"><div class="ttname"><a href="namespaceconstantsmodule.html#aa63ca3273e52df46471c4746566f46bd">constantsmodule::lenboundname</a></div><div class="ttdeci">integer(i4b), parameter lenboundname</div><div class="ttdoc">maximum length of a bound name</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00035">Constants.f90:35</a></div></div>
 <div class="ttc" id="ainterfacememorymanagermodule_1_1mem__setptr_html"><div class="ttname"><a href="interfacememorymanagermodule_1_1mem__setptr.html">memorymanagermodule::mem_setptr</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00083">MemoryManager.f90:83</a></div></div>
 <div class="ttc" id="anamespacebudgetmodule_html"><div class="ttname"><a href="namespacebudgetmodule.html">budgetmodule</a></div><div class="ttdoc">This module contains the BudgetModule.</div><div class="ttdef"><b>Definition:</b> <a href="_budget_8f90_source.html#l00020">Budget.f90:20</a></div></div>
 <div class="ttc" id="astructbudgetmodule_1_1budgettype_html"><div class="ttname"><a href="structbudgetmodule_1_1budgettype.html">budgetmodule::budgettype</a></div><div class="ttdoc">Derived type for the Budget object.</div><div class="ttdef"><b>Definition:</b> <a href="_budget_8f90_source.html#l00039">Budget.f90:39</a></div></div>
@@ -3984,7 +3986,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacebndmodule.html">bndmodule</a></li>
-    <li class="footer">Generated on Wed Sep 7 2022 10:04:15 for MODFLOW 6 by
+    <li class="footer">Generated on Mon Sep 26 2022 08:25:33 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

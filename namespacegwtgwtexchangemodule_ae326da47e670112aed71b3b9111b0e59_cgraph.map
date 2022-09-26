@@ -1,7 +1,7 @@
 <map id="gwtgwtexchangemodule::gwtexchange_create" name="gwtgwtexchangemodule::gwtexchange_create">
 <area shape="rect" id="node1" title="@ brief Create GWT GWT exchange" alt="" coords="5,100,188,141"/>
 <area shape="rect" id="node2" href="$namespacebaseexchangemodule.html#a67919a88cc5ebe70bb4a38eaf9ef9144" title=" " alt="" coords="236,5,417,47"/>
-<area shape="rect" id="node3" href="$namespacememoryhelpermodule.html#a3791dbc2d4a06a0b9112158cff21f738" title="returns the path to the memory object" alt="" coords="243,71,410,112"/>
+<area shape="rect" id="node3" href="$namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d" title="returns the path to the memory object" alt="" coords="243,71,410,112"/>
 <area shape="rect" id="node5" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="680,107,855,134"/>
 <area shape="rect" id="node11" href="$namespaceobsmodule.html#a57372fbf202fe90e2d12383ce1b15eee" title=" " alt="" coords="255,187,399,214"/>
 <area shape="rect" id="node4" href="$namespacememoryhelpermodule.html#a5405f58247a0962e5449ebc1e4dcff0f" title="Generic routine to check the length of (parts of) the memory address." alt="" coords="465,71,632,112"/>

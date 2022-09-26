@@ -1,7 +1,7 @@
 <map id="numericalsolutionmodule::solution_create" name="numericalsolutionmodule::solution_create">
 <area shape="rect" id="node1" title="@ brief Create a new solution" alt="" coords="5,104,193,145"/>
 <area shape="rect" id="node2" href="$namespacebasesolutionmodule.html#a325c28d7b2f545c1febe4491f9dcc811" title=" " alt="" coords="241,5,412,47"/>
-<area shape="rect" id="node3" href="$namespacememoryhelpermodule.html#a3791dbc2d4a06a0b9112158cff21f738" title="returns the path to the memory object" alt="" coords="243,71,410,112"/>
+<area shape="rect" id="node3" href="$namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d" title="returns the path to the memory object" alt="" coords="243,71,410,112"/>
 <area shape="rect" id="node11" href="$namespaceinputoutputmodule.html#a535bdfca3d31ebc3a8e4bd5af6890d55" title="Get a free unit number." alt="" coords="249,136,404,177"/>
 <area shape="rect" id="node13" href="$namespaceinputoutputmodule.html#ae97851e3edae8d9809e384058a1a4d52" title="Open a file." alt="" coords="249,201,404,243"/>
 <area shape="rect" id="node4" href="$namespacememoryhelpermodule.html#a5405f58247a0962e5449ebc1e4dcff0f" title="Generic routine to check the length of (parts of) the memory address." alt="" coords="460,71,627,112"/>

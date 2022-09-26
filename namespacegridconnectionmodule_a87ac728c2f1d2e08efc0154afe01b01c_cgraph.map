@@ -1,6 +1,6 @@
 <map id="gridconnectionmodule::get_model_name" name="gridconnectionmodule::get_model_name">
 <area shape="rect" id="node1" title="Helper function to get model names when ids are given." alt="" coords="5,90,172,131"/>
-<area shape="rect" id="node2" href="$namespacememoryhelpermodule.html#a3791dbc2d4a06a0b9112158cff21f738" title="returns the path to the memory object" alt="" coords="284,61,451,102"/>
+<area shape="rect" id="node2" href="$namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d" title="returns the path to the memory object" alt="" coords="284,61,451,102"/>
 <area shape="rect" id="node10" href="$namespacebasemodelmodule.html#a79adefc92f4f7d0d032babb551c571f8" title=" " alt="" coords="220,127,515,153"/>
 <area shape="rect" id="node3" href="$namespacememoryhelpermodule.html#a5405f58247a0962e5449ebc1e4dcff0f" title="Generic routine to check the length of (parts of) the memory address." alt="" coords="629,61,795,102"/>
 <area shape="rect" id="node4" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="909,68,1084,95"/>

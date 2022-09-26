@@ -1,5 +1,5 @@
 <map id="bndmodule::getbndfromlist" name="bndmodule::getbndfromlist">
-<area shape="rect" id="node1" title="Get boundary from package list." alt="" coords="285,1214,484,1241"/>
+<area shape="rect" id="node1" title="Get boundary from package list." alt="" coords="285,1239,484,1266"/>
 <area shape="rect" id="node2" href="$namespacegwtlktmodule.html#a4166e3ade5657271c4d67bcc1f498e05" title=" " alt="" coords="49,5,193,47"/>
 <area shape="rect" id="node3" href="$namespacegwtmwtmodule.html#a1d6cd34d84e34659a009d6aa4d21cf65" title=" " alt="" coords="43,71,199,112"/>
 <area shape="rect" id="node4" href="$namespacegwtsftmodule.html#a82cdac4544a05dfdf08455fb2cf7db12" title=" " alt="" coords="50,136,193,177"/>
@@ -35,13 +35,14 @@
 <area shape="rect" id="node34" href="$namespacegwtmodule.html#a69629985a6c43e03e8214901351a07f1" title=" " alt="" coords="46,1762,197,1789"/>
 <area shape="rect" id="node35" href="$namespacegwtmodule.html#aa8a2c3beb0e2fe4bd28929c010414a29" title=" " alt="" coords="48,1813,195,1839"/>
 <area shape="rect" id="node36" href="$namespacegwtmodule.html#a832c6f619129e26cfd807727281d557c" title=" " alt="" coords="48,1863,195,1890"/>
-<area shape="rect" id="node37" href="$namespacegwtmodule.html#a214ec56dd092c1f4d34a79b4a66c0d99" title=" " alt="" coords="44,1914,199,1941"/>
-<area shape="rect" id="node38" href="$namespacegwtmodule.html#a0bc5c7638a212eaba70a487f4580f15b" title=" " alt="" coords="5,1965,237,1991"/>
-<area shape="rect" id="node39" href="$namespacegwtmodule.html#a33de02707188e09bce46b4e474dbecb2" title=" " alt="" coords="36,2015,207,2042"/>
-<area shape="rect" id="node40" href="$namespacegwtmodule.html#ac33a03cf46b04dfc7e31f9a0962d552b" title=" " alt="" coords="31,2066,212,2093"/>
-<area shape="rect" id="node41" href="$namespacegwtmodule.html#a7b3d4cf2875044880b857e7e127aedf8" title=" " alt="" coords="33,2117,210,2143"/>
-<area shape="rect" id="node42" href="$namespacegwtmodule.html#acca96b95166226845d54a16ed9c7103a" title=" " alt="" coords="48,2167,195,2194"/>
-<area shape="rect" id="node43" href="$namespacegwtfmimodule.html#aa3ad0ba07365254a8f6145b05e0a8a40" title=" " alt="" coords="20,2219,223,2260"/>
-<area shape="rect" id="node44" href="$namespacegwtmodule.html#af18b6e0a8010b0b5ac1eae25d179c0dd" title=" " alt="" coords="43,2284,200,2325"/>
-<area shape="rect" id="node45" href="$namespacegwfmodule.html#a9fc339c6daad0503d34ef42f994a98ec" title="Create boundary condition packages for this model." alt="" coords="43,2349,200,2391"/>
+<area shape="rect" id="node37" href="$namespacegwtmodule.html#a970ccf3c0dca5082e0d6a5c371ba85f9" title="return 1 if any package causes the matrix to be asymmetric. Otherwise return 0." alt="" coords="44,1915,199,1956"/>
+<area shape="rect" id="node38" href="$namespacegwtmodule.html#a214ec56dd092c1f4d34a79b4a66c0d99" title=" " alt="" coords="44,1981,199,2007"/>
+<area shape="rect" id="node39" href="$namespacegwtmodule.html#a0bc5c7638a212eaba70a487f4580f15b" title=" " alt="" coords="5,2031,237,2058"/>
+<area shape="rect" id="node40" href="$namespacegwtmodule.html#a33de02707188e09bce46b4e474dbecb2" title=" " alt="" coords="36,2082,207,2109"/>
+<area shape="rect" id="node41" href="$namespacegwtmodule.html#ac33a03cf46b04dfc7e31f9a0962d552b" title=" " alt="" coords="31,2133,212,2159"/>
+<area shape="rect" id="node42" href="$namespacegwtmodule.html#a7b3d4cf2875044880b857e7e127aedf8" title=" " alt="" coords="33,2183,210,2210"/>
+<area shape="rect" id="node43" href="$namespacegwtmodule.html#acca96b95166226845d54a16ed9c7103a" title=" " alt="" coords="48,2234,195,2261"/>
+<area shape="rect" id="node44" href="$namespacegwtfmimodule.html#aa3ad0ba07365254a8f6145b05e0a8a40" title=" " alt="" coords="20,2285,223,2327"/>
+<area shape="rect" id="node45" href="$namespacegwtmodule.html#af18b6e0a8010b0b5ac1eae25d179c0dd" title=" " alt="" coords="43,2351,200,2392"/>
+<area shape="rect" id="node46" href="$namespacegwfmodule.html#a9fc339c6daad0503d34ef42f994a98ec" title="Create boundary condition packages for this model." alt="" coords="43,2416,200,2457"/>
 </map>

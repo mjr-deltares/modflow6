@@ -6,6 +6,7 @@ var gwt1apt1_8f90 =
     [ "apt_accumulate_ccterm", "gwt1apt1_8f90.html#af2fb839cfb2a3090994a6996c2d62f72", null ],
     [ "apt_ad", "gwt1apt1_8f90.html#a8b0a0141a10a0d78b2804b456d7fd93b", null ],
     [ "apt_allocate_arrays", "gwt1apt1_8f90.html#a72598f7f4fdb7900e76febb69148a71e", null ],
+    [ "apt_allocate_index_arrays", "gwt1apt1_8f90.html#acfadad691a58feec9992005d0e1744f2", null ],
     [ "apt_ar", "gwt1apt1_8f90.html#a6caf945992b0d8d73f6d47d5198968b8", null ],
     [ "apt_bd_obs", "gwt1apt1_8f90.html#ae54c1b45f154cc179f31244d68cd8b33", null ],
     [ "apt_cf", "gwt1apt1_8f90.html#a70731952c4ca64140bf4e88aef8aa7f3", null ],

@@ -188,6 +188,9 @@ Variables</h2></td></tr>
 <tr class="memitem:a07b1e4cc3a2d7bf5c88fd4426d00279d"><td class="memItemLeft" align="right" valign="top">integer(i4b), parameter&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconstantsmodule.html#a07b1e4cc3a2d7bf5c88fd4426d00279d">constantsmodule::lencomponentname</a> = 16</td></tr>
 <tr class="memdesc:a07b1e4cc3a2d7bf5c88fd4426d00279d"><td class="mdescLeft">&#160;</td><td class="mdescRight">maximum length of a component name  <a href="namespaceconstantsmodule.html#a07b1e4cc3a2d7bf5c88fd4426d00279d">More...</a><br /></td></tr>
 <tr class="separator:a07b1e4cc3a2d7bf5c88fd4426d00279d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6729e413befb12deeab3371efd441fa"><td class="memItemLeft" align="right" valign="top">integer(i4b), parameter&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconstantsmodule.html#ab6729e413befb12deeab3371efd441fa">constantsmodule::lencontextname</a> = 16</td></tr>
+<tr class="memdesc:ab6729e413befb12deeab3371efd441fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">maximum length of a memory manager context  <a href="namespaceconstantsmodule.html#ab6729e413befb12deeab3371efd441fa">More...</a><br /></td></tr>
+<tr class="separator:ab6729e413befb12deeab3371efd441fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28a74b623811fb516de0539ff0219d94"><td class="memItemLeft" align="right" valign="top">integer(i4b), parameter&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconstantsmodule.html#a28a74b623811fb516de0539ff0219d94">constantsmodule::lensolutionname</a> = LENCOMPONENTNAME</td></tr>
 <tr class="memdesc:a28a74b623811fb516de0539ff0219d94"><td class="mdescLeft">&#160;</td><td class="mdescRight">maximum length of the solution name  <a href="namespaceconstantsmodule.html#a28a74b623811fb516de0539ff0219d94">More...</a><br /></td></tr>
 <tr class="separator:a28a74b623811fb516de0539ff0219d94"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -206,7 +209,7 @@ Variables</h2></td></tr>
 <tr class="memitem:a4ccef9855300cc5422b66657bf8af838"><td class="memItemLeft" align="right" valign="top">integer(i4b), parameter&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconstantsmodule.html#a4ccef9855300cc5422b66657bf8af838">constantsmodule::lenmemseparator</a> = 1</td></tr>
 <tr class="memdesc:a4ccef9855300cc5422b66657bf8af838"><td class="mdescLeft">&#160;</td><td class="mdescRight">maximum length of the memory path separator used, currently a '/'  <a href="namespaceconstantsmodule.html#a4ccef9855300cc5422b66657bf8af838">More...</a><br /></td></tr>
 <tr class="separator:a4ccef9855300cc5422b66657bf8af838"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1ec6380bd0e8e6c89a40d3b97306586"><td class="memItemLeft" align="right" valign="top">integer(i4b), parameter&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconstantsmodule.html#ae1ec6380bd0e8e6c89a40d3b97306586">constantsmodule::lenmempath</a> = 2 * LENCOMPONENTNAME + LENMEMSEPARATOR</td></tr>
+<tr class="memitem:ae1ec6380bd0e8e6c89a40d3b97306586"><td class="memItemLeft" align="right" valign="top">integer(i4b), parameter&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconstantsmodule.html#ae1ec6380bd0e8e6c89a40d3b97306586">constantsmodule::lenmempath</a> = LENCONTEXTNAME + 2 * LENCOMPONENTNAME + 2 * LENMEMSEPARATOR</td></tr>
 <tr class="memdesc:ae1ec6380bd0e8e6c89a40d3b97306586"><td class="mdescLeft">&#160;</td><td class="mdescRight">maximum length of the memory path  <a href="namespaceconstantsmodule.html#ae1ec6380bd0e8e6c89a40d3b97306586">More...</a><br /></td></tr>
 <tr class="separator:ae1ec6380bd0e8e6c89a40d3b97306586"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a124df3d46105cc5604d4a2d748342a9c"><td class="memItemLeft" align="right" valign="top">integer(i4b), parameter&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconstantsmodule.html#a124df3d46105cc5604d4a2d748342a9c">constantsmodule::lenmemaddress</a> = LENMEMPATH + LENMEMSEPARATOR + LENVARNAME</td></tr>
@@ -444,7 +447,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ff383ddf1aa4eab0c4ce7910366d05a5.html">Utilities</a></li><li class="navelem"><a class="el" href="_constants_8f90.html">Constants.f90</a></li>
-    <li class="footer">Generated on Wed Sep 7 2022 10:04:15 for MODFLOW 6 by
+    <li class="footer">Generated on Mon Sep 26 2022 08:25:32 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

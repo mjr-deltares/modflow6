@@ -16,7 +16,7 @@
 <area shape="rect" id="node19" href="$namespacememorymanagermodule.html#aa3da6da6dd9e8903dfbd6543f98a1a7b" title="Check in an existing 2d double precision array with a new address (name + path)" alt="" coords="489,855,673,896"/>
 <area shape="rect" id="node20" href="$namespacememorymanagermodule.html#adaebe968303549959b18bfe9a922ca9a" title="Check in an existing 1d integer array with a new address (name + path)" alt="" coords="489,920,673,961"/>
 <area shape="rect" id="node21" href="$namespacememoryhelpermodule.html#abda60b8cd05bba132ea82b23bf12c36c" title="returns the address string of the memory object" alt="" coords="496,985,667,1027"/>
-<area shape="rect" id="node26" href="$namespacememoryhelpermodule.html#a3791dbc2d4a06a0b9112158cff21f738" title="returns the path to the memory object" alt="" coords="498,1717,665,1759"/>
+<area shape="rect" id="node26" href="$namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d" title="returns the path to the memory object" alt="" coords="498,1717,665,1759"/>
 <area shape="rect" id="node5" href="$namespacememorymanagermodule.html#ac28c89286eb411da67b21c078f480cc9" title="Make a copy of a 1&#45;dimensional real array." alt="" coords="251,136,435,177"/>
 <area shape="rect" id="node7" href="$namespacememorymanagermodule.html#a6810f04c0c6531d4d8a82ac5b0c2f036" title="Make a copy of a 2&#45;dimensional real array." alt="" coords="251,201,435,243"/>
 <area shape="rect" id="node11" href="$namespacememorymanagermodule.html#a43788091085873dc85edae3786201d78" title="Make a copy of a 1&#45;dimensional integer array." alt="" coords="251,397,435,439"/>
