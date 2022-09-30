@@ -20,6 +20,7 @@ var structnumericalpackagemodule_1_1numericalpackagetype =
     [ "memorypath", "structnumericalpackagemodule_1_1numericalpackagetype.html#a2e7599f63b8273b53dbf31146046c67b", null ],
     [ "memorypathmodel", "structnumericalpackagemodule_1_1numericalpackagetype.html#acb4ae3568883c8fef7daae7a865b0931", null ],
     [ "name_model", "structnumericalpackagemodule_1_1numericalpackagetype.html#a4c6847a30a4501fec8543832c239f764", null ],
+    [ "package_type", "structnumericalpackagemodule_1_1numericalpackagetype.html#ac2af7f3d8008dbf9767138c348008abb", null ],
     [ "packname", "structnumericalpackagemodule_1_1numericalpackagetype.html#a240447703ca1594eeafb33ba6456eba5", null ],
     [ "parser", "structnumericalpackagemodule_1_1numericalpackagetype.html#a0489fce2940cd566cb9f08e7c45e445d", null ]
 ];

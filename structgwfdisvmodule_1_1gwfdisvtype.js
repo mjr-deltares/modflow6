@@ -32,8 +32,6 @@ var structgwfdisvmodule_1_1gwfdisvtype =
     [ "supports_layers", "structgwfdisvmodule_1_1gwfdisvtype.html#aa64dfd955c1a2e06f369bf547c717991", null ],
     [ "write_grb", "structgwfdisvmodule_1_1gwfdisvtype.html#a2afc3d7815dc8a79a235a70048bbf28a", null ],
     [ "bot3d", "structgwfdisvmodule_1_1gwfdisvtype.html#a3ec2ecd66bab74eaa8ff921c6b2f4e5a", null ],
-    [ "cell1", "structgwfdisvmodule_1_1gwfdisvtype.html#a40624916cf965f2fdddf1f02db371b93", null ],
-    [ "cell2", "structgwfdisvmodule_1_1gwfdisvtype.html#a2ef76eee5d106e11dc0385fd4e11b09a", null ],
     [ "cellxy", "structgwfdisvmodule_1_1gwfdisvtype.html#a9b63844e98e0779cd785f7e7991f1d5c", null ],
     [ "iavert", "structgwfdisvmodule_1_1gwfdisvtype.html#af188d4909c95a8d23bd10ed947ee94ff", null ],
     [ "idomain", "structgwfdisvmodule_1_1gwfdisvtype.html#a4099c2d4fdfe5cf043f82cef3bda3eb0", null ],

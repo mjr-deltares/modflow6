@@ -11,7 +11,6 @@ var gwf3disu8_8f90 =
     [ "disu_cr", "gwf3disu8_8f90.html#a67d8cf4775770e7251d1207669a219f9", null ],
     [ "disu_da", "gwf3disu8_8f90.html#a42f97b56eb1b4eececf6360d34f07cfc", null ],
     [ "disu_df", "gwf3disu8_8f90.html#a961f108ed707be4384a20e86de46f736", null ],
-    [ "disu_init_mem", "gwf3disu8_8f90.html#a85dc9beb3f9f3e70aa433552946326ed", null ],
     [ "get_cellxy_disu", "gwf3disu8_8f90.html#ac4433ecbdc37c70ccbc5b020791a4d8c", null ],
     [ "get_dis_type", "gwf3disu8_8f90.html#affcd90a2aae915a6be950c0d4b6e352e", null ],
     [ "get_ncpl", "gwf3disu8_8f90.html#a7fb49dbca69c515f7e35ba394fceff9f", null ],

@@ -4344,7 +4344,7 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l01783"></a><span class="lineno"> 1783</span>&#160;    <span class="keywordflow">if</span> (lname(5)) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l01784"></a><span class="lineno"> 1784</span>&#160;      this%iwetdry = 1</div>
 <div class="line"><a name="l01785"></a><span class="lineno"> 1785</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l01786"></a><span class="lineno"> 1786</span>&#160;      <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__reallocate.html">mem_reallocate</a>(this%wetdry, 1, <span class="stringliteral">&#39;WETDRY&#39;</span>, trim(this%memoryPath))</div>
+<div class="line"><a name="l01786"></a><span class="lineno"> 1786</span>&#160;      <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__reallocate.html">mem_reallocate</a>(this%wetdry, 0, <span class="stringliteral">&#39;WETDRY&#39;</span>, trim(this%memoryPath))</div>
 <div class="line"><a name="l01787"></a><span class="lineno"> 1787</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l01788"></a><span class="lineno"> 1788</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l01789"></a><span class="lineno"> 1789</span>&#160;    <span class="comment">! -- set angle flags</span></div>
@@ -4352,21 +4352,21 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l01791"></a><span class="lineno"> 1791</span>&#160;      this%iangle1 = 1</div>
 <div class="line"><a name="l01792"></a><span class="lineno"> 1792</span>&#160;    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l01793"></a><span class="lineno"> 1793</span>&#160;      <span class="keywordflow">if</span> (this%ixt3d == 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l01794"></a><span class="lineno"> 1794</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__reallocate.html">mem_reallocate</a>(this%angle1, 1, <span class="stringliteral">&#39;ANGLE1&#39;</span>, trim(this%memoryPath))</div>
+<div class="line"><a name="l01794"></a><span class="lineno"> 1794</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__reallocate.html">mem_reallocate</a>(this%angle1, 0, <span class="stringliteral">&#39;ANGLE1&#39;</span>, trim(this%memoryPath))</div>
 <div class="line"><a name="l01795"></a><span class="lineno"> 1795</span>&#160;<span class="keywordflow">      end if</span></div>
 <div class="line"><a name="l01796"></a><span class="lineno"> 1796</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l01797"></a><span class="lineno"> 1797</span>&#160;    <span class="keywordflow">if</span> (lname(7)) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l01798"></a><span class="lineno"> 1798</span>&#160;      this%iangle2 = 1</div>
 <div class="line"><a name="l01799"></a><span class="lineno"> 1799</span>&#160;    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l01800"></a><span class="lineno"> 1800</span>&#160;      <span class="keywordflow">if</span> (this%ixt3d == 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l01801"></a><span class="lineno"> 1801</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__reallocate.html">mem_reallocate</a>(this%angle2, 1, <span class="stringliteral">&#39;ANGLE2&#39;</span>, trim(this%memoryPath))</div>
+<div class="line"><a name="l01801"></a><span class="lineno"> 1801</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__reallocate.html">mem_reallocate</a>(this%angle2, 0, <span class="stringliteral">&#39;ANGLE2&#39;</span>, trim(this%memoryPath))</div>
 <div class="line"><a name="l01802"></a><span class="lineno"> 1802</span>&#160;<span class="keywordflow">      end if</span></div>
 <div class="line"><a name="l01803"></a><span class="lineno"> 1803</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l01804"></a><span class="lineno"> 1804</span>&#160;    <span class="keywordflow">if</span> (lname(8)) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l01805"></a><span class="lineno"> 1805</span>&#160;      this%iangle3 = 1</div>
 <div class="line"><a name="l01806"></a><span class="lineno"> 1806</span>&#160;    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l01807"></a><span class="lineno"> 1807</span>&#160;      <span class="keywordflow">if</span> (this%ixt3d == 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l01808"></a><span class="lineno"> 1808</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__reallocate.html">mem_reallocate</a>(this%angle3, 1, <span class="stringliteral">&#39;ANGLE3&#39;</span>, trim(this%memoryPath))</div>
+<div class="line"><a name="l01808"></a><span class="lineno"> 1808</span>&#160;        <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__reallocate.html">mem_reallocate</a>(this%angle3, 0, <span class="stringliteral">&#39;ANGLE3&#39;</span>, trim(this%memoryPath))</div>
 <div class="line"><a name="l01809"></a><span class="lineno"> 1809</span>&#160;<span class="keywordflow">      end if</span></div>
 <div class="line"><a name="l01810"></a><span class="lineno"> 1810</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l01811"></a><span class="lineno"> 1811</span>&#160;    <span class="comment">!</span></div>
@@ -6372,7 +6372,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacegwfnpfmodule.html">gwfnpfmodule</a></li>
-    <li class="footer">Generated on Mon Sep 26 2022 08:25:35 for MODFLOW 6 by
+    <li class="footer">Generated on Fri Sep 30 2022 13:54:08 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
