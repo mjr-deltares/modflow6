@@ -8,7 +8,6 @@ var structgwfdisvmodule_1_1gwfdisvtype =
     [ "dis_da", "structgwfdisvmodule_1_1gwfdisvtype.html#aaa966a290a3579159a74a1f572cc4696", null ],
     [ "dis_df", "structgwfdisvmodule_1_1gwfdisvtype.html#a9c72be26cdfd509b0e26e1b28b702e9d", null ],
     [ "get_cell2d_area", "structgwfdisvmodule_1_1gwfdisvtype.html#acd714cdc16ba6948703b99401fd944ba", null ],
-    [ "get_cellxy", "structgwfdisvmodule_1_1gwfdisvtype.html#a8931e18b6ccc0120d4ad63e7354c49ec", null ],
     [ "get_dis_type", "structgwfdisvmodule_1_1gwfdisvtype.html#a74770b33533c77927b1cf1c9301452eb", null ],
     [ "get_ncpl", "structgwfdisvmodule_1_1gwfdisvtype.html#a7f4246e0afc86f454e6983eb40d80cbb", null ],
     [ "get_nodenumber_idx1", "structgwfdisvmodule_1_1gwfdisvtype.html#a2273b6c2341d67d93bdcfdb4a5ed358b", null ],

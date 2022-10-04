@@ -1,5 +1,5 @@
 <map id="basedismodule::get_dis_type" name="basedismodule::get_dis_type">
-<area shape="rect" id="node1" title=" " alt="" coords="5,61,156,102"/>
+<area shape="rect" id="node1" title="return discretization type" alt="" coords="5,61,156,102"/>
 <area shape="rect" id="node2" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="204,68,379,95"/>
 <area shape="rect" id="node3" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="427,68,565,95"/>
 <area shape="rect" id="node4" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="613,27,781,69"/>

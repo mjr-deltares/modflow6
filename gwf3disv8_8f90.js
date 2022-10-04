@@ -10,7 +10,6 @@ var gwf3disv8_8f90 =
     [ "disv_da", "gwf3disv8_8f90.html#af5af5f1c17c4e8a8a52c08def2b49b29", null ],
     [ "disv_df", "gwf3disv8_8f90.html#a9a88426afbe7229bf7a9099d81486f48", null ],
     [ "get_cell2d_area", "gwf3disv8_8f90.html#a23d2a37bdf4e0b512d615fcba3f12c42", null ],
-    [ "get_cellxy_disv", "gwf3disv8_8f90.html#ab02ca750a153ac5dc1f318ec1d3bd1c7", null ],
     [ "get_dis_type", "gwf3disv8_8f90.html#aaefe69c052cedbdad0a9f75a29f0814b", null ],
     [ "get_ncpl", "gwf3disv8_8f90.html#aa20dcffc164d37ec2207915c251f6470", null ],
     [ "get_nodenumber_idx1", "gwf3disv8_8f90.html#a195695230b21c474bada71681dd9a366", null ],

@@ -1,0 +1,4 @@
+<map id="gridconnectionmodule::getdiscretization" name="gridconnectionmodule::getdiscretization">
+<area shape="rect" id="node1" title="Sets the discretization (DISU) after all preprocessing by this grid connection has been done,..." alt="" coords="5,5,172,47"/>
+<area shape="rect" id="node2" href="$namespacebasedismodule.html#a4a5e0ac56cb968519b5e373eae945169" title="get the x,y for a node transformed into &#39;global coordinates&#39; using xorigin, yorigin,..." alt="" coords="220,5,368,47"/>
+</map>

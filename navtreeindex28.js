@@ -1,12 +1,5 @@
 var NAVTREEINDEX28 =
 {
-"structsfrmodule_1_1sfrtype.html#a24c9882ae17ecf14b05aa063ca7dea61":[2,0,111,0,64],
-"structsfrmodule_1_1sfrtype.html#a2911aee2d1a1811faac559a61283a4b7":[2,0,111,0,14],
-"structsfrmodule_1_1sfrtype.html#a29eed7df88b60e988b63e293cc52165c":[2,0,111,0,76],
-"structsfrmodule_1_1sfrtype.html#a354c0c6721a998b295261cd3c1b148b4":[2,0,111,0,42],
-"structsfrmodule_1_1sfrtype.html#a3af1bae8c7fe51ea345c8a73187d98b6":[2,0,111,0,80],
-"structsfrmodule_1_1sfrtype.html#a3b5acc98a6aa2866e81c3d96891e12a4":[2,0,111,0,52],
-"structsfrmodule_1_1sfrtype.html#a3d6cca0734a757c3e53c1815f0351d68":[2,0,111,0,15],
 "structsfrmodule_1_1sfrtype.html#a3eac142799d981136f4dd5ba7d7352c9":[2,0,111,0,91],
 "structsfrmodule_1_1sfrtype.html#a3ff4aa32f752d12e579fccf292faa619":[2,0,111,0,40],
 "structsfrmodule_1_1sfrtype.html#a41175b85149955862b0f9acb0c10e0d8":[2,0,111,0,63],
@@ -249,5 +242,12 @@ var NAVTREEINDEX28 =
 "structtimearrayseriesmanagermodule_1_1timearrayseriesmanagertype.html":[2,0,120,0],
 "structtimearrayseriesmanagermodule_1_1timearrayseriesmanagertype.html#a1cdde4afd8fe5d0f54b6d729ab61c10d":[2,0,120,0,3],
 "structtimearrayseriesmanagermodule_1_1timearrayseriesmanagertype.html#a23f3fd70fb7e5f03156d6259591f14a3":[2,0,120,0,8],
-"structtimearrayseriesmanagermodule_1_1timearrayseriesmanagertype.html#a297041297652499e9dc2be83b762799d":[2,0,120,0,12]
+"structtimearrayseriesmanagermodule_1_1timearrayseriesmanagertype.html#a297041297652499e9dc2be83b762799d":[2,0,120,0,12],
+"structtimearrayseriesmanagermodule_1_1timearrayseriesmanagertype.html#a48aea1ec6110daec03b3a53b59c195a0":[2,0,120,0,6],
+"structtimearrayseriesmanagermodule_1_1timearrayseriesmanagertype.html#a4984b16921dc072fb72af6338e6e3d50":[2,0,120,0,0],
+"structtimearrayseriesmanagermodule_1_1timearrayseriesmanagertype.html#a5c315bd5a3026370b54d60c0d800e5e9":[2,0,120,0,2],
+"structtimearrayseriesmanagermodule_1_1timearrayseriesmanagertype.html#a5f365bed18af3b531459e360ea1ace2b":[2,0,120,0,9],
+"structtimearrayseriesmanagermodule_1_1timearrayseriesmanagertype.html#a72bcd619894e078f267838d301795f24":[2,0,120,0,13],
+"structtimearrayseriesmanagermodule_1_1timearrayseriesmanagertype.html#a849d9b77b38201599bb9d9603f412eeb":[2,0,120,0,10],
+"structtimearrayseriesmanagermodule_1_1timearrayseriesmanagertype.html#a8efc01c85d3bc81a22a5557ded68d41a":[2,0,120,0,11]
 };

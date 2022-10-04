@@ -10,11 +10,11 @@ var _discretization_base_8f90 =
     [ "dis_da", "_discretization_base_8f90.html#a65d43d10cede7c2986ac6b18d30c6324", null ],
     [ "dis_df", "_discretization_base_8f90.html#a020cf5149f7bb56dbf823fe7a7743700", null ],
     [ "dis_mc", "_discretization_base_8f90.html#a701fd66e32672013e2644b6b90aa3efe", null ],
+    [ "dis_transform_xy", "_discretization_base_8f90.html#a4a5e0ac56cb968519b5e373eae945169", null ],
     [ "fill_dbl_array", "_discretization_base_8f90.html#a6c3ab54e37ab24a2f1f003366381f9f8", null ],
     [ "fill_int_array", "_discretization_base_8f90.html#a60cb2e5e01dfb41e10396275f2b71fe3", null ],
     [ "get_area", "_discretization_base_8f90.html#a00fbab9a30e2255a7717e7f79a7cda1e", null ],
     [ "get_cell_volume", "_discretization_base_8f90.html#ae2cb11ec609a676f798fa7733ba14981", null ],
-    [ "get_cellxy", "_discretization_base_8f90.html#aa973036469dd685aaa1399f7ea1efcb9", null ],
     [ "get_dis_type", "_discretization_base_8f90.html#aa1124fd2455c42714c0f847a924c9135", null ],
     [ "get_ncpl", "_discretization_base_8f90.html#ad806e484eae327198e2f50eda393d3ca", null ],
     [ "get_nodenumber_idx1", "_discretization_base_8f90.html#a8c7caea0ed60fc95be1cdb5c45675a54", null ],
@@ -40,6 +40,5 @@ var _discretization_base_8f90 =
     [ "record_srcdst_list_entry", "_discretization_base_8f90.html#a381da1e57db3b514a508cc3d8b825e91", null ],
     [ "record_srcdst_list_header", "_discretization_base_8f90.html#a3098bbe66998a1e0885f9f80b3155aa6", null ],
     [ "supports_layers", "_discretization_base_8f90.html#a57da0e7d7f6bfe135836710970de8637", null ],
-    [ "transform_xy", "_discretization_base_8f90.html#ad57f730e5c883bd0c2837b4c7f8589ee", null ],
     [ "write_grb", "_discretization_base_8f90.html#a46502be09499d9bc22b8d8e8870a988d", null ]
 ];

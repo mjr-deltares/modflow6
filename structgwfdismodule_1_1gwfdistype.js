@@ -6,7 +6,6 @@ var structgwfdismodule_1_1gwfdistype =
     [ "connection_vector", "structgwfdismodule_1_1gwfdistype.html#a8358b6d3efc39d0a26f76c2937d64708", null ],
     [ "dis_da", "structgwfdismodule_1_1gwfdistype.html#ad38171a02124a6f9746ec93e35da41c8", null ],
     [ "dis_df", "structgwfdismodule_1_1gwfdistype.html#a9cd8664b08b05146f90853206a925bd8", null ],
-    [ "get_cellxy", "structgwfdismodule_1_1gwfdistype.html#a19785b1964b34f19c5d07d034ac81b11", null ],
     [ "get_dis_type", "structgwfdismodule_1_1gwfdistype.html#a46d95c8a3f6e0b4f10d4c3693c6c70a6", null ],
     [ "get_ncpl", "structgwfdismodule_1_1gwfdistype.html#ac0d733bb11a81a201e56625994e0e0dd", null ],
     [ "get_nodenumber_idx1", "structgwfdismodule_1_1gwfdistype.html#a5765b280f3f8065bcb06c93620903906", null ],
