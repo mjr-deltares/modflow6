@@ -13,6 +13,8 @@ var structdisconnexchangemodule_1_1disconnexchangetype =
     [ "cl1", "structdisconnexchangemodule_1_1disconnexchangetype.html#a317a01e6496d08949d4ecc1528f4ad1d", null ],
     [ "cl2", "structdisconnexchangemodule_1_1disconnexchangetype.html#a5b9d107c0a435f0b490e66135f9d6a26", null ],
     [ "dev_ifmod_on", "structdisconnexchangemodule_1_1disconnexchangetype.html#a6eeb5b5b00af0ccc2bbb6662cf8f34fa", null ],
+    [ "dmodel1", "structdisconnexchangemodule_1_1disconnexchangetype.html#a45a5af9c0db47cbd0416342b186e0ed5", null ],
+    [ "dmodel2", "structdisconnexchangemodule_1_1disconnexchangetype.html#a8aaab1081bae062ff4b3cc166f9eb4f2", null ],
     [ "filename", "structdisconnexchangemodule_1_1disconnexchangetype.html#a4a31943957e2ae29ca2a592d88f564d3", null ],
     [ "hwva", "structdisconnexchangemodule_1_1disconnexchangetype.html#a9b3e0a86ea48175184542e796f17c0a3", null ],
     [ "ianglex", "structdisconnexchangemodule_1_1disconnexchangetype.html#a0239edd5302d2368765a4e041c8a727b", null ],

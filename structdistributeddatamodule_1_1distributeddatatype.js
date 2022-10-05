@@ -2,6 +2,7 @@ var structdistributeddatamodule_1_1distributeddatatype =
 [
     [ "destroy", "structdistributeddatamodule_1_1distributeddatatype.html#a73b1c4a06977ede6cdea1629f88f9f31", null ],
     [ "get_dist_data", "structdistributeddatamodule_1_1distributeddatatype.html#a8922738cbc14cd12702ef6bb0a723d6c", null ],
+    [ "map_data", "structdistributeddatamodule_1_1distributeddatatype.html#a2f91864d578c36eab0ceeda0bd83f849", null ],
     [ "map_exg_data", "structdistributeddatamodule_1_1distributeddatatype.html#a06cafcaf383a4e32c47031b9e4fa0fd7", null ],
     [ "map_model_data", "structdistributeddatamodule_1_1distributeddatatype.html#a0a624f188f4058fda9f7eff1e4f050c1", null ],
     [ "map_variables", "structdistributeddatamodule_1_1distributeddatatype.html#aa0c6bdae0d2f1fcbcc69b590bb9b45d0", null ],

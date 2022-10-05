@@ -1,7 +1,6 @@
 <map id="gwtmodule::castasgwtmodel" name="gwtmodule::castasgwtmodel">
-<area shape="rect" id="node1" title="Cast to GwtModelType." alt="" coords="487,85,697,112"/>
+<area shape="rect" id="node1" title="Cast to GwtModelType." alt="" coords="487,53,697,80"/>
 <area shape="rect" id="node2" href="$namespacegwtgwtconnectionmodule.html#a0f6be4b0e1fb989189e1749e459bc2bf" title="Basic construction of the connection." alt="" coords="246,13,437,54"/>
 <area shape="rect" id="node4" href="$namespacegwtinterfacemodelmodule.html#ada68ea42046fb1af9fbae3faf24bfc38" title="Create the interface model, analogously to what." alt="" coords="244,78,439,119"/>
-<area shape="rect" id="node5" href="$namespacegwtinterfacemodelmodule.html#a48befcecbb4854efba3fb6f82f41ba86" title="set dsp grid data from models" alt="" coords="244,143,439,185"/>
 <area shape="rect" id="node3" href="$structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#ac29d98da5f5f127df670763ef642b937" title=" " alt="" coords="5,5,196,61"/>
 </map>

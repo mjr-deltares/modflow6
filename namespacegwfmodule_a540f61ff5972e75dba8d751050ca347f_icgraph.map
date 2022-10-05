@@ -1,8 +1,7 @@
 <map id="gwfmodule::castasgwfmodel" name="gwfmodule::castasgwfmodel">
-<area shape="rect" id="node1" title="Cast to GWF model." alt="" coords="485,119,696,145"/>
+<area shape="rect" id="node1" title="Cast to GWF model." alt="" coords="485,85,696,112"/>
 <area shape="rect" id="node2" href="$namespacegwfgwfconnectionmodule.html#adf69ded6447b65b3eea555039e4ae491" title="Basic construction of the connection." alt="" coords="245,13,436,54"/>
 <area shape="rect" id="node4" href="$namespacegwfinterfacemodelmodule.html#a3a10d1462f3b13cb9dfff3831a24c9ac" title="set up the interface model, analogously to what" alt="" coords="244,78,437,119"/>
-<area shape="rect" id="node5" href="$namespacegwfinterfacemodelmodule.html#ab78ccdd68eba60ecc1bd9b6f3de43045" title="Loop over the interface grid and fill the structure with NPF grid data, copied from the models that p..." alt="" coords="244,143,437,185"/>
-<area shape="rect" id="node6" href="$namespacegwfgwfconnectionmodule.html#a8cc6f811d911509b9457bc06b6d0bbf4" title="Validate the exchange, intercepting those cases where two models have to be connected with an interfa..." alt="" coords="245,209,436,250"/>
+<area shape="rect" id="node5" href="$namespacegwfgwfconnectionmodule.html#a8cc6f811d911509b9457bc06b6d0bbf4" title="Validate the exchange, intercepting those cases where two models have to be connected with an interfa..." alt="" coords="245,143,436,185"/>
 <area shape="rect" id="node3" href="$structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a781048d4e008b7a7adfb445f7071796a" title=" " alt="" coords="5,5,196,61"/>
 </map>

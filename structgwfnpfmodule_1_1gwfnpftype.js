@@ -33,7 +33,6 @@ var structgwfnpfmodule_1_1gwfnpftype =
     [ "sav_sat", "structgwfnpfmodule_1_1gwfnpftype.html#a8d45d3844e2d20776eb935d8ff7c66b0", null ],
     [ "sav_spdis", "structgwfnpfmodule_1_1gwfnpftype.html#a03742f40453572cecf0b0c2864849993", null ],
     [ "set_edge_properties", "structgwfnpfmodule_1_1gwfnpftype.html#a3a642d2825cf90d88c5477e81d359a69", null ],
-    [ "set_grid_data", "structgwfnpfmodule_1_1gwfnpftype.html#a067e854283fe52835c765290f7f36ba3", null ],
     [ "set_options", "structgwfnpfmodule_1_1gwfnpftype.html#ada3acce4c6657fcfd89c33681e4e7d70", null ],
     [ "thksat", "structgwfnpfmodule_1_1gwfnpftype.html#a29f2486124436b49edaa89233704d87f", null ],
     [ "wd", "structgwfnpfmodule_1_1gwfnpftype.html#aa69319c97cb457459c65616ee4d77a07", null ],

@@ -1,0 +1,5 @@
+<map id="gridconnectionmodule::gridconnectiontype::getinterfaceindex" name="gridconnectionmodule::gridconnectiontype::getinterfaceindex">
+<area shape="rect" id="node1" title=" " alt="" coords="5,31,172,87"/>
+<area shape="rect" id="node2" href="$namespacegridconnectionmodule.html#aef64ebbce7501f95a6bfe19ce383daa9" title="Get interface index from global cell." alt="" coords="247,5,431,47"/>
+<area shape="rect" id="node3" href="$namespacegridconnectionmodule.html#a2040389c095f63f7cc6f02867f24248e" title="Get interface index from a model pointer and the local index." alt="" coords="220,71,459,112"/>
+</map>

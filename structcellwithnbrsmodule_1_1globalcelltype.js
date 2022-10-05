@@ -1,5 +1,5 @@
 var structcellwithnbrsmodule_1_1globalcelltype =
 [
-    [ "index", "structcellwithnbrsmodule_1_1globalcelltype.html#aa86fae723638af16fe090b0a8aae388b", null ],
-    [ "model", "structcellwithnbrsmodule_1_1globalcelltype.html#a39ec8a1992757a8a6c1d06a97c4a5a1d", null ]
+    [ "dmodel", "structcellwithnbrsmodule_1_1globalcelltype.html#ad6ffc4ce0c2c577e48aa36b1e4422db6", null ],
+    [ "index", "structcellwithnbrsmodule_1_1globalcelltype.html#aa86fae723638af16fe090b0a8aae388b", null ]
 ];

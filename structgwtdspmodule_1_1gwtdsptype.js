@@ -14,7 +14,6 @@ var structgwtdspmodule_1_1gwtdsptype =
     [ "dsp_mc", "structgwtdspmodule_1_1gwtdsptype.html#a49c582f01caaa1656a699564ca37717c", null ],
     [ "read_data", "structgwtdspmodule_1_1gwtdsptype.html#a490b0d906df60cdcab6bd99d86c94fe5", null ],
     [ "read_options", "structgwtdspmodule_1_1gwtdsptype.html#aa07bda51ee370c472aec1be88731c646", null ],
-    [ "set_data", "structgwtdspmodule_1_1gwtdsptype.html#a2c25bf30666e0124bb14b4630519a1be", null ],
     [ "alh", "structgwtdspmodule_1_1gwtdsptype.html#ab7655ba377bd7325d8cec4f3a43d753e", null ],
     [ "alv", "structgwtdspmodule_1_1gwtdsptype.html#afe5e94ac153e5e1a3fdc59bb0ea9ca80", null ],
     [ "angle1", "structgwtdspmodule_1_1gwtdsptype.html#a2378075a8e95c0508fd45babd3d8e9c0", null ],

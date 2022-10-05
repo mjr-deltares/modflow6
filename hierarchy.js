@@ -107,6 +107,7 @@ var hierarchy =
       [ "gwtgwtexchangemodule::gwtexchangetype", "structgwtgwtexchangemodule_1_1gwtexchangetype.html", null ]
     ] ],
     [ "distributeddatamodule::distributeddatatype", "structdistributeddatamodule_1_1distributeddatatype.html", null ],
+    [ "distributedmodelmodule::distributedmodeltype", "structdistributedmodelmodule_1_1distributedmodeltype.html", null ],
     [ "distributeddatamodule::distvartype", "structdistributeddatamodule_1_1distvartype.html", null ],
     [ "disvgeom::disvgeomtype", "structdisvgeom_1_1disvgeomtype.html", null ],
     [ "memorysethandlermodule::eventhandlerdatatype", "structmemorysethandlermodule_1_1eventhandlerdatatype.html", null ],
@@ -126,7 +127,6 @@ var hierarchy =
       [ "gwfinterfacemodelmodule::gwfinterfacemodeltype", "structgwfinterfacemodelmodule_1_1gwfinterfacemodeltype.html", null ]
     ] ],
     [ "gwfmvrperioddatamodule::gwfmvrperioddatatype", "structgwfmvrperioddatamodule_1_1gwfmvrperioddatatype.html", null ],
-    [ "gwfnpfgriddatamodule::gwfnpfgriddatatype", "structgwfnpfgriddatamodule_1_1gwfnpfgriddatatype.html", null ],
     [ "gwfnpfoptionsmodule::gwfnpfoptionstype", "structgwfnpfoptionsmodule_1_1gwfnpfoptionstype.html", null ],
     [ "gwtadvoptionsmodule::gwtadvoptionstype", "structgwtadvoptionsmodule_1_1gwtadvoptionstype.html", null ],
     [ "gwtapttype", null, [
@@ -135,7 +135,6 @@ var hierarchy =
       [ "gwtsftmodule::gwtsfttype", "structgwtsftmodule_1_1gwtsfttype.html", null ],
       [ "gwtuztmodule::gwtuzttype", "structgwtuztmodule_1_1gwtuzttype.html", null ]
     ] ],
-    [ "gwtdspgriddatamodule::gwtdspgriddatatype", "structgwtdspgriddatamodule_1_1gwtdspgriddatatype.html", null ],
     [ "gwtdspoptionsmodule::gwtdspoptionstype", "structgwtdspoptionsmodule_1_1gwtdspoptionstype.html", null ],
     [ "gwtmodeltype", null, [
       [ "gwtinterfacemodelmodule::gwtinterfacemodeltype", "structgwtinterfacemodelmodule_1_1gwtinterfacemodeltype.html", null ]
@@ -203,11 +202,11 @@ var hierarchy =
     [ "observemodule::observetype", "structobservemodule_1_1observetype.html", null ],
     [ "obsoutputlistmodule::obsoutputlisttype", "structobsoutputlistmodule_1_1obsoutputlisttype.html", null ],
     [ "obsoutputmodule::obsoutputtype", "structobsoutputmodule_1_1obsoutputtype.html", null ],
-    [ "obsmodule::obstype", "structobsmodule_1_1obstype.html", null ],
     [ "obstype", null, [
       [ "gwfobsmodule::gwfobstype", "structgwfobsmodule_1_1gwfobstype.html", null ],
       [ "gwtobsmodule::gwtobstype", "structgwtobsmodule_1_1gwtobstype.html", null ]
     ] ],
+    [ "obsmodule::obstype", "structobsmodule_1_1obstype.html", null ],
     [ "outputcontroldatamodule::outputcontroldatatype", "structoutputcontroldatamodule_1_1outputcontroldatatype.html", null ],
     [ "outputcontroltype", null, [
       [ "gwfocmodule::gwfoctype", "structgwfocmodule_1_1gwfoctype.html", null ],
@@ -276,10 +275,12 @@ var hierarchy =
     [ "access", null, null ],
     [ "ACCESS", null, null ],
     [ "action", null, null ],
+    [ "add_dist_model", null, null ],
     [ "AddBaseExchangeToList", null, null ],
     [ "AddBaseModelToList", null, null ],
     [ "AddBaseSolutionToList", null, null ],
     [ "AddBndToList", null, null ],
+    [ "AddDistModelToList", null, null ],
     [ "AddNumericalExchangeToList", null, null ],
     [ "AddNumericalModelToList", null, null ],
     [ "AddObsOutputToList", null, null ],
@@ -405,6 +406,8 @@ var hierarchy =
     [ "dis_transform_xy", null, null ],
     [ "DisBaseType", null, null ],
     [ "DisConnExchangeType", null, null ],
+    [ "distmodellist", null, null ],
+    [ "DistributedModelType", null, null ],
     [ "disu_cr", null, null ],
     [ "disv_cr", null, null ],
     [ "DisvGeomType", null, null ],
@@ -475,6 +478,7 @@ var hierarchy =
     [ "GetCommandLineArguments", null, null ],
     [ "getCSRIndex", null, null ],
     [ "GetDisConnExchangeFromList", null, null ],
+    [ "GetDistModelFromList", null, null ],
     [ "GetFileFromPath", null, null ],
     [ "GetGwfExchangeFromList", null, null ],
     [ "GetNumericalExchangeFromList", null, null ],
@@ -508,7 +512,6 @@ var hierarchy =
     [ "GwfModelType", null, null ],
     [ "GwfMvrPeriodDataType", null, null ],
     [ "GwfMvrType", null, null ],
-    [ "GwfNpfGridDataType", null, null ],
     [ "GwfNpfOptionsType", null, null ],
     [ "GwfNpfType", null, null ],
     [ "GwfObsType", null, null ],
@@ -519,7 +522,6 @@ var hierarchy =
     [ "GwtAdvOptionsType", null, null ],
     [ "GwtAdvType", null, null ],
     [ "GwtAptType", null, null ],
-    [ "GwtDspGridDataType", null, null ],
     [ "GwtDspOptionsType", null, null ],
     [ "GwtDspType", null, null ],
     [ "gwtexchange_create", null, null ],
@@ -801,8 +803,8 @@ var hierarchy =
     [ "UPCASE", null, null ],
     [ "upcase", null, null ],
     [ "urdaux", null, null ],
-    [ "urword", null, null ],
     [ "URWORD", null, null ],
+    [ "urword", null, null ],
     [ "ustop", null, null ],
     [ "uterminate_block", null, null ],
     [ "UWWORD", null, null ],

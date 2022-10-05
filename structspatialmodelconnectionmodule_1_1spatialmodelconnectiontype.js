@@ -11,7 +11,7 @@ var structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype =
     [ "exg_df", "structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html#aa3b4408ba2510cb08453bcc56cc8fef8", null ],
     [ "exg_mc", "structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html#a7201234e098962b46f960bd3f75bdbc7", null ],
     [ "getnrofconnections", "structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html#a09491688df96e7a9ec1e1e0c32960d9a", null ],
-    [ "mapvariables", "structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html#afe1a9e0bbec8df5f3cd5bbdf780a27af", null ],
+    [ "mapvariables", "structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html#ae39b837141a8ae122582d811193195a1", null ],
     [ "maskownerconnections", "structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html#af3ed0086ad9b294306f1384d2c9e40ac", null ],
     [ "setupgridconnection", "structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html#a5f84d8eda827147bac3ffb6d45d1083e", null ],
     [ "spatialcon_ac", "structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html#a3a5b4f0d8169f6dfd25c70779b8f23a4", null ],

@@ -1,5 +1,7 @@
 <map id="csrutilsmodule::getcsrindex" name="csrutilsmodule::getcsrindex">
-<area shape="rect" id="node1" title="Return index for element i,j in CSR storage,." alt="" coords="280,46,483,73"/>
-<area shape="rect" id="node2" href="$namespacespatialmodelconnectionmodule.html#aec90536f741cddef194442f90e8d7aa7" title="Mask the owner&#39;s connections." alt="" coords="5,5,232,47"/>
-<area shape="rect" id="node3" href="$namespacegwfgwfconnectionmodule.html#a6e1d16d424140c9c0c79587cf1b4e7a0" title="Set flowja as edge properties in the model,." alt="" coords="23,71,214,112"/>
+<area shape="rect" id="node1" title="Return index for element i,j in CSR storage,." alt="" coords="280,111,483,138"/>
+<area shape="rect" id="node2" href="$namespacegridconnectionmodule.html#af3a872d957ee0922b2d92aa25f24f6c7" title="Fill connection data (ihc, cl1, ...) for." alt="" coords="21,5,217,47"/>
+<area shape="rect" id="node3" href="$namespacegridconnectionmodule.html#a9f98f1ba9bbfc2287925f0b13fedaecc" title="Build interface map object for outside use,." alt="" coords="35,71,202,112"/>
+<area shape="rect" id="node4" href="$namespacespatialmodelconnectionmodule.html#aec90536f741cddef194442f90e8d7aa7" title="Mask the owner&#39;s connections." alt="" coords="5,136,232,177"/>
+<area shape="rect" id="node5" href="$namespacegwfgwfconnectionmodule.html#a6e1d16d424140c9c0c79587cf1b4e7a0" title="Set flowja as edge properties in the model,." alt="" coords="23,201,214,243"/>
 </map>

@@ -6,7 +6,6 @@ var structgwtinterfacemodelmodule_1_1gwtinterfacemodeltype =
     [ "model_ar", "structgwtinterfacemodelmodule_1_1gwtinterfacemodeltype.html#a9e7a449918138e04bda3bd772f597386", null ],
     [ "model_da", "structgwtinterfacemodelmodule_1_1gwtinterfacemodeltype.html#afddc1f9701668ee0ed9cab134df9cae2", null ],
     [ "model_df", "structgwtinterfacemodelmodule_1_1gwtinterfacemodeltype.html#ac094e5c81d2b28bcbf3cd1e559d36fba", null ],
-    [ "setdspgriddata", "structgwtinterfacemodelmodule_1_1gwtinterfacemodeltype.html#a85005cadd686f04c9be7e7fc5caad57e", null ],
     [ "gridconnection", "structgwtinterfacemodelmodule_1_1gwtinterfacemodeltype.html#a9641af99642554a344505285c0516f46", null ],
     [ "iadvscheme", "structgwtinterfacemodelmodule_1_1gwtinterfacemodeltype.html#a7bdd1952036254a13dac395cd98c6955", null ],
     [ "ixt3d", "structgwtinterfacemodelmodule_1_1gwtinterfacemodeltype.html#ad07893d02f4eca4c1ba1de7c2256b5ff", null ],

@@ -1,4 +1,0 @@
-<map id="gwfinterfacemodelmodule::setnpfgriddata" name="gwfinterfacemodelmodule::setnpfgriddata">
-<area shape="rect" id="node1" title="Loop over the interface grid and fill the structure with NPF grid data, copied from the models that p..." alt="" coords="5,5,199,47"/>
-<area shape="rect" id="node2" href="$namespacegwfmodule.html#a540f61ff5972e75dba8d751050ca347f" title="Cast to GWF model." alt="" coords="247,13,457,39"/>
-</map>

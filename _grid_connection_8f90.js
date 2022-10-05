@@ -1,8 +1,8 @@
 var _grid_connection_8f90 =
 [
     [ "gridconnectiontype", "structgridconnectionmodule_1_1gridconnectiontype.html", "structgridconnectionmodule_1_1gridconnectiontype" ],
-    [ "addmodelneighbors", "_grid_connection_8f90.html#a06ccbd72eefccf0b86eea4631b58706a", null ],
-    [ "addneighborcell", "_grid_connection_8f90.html#ac819da24e14216e8b3bd2692583a509b", null ],
+    [ "addmodelneighbors", "_grid_connection_8f90.html#a9f3300bf5eee3ef6c2be5688e06e1b70", null ],
+    [ "addneighborcell", "_grid_connection_8f90.html#a8f3733f69f8cc82ddf476910952bd453", null ],
     [ "addneighbors", "_grid_connection_8f90.html#a0386ef72c25bd84eca6abd7e4c4fd9a8", null ],
     [ "addremoteneighbors", "_grid_connection_8f90.html#ac869fee445f0b36077c881eeabab8b5b", null ],
     [ "addtoglobalmap", "_grid_connection_8f90.html#a349f5821b71a8123e75f20bb04015cff", null ],
@@ -10,7 +10,7 @@ var _grid_connection_8f90 =
     [ "allocatescalars", "_grid_connection_8f90.html#a400c8b8c65514de713c166e6637a9a28", null ],
     [ "buildconnections", "_grid_connection_8f90.html#a26c54338831e0905a098ad60a7fef96b", null ],
     [ "compressglobalmap", "_grid_connection_8f90.html#a973addc5f78cd0cd54d6f848405e4f6a", null ],
-    [ "connectcell", "_grid_connection_8f90.html#a423af275c6544fffbb2f11d87955ce48", null ],
+    [ "connectcell", "_grid_connection_8f90.html#a9756cbfbeb8a71ef626aac42bd4f9401", null ],
     [ "connectneighborcells", "_grid_connection_8f90.html#a9e0cc6a973b0cd5b24e5c3f2813bd1fa", null ],
     [ "connectprimaryexchange", "_grid_connection_8f90.html#a7edfcb543a1a0987ebf29fe68702065e", null ],
     [ "construct", "_grid_connection_8f90.html#a51ea2469018d3c02815e4c1e67e962a4", null ],
@@ -23,7 +23,7 @@ var _grid_connection_8f90 =
     [ "get_model_name", "_grid_connection_8f90.html#a87ac728c2f1d2e08efc0154afe01b01c", null ],
     [ "getdiscretization", "_grid_connection_8f90.html#a172bd93154b5f674856a189f690d8bd3", null ],
     [ "getinterfaceindexbycell", "_grid_connection_8f90.html#aef64ebbce7501f95a6bfe19ce383daa9", null ],
-    [ "getinterfaceindexbyindexmodel", "_grid_connection_8f90.html#ac778dd9a10efb852ec19088911c5ce6e", null ],
+    [ "getinterfaceindexbyindexmodel", "_grid_connection_8f90.html#a2040389c095f63f7cc6f02867f24248e", null ],
     [ "getinterfacemap", "_grid_connection_8f90.html#a9f98f1ba9bbfc2287925f0b13fedaecc", null ],
     [ "getregionalmodeloffset", "_grid_connection_8f90.html#a9975a690130ff61e3431357ec6056a38", null ],
     [ "isperiodic", "_grid_connection_8f90.html#ae0fddc4edf01b2d5c8b4d03540e2252f", null ],

@@ -1,11 +1,13 @@
 <map id="gridconnectionmodule::construct" name="gridconnectionmodule::construct">
-<area shape="rect" id="node1" title="Construct the GridConnection and allocate the data structures for the primary connections." alt="" coords="5,61,172,102"/>
-<area shape="rect" id="node2" href="$namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d" title="returns the path to the memory object" alt="" coords="220,61,387,102"/>
-<area shape="rect" id="node3" href="$namespacememoryhelpermodule.html#a5405f58247a0962e5449ebc1e4dcff0f" title="Generic routine to check the length of (parts of) the memory address." alt="" coords="435,61,601,102"/>
-<area shape="rect" id="node4" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="649,68,824,95"/>
-<area shape="rect" id="node5" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="872,68,1011,95"/>
-<area shape="rect" id="node6" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="1059,27,1227,69"/>
-<area shape="rect" id="node9" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="1059,93,1227,134"/>
-<area shape="rect" id="node7" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="1275,5,1469,32"/>
-<area shape="rect" id="node8" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1288,57,1456,98"/>
+<area shape="rect" id="node1" title="Construct the GridConnection and allocate the data structures for the primary connections." alt="" coords="5,94,172,135"/>
+<area shape="rect" id="node2" href="$namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d" title="returns the path to the memory object" alt="" coords="228,61,395,102"/>
+<area shape="rect" id="node10" href="$namespacedistributedmodelmodule.html#abf4210339bfdad4dc53fc0535d03e5f9" title=" " alt="" coords="220,126,403,167"/>
+<area shape="rect" id="node3" href="$namespacememoryhelpermodule.html#a5405f58247a0962e5449ebc1e4dcff0f" title="Generic routine to check the length of (parts of) the memory address." alt="" coords="459,61,625,102"/>
+<area shape="rect" id="node4" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="681,68,856,95"/>
+<area shape="rect" id="node5" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="904,68,1043,95"/>
+<area shape="rect" id="node6" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="1091,27,1259,69"/>
+<area shape="rect" id="node9" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="1091,93,1259,134"/>
+<area shape="rect" id="node7" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="1307,5,1501,32"/>
+<area shape="rect" id="node8" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1320,57,1488,98"/>
+<area shape="rect" id="node11" href="$namespacedistributedmodelmodule.html#af05b872efb96c320fb93a36acf09eb18" title=" " alt="" coords="451,126,633,167"/>
 </map>

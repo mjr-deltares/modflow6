@@ -20,7 +20,7 @@ var structgridconnectionmodule_1_1gridconnectiontype =
     [ "fillconnectiondatainternal", "structgridconnectionmodule_1_1gridconnectiontype.html#acef0fb4ed4308b540611f9248ad7a348", null ],
     [ "findmodelneighbors", "structgridconnectionmodule_1_1gridconnectiontype.html#a602bfaf7ace8a985f5b479e7bc5953d6", null ],
     [ "getdiscretization", "structgridconnectionmodule_1_1gridconnectiontype.html#a9d59a9d85c20b78667a4b968b30446f6", null ],
-    [ "getinterfaceindex", "structgridconnectionmodule_1_1gridconnectiontype.html#a9909259e897fc02596f971871b78ef35", null ],
+    [ "getinterfaceindex", "structgridconnectionmodule_1_1gridconnectiontype.html#adbf7ae90bde924831d24da895efafc13", null ],
     [ "getinterfaceindexbycell", "structgridconnectionmodule_1_1gridconnectiontype.html#a526f6f6ae81d3e49c100e3aacc470656", null ],
     [ "getinterfaceindexbyindexmodel", "structgridconnectionmodule_1_1gridconnectiontype.html#a2d7a19438151908becb9d572087ac692", null ],
     [ "getinterfacemap", "structgridconnectionmodule_1_1gridconnectiontype.html#a4d215cd713fb8291b23e546ac5b27ded", null ],

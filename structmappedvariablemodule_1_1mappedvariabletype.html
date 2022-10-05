@@ -124,7 +124,7 @@ Collaboration diagram for mappedvariablemodule::mappedvariabletype:</div>
 <div class="dyncontent">
 <div class="center"><img src="structmappedvariablemodule_1_1mappedvariabletype__coll__graph.png" border="0" usemap="#mappedvariablemodule_1_1mappedvariabletype_coll__map" alt="Collaboration graph"/></div>
 <map name="mappedvariablemodule_1_1mappedvariabletype_coll__map" id="mappedvariablemodule_1_1mappedvariabletype_coll__map">
-<area shape="rect" title=" " alt="" coords="5,5,183,273"/>
+<area shape="rect" title=" " alt="" coords="5,5,183,347"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -132,6 +132,9 @@ Collaboration diagram for mappedvariablemodule::mappedvariabletype:</div>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a92e41f104d8ad3addf8da9e989131fac"><td class="memItemLeft" align="right" valign="top">procedure&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmappedvariablemodule_1_1mappedvariabletype.html#a92e41f104d8ad3addf8da9e989131fac">sync</a></td></tr>
 <tr class="separator:a92e41f104d8ad3addf8da9e989131fac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9cd9ace563bec113fb0692d3ed76f7a"><td class="memItemLeft" align="right" valign="top">procedure&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmappedvariablemodule_1_1mappedvariabletype.html#ac9cd9ace563bec113fb0692d3ed76f7a">skip_sync</a></td></tr>
+<tr class="memdesc:ac9cd9ace563bec113fb0692d3ed76f7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">possibility to skip synchronization, e.g. when src variable not allocated and should remain at default  <a href="structmappedvariablemodule_1_1mappedvariabletype.html#ac9cd9ace563bec113fb0692d3ed76f7a">More...</a><br /></td></tr>
+<tr class="separator:ac9cd9ace563bec113fb0692d3ed76f7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeff1a0beae483e8675cfc56295a65964"><td class="memItemLeft" align="right" valign="top">procedure, private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmappedvariablemodule_1_1mappedvariabletype.html#aeff1a0beae483e8675cfc56295a65964">sync_int1d</a></td></tr>
 <tr class="separator:aeff1a0beae483e8675cfc56295a65964"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5b02f7687168adb28431d74568124e8"><td class="memItemLeft" align="right" valign="top">procedure, private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmappedvariablemodule_1_1mappedvariabletype.html#af5b02f7687168adb28431d74568124e8">apply_sgn_int1d</a></td></tr>
@@ -151,20 +154,33 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a8451c4d1df5736256e0f89586c75dc68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad75419dde7484d71f9fb6119158931d0"><td class="memItemLeft" align="right" valign="top">integer(i4b)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmappedvariablemodule_1_1mappedvariabletype.html#ad75419dde7484d71f9fb6119158931d0">sync_stage</a></td></tr>
 <tr class="separator:ad75419dde7484d71f9fb6119158931d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19b4bbddef23502ce560c7e85c14dc1f"><td class="memItemLeft" align="right" valign="top">character(len=lenvarname)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmappedvariablemodule_1_1mappedvariabletype.html#a19b4bbddef23502ce560c7e85c14dc1f">src_name</a></td></tr>
+<tr class="separator:a19b4bbddef23502ce560c7e85c14dc1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf08f4048dd4009f3d66a4b363aebc4b"><td class="memItemLeft" align="right" valign="top">character(len=lenmempath)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmappedvariablemodule_1_1mappedvariabletype.html#adf08f4048dd4009f3d66a4b363aebc4b">src_path</a></td></tr>
+<tr class="separator:adf08f4048dd4009f3d66a4b363aebc4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49ef7070a29689a89a8428c998e9a9b8"><td class="memItemLeft" align="right" valign="top">type(memorytype), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmappedvariablemodule_1_1mappedvariabletype.html#a49ef7070a29689a89a8428c998e9a9b8">src</a></td></tr>
+<tr class="memdesc:a49ef7070a29689a89a8428c998e9a9b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">cached memory item  <a href="structmappedvariablemodule_1_1mappedvariabletype.html#a49ef7070a29689a89a8428c998e9a9b8">More...</a><br /></td></tr>
 <tr class="separator:a49ef7070a29689a89a8428c998e9a9b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad075329c47ee6fac8e0b999713da0a78"><td class="memItemLeft" align="right" valign="top">character(len=lenvarname)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmappedvariablemodule_1_1mappedvariabletype.html#ad075329c47ee6fac8e0b999713da0a78">tgt_name</a></td></tr>
+<tr class="separator:ad075329c47ee6fac8e0b999713da0a78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa216bd8b5735c8a346cd79195e06970b"><td class="memItemLeft" align="right" valign="top">character(len=lenmempath)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmappedvariablemodule_1_1mappedvariabletype.html#aa216bd8b5735c8a346cd79195e06970b">tgt_path</a></td></tr>
+<tr class="separator:aa216bd8b5735c8a346cd79195e06970b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a117222fb174216b8ecfd2a5761b02778"><td class="memItemLeft" align="right" valign="top">type(memorytype), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmappedvariablemodule_1_1mappedvariabletype.html#a117222fb174216b8ecfd2a5761b02778">tgt</a></td></tr>
+<tr class="memdesc:a117222fb174216b8ecfd2a5761b02778"><td class="mdescLeft">&#160;</td><td class="mdescRight">cached memory item  <a href="structmappedvariablemodule_1_1mappedvariabletype.html#a117222fb174216b8ecfd2a5761b02778">More...</a><br /></td></tr>
 <tr class="separator:a117222fb174216b8ecfd2a5761b02778"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1bf56e848f3ba8a1b23e3a13e78aa75"><td class="memItemLeft" align="right" valign="top">integer(i4b), dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmappedvariablemodule_1_1mappedvariabletype.html#ac1bf56e848f3ba8a1b23e3a13e78aa75">src_idx</a></td></tr>
+<tr class="memdesc:ac1bf56e848f3ba8a1b23e3a13e78aa75"><td class="mdescLeft">&#160;</td><td class="mdescRight">source indexes to copy from  <a href="structmappedvariablemodule_1_1mappedvariabletype.html#ac1bf56e848f3ba8a1b23e3a13e78aa75">More...</a><br /></td></tr>
 <tr class="separator:ac1bf56e848f3ba8a1b23e3a13e78aa75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27e2b5b5d426cbd0a4662b09e5734a2f"><td class="memItemLeft" align="right" valign="top">integer(i4b), dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmappedvariablemodule_1_1mappedvariabletype.html#a27e2b5b5d426cbd0a4662b09e5734a2f">tgt_idx</a></td></tr>
+<tr class="memdesc:a27e2b5b5d426cbd0a4662b09e5734a2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">target indexes to copy to  <a href="structmappedvariablemodule_1_1mappedvariabletype.html#a27e2b5b5d426cbd0a4662b09e5734a2f">More...</a><br /></td></tr>
 <tr class="separator:a27e2b5b5d426cbd0a4662b09e5734a2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81b7ba90d4d9267da780023b7157ae39"><td class="memItemLeft" align="right" valign="top">integer(i4b), dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmappedvariablemodule_1_1mappedvariabletype.html#a81b7ba90d4d9267da780023b7157ae39">sign</a></td></tr>
+<tr class="memdesc:a81b7ba90d4d9267da780023b7157ae39"><td class="mdescLeft">&#160;</td><td class="mdescRight">optional sign (or null) to negate copied value  <a href="structmappedvariablemodule_1_1mappedvariabletype.html#a81b7ba90d4d9267da780023b7157ae39">More...</a><br /></td></tr>
 <tr class="separator:a81b7ba90d4d9267da780023b7157ae39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_mapped_variable_8f90_source.html#l00011">11</a> of file <a class="el" href="_mapped_variable_8f90_source.html">MappedVariable.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_mapped_variable_8f90_source.html#l00013">13</a> of file <a class="el" href="_mapped_variable_8f90_source.html">MappedVariable.f90</a>.</p>
 </div><h2 class="groupheader">Member Function/Subroutine Documentation</h2>
 <a id="a938be5314f20cca399bf8853fa752ad1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a938be5314f20cca399bf8853fa752ad1">&#9670;&nbsp;</a></span>apply_sgn_dbl1d()</h2>
@@ -186,7 +202,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_mapped_variable_8f90_source.html#l00025">25</a> of file <a class="el" href="_mapped_variable_8f90_source.html">MappedVariable.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_mapped_variable_8f90_source.html#l00032">32</a> of file <a class="el" href="_mapped_variable_8f90_source.html">MappedVariable.f90</a>.</p>
 
 </div>
 </div>
@@ -210,7 +226,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_mapped_variable_8f90_source.html#l00027">27</a> of file <a class="el" href="_mapped_variable_8f90_source.html">MappedVariable.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_mapped_variable_8f90_source.html#l00034">34</a> of file <a class="el" href="_mapped_variable_8f90_source.html">MappedVariable.f90</a>.</p>
 
 </div>
 </div>
@@ -234,7 +250,31 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_mapped_variable_8f90_source.html#l00023">23</a> of file <a class="el" href="_mapped_variable_8f90_source.html">MappedVariable.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_mapped_variable_8f90_source.html#l00030">30</a> of file <a class="el" href="_mapped_variable_8f90_source.html">MappedVariable.f90</a>.</p>
+
+</div>
+</div>
+<a id="ac9cd9ace563bec113fb0692d3ed76f7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9cd9ace563bec113fb0692d3ed76f7a">&#9670;&nbsp;</a></span>skip_sync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">procedure mappedvariablemodule::mappedvariabletype::skip_sync</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_mapped_variable_8f90_source.html#l00027">27</a> of file <a class="el" href="_mapped_variable_8f90_source.html">MappedVariable.f90</a>.</p>
 
 </div>
 </div>
@@ -258,7 +298,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_mapped_variable_8f90_source.html#l00020">20</a> of file <a class="el" href="_mapped_variable_8f90_source.html">MappedVariable.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_mapped_variable_8f90_source.html#l00026">26</a> of file <a class="el" href="_mapped_variable_8f90_source.html">MappedVariable.f90</a>.</p>
 
 </div>
 </div>
@@ -282,7 +322,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_mapped_variable_8f90_source.html#l00024">24</a> of file <a class="el" href="_mapped_variable_8f90_source.html">MappedVariable.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_mapped_variable_8f90_source.html#l00031">31</a> of file <a class="el" href="_mapped_variable_8f90_source.html">MappedVariable.f90</a>.</p>
 
 </div>
 </div>
@@ -306,7 +346,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_mapped_variable_8f90_source.html#l00026">26</a> of file <a class="el" href="_mapped_variable_8f90_source.html">MappedVariable.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_mapped_variable_8f90_source.html#l00033">33</a> of file <a class="el" href="_mapped_variable_8f90_source.html">MappedVariable.f90</a>.</p>
 
 </div>
 </div>
@@ -330,7 +370,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_mapped_variable_8f90_source.html#l00022">22</a> of file <a class="el" href="_mapped_variable_8f90_source.html">MappedVariable.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_mapped_variable_8f90_source.html#l00029">29</a> of file <a class="el" href="_mapped_variable_8f90_source.html">MappedVariable.f90</a>.</p>
 
 </div>
 </div>
@@ -355,8 +395,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_mapped_variable_8f90_source.html#l00012">12</a> of file <a class="el" href="_mapped_variable_8f90_source.html">MappedVariable.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: controller_id</div>
+<p class="definition">Definition at line <a class="el" href="_mapped_variable_8f90_source.html#l00014">14</a> of file <a class="el" href="_mapped_variable_8f90_source.html">MappedVariable.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: controller_id</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -380,8 +420,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_mapped_variable_8f90_source.html#l00018">18</a> of file <a class="el" href="_mapped_variable_8f90_source.html">MappedVariable.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: sign</div>
+<p class="definition">Definition at line <a class="el" href="_mapped_variable_8f90_source.html#l00024">24</a> of file <a class="el" href="_mapped_variable_8f90_source.html">MappedVariable.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: sign<span class="comment"> !&lt; optional sign (or null) to negate copied value</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -405,8 +445,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_mapped_variable_8f90_source.html#l00014">14</a> of file <a class="el" href="_mapped_variable_8f90_source.html">MappedVariable.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">type</span>(MemoryType), <span class="keywordtype">pointer</span> :: src</div>
+<p class="definition">Definition at line <a class="el" href="_mapped_variable_8f90_source.html#l00018">18</a> of file <a class="el" href="_mapped_variable_8f90_source.html">MappedVariable.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">type</span>(MemoryType), <span class="keywordtype">pointer</span> :: src<span class="comment"> !&lt; cached memory item</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -430,8 +470,58 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="_mapped_variable_8f90_source.html#l00022">22</a> of file <a class="el" href="_mapped_variable_8f90_source.html">MappedVariable.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: src_idx<span class="comment"> !&lt; source indexes to copy from</span></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a19b4bbddef23502ce560c7e85c14dc1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19b4bbddef23502ce560c7e85c14dc1f">&#9670;&nbsp;</a></span>src_name</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">character(len=lenvarname) mappedvariablemodule::mappedvariabletype::src_name</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
 <p class="definition">Definition at line <a class="el" href="_mapped_variable_8f90_source.html#l00016">16</a> of file <a class="el" href="_mapped_variable_8f90_source.html">MappedVariable.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: src_idx</div>
+<div class="fragment"><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">character(len=LENVARNAME)</span> :: src_name</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="adf08f4048dd4009f3d66a4b363aebc4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf08f4048dd4009f3d66a4b363aebc4b">&#9670;&nbsp;</a></span>src_path</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">character(len=lenmempath) mappedvariablemodule::mappedvariabletype::src_path</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_mapped_variable_8f90_source.html#l00017">17</a> of file <a class="el" href="_mapped_variable_8f90_source.html">MappedVariable.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">character(len=LENMEMPATH)</span> :: src_path</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -455,8 +545,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_mapped_variable_8f90_source.html#l00013">13</a> of file <a class="el" href="_mapped_variable_8f90_source.html">MappedVariable.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: sync_stage</div>
+<p class="definition">Definition at line <a class="el" href="_mapped_variable_8f90_source.html#l00015">15</a> of file <a class="el" href="_mapped_variable_8f90_source.html">MappedVariable.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: sync_stage</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -480,8 +570,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_mapped_variable_8f90_source.html#l00015">15</a> of file <a class="el" href="_mapped_variable_8f90_source.html">MappedVariable.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">type</span>(MemoryType), <span class="keywordtype">pointer</span> :: tgt</div>
+<p class="definition">Definition at line <a class="el" href="_mapped_variable_8f90_source.html#l00021">21</a> of file <a class="el" href="_mapped_variable_8f90_source.html">MappedVariable.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">type</span>(MemoryType), <span class="keywordtype">pointer</span> :: tgt<span class="comment"> !&lt; cached memory item</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -505,8 +595,58 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_mapped_variable_8f90_source.html#l00017">17</a> of file <a class="el" href="_mapped_variable_8f90_source.html">MappedVariable.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: tgt_idx</div>
+<p class="definition">Definition at line <a class="el" href="_mapped_variable_8f90_source.html#l00023">23</a> of file <a class="el" href="_mapped_variable_8f90_source.html">MappedVariable.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: tgt_idx<span class="comment"> !&lt; target indexes to copy to</span></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ad075329c47ee6fac8e0b999713da0a78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad075329c47ee6fac8e0b999713da0a78">&#9670;&nbsp;</a></span>tgt_name</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">character(len=lenvarname) mappedvariablemodule::mappedvariabletype::tgt_name</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_mapped_variable_8f90_source.html#l00019">19</a> of file <a class="el" href="_mapped_variable_8f90_source.html">MappedVariable.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">character(len=LENVARNAME)</span> :: tgt_name</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aa216bd8b5735c8a346cd79195e06970b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa216bd8b5735c8a346cd79195e06970b">&#9670;&nbsp;</a></span>tgt_path</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">character(len=lenmempath) mappedvariablemodule::mappedvariabletype::tgt_path</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_mapped_variable_8f90_source.html#l00020">20</a> of file <a class="el" href="_mapped_variable_8f90_source.html">MappedVariable.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">character(len=LENMEMPATH)</span> :: tgt_path</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -519,7 +659,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemappedvariablemodule.html">mappedvariablemodule</a></li><li class="navelem"><a class="el" href="structmappedvariablemodule_1_1mappedvariabletype.html">mappedvariabletype</a></li>
-    <li class="footer">Generated on Tue Oct 4 2022 07:01:38 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Oct 5 2022 15:37:07 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

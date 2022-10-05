@@ -135,14 +135,31 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:aa86fae723638af16fe090b0a8aae388b"><td class="memItemLeft" align="right" valign="top">integer(i4b)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcellwithnbrsmodule_1_1globalcelltype.html#aa86fae723638af16fe090b0a8aae388b">index</a></td></tr>
 <tr class="memdesc:aa86fae723638af16fe090b0a8aae388b"><td class="mdescLeft">&#160;</td><td class="mdescRight">the index on the model grid  <a href="structcellwithnbrsmodule_1_1globalcelltype.html#aa86fae723638af16fe090b0a8aae388b">More...</a><br /></td></tr>
 <tr class="separator:aa86fae723638af16fe090b0a8aae388b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39ec8a1992757a8a6c1d06a97c4a5a1d"><td class="memItemLeft" align="right" valign="top">class(numericalmodeltype), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcellwithnbrsmodule_1_1globalcelltype.html#a39ec8a1992757a8a6c1d06a97c4a5a1d">model</a> =&gt; null()</td></tr>
-<tr class="memdesc:a39ec8a1992757a8a6c1d06a97c4a5a1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">the model  <a href="structcellwithnbrsmodule_1_1globalcelltype.html#a39ec8a1992757a8a6c1d06a97c4a5a1d">More...</a><br /></td></tr>
-<tr class="separator:a39ec8a1992757a8a6c1d06a97c4a5a1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6ffc4ce0c2c577e48aa36b1e4422db6"><td class="memItemLeft" align="right" valign="top">class(distributedmodeltype), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcellwithnbrsmodule_1_1globalcelltype.html#ad6ffc4ce0c2c577e48aa36b1e4422db6">dmodel</a> =&gt; null()</td></tr>
+<tr class="memdesc:ad6ffc4ce0c2c577e48aa36b1e4422db6"><td class="mdescLeft">&#160;</td><td class="mdescRight">distributed model  <a href="structcellwithnbrsmodule_1_1globalcelltype.html#ad6ffc4ce0c2c577e48aa36b1e4422db6">More...</a><br /></td></tr>
+<tr class="separator:ad6ffc4ce0c2c577e48aa36b1e4422db6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_cell_with_nbrs_8f90_source.html#l00012">12</a> of file <a class="el" href="_cell_with_nbrs_8f90_source.html">CellWithNbrs.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_cell_with_nbrs_8f90_source.html#l00013">13</a> of file <a class="el" href="_cell_with_nbrs_8f90_source.html">CellWithNbrs.f90</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
+<a id="ad6ffc4ce0c2c577e48aa36b1e4422db6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6ffc4ce0c2c577e48aa36b1e4422db6">&#9670;&nbsp;</a></span>dmodel</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">class(distributedmodeltype), pointer cellwithnbrsmodule::globalcelltype::dmodel =&gt; null()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_cell_with_nbrs_8f90_source.html#l00015">15</a> of file <a class="el" href="_cell_with_nbrs_8f90_source.html">CellWithNbrs.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">class</span>(DistributedModelType), <span class="keywordtype">pointer</span> :: dmodel =&gt; null() <span class="comment">!&lt; distributed model</span></div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="aa86fae723638af16fe090b0a8aae388b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa86fae723638af16fe090b0a8aae388b">&#9670;&nbsp;</a></span>index</h2>
 
@@ -155,25 +172,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_cell_with_nbrs_8f90_source.html#l00013">13</a> of file <a class="el" href="_cell_with_nbrs_8f90_source.html">CellWithNbrs.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: index<span class="comment"> !&lt; the index on the model grid</span></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a39ec8a1992757a8a6c1d06a97c4a5a1d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a39ec8a1992757a8a6c1d06a97c4a5a1d">&#9670;&nbsp;</a></span>model</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">class(numericalmodeltype), pointer cellwithnbrsmodule::globalcelltype::model =&gt; null()</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
 <p class="definition">Definition at line <a class="el" href="_cell_with_nbrs_8f90_source.html#l00014">14</a> of file <a class="el" href="_cell_with_nbrs_8f90_source.html">CellWithNbrs.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType), <span class="keywordtype">pointer</span> :: model =&gt; null() <span class="comment">!&lt; the model</span></div>
+<div class="fragment"><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: index<span class="comment"> !&lt; the index on the model grid</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -186,7 +186,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacecellwithnbrsmodule.html">cellwithnbrsmodule</a></li><li class="navelem"><a class="el" href="structcellwithnbrsmodule_1_1globalcelltype.html">globalcelltype</a></li>
-    <li class="footer">Generated on Tue Oct 4 2022 07:01:31 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Oct 5 2022 15:37:00 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
