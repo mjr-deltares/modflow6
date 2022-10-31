@@ -134,6 +134,8 @@ Modules</h2></td></tr>
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a67d8cf4775770e7251d1207669a219f9"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfdisumodule.html#a67d8cf4775770e7251d1207669a219f9">gwfdisumodule::disu_cr</a> (dis, name_model, inunit, iout)</td></tr>
 <tr class="separator:a67d8cf4775770e7251d1207669a219f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0969d37f0887eb04aedc156a63ec072b"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfdisumodule.html#a0969d37f0887eb04aedc156a63ec072b">gwfdisumodule::disu_load</a> (this)</td></tr>
+<tr class="separator:a0969d37f0887eb04aedc156a63ec072b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a961f108ed707be4384a20e86de46f736"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfdisumodule.html#a961f108ed707be4384a20e86de46f736">gwfdisumodule::disu_df</a> (this)</td></tr>
 <tr class="separator:a961f108ed707be4384a20e86de46f736"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1339f451d27210471cfbeb8b89c8cd6f"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfdisumodule.html#a1339f451d27210471cfbeb8b89c8cd6f">gwfdisumodule::grid_finalize</a> (this)</td></tr>
@@ -146,18 +148,34 @@ Functions/Subroutines</h2></td></tr>
 <tr class="separator:a091a277055b84aafac850d68eca5f0a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a283dd3a899ab8e2ca2ff17237ef8919f"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfdisumodule.html#a283dd3a899ab8e2ca2ff17237ef8919f">gwfdisumodule::nodeu_to_array</a> (this, nodeu, arr)</td></tr>
 <tr class="separator:a283dd3a899ab8e2ca2ff17237ef8919f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d5c15d9a298d6548a8f78dc92441e74"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfdisumodule.html#a5d5c15d9a298d6548a8f78dc92441e74">gwfdisumodule::read_options</a> (this)</td></tr>
-<tr class="separator:a5d5c15d9a298d6548a8f78dc92441e74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abbf136a4c872847316e50da5d5457c10"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfdisumodule.html#abbf136a4c872847316e50da5d5457c10">gwfdisumodule::read_dimensions</a> (this)</td></tr>
-<tr class="separator:abbf136a4c872847316e50da5d5457c10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a767223996bb04ef60f380ce91e5c9a90"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfdisumodule.html#a767223996bb04ef60f380ce91e5c9a90">gwfdisumodule::read_mf6_griddata</a> (this)</td></tr>
-<tr class="separator:a767223996bb04ef60f380ce91e5c9a90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67e6f58cb0d7a71b9bacef14d611c147"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfdisumodule.html#a67e6f58cb0d7a71b9bacef14d611c147">gwfdisumodule::read_connectivity</a> (this)</td></tr>
-<tr class="separator:a67e6f58cb0d7a71b9bacef14d611c147"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47b26aa7b18ac3904308fcbc7993344f"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfdisumodule.html#a47b26aa7b18ac3904308fcbc7993344f">gwfdisumodule::read_vertices</a> (this)</td></tr>
-<tr class="separator:a47b26aa7b18ac3904308fcbc7993344f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc3b103ccd6e56113677b33609bc3422"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfdisumodule.html#afc3b103ccd6e56113677b33609bc3422">gwfdisumodule::read_cell2d</a> (this)</td></tr>
-<tr class="separator:afc3b103ccd6e56113677b33609bc3422"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a163d4223d6386b4d00d8836fabd8ff4b"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfdisumodule.html#a163d4223d6386b4d00d8836fabd8ff4b">gwfdisumodule::log_options</a> (this, afound)</td></tr>
+<tr class="memdesc:a163d4223d6386b4d00d8836fabd8ff4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write user options to list file.  <a href="namespacegwfdisumodule.html#a163d4223d6386b4d00d8836fabd8ff4b">More...</a><br /></td></tr>
+<tr class="separator:a163d4223d6386b4d00d8836fabd8ff4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af82cd42f2b14c1b071ab3b81bcca2cee"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfdisumodule.html#af82cd42f2b14c1b071ab3b81bcca2cee">gwfdisumodule::source_options</a> (this)</td></tr>
+<tr class="memdesc:af82cd42f2b14c1b071ab3b81bcca2cee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy options from IDM into package.  <a href="namespacegwfdisumodule.html#af82cd42f2b14c1b071ab3b81bcca2cee">More...</a><br /></td></tr>
+<tr class="separator:af82cd42f2b14c1b071ab3b81bcca2cee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a378974acf675ed33a2b8dfcb6ade69f5"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfdisumodule.html#a378974acf675ed33a2b8dfcb6ade69f5">gwfdisumodule::log_dimensions</a> (this, afound)</td></tr>
+<tr class="memdesc:a378974acf675ed33a2b8dfcb6ade69f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write dimensions to list file.  <a href="namespacegwfdisumodule.html#a378974acf675ed33a2b8dfcb6ade69f5">More...</a><br /></td></tr>
+<tr class="separator:a378974acf675ed33a2b8dfcb6ade69f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a344542af8b39490a2be159ef13828373"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfdisumodule.html#a344542af8b39490a2be159ef13828373">gwfdisumodule::source_dimensions</a> (this)</td></tr>
+<tr class="memdesc:a344542af8b39490a2be159ef13828373"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy dimensions from IDM into package.  <a href="namespacegwfdisumodule.html#a344542af8b39490a2be159ef13828373">More...</a><br /></td></tr>
+<tr class="separator:a344542af8b39490a2be159ef13828373"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7680c32495367470bcc8607e94ddfefe"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfdisumodule.html#a7680c32495367470bcc8607e94ddfefe">gwfdisumodule::log_griddata</a> (this, afound)</td></tr>
+<tr class="memdesc:a7680c32495367470bcc8607e94ddfefe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write griddata found to list file.  <a href="namespacegwfdisumodule.html#a7680c32495367470bcc8607e94ddfefe">More...</a><br /></td></tr>
+<tr class="separator:a7680c32495367470bcc8607e94ddfefe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af30e4212c9eefffe4109c17f7e256c58"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfdisumodule.html#af30e4212c9eefffe4109c17f7e256c58">gwfdisumodule::source_griddata</a> (this)</td></tr>
+<tr class="separator:af30e4212c9eefffe4109c17f7e256c58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2b4655604b65267d474dedea93bd748"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfdisumodule.html#aa2b4655604b65267d474dedea93bd748">gwfdisumodule::log_connectivity</a> (this, afound, iac)</td></tr>
+<tr class="memdesc:aa2b4655604b65267d474dedea93bd748"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write griddata found to list file.  <a href="namespacegwfdisumodule.html#aa2b4655604b65267d474dedea93bd748">More...</a><br /></td></tr>
+<tr class="separator:aa2b4655604b65267d474dedea93bd748"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf1da513072dfaefcd22927362bfb9db"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfdisumodule.html#aaf1da513072dfaefcd22927362bfb9db">gwfdisumodule::source_connectivity</a> (this)</td></tr>
+<tr class="separator:aaf1da513072dfaefcd22927362bfb9db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a420acf468a8d60615ead96212ad28a1e"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfdisumodule.html#a420acf468a8d60615ead96212ad28a1e">gwfdisumodule::source_vertices</a> (this)</td></tr>
+<tr class="separator:a420acf468a8d60615ead96212ad28a1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6719c20f87701f7dd2400fbc5ddd0757"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfdisumodule.html#a6719c20f87701f7dd2400fbc5ddd0757">gwfdisumodule::define_cellverts</a> (this, icell2d, ncvert, icvert)</td></tr>
+<tr class="separator:a6719c20f87701f7dd2400fbc5ddd0757"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08d1279ea5909fdd96938c30dfe86249"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfdisumodule.html#a08d1279ea5909fdd96938c30dfe86249">gwfdisumodule::source_cell2d</a> (this)</td></tr>
+<tr class="separator:a08d1279ea5909fdd96938c30dfe86249"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5b204e0cadd1b77c9677e8b5dd09b0e"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfdisumodule.html#ab5b204e0cadd1b77c9677e8b5dd09b0e">gwfdisumodule::write_grb</a> (this, icelltype)</td></tr>
 <tr class="separator:ab5b204e0cadd1b77c9677e8b5dd09b0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e6895996adde177bce95020a3518efa"><td class="memItemLeft" align="right" valign="top">integer(i4b) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfdisumodule.html#a6e6895996adde177bce95020a3518efa">gwfdisumodule::get_nodenumber_idx1</a> (this, nodeu, icheck)</td></tr>
@@ -200,7 +218,7 @@ Functions/Subroutines</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_32e188284d239da8bb14ec1dabb0c35f.html">Model</a></li><li class="navelem"><a class="el" href="dir_5aefb7a434fc869900e7ccf685166f81.html">GroundWaterFlow</a></li><li class="navelem"><a class="el" href="gwf3disu8_8f90.html">gwf3disu8.f90</a></li>
-    <li class="footer">Generated on Wed Oct 5 2022 15:37:00 for MODFLOW 6 by
+    <li class="footer">Generated on Mon Oct 31 2022 19:58:12 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -14,6 +14,8 @@ var gwt1dsp_8f90 =
     [ "dsp_df", "gwt1dsp_8f90.html#a45b63208da848cffcd4b444840b92e1e", null ],
     [ "dsp_fc", "gwt1dsp_8f90.html#a0fdb17a00fbbe83b6229ddec4237ac51", null ],
     [ "dsp_mc", "gwt1dsp_8f90.html#a4cda67dd0107367c065ef1a19e6b11e0", null ],
-    [ "read_data", "gwt1dsp_8f90.html#a72cebc6d6e7f6640975689a3542fde6e", null ],
-    [ "read_options", "gwt1dsp_8f90.html#af0bf7fa983b9e6890fae42e74c5457d9", null ]
+    [ "log_griddata", "gwt1dsp_8f90.html#ac954988b6949ac6254541a6737620787", null ],
+    [ "log_options", "gwt1dsp_8f90.html#a93b1df8d66662046b6b6de3676857e17", null ],
+    [ "source_griddata", "gwt1dsp_8f90.html#aa4ee49b8e27a71135173998c2facaf00", null ],
+    [ "source_options", "gwt1dsp_8f90.html#adf93d18fe45a4a6f7b31f216b90f733c", null ]
 ];

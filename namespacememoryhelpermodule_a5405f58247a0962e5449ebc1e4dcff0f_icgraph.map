@@ -35,18 +35,18 @@
 <area shape="rect" id="node34" href="$namespacegridconnectionmodule.html#a51ea2469018d3c02815e4c1e67e962a4" title="Construct the GridConnection and allocate the data structures for the primary connections." alt="" coords="260,1532,427,1573"/>
 <area shape="rect" id="node35" href="$namespacegwfcsubmodule.html#aadc0a0e9249722a2c4669507d5d073ac" title="@ brief Create a new package object" alt="" coords="252,1598,435,1625"/>
 <area shape="rect" id="node36" href="$namespacegwfmodule.html#a0cb07c0232ce3627b9120eb42e7e164f" title="Create a new groundwater flow model object." alt="" coords="28,1623,175,1650"/>
-<area shape="rect" id="node37" href="$namespacedrnmodule.html#adb1e33b478a85e63f7bc39db2b8ccec0" title=" " alt="" coords="259,1699,428,1726"/>
-<area shape="rect" id="node38" href="$namespaceevtmodule.html#a40c5e5dede94b4a79ba0917d8518798e" title=" " alt="" coords="259,1750,428,1777"/>
-<area shape="rect" id="node39" href="$namespacemf6bmigrid.html#a576ebe2e6fe82ce03bc4651345629873" title=" " alt="" coords="22,1823,181,1864"/>
-<area shape="rect" id="node40" href="$namespacemf6bmigrid.html#ad88efccd58e4838c717b0ba1aa59cd03" title=" " alt="" coords="264,1917,423,1959"/>
-<area shape="rect" id="node41" href="$namespacemf6bmigrid.html#ad2676805217059dd0dff87264a2dc510" title=" " alt="" coords="5,1954,197,1981"/>
-<area shape="rect" id="node42" href="$namespacemf6bmigrid.html#ad01b75893110495984c1615f208b9abd" title=" " alt="" coords="264,1852,423,1893"/>
-<area shape="rect" id="node43" href="$namespacemf6bmigrid.html#a304e7491c03e05d71c8fb1431f016770" title=" " alt="" coords="246,2034,441,2061"/>
-<area shape="rect" id="node44" href="$namespacemf6bmigrid.html#a5095eb86239dc8fbcbdb91d818936322" title=" " alt="" coords="264,2085,423,2127"/>
-<area shape="rect" id="node45" href="$namespacemf6bmigrid.html#afea0bc5291b3ce31f4109bfb07074366" title=" " alt="" coords="256,2151,431,2178"/>
-<area shape="rect" id="node46" href="$namespacemf6bmigrid.html#af44b2f8aff3d1d8f393ac2bba8242cb5" title=" " alt="" coords="256,2202,431,2229"/>
-<area shape="rect" id="node47" href="$namespacegridconnectionmodule.html#a87ac728c2f1d2e08efc0154afe01b01c" title="Helper function to get model names when ids are given." alt="" coords="260,2253,427,2295"/>
-<area shape="rect" id="node48" href="$namespaceghbmodule.html#a3d6d6999ad03785f86a66e6f09899500" title=" " alt="" coords="256,2319,431,2346"/>
-<area shape="rect" id="node49" href="$namespacegwfgwfexchangemodule.html#a48675d5bb4150882948c0844691ed446" title="@ brief Create GWF GWF exchange" alt="" coords="252,2371,435,2412"/>
-<area shape="rect" id="node50" href="$namespacegwfinterfacemodelmodule.html#a3a10d1462f3b13cb9dfff3831a24c9ac" title="set up the interface model, analogously to what" alt="" coords="247,2436,440,2477"/>
+<area shape="rect" id="node37" href="$namespacegwfdisumodule.html#a0969d37f0887eb04aedc156a63ec072b" title=" " alt="" coords="247,1699,439,1726"/>
+<area shape="rect" id="node38" href="$namespacedrnmodule.html#adb1e33b478a85e63f7bc39db2b8ccec0" title=" " alt="" coords="259,1750,428,1777"/>
+<area shape="rect" id="node39" href="$namespaceevtmodule.html#a40c5e5dede94b4a79ba0917d8518798e" title=" " alt="" coords="259,1801,428,1827"/>
+<area shape="rect" id="node40" href="$namespacemf6bmigrid.html#a576ebe2e6fe82ce03bc4651345629873" title=" " alt="" coords="22,1873,181,1915"/>
+<area shape="rect" id="node41" href="$namespacemf6bmigrid.html#ad88efccd58e4838c717b0ba1aa59cd03" title=" " alt="" coords="264,1968,423,2009"/>
+<area shape="rect" id="node42" href="$namespacemf6bmigrid.html#ad2676805217059dd0dff87264a2dc510" title=" " alt="" coords="5,2005,197,2031"/>
+<area shape="rect" id="node43" href="$namespacemf6bmigrid.html#ad01b75893110495984c1615f208b9abd" title=" " alt="" coords="264,1903,423,1944"/>
+<area shape="rect" id="node44" href="$namespacemf6bmigrid.html#a304e7491c03e05d71c8fb1431f016770" title=" " alt="" coords="246,2085,441,2111"/>
+<area shape="rect" id="node45" href="$namespacemf6bmigrid.html#a5095eb86239dc8fbcbdb91d818936322" title=" " alt="" coords="264,2136,423,2177"/>
+<area shape="rect" id="node46" href="$namespacemf6bmigrid.html#afea0bc5291b3ce31f4109bfb07074366" title=" " alt="" coords="256,2202,431,2229"/>
+<area shape="rect" id="node47" href="$namespacemf6bmigrid.html#af44b2f8aff3d1d8f393ac2bba8242cb5" title=" " alt="" coords="256,2253,431,2279"/>
+<area shape="rect" id="node48" href="$namespacegridconnectionmodule.html#a87ac728c2f1d2e08efc0154afe01b01c" title="Helper function to get model names when ids are given." alt="" coords="260,2304,427,2345"/>
+<area shape="rect" id="node49" href="$namespacemodflowinputmodule.html#a96884246c2590d186e12094253869c17" title="function to return ModflowInputType" alt="" coords="263,2369,423,2411"/>
+<area shape="rect" id="node50" href="$namespaceghbmodule.html#a3d6d6999ad03785f86a66e6f09899500" title=" " alt="" coords="256,2435,431,2462"/>
 </map>

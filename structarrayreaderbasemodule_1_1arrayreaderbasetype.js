@@ -1,0 +1,25 @@
+var structarrayreaderbasemodule_1_1arrayreaderbasetype =
+[
+    [ "apply_factor", "structarrayreaderbasemodule_1_1arrayreaderbasetype.html#a2ffb36388e5c7f64b9ae29452f45ae43", null ],
+    [ "fill_constant", "structarrayreaderbasemodule_1_1arrayreaderbasetype.html#a56c316500f820c967be10b35451cfe63", null ],
+    [ "fill_internal", "structarrayreaderbasemodule_1_1arrayreaderbasetype.html#a40e236127286795f7c0a8665b4697689", null ],
+    [ "fill_open_close", "structarrayreaderbasemodule_1_1arrayreaderbasetype.html#a6fd98bb4e3ab2671da173d2dc221b656", null ],
+    [ "open_file", "structarrayreaderbasemodule_1_1arrayreaderbasetype.html#a678a24eee076847df3e17d2ffc1861dc", null ],
+    [ "read_array", "structarrayreaderbasemodule_1_1arrayreaderbasetype.html#a57b5926ee7daa66f9c1d8cfa8c6eee6b", null ],
+    [ "read_ascii", "structarrayreaderbasemodule_1_1arrayreaderbasetype.html#a9987de41e094de7582ce0918b0862288", null ],
+    [ "read_binary", "structarrayreaderbasemodule_1_1arrayreaderbasetype.html#a0079578ad554036d6f6e431742867e6f", null ],
+    [ "read_control_record", "structarrayreaderbasemodule_1_1arrayreaderbasetype.html#ab24e9022c05855626b2e8ad2ecd427f2", null ],
+    [ "reset_reader", "structarrayreaderbasemodule_1_1arrayreaderbasetype.html#ac654f1e2f6aafd154317b12a87506113", null ],
+    [ "set_constant", "structarrayreaderbasemodule_1_1arrayreaderbasetype.html#aef657efc1ffefb64b7b5219baaef465e", null ],
+    [ "set_factor", "structarrayreaderbasemodule_1_1arrayreaderbasetype.html#acbfe60316e9a294bb2e5dba1b8f988a5", null ],
+    [ "array_name", "structarrayreaderbasemodule_1_1arrayreaderbasetype.html#af7b524c832b889c94565ba6a27daeb92", null ],
+    [ "filename", "structarrayreaderbasemodule_1_1arrayreaderbasetype.html#a4c5b6f9e0d94a0607c2bf742f475aa56", null ],
+    [ "input_unit", "structarrayreaderbasemodule_1_1arrayreaderbasetype.html#adcfe1de98545dab2e5a019496e0b9c9d", null ],
+    [ "iout", "structarrayreaderbasemodule_1_1arrayreaderbasetype.html#aac7c7c26def763c6d8fc88fe1903eee2", null ],
+    [ "iprn", "structarrayreaderbasemodule_1_1arrayreaderbasetype.html#a35d503ae51ef253ac434b46fbb1d2632", null ],
+    [ "isbinary", "structarrayreaderbasemodule_1_1arrayreaderbasetype.html#a2971421a094b9736c0246d2c12babf64", null ],
+    [ "isconstant", "structarrayreaderbasemodule_1_1arrayreaderbasetype.html#a992c69c2a90350df61d5d27453b3bc99", null ],
+    [ "isinternal", "structarrayreaderbasemodule_1_1arrayreaderbasetype.html#ad924cebb4d449799b011d766ab20cb47", null ],
+    [ "isopenclose", "structarrayreaderbasemodule_1_1arrayreaderbasetype.html#a85e2c253cae64fbc020499498f06f339", null ],
+    [ "parser", "structarrayreaderbasemodule_1_1arrayreaderbasetype.html#abc6eda110ea3accaa9d8d91747d5e838", null ]
+];

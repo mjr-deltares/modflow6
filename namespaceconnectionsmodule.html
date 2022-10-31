@@ -154,8 +154,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="separator:a5ec816424541c14a28fb1519227337be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21d880222e0a0fc5ed3406d88455bd9f"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconnectionsmodule.html#a21d880222e0a0fc5ed3406d88455bd9f">set_mask</a> (this, ipos, maskval)</td></tr>
 <tr class="separator:a21d880222e0a0fc5ed3406d88455bd9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5ec77a2e261fe49e2a68eaea281ad5f"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconnectionsmodule.html#ae5ec77a2e261fe49e2a68eaea281ad5f">iac_to_ia</a> (ia)</td></tr>
-<tr class="separator:ae5ec77a2e261fe49e2a68eaea281ad5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c3e443aa986cd704f1ee2300d8a1c8d"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconnectionsmodule.html#a2c3e443aa986cd704f1ee2300d8a1c8d">iac_to_ia</a> (iac, ia)</td></tr>
+<tr class="separator:a2c3e443aa986cd704f1ee2300d8a1c8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function/Subroutine Documentation</h2>
 <a id="a78886dfcef7b94849091918b0f650a94"></a>
@@ -1692,8 +1692,8 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="ae5ec77a2e261fe49e2a68eaea281ad5f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae5ec77a2e261fe49e2a68eaea281ad5f">&#9670;&nbsp;</a></span>iac_to_ia()</h2>
+<a id="a2c3e443aa986cd704f1ee2300d8a1c8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c3e443aa986cd704f1ee2300d8a1c8d">&#9670;&nbsp;</a></span>iac_to_ia()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1701,9 +1701,19 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">subroutine, public connectionsmodule::iac_to_ia </td>
           <td>(</td>
-          <td class="paramtype">integer(i4b), dimension(:), intent(inout), contiguous&#160;</td>
-          <td class="paramname"><em>ia</em></td><td>)</td>
+          <td class="paramtype">integer(i4b), dimension(:), intent(in), pointer, contiguous&#160;</td>
+          <td class="paramname"><em>iac</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">integer(i4b), dimension(:), intent(inout), contiguous&#160;</td>
+          <td class="paramname"><em>ia</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1716,30 +1726,36 @@ Here is the caller graph for this function:</div>
 <div class="line"><a name="l01328"></a><span class="lineno"> 1328</span>&#160;<span class="comment">!    SPECIFICATIONS:</span></div>
 <div class="line"><a name="l01329"></a><span class="lineno"> 1329</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l01330"></a><span class="lineno"> 1330</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l01331"></a><span class="lineno"> 1331</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">contiguous</span>, <span class="keywordtype">intent(inout)</span> :: ia</div>
-<div class="line"><a name="l01332"></a><span class="lineno"> 1332</span>&#160;    <span class="comment">! -- local</span></div>
-<div class="line"><a name="l01333"></a><span class="lineno"> 1333</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: n, nodes</div>
-<div class="line"><a name="l01334"></a><span class="lineno"> 1334</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l01335"></a><span class="lineno"> 1335</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l01336"></a><span class="lineno"> 1336</span>&#160;    <span class="comment">! -- Convert iac to ia</span></div>
-<div class="line"><a name="l01337"></a><span class="lineno"> 1337</span>&#160;    nodes = <span class="keyword">size</span>(ia) - 1</div>
-<div class="line"><a name="l01338"></a><span class="lineno"> 1338</span>&#160;    <span class="keywordflow">do</span> n = 2, nodes + 1</div>
-<div class="line"><a name="l01339"></a><span class="lineno"> 1339</span>&#160;      ia(n) = ia(n) + ia(n - 1)</div>
-<div class="line"><a name="l01340"></a><span class="lineno"> 1340</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l01341"></a><span class="lineno"> 1341</span>&#160;    <span class="keywordflow">do</span> n = nodes + 1, 2, -1</div>
-<div class="line"><a name="l01342"></a><span class="lineno"> 1342</span>&#160;      ia(n) = ia(n - 1) + 1</div>
-<div class="line"><a name="l01343"></a><span class="lineno"> 1343</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l01344"></a><span class="lineno"> 1344</span>&#160;    ia(1) = 1</div>
-<div class="line"><a name="l01345"></a><span class="lineno"> 1345</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l01346"></a><span class="lineno"> 1346</span>&#160;    <span class="comment">! -- return</span></div>
-<div class="line"><a name="l01347"></a><span class="lineno"> 1347</span>&#160;    <span class="keywordflow">return</span></div>
+<div class="line"><a name="l01331"></a><span class="lineno"> 1331</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">contiguous</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(in)</span> :: iac</div>
+<div class="line"><a name="l01332"></a><span class="lineno"> 1332</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">contiguous</span>, <span class="keywordtype">intent(inout)</span> :: ia</div>
+<div class="line"><a name="l01333"></a><span class="lineno"> 1333</span>&#160;    <span class="comment">! -- local</span></div>
+<div class="line"><a name="l01334"></a><span class="lineno"> 1334</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: n, nodes</div>
+<div class="line"><a name="l01335"></a><span class="lineno"> 1335</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l01336"></a><span class="lineno"> 1336</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l01337"></a><span class="lineno"> 1337</span>&#160;    <span class="comment">! -- Convert iac to ia</span></div>
+<div class="line"><a name="l01338"></a><span class="lineno"> 1338</span>&#160;    nodes = <span class="keyword">size</span>(iac)</div>
+<div class="line"><a name="l01339"></a><span class="lineno"> 1339</span>&#160;    ia(1) = iac(1)</div>
+<div class="line"><a name="l01340"></a><span class="lineno"> 1340</span>&#160;    <span class="keywordflow">do</span> n = 2, <span class="keyword">size</span>(ia) <span class="comment">! size(ia) == size(iac) + 1</span></div>
+<div class="line"><a name="l01341"></a><span class="lineno"> 1341</span>&#160;      <span class="keywordflow">if</span> (n &lt; <span class="keyword">size</span>(ia)) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l01342"></a><span class="lineno"> 1342</span>&#160;        ia(n) = iac(n) + ia(n - 1)</div>
+<div class="line"><a name="l01343"></a><span class="lineno"> 1343</span>&#160;      <span class="keywordflow">else</span></div>
+<div class="line"><a name="l01344"></a><span class="lineno"> 1344</span>&#160;        ia(n) = ia(n) + ia(n - 1)</div>
+<div class="line"><a name="l01345"></a><span class="lineno"> 1345</span>&#160;<span class="keywordflow">      end if</span></div>
+<div class="line"><a name="l01346"></a><span class="lineno"> 1346</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l01347"></a><span class="lineno"> 1347</span>&#160;    <span class="keywordflow">do</span> n = nodes + 1, 2, -1</div>
+<div class="line"><a name="l01348"></a><span class="lineno"> 1348</span>&#160;      ia(n) = ia(n - 1) + 1</div>
+<div class="line"><a name="l01349"></a><span class="lineno"> 1349</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l01350"></a><span class="lineno"> 1350</span>&#160;    ia(1) = 1</div>
+<div class="line"><a name="l01351"></a><span class="lineno"> 1351</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l01352"></a><span class="lineno"> 1352</span>&#160;    <span class="comment">! -- return</span></div>
+<div class="line"><a name="l01353"></a><span class="lineno"> 1353</span>&#160;    <span class="keywordflow">return</span></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="namespaceconnectionsmodule_ae5ec77a2e261fe49e2a68eaea281ad5f_icgraph.png" border="0" usemap="#namespaceconnectionsmodule_ae5ec77a2e261fe49e2a68eaea281ad5f_icgraph" alt=""/></div>
-<map name="namespaceconnectionsmodule_ae5ec77a2e261fe49e2a68eaea281ad5f_icgraph" id="namespaceconnectionsmodule_ae5ec77a2e261fe49e2a68eaea281ad5f_icgraph">
-<area shape="rect" title=" " alt="" coords="212,5,369,47"/>
-<area shape="rect" href="namespacegwfdisumodule.html#a67e6f58cb0d7a71b9bacef14d611c147" title=" " alt="" coords="5,5,164,47"/>
+<div class="center"><img src="namespaceconnectionsmodule_a2c3e443aa986cd704f1ee2300d8a1c8d_icgraph.png" border="0" usemap="#namespaceconnectionsmodule_a2c3e443aa986cd704f1ee2300d8a1c8d_icgraph" alt=""/></div>
+<map name="namespaceconnectionsmodule_a2c3e443aa986cd704f1ee2300d8a1c8d_icgraph" id="namespaceconnectionsmodule_a2c3e443aa986cd704f1ee2300d8a1c8d_icgraph">
+<area shape="rect" title=" " alt="" coords="227,5,384,47"/>
+<area shape="rect" href="namespacegwfdisumodule.html#aaf1da513072dfaefcd22927362bfb9db" title=" " alt="" coords="5,5,179,47"/>
 </map>
 </div>
 
@@ -2383,7 +2399,7 @@ Here is the caller graph for this function:</div>
 <div class="ttc" id="ainterfacememorymanagermodule_1_1mem__allocate_html"><div class="ttname"><a href="interfacememorymanagermodule_1_1mem__allocate.html">memorymanagermodule::mem_allocate</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00050">MemoryManager.f90:50</a></div></div>
 <div class="ttc" id="anamespaceinputoutputmodule_html"><div class="ttname"><a href="namespaceinputoutputmodule.html">inputoutputmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_input_output_8f90_source.html#l00003">InputOutput.f90:3</a></div></div>
 <div class="ttc" id="ainterfacememorymanagermodule_1_1mem__setptr_html"><div class="ttname"><a href="interfacememorymanagermodule_1_1mem__setptr.html">memorymanagermodule::mem_setptr</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00083">MemoryManager.f90:83</a></div></div>
-<div class="ttc" id="anamespaceinputoutputmodule_html_a22620cf6624502feca9621056c5c161a"><div class="ttname"><a href="namespaceinputoutputmodule.html#a22620cf6624502feca9621056c5c161a">inputoutputmodule::get_node</a></div><div class="ttdeci">integer(i4b) function, public get_node(ilay, irow, icol, nlay, nrow, ncol)</div><div class="ttdef"><b>Definition:</b> <a href="_input_output_8f90_source.html#l01452">InputOutput.f90:1452</a></div></div>
+<div class="ttc" id="anamespaceinputoutputmodule_html_a22620cf6624502feca9621056c5c161a"><div class="ttname"><a href="namespaceinputoutputmodule.html#a22620cf6624502feca9621056c5c161a">inputoutputmodule::get_node</a></div><div class="ttdeci">integer(i4b) function, public get_node(ilay, irow, icol, nlay, nrow, ncol)</div><div class="ttdef"><b>Definition:</b> <a href="_input_output_8f90_source.html#l01461">InputOutput.f90:1461</a></div></div>
 <div class="ttc" id="anamespaceconstantsmodule_html"><div class="ttname"><a href="namespaceconstantsmodule.html">constantsmodule</a></div><div class="ttdoc">This module contains simulation constants.</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00009">Constants.f90:9</a></div></div>
 <div class="ttc" id="anamespaceconstantsmodule_html_a4ee8967493137bb95d5b78dc3a77feba"><div class="ttname"><a href="namespaceconstantsmodule.html#a4ee8967493137bb95d5b78dc3a77feba">constantsmodule::dnodata</a></div><div class="ttdeci">real(dp), parameter dnodata</div><div class="ttdoc">real no data constant</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00091">Constants.f90:91</a></div></div>
 <div class="ttc" id="ainterfacememorymanagermodule_1_1mem__deallocate_html"><div class="ttname"><a href="interfacememorymanagermodule_1_1mem__deallocate.html">memorymanagermodule::mem_deallocate</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00116">MemoryManager.f90:116</a></div></div>
@@ -2395,7 +2411,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceconnectionsmodule.html">connectionsmodule</a></li>
-    <li class="footer">Generated on Wed Oct 5 2022 15:37:00 for MODFLOW 6 by
+    <li class="footer">Generated on Mon Oct 31 2022 19:58:12 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

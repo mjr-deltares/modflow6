@@ -1,0 +1,11 @@
+<map id="double2dreadermodule::read_binary" name="double2dreadermodule::read_binary">
+<area shape="rect" id="node1" title=" " alt="" coords="5,61,179,102"/>
+<area shape="rect" id="node2" href="$namespacearrayreadersmodule.html#a24beb7e42330f13e0a1832c1d0e486ff" title=" " alt="" coords="227,61,385,102"/>
+<area shape="rect" id="node3" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="449,43,624,69"/>
+<area shape="rect" id="node9" href="$namespacesimmodule.html#a83910ed20af1fec9bdf46cad8c276538" title="Store the file unit number." alt="" coords="433,93,640,120"/>
+<area shape="rect" id="node4" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="688,68,827,95"/>
+<area shape="rect" id="node5" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="875,27,1043,69"/>
+<area shape="rect" id="node8" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="875,93,1043,134"/>
+<area shape="rect" id="node6" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="1091,5,1285,32"/>
+<area shape="rect" id="node7" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1104,57,1272,98"/>
+</map>

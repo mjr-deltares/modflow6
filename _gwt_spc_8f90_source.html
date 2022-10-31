@@ -496,412 +496,413 @@ $(document).ready(function(){initNavTree('_gwt_spc_8f90_source.html',''); initRe
 <div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;      <span class="comment">!</span></div>
 <div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;      <span class="comment">! -- get period block</span></div>
 <div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;      <span class="keyword">call </span>this%parser%GetBlock(<span class="stringliteral">&#39;PERIOD&#39;</span>, isfound, ierr, &amp;</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;                                supportopenclose=.true.)</div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;      <span class="keywordflow">if</span> (isfound) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;        <span class="comment">!</span></div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;        <span class="comment">! -- read ionper and check for increasing period numbers</span></div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;        <span class="keyword">call </span>this%read_check_ionper()</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;      <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;        <span class="comment">!</span></div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;        <span class="comment">! -- PERIOD block not found</span></div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;        <span class="keywordflow">if</span> (ierr &lt; 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;          <span class="comment">! -- End of file found; data applies for remainder of simulation.</span></div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;          this%ionper = <a class="code" href="namespacetdismodule.html#afd8781393621765a2e864a230a23da50">nper</a> + 1</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;          <span class="comment">! -- Found invalid block</span></div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;          <span class="keyword">call </span>this%parser%GetCurrentLine(line)</div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;          <span class="keyword">write</span> (<a class="code" href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">errmsg</a>, fmtblkerr) adjustl(trim(line))</div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;          <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(<a class="code" href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">errmsg</a>, terminate=.true.)</div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;<span class="keywordflow">        end if</span></div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;<span class="keywordflow">      end if</span></div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;    <span class="comment">! -- Read data if ionper == kper</span></div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    <span class="keywordflow">if</span> (this%ionper == <a class="code" href="namespacetdismodule.html#ae84d6ee69d7bba12d20a6255a398935b">kper</a>) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;      <span class="comment">!</span></div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;      <span class="comment">! -- Remove all time-series and time-array-series links associated with</span></div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;      <span class="comment">!    this package.</span></div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;      <span class="comment">!    Do not reset as we are using a &quot;settings&quot; approach here in which the</span></div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;      <span class="comment">!    settings remain the same until the user changes them.</span></div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;      <span class="comment">! call this%TsManager%Reset(this%packName)</span></div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;      <span class="keyword">call </span>this%TasManager%Reset(this%packName)</div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;      <span class="keywordflow">if</span> (this%readasarrays) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;        <span class="keyword">call </span>this%spc_rp_array(line)</div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;      <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;        <span class="keyword">call </span>this%spc_rp_list()</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;<span class="keywordflow">      end if</span></div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;      <span class="comment">!</span></div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;      <span class="comment">! -- using data from the last stress period</span></div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;      <span class="keyword">write</span> (this%iout, fmtlsp) trim(<a class="code" href="namespacegwtspcmodule.html#a5b6bed553f3301b2516b927e58d2a805">ftype</a>)</div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;    <span class="comment">! -- write summary of maw well stress period error messages</span></div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="namespacesimmodule.html#a4c46e49de78d4498dd4ec106357775e6">count_errors</a>() &gt; 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;      <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;    <span class="comment">! -- return</span></div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacegwtspcmodule.html#ad07b17cfe5fef345a7537d2b30f58612">spc_rp</a></div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;<span class="comment">  !&gt; @ brief spc_rp_list</span></div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;<span class="comment">  !!</span></div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;<span class="comment">  !!  Read the stress period data in list format</span></div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;<span class="comment">  !!</span></div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;<span class="comment">  !&lt;</span></div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacegwtspcmodule.html#a0d9b98c32b91759a999e6c64e1fd15d3">spc_rp_list</a>(this)</div>
-<div class="line"><a name="l00439"></a><span class="lineno"><a class="line" href="namespacegwtspcmodule.html#a0d9b98c32b91759a999e6c64e1fd15d3">  439</a></span>&#160;    <span class="comment">! -- modules</span></div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacetdismodule.html">tdismodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacetdismodule.html#ae84d6ee69d7bba12d20a6255a398935b">kper</a></div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structgwtspcmodule_1_1gwtspctype.html">gwtspctype</a>), <span class="keywordtype">intent(inout)</span> :: this<span class="comment"> !&lt; GwtSpcType object</span></div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;    <span class="comment">! -- local</span></div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;    <span class="keywordtype">character(len=LINELENGTH)</span> :: line</div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;    <span class="keywordtype">character(len=LINELENGTH)</span> :: title</div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;    <span class="keywordtype">character(len=LINELENGTH)</span> :: tabletext</div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;    <span class="keywordtype">logical</span> :: endOfBlock</div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: ival</div>
-<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;                                supportopenclose=.true., &amp;</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;                                blockrequired=.false.)</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;      <span class="keywordflow">if</span> (isfound) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;        <span class="comment">!</span></div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;        <span class="comment">! -- read ionper and check for increasing period numbers</span></div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;        <span class="keyword">call </span>this%read_check_ionper()</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;      <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;        <span class="comment">!</span></div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;        <span class="comment">! -- PERIOD block not found</span></div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;        <span class="keywordflow">if</span> (ierr &lt; 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;          <span class="comment">! -- End of file found; data applies for remainder of simulation.</span></div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;          this%ionper = <a class="code" href="namespacetdismodule.html#afd8781393621765a2e864a230a23da50">nper</a> + 1</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;          <span class="comment">! -- Found invalid block</span></div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;          <span class="keyword">call </span>this%parser%GetCurrentLine(line)</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;          <span class="keyword">write</span> (<a class="code" href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">errmsg</a>, fmtblkerr) adjustl(trim(line))</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;          <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(<a class="code" href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">errmsg</a>, terminate=.true.)</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;<span class="keywordflow">        end if</span></div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;<span class="keywordflow">      end if</span></div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    <span class="comment">! -- Read data if ionper == kper</span></div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;    <span class="keywordflow">if</span> (this%ionper == <a class="code" href="namespacetdismodule.html#ae84d6ee69d7bba12d20a6255a398935b">kper</a>) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;      <span class="comment">!</span></div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;      <span class="comment">! -- Remove all time-series and time-array-series links associated with</span></div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;      <span class="comment">!    this package.</span></div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;      <span class="comment">!    Do not reset as we are using a &quot;settings&quot; approach here in which the</span></div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;      <span class="comment">!    settings remain the same until the user changes them.</span></div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;      <span class="comment">! call this%TsManager%Reset(this%packName)</span></div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;      <span class="keyword">call </span>this%TasManager%Reset(this%packName)</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;      <span class="keywordflow">if</span> (this%readasarrays) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;        <span class="keyword">call </span>this%spc_rp_array(line)</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;      <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;        <span class="keyword">call </span>this%spc_rp_list()</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;<span class="keywordflow">      end if</span></div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;      <span class="comment">!</span></div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;      <span class="comment">! -- using data from the last stress period</span></div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;      <span class="keyword">write</span> (this%iout, fmtlsp) trim(<a class="code" href="namespacegwtspcmodule.html#a5b6bed553f3301b2516b927e58d2a805">ftype</a>)</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;    <span class="comment">! -- write summary of maw well stress period error messages</span></div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="namespacesimmodule.html#a4c46e49de78d4498dd4ec106357775e6">count_errors</a>() &gt; 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;      <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;    <span class="comment">! -- return</span></div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;    <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacegwtspcmodule.html#ad07b17cfe5fef345a7537d2b30f58612">spc_rp</a></div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;<span class="comment">  !&gt; @ brief spc_rp_list</span></div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;<span class="comment">  !!</span></div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;<span class="comment">  !!  Read the stress period data in list format</span></div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;<span class="comment">  !!</span></div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;<span class="comment">  !&lt;</span></div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacegwtspcmodule.html#a0d9b98c32b91759a999e6c64e1fd15d3">spc_rp_list</a>(this)</div>
+<div class="line"><a name="l00440"></a><span class="lineno"><a class="line" href="namespacegwtspcmodule.html#a0d9b98c32b91759a999e6c64e1fd15d3">  440</a></span>&#160;    <span class="comment">! -- modules</span></div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacetdismodule.html">tdismodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacetdismodule.html#ae84d6ee69d7bba12d20a6255a398935b">kper</a></div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;    <span class="comment">! -- dummy</span></div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structgwtspcmodule_1_1gwtspctype.html">gwtspctype</a>), <span class="keywordtype">intent(inout)</span> :: this<span class="comment"> !&lt; GwtSpcType object</span></div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;    <span class="comment">! -- local</span></div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;    <span class="keywordtype">character(len=LINELENGTH)</span> :: line</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;    <span class="keywordtype">character(len=LINELENGTH)</span> :: title</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;    <span class="keywordtype">character(len=LINELENGTH)</span> :: tabletext</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;    <span class="keywordtype">logical</span> :: endOfBlock</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: ival</div>
 <div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;    <span class="comment">! -- setup table for period data</span></div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;    <span class="keywordflow">if</span> (this%iprpak /= 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;      <span class="comment">!</span></div>
-<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;      <span class="comment">! -- reset the input table object</span></div>
-<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;      title = trim(adjustl(<a class="code" href="namespacegwtspcmodule.html#ab6581fb6035d7c94f92405c312b4d9f9">text</a>))//<span class="stringliteral">&#39; PACKAGE (&#39;</span>// &amp;</div>
-<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;              <span class="stringliteral">&#39;SPC&#39;</span>//<span class="stringliteral">&#39;) DATA FOR PERIOD&#39;</span></div>
-<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;      <span class="keyword">write</span> (title, <span class="stringliteral">&#39;(a,1x,i6)&#39;</span>) trim(adjustl(title)), <a class="code" href="namespacetdismodule.html#ae84d6ee69d7bba12d20a6255a398935b">kper</a></div>
-<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacetablemodule.html#a7632d784ec9e94277a76705ef56725f2">table_cr</a>(this%inputtab, <a class="code" href="namespacegwtspcmodule.html#a5b6bed553f3301b2516b927e58d2a805">ftype</a>, title)</div>
-<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;      <span class="keyword">call </span>this%inputtab%table_df(1, 3, this%iout, finalize=.false.)</div>
-<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;      tabletext = <span class="stringliteral">&#39;NUMBER&#39;</span></div>
-<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;      <span class="keyword">call </span>this%inputtab%initialize_column(tabletext, 10, alignment=<a class="code" href="namespaceconstantsmodule.html#a71ca6c4361b908f3fc476b67e1ea3558a883db0b9eda65642c49b625055be8dac">tabcenter</a>)</div>
-<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;      tabletext = <span class="stringliteral">&#39;DATA TYPE&#39;</span></div>
-<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;      <span class="keyword">call </span>this%inputtab%initialize_column(tabletext, 20, alignment=<a class="code" href="namespaceconstantsmodule.html#a71ca6c4361b908f3fc476b67e1ea3558add793922614b244e637762bb8590cc4a">tableft</a>)</div>
-<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;      <span class="keyword">write</span> (tabletext, <span class="stringliteral">&#39;(a,1x,i6)&#39;</span>) <span class="stringliteral">&#39;VALUE&#39;</span></div>
-<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;      <span class="keyword">call </span>this%inputtab%initialize_column(tabletext, 15, alignment=<a class="code" href="namespaceconstantsmodule.html#a71ca6c4361b908f3fc476b67e1ea3558a883db0b9eda65642c49b625055be8dac">tabcenter</a>)</div>
-<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;    <span class="comment">! -- read data</span></div>
-<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;    <span class="keywordflow">do</span></div>
-<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;      <span class="keyword">call </span>this%parser%GetNextLine(endofblock)</div>
-<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;      <span class="keywordflow">if</span> (endofblock) <span class="keywordflow">exit</span></div>
-<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160; </div>
-<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;      ival = this%parser%GetInteger()</div>
-<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;      <span class="keywordflow">if</span> (ival &lt; 1 .or. ival &gt; this%maxbound) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;        <span class="keyword">write</span> (<a class="code" href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">errmsg</a>, <span class="stringliteral">&#39;(2(a,1x),i0,a)&#39;</span>) &amp;</div>
-<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;          <span class="stringliteral">&#39;IVAL must be greater than 0 and&#39;</span>, &amp;</div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;          <span class="stringliteral">&#39;less than or equal to &#39;</span>, this%maxbound, <span class="stringliteral">&#39;.&#39;</span></div>
-<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;        <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(<a class="code" href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">errmsg</a>)</div>
-<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;        cycle</div>
-<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;<span class="keywordflow">      end if</span></div>
-<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;      <span class="comment">!</span></div>
-<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;      <span class="comment">! -- set stress period data</span></div>
-<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;      <span class="keyword">call </span>this%set_value(ival)</div>
-<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;      <span class="comment">!</span></div>
-<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;      <span class="comment">! -- write line to table</span></div>
-<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;      <span class="keywordflow">if</span> (this%iprpak /= 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;        <span class="keyword">call </span>this%parser%GetCurrentLine(line)</div>
-<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;        <span class="keyword">call </span>this%inputtab%line_to_columns(line)</div>
-<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;<span class="keywordflow">      end if</span></div>
-<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;    <span class="comment">! -- finalize the table</span></div>
-<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;    <span class="keywordflow">if</span> (this%iprpak /= 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;      <span class="keyword">call </span>this%inputtab%finalize_table()</div>
-<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;    <span class="comment">! -- return</span></div>
-<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacegwtspcmodule.html#a0d9b98c32b91759a999e6c64e1fd15d3">spc_rp_list</a></div>
-<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;<span class="comment">  !&gt; @ brief spc_rp_array</span></div>
-<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;<span class="comment">  !!</span></div>
-<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;<span class="comment">  !!  Read the stress period data in array format</span></div>
-<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;<span class="comment">  !!</span></div>
-<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;<span class="comment">  !&lt;</span></div>
-<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacegwtspcmodule.html#a7c6dabffa7376daac7759cb789a78fd6">spc_rp_array</a>(this, line)</div>
-<div class="line"><a name="l00507"></a><span class="lineno"><a class="line" href="namespacegwtspcmodule.html#a7c6dabffa7376daac7759cb789a78fd6">  507</a></span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceconstantsmodule.html">constantsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceconstantsmodule.html#a72b9f98f14e6bc10dae320dfd4f56dfb">lentimeseriesname</a></div>
-<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacesimmodule.html">simmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a></div>
-<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacearrayhandlersmodule.html">arrayhandlersmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="interfacearrayhandlersmodule_1_1ifind.html">ifind</a></div>
-<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structgwtspcmodule_1_1gwtspctype.html">gwtspctype</a>), <span class="keywordtype">intent(inout)</span> :: this<span class="comment"> !&lt; GwtSpcType object</span></div>
-<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;    <span class="keywordtype">character(len=LINELENGTH)</span>, <span class="keywordtype">intent(inout)</span> :: line</div>
-<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;    <span class="comment">! -- local</span></div>
-<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: n</div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: ncolbnd</div>
-<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: jauxcol, ivarsread</div>
-<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">allocatable</span>, <span class="keywordtype">target</span> :: nodelist</div>
-<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;    <span class="keywordtype">character(len=LENTIMESERIESNAME)</span> :: tasName</div>
-<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;    <span class="keywordtype">character(len=24)</span>, <span class="keywordtype">dimension(1)</span> :: aname</div>
-<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;    <span class="keywordtype">character(len=LINELENGTH)</span> :: keyword</div>
-<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;    <span class="keywordtype">logical</span> :: endOfBlock</div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;    <span class="keywordtype">logical</span> :: convertFlux</div>
-<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;    <span class="comment">! -- these time array series pointers need to be non-contiguous</span></div>
-<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;    <span class="comment">!    beacuse a slice of bound is passed</span></div>
-<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: bndArrayPtr =&gt; null()</div>
-<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;    <span class="comment">! -- formats</span></div>
-<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;    <span class="comment">! -- data</span></div>
-<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;    <span class="keyword">data</span> aname(1)/<span class="stringliteral">&#39;           CONCENTRATION&#39;</span>/</div>
-<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;    <span class="comment">! -- Initialize</span></div>
-<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;    jauxcol = 0</div>
-<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;    ivarsread = 0</div>
-<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;    ncolbnd = 1</div>
-<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;    <span class="keyword">allocate</span> (nodelist(this%maxbound))</div>
-<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;    <span class="keywordflow">do</span> n = 1, <span class="keyword">size</span>(nodelist)</div>
-<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;      nodelist(n) = n</div>
-<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;    <span class="comment">! -- Read CONCENTRATION variables as arrays</span></div>
-<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;    <span class="keyword">call </span>this%parser%GetNextLine(endofblock)</div>
-<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;    <span class="keywordflow">if</span> (endofblock) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(<span class="stringliteral">&#39;LOOKING FOR CONCENTRATION.  FOUND: &#39;</span>//trim(line))</div>
-<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;      <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
-<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;    <span class="keyword">call </span>this%parser%GetStringCaps(keyword)</div>
-<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;    <span class="comment">! -- Parse the keywords</span></div>
-<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;    <span class="keywordflow">select case</span> (keyword)</div>
-<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;    <span class="keywordflow">case</span> (<span class="stringliteral">&#39;CONCENTRATION&#39;</span>)</div>
-<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;      <span class="comment">!</span></div>
-<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;      <span class="comment">! -- Look for keyword TIMEARRAYSERIES and time-array series</span></div>
-<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;      <span class="comment">!    name on line, following RECHARGE</span></div>
-<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;      <span class="keyword">call </span>this%parser%GetStringCaps(keyword)</div>
-<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;      <span class="keywordflow">if</span> (keyword == <span class="stringliteral">&#39;TIMEARRAYSERIES&#39;</span>) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;        <span class="comment">! -- Get time-array series name</span></div>
-<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;        <span class="keyword">call </span>this%parser%GetStringCaps(tasname)</div>
-<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;        bndarrayptr =&gt; this%dblvec(:)</div>
-<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;        <span class="comment">! Make a time-array-series link and add it to the list of links</span></div>
-<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;        <span class="comment">! contained in the TimeArraySeriesManagerType object.</span></div>
-<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;        convertflux = .false.</div>
-<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;        <span class="keyword">call </span>this%TasManager%MakeTasLink(this%packName, bndarrayptr, &amp;</div>
-<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;                                         this%iprpak, tasname, <span class="stringliteral">&#39;CONCENTRATION&#39;</span>, &amp;</div>
-<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;                                         convertflux, nodelist, &amp;</div>
-<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;                                         this%parser%iuactive)</div>
-<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;      <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;        <span class="comment">!</span></div>
-<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;        <span class="comment">! -- Read the concentration array</span></div>
-<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;        <span class="keyword">call </span>this%dis%read_layer_array(nodelist, this%dblvec, ncolbnd, &amp;</div>
-<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;                                       this%maxbound, 1, aname(1), &amp;</div>
-<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;                                       this%parser%iuactive, this%iout)</div>
-<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;<span class="keywordflow">      end if</span></div>
-<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;      <span class="comment">!</span></div>
-<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;<span class="keywordflow">    case default</span></div>
-<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(<span class="stringliteral">&#39;LOOKING FOR CONCENTRATION.  FOUND: &#39;</span>//trim(line))</div>
-<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;      <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
-<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;<span class="keywordflow">    end select</span></div>
-<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacegwtspcmodule.html#a7c6dabffa7376daac7759cb789a78fd6">spc_rp_array</a></div>
-<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;<span class="comment">  !&gt; @ brief Advance</span></div>
-<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;<span class="comment">  !!</span></div>
-<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;<span class="comment">  !!  Call the advance method on the time series so that new values</span></div>
-<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;<span class="comment">  !!  are interpolated and entered into dblvec</span></div>
-<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;<span class="comment">  !!</span></div>
-<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;<span class="comment">  !&lt;</span></div>
-<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacegwtspcmodule.html#a62bf5c20221ce94dc6ee5ddebf4ad522">spc_ad</a>(this, nbound_flowpack, budtxt)</div>
-<div class="line"><a name="l00591"></a><span class="lineno"><a class="line" href="namespacegwtspcmodule.html#a62bf5c20221ce94dc6ee5ddebf4ad522">  591</a></span>&#160;    <span class="comment">! -- modules</span></div>
-<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structgwtspcmodule_1_1gwtspctype.html">gwtspctype</a>), <span class="keywordtype">intent(inout)</span> :: this<span class="comment"> !&lt; GwtSpcType object</span></div>
-<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: nbound_flowpack</div>
-<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: budtxt</div>
-<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;    <span class="comment">! -- local</span></div>
-<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;    <span class="comment">! -- Advance the time series</span></div>
-<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;    <span class="keyword">call </span>this%TsManager%ad()</div>
-<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;    <span class="keyword">call </span>this%TasManager%ad()</div>
-<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;    <span class="comment">! -- Check flow package consistency</span></div>
-<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;    <span class="keyword">call </span>this%check_flow_package(nbound_flowpack, budtxt)</div>
-<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;    <span class="comment">! -- return</span></div>
-<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacegwtspcmodule.html#a62bf5c20221ce94dc6ee5ddebf4ad522">spc_ad</a></div>
-<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;<span class="comment">  !&gt; @ brief Deallocate variables</span></div>
-<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;<span class="comment">  !!</span></div>
-<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;<span class="comment">  !!  Deallocate and nullify package variables.</span></div>
-<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;<span class="comment">  !!</span></div>
-<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;<span class="comment">  !&lt;</span></div>
-<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacegwtspcmodule.html#ad29d142ef5364491fc1606cdf19e24d7">spc_da</a>(this)</div>
-<div class="line"><a name="l00615"></a><span class="lineno"><a class="line" href="namespacegwtspcmodule.html#ad29d142ef5364491fc1606cdf19e24d7">  615</a></span>&#160;    <span class="comment">! -- modules</span></div>
-<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacememorymanagermodule.html">memorymanagermodule</a>, <span class="keywordtype">only</span>: <a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a></div>
-<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;    <span class="comment">! -- dummy variables</span></div>
-<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structgwtspcmodule_1_1gwtspctype.html">gwtspctype</a>) :: this<span class="comment"> !&lt; GwtSpcType object</span></div>
-<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;    <span class="comment">! -- deallocate arrays in memory manager</span></div>
-<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%dblvec)</div>
-<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;    <span class="comment">! -- deallocate scalars in memory manager</span></div>
-<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%id)</div>
-<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%inunit)</div>
-<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%iout)</div>
-<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%maxbound)</div>
-<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%ionper)</div>
-<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%lastonper)</div>
-<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%iprpak)</div>
-<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%readasarrays)</div>
-<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;    <span class="comment">! -- deallocate derived types</span></div>
-<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;    <span class="keyword">call </span>this%TsManager%da()</div>
-<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;    <span class="keyword">deallocate</span> (this%TsManager)</div>
-<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;    <span class="keyword">nullify</span> (this%TsManager)</div>
-<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;    <span class="comment">! -- return</span></div>
-<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacegwtspcmodule.html#ad29d142ef5364491fc1606cdf19e24d7">spc_da</a></div>
-<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;<span class="comment">  !&gt; @ brief Check ionper</span></div>
-<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;<span class="comment">  !!</span></div>
-<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;<span class="comment">  !!  Generic method to read and check ionperiod, which is used to determine</span></div>
-<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;<span class="comment">  !!  if new period data should be read from the input file. The check of</span></div>
-<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;<span class="comment">  !!  ionperiod also makes sure periods are increasing in subsequent period</span></div>
-<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;<span class="comment">  !!  data blocks.  Copied from NumericalPackage</span></div>
-<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;<span class="comment">  !!</span></div>
-<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;<span class="comment">  !&lt;</span></div>
-<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacegwtspcmodule.html#ad955fb8bbd9c00819c294a3504b0957c">read_check_ionper</a>(this)</div>
-<div class="line"><a name="l00651"></a><span class="lineno"><a class="line" href="namespacegwtspcmodule.html#ad955fb8bbd9c00819c294a3504b0957c">  651</a></span>&#160;    <span class="comment">! -- modules</span></div>
-<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacetdismodule.html">tdismodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacetdismodule.html#ae84d6ee69d7bba12d20a6255a398935b">kper</a></div>
-<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;    <span class="comment">! -- dummy variables</span></div>
-<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structgwtspcmodule_1_1gwtspctype.html">gwtspctype</a>), <span class="keywordtype">intent(inout)</span> :: this<span class="comment"> !&lt; GwtSpcType object</span></div>
-<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;    <span class="comment">! -- save last value and read period number</span></div>
-<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;    this%lastonper = this%ionper</div>
-<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;    this%ionper = this%parser%GetInteger()</div>
-<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;    <span class="comment">! -- make check</span></div>
-<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;    <span class="keywordflow">if</span> (this%ionper &lt;= this%lastonper) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;      <span class="keyword">write</span> (<a class="code" href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">errmsg</a>, <span class="stringliteral">&#39;(a, i0)&#39;</span>) &amp;</div>
-<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;        <span class="stringliteral">&#39;ERROR IN STRESS PERIOD &#39;</span>, <a class="code" href="namespacetdismodule.html#ae84d6ee69d7bba12d20a6255a398935b">kper</a></div>
-<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(<a class="code" href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">errmsg</a>)</div>
-<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;      <span class="keyword">write</span> (<a class="code" href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">errmsg</a>, <span class="stringliteral">&#39;(a, i0)&#39;</span>) &amp;</div>
-<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;        <span class="stringliteral">&#39;PERIOD NUMBERS NOT INCREASING.  FOUND &#39;</span>, this%ionper</div>
-<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(<a class="code" href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">errmsg</a>)</div>
-<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;      <span class="keyword">write</span> (<a class="code" href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">errmsg</a>, <span class="stringliteral">&#39;(a, i0)&#39;</span>) &amp;</div>
-<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;        <span class="stringliteral">&#39;BUT LAST PERIOD BLOCK WAS ASSIGNED &#39;</span>, this%lastonper</div>
-<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(<a class="code" href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">errmsg</a>)</div>
-<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;      <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
-<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;    <span class="comment">! -- return</span></div>
-<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacegwtspcmodule.html#ad955fb8bbd9c00819c294a3504b0957c">read_check_ionper</a></div>
-<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;<span class="comment">  !&gt; @ brief Set the data value from the input file</span></div>
-<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;<span class="comment">  !!</span></div>
-<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;<span class="comment">  !!  Set the floating point value in the dblvec array using strings</span></div>
-<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;<span class="comment">  !!  returned from the parser.  Allow for time series names.</span></div>
-<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;<span class="comment">  !!</span></div>
-<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;<span class="comment">  !&lt;</span></div>
-<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacegwtspcmodule.html#a1323af96da5c4e47afacaa6e290686bb">set_value</a>(this, ival)</div>
-<div class="line"><a name="l00685"></a><span class="lineno"><a class="line" href="namespacegwtspcmodule.html#a1323af96da5c4e47afacaa6e290686bb">  685</a></span>&#160;    <span class="comment">! -- modules</span></div>
-<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacetimeseriesmanagermodule.html">timeseriesmanagermodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacetimeseriesmanagermodule.html#a2075a4c123cb1167bfbdaaf4ceae7666">read_value_or_time_series_adv</a></div>
-<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structgwtspcmodule_1_1gwtspctype.html">gwtspctype</a>), <span class="keywordtype">intent(inout)</span> :: this<span class="comment"> !&lt; GwtSpcType object</span></div>
-<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: ival</div>
-<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;    <span class="comment">! -- local</span></div>
-<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;    <span class="keywordtype">character(len=LINELENGTH)</span> :: keyword</div>
-<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: jj</div>
-<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">pointer</span> :: bndElem =&gt; null()</div>
-<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;    <span class="comment">! -- read remainder of variables on the line</span></div>
-<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;    <span class="keyword">call </span>this%parser%GetStringCaps(keyword)</div>
-<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;    <span class="keywordflow">select case</span> (keyword)</div>
-<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;    <span class="keywordflow">case</span> (<span class="stringliteral">&#39;CONCENTRATION&#39;</span>)</div>
-<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;      <span class="keyword">call </span>this%parser%GetString(<a class="code" href="namespacegwtspcmodule.html#ab6581fb6035d7c94f92405c312b4d9f9">text</a>)</div>
-<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;      jj = 1 <span class="comment">! For CONCENTRATION</span></div>
-<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;      bndelem =&gt; this%dblvec(ival)</div>
-<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacetimeseriesmanagermodule.html#a2075a4c123cb1167bfbdaaf4ceae7666">read_value_or_time_series_adv</a>(<a class="code" href="namespacegwtspcmodule.html#ab6581fb6035d7c94f92405c312b4d9f9">text</a>, ival, jj, bndelem, this%packName, &amp;</div>
-<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;                                         <span class="stringliteral">&#39;BND&#39;</span>, this%tsManager, this%iprpak, &amp;</div>
-<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;                                         <span class="stringliteral">&#39;CONCENTRATION&#39;</span>)</div>
-<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160; </div>
-<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;<span class="keywordflow">    end select</span></div>
-<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacegwtspcmodule.html#a1323af96da5c4e47afacaa6e290686bb">set_value</a></div>
-<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;<span class="comment">  !&gt; @ brief check_flow_package</span></div>
-<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;<span class="comment">  !!</span></div>
-<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;<span class="comment">  !!  Check to make sure that flow package information is consistent</span></div>
-<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;<span class="comment">  !!  with this SPC information.</span></div>
-<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;<span class="comment">  !!</span></div>
-<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;<span class="comment">  !&lt;</span></div>
-<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacegwtspcmodule.html#ac8f2837cf3b40188c2ebdb80830c3cdf">check_flow_package</a>(this, nbound_flowpack, budtxt)</div>
-<div class="line"><a name="l00717"></a><span class="lineno"><a class="line" href="namespacegwtspcmodule.html#ac8f2837cf3b40188c2ebdb80830c3cdf">  717</a></span>&#160;    <span class="comment">! -- modules</span></div>
-<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structgwtspcmodule_1_1gwtspctype.html">gwtspctype</a>), <span class="keywordtype">intent(inout)</span> :: this<span class="comment"> !&lt; GwtSpcType object</span></div>
-<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: nbound_flowpack</div>
-<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: budtxt</div>
-<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;    <span class="comment">! -- local</span></div>
-<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;    <span class="comment">! -- Check and make sure MAXBOUND is not less than nbound_flowpack</span></div>
-<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;    <span class="keywordflow">if</span> (this%maxbound &lt; nbound_flowpack) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;      <span class="keyword">write</span> (<a class="code" href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">errmsg</a>, <span class="stringliteral">&#39;(a, a, a, i0, a, i0, a)&#39;</span>) &amp;</div>
-<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;            <span class="stringliteral">&#39;The SPC Package corresponding to flow package &#39;</span>, &amp;</div>
-<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;            trim(this%packNameFlow), &amp;</div>
-<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;            <span class="stringliteral">&#39; has MAXBOUND set less than the number of boundaries &amp;</span></div>
-<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;<span class="stringliteral"></span><span class="stringliteral">            &amp;active in this package.  Found MAXBOUND equal &#39;</span>, &amp;</div>
-<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;            this%maxbound, &amp;</div>
-<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;            <span class="stringliteral">&#39; and number of flow boundaries (NBOUND) equal &#39;</span>, &amp;</div>
-<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;            nbound_flowpack, &amp;</div>
-<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;            <span class="stringliteral">&#39;. Increase MAXBOUND in the SPC input file for this package.&#39;</span></div>
-<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(<a class="code" href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">errmsg</a>)</div>
-<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;      <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
-<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;    <span class="comment">! -- If budtxt is RCHA or EVTA, then readasarrays must be used, otherwise</span></div>
-<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;    <span class="comment">!    readasarrays cannot be used</span></div>
-<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;    <span class="keywordflow">select case</span> (trim(adjustl(budtxt)))</div>
-<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;    <span class="keywordflow">case</span> (<span class="stringliteral">&#39;RCHA&#39;</span>)</div>
-<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;      <span class="keywordflow">if</span> (.not. this%readasarrays) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;        <span class="keyword">write</span> (<a class="code" href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">errmsg</a>, <span class="stringliteral">&#39;(a, a, a)&#39;</span>) &amp;</div>
-<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;          <span class="stringliteral">&#39;Array-based recharge must be used with array-based stress package &amp;</span></div>
-<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;<span class="stringliteral"></span><span class="stringliteral">          &amp;concentrations.  GWF Package &#39;</span>, trim(this%packNameFlow), <span class="stringliteral">&#39; is being &amp;</span></div>
-<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;<span class="stringliteral"></span><span class="stringliteral">          &amp;used with list-based SPC6 input.  Use array-based SPC6 input instead.&#39;</span></div>
-<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;        <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(<a class="code" href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">errmsg</a>)</div>
-<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;        <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
-<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;<span class="keywordflow">      end if</span></div>
-<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;    <span class="keywordflow">case</span> (<span class="stringliteral">&#39;EVTA&#39;</span>)</div>
-<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;      <span class="keywordflow">if</span> (.not. this%readasarrays) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;        <span class="keyword">write</span> (<a class="code" href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">errmsg</a>, <span class="stringliteral">&#39;(a, a, a)&#39;</span>) &amp;</div>
-<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;          <span class="stringliteral">&#39;Array-based evapotranspiration must be used with array-based stress &amp;</span></div>
-<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;<span class="stringliteral"></span><span class="stringliteral">          &amp;package concentrations.  GWF Package &#39;</span>, trim(this%packNameFlow), &amp;</div>
-<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;          &amp;<span class="stringliteral">&#39; is being used with list-based SPC6 input.  Use array-based SPC6 &amp;</span></div>
-<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;<span class="stringliteral"></span><span class="stringliteral">          &amp;input instead.&#39;</span></div>
-<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;        <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(<a class="code" href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">errmsg</a>)</div>
-<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;        <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
-<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;<span class="keywordflow">      end if</span></div>
-<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;<span class="keywordflow">    case default</span></div>
-<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;      <span class="keywordflow">if</span> (this%readasarrays) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;        <span class="keyword">write</span> (<a class="code" href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">errmsg</a>, <span class="stringliteral">&#39;(a, a, a)&#39;</span>) &amp;</div>
-<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;          <span class="stringliteral">&#39;List-based packages must be used with list-based stress &amp;</span></div>
-<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;<span class="stringliteral"></span><span class="stringliteral">          &amp;package concentrations.  GWF Package &#39;</span>, trim(this%packNameFlow), &amp;</div>
-<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;          &amp;<span class="stringliteral">&#39; is being used with array-based SPC6 input.  Use list-based SPC6 &amp;</span></div>
-<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;<span class="stringliteral"></span><span class="stringliteral">          &amp;input instead.&#39;</span></div>
-<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;        <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(<a class="code" href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">errmsg</a>)</div>
-<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;        <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
-<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;<span class="keywordflow">      end if</span></div>
-<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;<span class="keywordflow">    end select</span></div>
-<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;    <span class="comment">! -- return</span></div>
-<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacegwtspcmodule.html#ac8f2837cf3b40188c2ebdb80830c3cdf">check_flow_package</a></div>
-<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160; </div>
-<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;<span class="keyword">end module </span><a class="code" href="namespacegwtspcmodule.html">gwtspcmodule</a></div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;    <span class="comment">! -- setup table for period data</span></div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;    <span class="keywordflow">if</span> (this%iprpak /= 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;      <span class="comment">!</span></div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;      <span class="comment">! -- reset the input table object</span></div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;      title = trim(adjustl(<a class="code" href="namespacegwtspcmodule.html#ab6581fb6035d7c94f92405c312b4d9f9">text</a>))//<span class="stringliteral">&#39; PACKAGE (&#39;</span>// &amp;</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;              <span class="stringliteral">&#39;SPC&#39;</span>//<span class="stringliteral">&#39;) DATA FOR PERIOD&#39;</span></div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;      <span class="keyword">write</span> (title, <span class="stringliteral">&#39;(a,1x,i6)&#39;</span>) trim(adjustl(title)), <a class="code" href="namespacetdismodule.html#ae84d6ee69d7bba12d20a6255a398935b">kper</a></div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacetablemodule.html#a7632d784ec9e94277a76705ef56725f2">table_cr</a>(this%inputtab, <a class="code" href="namespacegwtspcmodule.html#a5b6bed553f3301b2516b927e58d2a805">ftype</a>, title)</div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;      <span class="keyword">call </span>this%inputtab%table_df(1, 3, this%iout, finalize=.false.)</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;      tabletext = <span class="stringliteral">&#39;NUMBER&#39;</span></div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;      <span class="keyword">call </span>this%inputtab%initialize_column(tabletext, 10, alignment=<a class="code" href="namespaceconstantsmodule.html#a71ca6c4361b908f3fc476b67e1ea3558a883db0b9eda65642c49b625055be8dac">tabcenter</a>)</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;      tabletext = <span class="stringliteral">&#39;DATA TYPE&#39;</span></div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;      <span class="keyword">call </span>this%inputtab%initialize_column(tabletext, 20, alignment=<a class="code" href="namespaceconstantsmodule.html#a71ca6c4361b908f3fc476b67e1ea3558add793922614b244e637762bb8590cc4a">tableft</a>)</div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;      <span class="keyword">write</span> (tabletext, <span class="stringliteral">&#39;(a,1x,i6)&#39;</span>) <span class="stringliteral">&#39;VALUE&#39;</span></div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;      <span class="keyword">call </span>this%inputtab%initialize_column(tabletext, 15, alignment=<a class="code" href="namespaceconstantsmodule.html#a71ca6c4361b908f3fc476b67e1ea3558a883db0b9eda65642c49b625055be8dac">tabcenter</a>)</div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;    <span class="comment">! -- read data</span></div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;    <span class="keywordflow">do</span></div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;      <span class="keyword">call </span>this%parser%GetNextLine(endofblock)</div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;      <span class="keywordflow">if</span> (endofblock) <span class="keywordflow">exit</span></div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160; </div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;      ival = this%parser%GetInteger()</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;      <span class="keywordflow">if</span> (ival &lt; 1 .or. ival &gt; this%maxbound) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;        <span class="keyword">write</span> (<a class="code" href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">errmsg</a>, <span class="stringliteral">&#39;(2(a,1x),i0,a)&#39;</span>) &amp;</div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;          <span class="stringliteral">&#39;IVAL must be greater than 0 and&#39;</span>, &amp;</div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;          <span class="stringliteral">&#39;less than or equal to &#39;</span>, this%maxbound, <span class="stringliteral">&#39;.&#39;</span></div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;        <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(<a class="code" href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">errmsg</a>)</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;        cycle</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;<span class="keywordflow">      end if</span></div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;      <span class="comment">!</span></div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;      <span class="comment">! -- set stress period data</span></div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;      <span class="keyword">call </span>this%set_value(ival)</div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;      <span class="comment">!</span></div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;      <span class="comment">! -- write line to table</span></div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;      <span class="keywordflow">if</span> (this%iprpak /= 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;        <span class="keyword">call </span>this%parser%GetCurrentLine(line)</div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;        <span class="keyword">call </span>this%inputtab%line_to_columns(line)</div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;<span class="keywordflow">      end if</span></div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;    <span class="comment">! -- finalize the table</span></div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;    <span class="keywordflow">if</span> (this%iprpak /= 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;      <span class="keyword">call </span>this%inputtab%finalize_table()</div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;    <span class="comment">! -- return</span></div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;    <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacegwtspcmodule.html#a0d9b98c32b91759a999e6c64e1fd15d3">spc_rp_list</a></div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;<span class="comment">  !&gt; @ brief spc_rp_array</span></div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;<span class="comment">  !!</span></div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;<span class="comment">  !!  Read the stress period data in array format</span></div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;<span class="comment">  !!</span></div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;<span class="comment">  !&lt;</span></div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacegwtspcmodule.html#a7c6dabffa7376daac7759cb789a78fd6">spc_rp_array</a>(this, line)</div>
+<div class="line"><a name="l00508"></a><span class="lineno"><a class="line" href="namespacegwtspcmodule.html#a7c6dabffa7376daac7759cb789a78fd6">  508</a></span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceconstantsmodule.html">constantsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceconstantsmodule.html#a72b9f98f14e6bc10dae320dfd4f56dfb">lentimeseriesname</a></div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacesimmodule.html">simmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a></div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacearrayhandlersmodule.html">arrayhandlersmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="interfacearrayhandlersmodule_1_1ifind.html">ifind</a></div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;    <span class="comment">! -- dummy</span></div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structgwtspcmodule_1_1gwtspctype.html">gwtspctype</a>), <span class="keywordtype">intent(inout)</span> :: this<span class="comment"> !&lt; GwtSpcType object</span></div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;    <span class="keywordtype">character(len=LINELENGTH)</span>, <span class="keywordtype">intent(inout)</span> :: line</div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;    <span class="comment">! -- local</span></div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: n</div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: ncolbnd</div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: jauxcol, ivarsread</div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">allocatable</span>, <span class="keywordtype">target</span> :: nodelist</div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;    <span class="keywordtype">character(len=LENTIMESERIESNAME)</span> :: tasName</div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;    <span class="keywordtype">character(len=24)</span>, <span class="keywordtype">dimension(1)</span> :: aname</div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;    <span class="keywordtype">character(len=LINELENGTH)</span> :: keyword</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;    <span class="keywordtype">logical</span> :: endOfBlock</div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;    <span class="keywordtype">logical</span> :: convertFlux</div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;    <span class="comment">! -- these time array series pointers need to be non-contiguous</span></div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;    <span class="comment">!    beacuse a slice of bound is passed</span></div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: bndArrayPtr =&gt; null()</div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;    <span class="comment">! -- formats</span></div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;    <span class="comment">! -- data</span></div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;    <span class="keyword">data</span> aname(1)/<span class="stringliteral">&#39;           CONCENTRATION&#39;</span>/</div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;    <span class="comment">! -- Initialize</span></div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;    jauxcol = 0</div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;    ivarsread = 0</div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;    ncolbnd = 1</div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;    <span class="keyword">allocate</span> (nodelist(this%maxbound))</div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;    <span class="keywordflow">do</span> n = 1, <span class="keyword">size</span>(nodelist)</div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;      nodelist(n) = n</div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;    <span class="comment">! -- Read CONCENTRATION variables as arrays</span></div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;    <span class="keyword">call </span>this%parser%GetNextLine(endofblock)</div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;    <span class="keywordflow">if</span> (endofblock) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(<span class="stringliteral">&#39;LOOKING FOR CONCENTRATION.  FOUND: &#39;</span>//trim(line))</div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;      <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;    <span class="keyword">call </span>this%parser%GetStringCaps(keyword)</div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;    <span class="comment">! -- Parse the keywords</span></div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;    <span class="keywordflow">select case</span> (keyword)</div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;    <span class="keywordflow">case</span> (<span class="stringliteral">&#39;CONCENTRATION&#39;</span>)</div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;      <span class="comment">!</span></div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;      <span class="comment">! -- Look for keyword TIMEARRAYSERIES and time-array series</span></div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;      <span class="comment">!    name on line, following RECHARGE</span></div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;      <span class="keyword">call </span>this%parser%GetStringCaps(keyword)</div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;      <span class="keywordflow">if</span> (keyword == <span class="stringliteral">&#39;TIMEARRAYSERIES&#39;</span>) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;        <span class="comment">! -- Get time-array series name</span></div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;        <span class="keyword">call </span>this%parser%GetStringCaps(tasname)</div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;        bndarrayptr =&gt; this%dblvec(:)</div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;        <span class="comment">! Make a time-array-series link and add it to the list of links</span></div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;        <span class="comment">! contained in the TimeArraySeriesManagerType object.</span></div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;        convertflux = .false.</div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;        <span class="keyword">call </span>this%TasManager%MakeTasLink(this%packName, bndarrayptr, &amp;</div>
+<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;                                         this%iprpak, tasname, <span class="stringliteral">&#39;CONCENTRATION&#39;</span>, &amp;</div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;                                         convertflux, nodelist, &amp;</div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;                                         this%parser%iuactive)</div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;      <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;        <span class="comment">!</span></div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;        <span class="comment">! -- Read the concentration array</span></div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;        <span class="keyword">call </span>this%dis%read_layer_array(nodelist, this%dblvec, ncolbnd, &amp;</div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;                                       this%maxbound, 1, aname(1), &amp;</div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;                                       this%parser%iuactive, this%iout)</div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;<span class="keywordflow">      end if</span></div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;      <span class="comment">!</span></div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;<span class="keywordflow">    case default</span></div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(<span class="stringliteral">&#39;LOOKING FOR CONCENTRATION.  FOUND: &#39;</span>//trim(line))</div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;      <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;<span class="keywordflow">    end select</span></div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;    <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacegwtspcmodule.html#a7c6dabffa7376daac7759cb789a78fd6">spc_rp_array</a></div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;<span class="comment">  !&gt; @ brief Advance</span></div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;<span class="comment">  !!</span></div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;<span class="comment">  !!  Call the advance method on the time series so that new values</span></div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;<span class="comment">  !!  are interpolated and entered into dblvec</span></div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;<span class="comment">  !!</span></div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;<span class="comment">  !&lt;</span></div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacegwtspcmodule.html#a62bf5c20221ce94dc6ee5ddebf4ad522">spc_ad</a>(this, nbound_flowpack, budtxt)</div>
+<div class="line"><a name="l00592"></a><span class="lineno"><a class="line" href="namespacegwtspcmodule.html#a62bf5c20221ce94dc6ee5ddebf4ad522">  592</a></span>&#160;    <span class="comment">! -- modules</span></div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;    <span class="comment">! -- dummy</span></div>
+<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structgwtspcmodule_1_1gwtspctype.html">gwtspctype</a>), <span class="keywordtype">intent(inout)</span> :: this<span class="comment"> !&lt; GwtSpcType object</span></div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: nbound_flowpack</div>
+<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: budtxt</div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;    <span class="comment">! -- local</span></div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;    <span class="comment">! -- Advance the time series</span></div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;    <span class="keyword">call </span>this%TsManager%ad()</div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;    <span class="keyword">call </span>this%TasManager%ad()</div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;    <span class="comment">! -- Check flow package consistency</span></div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;    <span class="keyword">call </span>this%check_flow_package(nbound_flowpack, budtxt)</div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;    <span class="comment">! -- return</span></div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;    <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacegwtspcmodule.html#a62bf5c20221ce94dc6ee5ddebf4ad522">spc_ad</a></div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;<span class="comment">  !&gt; @ brief Deallocate variables</span></div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;<span class="comment">  !!</span></div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;<span class="comment">  !!  Deallocate and nullify package variables.</span></div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;<span class="comment">  !!</span></div>
+<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;<span class="comment">  !&lt;</span></div>
+<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacegwtspcmodule.html#ad29d142ef5364491fc1606cdf19e24d7">spc_da</a>(this)</div>
+<div class="line"><a name="l00616"></a><span class="lineno"><a class="line" href="namespacegwtspcmodule.html#ad29d142ef5364491fc1606cdf19e24d7">  616</a></span>&#160;    <span class="comment">! -- modules</span></div>
+<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacememorymanagermodule.html">memorymanagermodule</a>, <span class="keywordtype">only</span>: <a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a></div>
+<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;    <span class="comment">! -- dummy variables</span></div>
+<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structgwtspcmodule_1_1gwtspctype.html">gwtspctype</a>) :: this<span class="comment"> !&lt; GwtSpcType object</span></div>
+<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;    <span class="comment">! -- deallocate arrays in memory manager</span></div>
+<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%dblvec)</div>
+<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;    <span class="comment">! -- deallocate scalars in memory manager</span></div>
+<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%id)</div>
+<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%inunit)</div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%iout)</div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%maxbound)</div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%ionper)</div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%lastonper)</div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%iprpak)</div>
+<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%readasarrays)</div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;    <span class="comment">! -- deallocate derived types</span></div>
+<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;    <span class="keyword">call </span>this%TsManager%da()</div>
+<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;    <span class="keyword">deallocate</span> (this%TsManager)</div>
+<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;    <span class="keyword">nullify</span> (this%TsManager)</div>
+<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;    <span class="comment">! -- return</span></div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;    <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacegwtspcmodule.html#ad29d142ef5364491fc1606cdf19e24d7">spc_da</a></div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;<span class="comment">  !&gt; @ brief Check ionper</span></div>
+<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;<span class="comment">  !!</span></div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;<span class="comment">  !!  Generic method to read and check ionperiod, which is used to determine</span></div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;<span class="comment">  !!  if new period data should be read from the input file. The check of</span></div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;<span class="comment">  !!  ionperiod also makes sure periods are increasing in subsequent period</span></div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;<span class="comment">  !!  data blocks.  Copied from NumericalPackage</span></div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;<span class="comment">  !!</span></div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;<span class="comment">  !&lt;</span></div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacegwtspcmodule.html#ad955fb8bbd9c00819c294a3504b0957c">read_check_ionper</a>(this)</div>
+<div class="line"><a name="l00652"></a><span class="lineno"><a class="line" href="namespacegwtspcmodule.html#ad955fb8bbd9c00819c294a3504b0957c">  652</a></span>&#160;    <span class="comment">! -- modules</span></div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacetdismodule.html">tdismodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacetdismodule.html#ae84d6ee69d7bba12d20a6255a398935b">kper</a></div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;    <span class="comment">! -- dummy variables</span></div>
+<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structgwtspcmodule_1_1gwtspctype.html">gwtspctype</a>), <span class="keywordtype">intent(inout)</span> :: this<span class="comment"> !&lt; GwtSpcType object</span></div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;    <span class="comment">! -- save last value and read period number</span></div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;    this%lastonper = this%ionper</div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;    this%ionper = this%parser%GetInteger()</div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;    <span class="comment">! -- make check</span></div>
+<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;    <span class="keywordflow">if</span> (this%ionper &lt;= this%lastonper) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;      <span class="keyword">write</span> (<a class="code" href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">errmsg</a>, <span class="stringliteral">&#39;(a, i0)&#39;</span>) &amp;</div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;        <span class="stringliteral">&#39;ERROR IN STRESS PERIOD &#39;</span>, <a class="code" href="namespacetdismodule.html#ae84d6ee69d7bba12d20a6255a398935b">kper</a></div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(<a class="code" href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">errmsg</a>)</div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;      <span class="keyword">write</span> (<a class="code" href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">errmsg</a>, <span class="stringliteral">&#39;(a, i0)&#39;</span>) &amp;</div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;        <span class="stringliteral">&#39;PERIOD NUMBERS NOT INCREASING.  FOUND &#39;</span>, this%ionper</div>
+<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(<a class="code" href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">errmsg</a>)</div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;      <span class="keyword">write</span> (<a class="code" href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">errmsg</a>, <span class="stringliteral">&#39;(a, i0)&#39;</span>) &amp;</div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;        <span class="stringliteral">&#39;BUT LAST PERIOD BLOCK WAS ASSIGNED &#39;</span>, this%lastonper</div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(<a class="code" href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">errmsg</a>)</div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;      <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;    <span class="comment">! -- return</span></div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;    <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacegwtspcmodule.html#ad955fb8bbd9c00819c294a3504b0957c">read_check_ionper</a></div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;<span class="comment">  !&gt; @ brief Set the data value from the input file</span></div>
+<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;<span class="comment">  !!</span></div>
+<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;<span class="comment">  !!  Set the floating point value in the dblvec array using strings</span></div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;<span class="comment">  !!  returned from the parser.  Allow for time series names.</span></div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;<span class="comment">  !!</span></div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;<span class="comment">  !&lt;</span></div>
+<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacegwtspcmodule.html#a1323af96da5c4e47afacaa6e290686bb">set_value</a>(this, ival)</div>
+<div class="line"><a name="l00686"></a><span class="lineno"><a class="line" href="namespacegwtspcmodule.html#a1323af96da5c4e47afacaa6e290686bb">  686</a></span>&#160;    <span class="comment">! -- modules</span></div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacetimeseriesmanagermodule.html">timeseriesmanagermodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacetimeseriesmanagermodule.html#a2075a4c123cb1167bfbdaaf4ceae7666">read_value_or_time_series_adv</a></div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;    <span class="comment">! -- dummy</span></div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structgwtspcmodule_1_1gwtspctype.html">gwtspctype</a>), <span class="keywordtype">intent(inout)</span> :: this<span class="comment"> !&lt; GwtSpcType object</span></div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: ival</div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;    <span class="comment">! -- local</span></div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;    <span class="keywordtype">character(len=LINELENGTH)</span> :: keyword</div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: jj</div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">pointer</span> :: bndElem =&gt; null()</div>
+<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;    <span class="comment">! -- read remainder of variables on the line</span></div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;    <span class="keyword">call </span>this%parser%GetStringCaps(keyword)</div>
+<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;    <span class="keywordflow">select case</span> (keyword)</div>
+<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;    <span class="keywordflow">case</span> (<span class="stringliteral">&#39;CONCENTRATION&#39;</span>)</div>
+<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;      <span class="keyword">call </span>this%parser%GetString(<a class="code" href="namespacegwtspcmodule.html#ab6581fb6035d7c94f92405c312b4d9f9">text</a>)</div>
+<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;      jj = 1 <span class="comment">! For CONCENTRATION</span></div>
+<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;      bndelem =&gt; this%dblvec(ival)</div>
+<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacetimeseriesmanagermodule.html#a2075a4c123cb1167bfbdaaf4ceae7666">read_value_or_time_series_adv</a>(<a class="code" href="namespacegwtspcmodule.html#ab6581fb6035d7c94f92405c312b4d9f9">text</a>, ival, jj, bndelem, this%packName, &amp;</div>
+<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;                                         <span class="stringliteral">&#39;BND&#39;</span>, this%tsManager, this%iprpak, &amp;</div>
+<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;                                         <span class="stringliteral">&#39;CONCENTRATION&#39;</span>)</div>
+<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160; </div>
+<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;<span class="keywordflow">    end select</span></div>
+<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;    <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacegwtspcmodule.html#a1323af96da5c4e47afacaa6e290686bb">set_value</a></div>
+<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;<span class="comment">  !&gt; @ brief check_flow_package</span></div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;<span class="comment">  !!</span></div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;<span class="comment">  !!  Check to make sure that flow package information is consistent</span></div>
+<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;<span class="comment">  !!  with this SPC information.</span></div>
+<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;<span class="comment">  !!</span></div>
+<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;<span class="comment">  !&lt;</span></div>
+<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacegwtspcmodule.html#ac8f2837cf3b40188c2ebdb80830c3cdf">check_flow_package</a>(this, nbound_flowpack, budtxt)</div>
+<div class="line"><a name="l00718"></a><span class="lineno"><a class="line" href="namespacegwtspcmodule.html#ac8f2837cf3b40188c2ebdb80830c3cdf">  718</a></span>&#160;    <span class="comment">! -- modules</span></div>
+<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;    <span class="comment">! -- dummy</span></div>
+<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structgwtspcmodule_1_1gwtspctype.html">gwtspctype</a>), <span class="keywordtype">intent(inout)</span> :: this<span class="comment"> !&lt; GwtSpcType object</span></div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: nbound_flowpack</div>
+<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: budtxt</div>
+<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;    <span class="comment">! -- local</span></div>
+<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;    <span class="comment">! -- Check and make sure MAXBOUND is not less than nbound_flowpack</span></div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;    <span class="keywordflow">if</span> (this%maxbound &lt; nbound_flowpack) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;      <span class="keyword">write</span> (<a class="code" href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">errmsg</a>, <span class="stringliteral">&#39;(a, a, a, i0, a, i0, a)&#39;</span>) &amp;</div>
+<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;            <span class="stringliteral">&#39;The SPC Package corresponding to flow package &#39;</span>, &amp;</div>
+<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;            trim(this%packNameFlow), &amp;</div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;            <span class="stringliteral">&#39; has MAXBOUND set less than the number of boundaries &amp;</span></div>
+<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;<span class="stringliteral"></span><span class="stringliteral">            &amp;active in this package.  Found MAXBOUND equal &#39;</span>, &amp;</div>
+<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;            this%maxbound, &amp;</div>
+<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;            <span class="stringliteral">&#39; and number of flow boundaries (NBOUND) equal &#39;</span>, &amp;</div>
+<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;            nbound_flowpack, &amp;</div>
+<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;            <span class="stringliteral">&#39;. Increase MAXBOUND in the SPC input file for this package.&#39;</span></div>
+<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(<a class="code" href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">errmsg</a>)</div>
+<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;      <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
+<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;    <span class="comment">! -- If budtxt is RCHA or EVTA, then readasarrays must be used, otherwise</span></div>
+<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;    <span class="comment">!    readasarrays cannot be used</span></div>
+<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;    <span class="keywordflow">select case</span> (trim(adjustl(budtxt)))</div>
+<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;    <span class="keywordflow">case</span> (<span class="stringliteral">&#39;RCHA&#39;</span>)</div>
+<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;      <span class="keywordflow">if</span> (.not. this%readasarrays) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;        <span class="keyword">write</span> (<a class="code" href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">errmsg</a>, <span class="stringliteral">&#39;(a, a, a)&#39;</span>) &amp;</div>
+<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;          <span class="stringliteral">&#39;Array-based recharge must be used with array-based stress package &amp;</span></div>
+<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;<span class="stringliteral"></span><span class="stringliteral">          &amp;concentrations.  GWF Package &#39;</span>, trim(this%packNameFlow), <span class="stringliteral">&#39; is being &amp;</span></div>
+<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;<span class="stringliteral"></span><span class="stringliteral">          &amp;used with list-based SPC6 input.  Use array-based SPC6 input instead.&#39;</span></div>
+<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;        <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(<a class="code" href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">errmsg</a>)</div>
+<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;        <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
+<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;<span class="keywordflow">      end if</span></div>
+<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;    <span class="keywordflow">case</span> (<span class="stringliteral">&#39;EVTA&#39;</span>)</div>
+<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;      <span class="keywordflow">if</span> (.not. this%readasarrays) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;        <span class="keyword">write</span> (<a class="code" href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">errmsg</a>, <span class="stringliteral">&#39;(a, a, a)&#39;</span>) &amp;</div>
+<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;          <span class="stringliteral">&#39;Array-based evapotranspiration must be used with array-based stress &amp;</span></div>
+<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;<span class="stringliteral"></span><span class="stringliteral">          &amp;package concentrations.  GWF Package &#39;</span>, trim(this%packNameFlow), &amp;</div>
+<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;          &amp;<span class="stringliteral">&#39; is being used with list-based SPC6 input.  Use array-based SPC6 &amp;</span></div>
+<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;<span class="stringliteral"></span><span class="stringliteral">          &amp;input instead.&#39;</span></div>
+<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;        <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(<a class="code" href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">errmsg</a>)</div>
+<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;        <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
+<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;<span class="keywordflow">      end if</span></div>
+<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;<span class="keywordflow">    case default</span></div>
+<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;      <span class="keywordflow">if</span> (this%readasarrays) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;        <span class="keyword">write</span> (<a class="code" href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">errmsg</a>, <span class="stringliteral">&#39;(a, a, a)&#39;</span>) &amp;</div>
+<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;          <span class="stringliteral">&#39;List-based packages must be used with list-based stress &amp;</span></div>
+<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;<span class="stringliteral"></span><span class="stringliteral">          &amp;package concentrations.  GWF Package &#39;</span>, trim(this%packNameFlow), &amp;</div>
+<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;          &amp;<span class="stringliteral">&#39; is being used with array-based SPC6 input.  Use list-based SPC6 &amp;</span></div>
+<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;<span class="stringliteral"></span><span class="stringliteral">          &amp;input instead.&#39;</span></div>
+<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;        <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(<a class="code" href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">errmsg</a>)</div>
+<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;        <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
+<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;<span class="keywordflow">      end if</span></div>
+<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;<span class="keywordflow">    end select</span></div>
+<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;    <span class="comment">! -- return</span></div>
+<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;    <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacegwtspcmodule.html#ac8f2837cf3b40188c2ebdb80830c3cdf">check_flow_package</a></div>
+<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160; </div>
+<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;<span class="keyword">end module </span><a class="code" href="namespacegwtspcmodule.html">gwtspcmodule</a></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="anamespacetimearrayseriesmanagermodule_html"><div class="ttname"><a href="namespacetimearrayseriesmanagermodule.html">timearrayseriesmanagermodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_time_array_series_manager_8f90_source.html#l00001">TimeArraySeriesManager.f90:1</a></div></div>
 <div class="ttc" id="anamespacegwtspcmodule_html_aa3f5641d7cfa6933c81068c694daca42"><div class="ttname"><a href="namespacegwtspcmodule.html#aa3f5641d7cfa6933c81068c694daca42">gwtspcmodule::get_value</a></div><div class="ttdeci">real(dp) function get_value(this, ientry)</div><div class="ttdoc">@ brief Get the data value from this package</div><div class="ttdef"><b>Definition:</b> <a href="_gwt_spc_8f90_source.html#l00347">GwtSpc.f90:347</a></div></div>
-<div class="ttc" id="anamespacesimvariablesmodule_html_a08c1a8900029e311ac640e2319c6a234"><div class="ttname"><a href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">simvariablesmodule::errmsg</a></div><div class="ttdeci">character(len=maxcharlen) errmsg</div><div class="ttdoc">error message string</div><div class="ttdef"><b>Definition:</b> <a href="_sim_variables_8f90_source.html#l00017">SimVariables.f90:17</a></div></div>
+<div class="ttc" id="anamespacesimvariablesmodule_html_a08c1a8900029e311ac640e2319c6a234"><div class="ttname"><a href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">simvariablesmodule::errmsg</a></div><div class="ttdeci">character(len=maxcharlen) errmsg</div><div class="ttdoc">error message string</div><div class="ttdef"><b>Definition:</b> <a href="_sim_variables_8f90_source.html#l00018">SimVariables.f90:18</a></div></div>
 <div class="ttc" id="anamespacegwtspcmodule_html"><div class="ttname"><a href="namespacegwtspcmodule.html">gwtspcmodule</a></div><div class="ttdoc">This module contains the GwtSpc Module.</div><div class="ttdef"><b>Definition:</b> <a href="_gwt_spc_8f90_source.html#l00007">GwtSpc.f90:7</a></div></div>
 <div class="ttc" id="anamespacekindmodule_html"><div class="ttname"><a href="namespacekindmodule.html">kindmodule</a></div><div class="ttdoc">This module defines variable data types.</div><div class="ttdef"><b>Definition:</b> <a href="kind_8f90_source.html#l00008">kind.f90:8</a></div></div>
 <div class="ttc" id="anamespaceconstantsmodule_html_ae1ec6380bd0e8e6c89a40d3b97306586"><div class="ttname"><a href="namespaceconstantsmodule.html#ae1ec6380bd0e8e6c89a40d3b97306586">constantsmodule::lenmempath</a></div><div class="ttdeci">integer(i4b), parameter lenmempath</div><div class="ttdoc">maximum length of the memory path</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00026">Constants.f90:26</a></div></div>
 <div class="ttc" id="anamespacesimmodule_html_a21870712a1166225fdcd5b60bffb353e"><div class="ttname"><a href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">simmodule::store_error</a></div><div class="ttdeci">subroutine, public store_error(msg, terminate)</div><div class="ttdoc">Store error message.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_8f90_source.html#l00129">Sim.f90:129</a></div></div>
 <div class="ttc" id="anamespaceconstantsmodule_html_abab5757666b9ddd2726c20ce48dd0050"><div class="ttname"><a href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">constantsmodule::dzero</a></div><div class="ttdeci">real(dp), parameter dzero</div><div class="ttdoc">real constant zero</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00062">Constants.f90:62</a></div></div>
 <div class="ttc" id="anamespacememoryhelpermodule_html_abe77d18fe02d108d80f414f9fafa592d"><div class="ttname"><a href="namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d">memoryhelpermodule::create_mem_path</a></div><div class="ttdeci">character(len=lenmempath) function create_mem_path(component, subcomponent, context)</div><div class="ttdoc">returns the path to the memory object</div><div class="ttdef"><b>Definition:</b> <a href="_memory_helper_8f90_source.html#l00022">MemoryHelper.f90:22</a></div></div>
-<div class="ttc" id="anamespacegwtspcmodule_html_a0d9b98c32b91759a999e6c64e1fd15d3"><div class="ttname"><a href="namespacegwtspcmodule.html#a0d9b98c32b91759a999e6c64e1fd15d3">gwtspcmodule::spc_rp_list</a></div><div class="ttdeci">subroutine spc_rp_list(this)</div><div class="ttdoc">@ brief spc_rp_list</div><div class="ttdef"><b>Definition:</b> <a href="_gwt_spc_8f90_source.html#l00439">GwtSpc.f90:439</a></div></div>
+<div class="ttc" id="anamespacegwtspcmodule_html_a0d9b98c32b91759a999e6c64e1fd15d3"><div class="ttname"><a href="namespacegwtspcmodule.html#a0d9b98c32b91759a999e6c64e1fd15d3">gwtspcmodule::spc_rp_list</a></div><div class="ttdeci">subroutine spc_rp_list(this)</div><div class="ttdoc">@ brief spc_rp_list</div><div class="ttdef"><b>Definition:</b> <a href="_gwt_spc_8f90_source.html#l00440">GwtSpc.f90:440</a></div></div>
 <div class="ttc" id="ainterfacearrayhandlersmodule_1_1ifind_html"><div class="ttname"><a href="interfacearrayhandlersmodule_1_1ifind.html">arrayhandlersmodule::ifind</a></div><div class="ttdef"><b>Definition:</b> <a href="_array_handlers_8f90_source.html#l00030">ArrayHandlers.f90:30</a></div></div>
 <div class="ttc" id="anamespacebasedismodule_html"><div class="ttname"><a href="namespacebasedismodule.html">basedismodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_discretization_base_8f90_source.html#l00001">DiscretizationBase.f90:1</a></div></div>
 <div class="ttc" id="astructtimeseriesmanagermodule_1_1timeseriesmanagertype_html"><div class="ttname"><a href="structtimeseriesmanagermodule_1_1timeseriesmanagertype.html">timeseriesmanagermodule::timeseriesmanagertype</a></div><div class="ttdef"><b>Definition:</b> <a href="_time_series_manager_8f90_source.html#l00029">TimeSeriesManager.f90:29</a></div></div>
@@ -915,7 +916,7 @@ $(document).ready(function(){initNavTree('_gwt_spc_8f90_source.html',''); initRe
 <div class="ttc" id="anamespaceblockparsermodule_html"><div class="ttname"><a href="namespaceblockparsermodule.html">blockparsermodule</a></div><div class="ttdoc">This module contains block parser methods.</div><div class="ttdef"><b>Definition:</b> <a href="_block_parser_8f90_source.html#l00007">BlockParser.f90:7</a></div></div>
 <div class="ttc" id="anamespacememoryhelpermodule_html"><div class="ttname"><a href="namespacememoryhelpermodule.html">memoryhelpermodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_helper_8f90_source.html#l00001">MemoryHelper.f90:1</a></div></div>
 <div class="ttc" id="anamespacegwtspcmodule_html_abbe919e32c0cbf62a78b8c351ee2b93a"><div class="ttname"><a href="namespacegwtspcmodule.html#abbe919e32c0cbf62a78b8c351ee2b93a">gwtspcmodule::read_options</a></div><div class="ttdeci">subroutine read_options(this)</div><div class="ttdoc">@ brief Read options for package</div><div class="ttdef"><b>Definition:</b> <a href="_gwt_spc_8f90_source.html#l00188">GwtSpc.f90:188</a></div></div>
-<div class="ttc" id="anamespacegwtspcmodule_html_a62bf5c20221ce94dc6ee5ddebf4ad522"><div class="ttname"><a href="namespacegwtspcmodule.html#a62bf5c20221ce94dc6ee5ddebf4ad522">gwtspcmodule::spc_ad</a></div><div class="ttdeci">subroutine spc_ad(this, nbound_flowpack, budtxt)</div><div class="ttdoc">@ brief Advance</div><div class="ttdef"><b>Definition:</b> <a href="_gwt_spc_8f90_source.html#l00591">GwtSpc.f90:591</a></div></div>
+<div class="ttc" id="anamespacegwtspcmodule_html_a62bf5c20221ce94dc6ee5ddebf4ad522"><div class="ttname"><a href="namespacegwtspcmodule.html#a62bf5c20221ce94dc6ee5ddebf4ad522">gwtspcmodule::spc_ad</a></div><div class="ttdeci">subroutine spc_ad(this, nbound_flowpack, budtxt)</div><div class="ttdoc">@ brief Advance</div><div class="ttdef"><b>Definition:</b> <a href="_gwt_spc_8f90_source.html#l00592">GwtSpc.f90:592</a></div></div>
 <div class="ttc" id="anamespaceconstantsmodule_html_a060d310ded5535ce2dc85bd1ca1afd3d"><div class="ttname"><a href="namespaceconstantsmodule.html#a060d310ded5535ce2dc85bd1ca1afd3d">constantsmodule::linelength</a></div><div class="ttdeci">integer(i4b), parameter linelength</div><div class="ttdoc">maximum length of a standard line</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00044">Constants.f90:44</a></div></div>
 <div class="ttc" id="anamespaceconstantsmodule_html_a71ca6c4361b908f3fc476b67e1ea3558a883db0b9eda65642c49b625055be8dac"><div class="ttname"><a href="namespaceconstantsmodule.html#a71ca6c4361b908f3fc476b67e1ea3558a883db0b9eda65642c49b625055be8dac">constantsmodule::tabcenter</a></div><div class="ttdeci">@ tabcenter</div><div class="ttdoc">1</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00141">Constants.f90:141</a></div></div>
 <div class="ttc" id="anamespacetimeseriesmanagermodule_html_a2075a4c123cb1167bfbdaaf4ceae7666"><div class="ttname"><a href="namespacetimeseriesmanagermodule.html#a2075a4c123cb1167bfbdaaf4ceae7666">timeseriesmanagermodule::read_value_or_time_series_adv</a></div><div class="ttdeci">subroutine, public read_value_or_time_series_adv(textInput, ii, jj, bndElem, pkgName, auxOrBnd, tsManager, iprpak, varName)</div><div class="ttdef"><b>Definition:</b> <a href="_time_series_manager_8f90_source.html#l00665">TimeSeriesManager.f90:665</a></div></div>
@@ -936,24 +937,24 @@ $(document).ready(function(){initNavTree('_gwt_spc_8f90_source.html',''); initRe
 <div class="ttc" id="ainterfacememorymanagermodule_1_1mem__deallocate_html"><div class="ttname"><a href="interfacememorymanagermodule_1_1mem__deallocate.html">memorymanagermodule::mem_deallocate</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00116">MemoryManager.f90:116</a></div></div>
 <div class="ttc" id="astructblockparsermodule_1_1blockparsertype_html"><div class="ttname"><a href="structblockparsermodule_1_1blockparsertype.html">blockparsermodule::blockparsertype</a></div><div class="ttdef"><b>Definition:</b> <a href="_block_parser_8f90_source.html#l00022">BlockParser.f90:22</a></div></div>
 <div class="ttc" id="anamespacegwtspcmodule_html_a5b6bed553f3301b2516b927e58d2a805"><div class="ttname"><a href="namespacegwtspcmodule.html#a5b6bed553f3301b2516b927e58d2a805">gwtspcmodule::ftype</a></div><div class="ttdeci">character(len=lenftype) ftype</div><div class="ttdef"><b>Definition:</b> <a href="_gwt_spc_8f90_source.html#l00027">GwtSpc.f90:27</a></div></div>
-<div class="ttc" id="anamespacegwtspcmodule_html_a1323af96da5c4e47afacaa6e290686bb"><div class="ttname"><a href="namespacegwtspcmodule.html#a1323af96da5c4e47afacaa6e290686bb">gwtspcmodule::set_value</a></div><div class="ttdeci">subroutine set_value(this, ival)</div><div class="ttdoc">@ brief Set the data value from the input file</div><div class="ttdef"><b>Definition:</b> <a href="_gwt_spc_8f90_source.html#l00685">GwtSpc.f90:685</a></div></div>
+<div class="ttc" id="anamespacegwtspcmodule_html_a1323af96da5c4e47afacaa6e290686bb"><div class="ttname"><a href="namespacegwtspcmodule.html#a1323af96da5c4e47afacaa6e290686bb">gwtspcmodule::set_value</a></div><div class="ttdeci">subroutine set_value(this, ival)</div><div class="ttdoc">@ brief Set the data value from the input file</div><div class="ttdef"><b>Definition:</b> <a href="_gwt_spc_8f90_source.html#l00686">GwtSpc.f90:686</a></div></div>
 <div class="ttc" id="astructtimearrayseriesmanagermodule_1_1timearrayseriesmanagertype_html"><div class="ttname"><a href="structtimearrayseriesmanagermodule_1_1timearrayseriesmanagertype.html">timearrayseriesmanagermodule::timearrayseriesmanagertype</a></div><div class="ttdef"><b>Definition:</b> <a href="_time_array_series_manager_8f90_source.html#l00022">TimeArraySeriesManager.f90:22</a></div></div>
 <div class="ttc" id="anamespacememorymanagermodule_html"><div class="ttname"><a href="namespacememorymanagermodule.html">memorymanagermodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00001">MemoryManager.f90:1</a></div></div>
 <div class="ttc" id="anamespacetimearrayseriesmanagermodule_html_af550fdda774ed2ca74a4fd14635d4eb9"><div class="ttname"><a href="namespacetimearrayseriesmanagermodule.html#af550fdda774ed2ca74a4fd14635d4eb9">timearrayseriesmanagermodule::tasmanager_cr</a></div><div class="ttdeci">subroutine, public tasmanager_cr(this, dis, iout)</div><div class="ttdef"><b>Definition:</b> <a href="_time_array_series_manager_8f90_source.html#l00053">TimeArraySeriesManager.f90:53</a></div></div>
 <div class="ttc" id="anamespacetablemodule_html"><div class="ttname"><a href="namespacetablemodule.html">tablemodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_table_8f90_source.html#l00004">Table.f90:4</a></div></div>
-<div class="ttc" id="anamespacegwtspcmodule_html_ac8f2837cf3b40188c2ebdb80830c3cdf"><div class="ttname"><a href="namespacegwtspcmodule.html#ac8f2837cf3b40188c2ebdb80830c3cdf">gwtspcmodule::check_flow_package</a></div><div class="ttdeci">subroutine check_flow_package(this, nbound_flowpack, budtxt)</div><div class="ttdoc">@ brief check_flow_package</div><div class="ttdef"><b>Definition:</b> <a href="_gwt_spc_8f90_source.html#l00717">GwtSpc.f90:717</a></div></div>
+<div class="ttc" id="anamespacegwtspcmodule_html_ac8f2837cf3b40188c2ebdb80830c3cdf"><div class="ttname"><a href="namespacegwtspcmodule.html#ac8f2837cf3b40188c2ebdb80830c3cdf">gwtspcmodule::check_flow_package</a></div><div class="ttdeci">subroutine check_flow_package(this, nbound_flowpack, budtxt)</div><div class="ttdoc">@ brief check_flow_package</div><div class="ttdef"><b>Definition:</b> <a href="_gwt_spc_8f90_source.html#l00718">GwtSpc.f90:718</a></div></div>
 <div class="ttc" id="anamespaceconstantsmodule_html_a2371bf2667814198ff255350fa3e3edd"><div class="ttname"><a href="namespaceconstantsmodule.html#a2371bf2667814198ff255350fa3e3edd">constantsmodule::lenmodelname</a></div><div class="ttdeci">integer(i4b), parameter lenmodelname</div><div class="ttdoc">maximum length of the model name</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00021">Constants.f90:21</a></div></div>
-<div class="ttc" id="anamespacegwtspcmodule_html_ad955fb8bbd9c00819c294a3504b0957c"><div class="ttname"><a href="namespacegwtspcmodule.html#ad955fb8bbd9c00819c294a3504b0957c">gwtspcmodule::read_check_ionper</a></div><div class="ttdeci">subroutine read_check_ionper(this)</div><div class="ttdoc">@ brief Check ionper</div><div class="ttdef"><b>Definition:</b> <a href="_gwt_spc_8f90_source.html#l00651">GwtSpc.f90:651</a></div></div>
+<div class="ttc" id="anamespacegwtspcmodule_html_ad955fb8bbd9c00819c294a3504b0957c"><div class="ttname"><a href="namespacegwtspcmodule.html#ad955fb8bbd9c00819c294a3504b0957c">gwtspcmodule::read_check_ionper</a></div><div class="ttdeci">subroutine read_check_ionper(this)</div><div class="ttdoc">@ brief Check ionper</div><div class="ttdef"><b>Definition:</b> <a href="_gwt_spc_8f90_source.html#l00652">GwtSpc.f90:652</a></div></div>
 <div class="ttc" id="anamespaceconstantsmodule_html_a71ca6c4361b908f3fc476b67e1ea3558add793922614b244e637762bb8590cc4a"><div class="ttname"><a href="namespaceconstantsmodule.html#a71ca6c4361b908f3fc476b67e1ea3558add793922614b244e637762bb8590cc4a">constantsmodule::tableft</a></div><div class="ttdeci">@ tableft</div><div class="ttdoc">0</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00140">Constants.f90:140</a></div></div>
 <div class="ttc" id="anamespacegwtspcmodule_html_ab6581fb6035d7c94f92405c312b4d9f9"><div class="ttname"><a href="namespacegwtspcmodule.html#ab6581fb6035d7c94f92405c312b4d9f9">gwtspcmodule::text</a></div><div class="ttdeci">character(len=lenpackagename) text</div><div class="ttdef"><b>Definition:</b> <a href="_gwt_spc_8f90_source.html#l00028">GwtSpc.f90:28</a></div></div>
 <div class="ttc" id="anamespacetdismodule_html_ae84d6ee69d7bba12d20a6255a398935b"><div class="ttname"><a href="namespacetdismodule.html#ae84d6ee69d7bba12d20a6255a398935b">tdismodule::kper</a></div><div class="ttdeci">integer(i4b), pointer, public kper</div><div class="ttdoc">current stress period number</div><div class="ttdef"><b>Definition:</b> <a href="tdis_8f90_source.html#l00024">tdis.f90:24</a></div></div>
-<div class="ttc" id="anamespacegwtspcmodule_html_a7c6dabffa7376daac7759cb789a78fd6"><div class="ttname"><a href="namespacegwtspcmodule.html#a7c6dabffa7376daac7759cb789a78fd6">gwtspcmodule::spc_rp_array</a></div><div class="ttdeci">subroutine spc_rp_array(this, line)</div><div class="ttdoc">@ brief spc_rp_array</div><div class="ttdef"><b>Definition:</b> <a href="_gwt_spc_8f90_source.html#l00507">GwtSpc.f90:507</a></div></div>
-<div class="ttc" id="anamespacegwtspcmodule_html_ad29d142ef5364491fc1606cdf19e24d7"><div class="ttname"><a href="namespacegwtspcmodule.html#ad29d142ef5364491fc1606cdf19e24d7">gwtspcmodule::spc_da</a></div><div class="ttdeci">subroutine spc_da(this)</div><div class="ttdoc">@ brief Deallocate variables</div><div class="ttdef"><b>Definition:</b> <a href="_gwt_spc_8f90_source.html#l00615">GwtSpc.f90:615</a></div></div>
+<div class="ttc" id="anamespacegwtspcmodule_html_a7c6dabffa7376daac7759cb789a78fd6"><div class="ttname"><a href="namespacegwtspcmodule.html#a7c6dabffa7376daac7759cb789a78fd6">gwtspcmodule::spc_rp_array</a></div><div class="ttdeci">subroutine spc_rp_array(this, line)</div><div class="ttdoc">@ brief spc_rp_array</div><div class="ttdef"><b>Definition:</b> <a href="_gwt_spc_8f90_source.html#l00508">GwtSpc.f90:508</a></div></div>
+<div class="ttc" id="anamespacegwtspcmodule_html_ad29d142ef5364491fc1606cdf19e24d7"><div class="ttname"><a href="namespacegwtspcmodule.html#ad29d142ef5364491fc1606cdf19e24d7">gwtspcmodule::spc_da</a></div><div class="ttdeci">subroutine spc_da(this)</div><div class="ttdoc">@ brief Deallocate variables</div><div class="ttdef"><b>Definition:</b> <a href="_gwt_spc_8f90_source.html#l00616">GwtSpc.f90:616</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_32e188284d239da8bb14ec1dabb0c35f.html">Model</a></li><li class="navelem"><a class="el" href="dir_c1f30da02202fb3f19a3c29076dafee1.html">ModelUtilities</a></li><li class="navelem"><a class="el" href="_gwt_spc_8f90.html">GwtSpc.f90</a></li>
-    <li class="footer">Generated on Wed Oct 5 2022 15:37:00 for MODFLOW 6 by
+    <li class="footer">Generated on Mon Oct 31 2022 19:58:11 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -1,0 +1,10 @@
+<map id="integer1dreadermodule::read_ascii" name="integer1dreadermodule::read_ascii">
+<area shape="rect" id="node1" title=" " alt="" coords="5,61,180,102"/>
+<area shape="rect" id="node2" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="244,43,419,69"/>
+<area shape="rect" id="node8" href="$namespacesimmodule.html#a83910ed20af1fec9bdf46cad8c276538" title="Store the file unit number." alt="" coords="228,93,435,120"/>
+<area shape="rect" id="node3" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="483,68,621,95"/>
+<area shape="rect" id="node4" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="669,27,837,69"/>
+<area shape="rect" id="node7" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="669,93,837,134"/>
+<area shape="rect" id="node5" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="885,5,1080,32"/>
+<area shape="rect" id="node6" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="899,57,1067,98"/>
+</map>

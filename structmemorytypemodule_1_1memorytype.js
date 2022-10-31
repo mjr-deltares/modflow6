@@ -1,6 +1,7 @@
 var structmemorytypemodule_1_1memorytype =
 [
     [ "mt_associated", "structmemorytypemodule_1_1memorytype.html#a24664287b92ca77494a41ef835146062", null ],
+    [ "mt_deallocate", "structmemorytypemodule_1_1memorytype.html#a4ee671eb67f2645f2bb8ebd70c88436b", null ],
     [ "table_entry", "structmemorytypemodule_1_1memorytype.html#aeed0aac91dc4d1fc4777de2915b4787e", null ],
     [ "acharstr1d", "structmemorytypemodule_1_1memorytype.html#a164247a313b708aec179cfaf02949452", null ],
     [ "adbl1d", "structmemorytypemodule_1_1memorytype.html#a52647d7da1f223b04381258a5e4b72be", null ],

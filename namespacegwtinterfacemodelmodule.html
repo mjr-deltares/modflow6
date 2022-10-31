@@ -370,7 +370,7 @@ Functions/Subroutines</h2></td></tr>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keyword">call </span><a class="code" href="namespacegwfdisumodule.html#a67d8cf4775770e7251d1207669a219f9">disu_cr</a>(this%dis, this%name, -1, this%iout)</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keyword">call </span>fmi_cr(this%fmi, this%name, 0, this%iout)</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keyword">call </span>adv_cr(this%adv, this%name, adv_unit, this%iout, this%fmi)</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keyword">call </span>dsp_cr(this%dsp, this%name, dsp_unit, this%iout, this%fmi)</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keyword">call </span>dsp_cr(this%dsp, this%name, -dsp_unit, this%iout, this%fmi)</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keyword">call </span>gwt_obs_cr(this%obs, inobs)</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
 </div><!-- fragment --><div class="dynheader">
@@ -378,21 +378,30 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacegwtinterfacemodelmodule_ada68ea42046fb1af9fbae3faf24bfc38_cgraph.png" border="0" usemap="#namespacegwtinterfacemodelmodule_ada68ea42046fb1af9fbae3faf24bfc38_cgraph" alt=""/></div>
 <map name="namespacegwtinterfacemodelmodule_ada68ea42046fb1af9fbae3faf24bfc38_cgraph" id="namespacegwtinterfacemodelmodule_ada68ea42046fb1af9fbae3faf24bfc38_cgraph">
-<area shape="rect" title="Create the interface model, analogously to what." alt="" coords="5,166,200,207"/>
+<area shape="rect" title="Create the interface model, analogously to what." alt="" coords="5,150,200,191"/>
 <area shape="rect" href="namespacegwtadvmodule.html#a2a94f744a44db545111a1e12f175089a" title=" " alt="" coords="268,5,439,32"/>
 <area shape="rect" href="namespacegwtmodule.html#a69c21c98d464d85dd10f6126bba5b07f" title="Cast to GwtModelType." alt="" coords="248,56,459,83"/>
-<area shape="rect" href="namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d" title="returns the path to the memory object" alt="" coords="270,107,437,149"/>
-<area shape="rect" href="namespacegwfdisumodule.html#a67d8cf4775770e7251d1207669a219f9" title=" " alt="" coords="265,173,441,200"/>
-<area shape="rect" href="namespacegwtdspmodule.html#a1025fe40ad98520c0d26e25f792b4df3" title=" " alt="" coords="269,224,437,251"/>
-<area shape="rect" href="namespacegwtfmimodule.html#ab679cb1fccc6a4a266c23d7726e5e939" title=" " alt="" coords="270,275,437,301"/>
-<area shape="rect" href="namespacegwtobsmodule.html#a1931791c917760f28ef7679b5335694d" title=" " alt="" coords="254,325,453,352"/>
-<area shape="rect" href="namespacememoryhelpermodule.html#a5405f58247a0962e5449ebc1e4dcff0f" title="Generic routine to check the length of (parts of) the memory address." alt="" coords="507,107,673,149"/>
-<area shape="rect" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="721,115,896,141"/>
-<area shape="rect" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="944,115,1083,141"/>
-<area shape="rect" href="namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="1131,74,1299,115"/>
-<area shape="rect" href="namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="1131,139,1299,181"/>
-<area shape="rect" href="namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="1347,52,1541,79"/>
-<area shape="rect" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1360,103,1528,145"/>
+<area shape="rect" href="namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d" title="returns the path to the memory object" alt="" coords="993,99,1160,141"/>
+<area shape="rect" href="namespacegwfdisumodule.html#a67d8cf4775770e7251d1207669a219f9" title=" " alt="" coords="265,208,441,235"/>
+<area shape="rect" href="namespacegwtdspmodule.html#a1025fe40ad98520c0d26e25f792b4df3" title=" " alt="" coords="269,157,437,184"/>
+<area shape="rect" href="namespacegwtfmimodule.html#ab679cb1fccc6a4a266c23d7726e5e939" title=" " alt="" coords="270,259,437,285"/>
+<area shape="rect" href="namespacegwtobsmodule.html#a1931791c917760f28ef7679b5335694d" title=" " alt="" coords="254,309,453,336"/>
+<area shape="rect" href="namespacememoryhelpermodule.html#a5405f58247a0962e5449ebc1e4dcff0f" title="Generic routine to check the length of (parts of) the memory address." alt="" coords="1259,99,1425,141"/>
+<area shape="rect" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="1499,107,1673,133"/>
+<area shape="rect" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="1721,107,1860,133"/>
+<area shape="rect" href="namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="1908,66,2076,107"/>
+<area shape="rect" href="namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="1908,131,2076,173"/>
+<area shape="rect" href="namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="2124,44,2319,71"/>
+<area shape="rect" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="2137,95,2305,137"/>
+<area shape="rect" href="namespaceidmmf6fileloadermodule.html#aa6ff25593eb15d57351eee9ffd986f2d" title="main entry to mf6 input load" alt="" coords="507,181,689,222"/>
+<area shape="rect" href="namespaceidmmf6fileloadermodule.html#a4538adc2bc36308a6b195a162aa74998" title="generic procedure to MODFLOW 6 load routine" alt="" coords="737,161,920,202"/>
+<area shape="rect" href="namespacemodflowinputmodule.html#a96884246c2590d186e12094253869c17" title="function to return ModflowInputType" alt="" coords="749,226,909,267"/>
+<area shape="rect" href="namespaceinputdefinitionselectormodule.html#ab8ebde38144032fc3952adf69b827bb9" title="Return the aggregate definition for the specified component." alt="" coords="968,295,1185,337"/>
+<area shape="rect" href="namespaceinputdefinitionselectormodule.html#a8ab069214dc850a78faea381dc54bdd0" title="Return the block definition for the specified component." alt="" coords="968,165,1185,206"/>
+<area shape="rect" href="namespaceinputdefinitionselectormodule.html#ac33654eccb12a34d5fa0b5a4db389190" title="Return the parameter definition for the specified component." alt="" coords="968,230,1185,271"/>
+<area shape="rect" href="namespaceinputdefinitionselectormodule.html#a44b6a05b842caa71e6889f9c03e43690" title="Set pointer from input_definition to input_definition_target." alt="" coords="1233,291,1451,333"/>
+<area shape="rect" href="namespacesimmodule.html#a0c10520244b0246773a188954a67ec9e" title="Store warning message." alt="" coords="1245,237,1439,264"/>
+<area shape="rect" href="namespaceinputdefinitionselectormodule.html#a865b8495efc8f153683253f4e3595f30" title="Set pointer from input_definition to input_definition_target." alt="" coords="1233,165,1451,206"/>
 </map>
 </div>
 
@@ -575,15 +584,15 @@ Here is the call graph for this function:</div>
 </div><!-- doc-content -->
 <div class="ttc" id="ainterfacememorymanagermodule_1_1mem__reallocate_html"><div class="ttname"><a href="interfacememorymanagermodule_1_1mem__reallocate.html">memorymanagermodule::mem_reallocate</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00073">MemoryManager.f90:73</a></div></div>
 <div class="ttc" id="anamespacememoryhelpermodule_html_abe77d18fe02d108d80f414f9fafa592d"><div class="ttname"><a href="namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d">memoryhelpermodule::create_mem_path</a></div><div class="ttdeci">character(len=lenmempath) function create_mem_path(component, subcomponent, context)</div><div class="ttdoc">returns the path to the memory object</div><div class="ttdef"><b>Definition:</b> <a href="_memory_helper_8f90_source.html#l00022">MemoryHelper.f90:22</a></div></div>
-<div class="ttc" id="anamespacegwfdisumodule_html_a67d8cf4775770e7251d1207669a219f9"><div class="ttname"><a href="namespacegwfdisumodule.html#a67d8cf4775770e7251d1207669a219f9">gwfdisumodule::disu_cr</a></div><div class="ttdeci">subroutine, public disu_cr(dis, name_model, inunit, iout)</div><div class="ttdef"><b>Definition:</b> <a href="gwf3disu8_8f90_source.html#l00079">gwf3disu8.f90:79</a></div></div>
+<div class="ttc" id="anamespacegwfdisumodule_html_a67d8cf4775770e7251d1207669a219f9"><div class="ttname"><a href="namespacegwfdisumodule.html#a67d8cf4775770e7251d1207669a219f9">gwfdisumodule::disu_cr</a></div><div class="ttdeci">subroutine, public disu_cr(dis, name_model, inunit, iout)</div><div class="ttdef"><b>Definition:</b> <a href="gwf3disu8_8f90_source.html#l00086">gwf3disu8.f90:86</a></div></div>
 <div class="ttc" id="ainterfacememorymanagermodule_1_1mem__allocate_html"><div class="ttname"><a href="interfacememorymanagermodule_1_1mem__allocate.html">memorymanagermodule::mem_allocate</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00050">MemoryManager.f90:50</a></div></div>
-<div class="ttc" id="anamespacesimvariablesmodule_html_a70ea2f76b35a03119367efdd0dd88ccc"><div class="ttname"><a href="namespacesimvariablesmodule.html#a70ea2f76b35a03119367efdd0dd88ccc">simvariablesmodule::iout</a></div><div class="ttdeci">integer(i4b) iout</div><div class="ttdoc">file unit number for simulation output</div><div class="ttdef"><b>Definition:</b> <a href="_sim_variables_8f90_source.html#l00022">SimVariables.f90:22</a></div></div>
+<div class="ttc" id="anamespacesimvariablesmodule_html_a70ea2f76b35a03119367efdd0dd88ccc"><div class="ttname"><a href="namespacesimvariablesmodule.html#a70ea2f76b35a03119367efdd0dd88ccc">simvariablesmodule::iout</a></div><div class="ttdeci">integer(i4b) iout</div><div class="ttdoc">file unit number for simulation output</div><div class="ttdef"><b>Definition:</b> <a href="_sim_variables_8f90_source.html#l00023">SimVariables.f90:23</a></div></div>
 <div class="ttc" id="ainterfacememorymanagermodule_1_1mem__deallocate_html"><div class="ttname"><a href="interfacememorymanagermodule_1_1mem__deallocate.html">memorymanagermodule::mem_deallocate</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00116">MemoryManager.f90:116</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacegwtinterfacemodelmodule.html">gwtinterfacemodelmodule</a></li>
-    <li class="footer">Generated on Wed Oct 5 2022 15:37:04 for MODFLOW 6 by
+    <li class="footer">Generated on Mon Oct 31 2022 19:58:15 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

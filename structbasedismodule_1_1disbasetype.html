@@ -256,9 +256,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:ab3f2a0fc61a388359c66700becc7ca60"><td class="memItemLeft" align="right" valign="top">integer(i4b), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbasedismodule_1_1disbasetype.html#ab3f2a0fc61a388359c66700becc7ca60">icondir</a> =&gt; null()</td></tr>
 <tr class="memdesc:ab3f2a0fc61a388359c66700becc7ca60"><td class="mdescLeft">&#160;</td><td class="mdescRight">flag indicating if grid has enough info to calculate connection vectors  <a href="structbasedismodule_1_1disbasetype.html#ab3f2a0fc61a388359c66700becc7ca60">More...</a><br /></td></tr>
 <tr class="separator:ab3f2a0fc61a388359c66700becc7ca60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad67ab56681c4e29836372cd85cbbada4"><td class="memItemLeft" align="right" valign="top">logical, pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbasedismodule_1_1disbasetype.html#ad67ab56681c4e29836372cd85cbbada4">writegrb</a> =&gt; null()</td></tr>
-<tr class="memdesc:ad67ab56681c4e29836372cd85cbbada4"><td class="mdescLeft">&#160;</td><td class="mdescRight">write binary grid file  <a href="structbasedismodule_1_1disbasetype.html#ad67ab56681c4e29836372cd85cbbada4">More...</a><br /></td></tr>
-<tr class="separator:ad67ab56681c4e29836372cd85cbbada4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06e80662691aa37ee9dec58493d713ca"><td class="memItemLeft" align="right" valign="top">integer(i4b), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbasedismodule_1_1disbasetype.html#a06e80662691aa37ee9dec58493d713ca">nogrb</a> =&gt; null()</td></tr>
+<tr class="memdesc:a06e80662691aa37ee9dec58493d713ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">don't write binary grid file  <a href="structbasedismodule_1_1disbasetype.html#a06e80662691aa37ee9dec58493d713ca">More...</a><br /></td></tr>
+<tr class="separator:a06e80662691aa37ee9dec58493d713ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6e27cb289a4599333e37e8e559ad9a9"><td class="memItemLeft" align="right" valign="top">real(dp), dimension(:), pointer, contiguous&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbasedismodule_1_1disbasetype.html#ad6e27cb289a4599333e37e8e559ad9a9">xc</a> =&gt; null()</td></tr>
 <tr class="memdesc:ad6e27cb289a4599333e37e8e559ad9a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">x-coordinate of the cell center  <a href="structbasedismodule_1_1disbasetype.html#ad6e27cb289a4599333e37e8e559ad9a9">More...</a><br /></td></tr>
 <tr class="separator:ad6e27cb289a4599333e37e8e559ad9a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1791,6 +1791,31 @@ Here is the call graph for this function:</div>
 </div><!-- fragment -->
 </div>
 </div>
+<a id="a06e80662691aa37ee9dec58493d713ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06e80662691aa37ee9dec58493d713ca">&#9670;&nbsp;</a></span>nogrb</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer(i4b), pointer basedismodule::disbasetype::nogrb =&gt; null()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_discretization_base_8f90_source.html#l00036">36</a> of file <a class="el" href="_discretization_base_8f90_source.html">DiscretizationBase.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: nogrb =&gt; null() <span class="comment">!&lt; don&#39;t write binary grid file</span></div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="aba6fea95df5bd3877546e76797450fa8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aba6fea95df5bd3877546e76797450fa8">&#9670;&nbsp;</a></span>parser</h2>
 
@@ -1838,31 +1863,6 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_discretization_base_8f90_source.html#l00043">43</a> of file <a class="el" href="_discretization_base_8f90_source.html">DiscretizationBase.f90</a>.</p>
 <div class="fragment"><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: top =&gt; null() <span class="comment">!&lt; (size:nodes) cell top elevation</span></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="ad67ab56681c4e29836372cd85cbbada4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad67ab56681c4e29836372cd85cbbada4">&#9670;&nbsp;</a></span>writegrb</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">logical, pointer basedismodule::disbasetype::writegrb =&gt; null()</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_discretization_base_8f90_source.html#l00036">36</a> of file <a class="el" href="_discretization_base_8f90_source.html">DiscretizationBase.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">logical</span>, <span class="keywordtype">pointer</span> :: writegrb =&gt; null() <span class="comment">!&lt; write binary grid file</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1975,7 +1975,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacebasedismodule.html">basedismodule</a></li><li class="navelem"><a class="el" href="structbasedismodule_1_1disbasetype.html">disbasetype</a></li>
-    <li class="footer">Generated on Wed Oct 5 2022 15:37:00 for MODFLOW 6 by
+    <li class="footer">Generated on Mon Oct 31 2022 19:58:12 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

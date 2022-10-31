@@ -15,7 +15,7 @@ var _array_readers_8f90 =
     [ "read_array_int2d", "_array_readers_8f90.html#a44bc715800a237c501bcfca918404d6a", null ],
     [ "read_array_int3d", "_array_readers_8f90.html#a4be02f2f7f96dabe00a72018b9edf9f0", null ],
     [ "read_array_int3d_all", "_array_readers_8f90.html#ab57e7a7b486c249b7515b6294657be80", null ],
-    [ "read_binary_header", "_array_readers_8f90.html#a2f561632c652067486334f6359a80f15", null ],
+    [ "read_binary_header", "_array_readers_8f90.html#a24beb7e42330f13e0a1832c1d0e486ff", null ],
     [ "read_control_1", "_array_readers_8f90.html#a1d5b2f522a63e8c76a839f93baa4916e", null ],
     [ "read_control_2", "_array_readers_8f90.html#a1707e96f6079c135eb5f5575948a3202", null ],
     [ "read_control_dbl", "_array_readers_8f90.html#a625dd01503b4f3b75ae03a3c0b7f37f8", null ],

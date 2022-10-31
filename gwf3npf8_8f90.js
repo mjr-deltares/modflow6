@@ -13,6 +13,8 @@ var gwf3npf8_8f90 =
     [ "hy_eff", "gwf3npf8_8f90.html#a7e56e58865979a6bbcae21d41028d527", null ],
     [ "hyeff_calc", "gwf3npf8_8f90.html#af6557a125519ffbda0826d7c39fec8e1", null ],
     [ "increase_edge_count", "gwf3npf8_8f90.html#a8e33ba6b79134e531f76529f0dc1b1a9", null ],
+    [ "log_griddata", "gwf3npf8_8f90.html#af840f19d7fadb438b686863bb0380bff", null ],
+    [ "log_options", "gwf3npf8_8f90.html#a63ac4cda2910d25f7480806a85edbf0d", null ],
     [ "logmean", "gwf3npf8_8f90.html#a905d9a528c4d4a783096b639298d42b3", null ],
     [ "npf_ac", "gwf3npf8_8f90.html#a41edcaf1dff3168d73294c8943a3c7f6", null ],
     [ "npf_ad", "gwf3npf8_8f90.html#ab8bd3761a7b72f7e397f2ecab7a4577a", null ],
@@ -31,10 +33,7 @@ var gwf3npf8_8f90 =
     [ "npf_save_model_flows", "gwf3npf8_8f90.html#a00593b33ebf4711b76b6343665487062", null ],
     [ "prepcheck", "gwf3npf8_8f90.html#aa85760a0d1c21ac4cb054a162e49ecbb", null ],
     [ "preprocess_input", "gwf3npf8_8f90.html#a6807fd51ec170cbceebbf661b9965c38", null ],
-    [ "read_grid_data", "gwf3npf8_8f90.html#a40957147ebdb87c0ef1c37b444f0b1ea", null ],
-    [ "read_options", "gwf3npf8_8f90.html#a040ee9a2d2ca0f70d0a394cea9e18a66", null ],
     [ "rewet_check", "gwf3npf8_8f90.html#a2a49e6a1886d4eaf444a7e3abbfdc533", null ],
-    [ "rewet_options", "gwf3npf8_8f90.html#afa8c509d620078abc06cce8ca95ef32a", null ],
     [ "sav_sat", "gwf3npf8_8f90.html#aa087fe72bffc96d23c9db78fb5f2642a", null ],
     [ "sav_spdis", "gwf3npf8_8f90.html#a5a6e85f8f57be1bf7e75f58c47adefb0", null ],
     [ "set_edge_properties", "gwf3npf8_8f90.html#a6936e5006ac58723cffe97de21b44d74", null ],
@@ -43,6 +42,8 @@ var gwf3npf8_8f90 =
     [ "sgwf_npf_thksat", "gwf3npf8_8f90.html#a5bfc53ced96b63e7306e83d7b26588e7", null ],
     [ "sgwf_npf_wdmsg", "gwf3npf8_8f90.html#ac8e7c6b708c744c5d1e07ffdd1d6b0fe", null ],
     [ "sgwf_npf_wetdry", "gwf3npf8_8f90.html#a44ee88a8e7b365313a2b0dee14df54ba", null ],
+    [ "source_griddata", "gwf3npf8_8f90.html#a4574a16995a703aeed1e186536fbfa55", null ],
+    [ "source_options", "gwf3npf8_8f90.html#a0e9626d3b9a8b243090860a0a4dcc10b", null ],
     [ "thksatnm", "gwf3npf8_8f90.html#a043778a29f31835c4167e493e79df0ef", null ],
     [ "vcond", "gwf3npf8_8f90.html#a0ac64188c68a16279d975e588393259e", null ]
 ];
