@@ -1,5 +1,6 @@
 var gwf3dis8idm_8f90 =
 [
+    [ "gwfdisparamfoundtype", "structgwfdisinputmodule_1_1gwfdisparamfoundtype.html", "structgwfdisinputmodule_1_1gwfdisparamfoundtype" ],
     [ "gwf_dis_aggregate_definitions", "gwf3dis8idm_8f90.html#af36108cc12dd8ab45f26f4e9f2638304", null ],
     [ "gwf_dis_block_definitions", "gwf3dis8idm_8f90.html#a4696908f1b29bee9b7b3679b087ab38a", null ],
     [ "gwf_dis_param_definitions", "gwf3dis8idm_8f90.html#a0ede0825c402a9b19a88a825a6bbede7", null ],

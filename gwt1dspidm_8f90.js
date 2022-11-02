@@ -1,5 +1,6 @@
 var gwt1dspidm_8f90 =
 [
+    [ "gwtdspparamfoundtype", "structgwtdspinputmodule_1_1gwtdspparamfoundtype.html", "structgwtdspinputmodule_1_1gwtdspparamfoundtype" ],
     [ "gwt_dsp_aggregate_definitions", "gwt1dspidm_8f90.html#a5f3d3a8c44447c6dfb42efc14cedb53c", null ],
     [ "gwt_dsp_block_definitions", "gwt1dspidm_8f90.html#a8a31e372bac9a7ecbbdedee23a6637f8", null ],
     [ "gwt_dsp_param_definitions", "gwt1dspidm_8f90.html#a71b466c84606cf9bfd0ede24f4a8078a", null ],
