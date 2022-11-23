@@ -9,16 +9,16 @@ var hierarchy =
       [ "integer2dreadermodule::integer2dreadertype", "structinteger2dreadermodule_1_1integer2dreadertype.html", null ]
     ] ],
     [ "basesolutionmodule::assignConnectionsIFace", "interfacebasesolutionmodule_1_1assign_connections_i_face.html", null ],
-    [ "baseexchangemodule::baseexchangetype", "structbaseexchangemodule_1_1baseexchangetype.html", null ],
     [ "baseexchangetype", null, [
       [ "gwfgwtexchangemodule::gwfgwtexchangetype", "structgwfgwtexchangemodule_1_1gwfgwtexchangetype.html", null ],
       [ "numericalexchangemodule::numericalexchangetype", "structnumericalexchangemodule_1_1numericalexchangetype.html", null ]
     ] ],
+    [ "baseexchangemodule::baseexchangetype", "structbaseexchangemodule_1_1baseexchangetype.html", null ],
+    [ "basegeometrymodule::basegeometrytype", "structbasegeometrymodule_1_1basegeometrytype.html", null ],
     [ "basegeometrytype", null, [
       [ "circulargeometrymodule::circulargeometrytype", "structcirculargeometrymodule_1_1circulargeometrytype.html", null ],
       [ "rectangulargeometrymodule::rectangulargeometrytype", "structrectangulargeometrymodule_1_1rectangulargeometrytype.html", null ]
     ] ],
-    [ "basegeometrymodule::basegeometrytype", "structbasegeometrymodule_1_1basegeometrytype.html", null ],
     [ "basemodeltype", null, [
       [ "numericalmodelmodule::numericalmodeltype", "structnumericalmodelmodule_1_1numericalmodeltype.html", null ]
     ] ],
@@ -99,6 +99,7 @@ var hierarchy =
     [ "cellwithnbrsmodule::cellwithnbrstype", "structcellwithnbrsmodule_1_1cellwithnbrstype.html", null ],
     [ "characterstringmodule::characterstringtype", "structcharacterstringmodule_1_1characterstringtype.html", null ],
     [ "gwfbuymodule::concentrationpointer", "structgwfbuymodule_1_1concentrationpointer.html", null ],
+    [ "gwfvscmodule::concentrationpointer", "structgwfvscmodule_1_1concentrationpointer.html", null ],
     [ "connectionbuildermodule::connectionbuildertype", "structconnectionbuildermodule_1_1connectionbuildertype.html", null ],
     [ "connectionsmodule::connectionstype", "structconnectionsmodule_1_1connectionstype.html", null ],
     [ "dag_module::dag", "structdag__module_1_1dag.html", null ],
@@ -139,6 +140,7 @@ var hierarchy =
     [ "gwfmvrperioddatamodule::gwfmvrperioddatatype", "structgwfmvrperioddatamodule_1_1gwfmvrperioddatatype.html", null ],
     [ "gwfnpfoptionsmodule::gwfnpfoptionstype", "structgwfnpfoptionsmodule_1_1gwfnpfoptionstype.html", null ],
     [ "gwfnpfinputmodule::gwfnpfparamfoundtype", "structgwfnpfinputmodule_1_1gwfnpfparamfoundtype.html", null ],
+    [ "gwfvscinputdatamodule::gwfvscinputdatatype", "structgwfvscinputdatamodule_1_1gwfvscinputdatatype.html", null ],
     [ "gwtadvoptionsmodule::gwtadvoptionstype", "structgwtadvoptionsmodule_1_1gwtadvoptionstype.html", null ],
     [ "gwtapttype", null, [
       [ "gwtlktmodule::gwtlkttype", "structgwtlktmodule_1_1gwtlkttype.html", null ],
@@ -207,6 +209,7 @@ var hierarchy =
       [ "gwfmvrmodule::gwfmvrtype", "structgwfmvrmodule_1_1gwfmvrtype.html", null ],
       [ "gwfnpfmodule::gwfnpftype", "structgwfnpfmodule_1_1gwfnpftype.html", null ],
       [ "gwfstomodule::gwfstotype", "structgwfstomodule_1_1gwfstotype.html", null ],
+      [ "gwfvscmodule::gwfvsctype", "structgwfvscmodule_1_1gwfvsctype.html", null ],
       [ "gwtadvmodule::gwtadvtype", "structgwtadvmodule_1_1gwtadvtype.html", null ],
       [ "gwtdspmodule::gwtdsptype", "structgwtdspmodule_1_1gwtdsptype.html", null ],
       [ "gwtfmimodule::gwtfmitype", "structgwtfmimodule_1_1gwtfmitype.html", null ],
@@ -454,6 +457,7 @@ var hierarchy =
     [ "DPREC", null, null ],
     [ "DQUARTER", null, null ],
     [ "drn_create", null, null ],
+    [ "DrnType", null, null ],
     [ "DSAME", null, null ],
     [ "DSIX", null, null ],
     [ "dsp_cr", null, null ],
@@ -524,6 +528,7 @@ var hierarchy =
     [ "GetUnit", null, null ],
     [ "getunit", null, null ],
     [ "ghb_create", null, null ],
+    [ "GhbType", null, null ],
     [ "GhostNodeType", null, null ],
     [ "GlobalCellType", null, null ],
     [ "gnc_cr", null, null ],
@@ -563,6 +568,8 @@ var hierarchy =
     [ "GwfObsType", null, null ],
     [ "GwfOcType", null, null ],
     [ "GwfStoType", null, null ],
+    [ "GwfVscInputDataType", null, null ],
+    [ "GwfVscType", null, null ],
     [ "gwt_cr", null, null ],
     [ "gwt_dsp_aggregate_definitions", null, null ],
     [ "gwt_dsp_block_definitions", null, null ],
@@ -773,6 +780,7 @@ var hierarchy =
     [ "real64", null, null ],
     [ "remove_character", null, null ],
     [ "riv_create", null, null ],
+    [ "RivType", null, null ],
     [ "same_word", null, null ],
     [ "save_print_model_flows", null, null ],
     [ "sChSmooth", null, null ],
@@ -875,8 +883,8 @@ var hierarchy =
     [ "ulstlb", null, null ],
     [ "UNDEFINED", null, null ],
     [ "unique_values", null, null ],
-    [ "upcase", null, null ],
     [ "UPCASE", null, null ],
+    [ "upcase", null, null ],
     [ "urdaux", null, null ],
     [ "URWORD", null, null ],
     [ "urword", null, null ],
@@ -894,6 +902,7 @@ var hierarchy =
     [ "VectorInt", null, null ],
     [ "VERSION", null, null ],
     [ "VERSIONNUMBER", null, null ],
+    [ "vsc_cr", null, null ],
     [ "VSUMMARY", null, null ],
     [ "warnmsg", null, null ],
     [ "wel_create", null, null ],

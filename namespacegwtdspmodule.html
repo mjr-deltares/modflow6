@@ -1519,8 +1519,8 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;    <span class="keywordtype">type</span>(GwtDspParamFoundType), <span class="keywordtype">intent(in)</span> :: found</div>
 <div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160; </div>
 <div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;    <span class="keyword">write</span> (this%iout, <span class="stringliteral">&#39;(1x,a)&#39;</span>) <span class="stringliteral">&#39;Setting DSP Options&#39;</span></div>
-<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;    <span class="keyword">write</span> (this%iout, <span class="stringliteral">&#39;(4x,a,i0)&#39;</span>) <span class="stringliteral">&#39;XT3D FORMULATION [0=INACTIVE, 1=ACTIVE, &amp;</span></div>
-<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;<span class="stringliteral"></span><span class="stringliteral">                                   &amp;3=ACTIVE RHS] SET TO: &#39;</span>, this%ixt3d</div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;    <span class="keyword">write</span> (this%iout, <span class="stringliteral">&#39;(4x,a,i0)&#39;</span>) <span class="stringliteral">&#39;XT3D formulation [0=INACTIVE, 1=ACTIVE, &amp;</span></div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;<span class="stringliteral"></span><span class="stringliteral">                                   &amp;3=ACTIVE RHS] set to: &#39;</span>, this%ixt3d</div>
 <div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;    <span class="keyword">write</span> (this%iout, <span class="stringliteral">&#39;(1x,a,/)&#39;</span>) <span class="stringliteral">&#39;End Setting DSP Options&#39;</span></div>
 </div><!-- fragment -->
 </div>
@@ -1604,7 +1604,7 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;    <span class="keywordflow">if</span> (this%idisp &gt; 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;      <span class="keywordflow">if</span> (.not. (found%alh .and. found%ath1)) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;        <span class="keyword">write</span> (errmsg, <span class="stringliteral">&#39;(1x,a)&#39;</span>) &amp;</div>
-<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;          <span class="stringliteral">&#39;IF DISPERSIVITIES ARE SPECIFIED THEN ALH AND ATH1 ARE REQUIRED.&#39;</span></div>
+<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;          <span class="stringliteral">&#39;if dispersivities are specified then ALH and ATH1 are required.&#39;</span></div>
 <div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;        <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">store_error</a>(errmsg)</div>
 <div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;<span class="keywordflow">      end if</span></div>
 <div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;      <span class="comment">! -- If alv not specified then point it to alh</span></div>
@@ -1752,7 +1752,7 @@ Here is the call graph for this function:</div>
 <div class="ttc" id="anamespaceconstantsmodule_html_a060d310ded5535ce2dc85bd1ca1afd3d"><div class="ttname"><a href="namespaceconstantsmodule.html#a060d310ded5535ce2dc85bd1ca1afd3d">constantsmodule::linelength</a></div><div class="ttdeci">integer(i4b), parameter linelength</div><div class="ttdoc">maximum length of a standard line</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00044">Constants.f90:44</a></div></div>
 <div class="ttc" id="ainterfacememorymanagermodule_1_1mem__allocate_html"><div class="ttname"><a href="interfacememorymanagermodule_1_1mem__allocate.html">memorymanagermodule::mem_allocate</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00050">MemoryManager.f90:50</a></div></div>
 <div class="ttc" id="anamespacesimvariablesmodule_html"><div class="ttname"><a href="namespacesimvariablesmodule.html">simvariablesmodule</a></div><div class="ttdoc">This module contains simulation variables.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_variables_8f90_source.html#l00009">SimVariables.f90:9</a></div></div>
-<div class="ttc" id="anamespacegwfnpfmodule_html_af6557a125519ffbda0826d7c39fec8e1"><div class="ttname"><a href="namespacegwfnpfmodule.html#af6557a125519ffbda0826d7c39fec8e1">gwfnpfmodule::hyeff_calc</a></div><div class="ttdeci">real(dp) function, public hyeff_calc(k11, k22, k33, ang1, ang2, ang3, vg1, vg2, vg3, iavgmeth)</div><div class="ttdef"><b>Definition:</b> <a href="gwf3npf8_8f90_source.html#l02929">gwf3npf8.f90:2929</a></div></div>
+<div class="ttc" id="anamespacegwfnpfmodule_html_af6557a125519ffbda0826d7c39fec8e1"><div class="ttname"><a href="namespacegwfnpfmodule.html#af6557a125519ffbda0826d7c39fec8e1">gwfnpfmodule::hyeff_calc</a></div><div class="ttdeci">real(dp) function, public hyeff_calc(k11, k22, k33, ang1, ang2, ang3, vg1, vg2, vg3, iavgmeth)</div><div class="ttdef"><b>Definition:</b> <a href="gwf3npf8_8f90_source.html#l03017">gwf3npf8.f90:3017</a></div></div>
 <div class="ttc" id="anamespacememorymanagerextmodule_html"><div class="ttname"><a href="namespacememorymanagerextmodule.html">memorymanagerextmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_ext_8f90_source.html#l00001">MemoryManagerExt.f90:1</a></div></div>
 <div class="ttc" id="anamespacext3dmodule_html_ad20f01d9a9fe69c0d007ba046a0435eb"><div class="ttname"><a href="namespacext3dmodule.html#ad20f01d9a9fe69c0d007ba046a0435eb">xt3dmodule::xt3d_cr</a></div><div class="ttdeci">subroutine, public xt3d_cr(xt3dobj, name_model, inunit, iout, ldispopt)</div><div class="ttdef"><b>Definition:</b> <a href="_xt3d_interface_8f90_source.html#l00083">Xt3dInterface.f90:83</a></div></div>
 <div class="ttc" id="anamespaceconstantsmodule_html"><div class="ttname"><a href="namespaceconstantsmodule.html">constantsmodule</a></div><div class="ttdoc">This module contains simulation constants.</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00009">Constants.f90:9</a></div></div>
@@ -1769,7 +1769,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacegwtdspmodule.html">gwtdspmodule</a></li>
-    <li class="footer">Generated on Wed Nov 2 2022 13:58:08 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Nov 23 2022 15:52:03 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

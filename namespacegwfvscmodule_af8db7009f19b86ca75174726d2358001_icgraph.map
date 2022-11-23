@@ -1,0 +1,10 @@
+<map id="gwfvscmodule::calc_visc" name="gwfvscmodule::calc_visc">
+<area shape="rect" id="node1" title=" " alt="" coords="767,111,951,137"/>
+<area shape="rect" id="node2" href="$namespacegwfvscmodule.html#a5e8b4072354d11b735667328a8417e98" title="@ brief Calculate the boundary viscosity" alt="" coords="540,74,691,115"/>
+<area shape="rect" id="node8" href="$namespacegwfvscmodule.html#a4ff0f551bca1a547401b8a152a01f042" title="Calculate fluid viscosity." alt="" coords="512,140,719,167"/>
+<area shape="rect" id="node3" href="$namespacegwfvscmodule.html#a476a324bbc28b0fe0f403acd75a323d8" title="Update lak&#45;related viscosity ratios." alt="" coords="261,5,458,32"/>
+<area shape="rect" id="node5" href="$namespacegwfvscmodule.html#af4070491a5fac8c9ef18a537d9bff7af" title="Update maw&#45;related viscosity ratios." alt="" coords="255,56,464,83"/>
+<area shape="rect" id="node6" href="$namespacegwfvscmodule.html#aa7423dfe6d14b2ecc499adf4bd9ff259" title="Update sfr&#45;related viscosity ratios." alt="" coords="262,107,457,133"/>
+<area shape="rect" id="node7" href="$namespacegwfvscmodule.html#a3e5f71e404ad7000d2873ea98ccccedc" title="advance ghb while accounting for viscosity" alt="" coords="274,158,445,199"/>
+<area shape="rect" id="node4" href="$namespacegwfvscmodule.html#ac936522aab940bab0a3a777937950905" title="Advance the boundary packages when viscosity is active." alt="" coords="5,81,207,108"/>
+</map>

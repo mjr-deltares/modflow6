@@ -6,6 +6,7 @@ var gwf3maw8_8f90 =
     [ "get_jpos", "gwf3maw8_8f90.html#a6c98c4cc63fc1ed095113fed9f41f600", null ],
     [ "maw_ac", "gwf3maw8_8f90.html#ac5eee37b41437cf9f2e64053576605e8", null ],
     [ "maw_activate_density", "gwf3maw8_8f90.html#a6949591e459942eec1e329a914385015", null ],
+    [ "maw_activate_viscosity", "gwf3maw8_8f90.html#a30807d53b579b41c995fdb1796a51255", null ],
     [ "maw_ad", "gwf3maw8_8f90.html#a3f9d9ad3e689ec4bcc113bfb812d4740", null ],
     [ "maw_allocate_arrays", "gwf3maw8_8f90.html#a87bc61ef968f5629630d3a79afa25bc7", null ],
     [ "maw_allocate_scalars", "gwf3maw8_8f90.html#a50b6c2af7ebaefd1f83452b5713cd7d4", null ],

@@ -286,6 +286,8 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:a09df5e9d4776f96d86a867fb27714ebe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f348cfe4983a74bc48ed0eb3c160351"><td class="memItemLeft" align="right" valign="top">procedure, private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlakmodule_1_1laktype.html#a6f348cfe4983a74bc48ed0eb3c160351">lak_calculate_density_exchange</a></td></tr>
 <tr class="separator:a6f348cfe4983a74bc48ed0eb3c160351"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab63453c22fdbeb50706f1a26471c782a"><td class="memItemLeft" align="right" valign="top">procedure&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlakmodule_1_1laktype.html#ab63453c22fdbeb50706f1a26471c782a">lak_activate_viscosity</a></td></tr>
+<tr class="separator:ab63453c22fdbeb50706f1a26471c782a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -515,6 +517,9 @@ Private Attributes</h2></td></tr>
 <tr class="separator:adfc63b6d2d19bf64c7beaf8d97d9f9ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0820ee505a853d9fe96c1bcdff824407"><td class="memItemLeft" align="right" valign="top">real(dp), dimension(:, :), pointer, contiguous&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlakmodule_1_1laktype.html#a0820ee505a853d9fe96c1bcdff824407">denseterms</a> =&gt; null()</td></tr>
 <tr class="separator:a0820ee505a853d9fe96c1bcdff824407"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0e3ffb1cf12c5ec246856f4a3aa7e20"><td class="memItemLeft" align="right" valign="top">real(dp), dimension(:, :), pointer, contiguous&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlakmodule_1_1laktype.html#ac0e3ffb1cf12c5ec246856f4a3aa7e20">viscratios</a> =&gt; null()</td></tr>
+<tr class="memdesc:ac0e3ffb1cf12c5ec246856f4a3aa7e20"><td class="mdescLeft">&#160;</td><td class="mdescRight">viscosity ratios (1: lak vsc ratio; 2: gwf vsc ratio)  <a href="structlakmodule_1_1laktype.html#ac0e3ffb1cf12c5ec246856f4a3aa7e20">More...</a><br /></td></tr>
+<tr class="separator:ac0e3ffb1cf12c5ec246856f4a3aa7e20"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
@@ -540,7 +545,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00203">203</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00206">206</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -564,7 +569,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00201">201</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00204">204</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -580,7 +585,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00219">219</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00222">222</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -604,7 +609,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00207">207</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00210">210</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -628,7 +633,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00204">204</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00207">207</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -652,7 +657,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00208">208</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00211">211</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -676,7 +681,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00213">213</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00216">216</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -692,7 +697,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00217">217</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00220">220</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -716,7 +721,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00205">205</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00208">208</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -740,7 +745,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00206">206</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00209">209</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -756,7 +761,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00216">216</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00219">219</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -780,7 +785,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00197">197</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00200">200</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -804,7 +809,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00212">212</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00215">215</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -828,7 +833,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00211">211</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00214">214</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -852,7 +857,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00209">209</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00212">212</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -876,7 +881,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00210">210</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00213">213</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -900,7 +905,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00202">202</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00205">205</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -916,7 +921,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00218">218</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00221">221</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -940,7 +945,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00214">214</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00217">217</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -964,7 +969,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00256">256</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00259">259</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -988,7 +993,31 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00268">268</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00271">271</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+
+</div>
+</div>
+<a id="ab63453c22fdbeb50706f1a26471c782a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab63453c22fdbeb50706f1a26471c782a">&#9670;&nbsp;</a></span>lak_activate_viscosity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">procedure lakmodule::laktype::lak_activate_viscosity</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00274">274</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1012,7 +1041,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00196">196</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00199">199</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1036,7 +1065,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00195">195</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00198">198</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1060,7 +1089,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00230">230</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00233">233</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1084,7 +1113,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00259">259</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00262">262</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1108,7 +1137,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00236">236</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00239">239</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1132,7 +1161,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00235">235</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00238">238</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1156,7 +1185,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00237">237</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00240">240</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1180,7 +1209,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00239">239</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00242">242</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1204,7 +1233,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00233">233</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00236">236</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1228,7 +1257,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00269">269</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00272">272</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1252,7 +1281,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00247">247</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00250">250</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1276,7 +1305,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00238">238</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00241">241</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1300,7 +1329,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00245">245</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00248">248</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1324,7 +1353,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00244">244</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00247">247</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1348,7 +1377,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00248">248</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00251">251</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1372,7 +1401,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00249">249</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00252">252</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1396,7 +1425,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00242">242</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00245">245</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1420,7 +1449,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00260">260</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00263">263</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1444,7 +1473,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00243">243</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00246">246</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1468,7 +1497,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00231">231</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00234">234</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1492,7 +1521,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00241">241</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00244">244</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1508,7 +1537,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00234">234</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00237">237</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1532,7 +1561,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00232">232</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00235">235</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1556,7 +1585,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00246">246</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00249">249</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1580,7 +1609,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00229">229</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00232">232</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1604,7 +1633,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00226">226</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00229">229</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1628,7 +1657,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00240">240</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00243">243</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1652,7 +1681,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00263">263</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00266">266</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1676,7 +1705,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00254">254</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00257">257</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1700,7 +1729,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00252">252</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00255">255</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1724,7 +1753,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00250">250</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00253">253</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1748,7 +1777,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00253">253</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00256">256</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1772,7 +1801,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00251">251</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00254">254</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1796,7 +1825,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00255">255</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00258">258</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1820,7 +1849,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00261">261</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00264">264</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1844,7 +1873,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00222">222</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00225">225</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1868,7 +1897,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00221">221</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00224">224</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1892,7 +1921,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00223">223</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00226">226</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1916,7 +1945,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00225">225</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00228">228</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1940,7 +1969,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00224">224</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00227">227</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1964,7 +1993,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00228">228</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00231">231</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -1988,7 +2017,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00227">227</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00230">230</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -2012,7 +2041,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00262">262</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00265">265</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -2036,7 +2065,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00266">266</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00269">269</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -2060,7 +2089,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00258">258</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00261">261</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -2084,7 +2113,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00257">257</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00260">260</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -2108,7 +2137,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00264">264</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00267">267</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -2132,7 +2161,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00198">198</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00201">201</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -2156,7 +2185,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00199">199</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00202">202</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -2180,7 +2209,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00200">200</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00203">203</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
 
 </div>
 </div>
@@ -4861,6 +4890,31 @@ Private Attributes</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
+<a id="ac0e3ffb1cf12c5ec246856f4a3aa7e20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0e3ffb1cf12c5ec246856f4a3aa7e20">&#9670;&nbsp;</a></span>viscratios</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(dp), dimension(:, :), pointer, contiguous lakmodule::laktype::viscratios =&gt; null()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="gwf3lak8_8f90_source.html#l00194">194</a> of file <a class="el" href="gwf3lak8_8f90_source.html">gwf3lak8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:, :)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: viscratios =&gt; null() <span class="comment">!&lt; viscosity ratios (1: lak vsc ratio; 2: gwf vsc ratio)</span></div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="ad5f5733c18e6bc657abfed8b41bf408a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad5f5733c18e6bc657abfed8b41bf408a">&#9670;&nbsp;</a></span>warea</h2>
 
@@ -5020,7 +5074,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacelakmodule.html">lakmodule</a></li><li class="navelem"><a class="el" href="structlakmodule_1_1laktype.html">laktype</a></li>
-    <li class="footer">Generated on Wed Nov 2 2022 13:58:12 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Nov 23 2022 15:52:08 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

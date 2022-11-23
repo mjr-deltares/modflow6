@@ -43,11 +43,13 @@ var structgwfmodule_1_1gwfmodeltype =
     [ "inobs", "structgwfmodule_1_1gwfmodeltype.html#a4c2d8093c50d60e831d9d040f2b67759", null ],
     [ "inoc", "structgwfmodule_1_1gwfmodeltype.html#a6f0ead69e5626d6b27e9baf4563d9589", null ],
     [ "insto", "structgwfmodule_1_1gwfmodeltype.html#a44d756d80cdb6fbfeeb642139a0fe27f", null ],
+    [ "invsc", "structgwfmodule_1_1gwfmodeltype.html#a716b60b9bdc463bdf821129c856417ea", null ],
     [ "iss", "structgwfmodule_1_1gwfmodeltype.html#a09aed11e5f8b8a86402224e32a87b672", null ],
     [ "mvr", "structgwfmodule_1_1gwfmodeltype.html#a5f0ae2944edd07cc5465b42aaf5bdc82", null ],
     [ "npf", "structgwfmodule_1_1gwfmodeltype.html#af4f7353a512f3543613deb6eacfbb22a", null ],
     [ "obs", "structgwfmodule_1_1gwfmodeltype.html#a2ff0d6529429e096dac84a070bf64f2f", null ],
     [ "oc", "structgwfmodule_1_1gwfmodeltype.html#aa66e8fc57c35ae272ce1c4ef5b7ebe1b", null ],
     [ "sto", "structgwfmodule_1_1gwfmodeltype.html#a30f789febad7998437f89820de5b0a73", null ],
+    [ "vsc", "structgwfmodule_1_1gwfmodeltype.html#a8541d640d6f1d6fa27659187eb291fad", null ],
     [ "xt3d", "structgwfmodule_1_1gwfmodeltype.html#a9a02a2436e86aafa89a0fc6f8c563ee0", null ]
 ];

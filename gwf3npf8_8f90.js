@@ -18,12 +18,12 @@ var gwf3npf8_8f90 =
     [ "logmean", "gwf3npf8_8f90.html#a905d9a528c4d4a783096b639298d42b3", null ],
     [ "npf_ac", "gwf3npf8_8f90.html#a41edcaf1dff3168d73294c8943a3c7f6", null ],
     [ "npf_ad", "gwf3npf8_8f90.html#ab8bd3761a7b72f7e397f2ecab7a4577a", null ],
-    [ "npf_ar", "gwf3npf8_8f90.html#a68053ba0136c0a8ee4556c771a662be2", null ],
+    [ "npf_ar", "gwf3npf8_8f90.html#af5865143222fd3646291535ccb1aa7b5", null ],
     [ "npf_cf", "gwf3npf8_8f90.html#af9f6c76fad8ae4c6d8bcb8b03b433712", null ],
     [ "npf_cq", "gwf3npf8_8f90.html#ae725dca0ce67c2afe99a95234963f173", null ],
     [ "npf_cr", "gwf3npf8_8f90.html#ab369813a4f2a00c7cc7eec2a4cbbc2d4", null ],
     [ "npf_da", "gwf3npf8_8f90.html#a7bb1666f3429ef5ac99568c8b09a4ad3", null ],
-    [ "npf_df", "gwf3npf8_8f90.html#a68c0ee40476b639bd15d53771afbc02e", null ],
+    [ "npf_df", "gwf3npf8_8f90.html#aa86905dcda2f59c1ba29277d2c5bcb27", null ],
     [ "npf_fc", "gwf3npf8_8f90.html#ae8ff97fa2c799a484b0453dba8647ae8", null ],
     [ "npf_fn", "gwf3npf8_8f90.html#a4b59ec3a2906a9e7a9530f564a4f3073", null ],
     [ "npf_mc", "gwf3npf8_8f90.html#a043df5fdc89db4eac4635fe68d7a00c5", null ],
@@ -44,6 +44,7 @@ var gwf3npf8_8f90 =
     [ "sgwf_npf_wetdry", "gwf3npf8_8f90.html#a44ee88a8e7b365313a2b0dee14df54ba", null ],
     [ "source_griddata", "gwf3npf8_8f90.html#a4574a16995a703aeed1e186536fbfa55", null ],
     [ "source_options", "gwf3npf8_8f90.html#a0e9626d3b9a8b243090860a0a4dcc10b", null ],
+    [ "store_original_k_arrays", "gwf3npf8_8f90.html#ad4a23fb8f2107858a05901957fc22cb2", null ],
     [ "thksatnm", "gwf3npf8_8f90.html#a043778a29f31835c4167e493e79df0ef", null ],
     [ "vcond", "gwf3npf8_8f90.html#a0ac64188c68a16279d975e588393259e", null ]
 ];

@@ -3234,9 +3234,9 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;    this%surfluxbelow(icell) = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
 <div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;    <span class="keywordflow">if</span> (this%ivertcon(icell) &gt; 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;      this%finf(jbelow) = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;      <span class="keywordflow">if</span> (this%watab(icell) &lt; this%celbot(icell)) &amp;</div>
-<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;        this%watab(icell) = this%celbot(icell)</div>
-<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;    <span class="keywordflow">if</span> (this%watab(icell) &lt; this%celbot(icell)) &amp;</div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;      this%watab(icell) = this%celbot(icell)</div>
 <div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;    <span class="comment">! -- initialize derivative variables</span></div>
 <div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;    deriv1 = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
@@ -4452,7 +4452,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceuzfcellgroupmodule.html">uzfcellgroupmodule</a></li>
-    <li class="footer">Generated on Wed Nov 2 2022 13:58:23 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Nov 23 2022 15:52:18 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -1,0 +1,5 @@
+<map id="gwfvscmodule::update_bnd_cond" name="gwfvscmodule::update_bnd_cond">
+<area shape="rect" id="node1" title="Apply viscosity to the conductance term." alt="" coords="473,5,644,47"/>
+<area shape="rect" id="node2" href="$namespacegwfvscmodule.html#a3e5f71e404ad7000d2873ea98ccccedc" title="advance ghb while accounting for viscosity" alt="" coords="255,5,425,47"/>
+<area shape="rect" id="node3" href="$namespacegwfvscmodule.html#ac936522aab940bab0a3a777937950905" title="Advance the boundary packages when viscosity is active." alt="" coords="5,13,207,39"/>
+</map>

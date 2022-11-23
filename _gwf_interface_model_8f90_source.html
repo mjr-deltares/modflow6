@@ -209,7 +209,7 @@ $(document).ready(function(){initNavTree('_gwf_interface_model_8f90_source.html'
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="comment">! define NPF package</span></div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keyword">call </span>npfoptions%construct()</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keyword">call </span>this%setNpfOptions(npfoptions)</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keyword">call </span>this%npf%npf_df(this%dis, this%xt3d, 0, npfoptions)</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keyword">call </span>this%npf%npf_df(this%dis, this%xt3d, 0, 0, npfoptions)</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keyword">call </span>npfoptions%destroy()</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="comment">! define BUY package</span></div>
@@ -234,7 +234,7 @@ $(document).ready(function(){initNavTree('_gwf_interface_model_8f90_source.html'
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacegwfinterfacemodelmodule.html#a1231a9e27f4877b9fffc64c58cc29fa5">gwfifm_ar</a>(this)</div>
 <div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="namespacegwfinterfacemodelmodule.html#a1231a9e27f4877b9fffc64c58cc29fa5">  120</a></span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structgwfinterfacemodelmodule_1_1gwfinterfacemodeltype.html">gwfinterfacemodeltype</a>) :: this<span class="comment"> !&lt; the GWF interface model</span></div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keyword">call </span>this%npf%npf_ar(this%ic, this%ibound, this%x)</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keyword">call </span>this%npf%npf_ar(this%ic, this%vsc, this%ibound, this%x)</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordflow">if</span> (this%inbuy &gt; 0) <span class="keyword">call </span>this%buy%buy_ar(this%npf, this%ibound)</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacegwfinterfacemodelmodule.html#a1231a9e27f4877b9fffc64c58cc29fa5">gwfifm_ar</a></div>
@@ -262,64 +262,65 @@ $(document).ready(function(){initNavTree('_gwf_interface_model_8f90_source.html'
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%inobs)</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%innpf)</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%inbuy)</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%insto)</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%incsub)</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%inmvr)</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%inhfb)</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%ingnc)</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%iss)</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%inewtonur)</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="comment">! -- NumericalModelType</span></div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keyword">call </span>this%NumericalModelType%model_da()</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;  <span class="keyword">end subroutine</span></div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="comment">  !&gt; @brief Copy NPF options from the model owning</span></div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="comment">  !! the interface to the data structure</span></div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="comment">  !&lt;</span></div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacegwfinterfacemodelmodule.html#ab6ed2c77e8eed671c002f3d32486ea9b">setnpfoptions</a>(this, npfOptions)</div>
-<div class="line"><a name="l00167"></a><span class="lineno"><a class="line" href="namespacegwfinterfacemodelmodule.html#ab6ed2c77e8eed671c002f3d32486ea9b">  167</a></span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structgwfinterfacemodelmodule_1_1gwfinterfacemodeltype.html">gwfinterfacemodeltype</a>) :: this<span class="comment"> !&lt; the GWF interface model</span></div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structgwfnpfoptionsmodule_1_1gwfnpfoptionstype.html">gwfnpfoptionstype</a>) :: npfOptions<span class="comment"> !&lt; the options data to be filled</span></div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="comment">! for now, assuming full homogeneity, so just take</span></div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="comment">! the options from the owning model&#39;s npf package</span></div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    npfoptions%icellavg = this%owner%npf%icellavg</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    npfoptions%ithickstrt = this%owner%npf%ithickstrt</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    npfoptions%iperched = this%owner%npf%iperched</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    npfoptions%ivarcv = this%owner%npf%ivarcv</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    npfoptions%idewatcv = this%owner%npf%idewatcv</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    npfoptions%irewet = this%owner%npf%irewet</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    npfoptions%wetfct = this%owner%npf%wetfct</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    npfoptions%iwetit = this%owner%npf%iwetit</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    npfoptions%ihdwet = this%owner%npf%ihdwet</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; </div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacegwfinterfacemodelmodule.html#ab6ed2c77e8eed671c002f3d32486ea9b">setnpfoptions</a></div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="comment">  !&gt; @brief Sets the BUY input data from the models that</span></div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="comment">  !! make up this interface. We adopt everything from the</span></div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="comment">  !! owning model, but during validation it should be</span></div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="comment">  !&lt; checked that the models are compatible.</span></div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacegwfinterfacemodelmodule.html#af59c18614cb276ebe2a03539cac2f680">setbuydata</a>(this, buyData)</div>
-<div class="line"><a name="l00189"></a><span class="lineno"><a class="line" href="namespacegwfinterfacemodelmodule.html#af59c18614cb276ebe2a03539cac2f680">  189</a></span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structgwfinterfacemodelmodule_1_1gwfinterfacemodeltype.html">gwfinterfacemodeltype</a>) :: this<span class="comment"> !&lt; the interface model</span></div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structgwfbuyinputdatamodule_1_1gwfbuyinputdatatype.html">gwfbuyinputdatatype</a>) :: buyData<span class="comment"> !&lt; the data for the buoyancy package</span></div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    buydata%denseref = this%owner%buy%denseref</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    buydata%iform = this%owner%buy%iform</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    buydata%nrhospecies = this%owner%buy%nrhospecies</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="keywordflow">do</span> i = 1, buydata%nrhospecies</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;      buydata%drhodc(i) = this%owner%buy%drhodc(i)</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;      buydata%crhoref(i) = this%owner%buy%crhoref(i)</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;      buydata%cmodelname(i) = this%owner%buy%cmodelname(i)</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;      buydata%cauxspeciesname(i) = this%owner%buy%cauxspeciesname(i)</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; </div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacegwfinterfacemodelmodule.html#af59c18614cb276ebe2a03539cac2f680">setbuydata</a></div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="keyword">end module </span><a class="code" href="namespacegwfinterfacemodelmodule.html">gwfinterfacemodelmodule</a></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%invsc)</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%insto)</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%incsub)</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%inmvr)</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%inhfb)</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%ingnc)</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%iss)</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%inewtonur)</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="comment">! -- NumericalModelType</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keyword">call </span>this%NumericalModelType%model_da()</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  <span class="keyword">end subroutine</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="comment">  !&gt; @brief Copy NPF options from the model owning</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="comment">  !! the interface to the data structure</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="comment">  !&lt;</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacegwfinterfacemodelmodule.html#ab6ed2c77e8eed671c002f3d32486ea9b">setnpfoptions</a>(this, npfOptions)</div>
+<div class="line"><a name="l00168"></a><span class="lineno"><a class="line" href="namespacegwfinterfacemodelmodule.html#ab6ed2c77e8eed671c002f3d32486ea9b">  168</a></span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structgwfinterfacemodelmodule_1_1gwfinterfacemodeltype.html">gwfinterfacemodeltype</a>) :: this<span class="comment"> !&lt; the GWF interface model</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structgwfnpfoptionsmodule_1_1gwfnpfoptionstype.html">gwfnpfoptionstype</a>) :: npfOptions<span class="comment"> !&lt; the options data to be filled</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="comment">! for now, assuming full homogeneity, so just take</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="comment">! the options from the owning model&#39;s npf package</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    npfoptions%icellavg = this%owner%npf%icellavg</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    npfoptions%ithickstrt = this%owner%npf%ithickstrt</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    npfoptions%iperched = this%owner%npf%iperched</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    npfoptions%ivarcv = this%owner%npf%ivarcv</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    npfoptions%idewatcv = this%owner%npf%idewatcv</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    npfoptions%irewet = this%owner%npf%irewet</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    npfoptions%wetfct = this%owner%npf%wetfct</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    npfoptions%iwetit = this%owner%npf%iwetit</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    npfoptions%ihdwet = this%owner%npf%ihdwet</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; </div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacegwfinterfacemodelmodule.html#ab6ed2c77e8eed671c002f3d32486ea9b">setnpfoptions</a></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="comment">  !&gt; @brief Sets the BUY input data from the models that</span></div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="comment">  !! make up this interface. We adopt everything from the</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="comment">  !! owning model, but during validation it should be</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="comment">  !&lt; checked that the models are compatible.</span></div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacegwfinterfacemodelmodule.html#af59c18614cb276ebe2a03539cac2f680">setbuydata</a>(this, buyData)</div>
+<div class="line"><a name="l00190"></a><span class="lineno"><a class="line" href="namespacegwfinterfacemodelmodule.html#af59c18614cb276ebe2a03539cac2f680">  190</a></span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structgwfinterfacemodelmodule_1_1gwfinterfacemodeltype.html">gwfinterfacemodeltype</a>) :: this<span class="comment"> !&lt; the interface model</span></div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structgwfbuyinputdatamodule_1_1gwfbuyinputdatatype.html">gwfbuyinputdatatype</a>) :: buyData<span class="comment"> !&lt; the data for the buoyancy package</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    buydata%denseref = this%owner%buy%denseref</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    buydata%iform = this%owner%buy%iform</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    buydata%nrhospecies = this%owner%buy%nrhospecies</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="keywordflow">do</span> i = 1, buydata%nrhospecies</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;      buydata%drhodc(i) = this%owner%buy%drhodc(i)</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;      buydata%crhoref(i) = this%owner%buy%crhoref(i)</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;      buydata%cmodelname(i) = this%owner%buy%cmodelname(i)</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;      buydata%cauxspeciesname(i) = this%owner%buy%cauxspeciesname(i)</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160; </div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacegwfinterfacemodelmodule.html#af59c18614cb276ebe2a03539cac2f680">setbuydata</a></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; </div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="keyword">end module </span><a class="code" href="namespacegwfinterfacemodelmodule.html">gwfinterfacemodelmodule</a></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="anamespacenumericalmodelmodule_html_a4d031f0a98348529066eef37676f018d"><div class="ttname"><a href="namespacenumericalmodelmodule.html#a4d031f0a98348529066eef37676f018d">numericalmodelmodule::getnumericalmodelfromlist</a></div><div class="ttdeci">class(numericalmodeltype) function, pointer, public getnumericalmodelfromlist(list, idx)</div><div class="ttdef"><b>Definition:</b> <a href="_numerical_model_8f90_source.html#l00434">NumericalModel.f90:434</a></div></div>
@@ -337,15 +338,15 @@ $(document).ready(function(){initNavTree('_gwf_interface_model_8f90_source.html'
 <div class="ttc" id="anamespacegwfinterfacemodelmodule_html_a3a10d1462f3b13cb9dfff3831a24c9ac"><div class="ttname"><a href="namespacegwfinterfacemodelmodule.html#a3a10d1462f3b13cb9dfff3831a24c9ac">gwfinterfacemodelmodule::gwfifm_cr</a></div><div class="ttdeci">subroutine gwfifm_cr(this, name, iout, gridConn)</div><div class="ttdoc">set up the interface model, analogously to what</div><div class="ttdef"><b>Definition:</b> <a href="_gwf_interface_model_8f90_source.html#l00047">GwfInterfaceModel.f90:47</a></div></div>
 <div class="ttc" id="astructgwfinterfacemodelmodule_1_1gwfinterfacemodeltype_html"><div class="ttname"><a href="structgwfinterfacemodelmodule_1_1gwfinterfacemodeltype.html">gwfinterfacemodelmodule::gwfinterfacemodeltype</a></div><div class="ttdoc">The GWF Interface Model is a utility to calculate the solution's exchange coefficients from the inter...</div><div class="ttdef"><b>Definition:</b> <a href="_gwf_interface_model_8f90_source.html#l00027">GwfInterfaceModel.f90:27</a></div></div>
 <div class="ttc" id="anamespacememoryhelpermodule_html"><div class="ttname"><a href="namespacememoryhelpermodule.html">memoryhelpermodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_helper_8f90_source.html#l00001">MemoryHelper.f90:1</a></div></div>
-<div class="ttc" id="anamespacegwfnpfmodule_html_ab369813a4f2a00c7cc7eec2a4cbbc2d4"><div class="ttname"><a href="namespacegwfnpfmodule.html#ab369813a4f2a00c7cc7eec2a4cbbc2d4">gwfnpfmodule::npf_cr</a></div><div class="ttdeci">subroutine, public npf_cr(npfobj, name_model, inunit, iout)</div><div class="ttdef"><b>Definition:</b> <a href="gwf3npf8_8f90_source.html#l00144">gwf3npf8.f90:144</a></div></div>
+<div class="ttc" id="anamespacegwfnpfmodule_html_ab369813a4f2a00c7cc7eec2a4cbbc2d4"><div class="ttname"><a href="namespacegwfnpfmodule.html#ab369813a4f2a00c7cc7eec2a4cbbc2d4">gwfnpfmodule::npf_cr</a></div><div class="ttdeci">subroutine, public npf_cr(npfobj, name_model, inunit, iout)</div><div class="ttdef"><b>Definition:</b> <a href="gwf3npf8_8f90_source.html#l00151">gwf3npf8.f90:151</a></div></div>
 <div class="ttc" id="anamespacegwfdisumodule_html_a67d8cf4775770e7251d1207669a219f9"><div class="ttname"><a href="namespacegwfdisumodule.html#a67d8cf4775770e7251d1207669a219f9">gwfdisumodule::disu_cr</a></div><div class="ttdeci">subroutine, public disu_cr(dis, name_model, inunit, iout)</div><div class="ttdef"><b>Definition:</b> <a href="gwf3disu8_8f90_source.html#l00086">gwf3disu8.f90:86</a></div></div>
-<div class="ttc" id="anamespacegwfinterfacemodelmodule_html_ab6ed2c77e8eed671c002f3d32486ea9b"><div class="ttname"><a href="namespacegwfinterfacemodelmodule.html#ab6ed2c77e8eed671c002f3d32486ea9b">gwfinterfacemodelmodule::setnpfoptions</a></div><div class="ttdeci">subroutine setnpfoptions(this, npfOptions)</div><div class="ttdoc">Copy NPF options from the model owning the interface to the data structure.</div><div class="ttdef"><b>Definition:</b> <a href="_gwf_interface_model_8f90_source.html#l00167">GwfInterfaceModel.f90:167</a></div></div>
+<div class="ttc" id="anamespacegwfinterfacemodelmodule_html_ab6ed2c77e8eed671c002f3d32486ea9b"><div class="ttname"><a href="namespacegwfinterfacemodelmodule.html#ab6ed2c77e8eed671c002f3d32486ea9b">gwfinterfacemodelmodule::setnpfoptions</a></div><div class="ttdeci">subroutine setnpfoptions(this, npfOptions)</div><div class="ttdoc">Copy NPF options from the model owning the interface to the data structure.</div><div class="ttdef"><b>Definition:</b> <a href="_gwf_interface_model_8f90_source.html#l00168">GwfInterfaceModel.f90:168</a></div></div>
 <div class="ttc" id="anamespacegwfmodule_html"><div class="ttname"><a href="namespacegwfmodule.html">gwfmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="gwf3_8f90_source.html#l00001">gwf3.f90:1</a></div></div>
-<div class="ttc" id="anamespacegwfinterfacemodelmodule_html_af59c18614cb276ebe2a03539cac2f680"><div class="ttname"><a href="namespacegwfinterfacemodelmodule.html#af59c18614cb276ebe2a03539cac2f680">gwfinterfacemodelmodule::setbuydata</a></div><div class="ttdeci">subroutine setbuydata(this, buyData)</div><div class="ttdoc">Sets the BUY input data from the models that make up this interface. We adopt everything from the own...</div><div class="ttdef"><b>Definition:</b> <a href="_gwf_interface_model_8f90_source.html#l00189">GwfInterfaceModel.f90:189</a></div></div>
+<div class="ttc" id="anamespacegwfinterfacemodelmodule_html_af59c18614cb276ebe2a03539cac2f680"><div class="ttname"><a href="namespacegwfinterfacemodelmodule.html#af59c18614cb276ebe2a03539cac2f680">gwfinterfacemodelmodule::setbuydata</a></div><div class="ttdeci">subroutine setbuydata(this, buyData)</div><div class="ttdoc">Sets the BUY input data from the models that make up this interface. We adopt everything from the own...</div><div class="ttdef"><b>Definition:</b> <a href="_gwf_interface_model_8f90_source.html#l00190">GwfInterfaceModel.f90:190</a></div></div>
 <div class="ttc" id="anamespacegwfbuymodule_html_a280c013f7e5cdc83e8fc21d588ff8ce3"><div class="ttname"><a href="namespacegwfbuymodule.html#a280c013f7e5cdc83e8fc21d588ff8ce3">gwfbuymodule::buy_cr</a></div><div class="ttdeci">subroutine, public buy_cr(buyobj, name_model, inunit, iout)</div><div class="ttdef"><b>Definition:</b> <a href="gwf3buy8_8f90_source.html#l00108">gwf3buy8.f90:108</a></div></div>
 <div class="ttc" id="ainterfacememorymanagermodule_1_1mem__allocate_html"><div class="ttname"><a href="interfacememorymanagermodule_1_1mem__allocate.html">memorymanagermodule::mem_allocate</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00050">MemoryManager.f90:50</a></div></div>
 <div class="ttc" id="anamespacenumericalmodelmodule_html"><div class="ttname"><a href="namespacenumericalmodelmodule.html">numericalmodelmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_numerical_model_8f90_source.html#l00001">NumericalModel.f90:1</a></div></div>
-<div class="ttc" id="anamespacegwfmodule_html_a540f61ff5972e75dba8d751050ca347f"><div class="ttname"><a href="namespacegwfmodule.html#a540f61ff5972e75dba8d751050ca347f">gwfmodule::castasgwfmodel</a></div><div class="ttdeci">class(gwfmodeltype) function, pointer, public castasgwfmodel(model)</div><div class="ttdoc">Cast to GWF model.</div><div class="ttdef"><b>Definition:</b> <a href="gwf3_8f90_source.html#l01517">gwf3.f90:1517</a></div></div>
+<div class="ttc" id="anamespacegwfmodule_html_a540f61ff5972e75dba8d751050ca347f"><div class="ttname"><a href="namespacegwfmodule.html#a540f61ff5972e75dba8d751050ca347f">gwfmodule::castasgwfmodel</a></div><div class="ttdeci">class(gwfmodeltype) function, pointer, public castasgwfmodel(model)</div><div class="ttdoc">Cast to GWF model.</div><div class="ttdef"><b>Definition:</b> <a href="gwf3_8f90_source.html#l01543">gwf3.f90:1543</a></div></div>
 <div class="ttc" id="astructgridconnectionmodule_1_1gridconnectiontype_html"><div class="ttname"><a href="structgridconnectionmodule_1_1gridconnectiontype.html">gridconnectionmodule::gridconnectiontype</a></div><div class="ttdoc">This class is used to construct the connections object for the interface model's spatial discretizati...</div><div class="ttdef"><b>Definition:</b> <a href="_grid_connection_8f90_source.html#l00054">GridConnection.f90:54</a></div></div>
 <div class="ttc" id="anamespacegwfocmodule_html"><div class="ttname"><a href="namespacegwfocmodule.html">gwfocmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="gwf3oc8_8f90_source.html#l00001">gwf3oc8.f90:1</a></div></div>
 <div class="ttc" id="anamespacext3dmodule_html_ad20f01d9a9fe69c0d007ba046a0435eb"><div class="ttname"><a href="namespacext3dmodule.html#ad20f01d9a9fe69c0d007ba046a0435eb">xt3dmodule::xt3d_cr</a></div><div class="ttdeci">subroutine, public xt3d_cr(xt3dobj, name_model, inunit, iout, ldispopt)</div><div class="ttdef"><b>Definition:</b> <a href="_xt3d_interface_8f90_source.html#l00083">Xt3dInterface.f90:83</a></div></div>
@@ -363,7 +364,7 @@ $(document).ready(function(){initNavTree('_gwf_interface_model_8f90_source.html'
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_32e188284d239da8bb14ec1dabb0c35f.html">Model</a></li><li class="navelem"><a class="el" href="dir_4602b8d0a0ef27d9d0b14db2c16038ea.html">Connection</a></li><li class="navelem"><a class="el" href="_gwf_interface_model_8f90.html">GwfInterfaceModel.f90</a></li>
-    <li class="footer">Generated on Wed Nov 2 2022 13:58:02 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Nov 23 2022 15:51:58 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

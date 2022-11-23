@@ -58,6 +58,8 @@ var annotated_dup =
     [ "gwfobsmodule", "namespacegwfobsmodule.html", "namespacegwfobsmodule" ],
     [ "gwfocmodule", "namespacegwfocmodule.html", "namespacegwfocmodule" ],
     [ "gwfstomodule", "namespacegwfstomodule.html", "namespacegwfstomodule" ],
+    [ "gwfvscinputdatamodule", "namespacegwfvscinputdatamodule.html", "namespacegwfvscinputdatamodule" ],
+    [ "gwfvscmodule", "namespacegwfvscmodule.html", "namespacegwfvscmodule" ],
     [ "gwtadvmodule", "namespacegwtadvmodule.html", "namespacegwtadvmodule" ],
     [ "gwtadvoptionsmodule", "namespacegwtadvoptionsmodule.html", "namespacegwtadvoptionsmodule" ],
     [ "gwtaptmodule", "namespacegwtaptmodule.html", "namespacegwtaptmodule" ],

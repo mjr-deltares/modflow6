@@ -25,6 +25,7 @@ var structsfrmodule_1_1sfrtype =
     [ "define_listlabel", "structsfrmodule_1_1sfrtype.html#a827fdd5ac63eaf4d01e6774d3f2310ab", null ],
     [ "read_dimensions", "structsfrmodule_1_1sfrtype.html#acf912ad79307180e27bacc7769aae542", null ],
     [ "sfr_activate_density", "structsfrmodule_1_1sfrtype.html#a52402e2a4b9d9de5b5aa158902c15691", null ],
+    [ "sfr_activate_viscosity", "structsfrmodule_1_1sfrtype.html#a1f665893877cb2745bc5e4c9c5017aae", null ],
     [ "sfr_allocate_arrays", "structsfrmodule_1_1sfrtype.html#ac1e96ea66ac75c2881d998727954c4df", null ],
     [ "sfr_allocate_scalars", "structsfrmodule_1_1sfrtype.html#afea84918f56bba7ab727b07a79883d58", null ],
     [ "sfr_calc_cond", "structsfrmodule_1_1sfrtype.html#a1f7ab9eb1a616420409197662777103f", null ],
@@ -123,6 +124,7 @@ var structsfrmodule_1_1sfrtype =
     [ "usflow", "structsfrmodule_1_1sfrtype.html#a02d67af1313f1fae9918e8b359ccda56", null ],
     [ "usflow0", "structsfrmodule_1_1sfrtype.html#a719532b1a799a6a6d3d7e306b0447e39", null ],
     [ "ustrf", "structsfrmodule_1_1sfrtype.html#acba29adb825273ad86f17e624fd6becd", null ],
+    [ "viscratios", "structsfrmodule_1_1sfrtype.html#a80f205353c703a777b2171c8ee5996c9", null ],
     [ "width", "structsfrmodule_1_1sfrtype.html#a4e4112efdcdc1421fd3ff1eb815b954c", null ],
     [ "xsheight", "structsfrmodule_1_1sfrtype.html#a6c32197505104460a174d26c1ee26f05", null ],
     [ "xsrough", "structsfrmodule_1_1sfrtype.html#ac2d1116ff2bb09417b4985794c38c820", null ]

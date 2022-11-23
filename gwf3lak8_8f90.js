@@ -5,6 +5,7 @@ var gwf3lak8_8f90 =
     [ "define_listlabel", "gwf3lak8_8f90.html#acd2be290d34090c36c0fe06994702ed7", null ],
     [ "lak_accumulate_chterm", "gwf3lak8_8f90.html#a26a4218ce6bd0f427dabee8a31ffa0eb", null ],
     [ "lak_activate_density", "gwf3lak8_8f90.html#a02e593cbaa50b8a9f91a316595a88a1e", null ],
+    [ "lak_activate_viscosity", "gwf3lak8_8f90.html#aa6cea1d350ac2cf7f99594c0482ef5c8", null ],
     [ "lak_ad", "gwf3lak8_8f90.html#ab876adba5d4f66c86aa80fc0c1c69fb3", null ],
     [ "lak_allocate_arrays", "gwf3lak8_8f90.html#a56c6e1bd15bada1b62ed50f0353d1499", null ],
     [ "lak_allocate_scalars", "gwf3lak8_8f90.html#adb379416d8d2c5c1a25b4ad861adf37a", null ],

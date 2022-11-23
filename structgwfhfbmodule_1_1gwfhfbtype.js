@@ -17,6 +17,7 @@ var structgwfhfbmodule_1_1gwfhfbtype =
     [ "condsat", "structgwfhfbmodule_1_1gwfhfbtype.html#a9e2b951467535a1ca28288675a98c74b", null ],
     [ "condsav", "structgwfhfbmodule_1_1gwfhfbtype.html#a8397b334b16618b09c08780f82c65375", null ],
     [ "csatsav", "structgwfhfbmodule_1_1gwfhfbtype.html#a58e08ac88043d703688e7dc1b5fcd870", null ],
+    [ "hnew", "structgwfhfbmodule_1_1gwfhfbtype.html#ac1506166c30e03f14967f6b3ea21cbe8", null ],
     [ "hwva", "structgwfhfbmodule_1_1gwfhfbtype.html#af6ac707f89041e715b3b6686f59b4692", null ],
     [ "hydchr", "structgwfhfbmodule_1_1gwfhfbtype.html#a191c4adac2b569f9f516a7d7f08baa7b", null ],
     [ "ia", "structgwfhfbmodule_1_1gwfhfbtype.html#afa6ebe41289367c0113971c53ba048a2", null ],
@@ -25,6 +26,7 @@ var structgwfhfbmodule_1_1gwfhfbtype =
     [ "idxloc", "structgwfhfbmodule_1_1gwfhfbtype.html#a3b246ef28ef3148dfd428b6d42940513", null ],
     [ "ihc", "structgwfhfbmodule_1_1gwfhfbtype.html#aef5e50e9e6108c2563a0126f5b5374cd", null ],
     [ "isym", "structgwfhfbmodule_1_1gwfhfbtype.html#af3d8c06ca1595979cedeaadef3fd1780", null ],
+    [ "ivsc", "structgwfhfbmodule_1_1gwfhfbtype.html#a826590ff44ddff61f42a04c65264da66", null ],
     [ "ja", "structgwfhfbmodule_1_1gwfhfbtype.html#a78e7d5100efa016cadd2ca6d2a68a874", null ],
     [ "jas", "structgwfhfbmodule_1_1gwfhfbtype.html#af29513e1bf5f55f54d97373388e77b91", null ],
     [ "maxhfb", "structgwfhfbmodule_1_1gwfhfbtype.html#a3a8465fa03f8d354d96a77f0515261cc", null ],
@@ -32,5 +34,6 @@ var structgwfhfbmodule_1_1gwfhfbtype =
     [ "nodem", "structgwfhfbmodule_1_1gwfhfbtype.html#a6920a379dfb6366f0e63a2a1223d9f99", null ],
     [ "noden", "structgwfhfbmodule_1_1gwfhfbtype.html#a8447a662607345efa6106f868c76a17b", null ],
     [ "top", "structgwfhfbmodule_1_1gwfhfbtype.html#a7932bd85d0f0a571a9de4265ec67fd24", null ],
+    [ "vsc", "structgwfhfbmodule_1_1gwfhfbtype.html#a416a56b1f750f0172a75e344957cc83e", null ],
     [ "xt3d", "structgwfhfbmodule_1_1gwfhfbtype.html#a05b6eb4c633e704bae7975f508368fdf", null ]
 ];

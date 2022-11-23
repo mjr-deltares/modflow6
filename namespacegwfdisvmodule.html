@@ -1517,12 +1517,12 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;    <span class="keywordtype">character(len=300)</span> :: ermsg</div>
 <div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;    <span class="comment">! -- formats</span></div>
 <div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">parameter</span> :: fmtdz = &amp;</div>
-<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;      <span class="stringliteral">&quot;(&#39;ERROR. CELL (&#39;,i0,&#39;,&#39;,i0,&#39;) THICKNESS &lt;= 0. &#39;, &amp;</span></div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;      <span class="stringliteral">&quot;(&#39;CELL (&#39;,i0,&#39;,&#39;,i0,&#39;) THICKNESS &lt;= 0. &#39;, &amp;</span></div>
 <div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;<span class="stringliteral"></span><span class="stringliteral">      &amp;&#39;TOP, BOT: &#39;,2(1pg24.15))&quot;</span></div>
 <div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">parameter</span> :: fmtnr = &amp;</div>
-<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;      <span class="stringliteral">&quot;(/1x, &#39;THE SPECIFIED IDOMAIN RESULTS IN A REDUCED NUMBER OF CELLS.&#39;,&amp;</span></div>
-<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;<span class="stringliteral"></span><span class="stringliteral">      &amp;/1x, &#39;NUMBER OF USER NODES: &#39;,I7,&amp;</span></div>
-<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;<span class="stringliteral"></span><span class="stringliteral">      &amp;/1X, &#39;NUMBER OF NODES IN SOLUTION: &#39;, I7, //)&quot;</span></div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;      <span class="stringliteral">&quot;(/1x, &#39;The specified IDOMAIN results in a reduced number of cells.&#39;,&amp;</span></div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;<span class="stringliteral"></span><span class="stringliteral">      &amp;/1x, &#39;Number of user nodes: &#39;,I0,&amp;</span></div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;<span class="stringliteral"></span><span class="stringliteral">      &amp;/1X, &#39;Number of nodes in solution: &#39;, I0, //)&quot;</span></div>
 <div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;    <span class="comment">! -- data</span></div>
 <div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;<span class="comment">! ------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;    <span class="comment">!</span></div>
@@ -1536,9 +1536,9 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;    <span class="comment">! -- Check to make sure nodes is a valid number</span></div>
 <div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;    <span class="keywordflow">if</span> (this%nodes == 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;      <span class="keyword">call </span>store_error(<span class="stringliteral">&#39;MODEL DOES NOT HAVE ANY ACTIVE NODES.&#39;</span>)</div>
-<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;      <span class="keyword">call </span>store_error(<span class="stringliteral">&#39;MAKE SURE IDOMAIN ARRAY HAS SOME VALUES GREATER &amp;</span></div>
-<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;<span class="stringliteral"></span><span class="stringliteral">        &amp;THAN ZERO.&#39;</span>)</div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;      <span class="keyword">call </span>store_error(<span class="stringliteral">&#39;Model does not have any active nodes. &amp;</span></div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;<span class="stringliteral"></span><span class="stringliteral">                       &amp;Ensure IDOMAIN array has some values greater &amp;</span></div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;<span class="stringliteral"></span><span class="stringliteral">                       &amp;than zero.&#39;</span>)</div>
 <div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;      <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
 <div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;    <span class="comment">!</span></div>
@@ -1787,13 +1787,13 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="keyword">write</span> (this%iout, <span class="stringliteral">&#39;(1x,a)&#39;</span>) <span class="stringliteral">&#39;Setting Discretization Options&#39;</span></div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160; </div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <span class="keywordflow">if</span> (found%length_units) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;      <span class="keyword">write</span> (this%iout, <span class="stringliteral">&#39;(4x,a,i0)&#39;</span>) <span class="stringliteral">&#39;MODEL LENGTH UNIT [0=UND, 1=FEET, &amp;</span></div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="stringliteral"></span><span class="stringliteral">      &amp;2=METERS, 3=CENTIMETERS] SET AS &#39;</span>, this%lenuni</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;      <span class="keyword">write</span> (this%iout, <span class="stringliteral">&#39;(4x,a,i0)&#39;</span>) <span class="stringliteral">&#39;Model length unit [0=UND, 1=FEET, &amp;</span></div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="stringliteral"></span><span class="stringliteral">      &amp;2=METERS, 3=CENTIMETERS] set as &#39;</span>, this%lenuni</div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160; </div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="keywordflow">if</span> (found%nogrb) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;      <span class="keyword">write</span> (this%iout, <span class="stringliteral">&#39;(4x,a,i0)&#39;</span>) <span class="stringliteral">&#39;BINARY GRB FILE [0=GRB, 1=NOGRB] &amp;</span></div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;<span class="stringliteral"></span><span class="stringliteral">        &amp;SET AS &#39;</span>, this%nogrb</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;      <span class="keyword">write</span> (this%iout, <span class="stringliteral">&#39;(4x,a,i0)&#39;</span>) <span class="stringliteral">&#39;Binary grid file [0=GRB, 1=NOGRB] &amp;</span></div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;<span class="stringliteral"></span><span class="stringliteral">        &amp;set as &#39;</span>, this%nogrb</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160; </div>
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <span class="keywordflow">if</span> (found%xorigin) <span class="keywordflow">then</span></div>
@@ -3407,17 +3407,17 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    <span class="comment">! -- verify dimensions were set</span></div>
 <div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    <span class="keywordflow">if</span> (this%nlay &lt; 1) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;      <span class="keyword">call </span>store_error( &amp;</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        <span class="stringliteral">&#39;NLAY WAS NOT SPECIFIED OR WAS SPECIFIED INCORRECTLY.&#39;</span>)</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        <span class="stringliteral">&#39;NLAY was not specified or was specified incorrectly.&#39;</span>)</div>
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;      <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    <span class="keywordflow">if</span> (this%ncpl &lt; 1) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;      <span class="keyword">call </span>store_error( &amp;</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        <span class="stringliteral">&#39;NCPL WAS NOT SPECIFIED OR WAS SPECIFIED INCORRECTLY.&#39;</span>)</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        <span class="stringliteral">&#39;NCPL was not specified or was specified incorrectly.&#39;</span>)</div>
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;      <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
 <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    <span class="keywordflow">if</span> (this%nvert &lt; 1) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;      <span class="keyword">call </span>store_error( &amp;</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;        <span class="stringliteral">&#39;NVERT WAS NOT SPECIFIED OR WAS SPECIFIED INCORRECTLY.&#39;</span>)</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;        <span class="stringliteral">&#39;NVERT was not specified or was specified incorrectly.&#39;</span>)</div>
 <div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;      <span class="keyword">call </span>this%parser%StoreErrorUnit()</div>
 <div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    <span class="comment">!</span></div>
@@ -3960,7 +3960,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacegwfdisvmodule.html">gwfdisvmodule</a></li>
-    <li class="footer">Generated on Wed Nov 2 2022 13:58:06 for MODFLOW 6 by
+    <li class="footer">Generated on Wed Nov 23 2022 15:52:01 for MODFLOW 6 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

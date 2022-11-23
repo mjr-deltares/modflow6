@@ -8,6 +8,7 @@ var dir_c1f30da02202fb3f19a3c29076dafee1 =
     [ "GwfMvrPeriodData.f90", "_gwf_mvr_period_data_8f90.html", "_gwf_mvr_period_data_8f90" ],
     [ "GwfNpfOptions.f90", "_gwf_npf_options_8f90.html", "_gwf_npf_options_8f90" ],
     [ "GwfStorageUtils.f90", "_gwf_storage_utils_8f90.html", "_gwf_storage_utils_8f90" ],
+    [ "GwfVscInputData.f90", "_gwf_vsc_input_data_8f90.html", "_gwf_vsc_input_data_8f90" ],
     [ "GwtAdvOptions.f90", "_gwt_adv_options_8f90.html", [
       [ "gwtadvoptionstype", "structgwtadvoptionsmodule_1_1gwtadvoptionstype.html", "structgwtadvoptionsmodule_1_1gwtadvoptionstype" ]
     ] ],
