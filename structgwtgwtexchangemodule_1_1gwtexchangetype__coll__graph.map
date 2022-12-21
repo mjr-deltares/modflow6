@@ -1,4 +1,52 @@
 <map id="gwtgwtexchangemodule::gwtexchangetype" name="gwtgwtexchangemodule::gwtexchangetype">
-<area shape="rect" id="node1" title="Derived type for GwtExchangeType." alt="" coords="5,131,204,531"/>
-<area shape="rect" id="node2" title=" " alt="" coords="23,5,187,83"/>
+<area shape="rect" id="node1" title="Derived type for GwtExchangeType." alt="" coords="413,4023,612,4423"/>
+<area shape="rect" id="node2" href="$structdisconnexchangemodule_1_1disconnexchangetype.html" title="Exchange based on connection between discretizations of DisBaseType. The data specifies the connectio..." alt="" coords="421,3611,605,3938"/>
+<area shape="rect" id="node3" href="$structnumericalexchangemodule_1_1numericalexchangetype.html" title=" " alt="" coords="188,3193,387,3475"/>
+<area shape="rect" id="node4" href="$structbaseexchangemodule_1_1baseexchangetype.html" title=" " alt="" coords="205,2671,370,2895"/>
+<area shape="rect" id="node5" href="$structblockparsermodule_1_1blockparsertype.html" title=" " alt="" coords="2661,703,2820,1089"/>
+<area shape="rect" id="node13" href="$structoutputcontrolmodule_1_1outputcontroltype.html" title="@ brief OutputControlType" alt="" coords="2589,2627,2748,2939"/>
+<area shape="rect" id="node18" href="$structnumericalpackagemodule_1_1numericalpackagetype.html" title=" " alt="" coords="2175,1537,2365,1834"/>
+<area shape="rect" id="node33" href="$structgwtspcmodule_1_1gwtspctype.html" title="Derived type for managing SPC input." alt="" coords="2773,2554,2973,3013"/>
+<area shape="rect" id="node35" href="$structtimearrayseriesmodule_1_1timearrayseriestype.html" title=" " alt="" coords="3443,1515,3644,1856"/>
+<area shape="rect" id="node45" href="$structobsmodule_1_1obstype.html" title=" " alt="" coords="3077,1397,3287,1973"/>
+<area shape="rect" id="node6" href="$structgwtmodule_1_1gwtmodeltype.html" title=" " alt="" coords="1923,3604,2121,3945"/>
+<area shape="rect" id="node7" href="$structtransportmodelmodule_1_1transportmodeltype.html" title=" " alt="" coords="210,1997,381,2089"/>
+<area shape="rect" id="node8" href="$structnumericalmodelmodule_1_1numericalmodeltype.html" title=" " alt="" coords="175,674,352,1118"/>
+<area shape="rect" id="node9" href="$structbasemodelmodule_1_1basemodeltype.html" title=" " alt="" coords="137,211,389,538"/>
+<area shape="rect" id="node10" href="$structlistmodule_1_1listtype.html" title=" " alt="" coords="3648,189,3844,560"/>
+<area shape="rect" id="node26" href="$structgwtfmimodule_1_1gwtfmitype.html" title=" " alt="" coords="1663,2598,1863,2969"/>
+<area shape="rect" id="node34" href="$structtimearrayseriesmanagermodule_1_1timearrayseriesmanagertype.html" title=" " alt="" coords="3427,2143,3659,2411"/>
+<area shape="rect" id="node36" href="$structtimeseriesmanagermodule_1_1timeseriesmanagertype.html" title=" " alt="" coords="4078,2135,4291,2418"/>
+<area shape="rect" id="node40" href="$structtimeseriesmodule_1_1timeseriestype.html" title=" " alt="" coords="3849,681,4096,1111"/>
+<area shape="rect" id="node41" href="$structtimeseriesfilelistmodule_1_1timeseriesfilelisttype.html" title=" " alt="" coords="4065,1193,4259,1373"/>
+<area shape="rect" id="node49" href="$structobsoutputlistmodule_1_1obsoutputlisttype.html" title=" " alt="" coords="2845,799,3023,993"/>
+<area shape="rect" id="node11" href="$structlistmodule_1_1listnodetype.html" title=" " alt="" coords="3656,5,3836,97"/>
+<area shape="rect" id="node12" href="$structgwtocmodule_1_1gwtoctype.html" title="@ brief Output control for GWT" alt="" coords="2466,3295,2653,3373"/>
+<area shape="rect" id="node14" href="$structoutputcontroldatamodule_1_1outputcontroldatatype.html" title="@ brief OutputControlDataType" alt="" coords="2583,2113,2770,2440"/>
+<area shape="rect" id="node15" href="$structprintsavemanagermodule_1_1printsavemanagertype.html" title="@ brief PrintSaveManagerType" alt="" coords="2504,1537,2695,1834"/>
+<area shape="rect" id="node16" href="$structgwticmodule_1_1gwtictype.html" title=" " alt="" coords="2335,2745,2514,2822"/>
+<area shape="rect" id="node44" href="$structgwtobsmodule_1_1gwtobstype.html" title=" " alt="" coords="2677,3251,2879,3417"/>
+<area shape="rect" id="node17" href="$structgwficmodule_1_1gwfictype.html" title=" " alt="" coords="2333,2209,2509,2345"/>
+<area shape="rect" id="node19" href="$structgwtmvtmodule_1_1gwtmvttype.html" title=" " alt="" coords="835,3185,1043,3483"/>
+<area shape="rect" id="node31" href="$structgwtadvmodule_1_1gwtadvtype.html" title=" " alt="" coords="1615,3215,1819,3453"/>
+<area shape="rect" id="node32" href="$structgwtssmmodule_1_1gwtssmtype.html" title="Derived type for the SSM Package." alt="" coords="2154,3127,2365,3541"/>
+<area shape="rect" id="node42" href="$structgwtdspmodule_1_1gwtdsptype.html" title=" " alt="" coords="2903,3149,3106,3519"/>
+<area shape="rect" id="node50" href="$structgwtmstmodule_1_1gwtmsttype.html" title="@ brief Mobile storage and transfer" alt="" coords="1843,3127,2049,3541"/>
+<area shape="rect" id="node20" href="$structbudgetobjectmodule_1_1budgetobjecttype.html" title=" " alt="" coords="645,1463,813,1907"/>
+<area shape="rect" id="node28" href="$structgwtfmimodule_1_1budobjptrarray.html" title=" " alt="" coords="725,2238,946,2315"/>
+<area shape="rect" id="node21" href="$structbudgetfilereadermodule_1_1budgetfilereadertype.html" title=" " alt="" coords="886,762,1065,1030"/>
+<area shape="rect" id="node22" href="$structbudgettermmodule_1_1budgettermtype.html" title=" " alt="" coords="599,689,859,1103"/>
+<area shape="rect" id="node23" href="$structtablemodule_1_1tabletype.html" title=" " alt="" coords="1361,623,1536,1169"/>
+<area shape="rect" id="node24" href="$structtabletermmodule_1_1tabletermtype.html" title=" " alt="" coords="1331,248,1567,501"/>
+<area shape="rect" id="node25" href="$structbudgetmodule_1_1budgettype.html" title="Derived type for the Budget object." alt="" coords="376,674,575,1118"/>
+<area shape="rect" id="node27" href="$structgwtfmimodule_1_1dataadvancedpackagetype.html" title=" " alt="" coords="1577,2231,1877,2323"/>
+<area shape="rect" id="node29" href="$structheadfilereadermodule_1_1headfilereadertype.html" title=" " alt="" coords="1193,2135,1358,2418"/>
+<area shape="rect" id="node30" href="$structpackagebudgetmodule_1_1packagebudgettype.html" title="Derived type for storing flows." alt="" coords="1382,2128,1553,2425"/>
+<area shape="rect" id="node37" href="$structhashtablemodule_1_1hashtabletype.html" title=" " alt="" coords="4327,1632,4563,1739"/>
+<area shape="rect" id="node38" href="$structhashtablemodule_1_1hashlisttype.html" title=" " alt="" coords="4333,857,4556,935"/>
+<area shape="rect" id="node39" href="$structtimeseriesmodule_1_1timeseriescontainertype.html" title=" " alt="" coords="3830,1647,4137,1724"/>
+<area shape="rect" id="node43" href="$structxt3dmodule_1_1xt3dtype.html" title=" " alt="" coords="3048,2517,3239,3049"/>
+<area shape="rect" id="node46" href="$structobscontainermodule_1_1obscontainertype.html" title=" " alt="" coords="3149,850,3303,942"/>
+<area shape="rect" id="node47" href="$structobservemodule_1_1obsdatatype.html" title=" " alt="" coords="3328,843,3540,949"/>
+<area shape="rect" id="node48" title=" " alt="" coords="3565,857,3698,935"/>
 </map>

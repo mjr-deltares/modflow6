@@ -1,4 +1,6 @@
 <map id="gwticmodule::gwtictype" name="gwticmodule::gwtictype">
-<area shape="rect" id="node1" title=" " alt="" coords="5,131,184,208"/>
-<area shape="rect" id="node2" title=" " alt="" coords="52,5,137,83"/>
+<area shape="rect" id="node1" title=" " alt="" coords="11,985,190,1063"/>
+<area shape="rect" id="node2" href="$structgwficmodule_1_1gwfictype.html" title=" " alt="" coords="13,800,189,936"/>
+<area shape="rect" id="node3" href="$structnumericalpackagemodule_1_1numericalpackagetype.html" title=" " alt="" coords="5,453,196,751"/>
+<area shape="rect" id="node4" href="$structblockparsermodule_1_1blockparsertype.html" title=" " alt="" coords="21,5,180,391"/>
 </map>

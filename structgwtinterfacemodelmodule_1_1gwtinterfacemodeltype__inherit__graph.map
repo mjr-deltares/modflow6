@@ -1,4 +1,7 @@
 <map id="gwtinterfacemodelmodule::gwtinterfacemodeltype" name="gwtinterfacemodelmodule::gwtinterfacemodeltype">
-<area shape="rect" id="node1" title="The GWT Interface Model is a utility to calculate the solution&#39;s exchange coefficients from the inter..." alt="" coords="5,131,200,340"/>
-<area shape="rect" id="node2" title=" " alt="" coords="45,5,161,83"/>
+<area shape="rect" id="node1" title="The GWT Interface Model is a utility to calculate the solution&#39;s exchange coefficients from the inter..." alt="" coords="34,1372,229,1581"/>
+<area shape="rect" id="node2" href="$structgwtmodule_1_1gwtmodeltype.html" title=" " alt="" coords="33,953,230,1324"/>
+<area shape="rect" id="node3" href="$structtransportmodelmodule_1_1transportmodeltype.html" title=" " alt="" coords="46,813,217,905"/>
+<area shape="rect" id="node4" href="$structnumericalmodelmodule_1_1numericalmodeltype.html" title=" " alt="" coords="43,380,220,765"/>
+<area shape="rect" id="node5" href="$structbasemodelmodule_1_1basemodeltype.html" title=" " alt="" coords="5,5,257,332"/>
 </map>

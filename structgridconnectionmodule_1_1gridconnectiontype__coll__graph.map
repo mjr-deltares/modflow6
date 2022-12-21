@@ -1,3 +1,9 @@
 <map id="gridconnectionmodule::gridconnectiontype" name="gridconnectionmodule::gridconnectiontype">
-<area shape="rect" id="node1" title="This class is used to construct the connections object for the interface model&#39;s spatial discretizati..." alt="" coords="5,5,217,508"/>
+<area shape="rect" id="node1" title="This class is used to construct the connections object for the interface model&#39;s spatial discretizati..." alt="" coords="225,975,437,1492"/>
+<area shape="rect" id="node2" href="$structcellwithnbrsmodule_1_1cellwithnbrstype.html" title=" " alt="" coords="146,644,297,736"/>
+<area shape="rect" id="node3" href="$structcellwithnbrsmodule_1_1globalcelltype.html" title="Data structure to hold a global cell identifier, using a pointer to the model and its local cell." alt="" coords="15,145,166,251"/>
+<area shape="rect" id="node4" href="$structlistmodule_1_1listtype.html" title=" " alt="" coords="425,505,621,875"/>
+<area shape="rect" id="node5" href="$structlistmodule_1_1listnodetype.html" title=" " alt="" coords="403,152,583,244"/>
+<area shape="rect" id="node6" href="$structconnectionsmodule_1_1connectionstype.html" title=" " alt="" coords="683,483,874,897"/>
+<area shape="rect" id="node7" href="$structblockparsermodule_1_1blockparsertype.html" title=" " alt="" coords="709,5,867,391"/>
 </map>

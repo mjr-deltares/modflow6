@@ -1,4 +1,7 @@
 <map id="gwtocmodule::gwtoctype" name="gwtocmodule::gwtoctype">
-<area shape="rect" id="node1" title="@ brief Output control for GWT" alt="" coords="5,131,192,208"/>
-<area shape="rect" id="node2" title=" " alt="" coords="29,5,168,83"/>
+<area shape="rect" id="node1" title="@ brief Output control for GWT" alt="" coords="31,1175,218,1252"/>
+<area shape="rect" id="node2" href="$structoutputcontrolmodule_1_1outputcontroltype.html" title="@ brief OutputControlType" alt="" coords="45,813,204,1125"/>
+<area shape="rect" id="node3" href="$structblockparsermodule_1_1blockparsertype.html" title=" " alt="" coords="5,365,164,751"/>
+<area shape="rect" id="node4" href="$structoutputcontroldatamodule_1_1outputcontroldatatype.html" title="@ brief OutputControlDataType" alt="" coords="189,395,375,721"/>
+<area shape="rect" id="node5" href="$structprintsavemanagermodule_1_1printsavemanagertype.html" title="@ brief PrintSaveManagerType" alt="" coords="187,5,377,303"/>
 </map>

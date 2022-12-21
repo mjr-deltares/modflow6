@@ -1,4 +1,5 @@
 <map id="gwtistmodule::gwtisttype" name="gwtistmodule::gwtisttype">
-<area shape="rect" id="node1" title="@ brief Immobile storage and transfer" alt="" coords="5,131,193,560"/>
-<area shape="rect" id="node2" title=" " alt="" coords="62,5,137,83"/>
+<area shape="rect" id="node1" title="@ brief Immobile storage and transfer" alt="" coords="9,872,197,1301"/>
+<area shape="rect" id="node2" href="$structbndmodule_1_1bndtype.html" title="@ brief BndType" alt="" coords="5,351,201,824"/>
+<area shape="rect" id="node3" href="$structnumericalpackagemodule_1_1numericalpackagetype.html" title=" " alt="" coords="8,5,199,303"/>
 </map>

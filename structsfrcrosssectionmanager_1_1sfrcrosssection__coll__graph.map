@@ -1,4 +1,6 @@
 <map id="sfrcrosssectionmanager::sfrcrosssection" name="sfrcrosssectionmanager::sfrcrosssection">
-<area shape="rect" id="node1" title=" " alt="" coords="5,219,184,487"/>
-<area shape="rect" id="node2" href="$structsfrcrosssectionmanager_1_1sfrcrosssectiontype.html" title=" " alt="" coords="5,5,184,156"/>
+<area shape="rect" id="node1" title=" " alt="" coords="76,931,255,1184"/>
+<area shape="rect" id="node2" href="$structsfrcrosssectionmanager_1_1sfrcrosssectiontype.html" title=" " alt="" coords="5,519,184,670"/>
+<area shape="rect" id="node3" href="$structtablemodule_1_1tabletype.html" title=" " alt="" coords="209,321,383,868"/>
+<area shape="rect" id="node4" href="$structtabletermmodule_1_1tabletermtype.html" title=" " alt="" coords="178,5,414,259"/>
 </map>

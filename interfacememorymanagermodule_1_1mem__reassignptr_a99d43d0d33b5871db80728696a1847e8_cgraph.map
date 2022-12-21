@@ -1,0 +1,10 @@
+<map id="memorymanagermodule::mem_reassignptr::reassignptr_int" name="memorymanagermodule::mem_reassignptr::reassignptr_int">
+<area shape="rect" id="node1" title="Set the pointer for an integer scalar to." alt="" coords="5,61,255,102"/>
+<area shape="rect" id="node2" href="$namespacememorymanagermodule.html#a8e6f199b7218d6ec1ab68f383cb6e20f" title="@ brief Get a memory type entry from the memory list" alt="" coords="303,61,487,102"/>
+<area shape="rect" id="node3" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="535,68,709,95"/>
+<area shape="rect" id="node4" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="757,68,896,95"/>
+<area shape="rect" id="node5" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="944,27,1112,69"/>
+<area shape="rect" id="node8" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="944,93,1112,134"/>
+<area shape="rect" id="node6" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="1160,5,1355,32"/>
+<area shape="rect" id="node7" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1173,57,1341,98"/>
+</map>

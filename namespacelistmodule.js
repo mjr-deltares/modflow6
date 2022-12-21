@@ -1,6 +1,26 @@
 var namespacelistmodule =
 [
-    [ "isEqualIface", "interfacelistmodule_1_1is_equal_iface.html", "interfacelistmodule_1_1is_equal_iface" ],
+    [ "listtype", "structlistmodule_1_1listtype.html", "structlistmodule_1_1listtype" ],
     [ "listnodetype", "structlistmodule_1_1listnodetype.html", "structlistmodule_1_1listnodetype" ],
-    [ "listtype", "structlistmodule_1_1listtype.html", "structlistmodule_1_1listtype" ]
+    [ "isEqualIface", "interfacelistmodule_1_1is_equal_iface.html", "interfacelistmodule_1_1is_equal_iface" ],
+    [ "add", "namespacelistmodule.html#a6560d30d3bbdc25e0dd28b3a4e745417", null ],
+    [ "arepointersequal", "namespacelistmodule.html#a048fbc40d7f22a48ad719061694ee447", null ],
+    [ "clear", "namespacelistmodule.html#a6e456ed8c174329960c963a5a49cdf77", null ],
+    [ "containsobject", "namespacelistmodule.html#a55b011bb2bb16fed0cd0e8bb93d616e3", null ],
+    [ "count", "namespacelistmodule.html#a0499e35443316bdb2cd7831e373cc0ad", null ],
+    [ "deallocatebackward", "namespacelistmodule.html#ae4500a42c5c418653624bfdb3232860c", null ],
+    [ "deallocvalue", "namespacelistmodule.html#a014cb6d5066f2664743d105f0366c4df", null ],
+    [ "get_current_item", "namespacelistmodule.html#a87ac95fe084d6d450fa87d5e18f5520e", null ],
+    [ "get_item_by_index", "namespacelistmodule.html#a5347e497790a0b10a8d76235b2f5d034", null ],
+    [ "get_node_by_index", "namespacelistmodule.html#ae955a6df22586725bcc19946ba4f4cda", null ],
+    [ "getitem", "namespacelistmodule.html#a500c0bd3176ec5a493eda427f2787d55", null ],
+    [ "getnextitem", "namespacelistmodule.html#abce4fdec1b6ac3cf8861270ff17f010b", null ],
+    [ "getpreviousitem", "namespacelistmodule.html#a5201366d4beb0a32bacb5bce09c703f1", null ],
+    [ "insertafter", "namespacelistmodule.html#af3d5ed7d7349de2bbb8727eba0d10052", null ],
+    [ "insertbefore", "namespacelistmodule.html#a0a8226f7bc757b11a8c5c5c17e5c120a", null ],
+    [ "next", "namespacelistmodule.html#aa918962a63d9dc4e0f22f8cf825977bc", null ],
+    [ "previous", "namespacelistmodule.html#a8d56ba814e6c5478cd11fbe3e1aa93aa", null ],
+    [ "remove_node_by_index", "namespacelistmodule.html#a216de576f4936af39d92889e39e8d36b", null ],
+    [ "remove_this_node", "namespacelistmodule.html#aea50e2dd0dee217c56961d8e774b7ce8", null ],
+    [ "reset", "namespacelistmodule.html#a4c1e626d8b20ec9c3b4972bcf87e316b", null ]
 ];

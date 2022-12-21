@@ -1,4 +1,32 @@
 var namespacext3dmodule =
 [
-    [ "xt3dtype", "structxt3dmodule_1_1xt3dtype.html", "structxt3dmodule_1_1xt3dtype" ]
+    [ "xt3dtype", "structxt3dmodule_1_1xt3dtype.html", "structxt3dmodule_1_1xt3dtype" ],
+    [ "allocate_arrays", "namespacext3dmodule.html#a333dce35120370c67fec4c365e92e2a4", null ],
+    [ "allocate_scalars", "namespacext3dmodule.html#a5e3f3f5a997a240fe25d47e73a37c014", null ],
+    [ "xt3d_ac", "namespacext3dmodule.html#a03f5ab05f66f222da2a786c933168ee6", null ],
+    [ "xt3d_amat_nbrnbrs", "namespacext3dmodule.html#aeaca0efc20f38f6a445db02da8432967", null ],
+    [ "xt3d_amat_nbrs", "namespacext3dmodule.html#ac0726f20ad042ae223d59383a3329000", null ],
+    [ "xt3d_amatpc_nbrs", "namespacext3dmodule.html#af03f108016564dc64b9368671202da57", null ],
+    [ "xt3d_amatpcx_nbrnbrs", "namespacext3dmodule.html#a311709113823a74460cc535b1a67632b", null ],
+    [ "xt3d_ar", "namespacext3dmodule.html#aef6d0016aa7428919cf9788257f0e350", null ],
+    [ "xt3d_areas", "namespacext3dmodule.html#a5ffb9cb76f5167d719de81cae4a3bd64", null ],
+    [ "xt3d_cr", "namespacext3dmodule.html#ad20f01d9a9fe69c0d007ba046a0435eb", null ],
+    [ "xt3d_da", "namespacext3dmodule.html#a597d03df569feff67ae4548a374bb494", null ],
+    [ "xt3d_df", "namespacext3dmodule.html#aee9e3adadde9316cd5f6541c0febaf22", null ],
+    [ "xt3d_fc", "namespacext3dmodule.html#a574d3bc6efa6b8c4ac914fd21cca59fb", null ],
+    [ "xt3d_fcpc", "namespacext3dmodule.html#abbc5aa92b3ce7e8a60424a6e1c769eed", null ],
+    [ "xt3d_fhfb", "namespacext3dmodule.html#a41b352e93fa36fee9942c1bb2902a7bf", null ],
+    [ "xt3d_fillrmatck", "namespacext3dmodule.html#ac68da228060479a1657d2e8566d49b39", null ],
+    [ "xt3d_flowja", "namespacext3dmodule.html#a81657c75db635f17d6f669b3b6f44b2c", null ],
+    [ "xt3d_flowjahfb", "namespacext3dmodule.html#aa70d8bc9c5da74bd25a10ab1ebd710d1", null ],
+    [ "xt3d_fn", "namespacext3dmodule.html#a404edcbe875d936e07e7a90ccf13fdad", null ],
+    [ "xt3d_get_iinm", "namespacext3dmodule.html#a9af6d41148e5eb74fbbfc69d4167f0ff", null ],
+    [ "xt3d_get_iinmx", "namespacext3dmodule.html#a269d1f38015d42fcd7712d806c4379cf", null ],
+    [ "xt3d_iallpc", "namespacext3dmodule.html#aeecb1fbc7637dd02712ad4bf8aea5dfc", null ],
+    [ "xt3d_indices", "namespacext3dmodule.html#aab3b92c6e934ed38b5f174f98a6c72cd", null ],
+    [ "xt3d_load", "namespacext3dmodule.html#a0338dedebdb6e3dfeb9a6ac589ace8db", null ],
+    [ "xt3d_load_inbr", "namespacext3dmodule.html#ab28918107a92f96ef61c74d06147699c", null ],
+    [ "xt3d_mc", "namespacext3dmodule.html#a4f882d941df1862319fbbf3aae036a5b", null ],
+    [ "xt3d_qnbrs", "namespacext3dmodule.html#ad6c771dcfa36fdf8e670129465597c29", null ],
+    [ "xt3d_rhs", "namespacext3dmodule.html#ae41f02f04b41446281f5cf589182c1f1", null ]
 ];

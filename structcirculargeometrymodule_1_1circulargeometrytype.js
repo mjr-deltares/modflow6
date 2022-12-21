@@ -6,5 +6,8 @@ var structcirculargeometrymodule_1_1circulargeometrytype =
     [ "perimeter_wet", "structcirculargeometrymodule_1_1circulargeometrytype.html#a94b7897b1db470d06aa7cce020d218b8", null ],
     [ "print_attributes", "structcirculargeometrymodule_1_1circulargeometrytype.html#ac8bd1b0dc5d8b4bf7031c3b9ea6a48b1", null ],
     [ "set_attribute", "structcirculargeometrymodule_1_1circulargeometrytype.html#a5cd8ed58695ce7b8b65bef9abdbf1d68", null ],
+    [ "geo_type", "structcirculargeometrymodule_1_1circulargeometrytype.html#a56cd5049e8beec2dc8de27af962f1c5c", null ],
+    [ "id", "structcirculargeometrymodule_1_1circulargeometrytype.html#a88e9458130af80346cfc1e9787e07d5b", null ],
+    [ "name", "structcirculargeometrymodule_1_1circulargeometrytype.html#a2d79436fe94dafcf091c712c23907414", null ],
     [ "radius", "structcirculargeometrymodule_1_1circulargeometrytype.html#ae2d14b4e2093334592d3d44bbcd110ff", null ]
 ];

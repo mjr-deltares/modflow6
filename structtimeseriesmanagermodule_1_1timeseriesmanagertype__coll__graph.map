@@ -1,3 +1,12 @@
 <map id="timeseriesmanagermodule::timeseriesmanagertype" name="timeseriesmanagermodule::timeseriesmanagertype">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,219,361"/>
+<area shape="rect" id="node1" title=" " alt="" coords="230,1449,443,1732"/>
+<area shape="rect" id="node2" href="$structhashtablemodule_1_1hashtabletype.html" title=" " alt="" coords="5,1280,241,1387"/>
+<area shape="rect" id="node3" href="$structhashtablemodule_1_1hashlisttype.html" title=" " alt="" coords="12,799,235,876"/>
+<area shape="rect" id="node4" href="$structhashtablemodule_1_1listtype.html" title=" " alt="" coords="27,336,219,413"/>
+<area shape="rect" id="node5" href="$structhashtablemodule_1_1listdatatype.html" title=" " alt="" coords="13,5,234,97"/>
+<area shape="rect" id="node6" href="$structtimeseriesmodule_1_1timeseriescontainertype.html" title=" " alt="" coords="315,1295,622,1372"/>
+<area shape="rect" id="node7" href="$structtimeseriesmodule_1_1timeseriestype.html" title=" " alt="" coords="345,623,592,1052"/>
+<area shape="rect" id="node8" href="$structlistmodule_1_1listtype.html" title=" " alt="" coords="371,189,567,560"/>
+<area shape="rect" id="node10" href="$structtimeseriesfilelistmodule_1_1timeseriesfilelisttype.html" title=" " alt="" coords="567,1076,760,1256"/>
+<area shape="rect" id="node9" href="$structlistmodule_1_1listnodetype.html" title=" " alt="" coords="379,5,559,97"/>
 </map>

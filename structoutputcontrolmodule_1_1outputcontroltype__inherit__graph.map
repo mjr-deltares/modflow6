@@ -1,0 +1,5 @@
+<map id="outputcontrolmodule::outputcontroltype" name="outputcontrolmodule::outputcontroltype">
+<area shape="rect" id="node1" title="@ brief OutputControlType" alt="" coords="125,5,283,347"/>
+<area shape="rect" id="node2" href="$structgwfocmodule_1_1gwfoctype.html" title="@ brief Output control for GWF" alt="" coords="5,395,192,472"/>
+<area shape="rect" id="node3" href="$structgwtocmodule_1_1gwtoctype.html" title="@ brief Output control for GWT" alt="" coords="216,395,403,472"/>
+</map>

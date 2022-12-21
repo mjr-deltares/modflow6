@@ -2,12 +2,27 @@ var structdouble2dreadermodule_1_1double2dreadertype =
 [
     [ "apply_factor", "structdouble2dreadermodule_1_1double2dreadertype.html#a1d2d5c29a545baa6cf97fa4d87577491", null ],
     [ "fill_constant", "structdouble2dreadermodule_1_1double2dreadertype.html#ad16fd7afa0d0497d5c3c42bf4e835825", null ],
+    [ "fill_internal", "structdouble2dreadermodule_1_1double2dreadertype.html#a40e236127286795f7c0a8665b4697689", null ],
+    [ "fill_open_close", "structdouble2dreadermodule_1_1double2dreadertype.html#a6fd98bb4e3ab2671da173d2dc221b656", null ],
+    [ "open_file", "structdouble2dreadermodule_1_1double2dreadertype.html#a678a24eee076847df3e17d2ffc1861dc", null ],
+    [ "read_array", "structdouble2dreadermodule_1_1double2dreadertype.html#a57b5926ee7daa66f9c1d8cfa8c6eee6b", null ],
     [ "read_ascii", "structdouble2dreadermodule_1_1double2dreadertype.html#a828a82b5efc6386a928edf4f9131e0d1", null ],
     [ "read_binary", "structdouble2dreadermodule_1_1double2dreadertype.html#af82f7853bda2ad8b78f621f581c6e3e1", null ],
+    [ "read_control_record", "structdouble2dreadermodule_1_1double2dreadertype.html#ab24e9022c05855626b2e8ad2ecd427f2", null ],
     [ "reset_reader", "structdouble2dreadermodule_1_1double2dreadertype.html#a4fd776813776649a037ebee784155e9a", null ],
     [ "set_constant", "structdouble2dreadermodule_1_1double2dreadertype.html#af03d615f2f98c4003544dc5db7b00b76", null ],
     [ "set_factor", "structdouble2dreadermodule_1_1double2dreadertype.html#ab91ebf68fbba837f930f8df6a9063a9e", null ],
+    [ "array_name", "structdouble2dreadermodule_1_1double2dreadertype.html#af7b524c832b889c94565ba6a27daeb92", null ],
     [ "constant_array_value", "structdouble2dreadermodule_1_1double2dreadertype.html#a01bb15fd58b04db26240821b48159074", null ],
     [ "dbl2d", "structdouble2dreadermodule_1_1double2dreadertype.html#acc34c3f6abde04af9f871d13dc9babfd", null ],
-    [ "factor", "structdouble2dreadermodule_1_1double2dreadertype.html#a6ffbdfd99f85ddd4b5db407b361c72f1", null ]
+    [ "factor", "structdouble2dreadermodule_1_1double2dreadertype.html#a6ffbdfd99f85ddd4b5db407b361c72f1", null ],
+    [ "filename", "structdouble2dreadermodule_1_1double2dreadertype.html#a4c5b6f9e0d94a0607c2bf742f475aa56", null ],
+    [ "input_unit", "structdouble2dreadermodule_1_1double2dreadertype.html#adcfe1de98545dab2e5a019496e0b9c9d", null ],
+    [ "iout", "structdouble2dreadermodule_1_1double2dreadertype.html#aac7c7c26def763c6d8fc88fe1903eee2", null ],
+    [ "iprn", "structdouble2dreadermodule_1_1double2dreadertype.html#a35d503ae51ef253ac434b46fbb1d2632", null ],
+    [ "isbinary", "structdouble2dreadermodule_1_1double2dreadertype.html#a2971421a094b9736c0246d2c12babf64", null ],
+    [ "isconstant", "structdouble2dreadermodule_1_1double2dreadertype.html#a992c69c2a90350df61d5d27453b3bc99", null ],
+    [ "isinternal", "structdouble2dreadermodule_1_1double2dreadertype.html#ad924cebb4d449799b011d766ab20cb47", null ],
+    [ "isopenclose", "structdouble2dreadermodule_1_1double2dreadertype.html#a85e2c253cae64fbc020499498f06f339", null ],
+    [ "parser", "structdouble2dreadermodule_1_1double2dreadertype.html#abc6eda110ea3accaa9d8d91747d5e838", null ]
 ];

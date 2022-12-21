@@ -1,4 +1,6 @@
 <map id="gwfmodule::gwfmodeltype" name="gwfmodule::gwfmodeltype">
-<area shape="rect" id="node1" title=" " alt="" coords="5,131,203,501"/>
-<area shape="rect" id="node2" title=" " alt="" coords="25,5,183,83"/>
+<area shape="rect" id="node1" title=" " alt="" coords="33,813,230,1184"/>
+<area shape="rect" id="node4" href="$structgwfinterfacemodelmodule_1_1gwfinterfacemodeltype.html" title="The GWF Interface Model is a utility to calculate the solution&#39;s exchange coefficients from the inter..." alt="" coords="35,1232,228,1412"/>
+<area shape="rect" id="node2" href="$structnumericalmodelmodule_1_1numericalmodeltype.html" title=" " alt="" coords="43,380,220,765"/>
+<area shape="rect" id="node3" href="$structbasemodelmodule_1_1basemodeltype.html" title=" " alt="" coords="5,5,257,332"/>
 </map>

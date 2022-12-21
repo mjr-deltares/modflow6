@@ -88,6 +88,7 @@ var structnumericalsolutionmodule_1_1numericalsolutiontype =
     [ "memorypath", "structnumericalsolutionmodule_1_1numericalsolutiontype.html#a0d07ccc30cad663f232e254e30950ae9", null ],
     [ "modellist", "structnumericalsolutionmodule_1_1numericalsolutiontype.html#a4cb5251beee05211eb44bb1863ee52d8", null ],
     [ "mxiter", "structnumericalsolutionmodule_1_1numericalsolutiontype.html#a922299bec35eda2249154307bba62c1b", null ],
+    [ "name", "structnumericalsolutionmodule_1_1numericalsolutiontype.html#aee3c9eabab4322ffef38e0bbdf0bf084", null ],
     [ "neq", "structnumericalsolutionmodule_1_1numericalsolutiontype.html#a0b0f71bc0d2ab382ac41f05d7f03a106", null ],
     [ "nitermax", "structnumericalsolutionmodule_1_1numericalsolutiontype.html#ad5f9aeaf4a534fa56af47cb74739c647", null ],
     [ "nja", "structnumericalsolutionmodule_1_1numericalsolutiontype.html#acbd74649943445fce91db12a37a31e9a", null ],

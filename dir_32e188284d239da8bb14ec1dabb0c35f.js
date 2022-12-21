@@ -9,6 +9,6 @@ var dir_32e188284d239da8bb14ec1dabb0c35f =
     [ "NumericalModel.f90", "_numerical_model_8f90.html", "_numerical_model_8f90" ],
     [ "NumericalPackage.f90", "_numerical_package_8f90.html", "_numerical_package_8f90" ],
     [ "TransportModel.f90", "_transport_model_8f90.html", [
-      [ "transportmodeltype", "structtransportmodelmodule_1_1transportmodeltype.html", null ]
+      [ "transportmodeltype", "structtransportmodelmodule_1_1transportmodeltype.html", "structtransportmodelmodule_1_1transportmodeltype" ]
     ] ]
 ];

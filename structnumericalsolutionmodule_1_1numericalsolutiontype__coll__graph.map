@@ -1,5 +1,12 @@
 <map id="numericalsolutionmodule::numericalsolutiontype" name="numericalsolutionmodule::numericalsolutiontype">
-<area shape="rect" id="node1" title=" " alt="" coords="51,145,239,575"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,140,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="164,5,272,83"/>
+<area shape="rect" id="node1" title=" " alt="" coords="541,975,729,1404"/>
+<area shape="rect" id="node2" href="$structbasesolutionmodule_1_1basesolutiontype.html" title=" " alt="" coords="5,497,164,751"/>
+<area shape="rect" id="node3" href="$structsparsemodule_1_1sparsematrix.html" title=" " alt="" coords="189,527,397,721"/>
+<area shape="rect" id="node4" href="$structsparsemodule_1_1rowtype.html" title=" " alt="" coords="205,86,380,178"/>
+<area shape="rect" id="node5" href="$structimslinearmodule_1_1imslineardatatype.html" title=" " alt="" coords="421,475,679,773"/>
+<area shape="rect" id="node6" href="$structtablemodule_1_1tabletype.html" title=" " alt="" coords="704,351,879,897"/>
+<area shape="rect" id="node7" href="$structtabletermmodule_1_1tabletermtype.html" title=" " alt="" coords="673,5,909,259"/>
+<area shape="rect" id="node8" href="$structlistmodule_1_1listtype.html" title=" " alt="" coords="976,439,1172,809"/>
+<area shape="rect" id="node9" href="$structlistmodule_1_1listnodetype.html" title=" " alt="" coords="984,86,1164,178"/>
+<area shape="rect" id="node10" href="$structblockparsermodule_1_1blockparsertype.html" title=" " alt="" coords="1196,431,1355,817"/>
 </map>

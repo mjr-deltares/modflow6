@@ -1,4 +1,6 @@
 <map id="gwfgwfexchangemodule::gwfexchangetype" name="gwfgwfexchangemodule::gwfexchangetype">
-<area shape="rect" id="node1" title="Derived type for GwfExchangeType." alt="" coords="5,131,204,545"/>
-<area shape="rect" id="node2" title=" " alt="" coords="23,5,187,83"/>
+<area shape="rect" id="node1" title="Derived type for GwfExchangeType." alt="" coords="5,983,204,1397"/>
+<area shape="rect" id="node2" href="$structdisconnexchangemodule_1_1disconnexchangetype.html" title="Exchange based on connection between discretizations of DisBaseType. The data specifies the connectio..." alt="" coords="13,608,197,935"/>
+<area shape="rect" id="node3" href="$structnumericalexchangemodule_1_1numericalexchangetype.html" title=" " alt="" coords="5,277,204,560"/>
+<area shape="rect" id="node4" href="$structbaseexchangemodule_1_1baseexchangetype.html" title=" " alt="" coords="22,5,187,229"/>
 </map>

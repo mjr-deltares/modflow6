@@ -1,4 +1,8 @@
 <map id="gwfhfbmodule::gwfhfbtype" name="gwfhfbmodule::gwfhfbtype">
-<area shape="rect" id="node1" title=" " alt="" coords="5,131,204,531"/>
-<area shape="rect" id="node2" title=" " alt="" coords="19,5,190,83"/>
+<area shape="rect" id="node1" title=" " alt="" coords="285,1408,484,1808"/>
+<area shape="rect" id="node2" href="$structnumericalpackagemodule_1_1numericalpackagetype.html" title=" " alt="" coords="289,453,480,751"/>
+<area shape="rect" id="node4" href="$structgwfvscmodule_1_1gwfvsctype.html" title=" " alt="" coords="147,857,347,1301"/>
+<area shape="rect" id="node3" href="$structblockparsermodule_1_1blockparsertype.html" title=" " alt="" coords="305,5,464,391"/>
+<area shape="rect" id="node5" href="$structgwfvscmodule_1_1concentrationpointer.html" title=" " alt="" coords="5,556,265,648"/>
+<area shape="rect" id="node6" href="$structxt3dmodule_1_1xt3dtype.html" title=" " alt="" coords="423,813,613,1345"/>
 </map>

@@ -1,3 +1,5 @@
 <map id="structvectormodule::structvectortype" name="structvectormodule::structvectortype">
-<area shape="rect" id="node1" title="derived type for generic vector" alt="" coords="5,5,155,215"/>
+<area shape="rect" id="node1" title="derived type for generic vector" alt="" coords="139,292,288,472"/>
+<area shape="rect" id="node2" href="$structcharacterstringmodule_1_1characterstringtype.html" title="This class is used to store a single deferred&#45;length character string. It was designed to work in an ..." alt="" coords="5,20,203,215"/>
+<area shape="rect" id="node3" href="$structvectorintmodule_1_1vectorint.html" title=" " alt="" coords="227,5,421,229"/>
 </map>

@@ -1,4 +1,4 @@
 <map id="memorymanagermodule::allocate_dbl2d" name="memorymanagermodule::allocate_dbl2d">
-<area shape="rect" id="node1" title="Allocate a 2&#45;dimensional real array." alt="" coords="237,5,421,47"/>
-<area shape="rect" id="node2" href="$namespacememorymanagermodule.html#a6810f04c0c6531d4d8a82ac5b0c2f036" title="Make a copy of a 2&#45;dimensional real array." alt="" coords="5,5,189,47"/>
+<area shape="rect" id="node1" title="Allocate a 2&#45;dimensional real array." alt="" coords="273,5,457,47"/>
+<area shape="rect" id="node2" href="$interfacememorymanagermodule_1_1mem__copyptr.html#ab79928ecfbaa4ac935758b2251359115" title="Make a copy of a 2&#45;dimensional real array." alt="" coords="5,5,225,47"/>
 </map>

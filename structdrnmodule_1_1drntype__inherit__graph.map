@@ -1,4 +1,5 @@
 <map id="drnmodule::drntype" name="drnmodule::drntype">
-<area shape="rect" id="node1" title=" " alt="" coords="5,131,183,399"/>
-<area shape="rect" id="node2" title=" " alt="" coords="57,5,131,83"/>
+<area shape="rect" id="node1" title=" " alt="" coords="15,872,192,1140"/>
+<area shape="rect" id="node2" href="$structbndmodule_1_1bndtype.html" title="@ brief BndType" alt="" coords="5,351,201,824"/>
+<area shape="rect" id="node3" href="$structnumericalpackagemodule_1_1numericalpackagetype.html" title=" " alt="" coords="8,5,199,303"/>
 </map>

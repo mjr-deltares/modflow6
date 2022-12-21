@@ -1,4 +1,5 @@
 <map id="integer2dreadermodule::integer2dreadertype" name="integer2dreadermodule::integer2dreadertype">
-<area shape="rect" id="node1" title=" " alt="" coords="5,131,180,340"/>
-<area shape="rect" id="node2" title=" " alt="" coords="13,5,172,83"/>
+<area shape="rect" id="node1" title=" " alt="" coords="7,873,182,1083"/>
+<area shape="rect" id="node2" href="$structarrayreaderbasemodule_1_1arrayreaderbasetype.html" title=" " alt="" coords="5,453,184,824"/>
+<area shape="rect" id="node3" href="$structblockparsermodule_1_1blockparsertype.html" title=" " alt="" coords="15,5,174,391"/>
 </map>

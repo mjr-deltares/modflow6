@@ -1,4 +1,5 @@
 <map id="ghostnodemodule::ghostnodetype" name="ghostnodemodule::ghostnodetype">
-<area shape="rect" id="node1" title=" " alt="" coords="5,131,249,501"/>
-<area shape="rect" id="node2" title=" " alt="" coords="42,5,213,83"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,800,249,1171"/>
+<area shape="rect" id="node2" href="$structnumericalpackagemodule_1_1numericalpackagetype.html" title=" " alt="" coords="32,453,223,751"/>
+<area shape="rect" id="node3" href="$structblockparsermodule_1_1blockparsertype.html" title=" " alt="" coords="48,5,207,391"/>
 </map>

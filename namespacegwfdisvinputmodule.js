@@ -1,4 +1,28 @@
 var namespacegwfdisvinputmodule =
 [
-    [ "gwfdisvparamfoundtype", "structgwfdisvinputmodule_1_1gwfdisvparamfoundtype.html", "structgwfdisvinputmodule_1_1gwfdisvparamfoundtype" ]
+    [ "gwfdisvparamfoundtype", "structgwfdisvinputmodule_1_1gwfdisvparamfoundtype.html", "structgwfdisvinputmodule_1_1gwfdisvparamfoundtype" ],
+    [ "gwf_disv_aggregate_definitions", "namespacegwfdisvinputmodule.html#a29602cd6620c18a6b9bbf0831fbb7eab", null ],
+    [ "gwf_disv_block_definitions", "namespacegwfdisvinputmodule.html#a4213a49bebc326e8da3caee5e7b10583", null ],
+    [ "gwf_disv_param_definitions", "namespacegwfdisvinputmodule.html#a345aa8f7bbb9d1b38f94b385047e6e4b", null ],
+    [ "gwfdisv_angrot", "namespacegwfdisvinputmodule.html#a49c5ffd9cd61ecbfc5ce1634929558e2", null ],
+    [ "gwfdisv_botm", "namespacegwfdisvinputmodule.html#af49cc44a86fbe5b42072a270dcf0c3d9", null ],
+    [ "gwfdisv_cell2d", "namespacegwfdisvinputmodule.html#a9661c444502b4351303f20b0af3647ec", null ],
+    [ "gwfdisv_icell2d", "namespacegwfdisvinputmodule.html#a699d9cfe460f227f641d03b640d5b21c", null ],
+    [ "gwfdisv_icvert", "namespacegwfdisvinputmodule.html#a8277dcb6683eb1b9b102ac49c68be2c0", null ],
+    [ "gwfdisv_idomain", "namespacegwfdisvinputmodule.html#a76640663ccb2dbfd44c253b6e4634e78", null ],
+    [ "gwfdisv_iv", "namespacegwfdisvinputmodule.html#a784053b663a8d686d4c24fa4b3d4d863", null ],
+    [ "gwfdisv_length_units", "namespacegwfdisvinputmodule.html#a703970e3566cf7fc5b9c0cc4caede13c", null ],
+    [ "gwfdisv_ncpl", "namespacegwfdisvinputmodule.html#a2af66b5e50a3c1cdef59ce3f7459b21c", null ],
+    [ "gwfdisv_ncvert", "namespacegwfdisvinputmodule.html#a8bcd7e0f903ddf23cd5fa51405efee56", null ],
+    [ "gwfdisv_nlay", "namespacegwfdisvinputmodule.html#acc8dd0df5cc4360ec29e362728d4f90a", null ],
+    [ "gwfdisv_nogrb", "namespacegwfdisvinputmodule.html#ad2be40988f5d36c6e1c463595c7bc6a2", null ],
+    [ "gwfdisv_nvert", "namespacegwfdisvinputmodule.html#a66453b509a9b510d09eb8ec75e3a1ba5", null ],
+    [ "gwfdisv_top", "namespacegwfdisvinputmodule.html#a39d24a124dc1e01553c260c43dd8ce13", null ],
+    [ "gwfdisv_vertices", "namespacegwfdisvinputmodule.html#a81f98b31539455bb84839b71eff711fb", null ],
+    [ "gwfdisv_xc", "namespacegwfdisvinputmodule.html#ae858afc0f357afee221e6be49ff9018d", null ],
+    [ "gwfdisv_xorigin", "namespacegwfdisvinputmodule.html#a77e340159368aed985965f26a76d7dd0", null ],
+    [ "gwfdisv_xv", "namespacegwfdisvinputmodule.html#a47fc98dc7d1965c7169f9f141e4f138a", null ],
+    [ "gwfdisv_yc", "namespacegwfdisvinputmodule.html#a019156c2e40c491ee680e87d262aba21", null ],
+    [ "gwfdisv_yorigin", "namespacegwfdisvinputmodule.html#a95b5119414091252b121c7df196102db", null ],
+    [ "gwfdisv_yv", "namespacegwfdisvinputmodule.html#a963de4c9c67daadf4465e23e6eeac4f2", null ]
 ];

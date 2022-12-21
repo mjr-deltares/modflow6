@@ -1,12 +1,9 @@
 <map id="inputoutputmodule::buildfloatformat" name="inputoutputmodule::buildfloatformat">
-<area shape="rect" id="node1" title=" " alt="" coords="904,104,1059,145"/>
-<area shape="rect" id="node2" href="$namespacearrayreadersmodule.html#ab7024e458acb7fc05484c07b0958bf89" title=" " alt="" coords="701,71,856,112"/>
-<area shape="rect" id="node8" href="$namespaceinputoutputmodule.html#a98f6deb576ab4d90ea3ddf849aa1ec8d" title=" " alt="" coords="701,136,856,177"/>
-<area shape="rect" id="node3" href="$namespacearrayreadersmodule.html#a73be11caa9b10328ef69f70e117bf4d8" title=" " alt="" coords="483,5,637,47"/>
-<area shape="rect" id="node5" href="$namespacearrayreadersmodule.html#a58089fc90cfce60322bea4afd899a2e2" title=" " alt="" coords="483,71,637,112"/>
-<area shape="rect" id="node4" href="$namespacearrayreadersmodule.html#a243f4f96375198c3bcf2dc9c1a97a083" title=" " alt="" coords="252,5,419,47"/>
-<area shape="rect" id="node6" href="$namespacearrayreadersmodule.html#ace0bb87113020b5d6e24835df3769d23" title=" " alt="" coords="258,71,413,112"/>
-<area shape="rect" id="node7" href="$namespacearrayreadersmodule.html#a003e49b2a29ddad4e3c4e97649b3e241" title=" " alt="" coords="5,71,204,112"/>
-<area shape="rect" id="node9" href="$namespaceoutputcontroldatamodule.html#a7036b3616b97a823faefbc12ec36a27d" title="@ brief Initialize this OutputControlDataType as double precision data" alt="" coords="467,136,653,177"/>
-<area shape="rect" id="node10" href="$namespaceoutputcontroldatamodule.html#acd0909f16182d5588a0c0f79b3cda415" title="@ brief Initialize this OutputControlDataType as integer data" alt="" coords="467,201,653,243"/>
+<area shape="rect" id="node1" title=" " alt="" coords="469,104,624,145"/>
+<area shape="rect" id="node2" href="$namespacearrayreadersmodule.html#ab7024e458acb7fc05484c07b0958bf89" title=" " alt="" coords="267,71,421,112"/>
+<area shape="rect" id="node5" href="$namespaceinputoutputmodule.html#a98f6deb576ab4d90ea3ddf849aa1ec8d" title=" " alt="" coords="267,136,421,177"/>
+<area shape="rect" id="node3" href="$interfacearrayreadersmodule_1_1readarray.html#ab0faf21d24b6a4c8935553081bf95a78" title=" " alt="" coords="5,5,219,47"/>
+<area shape="rect" id="node4" href="$interfacearrayreadersmodule_1_1readarray.html#af57b09b8583a3cc1d9571125ebb9eaf8" title=" " alt="" coords="5,71,219,112"/>
+<area shape="rect" id="node6" href="$namespaceoutputcontroldatamodule.html#a7036b3616b97a823faefbc12ec36a27d" title="@ brief Initialize this OutputControlDataType as double precision data" alt="" coords="19,136,205,177"/>
+<area shape="rect" id="node7" href="$namespaceoutputcontroldatamodule.html#acd0909f16182d5588a0c0f79b3cda415" title="@ brief Initialize this OutputControlDataType as integer data" alt="" coords="19,201,205,243"/>
 </map>

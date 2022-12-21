@@ -1,3 +1,9 @@
 <map id="gwtfmimodule::budobjptrarray" name="gwtfmimodule::budobjptrarray">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,227,83"/>
+<area shape="rect" id="node1" title=" " alt="" coords="313,1437,535,1515"/>
+<area shape="rect" id="node2" href="$structbudgetobjectmodule_1_1budgetobjecttype.html" title=" " alt="" coords="340,931,508,1375"/>
+<area shape="rect" id="node3" href="$structbudgetfilereadermodule_1_1budgetfilereadertype.html" title=" " alt="" coords="5,461,184,729"/>
+<area shape="rect" id="node4" href="$structbudgettermmodule_1_1budgettermtype.html" title=" " alt="" coords="209,387,469,802"/>
+<area shape="rect" id="node5" href="$structtablemodule_1_1tabletype.html" title=" " alt="" coords="493,321,667,868"/>
+<area shape="rect" id="node6" href="$structtabletermmodule_1_1tabletermtype.html" title=" " alt="" coords="462,5,698,259"/>
+<area shape="rect" id="node7" href="$structbudgetmodule_1_1budgettype.html" title="Derived type for the Budget object." alt="" coords="765,373,963,817"/>
 </map>
