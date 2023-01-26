@@ -290,10 +290,11 @@ var namespaces_dup =
       [ "aggregate_definitions", "namespaceinputdefinitionselectormodule.html#ab8ebde38144032fc3952adf69b827bb9", null ],
       [ "block_definitions", "namespaceinputdefinitionselectormodule.html#a8ab069214dc850a78faea381dc54bdd0", null ],
       [ "get_aggregate_definition_type", "namespaceinputdefinitionselectormodule.html#a0a3675f2a9c4e08f5b96a43cc6d99b34", null ],
-      [ "get_param_definition_type", "namespaceinputdefinitionselectormodule.html#aee3dfb7763bcebfe578444f90da813cc", null ],
+      [ "get_param_definition_type", "namespaceinputdefinitionselectormodule.html#a7bc93f0cec4aed6041816aa646e86c05", null ],
       [ "param_definitions", "namespaceinputdefinitionselectormodule.html#ac33654eccb12a34d5fa0b5a4db389190", null ],
       [ "set_block_pointer", "namespaceinputdefinitionselectormodule.html#a865b8495efc8f153683253f4e3595f30", null ],
-      [ "set_pointer", "namespaceinputdefinitionselectormodule.html#a44b6a05b842caa71e6889f9c03e43690", null ]
+      [ "set_pointer", "namespaceinputdefinitionselectormodule.html#a44b6a05b842caa71e6889f9c03e43690", null ],
+      [ "split_record_definition", "namespaceinputdefinitionselectormodule.html#ab38fe8707bd3f6cb67b257320f29d7df", null ]
     ] ],
     [ "inputoutputmodule", "namespaceinputoutputmodule.html", [
       [ "buildfixedformat", "namespaceinputoutputmodule.html#a773e394f96cb0df2875d4e796abda982", null ],
@@ -367,6 +368,7 @@ var namespaces_dup =
     ] ],
     [ "loadmf6filetypemodule", "namespaceloadmf6filetypemodule.html", "namespaceloadmf6filetypemodule" ],
     [ "mappedvariablemodule", "namespacemappedvariablemodule.html", "namespacemappedvariablemodule" ],
+    [ "matrixmodule", "namespacematrixmodule.html", "namespacematrixmodule" ],
     [ "mawmodule", "namespacemawmodule.html", "namespacemawmodule" ],
     [ "memoryhelpermodule", "namespacememoryhelpermodule.html", [
       [ "create_mem_address", "namespacememoryhelpermodule.html#abda60b8cd05bba132ea82b23bf12c36c", null ],
@@ -596,6 +598,7 @@ var namespaces_dup =
     ] ],
     [ "solutiongroupmodule", "namespacesolutiongroupmodule.html", "namespacesolutiongroupmodule" ],
     [ "sortmodule", "namespacesortmodule.html", "namespacesortmodule" ],
+    [ "sparsematrixmodule", "namespacesparsematrixmodule.html", "namespacesparsematrixmodule" ],
     [ "sparsemodule", "namespacesparsemodule.html", "namespacesparsemodule" ],
     [ "spatialmodelconnectionmodule", "namespacespatialmodelconnectionmodule.html", "namespacespatialmodelconnectionmodule" ],
     [ "stringlistmodule", "namespacestringlistmodule.html", [

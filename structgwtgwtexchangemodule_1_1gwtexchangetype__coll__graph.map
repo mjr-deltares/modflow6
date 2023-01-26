@@ -1,7 +1,7 @@
 <map id="gwtgwtexchangemodule::gwtexchangetype" name="gwtgwtexchangemodule::gwtexchangetype">
 <area shape="rect" id="node1" title="Derived type for GwtExchangeType." alt="" coords="413,4023,612,4423"/>
 <area shape="rect" id="node2" href="$structdisconnexchangemodule_1_1disconnexchangetype.html" title="Exchange based on connection between discretizations of DisBaseType. The data specifies the connectio..." alt="" coords="421,3611,605,3938"/>
-<area shape="rect" id="node3" href="$structnumericalexchangemodule_1_1numericalexchangetype.html" title=" " alt="" coords="188,3193,387,3475"/>
+<area shape="rect" id="node3" href="$structnumericalexchangemodule_1_1numericalexchangetype.html" title=" " alt="" coords="188,3200,387,3468"/>
 <area shape="rect" id="node4" href="$structbaseexchangemodule_1_1baseexchangetype.html" title=" " alt="" coords="205,2671,370,2895"/>
 <area shape="rect" id="node5" href="$structblockparsermodule_1_1blockparsertype.html" title=" " alt="" coords="2661,703,2820,1089"/>
 <area shape="rect" id="node13" href="$structoutputcontrolmodule_1_1outputcontroltype.html" title="@ brief OutputControlType" alt="" coords="2589,2627,2748,2939"/>

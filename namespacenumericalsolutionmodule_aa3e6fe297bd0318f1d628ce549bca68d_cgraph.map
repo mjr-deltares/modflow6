@@ -1,4 +1,6 @@
 <map id="numericalsolutionmodule::sln_ls" name="numericalsolutionmodule::sln_ls">
-<area shape="rect" id="node1" title="@ brief Solve the linear system of equations" alt="" coords="5,5,193,47"/>
-<area shape="rect" id="node2" href="$namespacegenericutilitiesmodule.html#a07ca2a69ed3488dc534c388ad305a876" title="Function to determine if two reals are the same." alt="" coords="241,5,409,47"/>
+<area shape="rect" id="node1" title="@ brief Solve the linear system of equations" alt="" coords="5,39,193,80"/>
+<area shape="rect" id="node2" href="$namespaceinputoutputmodule.html#a535bdfca3d31ebc3a8e4bd5af6890d55" title="Get a free unit number." alt="" coords="248,5,403,47"/>
+<area shape="rect" id="node4" href="$namespacegenericutilitiesmodule.html#a07ca2a69ed3488dc534c388ad305a876" title="Function to determine if two reals are the same." alt="" coords="241,71,409,112"/>
+<area shape="rect" id="node3" href="$namespaceinputoutputmodule.html#ac5134655c31ac9beeb4688f504efd801" title="Assign a free unopened unit number." alt="" coords="457,5,612,47"/>
 </map>

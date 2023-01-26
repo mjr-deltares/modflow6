@@ -12,9 +12,8 @@ var _numerical_exchange_8f90 =
     [ "exg_cq", "_numerical_exchange_8f90.html#ad93aa888934fb1a166fef926adf39baf", null ],
     [ "exg_da", "_numerical_exchange_8f90.html#addeb957c5e724e941d430af67c214ffb", null ],
     [ "exg_df", "_numerical_exchange_8f90.html#a239b2a2d899d88530dc46adb70d7705b", null ],
-    [ "exg_fc", "_numerical_exchange_8f90.html#a321e1c4b3c2102679ad1ccdfad39eb41", null ],
-    [ "exg_mc", "_numerical_exchange_8f90.html#ad5ce09f51cf20a10d82df3a52c0b65b6", null ],
-    [ "exg_nr", "_numerical_exchange_8f90.html#a86db6c5486739bab39399688aba3393b", null ],
+    [ "exg_fc", "_numerical_exchange_8f90.html#af9215385e7a930aba24592f57756469a", null ],
+    [ "exg_mc", "_numerical_exchange_8f90.html#a3d8691a888f98793892f097381445d98", null ],
     [ "exg_ot", "_numerical_exchange_8f90.html#a3350878eb5645f9fa174b5857cac875b", null ],
     [ "get_iasym", "_numerical_exchange_8f90.html#af4990b3a0c4074f3993d7ffde01fb5e4", null ],
     [ "getnumericalexchangefromlist", "_numerical_exchange_8f90.html#a09ae423b40a16a7841cbb95815029b0f", null ]

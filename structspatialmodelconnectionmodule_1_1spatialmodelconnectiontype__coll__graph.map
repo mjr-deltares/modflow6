@@ -1,6 +1,6 @@
 <map id="spatialmodelconnectionmodule::spatialmodelconnectiontype" name="spatialmodelconnectionmodule::spatialmodelconnectiontype">
-<area shape="rect" id="node1" title="Class to manage spatial connection of a model to one or more models of the same type...." alt="" coords="264,769,491,1243"/>
-<area shape="rect" id="node2" href="$structnumericalexchangemodule_1_1numericalexchangetype.html" title=" " alt="" coords="6,365,205,648"/>
+<area shape="rect" id="node1" title="Class to manage spatial connection of a model to one or more models of the same type...." alt="" coords="264,769,491,1272"/>
+<area shape="rect" id="node2" href="$structnumericalexchangemodule_1_1numericalexchangetype.html" title=" " alt="" coords="6,373,205,641"/>
 <area shape="rect" id="node3" href="$structbaseexchangemodule_1_1baseexchangetype.html" title=" " alt="" coords="5,5,171,229"/>
 <area shape="rect" id="node4" href="$structinterfacemapmodule_1_1interfacemaptype.html" title=" " alt="" coords="298,431,457,582"/>
 <area shape="rect" id="node5" href="$structinterfacemapmodule_1_1indexmapsgntype.html" title=" " alt="" coords="195,57,354,178"/>

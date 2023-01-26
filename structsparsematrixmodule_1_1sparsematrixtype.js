@@ -1,0 +1,27 @@
+var structsparsematrixmodule_1_1sparsematrixtype =
+[
+    [ "add_diag_value", "structsparsematrixmodule_1_1sparsematrixtype.html#a4d4ffee6499da9c993541958e6f2a131", null ],
+    [ "add_value_pos", "structsparsematrixmodule_1_1sparsematrixtype.html#a88f84feee035e79b9770401b811067bc", null ],
+    [ "allocate_arrays", "structsparsematrixmodule_1_1sparsematrixtype.html#afae3a835ffb15733d6a51e7184a20573", null ],
+    [ "allocate_scalars", "structsparsematrixmodule_1_1sparsematrixtype.html#a29727b33bf8d7e6507abf2078ca611e8", null ],
+    [ "create", "structsparsematrixmodule_1_1sparsematrixtype.html#a7d91b3644e814bd5bf2946803d904762", null ],
+    [ "destroy", "structsparsematrixmodule_1_1sparsematrixtype.html#a94dec456eb44950c52c9a5adcb4b00f9", null ],
+    [ "get_column", "structsparsematrixmodule_1_1sparsematrixtype.html#aabb6e17fa8f99db1769aba123c9feb6e", null ],
+    [ "get_diag_value", "structsparsematrixmodule_1_1sparsematrixtype.html#aeb128911a41e584b2bfaa57bff61c566", null ],
+    [ "get_first_col_pos", "structsparsematrixmodule_1_1sparsematrixtype.html#a88ccc8b9fd8232ae4fe2a1e84a42320b", null ],
+    [ "get_last_col_pos", "structsparsematrixmodule_1_1sparsematrixtype.html#a7a7eee90c9ac5c1f84c303c4880528f4", null ],
+    [ "get_position", "structsparsematrixmodule_1_1sparsematrixtype.html#afb6ac0290446743966ce663b8806ba36", null ],
+    [ "get_position_diag", "structsparsematrixmodule_1_1sparsematrixtype.html#a8fcb45938cb1a92ff151171c80399a6c", null ],
+    [ "get_value_pos", "structsparsematrixmodule_1_1sparsematrixtype.html#a48c187d2f10019e5c4dbef60e4e5aa82", null ],
+    [ "set_diag_value", "structsparsematrixmodule_1_1sparsematrixtype.html#af05b35a49c2739d3e8cc6d8b78743b78", null ],
+    [ "set_value_pos", "structsparsematrixmodule_1_1sparsematrixtype.html#a7396a91f3e3efdd7e28ec092cfc84223", null ],
+    [ "zero_entries", "structsparsematrixmodule_1_1sparsematrixtype.html#a21fa1062296cc25f9dca3948261eb794", null ],
+    [ "zero_row_offdiag", "structsparsematrixmodule_1_1sparsematrixtype.html#a72269a924ddd7ed460d004308a7c932a", null ],
+    [ "amat", "structsparsematrixmodule_1_1sparsematrixtype.html#a3cfeb83b9a158bf82d25682046ef2458", null ],
+    [ "ia", "structsparsematrixmodule_1_1sparsematrixtype.html#a7e89181594be99afa21a8d9425072c02", null ],
+    [ "ja", "structsparsematrixmodule_1_1sparsematrixtype.html#a9db2a30573ff4c2ce2dc18ce9ad388e2", null ],
+    [ "memory_path", "structsparsematrixmodule_1_1sparsematrixtype.html#a946b154dd85942fde486f64f4d77617f", null ],
+    [ "ncol", "structsparsematrixmodule_1_1sparsematrixtype.html#aa50d5fbf513ee8fb864d4183f29ee808", null ],
+    [ "nja", "structsparsematrixmodule_1_1sparsematrixtype.html#a33d8fa01c750a4e23efef082c098164b", null ],
+    [ "nrow", "structsparsematrixmodule_1_1sparsematrixtype.html#a5b764bcc2c0c107ec74d0b34cd70f1d0", null ]
+];

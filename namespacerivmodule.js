@@ -6,7 +6,7 @@ var namespacerivmodule =
     [ "riv_ck", "namespacerivmodule.html#ae5112c5b6e434c475fcb692c669e53fb", null ],
     [ "riv_create", "namespacerivmodule.html#aa6ba7718043f5d99029eca2df069afbe", null ],
     [ "riv_df_obs", "namespacerivmodule.html#a4781898f15fa14125b95c3f497a7f2ac", null ],
-    [ "riv_fc", "namespacerivmodule.html#acf4da61582e4652c8dac601ac513a09d", null ],
+    [ "riv_fc", "namespacerivmodule.html#aefdf9fa017493955dc99cd6fc80fced4", null ],
     [ "riv_obs_supported", "namespacerivmodule.html#a0c64045a09b00a86f365ae4279749f79", null ],
     [ "riv_options", "namespacerivmodule.html#aef8103efea3cb6bdcc34b172cef8d11d", null ],
     [ "riv_rp_ts", "namespacerivmodule.html#acd6194fc90c0b46b95cb112f239c6b58", null ],

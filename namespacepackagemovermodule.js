@@ -10,6 +10,7 @@ var namespacepackagemovermodule =
     [ "da", "namespacepackagemovermodule.html#a3b9ee8ac98b1d2480e88cf90769d9615", null ],
     [ "fc", "namespacepackagemovermodule.html#ad807d2cca45769040d16d27cb430f1ff", null ],
     [ "get_qfrommvr", "namespacepackagemovermodule.html#a3ede5abda96631f4384703a53dfb92bd", null ],
+    [ "get_qfrommvr0", "namespacepackagemovermodule.html#aa36988a873f368b987875f9bd2bd7e22", null ],
     [ "get_qtomvr", "namespacepackagemovermodule.html#a0e272273bd93c4c64b8902d2dd7c3629", null ],
     [ "nulllify_packagemover_pointer", "namespacepackagemovermodule.html#a4f073326f02b75f8074c7bdaf298a77a", null ],
     [ "set_packagemover_pointer", "namespacepackagemovermodule.html#aa0acfeb2328aade0525945e5ea384e3e", null ]

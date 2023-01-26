@@ -14,7 +14,6 @@ var structnumericalexchangemodule_1_1numericalexchangetype =
     [ "exg_fc", "structnumericalexchangemodule_1_1numericalexchangetype.html#acb8a4ffa12de0dd45412976de9116f54", null ],
     [ "exg_fp", "structnumericalexchangemodule_1_1numericalexchangetype.html#a5186df58f4f90e292abe3c3c3e466301", null ],
     [ "exg_mc", "structnumericalexchangemodule_1_1numericalexchangetype.html#ad85a330782be233e9c8990b4dd3b2e02", null ],
-    [ "exg_nr", "structnumericalexchangemodule_1_1numericalexchangetype.html#aade2ff46e5e4a833543921584cf3bf8e", null ],
     [ "exg_ot", "structnumericalexchangemodule_1_1numericalexchangetype.html#a2ce45eabef1d6dd2ed6ed09e5c028989", null ],
     [ "exg_rp", "structnumericalexchangemodule_1_1numericalexchangetype.html#a02cd8b888ca22a66161a58457931b2a1", null ],
     [ "get_iasym", "structnumericalexchangemodule_1_1numericalexchangetype.html#a1fee256ab9bd4ab22486a7ed66468481", null ],

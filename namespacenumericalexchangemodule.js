@@ -12,9 +12,8 @@ var namespacenumericalexchangemodule =
     [ "exg_cq", "namespacenumericalexchangemodule.html#ad93aa888934fb1a166fef926adf39baf", null ],
     [ "exg_da", "namespacenumericalexchangemodule.html#addeb957c5e724e941d430af67c214ffb", null ],
     [ "exg_df", "namespacenumericalexchangemodule.html#a239b2a2d899d88530dc46adb70d7705b", null ],
-    [ "exg_fc", "namespacenumericalexchangemodule.html#a321e1c4b3c2102679ad1ccdfad39eb41", null ],
-    [ "exg_mc", "namespacenumericalexchangemodule.html#ad5ce09f51cf20a10d82df3a52c0b65b6", null ],
-    [ "exg_nr", "namespacenumericalexchangemodule.html#a86db6c5486739bab39399688aba3393b", null ],
+    [ "exg_fc", "namespacenumericalexchangemodule.html#af9215385e7a930aba24592f57756469a", null ],
+    [ "exg_mc", "namespacenumericalexchangemodule.html#a3d8691a888f98793892f097381445d98", null ],
     [ "exg_ot", "namespacenumericalexchangemodule.html#a3350878eb5645f9fa174b5857cac875b", null ],
     [ "get_iasym", "namespacenumericalexchangemodule.html#af4990b3a0c4074f3993d7ffde01fb5e4", null ],
     [ "getnumericalexchangefromlist", "namespacenumericalexchangemodule.html#a09ae423b40a16a7841cbb95815029b0f", null ]

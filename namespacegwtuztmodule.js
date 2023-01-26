@@ -8,7 +8,7 @@ var namespacegwtuztmodule =
     [ "uzt_create", "namespacegwtuztmodule.html#a0849c96b02227186ad4f998f0bfa11e7", null ],
     [ "uzt_da", "namespacegwtuztmodule.html#a6c40636c7bb4ed689d2f9fcee6b3506a", null ],
     [ "uzt_df_obs", "namespacegwtuztmodule.html#a5588906923d2cd0542e769e8a0e1ae0e", null ],
-    [ "uzt_fc_expanded", "namespacegwtuztmodule.html#aec326a385ccc7006852fb9df8f9df96d", null ],
+    [ "uzt_fc_expanded", "namespacegwtuztmodule.html#acf2fafc179be9d2a7702d0020017c128", null ],
     [ "uzt_fill_budobj", "namespacegwtuztmodule.html#afe8435441b360923e7fcd55b3764abf4", null ],
     [ "uzt_get_nbudterms", "namespacegwtuztmodule.html#a4e085a949ccab585e393f871dfbed782", null ],
     [ "uzt_infl_term", "namespacegwtuztmodule.html#abb4d920309a9a038035155a83e2d6428", null ],

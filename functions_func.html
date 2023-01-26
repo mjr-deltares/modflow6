@@ -111,6 +111,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
       <li><a href="functions_func_v.html#index_v"><span>v</span></a></li>
       <li><a href="functions_func_w.html#index_w"><span>w</span></a></li>
       <li><a href="functions_func_x.html#index_x"><span>x</span></a></li>
+      <li><a href="functions_func_z.html#index_z"><span>z</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -176,6 +177,13 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <li>add_cunit()
 : <a class="el" href="structnamefilemodule_1_1namefiletype.html#a1dd54aa8592f283ee3d617dd7f5d3a7d">namefilemodule::namefiletype</a>
 </li>
+<li>add_diag_value()
+: <a class="el" href="structmatrixmodule_1_1matrixbasetype.html#aacd856383d6bb7889a023c3ed7f8e11a">matrixmodule::matrixbasetype</a>
+, <a class="el" href="structsparsematrixmodule_1_1sparsematrixtype.html#a4d4ffee6499da9c993541958e6f2a131">sparsematrixmodule::sparsematrixtype</a>
+</li>
+<li>add_diag_value_if()
+: <a class="el" href="interfacematrixmodule_1_1add__diag__value__if.html#ac5deb415dd0008f2e0a9a92b20d56691">matrixmodule::add_diag_value_if</a>
+</li>
 <li>add_edge()
 : <a class="el" href="structdag__module_1_1vertex.html#a1da1d028bd9a21ae44473e0e349e5503">dag_module::vertex</a>
 </li>
@@ -225,6 +233,13 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 </li>
 <li>add_tsfile()
 : <a class="el" href="structtimeseriesmanagermodule_1_1timeseriesmanagertype.html#aaebe048ac9b62d4a731e8c5571fce2df">timeseriesmanagermodule::timeseriesmanagertype</a>
+</li>
+<li>add_value_pos()
+: <a class="el" href="structmatrixmodule_1_1matrixbasetype.html#a3ce6812c7b2721512ee82f18f17a7665">matrixmodule::matrixbasetype</a>
+, <a class="el" href="structsparsematrixmodule_1_1sparsematrixtype.html#a88f84feee035e79b9770401b811067bc">sparsematrixmodule::sparsematrixtype</a>
+</li>
+<li>add_value_pos_if()
+: <a class="el" href="interfacematrixmodule_1_1add__value__pos__if.html#a9289b5046d574f4b015a167e8d3c37db">matrixmodule::add_value_pos_if</a>
 </li>
 <li>add_vector_dbl1d()
 : <a class="el" href="structstructarraymodule_1_1structarraytype.html#a7dbc8eaa0a3d6996803ea3f67659c767">structarraymodule::structarraytype</a>
@@ -351,6 +366,7 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 , <a class="el" href="structnumericalmodelmodule_1_1numericalmodeltype.html#a0df23b580b4742535412a87a649d335a">numericalmodelmodule::numericalmodeltype</a>
 , <a class="el" href="structnumericalsolutionmodule_1_1numericalsolutiontype.html#ad004b12fc2150129568f69387adffe98">numericalsolutionmodule::numericalsolutiontype</a>
 , <a class="el" href="structpackagemovermodule_1_1packagemovertype.html#af99660466df7a7253ebd5c75f47a75e2">packagemovermodule::packagemovertype</a>
+, <a class="el" href="structsparsematrixmodule_1_1sparsematrixtype.html#afae3a835ffb15733d6a51e7184a20573">sparsematrixmodule::sparsematrixtype</a>
 , <a class="el" href="structxt3dmodule_1_1xt3dtype.html#abdcb74e624c40c6115ee4dc57a568697">xt3dmodule::xt3dtype</a>
 </li>
 <li>allocate_arrays_mem()
@@ -440,6 +456,7 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 , <a class="el" href="structoutputcontrolmodule_1_1outputcontroltype.html#a48de131e2fc6ee30afe73c4f992a3578">outputcontrolmodule::outputcontroltype</a>
 , <a class="el" href="structpackagemovermodule_1_1packagemovertype.html#ac629b90251c8e44310c0002198107886">packagemovermodule::packagemovertype</a>
 , <a class="el" href="structsolutiongroupmodule_1_1solutiongrouptype.html#a8a9394f8809d3271d3f7d3f6323c1a88">solutiongroupmodule::solutiongrouptype</a>
+, <a class="el" href="structsparsematrixmodule_1_1sparsematrixtype.html#a29727b33bf8d7e6507abf2078ca611e8">sparsematrixmodule::sparsematrixtype</a>
 , <a class="el" href="structtabletermmodule_1_1tabletermtype.html#a2cd0b19664dcb0f0ba913f52cb9c1873">tabletermmodule::tabletermtype</a>
 , <a class="el" href="structwelmodule_1_1weltype.html#afa3f824bc5ba6e1f11f20271403f04fe">welmodule::weltype</a>
 , <a class="el" href="structxt3dmodule_1_1xt3dtype.html#ac1b3064bce07c695249181efec2dbb25">xt3dmodule::xt3dtype</a>
@@ -582,7 +599,7 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Dec 21 2022 10:50:33 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Jan 26 2023 12:44:45 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

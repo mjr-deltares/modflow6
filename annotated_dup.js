@@ -339,6 +339,7 @@ var annotated_dup =
       [ "idm_log_var", "interfaceidmloggermodule_1_1idm__log__var.html", "interfaceidmloggermodule_1_1idm__log__var" ]
     ] ],
     [ "idmmf6fileloadermodule", "namespaceidmmf6fileloadermodule.html", [
+      [ "input_load", "interfaceidmmf6fileloadermodule_1_1input__load.html", "interfaceidmmf6fileloadermodule_1_1input__load" ],
       [ "packageload", "structidmmf6fileloadermodule_1_1packageload.html", "structidmmf6fileloadermodule_1_1packageload" ],
       [ "IPackageLoad", "interfaceidmmf6fileloadermodule_1_1_i_package_load.html", "interfaceidmmf6fileloadermodule_1_1_i_package_load" ]
     ] ],
@@ -381,6 +382,24 @@ var annotated_dup =
     ] ],
     [ "mappedvariablemodule", "namespacemappedvariablemodule.html", [
       [ "mappedvariabletype", "structmappedvariablemodule_1_1mappedvariabletype.html", "structmappedvariablemodule_1_1mappedvariabletype" ]
+    ] ],
+    [ "matrixmodule", "namespacematrixmodule.html", [
+      [ "matrixbasetype", "structmatrixmodule_1_1matrixbasetype.html", "structmatrixmodule_1_1matrixbasetype" ],
+      [ "create_if", "interfacematrixmodule_1_1create__if.html", "interfacematrixmodule_1_1create__if" ],
+      [ "destroy_if", "interfacematrixmodule_1_1destroy__if.html", "interfacematrixmodule_1_1destroy__if" ],
+      [ "get_value_pos_if", "interfacematrixmodule_1_1get__value__pos__if.html", "interfacematrixmodule_1_1get__value__pos__if" ],
+      [ "get_diag_value_if", "interfacematrixmodule_1_1get__diag__value__if.html", "interfacematrixmodule_1_1get__diag__value__if" ],
+      [ "set_diag_value_if", "interfacematrixmodule_1_1set__diag__value__if.html", "interfacematrixmodule_1_1set__diag__value__if" ],
+      [ "set_value_pos_if", "interfacematrixmodule_1_1set__value__pos__if.html", "interfacematrixmodule_1_1set__value__pos__if" ],
+      [ "add_value_pos_if", "interfacematrixmodule_1_1add__value__pos__if.html", "interfacematrixmodule_1_1add__value__pos__if" ],
+      [ "add_diag_value_if", "interfacematrixmodule_1_1add__diag__value__if.html", "interfacematrixmodule_1_1add__diag__value__if" ],
+      [ "zero_entries_if", "interfacematrixmodule_1_1zero__entries__if.html", "interfacematrixmodule_1_1zero__entries__if" ],
+      [ "zero_row_offdiag_if", "interfacematrixmodule_1_1zero__row__offdiag__if.html", "interfacematrixmodule_1_1zero__row__offdiag__if" ],
+      [ "get_first_col_pos_if", "interfacematrixmodule_1_1get__first__col__pos__if.html", "interfacematrixmodule_1_1get__first__col__pos__if" ],
+      [ "get_last_col_pos_if", "interfacematrixmodule_1_1get__last__col__pos__if.html", "interfacematrixmodule_1_1get__last__col__pos__if" ],
+      [ "get_column_if", "interfacematrixmodule_1_1get__column__if.html", "interfacematrixmodule_1_1get__column__if" ],
+      [ "get_position_if", "interfacematrixmodule_1_1get__position__if.html", "interfacematrixmodule_1_1get__position__if" ],
+      [ "get_position_diag_if", "interfacematrixmodule_1_1get__position__diag__if.html", "interfacematrixmodule_1_1get__position__diag__if" ]
     ] ],
     [ "mawmodule", "namespacemawmodule.html", [
       [ "mawtype", "structmawmodule_1_1mawtype.html", "structmawmodule_1_1mawtype" ]
@@ -485,6 +504,9 @@ var annotated_dup =
     [ "sortmodule", "namespacesortmodule.html", [
       [ "qsort", "interfacesortmodule_1_1qsort.html", "interfacesortmodule_1_1qsort" ],
       [ "unique_values", "interfacesortmodule_1_1unique__values.html", "interfacesortmodule_1_1unique__values" ]
+    ] ],
+    [ "sparsematrixmodule", "namespacesparsematrixmodule.html", [
+      [ "sparsematrixtype", "structsparsematrixmodule_1_1sparsematrixtype.html", "structsparsematrixmodule_1_1sparsematrixtype" ]
     ] ],
     [ "sparsemodule", "namespacesparsemodule.html", [
       [ "rowtype", "structsparsemodule_1_1rowtype.html", "structsparsemodule_1_1rowtype" ],

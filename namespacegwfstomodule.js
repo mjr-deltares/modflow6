@@ -12,8 +12,8 @@ var namespacegwfstomodule =
     [ "sto_cq", "namespacegwfstomodule.html#a8f5e6b68f91592240dd830e091a87947", null ],
     [ "sto_cr", "namespacegwfstomodule.html#a359c206ff287ddbe2b9122729f2d9e3a", null ],
     [ "sto_da", "namespacegwfstomodule.html#a411fc9ccb0a06e70674e029a7d779456", null ],
-    [ "sto_fc", "namespacegwfstomodule.html#a1f40b9eb86e20e9925d53861e6124fa9", null ],
-    [ "sto_fn", "namespacegwfstomodule.html#a3067c9055de2c4fb5db449dc7ce5ceea", null ],
+    [ "sto_fc", "namespacegwfstomodule.html#a42ccb77275d584f438233baaf525e42f", null ],
+    [ "sto_fn", "namespacegwfstomodule.html#a74beac97a9a956695b260f0613a566df", null ],
     [ "sto_rp", "namespacegwfstomodule.html#a7598cec8dbc031f43cbd3dd9d7747259", null ],
     [ "sto_save_model_flows", "namespacegwfstomodule.html#ac7a42766d1adb7c789a3cfcdfc9ef9ab", null ],
     [ "budtxt", "namespacegwfstomodule.html#ae5d0baac7af2a3a1669ba10a66918642", null ]

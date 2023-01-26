@@ -1,5 +1,7 @@
 var hierarchy =
 [
+    [ "matrixmodule::add_diag_value_if", "interfacematrixmodule_1_1add__diag__value__if.html", null ],
+    [ "matrixmodule::add_value_pos_if", "interfacematrixmodule_1_1add__value__pos__if.html", null ],
     [ "tvbasemodule::ar_set_pointers", "interfacetvbasemodule_1_1ar__set__pointers.html", null ],
     [ "arrayreaderbasemodule::arrayreaderbasetype", "structarrayreaderbasemodule_1_1arrayreaderbasetype.html", [
       [ "double1dreadermodule::double1dreadertype", "structdouble1dreadermodule_1_1double1dreadertype.html", null ],
@@ -97,8 +99,10 @@ var hierarchy =
     [ "gwfvscmodule::concentrationpointer", "structgwfvscmodule_1_1concentrationpointer.html", null ],
     [ "connectionbuildermodule::connectionbuildertype", "structconnectionbuildermodule_1_1connectionbuildertype.html", null ],
     [ "connectionsmodule::connectionstype", "structconnectionsmodule_1_1connectionstype.html", null ],
+    [ "matrixmodule::create_if", "interfacematrixmodule_1_1create__if.html", null ],
     [ "dag_module::dag", "structdag__module_1_1dag.html", null ],
     [ "gwtfmimodule::dataadvancedpackagetype", "structgwtfmimodule_1_1dataadvancedpackagetype.html", null ],
+    [ "matrixmodule::destroy_if", "interfacematrixmodule_1_1destroy__if.html", null ],
     [ "basedismodule::disbasetype", "structbasedismodule_1_1disbasetype.html", [
       [ "gwfdismodule::gwfdistype", "structgwfdismodule_1_1gwfdistype.html", null ],
       [ "gwfdisumodule::gwfdisutype", "structgwfdisumodule_1_1gwfdisutype.html", null ],
@@ -114,7 +118,14 @@ var hierarchy =
     [ "arrayhandlersmodule::expandarray", "interfacearrayhandlersmodule_1_1expandarray.html", null ],
     [ "arrayhandlersmodule::expandarraywrapper", "interfacearrayhandlersmodule_1_1expandarraywrapper.html", null ],
     [ "arrayhandlersmodule::extendptrarray", "interfacearrayhandlersmodule_1_1extendptrarray.html", null ],
+    [ "matrixmodule::get_column_if", "interfacematrixmodule_1_1get__column__if.html", null ],
+    [ "matrixmodule::get_diag_value_if", "interfacematrixmodule_1_1get__diag__value__if.html", null ],
+    [ "matrixmodule::get_first_col_pos_if", "interfacematrixmodule_1_1get__first__col__pos__if.html", null ],
+    [ "matrixmodule::get_last_col_pos_if", "interfacematrixmodule_1_1get__last__col__pos__if.html", null ],
     [ "tvbasemodule::get_pointer_to_value", "interfacetvbasemodule_1_1get__pointer__to__value.html", null ],
+    [ "matrixmodule::get_position_diag_if", "interfacematrixmodule_1_1get__position__diag__if.html", null ],
+    [ "matrixmodule::get_position_if", "interfacematrixmodule_1_1get__position__if.html", null ],
+    [ "matrixmodule::get_value_pos_if", "interfacematrixmodule_1_1get__value__pos__if.html", null ],
     [ "cellwithnbrsmodule::globalcelltype", "structcellwithnbrsmodule_1_1globalcelltype.html", null ],
     [ "gridconnectionmodule::gridconnectiontype", "structgridconnectionmodule_1_1gridconnectiontype.html", null ],
     [ "gwfbuyinputdatamodule::gwfbuyinputdatatype", "structgwfbuyinputdatamodule_1_1gwfbuyinputdatatype.html", null ],
@@ -138,6 +149,7 @@ var hierarchy =
     [ "imslinearmodule::imslineardatatype", "structimslinearmodule_1_1imslineardatatype.html", null ],
     [ "interfacemapmodule::indexmapsgntype", "structinterfacemapmodule_1_1indexmapsgntype.html", null ],
     [ "interfacemapmodule::indexmaptype", "structinterfacemapmodule_1_1indexmaptype.html", null ],
+    [ "idmmf6fileloadermodule::input_load", "interfaceidmmf6fileloadermodule_1_1input__load.html", null ],
     [ "inputdefinitionmodule::inputblockdefinitiontype", "structinputdefinitionmodule_1_1inputblockdefinitiontype.html", null ],
     [ "inputdefinitionmodule::inputparamdefinitiontype", "structinputdefinitionmodule_1_1inputparamdefinitiontype.html", null ],
     [ "interfacemapmodule::interfacemaptype", "structinterfacemapmodule_1_1interfacemaptype.html", null ],
@@ -152,6 +164,9 @@ var hierarchy =
     [ "hashtablemodule::listtype", "structhashtablemodule_1_1listtype.html", null ],
     [ "listmodule::listtype", "structlistmodule_1_1listtype.html", null ],
     [ "mappedvariablemodule::mappedvariabletype", "structmappedvariablemodule_1_1mappedvariabletype.html", null ],
+    [ "matrixmodule::matrixbasetype", "structmatrixmodule_1_1matrixbasetype.html", [
+      [ "sparsematrixmodule::sparsematrixtype", "structsparsematrixmodule_1_1sparsematrixtype.html", null ]
+    ] ],
     [ "memorymanagermodule::mem_allocate", "interfacememorymanagermodule_1_1mem__allocate.html", null ],
     [ "memorymanagermodule::mem_checkin", "interfacememorymanagermodule_1_1mem__checkin.html", null ],
     [ "memorymanagermodule::mem_copyptr", "interfacememorymanagermodule_1_1mem__copyptr.html", null ],
@@ -237,7 +252,9 @@ var hierarchy =
     [ "tvbasemodule::reset_change_flags", "interfacetvbasemodule_1_1reset__change__flags.html", null ],
     [ "sparsemodule::rowtype", "structsparsemodule_1_1rowtype.html", null ],
     [ "tvbasemodule::set_changed_at", "interfacetvbasemodule_1_1set__changed__at.html", null ],
+    [ "matrixmodule::set_diag_value_if", "interfacematrixmodule_1_1set__diag__value__if.html", null ],
     [ "memorysethandlermodule::set_handler_iface", "interfacememorysethandlermodule_1_1set__handler__iface.html", null ],
+    [ "matrixmodule::set_value_pos_if", "interfacematrixmodule_1_1set__value__pos__if.html", null ],
     [ "sfrcrosssectionmanager::sfrcrosssection", "structsfrcrosssectionmanager_1_1sfrcrosssection.html", null ],
     [ "sfrcrosssectionmanager::sfrcrosssectiontype", "structsfrcrosssectionmanager_1_1sfrcrosssectiontype.html", null ],
     [ "basesolutionmodule::sln_ad", "interfacebasesolutionmodule_1_1sln__ad.html", null ],
@@ -276,5 +293,7 @@ var hierarchy =
     [ "tvbasemodule::validate_change", "interfacetvbasemodule_1_1validate__change.html", null ],
     [ "vectorintmodule::vectorint", "structvectorintmodule_1_1vectorint.html", null ],
     [ "dag_module::vertex", "structdag__module_1_1vertex.html", null ],
-    [ "xt3dmodule::xt3dtype", "structxt3dmodule_1_1xt3dtype.html", null ]
+    [ "xt3dmodule::xt3dtype", "structxt3dmodule_1_1xt3dtype.html", null ],
+    [ "matrixmodule::zero_entries_if", "interfacematrixmodule_1_1zero__entries__if.html", null ],
+    [ "matrixmodule::zero_row_offdiag_if", "interfacematrixmodule_1_1zero__row__offdiag__if.html", null ]
 ];

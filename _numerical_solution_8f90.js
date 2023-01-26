@@ -28,7 +28,7 @@ var _numerical_solution_8f90 =
     [ "sln_fp", "_numerical_solution_8f90.html#a2f9158456ae05512c728b125a9c877e1", null ],
     [ "sln_get_loc", "_numerical_solution_8f90.html#a3e536e8da68c7f8a12f3731f27b409c0", null ],
     [ "sln_get_nodeu", "_numerical_solution_8f90.html#a0673b47847b9b33923ecc11dbc2d8359", null ],
-    [ "sln_l2norm", "_numerical_solution_8f90.html#ab0d6d46a24e32901def02a0b6b553248", null ],
+    [ "sln_l2norm", "_numerical_solution_8f90.html#a9532a1e6acbfbe4ec58a7b9b36ff09c8", null ],
     [ "sln_ls", "_numerical_solution_8f90.html#aa3e6fe297bd0318f1d628ce549bca68d", null ],
     [ "sln_maxval", "_numerical_solution_8f90.html#a475b3a3dafa811568f0ca944fc69d066", null ],
     [ "sln_ot", "_numerical_solution_8f90.html#a4632e3dda1e8c84713288749c18d1b40", null ],

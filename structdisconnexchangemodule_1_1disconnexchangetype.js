@@ -17,7 +17,6 @@ var structdisconnexchangemodule_1_1disconnexchangetype =
     [ "exg_fc", "structdisconnexchangemodule_1_1disconnexchangetype.html#acb8a4ffa12de0dd45412976de9116f54", null ],
     [ "exg_fp", "structdisconnexchangemodule_1_1disconnexchangetype.html#a5186df58f4f90e292abe3c3c3e466301", null ],
     [ "exg_mc", "structdisconnexchangemodule_1_1disconnexchangetype.html#ad85a330782be233e9c8990b4dd3b2e02", null ],
-    [ "exg_nr", "structdisconnexchangemodule_1_1disconnexchangetype.html#aade2ff46e5e4a833543921584cf3bf8e", null ],
     [ "exg_ot", "structdisconnexchangemodule_1_1disconnexchangetype.html#a2ce45eabef1d6dd2ed6ed09e5c028989", null ],
     [ "exg_rp", "structdisconnexchangemodule_1_1disconnexchangetype.html#a02cd8b888ca22a66161a58457931b2a1", null ],
     [ "get_iasym", "structdisconnexchangemodule_1_1disconnexchangetype.html#a1fee256ab9bd4ab22486a7ed66468481", null ],

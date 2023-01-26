@@ -17,7 +17,6 @@ var structgwtgwtexchangemodule_1_1gwtexchangetype =
     [ "exg_fc", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#ab28f82fe2c97e8ad4b8c71cb3e95f367", null ],
     [ "exg_fp", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#a7056692318b41d6dd25df0de7bf3e6b3", null ],
     [ "exg_mc", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#ad85a330782be233e9c8990b4dd3b2e02", null ],
-    [ "exg_nr", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#aade2ff46e5e4a833543921584cf3bf8e", null ],
     [ "exg_ot", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#ae810e721f949cfac8a593cd8e145e988", null ],
     [ "exg_rp", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#adfeb0cf20a62e6efa4ee78f33a1b2893", null ],
     [ "get_iasym", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#a1fee256ab9bd4ab22486a7ed66468481", null ],

@@ -11,5 +11,6 @@ var namespaceidmloggermodule =
     [ "idm_log_var_int1d", "namespaceidmloggermodule.html#ad82f57af27fbc548cee898ab7cc4d069", null ],
     [ "idm_log_var_int2d", "namespaceidmloggermodule.html#af3eee67acb43b46ddd227af0485ac01f", null ],
     [ "idm_log_var_int3d", "namespaceidmloggermodule.html#af5f582b8b7ac11352ed7aa4241cf078a", null ],
-    [ "idm_log_var_logical", "namespaceidmloggermodule.html#af62fedb969c3b50d6f83d79d70db891a", null ]
+    [ "idm_log_var_logical", "namespaceidmloggermodule.html#af62fedb969c3b50d6f83d79d70db891a", null ],
+    [ "idm_log_var_str", "namespaceidmloggermodule.html#a0c032801b606665dc5de71436cdce05f", null ]
 ];

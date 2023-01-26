@@ -255,18 +255,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a0b0f71bc0d2ab382ac41f05d7f03a106"><td class="memItemLeft" align="right" valign="top">integer(i4b), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnumericalsolutionmodule_1_1numericalsolutiontype.html#a0b0f71bc0d2ab382ac41f05d7f03a106">neq</a> =&gt; null()</td></tr>
 <tr class="memdesc:a0b0f71bc0d2ab382ac41f05d7f03a106"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of equations  <a href="structnumericalsolutionmodule_1_1numericalsolutiontype.html#a0b0f71bc0d2ab382ac41f05d7f03a106">More...</a><br /></td></tr>
 <tr class="separator:a0b0f71bc0d2ab382ac41f05d7f03a106"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acbd74649943445fce91db12a37a31e9a"><td class="memItemLeft" align="right" valign="top">integer(i4b), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnumericalsolutionmodule_1_1numericalsolutiontype.html#acbd74649943445fce91db12a37a31e9a">nja</a> =&gt; null()</td></tr>
-<tr class="memdesc:acbd74649943445fce91db12a37a31e9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of non-zero entries  <a href="structnumericalsolutionmodule_1_1numericalsolutiontype.html#acbd74649943445fce91db12a37a31e9a">More...</a><br /></td></tr>
-<tr class="separator:acbd74649943445fce91db12a37a31e9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a7e5803dc08ece175a45e22fc2e7896"><td class="memItemLeft" align="right" valign="top">integer(i4b), dimension(:), pointer, contiguous&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnumericalsolutionmodule_1_1numericalsolutiontype.html#a0a7e5803dc08ece175a45e22fc2e7896">ia</a> =&gt; null()</td></tr>
-<tr class="memdesc:a0a7e5803dc08ece175a45e22fc2e7896"><td class="mdescLeft">&#160;</td><td class="mdescRight">CRS row pointers.  <a href="structnumericalsolutionmodule_1_1numericalsolutiontype.html#a0a7e5803dc08ece175a45e22fc2e7896">More...</a><br /></td></tr>
-<tr class="separator:a0a7e5803dc08ece175a45e22fc2e7896"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13d160e74b734842fde2d5bbaf5d2147"><td class="memItemLeft" align="right" valign="top">integer(i4b), dimension(:), pointer, contiguous&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnumericalsolutionmodule_1_1numericalsolutiontype.html#a13d160e74b734842fde2d5bbaf5d2147">ja</a> =&gt; null()</td></tr>
-<tr class="memdesc:a13d160e74b734842fde2d5bbaf5d2147"><td class="mdescLeft">&#160;</td><td class="mdescRight">CRS column pointers.  <a href="structnumericalsolutionmodule_1_1numericalsolutiontype.html#a13d160e74b734842fde2d5bbaf5d2147">More...</a><br /></td></tr>
-<tr class="separator:a13d160e74b734842fde2d5bbaf5d2147"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80a8a61b5e50b33d9c11a00f83cb9467"><td class="memItemLeft" align="right" valign="top">real(dp), dimension(:), pointer, contiguous&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnumericalsolutionmodule_1_1numericalsolutiontype.html#a80a8a61b5e50b33d9c11a00f83cb9467">amat</a> =&gt; null()</td></tr>
-<tr class="memdesc:a80a8a61b5e50b33d9c11a00f83cb9467"><td class="mdescLeft">&#160;</td><td class="mdescRight">coefficient matrix  <a href="structnumericalsolutionmodule_1_1numericalsolutiontype.html#a80a8a61b5e50b33d9c11a00f83cb9467">More...</a><br /></td></tr>
-<tr class="separator:a80a8a61b5e50b33d9c11a00f83cb9467"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2d98df0ab07e9183e2f9dbb3ca61ade"><td class="memItemLeft" align="right" valign="top">class(<a class="el" href="structmatrixmodule_1_1matrixbasetype.html">matrixbasetype</a>), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnumericalsolutionmodule_1_1numericalsolutiontype.html#aa2d98df0ab07e9183e2f9dbb3ca61ade">system_matrix</a></td></tr>
+<tr class="memdesc:aa2d98df0ab07e9183e2f9dbb3ca61ade"><td class="mdescLeft">&#160;</td><td class="mdescRight">sparse A-matrix for the system of equations  <a href="structnumericalsolutionmodule_1_1numericalsolutiontype.html#aa2d98df0ab07e9183e2f9dbb3ca61ade">More...</a><br /></td></tr>
+<tr class="separator:aa2d98df0ab07e9183e2f9dbb3ca61ade"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8622e60adfe697dba3da8795e732027"><td class="memItemLeft" align="right" valign="top">real(dp), dimension(:), pointer, contiguous&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnumericalsolutionmodule_1_1numericalsolutiontype.html#ab8622e60adfe697dba3da8795e732027">rhs</a> =&gt; null()</td></tr>
 <tr class="memdesc:ab8622e60adfe697dba3da8795e732027"><td class="mdescLeft">&#160;</td><td class="mdescRight">right-hand side vector  <a href="structnumericalsolutionmodule_1_1numericalsolutiontype.html#ab8622e60adfe697dba3da8795e732027">More...</a><br /></td></tr>
 <tr class="separator:ab8622e60adfe697dba3da8795e732027"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -461,7 +452,7 @@ Private Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00041">41</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00044">44</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
 </div><h2 class="groupheader">Member Function/Subroutine Documentation</h2>
 <a id="aeba92238dd4445bb0c026f82e97ce0c6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aeba92238dd4445bb0c026f82e97ce0c6">&#9670;&nbsp;</a></span>add_exchange()</h2>
@@ -1330,31 +1321,6 @@ Private Attributes</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a80a8a61b5e50b33d9c11a00f83cb9467"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a80a8a61b5e50b33d9c11a00f83cb9467">&#9670;&nbsp;</a></span>amat</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(dp), dimension(:), pointer, contiguous numericalsolutionmodule::numericalsolutiontype::amat =&gt; null()</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00055">55</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: amat =&gt; null() <span class="comment">!&lt; coefficient matrix</span></div>
-</div><!-- fragment -->
-</div>
-</div>
 <a id="ae6be043fa67471d0471e3781883acb09"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae6be043fa67471d0471e3781883acb09">&#9670;&nbsp;</a></span>amomentum</h2>
 
@@ -1825,8 +1791,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00045">45</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">type</span>(ListType), <span class="keywordtype">pointer</span> :: exchangelist<span class="comment"> !&lt; list of exchanges in solution</span></div>
+<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00048">48</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">type</span>(ListType), <span class="keywordtype">pointer</span> :: exchangelist<span class="comment"> !&lt; list of exchanges in solution</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1850,8 +1816,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00043">43</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">character(len=LINELENGTH)</span> :: fname<span class="comment"> !&lt; input file name</span></div>
+<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00046">46</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">character(len=LINELENGTH)</span> :: fname<span class="comment"> !&lt; input file name</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1927,31 +1893,6 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00087">87</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
 <div class="fragment"><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: hncg =&gt; null() <span class="comment">!&lt; largest dependent-variable change at the end of a Picard iteration</span></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a0a7e5803dc08ece175a45e22fc2e7896"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0a7e5803dc08ece175a45e22fc2e7896">&#9670;&nbsp;</a></span>ia</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer(i4b), dimension(:), pointer, contiguous numericalsolutionmodule::numericalsolutiontype::ia =&gt; null()</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00053">53</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: ia =&gt; null() <span class="comment">!&lt; CRS row pointers</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2100,8 +2041,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00046">46</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: id<span class="comment"> !&lt; solution number</span></div>
+<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00049">49</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: id<span class="comment"> !&lt; solution number</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2275,8 +2216,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00050">50</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: isymmetric =&gt; null() <span class="comment">!&lt; flag indicating if matrix symmetry is required</span></div>
+<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00053">53</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: isymmetric =&gt; null() <span class="comment">!&lt; flag indicating if matrix symmetry is required</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2375,33 +2316,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00047">47</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: iu<span class="comment"> !&lt; input file unit</span></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a13d160e74b734842fde2d5bbaf5d2147"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a13d160e74b734842fde2d5bbaf5d2147">&#9670;&nbsp;</a></span>ja</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer(i4b), dimension(:), pointer, contiguous numericalsolutionmodule::numericalsolutiontype::ja =&gt; null()</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00054">54</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: ja =&gt; null() <span class="comment">!&lt; CRS column pointers</span></div>
+<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00050">50</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: iu<span class="comment"> !&lt; input file unit</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2550,8 +2466,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00042">42</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">character(len=LENMEMPATH)</span> :: memoryPath<span class="comment"> !&lt; the path for storing solution variables in the memory manager</span></div>
+<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00045">45</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">character(len=LENMEMPATH)</span> :: memoryPath<span class="comment"> !&lt; the path for storing solution variables in the memory manager</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2575,8 +2491,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00044">44</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">type</span>(ListType), <span class="keywordtype">pointer</span> :: modellist<span class="comment"> !&lt; list of models in solution</span></div>
+<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00047">47</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">type</span>(ListType), <span class="keywordtype">pointer</span> :: modellist<span class="comment"> !&lt; list of models in solution</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2650,8 +2566,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00051">51</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: neq =&gt; null() <span class="comment">!&lt; number of equations</span></div>
+<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00054">54</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: neq =&gt; null() <span class="comment">!&lt; number of equations</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2677,31 +2593,6 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00097">97</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
 <div class="fragment"><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: nitermax =&gt; null() <span class="comment">!&lt; maximum number of iterations in a time step (maxiter * maxinner)</span></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="acbd74649943445fce91db12a37a31e9a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acbd74649943445fce91db12a37a31e9a">&#9670;&nbsp;</a></span>nja</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer(i4b), pointer numericalsolutionmodule::numericalsolutiontype::nja =&gt; null()</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00052">52</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: nja =&gt; null() <span class="comment">!&lt; number of non-zero entries</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -3080,6 +2971,31 @@ Private Attributes</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
+<a id="aa2d98df0ab07e9183e2f9dbb3ca61ade"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2d98df0ab07e9183e2f9dbb3ca61ade">&#9670;&nbsp;</a></span>system_matrix</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">class(<a class="el" href="structmatrixmodule_1_1matrixbasetype.html">matrixbasetype</a>), pointer numericalsolutionmodule::numericalsolutiontype::system_matrix</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00055">55</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">class</span>(MatrixBaseType), <span class="keywordtype">pointer</span> :: system_matrix<span class="comment"> !&lt; sparse A-matrix for the system of equations</span></div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="a4780b2b5b0c33ce19d30cfdecb98ba25"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4780b2b5b0c33ce19d30cfdecb98ba25">&#9670;&nbsp;</a></span>theta</h2>
 
@@ -3125,8 +3041,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00048">48</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">pointer</span> :: ttform<span class="comment"> !&lt; timer - total formulation time</span></div>
+<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00051">51</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">pointer</span> :: ttform<span class="comment"> !&lt; timer - total formulation time</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -3150,8 +3066,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00049">49</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">pointer</span> :: ttsoln<span class="comment"> !&lt; timer - total solution time</span></div>
+<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00052">52</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">pointer</span> :: ttsoln<span class="comment"> !&lt; timer - total solution time</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -3239,7 +3155,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacenumericalsolutionmodule.html">numericalsolutionmodule</a></li><li class="navelem"><a class="el" href="structnumericalsolutionmodule_1_1numericalsolutiontype.html">numericalsolutiontype</a></li>
-    <li class="footer">Generated on Wed Dec 21 2022 10:50:32 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Jan 26 2023 12:44:44 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

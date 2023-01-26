@@ -8,5 +8,6 @@ var interfaceidmloggermodule_1_1idm__log__var =
     [ "idm_log_var_int1d", "interfaceidmloggermodule_1_1idm__log__var.html#ac4630e2c11e221c06f5392a39ef33fdd", null ],
     [ "idm_log_var_int2d", "interfaceidmloggermodule_1_1idm__log__var.html#ae259d41f00cdf0bf1acf2a271e40a5c1", null ],
     [ "idm_log_var_int3d", "interfaceidmloggermodule_1_1idm__log__var.html#ab2dcace0c53dd17873a1ebbd42ed8f35", null ],
-    [ "idm_log_var_logical", "interfaceidmloggermodule_1_1idm__log__var.html#af416fe11d1826b780fcd523fa693ed19", null ]
+    [ "idm_log_var_logical", "interfaceidmloggermodule_1_1idm__log__var.html#af416fe11d1826b780fcd523fa693ed19", null ],
+    [ "idm_log_var_str", "interfaceidmloggermodule_1_1idm__log__var.html#ae4554e446263c5149b3c3520b22e7754", null ]
 ];

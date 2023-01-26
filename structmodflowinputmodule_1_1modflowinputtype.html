@@ -112,7 +112,6 @@ $(document).ready(function(){initNavTree('structmodflowinputmodule_1_1modflowinp
 
 <div class="header">
   <div class="summary">
-<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="structmodflowinputmodule_1_1modflowinputtype-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -127,17 +126,12 @@ Collaboration diagram for modflowinputmodule::modflowinputtype:</div>
 <div class="dyncontent">
 <div class="center"><img src="structmodflowinputmodule_1_1modflowinputtype__coll__graph.png" border="0" usemap="#amodflowinputmodule_1_1modflowinputtype_coll__map" alt="Collaboration graph"/></div>
 <map name="amodflowinputmodule_1_1modflowinputtype_coll__map" id="amodflowinputmodule_1_1modflowinputtype_coll__map">
-<area shape="rect" title="derived type for storing input definition for a file" alt="" coords="125,321,296,516"/>
+<area shape="rect" title="derived type for storing input definition for a file" alt="" coords="125,321,296,501"/>
 <area shape="rect" href="structinputdefinitionmodule_1_1inputparamdefinitiontype.html" title="derived type for storing input definition" alt="" coords="5,5,200,244"/>
 <area shape="rect" href="structinputdefinitionmodule_1_1inputblockdefinitiontype.html" title="derived type for storing block information" alt="" coords="225,64,413,185"/>
 </map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:a9904b1dc62fa9b55f10904662c6993ba"><td class="memItemLeft" align="right" valign="top">procedure&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmodflowinputmodule_1_1modflowinputtype.html#a9904b1dc62fa9b55f10904662c6993ba">destroy</a></td></tr>
-<tr class="separator:a9904b1dc62fa9b55f10904662c6993ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a50dda9b57e54c17a2987eda23b3f15f8"><td class="memItemLeft" align="right" valign="top">character(len=lenftype)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmodflowinputmodule_1_1modflowinputtype.html#a50dda9b57e54c17a2987eda23b3f15f8">file_type</a></td></tr>
@@ -154,8 +148,6 @@ Private Attributes</h2></td></tr>
 <tr class="separator:aadaefab9ecb5fff371ce2a61f850e327"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a218becdc64bbab58f30e2f78d72b4c00"><td class="memItemLeft" align="right" valign="top">character(len=lenmempath)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmodflowinputmodule_1_1modflowinputtype.html#a218becdc64bbab58f30e2f78d72b4c00">component</a></td></tr>
 <tr class="separator:a218becdc64bbab58f30e2f78d72b4c00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add7b28233615e913a94291160240e8ba"><td class="memItemLeft" align="right" valign="top">character(len=lenpackagetype), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmodflowinputmodule_1_1modflowinputtype.html#add7b28233615e913a94291160240e8ba">subpackages</a></td></tr>
-<tr class="separator:add7b28233615e913a94291160240e8ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abfb4353ff0edea7a3fce34e52f7e88eb"><td class="memItemLeft" align="right" valign="top">type(<a class="el" href="structinputdefinitionmodule_1_1inputblockdefinitiontype.html">inputblockdefinitiontype</a>), dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmodflowinputmodule_1_1modflowinputtype.html#abfb4353ff0edea7a3fce34e52f7e88eb">p_block_dfns</a></td></tr>
 <tr class="separator:abfb4353ff0edea7a3fce34e52f7e88eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af75df6ada0c5f1eab8d7244f4de6f6a6"><td class="memItemLeft" align="right" valign="top">type(<a class="el" href="structinputdefinitionmodule_1_1inputparamdefinitiontype.html">inputparamdefinitiontype</a>), dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmodflowinputmodule_1_1modflowinputtype.html#af75df6ada0c5f1eab8d7244f4de6f6a6">p_aggregate_dfns</a></td></tr>
@@ -167,32 +159,7 @@ Private Attributes</h2></td></tr>
 <div class="textblock"><p>This derived type contains the information needed to read a specific modflow input file, including block definitions, aggregate definitions (structarrays), and individual parameter definitions. </p>
 
 <p class="definition">Definition at line <a class="el" href="_modflow_input_8f90_source.html#l00034">34</a> of file <a class="el" href="_modflow_input_8f90_source.html">ModflowInput.f90</a>.</p>
-</div><h2 class="groupheader">Member Function/Subroutine Documentation</h2>
-<a id="a9904b1dc62fa9b55f10904662c6993ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9904b1dc62fa9b55f10904662c6993ba">&#9670;&nbsp;</a></span>destroy()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">procedure modflowinputmodule::modflowinputtype::destroy</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_modflow_input_8f90_source.html#l00047">47</a> of file <a class="el" href="_modflow_input_8f90_source.html">ModflowInput.f90</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
+</div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a218becdc64bbab58f30e2f78d72b4c00"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a218becdc64bbab58f30e2f78d72b4c00">&#9670;&nbsp;</a></span>component</h2>
 
@@ -338,8 +305,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_modflow_input_8f90_source.html#l00044">44</a> of file <a class="el" href="_modflow_input_8f90_source.html">ModflowInput.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">type</span>(InputParamDefinitionType), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: p_aggregate_dfns</div>
+<p class="definition">Definition at line <a class="el" href="_modflow_input_8f90_source.html#l00043">43</a> of file <a class="el" href="_modflow_input_8f90_source.html">ModflowInput.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">type</span>(InputParamDefinitionType), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: p_aggregate_dfns</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -363,8 +330,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_modflow_input_8f90_source.html#l00043">43</a> of file <a class="el" href="_modflow_input_8f90_source.html">ModflowInput.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">type</span>(InputBlockDefinitionType), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: p_block_dfns</div>
+<p class="definition">Definition at line <a class="el" href="_modflow_input_8f90_source.html#l00042">42</a> of file <a class="el" href="_modflow_input_8f90_source.html">ModflowInput.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">type</span>(InputBlockDefinitionType), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: p_block_dfns</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -388,8 +355,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_modflow_input_8f90_source.html#l00045">45</a> of file <a class="el" href="_modflow_input_8f90_source.html">ModflowInput.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">type</span>(InputParamDefinitionType), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: p_param_dfns</div>
+<p class="definition">Definition at line <a class="el" href="_modflow_input_8f90_source.html#l00044">44</a> of file <a class="el" href="_modflow_input_8f90_source.html">ModflowInput.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">type</span>(InputParamDefinitionType), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: p_param_dfns</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -443,31 +410,6 @@ Private Attributes</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="add7b28233615e913a94291160240e8ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add7b28233615e913a94291160240e8ba">&#9670;&nbsp;</a></span>subpackages</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">character(len=lenpackagetype), dimension(:), allocatable modflowinputmodule::modflowinputtype::subpackages</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_modflow_input_8f90_source.html#l00042">42</a> of file <a class="el" href="_modflow_input_8f90_source.html">ModflowInput.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">character(len=LENPACKAGETYPE)</span>, <span class="keywordtype">allocatable</span>, <span class="keywordtype">dimension(:)</span> :: subpackages</div>
-</div><!-- fragment -->
-</div>
-</div>
 <hr/>The documentation for this type was generated from the following file:<ul>
 <li>/home/runner/work/modflow6/modflow6/src/Utilities/Idm/<a class="el" href="_modflow_input_8f90_source.html">ModflowInput.f90</a></li>
 </ul>
@@ -477,7 +419,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemodflowinputmodule.html">modflowinputmodule</a></li><li class="navelem"><a class="el" href="structmodflowinputmodule_1_1modflowinputtype.html">modflowinputtype</a></li>
-    <li class="footer">Generated on Wed Dec 21 2022 10:50:32 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Jan 26 2023 12:44:44 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

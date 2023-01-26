@@ -1,11 +1,11 @@
 <map id="baseexchangemodule::baseexchangetype" name="baseexchangemodule::baseexchangetype">
 <area shape="rect" id="node1" title=" " alt="" coords="249,5,414,229"/>
-<area shape="rect" id="node2" href="$structgwfgwtexchangemodule_1_1gwfgwtexchangetype.html" title=" " alt="" coords="133,314,316,523"/>
-<area shape="rect" id="node3" href="$structnumericalexchangemodule_1_1numericalexchangetype.html" title=" " alt="" coords="340,277,539,560"/>
-<area shape="rect" id="node4" href="$structdisconnexchangemodule_1_1disconnexchangetype.html" title="Exchange based on connection between discretizations of DisBaseType. The data specifies the connectio..." alt="" coords="233,681,417,1008"/>
-<area shape="rect" id="node7" href="$structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html" title="Class to manage spatial connection of a model to one or more models of the same type...." alt="" coords="441,608,667,1081"/>
-<area shape="rect" id="node5" href="$structgwfgwfexchangemodule_1_1gwfexchangetype.html" title="Derived type for GwfExchangeType." alt="" coords="5,1195,204,1610"/>
-<area shape="rect" id="node6" href="$structgwtgwtexchangemodule_1_1gwtexchangetype.html" title="Derived type for GwtExchangeType." alt="" coords="228,1203,427,1603"/>
-<area shape="rect" id="node8" href="$structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html" title="Connecting a GWF model to other models in space, implements NumericalExchangeType so the solution can..." alt="" coords="453,1195,652,1610"/>
-<area shape="rect" id="node9" href="$structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html" title="Connects a GWT model to other GWT models in space. Derives from NumericalExchangeType so the solution..." alt="" coords="676,1129,875,1676"/>
+<area shape="rect" id="node2" href="$structgwfgwtexchangemodule_1_1gwfgwtexchangetype.html" title=" " alt="" coords="133,307,316,516"/>
+<area shape="rect" id="node3" href="$structnumericalexchangemodule_1_1numericalexchangetype.html" title=" " alt="" coords="340,277,539,545"/>
+<area shape="rect" id="node4" href="$structdisconnexchangemodule_1_1disconnexchangetype.html" title="Exchange based on connection between discretizations of DisBaseType. The data specifies the connectio..." alt="" coords="233,667,417,993"/>
+<area shape="rect" id="node7" href="$structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html" title="Class to manage spatial connection of a model to one or more models of the same type...." alt="" coords="441,593,667,1067"/>
+<area shape="rect" id="node5" href="$structgwfgwfexchangemodule_1_1gwfexchangetype.html" title="Derived type for GwfExchangeType." alt="" coords="5,1173,204,1603"/>
+<area shape="rect" id="node6" href="$structgwtgwtexchangemodule_1_1gwtexchangetype.html" title="Derived type for GwtExchangeType." alt="" coords="228,1188,427,1588"/>
+<area shape="rect" id="node8" href="$structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html" title="Connecting a GWF model to other models in space, implements NumericalExchangeType so the solution can..." alt="" coords="453,1181,652,1595"/>
+<area shape="rect" id="node9" href="$structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html" title="Connects a GWT model to other GWT models in space. Derives from NumericalExchangeType so the solution..." alt="" coords="676,1115,875,1661"/>
 </map>
