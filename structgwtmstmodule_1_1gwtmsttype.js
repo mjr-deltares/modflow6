@@ -1,12 +1,9 @@
 var structgwtmstmodule_1_1gwtmsttype =
 [
-    [ "addto_prsity2", "structgwtmstmodule_1_1gwtmsttype.html#ac717cac5285f5393cbd2508096df03cc", null ],
     [ "allocate_arrays", "structgwtmstmodule_1_1gwtmsttype.html#a55c26630d1909fccd94e3b5b755c2d81", null ],
     [ "allocate_scalars", "structgwtmstmodule_1_1gwtmsttype.html#af6337c14950203b0e340c2667ad3e364", null ],
     [ "da", "structgwtmstmodule_1_1gwtmsttype.html#a78a056d3fd660b9f84b19b62071c8c75", null ],
     [ "get_block_data", "structgwtmstmodule_1_1gwtmsttype.html#a157bc11d0af0721c30c001b7f457dd63", null ],
-    [ "get_thetaimfrac", "structgwtmstmodule_1_1gwtmsttype.html#a96f0ed50f9c77428e2468e70009b1f1a", null ],
-    [ "get_thetamfrac", "structgwtmstmodule_1_1gwtmsttype.html#a8eec3a03630af845920e288ab6d61c20", null ],
     [ "mst_ar", "structgwtmstmodule_1_1gwtmsttype.html#af4949e2547cb17b4bee66c78a8982139", null ],
     [ "mst_bd", "structgwtmstmodule_1_1gwtmsttype.html#a63823e77929ad0615f488f4d1a05b2a6", null ],
     [ "mst_cq", "structgwtmstmodule_1_1gwtmsttype.html#a6a977b4e84c346fbadb1c5cb0e4028ba", null ],
@@ -54,7 +51,6 @@ var structgwtmstmodule_1_1gwtmsttype =
     [ "packname", "structgwtmstmodule_1_1gwtmsttype.html#a240447703ca1594eeafb33ba6456eba5", null ],
     [ "parser", "structgwtmstmodule_1_1gwtmsttype.html#a0489fce2940cd566cb9f08e7c45e445d", null ],
     [ "porosity", "structgwtmstmodule_1_1gwtmsttype.html#a1299125cddea4643cdb5b026826adca0", null ],
-    [ "prsity2", "structgwtmstmodule_1_1gwtmsttype.html#a774889d21c66fed3d1bb7e05f42db0f7", null ],
     [ "ratedcy", "structgwtmstmodule_1_1gwtmsttype.html#a7b6ccc00590b4612f866ecf88d9eac55", null ],
     [ "ratedcys", "structgwtmstmodule_1_1gwtmsttype.html#ac78bc6e5045b2018d48296982743eb24", null ],
     [ "ratesrb", "structgwtmstmodule_1_1gwtmsttype.html#aff19891efd82443b1cec086aed7b8ab3", null ],

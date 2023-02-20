@@ -442,13 +442,13 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    <span class="keyword">call </span>ns%finalizeSolve(iterationcounter, hasconverged, 0)</div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160; </div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    <span class="comment">! check convergence on solution</span></div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <span class="keywordflow">if</span> (hasconverged == 1) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;      bmi_status = bmi_success</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;      <span class="keyword">write</span> (bmi_last_error, fmt_fail_cvg_sol) subcomponent_idx</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;      <span class="keyword">call </span>report_bmi_error(bmi_last_error)</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;      bmi_status = bmi_failure</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <span class="keywordflow">if</span> (.not. hasconverged == 1) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;      <span class="keyword">write</span> (bmi_last_error, fmt_fail_cvg_sol) subcomponent_idx</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;      <span class="keyword">call </span>report_bmi_error(bmi_last_error)</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160; </div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    <span class="comment">! non-convergence is no reason to crash the API:</span></div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    bmi_status = bmi_success</div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160; </div>
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <span class="comment">! clear this for safety</span></div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    <span class="keyword">deallocate</span> (iterationcounter)</div>
@@ -860,7 +860,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemf6xmi.html">mf6xmi</a></li>
-    <li class="footer">Generated on Thu Jan 26 2023 12:44:44 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Feb 20 2023 13:50:54 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

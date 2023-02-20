@@ -1,11 +1,5 @@
 var NAVTREEINDEX35 =
 {
-"structgwfdisuinputmodule_1_1gwfdisuparamfoundtype.html#ab2facaf616c0e29d2df5eca62b70b631":[2,0,39,0,2],
-"structgwfdisuinputmodule_1_1gwfdisuparamfoundtype.html#ab4648892e959731ffb72e367ad1b8c9e":[2,0,39,0,3],
-"structgwfdisuinputmodule_1_1gwfdisuparamfoundtype.html#ab4750b36031d75ce0720351c9eb66c2f":[2,0,39,0,15],
-"structgwfdisuinputmodule_1_1gwfdisuparamfoundtype.html#abeea7c5f5a4f826c48136a47cb580153":[2,0,39,0,21],
-"structgwfdisuinputmodule_1_1gwfdisuparamfoundtype.html#ad0eff2459108c39cfc44544028304d3f":[2,0,39,0,0],
-"structgwfdisuinputmodule_1_1gwfdisuparamfoundtype.html#ad5d4c98505138b242ee7439e7a2477a7":[2,0,39,0,24],
 "structgwfdisuinputmodule_1_1gwfdisuparamfoundtype.html#adcc3f715f184e1b1cb029df75094ca5c":[2,0,39,0,16],
 "structgwfdisuinputmodule_1_1gwfdisuparamfoundtype.html#ae8d9311110f7fcd6cbdcabad641cbacc":[2,0,39,0,26],
 "structgwfdisuinputmodule_1_1gwfdisuparamfoundtype.html#afc81778c610eb1b533afb0b8cd9db2d9":[2,0,39,0,22],
@@ -249,5 +243,11 @@ var NAVTREEINDEX35 =
 "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a2fa65441271757b313e2e7824172cfe7":[2,0,43,0,3],
 "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a31ed3823f87521b01a832e2f4b09a78b":[2,0,43,0,7],
 "structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a32e85ca19dd96a3ab997cae6f32a4f7e":[2,0,43,0,14],
-"structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a3a5b4f0d8169f6dfd25c70779b8f23a4":[2,0,43,0,30]
+"structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a3a5b4f0d8169f6dfd25c70779b8f23a4":[2,0,43,0,30],
+"structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a3b2d80530fb2ecffe110c75b1d8c1c2b":[2,0,43,0,44],
+"structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a3d15ca3e5634a4d9a35d3bf2e51a42d5":[2,0,43,0,10],
+"structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a491c89aa03fd010b659e3b92cb88e09b":[2,0,43,0,15],
+"structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a5186df58f4f90e292abe3c3c3e466301":[2,0,43,0,17],
+"structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a57146916ae13af2a6d529312a31a6490":[2,0,43,0,59],
+"structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#a5987a8ec480c107d68751614393db4d9":[2,0,43,0,60]
 };

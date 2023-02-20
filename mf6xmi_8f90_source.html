@@ -411,13 +411,13 @@ $(document).ready(function(){initNavTree('mf6xmi_8f90_source.html',''); initResi
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    <span class="keyword">call </span>ns%finalizeSolve(<a class="code" href="namespacemf6xmi.html#a9734577b4358f13b64fba1ddb017b90c">iterationcounter</a>, hasconverged, 0)</div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160; </div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    <span class="comment">! check convergence on solution</span></div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <span class="keywordflow">if</span> (hasconverged == 1) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;      bmi_status = <a class="code" href="namespacemf6bmierror.html#aef191def294c11093888859e037d3b4d">bmi_success</a></div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;      <span class="keyword">write</span> (<a class="code" href="namespacemf6bmierror.html#a932c5940ed3682a9c5573bd2434739a5">bmi_last_error</a>, <a class="code" href="namespacemf6bmierror.html#ab39c8011ab12267e1dab392ffbd651d4">fmt_fail_cvg_sol</a>) subcomponent_idx</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacemf6bmierror.html#aa84ed04ce427bbe4950da84bbff88db0">report_bmi_error</a>(<a class="code" href="namespacemf6bmierror.html#a932c5940ed3682a9c5573bd2434739a5">bmi_last_error</a>)</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;      bmi_status = <a class="code" href="namespacemf6bmierror.html#a48ac153f4b14f401ad4a4d8861aedf61">bmi_failure</a></div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <span class="keywordflow">if</span> (.not. hasconverged == 1) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;      <span class="keyword">write</span> (<a class="code" href="namespacemf6bmierror.html#a932c5940ed3682a9c5573bd2434739a5">bmi_last_error</a>, <a class="code" href="namespacemf6bmierror.html#ab39c8011ab12267e1dab392ffbd651d4">fmt_fail_cvg_sol</a>) subcomponent_idx</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacemf6bmierror.html#aa84ed04ce427bbe4950da84bbff88db0">report_bmi_error</a>(<a class="code" href="namespacemf6bmierror.html#a932c5940ed3682a9c5573bd2434739a5">bmi_last_error</a>)</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160; </div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    <span class="comment">! non-convergence is no reason to crash the API:</span></div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    bmi_status = <a class="code" href="namespacemf6bmierror.html#aef191def294c11093888859e037d3b4d">bmi_success</a></div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160; </div>
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <span class="comment">! clear this for safety</span></div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    <span class="keyword">deallocate</span> (<a class="code" href="namespacemf6xmi.html#a9734577b4358f13b64fba1ddb017b90c">iterationcounter</a>)</div>
@@ -558,7 +558,7 @@ $(document).ready(function(){initNavTree('mf6xmi_8f90_source.html',''); initResi
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_df792f6769e16fbc2e58301ddc635f77.html">srcbmi</a></li><li class="navelem"><a class="el" href="mf6xmi_8f90.html">mf6xmi.f90</a></li>
-    <li class="footer">Generated on Thu Jan 26 2023 12:44:42 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Feb 20 2023 13:50:52 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

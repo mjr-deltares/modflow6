@@ -4,7 +4,7 @@ var namespacegwtistmodule =
     [ "accumulate_budterm", "namespacegwtistmodule.html#ae1c89f1f938ece51e3858ab650f803de", null ],
     [ "allocate_scalars", "namespacegwtistmodule.html#aaaa3a8e269ee0d09d8d4e33b5eb7391e", null ],
     [ "get_ddconc", "namespacegwtistmodule.html#a51843401d128c303b6b238be12118cb7", null ],
-    [ "get_ddterm", "namespacegwtistmodule.html#aba6bb9e373947549332354cfb94457a1", null ],
+    [ "get_ddterm", "namespacegwtistmodule.html#a99763cd290319d8133d2dff8e751b7e5", null ],
     [ "get_hcofrhs", "namespacegwtistmodule.html#a82e8f00f26c4919ec014f2318ac2d60e", null ],
     [ "ist_ad", "namespacegwtistmodule.html#ae036b3aa4f13696f131c99e63b8fed7a", null ],
     [ "ist_allocate_arrays", "namespacegwtistmodule.html#ad885bba7122d4e3d9b9511ca820f10c8", null ],

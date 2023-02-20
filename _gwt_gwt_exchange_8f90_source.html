@@ -1446,7 +1446,7 @@ $(document).ready(function(){initNavTree('_gwt_gwt_exchange_8f90_source.html',''
 <div class="line"><a name="l01331"></a><span class="lineno"> 1331</span>&#160;    strng = obsrv%IDstring</div>
 <div class="line"><a name="l01332"></a><span class="lineno"> 1332</span>&#160;    icol = 1</div>
 <div class="line"><a name="l01333"></a><span class="lineno"> 1333</span>&#160;    <span class="comment">! -- get exchange index</span></div>
-<div class="line"><a name="l01334"></a><span class="lineno"> 1334</span>&#160;    <span class="keyword">call </span><a class="code" href="namespaceinputoutputmodule.html#a653efe7e8a111c5e477fea26e0b04fe5">urword</a>(strng, icol, istart, istop, 0, n, r, iout, inunitobs)</div>
+<div class="line"><a name="l01334"></a><span class="lineno"> 1334</span>&#160;    <span class="keyword">call </span><a class="code" href="namespaceinputoutputmodule.html#a653efe7e8a111c5e477fea26e0b04fe5">urword</a>(strng, icol, istart, istop, 1, n, r, iout, inunitobs)</div>
 <div class="line"><a name="l01335"></a><span class="lineno"> 1335</span>&#160;    <span class="keyword">read</span> (strng(istart:istop), <span class="stringliteral">&#39;(i10)&#39;</span>, iostat=istat) iexg</div>
 <div class="line"><a name="l01336"></a><span class="lineno"> 1336</span>&#160;    <span class="keywordflow">if</span> (istat == 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l01337"></a><span class="lineno"> 1337</span>&#160;      obsrv%intPak1 = iexg</div>
@@ -1614,7 +1614,7 @@ $(document).ready(function(){initNavTree('_gwt_gwt_exchange_8f90_source.html',''
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_95d5cc30a66cc7502f2f5157978bb5c3.html">Exchange</a></li><li class="navelem"><a class="el" href="_gwt_gwt_exchange_8f90.html">GwtGwtExchange.f90</a></li>
-    <li class="footer">Generated on Thu Jan 26 2023 12:44:41 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Feb 20 2023 13:50:51 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

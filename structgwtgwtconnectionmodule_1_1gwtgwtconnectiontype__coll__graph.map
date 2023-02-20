@@ -1,5 +1,5 @@
 <map id="gwtgwtconnectionmodule::gwtgwtconnectiontype" name="gwtgwtconnectionmodule::gwtgwtconnectiontype">
-<area shape="rect" id="node1" title="Connects a GWT model to other GWT models in space. Derives from NumericalExchangeType so the solution..." alt="" coords="3018,4228,3217,4731"/>
+<area shape="rect" id="node1" title="Connects a GWT model to other GWT models in space. Derives from NumericalExchangeType so the solution..." alt="" coords="3018,4345,3217,4848"/>
 <area shape="rect" id="node2" href="$structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html" title="Class to manage spatial connection of a model to one or more models of the same type...." alt="" coords="4087,1525,4313,2028"/>
 <area shape="rect" id="node3" href="$structnumericalexchangemodule_1_1numericalexchangetype.html" title=" " alt="" coords="2977,1092,3175,1360"/>
 <area shape="rect" id="node49" href="$structdisconnexchangemodule_1_1disconnexchangetype.html" title="Exchange based on connection between discretizations of DisBaseType. The data specifies the connectio..." alt="" coords="1873,1613,2057,1940"/>
@@ -15,9 +15,9 @@
 <area shape="rect" id="node42" href="$structobsmodule_1_1obstype.html" title=" " alt="" coords="605,2153,816,2729"/>
 <area shape="rect" id="node46" href="$structobsoutputlistmodule_1_1obsoutputlisttype.html" title=" " alt="" coords="1620,1679,1799,1874"/>
 <area shape="rect" id="node9" href="$structlistmodule_1_1listnodetype.html" title=" " alt="" coords="2354,593,2534,685"/>
-<area shape="rect" id="node10" href="$structgwtmodule_1_1gwtmodeltype.html" title=" " alt="" coords="2695,3347,2892,3688"/>
-<area shape="rect" id="node48" href="$structgwtgwtexchangemodule_1_1gwtexchangetype.html" title="Derived type for GwtExchangeType." alt="" coords="1029,3765,1227,4165"/>
-<area shape="rect" id="node50" href="$structgwtinterfacemodelmodule_1_1gwtinterfacemodeltype.html" title="The GWT Interface Model is a utility to calculate the solution&#39;s exchange coefficients from the inter..." alt="" coords="3121,3861,3316,4070"/>
+<area shape="rect" id="node10" href="$structgwtmodule_1_1gwtmodeltype.html" title=" " alt="" coords="2695,3464,2892,3805"/>
+<area shape="rect" id="node48" href="$structgwtgwtexchangemodule_1_1gwtexchangetype.html" title="Derived type for GwtExchangeType." alt="" coords="1029,3883,1227,4283"/>
+<area shape="rect" id="node50" href="$structgwtinterfacemodelmodule_1_1gwtinterfacemodeltype.html" title="The GWT Interface Model is a utility to calculate the solution&#39;s exchange coefficients from the inter..." alt="" coords="3121,3978,3316,4187"/>
 <area shape="rect" id="node11" href="$structtransportmodelmodule_1_1transportmodeltype.html" title=" " alt="" coords="3787,2753,3957,2845"/>
 <area shape="rect" id="node13" href="$structbasemodelmodule_1_1basemodeltype.html" title=" " alt="" coords="3730,1063,3982,1389"/>
 <area shape="rect" id="node14" href="$structgwtocmodule_1_1gwtoctype.html" title="@ brief Output control for GWT" alt="" coords="4233,2052,4420,2129"/>
@@ -28,13 +28,13 @@
 <area shape="rect" id="node17" href="$structoutputcontroldatamodule_1_1outputcontroldatatype.html" title="@ brief OutputControlDataType" alt="" coords="4061,475,4248,802"/>
 <area shape="rect" id="node18" href="$structprintsavemanagermodule_1_1printsavemanagertype.html" title="@ brief PrintSaveManagerType" alt="" coords="4059,5,4250,303"/>
 <area shape="rect" id="node19" href="$structgwticmodule_1_1gwtictype.html" title=" " alt="" coords="840,2403,1019,2480"/>
-<area shape="rect" id="node41" href="$structgwtobsmodule_1_1gwtobstype.html" title=" " alt="" coords="756,2994,959,3159"/>
+<area shape="rect" id="node41" href="$structgwtobsmodule_1_1gwtobstype.html" title=" " alt="" coords="756,3053,959,3218"/>
 <area shape="rect" id="node20" href="$structgwficmodule_1_1gwfictype.html" title=" " alt="" coords="843,1709,1019,1845"/>
-<area shape="rect" id="node22" href="$structgwtmvtmodule_1_1gwtmvttype.html" title=" " alt="" coords="2879,2928,3087,3225"/>
-<area shape="rect" id="node34" href="$structgwtadvmodule_1_1gwtadvtype.html" title=" " alt="" coords="1145,2957,1349,3196"/>
-<area shape="rect" id="node35" href="$structgwtssmmodule_1_1gwtssmtype.html" title="Derived type for the SSM Package." alt="" coords="1373,2869,1584,3284"/>
-<area shape="rect" id="node39" href="$structgwtdspmodule_1_1gwtdsptype.html" title=" " alt="" coords="1608,2891,1811,3262"/>
-<area shape="rect" id="node47" href="$structgwtmstmodule_1_1gwtmsttype.html" title="@ brief Mobile storage and transfer" alt="" coords="2647,2869,2854,3284"/>
+<area shape="rect" id="node22" href="$structgwtmvtmodule_1_1gwtmvttype.html" title=" " alt="" coords="2879,2987,3087,3284"/>
+<area shape="rect" id="node34" href="$structgwtadvmodule_1_1gwtadvtype.html" title=" " alt="" coords="1145,3016,1349,3255"/>
+<area shape="rect" id="node35" href="$structgwtssmmodule_1_1gwtssmtype.html" title="Derived type for the SSM Package." alt="" coords="1373,2928,1584,3343"/>
+<area shape="rect" id="node39" href="$structgwtdspmodule_1_1gwtdsptype.html" title=" " alt="" coords="1608,2950,1811,3321"/>
+<area shape="rect" id="node47" href="$structgwtmstmodule_1_1gwtmsttype.html" title="@ brief Mobile storage and transfer" alt="" coords="2647,2869,2854,3401"/>
 <area shape="rect" id="node23" href="$structbudgetobjectmodule_1_1budgetobjecttype.html" title=" " alt="" coords="3537,1004,3705,1448"/>
 <area shape="rect" id="node31" href="$structgwtfmimodule_1_1budobjptrarray.html" title=" " alt="" coords="3537,1738,3759,1815"/>
 <area shape="rect" id="node24" href="$structbudgetfilereadermodule_1_1budgetfilereadertype.html" title=" " alt="" coords="3836,505,4015,773"/>
