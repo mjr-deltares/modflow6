@@ -1,0 +1,8 @@
+<map id="gridconnectionmodule::buildinterfacemap" name="gridconnectionmodule::buildinterfacemap">
+<area shape="rect" id="node1" title="Build interface map object for outside use." alt="" coords="5,100,172,141"/>
+<area shape="rect" id="node2" href="$namespacevirtualexchangemodule.html#ab1918334bf283f92687def799abce76b" title="Returs a virtual exchange with the specified id." alt="" coords="279,5,455,47"/>
+<area shape="rect" id="node3" href="$namespacevirtualmodelmodule.html#abba1d301227ee5a4b869b54fc98e6e59" title="Returns a virtual model with the specified id." alt="" coords="290,71,445,112"/>
+<area shape="rect" id="node4" href="$namespacebasemodelmodule.html#a79adefc92f4f7d0d032babb551c571f8" title=" " alt="" coords="220,137,515,163"/>
+<area shape="rect" id="node6" href="$namespacecsrutilsmodule.html#a0fbb240524fa0172b9ee6a14844f4470" title="Return index for element i,j in CSR storage,." alt="" coords="266,187,469,214"/>
+<area shape="rect" id="node5" href="$namespacebasemodelmodule.html#a6612a181104601a56b8227e88e5dc8f5" title=" " alt="" coords="563,137,861,163"/>
+</map>

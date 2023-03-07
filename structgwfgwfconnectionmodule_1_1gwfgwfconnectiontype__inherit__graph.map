@@ -1,6 +1,6 @@
 <map id="gwfgwfconnectionmodule::gwfgwfconnectiontype" name="gwfgwfconnectionmodule::gwfgwfconnectiontype">
-<area shape="rect" id="node1" title="Connecting a GWF model to other models in space, implements NumericalExchangeType so the solution can..." alt="" coords="19,1115,218,1529"/>
-<area shape="rect" id="node2" href="$structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html" title="Class to manage spatial connection of a model to one or more models of the same type...." alt="" coords="5,593,232,1067"/>
+<area shape="rect" id="node1" title="Connecting a GWF model to other models in space, implements NumericalExchangeType so the solution can..." alt="" coords="19,1129,218,1544"/>
+<area shape="rect" id="node2" href="$structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html" title="Class to manage spatial connection of a model to one or more models of the same type...." alt="" coords="5,593,232,1081"/>
 <area shape="rect" id="node3" href="$structnumericalexchangemodule_1_1numericalexchangetype.html" title=" " alt="" coords="19,277,218,545"/>
 <area shape="rect" id="node4" href="$structbaseexchangemodule_1_1baseexchangetype.html" title=" " alt="" coords="36,5,201,229"/>
 </map>

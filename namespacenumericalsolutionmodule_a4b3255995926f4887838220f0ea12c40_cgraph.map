@@ -1,5 +1,13 @@
 <map id="numericalsolutionmodule::sln_df" name="numericalsolutionmodule::sln_df">
-<area shape="rect" id="node1" title="@ brief Define the solution" alt="" coords="5,5,193,47"/>
-<area shape="rect" id="node2" href="$namespacenumericalmodelmodule.html#a4d031f0a98348529066eef37676f018d" title=" " alt="" coords="241,5,449,47"/>
-<area shape="rect" id="node3" href="$namespacenumericalmodelmodule.html#a8bf90d83eebb9a967b5ad13d395d4c85" title=" " alt="" coords="497,5,708,47"/>
+<area shape="rect" id="node1" title="@ brief Define the solution" alt="" coords="5,131,193,172"/>
+<area shape="rect" id="node2" href="$namespacelinearsolverfactory.html#afae78294381057a8896a5b812afb7832" title="Factory method to create the linear solver object." alt="" coords="264,84,427,125"/>
+<area shape="rect" id="node10" href="$namespacenumericalmodelmodule.html#a4d031f0a98348529066eef37676f018d" title=" " alt="" coords="241,163,449,204"/>
+<area shape="rect" id="node3" href="$namespaceimslinearsolvermodule.html#a801d3a2bfe5e409b393ffdfc38192b67" title=" " alt="" coords="517,5,689,47"/>
+<area shape="rect" id="node4" href="$namespacepetscsolvermodule.html#aea7e45f22d5d688ecf91142e82db984f" title="Create a PETSc solver object." alt="" coords="525,71,680,112"/>
+<area shape="rect" id="node5" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="533,137,672,163"/>
+<area shape="rect" id="node6" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="756,96,924,137"/>
+<area shape="rect" id="node9" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="756,161,924,203"/>
+<area shape="rect" id="node7" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="972,74,1167,101"/>
+<area shape="rect" id="node8" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="985,125,1153,167"/>
+<area shape="rect" id="node11" href="$namespacenumericalmodelmodule.html#a8bf90d83eebb9a967b5ad13d395d4c85" title=" " alt="" coords="497,188,708,229"/>
 </map>

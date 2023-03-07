@@ -128,8 +128,8 @@ Data Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
-<tr class="memitem:a638653e416b9bfc170c49f1852ef9103"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecellwithnbrsmodule.html#a638653e416b9bfc170c49f1852ef9103">addnbrcell</a> (this, index, dist_model)</td></tr>
-<tr class="separator:a638653e416b9bfc170c49f1852ef9103"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4507c579e4b4fc8c106fda1023a6edf9"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecellwithnbrsmodule.html#a4507c579e4b4fc8c106fda1023a6edf9">addnbrcell</a> (this, index, v_model)</td></tr>
+<tr class="separator:a4507c579e4b4fc8c106fda1023a6edf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -138,8 +138,8 @@ Variables</h2></td></tr>
 <tr class="separator:aa213068f8fe414cf86536f1bfba94fe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function/Subroutine Documentation</h2>
-<a id="a638653e416b9bfc170c49f1852ef9103"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a638653e416b9bfc170c49f1852ef9103">&#9670;&nbsp;</a></span>addnbrcell()</h2>
+<a id="a4507c579e4b4fc8c106fda1023a6edf9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4507c579e4b4fc8c106fda1023a6edf9">&#9670;&nbsp;</a></span>addnbrcell()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -159,8 +159,8 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">class(<a class="el" href="structdistributedmodelmodule_1_1distributedmodeltype.html">distributedmodeltype</a>), pointer&#160;</td>
-          <td class="paramname"><em>dist_model</em>&#160;</td>
+          <td class="paramtype">class(<a class="el" href="structvirtualmodelmodule_1_1virtualmodeltype.html">virtualmodeltype</a>), pointer&#160;</td>
+          <td class="paramname"><em>v_model</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -173,7 +173,7 @@ Variables</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="_cell_with_nbrs_8f90_source.html#l00030">30</a> of file <a class="el" href="_cell_with_nbrs_8f90_source.html">CellWithNbrs.f90</a>.</p>
 <div class="fragment"><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">class</span>(CellWithNbrsType) :: this</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: index</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">class</span>(DistributedModelType), <span class="keywordtype">pointer</span> :: dist_model <span class="comment">! TODO_MJR: this will replace the model pointer entirely</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">class</span>(VirtualModelType), <span class="keywordtype">pointer</span> :: v_model</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="comment">! local</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: nbrCnt, currentSize, i</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">type</span>(CellWithNbrsType), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: newNeighbors</div>
@@ -202,7 +202,7 @@ Variables</h2></td></tr>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    this%neighbors(nbrcnt + 1)%cell%index = index</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    this%neighbors(nbrcnt + 1)%cell%dmodel =&gt; dist_model</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    this%neighbors(nbrcnt + 1)%cell%v_model =&gt; v_model</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    this%nrOfNbrs = nbrcnt + 1</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
@@ -241,7 +241,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacecellwithnbrsmodule.html">cellwithnbrsmodule</a></li>
-    <li class="footer">Generated on Mon Feb 20 2023 13:50:52 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Mar 7 2023 07:21:47 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

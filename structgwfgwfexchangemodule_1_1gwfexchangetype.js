@@ -2,6 +2,7 @@ var structgwfgwfexchangemodule_1_1gwfexchangetype =
 [
     [ "allocate_arrays", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#ae25d8611f2ac394a910e8f7505f0de21", null ],
     [ "allocate_scalars", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a75b31bedc882b9d1b06377204cfbefb6", null ],
+    [ "calc_cond_sat", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a6e3e5b47beafbcf450b9345469cd0802", null ],
     [ "condcalc", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a5bc3b11d3c764b081ea4352026833595", null ],
     [ "connects_model", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#ad1d32e52ac1269ac6e1846aad91c37ab", null ],
     [ "disconnex_da", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a17694e1edd7deb3f26195ee6604d9972", null ],
@@ -29,7 +30,7 @@ var structgwfgwfexchangemodule_1_1gwfexchangetype =
     [ "gwf_gwf_df_obs", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a2a65c692bc32ac02717bee51f333ba25", null ],
     [ "gwf_gwf_rp_obs", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#ac268c53f3f24c38cf0f114dbb4ec3b27", null ],
     [ "gwf_gwf_save_simvals", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a5019c3d2749781e91931ed4c27fabc7f", null ],
-    [ "gwf_gwf_set_simvals_to_npf", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#ab375728587c3e18cce4ab0085dfc151b", null ],
+    [ "gwf_gwf_set_flow_to_npf", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a418f8dcf1c463c194b8d51dcd0073225", null ],
     [ "parse_option", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#aa69c271729f97e7baaffe159dafa023a", null ],
     [ "qcalc", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a8bb7e6908afeb807755d4a9188c7254a", null ],
     [ "read_data", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a7998c478c0d3c4ea67919b47f7235fcb", null ],
@@ -41,6 +42,7 @@ var structgwfgwfexchangemodule_1_1gwfexchangetype =
     [ "use_interface_model", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a60f4017c05c67a4a357579d2ea6ec736", null ],
     [ "validate_exchange", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#ab4b2900552374fed2c92491591b5c8bc", null ],
     [ "auxname", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a0b1a812933dd1b735e7b89772ec48e81", null ],
+    [ "auxname_cst", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#af6a1b6a29b211b8a6e709ce0e59ff374", null ],
     [ "auxvar", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#afcad56819cc53546f7a9b9b272cc0532", null ],
     [ "boundname", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#ab957258936f54a9437ec143ac9f13d96", null ],
     [ "cl1", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a317a01e6496d08949d4ecc1528f4ad1d", null ],
@@ -48,8 +50,6 @@ var structgwfgwfexchangemodule_1_1gwfexchangetype =
     [ "cond", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#ab24adc448176664e96c84c3638131b3e", null ],
     [ "condsat", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a90a6a5ae856e369ba9a11cac63781898", null ],
     [ "dev_ifmod_on", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a6eeb5b5b00af0ccc2bbb6662cf8f34fa", null ],
-    [ "dmodel1", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a45a5af9c0db47cbd0416342b186e0ed5", null ],
-    [ "dmodel2", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a8aaab1081bae062ff4b3cc166f9eb4f2", null ],
     [ "filename", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a4a31943957e2ae29ca2a592d88f564d3", null ],
     [ "gnc", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a3e9324340567e5fd759f6c52e35a956c", null ],
     [ "gwfmodel1", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#af528669f5335354da49f5a066401581b", null ],
@@ -71,6 +71,7 @@ var structgwfgwfexchangemodule_1_1gwfexchangetype =
     [ "ipakcb", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a2a3853b3fe173b24b80d7f6338bc6616", null ],
     [ "iprflow", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#ae3e1e8f2fcb0ed446153c4518d11e036", null ],
     [ "iprpak", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a9acbcad54db83d73a285579881a92dd4", null ],
+    [ "is_datacopy", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a0f3d66c8493f90e0af665e15efc5bbfe", null ],
     [ "ivarcv", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a43e99923eb31eb5ac7a32cf140d7b672", null ],
     [ "ixt3d", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a44768618b24eb1c12e2e277a6f5116b8", null ],
     [ "memorypath", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#acda28385984c10f4e8025585fa118a48", null ],
@@ -88,5 +89,7 @@ var structgwfgwfexchangemodule_1_1gwfexchangetype =
     [ "parser", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a204986c9ce77b130d71ff59be7c0aafa", null ],
     [ "satomega", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a208f0ba80dcbafb9cedef824ca01376b", null ],
     [ "simvals", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a4ec8b16e865080f92f232f284ecbc8e4", null ],
-    [ "typename", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a93de8d8c83db2fcdacb25b8f262a32a4", null ]
+    [ "typename", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a93de8d8c83db2fcdacb25b8f262a32a4", null ],
+    [ "v_model1", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#a2f3e84bf72e5005fe6b90374cc2ddc7b", null ],
+    [ "v_model2", "structgwfgwfexchangemodule_1_1gwfexchangetype.html#af406087855a4ad5573130c6b3e84d180", null ]
 ];

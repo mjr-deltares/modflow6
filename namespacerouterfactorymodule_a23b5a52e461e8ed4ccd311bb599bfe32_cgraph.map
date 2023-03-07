@@ -1,0 +1,5 @@
+<map id="routerfactorymodule::create_router" name="routerfactorymodule::create_router">
+<area shape="rect" id="node1" title="@ Brief Create the proper router, depends on simulation mode (parallel or sequential) and type of bui..." alt="" coords="5,39,161,80"/>
+<area shape="rect" id="node2" href="$namespacempiroutermodule.html#a4dc73eba9b7f95797f76d55c3f3a4538" title="Factory method to create MPI router." alt="" coords="209,5,393,47"/>
+<area shape="rect" id="node3" href="$namespaceserialroutermodule.html#a4a2cfb4f38d8cda48e35a6883fc44a3d" title="Factory method to create serial router." alt="" coords="221,71,381,112"/>
+</map>

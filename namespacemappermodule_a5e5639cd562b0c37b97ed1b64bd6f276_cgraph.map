@@ -1,0 +1,13 @@
+<map id="mappermodule::map_exg_data" name="mappermodule::map_exg_data">
+<area shape="rect" id="node1" title="Map memory from a Exchange to the specified memory entry,." alt="" coords="5,107,231,134"/>
+<area shape="rect" id="node2" href="$namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d" title="returns the path to the memory object" alt="" coords="283,71,450,112"/>
+<area shape="rect" id="node5" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="957,107,1096,134"/>
+<area shape="rect" id="node10" href="$namespacememorymanagermodule.html#a8e6f199b7218d6ec1ab68f383cb6e20f" title="@ brief Get a memory type entry from the memory list" alt="" coords="503,5,687,47"/>
+<area shape="rect" id="node11" href="$namespacevirtualexchangemodule.html#ab1918334bf283f92687def799abce76b" title="Returs a virtual exchange with the specified id." alt="" coords="279,188,455,229"/>
+<area shape="rect" id="node3" href="$namespacememoryhelpermodule.html#a5405f58247a0962e5449ebc1e4dcff0f" title="Generic routine to check the length of (parts of) the memory address." alt="" coords="511,71,678,112"/>
+<area shape="rect" id="node4" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="735,78,909,105"/>
+<area shape="rect" id="node6" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="1144,67,1312,108"/>
+<area shape="rect" id="node9" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="1144,132,1312,173"/>
+<area shape="rect" id="node7" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="1360,45,1555,71"/>
+<area shape="rect" id="node8" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1373,96,1541,137"/>
+</map>

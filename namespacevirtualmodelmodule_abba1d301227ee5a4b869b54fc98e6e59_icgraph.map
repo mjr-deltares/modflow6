@@ -1,0 +1,18 @@
+<map id="virtualmodelmodule::get_virtual_model" name="virtualmodelmodule::get_virtual_model">
+<area shape="rect" id="node1" title="Returns a virtual model with the specified id." alt="" coords="1588,231,1743,272"/>
+<area shape="rect" id="node2" href="$namespacegridconnectionmodule.html#aff77227ba68457e46b1e602b8896f6d4" title="Build interface map object for outside use." alt="" coords="1335,5,1502,47"/>
+<area shape="rect" id="node3" href="$namespacegridconnectionmodule.html#a51ea2469018d3c02815e4c1e67e962a4" title="Construct the GridConnection and allocate the data structures for the primary connections." alt="" coords="1335,71,1502,112"/>
+<area shape="rect" id="node4" href="$namespacegwfgwfexchangemodule.html#a8e8db965870b9878ff9fb5476227b92d" title="@ brief Create GWF GWF exchange" alt="" coords="1327,136,1510,177"/>
+<area shape="rect" id="node12" href="$namespacegwtgwtexchangemodule.html#a0d096cc23649e19bd37903814633bcc0" title="@ brief Create GWT GWT exchange" alt="" coords="1327,201,1510,243"/>
+<area shape="rect" id="node13" href="$namespacemappermodule.html#a8848ac10e1e0def12802afea39978179" title="Map data from model memory to a target memory entry, with the specified map. The source and target it..." alt="" coords="1297,267,1540,294"/>
+<area shape="rect" id="node14" href="$namespacespatialmodelconnectionmodule.html#a33bf848774c4a590db0f35095e21f84d" title="Define this connection, mostly sets up the grid." alt="" coords="1305,319,1532,360"/>
+<area shape="rect" id="node15" href="$namespacevirtualdatamanagermodule.html#ac33ea4d249e2305f3109405dab3c9b8f" title="Add the models and exchanges from the passed solution to the virtual data structure...." alt="" coords="1319,384,1519,425"/>
+<area shape="rect" id="node16" href="$namespacevirtualexchangemodule.html#aad149bd4f1e6e2bede52a033bcb0ae92" title="Create the virtual exchange base." alt="" coords="1331,449,1507,491"/>
+<area shape="rect" id="node5" href="$namespacesimulationcreatemodule.html#abb116763d0b57efd5d804f40a52321ee" title="Set the exchanges to be used for the simulation." alt="" coords="1068,169,1249,211"/>
+<area shape="rect" id="node6" href="$namespacesimulationcreatemodule.html#a7d37a8b63b2b0874f875f45b6cf93f03" title="Read the simulation name file." alt="" coords="821,169,1020,211"/>
+<area shape="rect" id="node7" href="$namespacesimulationcreatemodule.html#afcbe0fd3c140a3ba4f0a5409e5dc8781" title="Read the simulation name file and initialize the models, exchanges." alt="" coords="592,169,773,211"/>
+<area shape="rect" id="node8" href="$namespacemf6coremodule.html#aa847da5116e01f4fad8885b0c4f96757" title="Initialize a simulation." alt="" coords="329,177,544,203"/>
+<area shape="rect" id="node9" href="$namespacemf6bmi.html#aa886df822e4ea66c30a97a9060da5de8" title="Initialize the computational core." alt="" coords="107,151,276,178"/>
+<area shape="rect" id="node10" href="$namespacemf6coremodule.html#a207819c711610066af1b83ec2a8efef0" title="Main controller." alt="" coords="101,202,281,229"/>
+<area shape="rect" id="node11" href="$mf6_8f90.html#aa95bf577752f92b917375902bbb13863" title="MODFLOW 6 main entry point." alt="" coords="5,202,53,229"/>
+</map>

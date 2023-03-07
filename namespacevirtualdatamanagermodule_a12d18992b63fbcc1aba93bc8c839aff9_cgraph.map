@@ -1,0 +1,6 @@
+<map id="virtualdatamanagermodule::vds_create" name="virtualdatamanagermodule::vds_create">
+<area shape="rect" id="node1" title="Initialize the virtual data store." alt="" coords="5,39,205,80"/>
+<area shape="rect" id="node2" href="$namespacerouterfactorymodule.html#a23b5a52e461e8ed4ccd311bb599bfe32" title="@ Brief Create the proper router, depends on simulation mode (parallel or sequential) and type of bui..." alt="" coords="253,39,409,80"/>
+<area shape="rect" id="node3" href="$namespacempiroutermodule.html#a4dc73eba9b7f95797f76d55c3f3a4538" title="Factory method to create MPI router." alt="" coords="457,5,641,47"/>
+<area shape="rect" id="node4" href="$namespaceserialroutermodule.html#a4a2cfb4f38d8cda48e35a6883fc44a3d" title="Factory method to create serial router." alt="" coords="469,71,629,112"/>
+</map>

@@ -135,31 +135,14 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:aa86fae723638af16fe090b0a8aae388b"><td class="memItemLeft" align="right" valign="top">integer(i4b)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcellwithnbrsmodule_1_1globalcelltype.html#aa86fae723638af16fe090b0a8aae388b">index</a></td></tr>
 <tr class="memdesc:aa86fae723638af16fe090b0a8aae388b"><td class="mdescLeft">&#160;</td><td class="mdescRight">the index on the model grid  <a href="structcellwithnbrsmodule_1_1globalcelltype.html#aa86fae723638af16fe090b0a8aae388b">More...</a><br /></td></tr>
 <tr class="separator:aa86fae723638af16fe090b0a8aae388b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6ffc4ce0c2c577e48aa36b1e4422db6"><td class="memItemLeft" align="right" valign="top">class(<a class="el" href="structdistributedmodelmodule_1_1distributedmodeltype.html">distributedmodeltype</a>), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcellwithnbrsmodule_1_1globalcelltype.html#ad6ffc4ce0c2c577e48aa36b1e4422db6">dmodel</a> =&gt; null()</td></tr>
-<tr class="memdesc:ad6ffc4ce0c2c577e48aa36b1e4422db6"><td class="mdescLeft">&#160;</td><td class="mdescRight">distributed model  <a href="structcellwithnbrsmodule_1_1globalcelltype.html#ad6ffc4ce0c2c577e48aa36b1e4422db6">More...</a><br /></td></tr>
-<tr class="separator:ad6ffc4ce0c2c577e48aa36b1e4422db6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7f9e0cad5c828bb0c95604d503e229f"><td class="memItemLeft" align="right" valign="top">class(<a class="el" href="structvirtualmodelmodule_1_1virtualmodeltype.html">virtualmodeltype</a>), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcellwithnbrsmodule_1_1globalcelltype.html#ac7f9e0cad5c828bb0c95604d503e229f">v_model</a> =&gt; null()</td></tr>
+<tr class="memdesc:ac7f9e0cad5c828bb0c95604d503e229f"><td class="mdescLeft">&#160;</td><td class="mdescRight">virtual model  <a href="structcellwithnbrsmodule_1_1globalcelltype.html#ac7f9e0cad5c828bb0c95604d503e229f">More...</a><br /></td></tr>
+<tr class="separator:ac7f9e0cad5c828bb0c95604d503e229f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
 <p class="definition">Definition at line <a class="el" href="_cell_with_nbrs_8f90_source.html#l00013">13</a> of file <a class="el" href="_cell_with_nbrs_8f90_source.html">CellWithNbrs.f90</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="ad6ffc4ce0c2c577e48aa36b1e4422db6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad6ffc4ce0c2c577e48aa36b1e4422db6">&#9670;&nbsp;</a></span>dmodel</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">class(<a class="el" href="structdistributedmodelmodule_1_1distributedmodeltype.html">distributedmodeltype</a>), pointer cellwithnbrsmodule::globalcelltype::dmodel =&gt; null()</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_cell_with_nbrs_8f90_source.html#l00015">15</a> of file <a class="el" href="_cell_with_nbrs_8f90_source.html">CellWithNbrs.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">class</span>(DistributedModelType), <span class="keywordtype">pointer</span> :: dmodel =&gt; null() <span class="comment">!&lt; distributed model</span></div>
-</div><!-- fragment -->
-</div>
-</div>
 <a id="aa86fae723638af16fe090b0a8aae388b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa86fae723638af16fe090b0a8aae388b">&#9670;&nbsp;</a></span>index</h2>
 
@@ -177,6 +160,23 @@ Public Attributes</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
+<a id="ac7f9e0cad5c828bb0c95604d503e229f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7f9e0cad5c828bb0c95604d503e229f">&#9670;&nbsp;</a></span>v_model</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">class(<a class="el" href="structvirtualmodelmodule_1_1virtualmodeltype.html">virtualmodeltype</a>), pointer cellwithnbrsmodule::globalcelltype::v_model =&gt; null()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_cell_with_nbrs_8f90_source.html#l00015">15</a> of file <a class="el" href="_cell_with_nbrs_8f90_source.html">CellWithNbrs.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">class</span>(VirtualModelType), <span class="keywordtype">pointer</span> :: v_model =&gt; null() <span class="comment">!&lt; virtual model</span></div>
+</div><!-- fragment -->
+</div>
+</div>
 <hr/>The documentation for this type was generated from the following file:<ul>
 <li>/home/runner/work/modflow6/modflow6/src/Model/Connection/<a class="el" href="_cell_with_nbrs_8f90_source.html">CellWithNbrs.f90</a></li>
 </ul>
@@ -186,7 +186,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacecellwithnbrsmodule.html">cellwithnbrsmodule</a></li><li class="navelem"><a class="el" href="structcellwithnbrsmodule_1_1globalcelltype.html">globalcelltype</a></li>
-    <li class="footer">Generated on Mon Feb 20 2023 13:50:52 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Mar 7 2023 07:21:47 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -136,7 +136,7 @@ Private Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_array_handlers_8f90_source.html#l00030">30</a> of file <a class="el" href="_array_handlers_8f90_source.html">ArrayHandlers.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_array_handlers_8f90_source.html#l00036">36</a> of file <a class="el" href="_array_handlers_8f90_source.html">ArrayHandlers.f90</a>.</p>
 </div><h2 class="groupheader">Member Function/Subroutine Documentation</h2>
 <a id="a3234b19cfc8534a838c7f3881c1fc89f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3234b19cfc8534a838c7f3881c1fc89f">&#9670;&nbsp;</a></span>ifind_character()</h2>
@@ -172,25 +172,25 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_array_handlers_8f90_source.html#l00341">341</a> of file <a class="el" href="_array_handlers_8f90_source.html">ArrayHandlers.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    <span class="comment">! -- Find the first array element containing str</span></div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    <span class="comment">! -- Return -1 if not found.</span></div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;    <span class="keywordtype">implicit none</span></div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    <span class="comment">! -- return</span></div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: ifind_character</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">dimension(:)</span> :: array</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    <span class="keywordtype">character(len=*)</span> :: str</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    <span class="comment">! -- local</span></div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    ifind_character = -1</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    findloop: <span class="keywordflow">do</span> i = 1, <span class="keyword">size</span>(array)</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;      <span class="keywordflow">if</span> (array(i) == str) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;        ifind_character = i</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;        <span class="keywordflow">exit</span> findloop</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;<span class="keywordflow">      end if</span></div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;<span class="keywordflow">    end do</span> findloop</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    <span class="keywordflow">return</span></div>
+<p class="definition">Definition at line <a class="el" href="_array_handlers_8f90_source.html#l00392">392</a> of file <a class="el" href="_array_handlers_8f90_source.html">ArrayHandlers.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;    <span class="comment">! -- Find the first array element containing str</span></div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    <span class="comment">! -- Return -1 if not found.</span></div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;    <span class="keywordtype">implicit none</span></div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;    <span class="comment">! -- return</span></div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: ifind_character</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;    <span class="comment">! -- dummy</span></div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">dimension(:)</span> :: array</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;    <span class="keywordtype">character(len=*)</span> :: str</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;    <span class="comment">! -- local</span></div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    ifind_character = -1</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;    findloop: <span class="keywordflow">do</span> i = 1, <span class="keyword">size</span>(array)</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;      <span class="keywordflow">if</span> (array(i) == str) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;        ifind_character = i</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;        <span class="keywordflow">exit</span> findloop</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;<span class="keywordflow">      end if</span></div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;<span class="keywordflow">    end do</span> findloop</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;    <span class="keywordflow">return</span></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -237,25 +237,25 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_array_handlers_8f90_source.html#l00362">362</a> of file <a class="el" href="_array_handlers_8f90_source.html">ArrayHandlers.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;    <span class="comment">! -- Find the first array element containing str</span></div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    <span class="comment">! -- Return -1 if not found.</span></div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    <span class="keywordtype">implicit none</span></div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;    <span class="comment">! -- return</span></div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: ifind_integer</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span> :: iarray</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: ival</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    <span class="comment">! -- local</span></div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    ifind_integer = -1</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    findloop: <span class="keywordflow">do</span> i = 1, <span class="keyword">size</span>(iarray)</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;      <span class="keywordflow">if</span> (iarray(i) == ival) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;        ifind_integer = i</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;        <span class="keywordflow">exit</span> findloop</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;<span class="keywordflow">      end if</span></div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;<span class="keywordflow">    end do</span> findloop</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    <span class="keywordflow">return</span></div>
+<p class="definition">Definition at line <a class="el" href="_array_handlers_8f90_source.html#l00413">413</a> of file <a class="el" href="_array_handlers_8f90_source.html">ArrayHandlers.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;    <span class="comment">! -- Find the first array element containing str</span></div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;    <span class="comment">! -- Return -1 if not found.</span></div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;    <span class="keywordtype">implicit none</span></div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;    <span class="comment">! -- return</span></div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: ifind_integer</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;    <span class="comment">! -- dummy</span></div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span> :: iarray</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: ival</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;    <span class="comment">! -- local</span></div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;    ifind_integer = -1</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;    findloop: <span class="keywordflow">do</span> i = 1, <span class="keyword">size</span>(iarray)</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;      <span class="keywordflow">if</span> (iarray(i) == ival) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;        ifind_integer = i</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;        <span class="keywordflow">exit</span> findloop</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;<span class="keywordflow">      end if</span></div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;<span class="keywordflow">    end do</span> findloop</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;    <span class="keywordflow">return</span></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -277,7 +277,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacearrayhandlersmodule.html">arrayhandlersmodule</a></li><li class="navelem"><a class="el" href="interfacearrayhandlersmodule_1_1ifind.html">ifind</a></li>
-    <li class="footer">Generated on Mon Feb 20 2023 13:50:52 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Mar 7 2023 07:21:47 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

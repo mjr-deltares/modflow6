@@ -132,10 +132,12 @@ Modules</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
-<tr class="memitem:a9eaf2ceab15bcd5e9c864bb7aa231384"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesparsematrixmodule.html#a9eaf2ceab15bcd5e9c864bb7aa231384">sparsematrixmodule::spm_create</a> (this, sparse, mem_path)</td></tr>
-<tr class="separator:a9eaf2ceab15bcd5e9c864bb7aa231384"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab09a123c690944611aa775f8a0d550b0"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesparsematrixmodule.html#ab09a123c690944611aa775f8a0d550b0">sparsematrixmodule::spm_init</a> (this, sparse, mem_path)</td></tr>
+<tr class="separator:ab09a123c690944611aa775f8a0d550b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab95afdd7db14736f8bbf68e81baccc88"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesparsematrixmodule.html#ab95afdd7db14736f8bbf68e81baccc88">sparsematrixmodule::spm_destroy</a> (this)</td></tr>
 <tr class="separator:ab95afdd7db14736f8bbf68e81baccc88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a086fa316c4250a92fbb5e35895d4c4d1"><td class="memItemLeft" align="right" valign="top">class(vectorbasetype) function, pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesparsematrixmodule.html#a086fa316c4250a92fbb5e35895d4c4d1">sparsematrixmodule::spm_create_vector</a> (this, n, name, mem_path)</td></tr>
+<tr class="separator:a086fa316c4250a92fbb5e35895d4c4d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a621fbf606ad9651db5b3806ff44a85f8"><td class="memItemLeft" align="right" valign="top">real(dp) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesparsematrixmodule.html#a621fbf606ad9651db5b3806ff44a85f8">sparsematrixmodule::spm_get_value_pos</a> (this, ipos)</td></tr>
 <tr class="separator:a621fbf606ad9651db5b3806ff44a85f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abcd2ba90959a93d2fcacc11f087964a4"><td class="memItemLeft" align="right" valign="top">real(dp) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesparsematrixmodule.html#abcd2ba90959a93d2fcacc11f087964a4">sparsematrixmodule::spm_get_diag_value</a> (this, irow)</td></tr>
@@ -169,6 +171,10 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:ac6b2bd51add483c8352a259d4e8eb94d"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesparsematrixmodule.html#ac6b2bd51add483c8352a259d4e8eb94d">sparsematrixmodule::spm_zero_row_offdiag</a> (this, irow)</td></tr>
 <tr class="memdesc:ac6b2bd51add483c8352a259d4e8eb94d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set all off-diagonal entries in the matrix to zero.  <a href="namespacesparsematrixmodule.html#ac6b2bd51add483c8352a259d4e8eb94d">More...</a><br /></td></tr>
 <tr class="separator:ac6b2bd51add483c8352a259d4e8eb94d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb7e0fca4dd56aa013eceb73c8a57742"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesparsematrixmodule.html#aeb7e0fca4dd56aa013eceb73c8a57742">sparsematrixmodule::spm_get_aij</a> (this, ia, ja, amat)</td></tr>
+<tr class="separator:aeb7e0fca4dd56aa013eceb73c8a57742"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad75a24af52dda2e163d5f722ab4c9958"><td class="memItemLeft" align="right" valign="top">integer(i4b) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesparsematrixmodule.html#ad75a24af52dda2e163d5f722ab4c9958">sparsematrixmodule::spm_get_row_offset</a> (this)</td></tr>
+<tr class="separator:ad75a24af52dda2e163d5f722ab4c9958"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -176,7 +182,7 @@ Functions/Subroutines</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ff383ddf1aa4eab0c4ce7910366d05a5.html">Utilities</a></li><li class="navelem"><a class="el" href="dir_236036d72f98c7998e99e2ec4927d9c8.html">Matrix</a></li><li class="navelem"><a class="el" href="_sparse_matrix_8f90.html">SparseMatrix.f90</a></li>
-    <li class="footer">Generated on Mon Feb 20 2023 13:50:52 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Mar 7 2023 07:21:47 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

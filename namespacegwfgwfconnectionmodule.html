@@ -211,13 +211,13 @@ Functions/Subroutines</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_gwf_gwf_connection_8f90_source.html#l00241">241</a> of file <a class="el" href="_gwf_gwf_connection_8f90_source.html">GwfGwfConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacememorymanagermodule.html">memorymanagermodule</a>, <span class="keywordtype">only</span>: <a class="code" href="interfacememorymanagermodule_1_1mem__allocate.html">mem_allocate</a></div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    <span class="keywordtype">class</span>(GwfGwfConnectionType) :: this<span class="comment"> !&lt; the connection</span></div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160; </div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__allocate.html">mem_allocate</a>(this%iXt3dOnExchange, <span class="stringliteral">&#39;IXT3DEXG&#39;</span>, this%memoryPath)</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="_gwf_gwf_connection_8f90_source.html#l00240">240</a> of file <a class="el" href="_gwf_gwf_connection_8f90_source.html">GwfGwfConnection.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacememorymanagermodule.html">memorymanagermodule</a>, <span class="keywordtype">only</span>: <a class="code" href="interfacememorymanagermodule_1_1mem__allocate.html">mem_allocate</a></div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    <span class="keywordtype">class</span>(GwfGwfConnectionType) :: this<span class="comment"> !&lt; the connection</span></div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160; </div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__allocate.html">mem_allocate</a>(this%iXt3dOnExchange, <span class="stringliteral">&#39;IXT3DEXG&#39;</span>, this%memoryPath)</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160; </div>
 <div class="ttc" id="ainterfacememorymanagermodule_1_1mem__allocate_html"><div class="ttname"><a href="interfacememorymanagermodule_1_1mem__allocate.html">memorymanagermodule::mem_allocate</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00050">MemoryManager.f90:50</a></div></div>
 <div class="ttc" id="anamespacememorymanagermodule_html"><div class="ttname"><a href="namespacememorymanagermodule.html">memorymanagermodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00001">MemoryManager.f90:1</a></div></div>
 </div><!-- fragment -->
@@ -246,19 +246,19 @@ Functions/Subroutines</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the GwfGwfConnection </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_gwf_gwf_connection_8f90_source.html#l00687">687</a> of file <a class="el" href="_gwf_gwf_connection_8f90_source.html">GwfGwfConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;    <span class="keywordtype">implicit none</span></div>
-<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(inout)</span> :: obj<span class="comment"> !&lt; object to be cast</span></div>
-<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;    <span class="keywordtype">class</span>(GwfGwfConnectionType), <span class="keywordtype">pointer</span> :: res<span class="comment"> !&lt; the GwfGwfConnection</span></div>
-<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160; </div>
-<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;    res =&gt; null()</div>
-<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;    <span class="keywordflow">if</span> (.not. <span class="keyword">associated</span>(obj)) <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160; </div>
-<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;    <span class="keywordflow">select type</span> (obj)</div>
-<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;<span class="keywordflow">    class is</span> (gwfgwfconnectiontype)</div>
-<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;      res =&gt; obj</div>
-<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;<span class="keywordflow">    end select</span></div>
-<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;    <span class="keywordflow">return</span></div>
+<p class="definition">Definition at line <a class="el" href="_gwf_gwf_connection_8f90_source.html#l00686">686</a> of file <a class="el" href="_gwf_gwf_connection_8f90_source.html">GwfGwfConnection.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;    <span class="keywordtype">implicit none</span></div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(inout)</span> :: obj<span class="comment"> !&lt; object to be cast</span></div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;    <span class="keywordtype">class</span>(GwfGwfConnectionType), <span class="keywordtype">pointer</span> :: res<span class="comment"> !&lt; the GwfGwfConnection</span></div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160; </div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;    res =&gt; null()</div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;    <span class="keywordflow">if</span> (.not. <span class="keyword">associated</span>(obj)) <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160; </div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;    <span class="keywordflow">select type</span> (obj)</div>
+<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;<span class="keywordflow">    class is</span> (gwfgwfconnectiontype)</div>
+<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;      res =&gt; obj</div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;<span class="keywordflow">    end select</span></div>
+<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;    <span class="keywordflow">return</span></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -301,16 +301,16 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_gwf_gwf_connection_8f90_source.html#l00295">295</a> of file <a class="el" href="_gwf_gwf_connection_8f90_source.html">GwfGwfConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    <span class="keywordtype">class</span>(GwfGwfConnectionType) :: this<span class="comment"> !&lt; this connection</span></div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160; </div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    <span class="comment">! this triggers the BUY density calculation</span></div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <span class="keywordflow">if</span> (this%gwfInterfaceModel%inbuy &gt; 0) <span class="keyword">call </span>this%gwfInterfaceModel%buy%buy_ad()</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160; </div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    <span class="keywordflow">if</span> (this%exchangeIsOwned) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;      <span class="keyword">call </span>this%gwfExchange%exg_ad()</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="_gwf_gwf_connection_8f90_source.html#l00294">294</a> of file <a class="el" href="_gwf_gwf_connection_8f90_source.html">GwfGwfConnection.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    <span class="keywordtype">class</span>(GwfGwfConnectionType) :: this<span class="comment"> !&lt; this connection</span></div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160; </div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    <span class="comment">! this triggers the BUY density calculation</span></div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    <span class="keywordflow">if</span> (this%gwfInterfaceModel%inbuy &gt; 0) <span class="keyword">call </span>this%gwfInterfaceModel%buy%buy_ad()</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160; </div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    <span class="keywordflow">if</span> (this%owns_exchange) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;      <span class="keyword">call </span>this%gwfExchange%exg_ad()</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -336,34 +336,34 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_gwf_gwf_connection_8f90_source.html#l00252">252</a> of file <a class="el" href="_gwf_gwf_connection_8f90_source.html">GwfGwfConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacegridconnectionmodule.html">gridconnectionmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structgridconnectionmodule_1_1gridconnectiontype.html">gridconnectiontype</a></div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="keywordtype">class</span>(GwfGwfConnectionType) :: this<span class="comment"> !&lt; this connection</span></div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160; </div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="comment">! check if we can construct an interface model</span></div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <span class="comment">! NB: only makes sense after the models&#39; allocate&amp;read have been</span></div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <span class="comment">! called, which is why we do it here</span></div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <span class="keyword">call </span>this%validateConnection()</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160; </div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    <span class="comment">! allocate and read base</span></div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <span class="keyword">call </span>this%spatialcon_ar()</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160; </div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="comment">! ... and now the interface model</span></div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <span class="keyword">call </span>this%gwfInterfaceModel%model_ar()</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160; </div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="comment">! AR the movers and obs through the exchange</span></div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="keywordflow">if</span> (this%exchangeIsOwned) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;      <span class="keywordflow">if</span> (this%gwfExchange%inmvr &gt; 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        <span class="keyword">call </span>this%gwfExchange%mvr%mvr_ar()</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;<span class="keywordflow">      end if</span></div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;      <span class="keywordflow">if</span> (this%gwfExchange%inobs &gt; 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        <span class="keyword">call </span>this%gwfExchange%obs%obs_ar()</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;<span class="keywordflow">      end if</span></div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="_gwf_gwf_connection_8f90_source.html#l00251">251</a> of file <a class="el" href="_gwf_gwf_connection_8f90_source.html">GwfGwfConnection.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacegridconnectionmodule.html">gridconnectionmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structgridconnectionmodule_1_1gridconnectiontype.html">gridconnectiontype</a></div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <span class="keywordtype">class</span>(GwfGwfConnectionType) :: this<span class="comment"> !&lt; this connection</span></div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160; </div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <span class="comment">! check if we can construct an interface model</span></div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="comment">! NB: only makes sense after the models&#39; allocate&amp;read have been</span></div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <span class="comment">! called, which is why we do it here</span></div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <span class="keyword">call </span>this%validateConnection()</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160; </div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="comment">! allocate and read base</span></div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    <span class="keyword">call </span>this%spatialcon_ar()</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160; </div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    <span class="comment">! ... and now the interface model</span></div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="keyword">call </span>this%gwfInterfaceModel%model_ar()</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160; </div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="comment">! AR the movers and obs through the exchange</span></div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="keywordflow">if</span> (this%owns_exchange) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;      <span class="keywordflow">if</span> (this%gwfExchange%inmvr &gt; 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        <span class="keyword">call </span>this%gwfExchange%mvr%mvr_ar()</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="keywordflow">      end if</span></div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;      <span class="keywordflow">if</span> (this%gwfExchange%inobs &gt; 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        <span class="keyword">call </span>this%gwfExchange%obs%obs_ar()</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="keywordflow">      end if</span></div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160; </div>
 <div class="ttc" id="anamespacegridconnectionmodule_html"><div class="ttname"><a href="namespacegridconnectionmodule.html">gridconnectionmodule</a></div><div class="ttdoc">Refactoring issues towards parallel:</div><div class="ttdef"><b>Definition:</b> <a href="_grid_connection_8f90_source.html#l00005">GridConnection.f90:5</a></div></div>
-<div class="ttc" id="astructgridconnectionmodule_1_1gridconnectiontype_html"><div class="ttname"><a href="structgridconnectionmodule_1_1gridconnectiontype.html">gridconnectionmodule::gridconnectiontype</a></div><div class="ttdoc">This class is used to construct the connections object for the interface model's spatial discretizati...</div><div class="ttdef"><b>Definition:</b> <a href="_grid_connection_8f90_source.html#l00054">GridConnection.f90:54</a></div></div>
+<div class="ttc" id="astructgridconnectionmodule_1_1gridconnectiontype_html"><div class="ttname"><a href="structgridconnectionmodule_1_1gridconnectiontype.html">gridconnectionmodule::gridconnectiontype</a></div><div class="ttdoc">This class is used to construct the connections object for the interface model's spatial discretizati...</div><div class="ttdef"><b>Definition:</b> <a href="_grid_connection_8f90_source.html#l00056">GridConnection.f90:56</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -422,19 +422,19 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_gwf_gwf_connection_8f90_source.html#l00655">655</a> of file <a class="el" href="_gwf_gwf_connection_8f90_source.html">GwfGwfConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;    <span class="keywordtype">class</span>(GwfGwfConnectionType) :: this<span class="comment"> !&lt; this connection</span></div>
-<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(inout)</span> :: icnvg<span class="comment"> !&lt; convergence flag</span></div>
-<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: isuppress_output<span class="comment"> !&lt; suppress output when =1</span></div>
-<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: isolnid<span class="comment"> !&lt; solution id</span></div>
-<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160; </div>
-<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;    <span class="comment">! call exchange budget routine, also calls bd</span></div>
-<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;    <span class="comment">! for movers.</span></div>
-<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;    <span class="keywordflow">if</span> (this%exchangeIsOwned) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;      <span class="keyword">call </span>this%gwfExchange%exg_bd(icnvg, isuppress_output, isolnid)</div>
-<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="_gwf_gwf_connection_8f90_source.html#l00654">654</a> of file <a class="el" href="_gwf_gwf_connection_8f90_source.html">GwfGwfConnection.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;    <span class="keywordtype">class</span>(GwfGwfConnectionType) :: this<span class="comment"> !&lt; this connection</span></div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(inout)</span> :: icnvg<span class="comment"> !&lt; convergence flag</span></div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: isuppress_output<span class="comment"> !&lt; suppress output when =1</span></div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: isolnid<span class="comment"> !&lt; solution id</span></div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160; </div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;    <span class="comment">! call exchange budget routine, also calls bd</span></div>
+<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;    <span class="comment">! for movers.</span></div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;    <span class="keywordflow">if</span> (this%owns_exchange) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;      <span class="keyword">call </span>this%gwfExchange%exg_bd(icnvg, isuppress_output, isolnid)</div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -479,21 +479,21 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_gwf_gwf_connection_8f90_source.html#l00310">310</a> of file <a class="el" href="_gwf_gwf_connection_8f90_source.html">GwfGwfConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    <span class="keywordtype">class</span>(GwfGwfConnectionType) :: this<span class="comment"> !&lt; this connection</span></div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: kiter<span class="comment"> !&lt; the iteration counter</span></div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160; </div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    <span class="comment">! reset interface system</span></div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="keyword">call </span>this%matrix%zero_entries()</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    <span class="keywordflow">do</span> i = 1, this%neq</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;      this%rhs(i) = 0.0_dp</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160; </div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <span class="comment">! calculate (wetting/drying, saturation)</span></div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    <span class="keyword">call </span>this%gwfInterfaceModel%model_cf(kiter)</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="_gwf_gwf_connection_8f90_source.html#l00309">309</a> of file <a class="el" href="_gwf_gwf_connection_8f90_source.html">GwfGwfConnection.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    <span class="keywordtype">class</span>(GwfGwfConnectionType) :: this<span class="comment"> !&lt; this connection</span></div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: kiter<span class="comment"> !&lt; the iteration counter</span></div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160; </div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    <span class="comment">! reset interface system</span></div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    <span class="keyword">call </span>this%matrix%zero_entries()</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="keywordflow">do</span> i = 1, this%neq</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;      this%rhs(i) = 0.0_dp</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160; </div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    <span class="comment">! calculate (wetting/drying, saturation)</span></div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <span class="keyword">call </span>this%gwfInterfaceModel%model_cf(kiter)</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -566,7 +566,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;    <span class="comment">! to be done in setNpfEdgeProps, but there was a sign issue</span></div>
 <div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;    <span class="comment">! and flowja was only updated if icalcspdis was 1 (it should</span></div>
 <div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;    <span class="comment">! always be updated.</span></div>
-<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;    <span class="keywordflow">if</span> (this%exchangeIsOwned) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;    <span class="keywordflow">if</span> (this%owns_exchange) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;      <span class="keyword">call </span>this%gwfExchange%gwf_gwf_add_to_flowja()</div>
 <div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160; </div>
@@ -615,7 +615,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160; </div>
 <div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;    <span class="comment">! we need to deallocate the baseexchange we own:</span></div>
-<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;    <span class="keywordflow">if</span> (this%exchangeIsOwned) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;    <span class="keywordflow">if</span> (this%owns_exchange) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;      <span class="keyword">call </span>this%gwfExchange%exg_da()</div>
 <div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160; </div>
@@ -645,96 +645,85 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_gwf_gwf_connection_8f90_source.html#l00131">131</a> of file <a class="el" href="_gwf_gwf_connection_8f90_source.html">GwfGwfConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordtype">class</span>(GwfGwfConnectionType) :: this<span class="comment"> !&lt; this connection</span></div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordtype">character(len=LENCOMPONENTNAME)</span> :: imName<span class="comment"> !&lt; the interface model&#39;s name</span></div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="comment">! determine the required size of the interface grid</span></div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keyword">call </span>this%setGridExtent()</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="comment">! this sets up the GridConnection</span></div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keyword">call </span>this%spatialcon_df()</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="comment">! Now grid conn is defined, we create the interface model</span></div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="comment">! here, and the remainder of this routine is define.</span></div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="comment">! we basically follow the logic that is present in sln_df()</span></div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keywordflow">if</span> (this%exchangeIsOwned) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;      <span class="keyword">write</span> (imname, <span class="stringliteral">&#39;(a,i0)&#39;</span>) <span class="stringliteral">&#39;GWFIM1_&#39;</span>, this%gwfExchange%id</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;      <span class="keyword">write</span> (imname, <span class="stringliteral">&#39;(a,i0)&#39;</span>) <span class="stringliteral">&#39;GWFIM2_&#39;</span>, this%gwfExchange%id</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keyword">call </span>this%gwfInterfaceModel%gwfifm_cr(imname, this%iout, this%gridConnection)</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keyword">call </span>this%gwfInterfaceModel%set_idsoln(this%gwfModel%idsoln)</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    this%gwfInterfaceModel%npf%satomega = this%gwfModel%npf%satomega</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    this%gwfInterfaceModel%npf%ixt3d = this%iXt3dOnExchange</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keyword">call </span>this%gwfInterfaceModel%model_df()</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="comment">! Take these settings from the owning model, TODO_MJR:</span></div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="comment">! what if the owner iangle1 == 0 but the neighbor doesn&#39;t?</span></div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    this%gwfInterfaceModel%npf%ik22 = this%gwfModel%npf%ik22</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    this%gwfInterfaceModel%npf%ik33 = this%gwfModel%npf%ik33</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    this%gwfInterfaceModel%npf%iwetdry = this%gwfModel%npf%iwetdry</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    this%gwfInterfaceModel%npf%iangle1 = this%gwfModel%npf%iangle1</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    this%gwfInterfaceModel%npf%iangle2 = this%gwfModel%npf%iangle2</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    this%gwfInterfaceModel%npf%iangle3 = this%gwfModel%npf%iangle3</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keyword">call </span>this%addDistVar(<span class="stringliteral">&#39;X&#39;</span>, <span class="stringliteral">&#39;&#39;</span>, this%gwfInterfaceModel%name, &amp;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                         sync_nodes, <span class="stringliteral">&#39;&#39;</span>, (/before_ar, before_ad, before_cf/))</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keyword">call </span>this%addDistVar(<span class="stringliteral">&#39;IBOUND&#39;</span>, <span class="stringliteral">&#39;&#39;</span>, this%gwfInterfaceModel%name, &amp;</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                         sync_nodes, <span class="stringliteral">&#39;&#39;</span>, (/before_ar, before_ad, before_cf/))</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keyword">call </span>this%addDistVar(<span class="stringliteral">&#39;XOLD&#39;</span>, <span class="stringliteral">&#39;&#39;</span>, this%gwfInterfaceModel%name, &amp;</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                         sync_nodes, <span class="stringliteral">&#39;&#39;</span>, (/before_ad, before_cf/))</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keyword">call </span>this%addDistVar(<span class="stringliteral">&#39;ICELLTYPE&#39;</span>, <span class="stringliteral">&#39;NPF&#39;</span>, this%gwfInterfaceModel%name, &amp;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                         sync_nodes, <span class="stringliteral">&#39;&#39;</span>, (/before_ar/))</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keyword">call </span>this%addDistVar(<span class="stringliteral">&#39;K11&#39;</span>, <span class="stringliteral">&#39;NPF&#39;</span>, this%gwfInterfaceModel%name, &amp;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                         sync_nodes, <span class="stringliteral">&#39;&#39;</span>, (/before_ar/))</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keyword">call </span>this%addDistVar(<span class="stringliteral">&#39;K22&#39;</span>, <span class="stringliteral">&#39;NPF&#39;</span>, this%gwfInterfaceModel%name, &amp;</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                         sync_nodes, <span class="stringliteral">&#39;&#39;</span>, (/before_ar/))</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keyword">call </span>this%addDistVar(<span class="stringliteral">&#39;K33&#39;</span>, <span class="stringliteral">&#39;NPF&#39;</span>, this%gwfInterfaceModel%name, &amp;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                         sync_nodes, <span class="stringliteral">&#39;&#39;</span>, (/before_ar/))</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keywordflow">if</span> (this%gwfInterfaceModel%npf%iangle1 == 1) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;      <span class="keyword">call </span>this%addDistVar(<span class="stringliteral">&#39;ANGLE1&#39;</span>, <span class="stringliteral">&#39;NPF&#39;</span>, this%gwfInterfaceModel%name, &amp;</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                           sync_nodes, <span class="stringliteral">&#39;&#39;</span>, (/before_ar/))</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keywordflow">if</span> (this%gwfInterfaceModel%npf%iangle2 == 1) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;      <span class="keyword">call </span>this%addDistVar(<span class="stringliteral">&#39;ANGLE2&#39;</span>, <span class="stringliteral">&#39;NPF&#39;</span>, this%gwfInterfaceModel%name, &amp;</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;                           sync_nodes, <span class="stringliteral">&#39;&#39;</span>, (/before_ar/))</div>
+<p class="definition">Definition at line <a class="el" href="_gwf_gwf_connection_8f90_source.html#l00141">141</a> of file <a class="el" href="_gwf_gwf_connection_8f90_source.html">GwfGwfConnection.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keywordtype">class</span>(GwfGwfConnectionType) :: this<span class="comment"> !&lt; this connection</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="keywordtype">character(len=LENCOMPONENTNAME)</span> :: imName<span class="comment"> !&lt; the interface model&#39;s name</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="comment">! this sets up the GridConnection</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keyword">call </span>this%spatialcon_df()</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="comment">! Now grid conn is defined, we create the interface model</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="comment">! here, and the remainder of this routine is define.</span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="comment">! we basically follow the logic that is present in sln_df()</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keywordflow">if</span> (this%prim_exchange%v_model1 == this%owner) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;      <span class="keyword">write</span> (imname, <span class="stringliteral">&#39;(a,i0)&#39;</span>) <span class="stringliteral">&#39;GWFIM1_&#39;</span>, this%gwfExchange%id</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;      <span class="keyword">write</span> (imname, <span class="stringliteral">&#39;(a,i0)&#39;</span>) <span class="stringliteral">&#39;GWFIM2_&#39;</span>, this%gwfExchange%id</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keyword">call </span>this%gwfInterfaceModel%gwfifm_cr(imname, this%iout, this%ig_builder)</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keyword">call </span>this%gwfInterfaceModel%set_idsoln(this%gwfModel%idsoln)</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    this%gwfInterfaceModel%npf%satomega = this%gwfModel%npf%satomega</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    this%gwfInterfaceModel%npf%ixt3d = this%iXt3dOnExchange</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="keyword">call </span>this%gwfInterfaceModel%model_df()</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="comment">! Take these settings from the owning model</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    this%gwfInterfaceModel%npf%ik22 = this%gwfModel%npf%ik22</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    this%gwfInterfaceModel%npf%ik33 = this%gwfModel%npf%ik33</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    this%gwfInterfaceModel%npf%iwetdry = this%gwfModel%npf%iwetdry</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    this%gwfInterfaceModel%npf%iangle1 = this%gwfModel%npf%iangle1</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    this%gwfInterfaceModel%npf%iangle2 = this%gwfModel%npf%iangle2</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    this%gwfInterfaceModel%npf%iangle3 = this%gwfModel%npf%iangle3</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="keyword">call </span>this%addDistVar(<span class="stringliteral">&#39;X&#39;</span>, <span class="stringliteral">&#39;&#39;</span>, sync_nodes, &amp;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                         (/stg_before_ar, stg_before_ad, stg_before_cf/))</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keyword">call </span>this%addDistVar(<span class="stringliteral">&#39;IBOUND&#39;</span>, <span class="stringliteral">&#39;&#39;</span>, sync_nodes, &amp;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                         (/stg_before_ar, stg_before_ad, stg_before_cf/))</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keyword">call </span>this%addDistVar(<span class="stringliteral">&#39;XOLD&#39;</span>, <span class="stringliteral">&#39;&#39;</span>, sync_nodes, (/stg_before_ad, stg_before_cf/))</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keyword">call </span>this%addDistVar(<span class="stringliteral">&#39;ICELLTYPE&#39;</span>, <span class="stringliteral">&#39;NPF&#39;</span>, sync_nodes, (/stg_before_ar/))</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keyword">call </span>this%addDistVar(<span class="stringliteral">&#39;K11&#39;</span>, <span class="stringliteral">&#39;NPF&#39;</span>, sync_nodes, (/stg_before_ar/))</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keyword">call </span>this%addDistVar(<span class="stringliteral">&#39;K22&#39;</span>, <span class="stringliteral">&#39;NPF&#39;</span>, sync_nodes, (/stg_before_ar/))</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keyword">call </span>this%addDistVar(<span class="stringliteral">&#39;K33&#39;</span>, <span class="stringliteral">&#39;NPF&#39;</span>, sync_nodes, (/stg_before_ar/))</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="keywordflow">if</span> (this%gwfInterfaceModel%npf%iangle1 == 1) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;      <span class="keyword">call </span>this%addDistVar(<span class="stringliteral">&#39;ANGLE1&#39;</span>, <span class="stringliteral">&#39;NPF&#39;</span>, sync_nodes, (/stg_before_ar/))</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keywordflow">if</span> (this%gwfInterfaceModel%npf%iangle2 == 1) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;      <span class="keyword">call </span>this%addDistVar(<span class="stringliteral">&#39;ANGLE2&#39;</span>, <span class="stringliteral">&#39;NPF&#39;</span>, sync_nodes, (/stg_before_ar/))</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="keywordflow">if</span> (this%gwfInterfaceModel%npf%iangle3 == 1) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;      <span class="keyword">call </span>this%addDistVar(<span class="stringliteral">&#39;ANGLE3&#39;</span>, <span class="stringliteral">&#39;NPF&#39;</span>, this%gwfInterfaceModel%name, &amp;</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;                           sync_nodes, <span class="stringliteral">&#39;&#39;</span>, (/before_ar/))</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="keywordflow">if</span> (this%gwfInterfaceModel%npf%iwetdry == 1) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;      <span class="keyword">call </span>this%addDistVar(<span class="stringliteral">&#39;WETDRY&#39;</span>, <span class="stringliteral">&#39;NPF&#39;</span>, this%gwfInterfaceModel%name, &amp;</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;                           sync_nodes, <span class="stringliteral">&#39;&#39;</span>, (/before_ar/))</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keyword">call </span>this%addDistVar(<span class="stringliteral">&#39;TOP&#39;</span>, <span class="stringliteral">&#39;DIS&#39;</span>, this%gwfInterfaceModel%name, &amp;</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;                         sync_nodes, <span class="stringliteral">&#39;&#39;</span>, (/before_ar/))</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="keyword">call </span>this%addDistVar(<span class="stringliteral">&#39;BOT&#39;</span>, <span class="stringliteral">&#39;DIS&#39;</span>, this%gwfInterfaceModel%name, &amp;</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                         sync_nodes, <span class="stringliteral">&#39;&#39;</span>, (/before_ar/))</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="keyword">call </span>this%addDistVar(<span class="stringliteral">&#39;AREA&#39;</span>, <span class="stringliteral">&#39;DIS&#39;</span>, this%gwfInterfaceModel%name, &amp;</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;                         sync_nodes, <span class="stringliteral">&#39;&#39;</span>, (/before_ar/))</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <span class="keyword">call </span>this%mapVariables()</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;      <span class="keyword">call </span>this%addDistVar(<span class="stringliteral">&#39;ANGLE3&#39;</span>, <span class="stringliteral">&#39;NPF&#39;</span>, sync_nodes, (/stg_before_ar/))</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="keywordflow">if</span> (this%gwfInterfaceModel%npf%iwetdry == 1) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;      <span class="keyword">call </span>this%addDistVar(<span class="stringliteral">&#39;WETDRY&#39;</span>, <span class="stringliteral">&#39;NPF&#39;</span>, sync_nodes, (/stg_before_ar/))</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keyword">call </span>this%addDistVar(<span class="stringliteral">&#39;TOP&#39;</span>, <span class="stringliteral">&#39;DIS&#39;</span>, sync_nodes, (/stg_before_ar/))</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="keyword">call </span>this%addDistVar(<span class="stringliteral">&#39;BOT&#39;</span>, <span class="stringliteral">&#39;DIS&#39;</span>, sync_nodes, (/stg_before_ar/))</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keyword">call </span>this%addDistVar(<span class="stringliteral">&#39;AREA&#39;</span>, <span class="stringliteral">&#39;DIS&#39;</span>, sync_nodes, (/stg_before_ar/))</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; </div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="keywordflow">if</span> (this%gwfInterfaceModel%npf%ixt3d &gt; 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;      this%gwfInterfaceModel%npf%iangle1 = 1</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;      this%gwfInterfaceModel%npf%iangle2 = 1</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;      this%gwfInterfaceModel%npf%iangle3 = 1</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; </div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <span class="keywordflow">if</span> (this%gwfInterfaceModel%npf%ixt3d &gt; 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;      this%gwfInterfaceModel%npf%iangle1 = 1</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;      this%gwfInterfaceModel%npf%iangle2 = 1</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;      this%gwfInterfaceModel%npf%iangle3 = 1</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; </div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <span class="comment">! set defaults</span></div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="comment">! TODO_MJR: loop this</span></div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    this%gwfInterfaceModel%npf%angle1 = 0.0_dp</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    this%gwfInterfaceModel%npf%angle2 = 0.0_dp</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    this%gwfInterfaceModel%npf%angle3 = 0.0_dp</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="comment">! point X, RHS, IBOUND to connection</span></div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="keyword">call </span>this%spatialcon_setmodelptrs()</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160; </div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="comment">! connect interface model to spatial connection</span></div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="keyword">call </span>this%spatialcon_connect()</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160; </div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <span class="comment">! set defaults</span></div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keywordflow">do</span> i = 1, <span class="keyword">size</span>(this%gwfInterfaceModel%npf%angle1)</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;      this%gwfInterfaceModel%npf%angle1 = 0.0_dp</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="keywordflow">do</span> i = 1, <span class="keyword">size</span>(this%gwfInterfaceModel%npf%angle2)</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;      this%gwfInterfaceModel%npf%angle2 = 0.0_dp</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keywordflow">do</span> i = 1, <span class="keyword">size</span>(this%gwfInterfaceModel%npf%angle3)</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;      this%gwfInterfaceModel%npf%angle3 = 0.0_dp</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; </div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="comment">! point X, RHS, IBOUND to connection</span></div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="keyword">call </span>this%spatialcon_setmodelptrs()</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160; </div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="comment">! connect interface model to spatial connection</span></div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keyword">call </span>this%spatialcon_connect()</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -762,7 +751,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">class(<a class="el" href="structmatrixmodule_1_1matrixbasetype.html">matrixbasetype</a>), pointer&#160;</td>
+          <td class="paramtype">class(<a class="el" href="structmatrixbasemodule_1_1matrixbasetype.html">matrixbasetype</a>), pointer&#160;</td>
           <td class="paramname"><em>matrix_sln</em>, </td>
         </tr>
         <tr>
@@ -800,46 +789,47 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_gwf_gwf_connection_8f90_source.html#l00329">329</a> of file <a class="el" href="_gwf_gwf_connection_8f90_source.html">GwfGwfConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    <span class="keywordtype">class</span>(GwfGwfConnectionType) :: this<span class="comment"> !&lt; this connection</span></div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: kiter<span class="comment"> !&lt; the iteration counter</span></div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    <span class="keywordtype">class</span>(MatrixBaseType), <span class="keywordtype">pointer</span> :: matrix_sln<span class="comment"> !&lt; global system matrix coefficients</span></div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">intent(inout)</span> :: rhs_sln<span class="comment"> !&lt; global right-hand-side</span></div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">optional</span>, <span class="keywordtype">intent(in)</span> :: inwtflag<span class="comment"> !&lt; newton-raphson flag</span></div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: n, nglo</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: ipos, icol_start, icol_end</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    <span class="keywordtype">class</span>(MatrixBaseType), <span class="keywordtype">pointer</span> :: matrix_base</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160; </div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <span class="comment">! fill (and add to...) coefficients for interface</span></div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    matrix_base =&gt; this%matrix</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    <span class="keyword">call </span>this%gwfInterfaceModel%model_fc(kiter, matrix_base, inwtflag)</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160; </div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;    <span class="comment">! map back to solution matrix</span></div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    <span class="keywordflow">do</span> n = 1, this%neq</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;      <span class="comment">! we cannot check with the mask here, because cross-terms are not</span></div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;      <span class="comment">! necessarily from primary connections. But, we only need the coefficients</span></div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;      <span class="comment">! for our own model (i.e. fluxes into cells belonging to this%owner):</span></div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;      <span class="keywordflow">if</span> (.not. this%gridConnection%idxToGlobal(n)%dmodel == this%owner) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;        <span class="comment">! only add connections for own model to global matrix</span></div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;        cycle</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;<span class="keywordflow">      end if</span></div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160; </div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;      nglo = this%gridConnection%idxToGlobal(n)%index + &amp;</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;             this%gridConnection%idxToGlobal(n)%dmodel%moffset</div>
+<p class="definition">Definition at line <a class="el" href="_gwf_gwf_connection_8f90_source.html#l00328">328</a> of file <a class="el" href="_gwf_gwf_connection_8f90_source.html">GwfGwfConnection.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    <span class="keywordtype">class</span>(GwfGwfConnectionType) :: this<span class="comment"> !&lt; this connection</span></div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: kiter<span class="comment"> !&lt; the iteration counter</span></div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <span class="keywordtype">class</span>(MatrixBaseType), <span class="keywordtype">pointer</span> :: matrix_sln<span class="comment"> !&lt; global system matrix coefficients</span></div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">intent(inout)</span> :: rhs_sln<span class="comment"> !&lt; global right-hand-side</span></div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">optional</span>, <span class="keywordtype">intent(in)</span> :: inwtflag<span class="comment"> !&lt; newton-raphson flag</span></div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: n, nglo</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: ipos, icol_start, icol_end</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <span class="keywordtype">class</span>(MatrixBaseType), <span class="keywordtype">pointer</span> :: matrix_base</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160; </div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    <span class="comment">! fill (and add to...) coefficients for interface</span></div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    matrix_base =&gt; this%matrix</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    <span class="keyword">call </span>this%gwfInterfaceModel%model_fc(kiter, matrix_base, inwtflag)</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160; </div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    <span class="comment">! map back to solution matrix</span></div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;    <span class="keywordflow">do</span> n = 1, this%neq</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;      <span class="comment">! we cannot check with the mask here, because cross-terms are not</span></div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;      <span class="comment">! necessarily from primary connections. But, we only need the coefficients</span></div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;      <span class="comment">! for our own model (i.e. fluxes into cells belonging to this%owner):</span></div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;      <span class="keywordflow">if</span> (.not. this%ig_builder%idxToGlobal(n)%v_model == this%owner) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;        <span class="comment">! only add connections for own model to global matrix</span></div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;        cycle</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;<span class="keywordflow">      end if</span></div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160; </div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;      nglo = this%ig_builder%idxToGlobal(n)%index + &amp;</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;             this%ig_builder%idxToGlobal(n)%v_model%moffset%get() - &amp;</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;             matrix_sln%get_row_offset()</div>
 <div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;      rhs_sln(nglo) = rhs_sln(nglo) + this%rhs(n)</div>
 <div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160; </div>
 <div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;      icol_start = this%matrix%get_first_col_pos(n)</div>
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;      icol_end = this%matrix%get_last_col_pos(n)</div>
 <div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;      <span class="keywordflow">do</span> ipos = icol_start, icol_end</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;        <span class="keyword">call </span>matrix_sln%add_value_pos(this%mapIdxToSln(ipos), &amp;</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;        <span class="keyword">call </span>matrix_sln%add_value_pos(this%ipos_to_sln(ipos), &amp;</div>
 <div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;                                      this%matrix%get_value_pos(ipos))</div>
 <div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;<span class="keywordflow">      end do</span></div>
 <div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;<span class="keywordflow">    end do</span></div>
 <div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160; </div>
 <div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;    <span class="comment">! FC the movers through the exchange; we cannot call</span></div>
 <div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;    <span class="comment">! exg_fc() directly because it calculates matrix terms</span></div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    <span class="keywordflow">if</span> (this%exchangeIsOwned) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    <span class="keywordflow">if</span> (this%owns_exchange) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;      <span class="keywordflow">if</span> (this%gwfExchange%inmvr &gt; 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;        <span class="keyword">call </span>this%gwfExchange%mvr%mvr_fc()</div>
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;<span class="keywordflow">      end if</span></div>
@@ -878,17 +868,17 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_gwf_gwf_connection_8f90_source.html#l00672">672</a> of file <a class="el" href="_gwf_gwf_connection_8f90_source.html">GwfGwfConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;    <span class="keywordtype">class</span>(GwfGwfConnectionType) :: this<span class="comment"> !&lt; this connection</span></div>
-<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160; </div>
-<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;    <span class="comment">! Call exg_ot() here as it handles all output processing</span></div>
-<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;    <span class="comment">! based on gwfExchange%simvals(:), which was correctly</span></div>
-<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;    <span class="comment">! filled from gwfgwfcon</span></div>
-<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;    <span class="keywordflow">if</span> (this%exchangeIsOwned) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;      <span class="keyword">call </span>this%gwfExchange%exg_ot()</div>
-<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="_gwf_gwf_connection_8f90_source.html#l00671">671</a> of file <a class="el" href="_gwf_gwf_connection_8f90_source.html">GwfGwfConnection.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;    <span class="keywordtype">class</span>(GwfGwfConnectionType) :: this<span class="comment"> !&lt; this connection</span></div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160; </div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;    <span class="comment">! Call exg_ot() here as it handles all output processing</span></div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;    <span class="comment">! based on gwfExchange%simvals(:), which was correctly</span></div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;    <span class="comment">! filled from gwfgwfcon</span></div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;    <span class="keywordflow">if</span> (this%owns_exchange) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;      <span class="keyword">call </span>this%gwfExchange%exg_ot()</div>
+<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -914,15 +904,15 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_gwf_gwf_connection_8f90_source.html#l00282">282</a> of file <a class="el" href="_gwf_gwf_connection_8f90_source.html">GwfGwfConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keywordtype">class</span>(GwfGwfConnectionType) :: this<span class="comment"> !&lt; this connection</span></div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160; </div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="comment">! Call exchange rp routines</span></div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    <span class="keywordflow">if</span> (this%exchangeIsOwned) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;      <span class="keyword">call </span>this%gwfExchange%exg_rp()</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160; </div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    <span class="keywordflow">return</span></div>
+<p class="definition">Definition at line <a class="el" href="_gwf_gwf_connection_8f90_source.html#l00281">281</a> of file <a class="el" href="_gwf_gwf_connection_8f90_source.html">GwfGwfConnection.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <span class="keywordtype">class</span>(GwfGwfConnectionType) :: this<span class="comment"> !&lt; this connection</span></div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160; </div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    <span class="comment">! Call exchange rp routines</span></div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="keywordflow">if</span> (this%owns_exchange) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;      <span class="keyword">call </span>this%gwfExchange%exg_rp()</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160; </div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="keywordflow">return</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -966,54 +956,60 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_gwf_gwf_connection_8f90_source.html#l00076">76</a> of file <a class="el" href="_gwf_gwf_connection_8f90_source.html">GwfGwfConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacenumericalmodelmodule.html">numericalmodelmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structnumericalmodelmodule_1_1numericalmodeltype.html">numericalmodeltype</a></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceinputoutputmodule.html">inputoutputmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceinputoutputmodule.html#ae97851e3edae8d9809e384058a1a4d52">openfile</a></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">class</span>(GwfGwfConnectionType) :: this<span class="comment"> !&lt; the connection</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType), <span class="keywordtype">pointer</span> :: model<span class="comment"> !&lt; the model owning this connection,</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">                                                !! this must of course be a GwfModelType</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">class</span>(DisConnExchangeType), <span class="keywordtype">pointer</span> :: gwfEx<span class="comment"> !&lt; the exchange the interface model is created for</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">character(len=LINELENGTH)</span> :: fname</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">character(len=LENCOMPONENTNAME)</span> :: name</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span> :: objPtr</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: write_ifmodel_listfile = .false.</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    objptr =&gt; model</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    this%gwfModel =&gt; castasgwfmodel(objptr)</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    objptr =&gt; gwfex</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    this%gwfExchange =&gt; castasgwfexchange(objptr)</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    this%exchangeIsOwned = <span class="keyword">associated</span>(gwfex%model1, model)</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">if</span> (this%exchangeIsOwned) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;      <span class="keyword">write</span> (name, <span class="stringliteral">&#39;(a,i0)&#39;</span>) <span class="stringliteral">&#39;GWFCON1_&#39;</span>, gwfex%id</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;      <span class="keyword">write</span> (name, <span class="stringliteral">&#39;(a,i0)&#39;</span>) <span class="stringliteral">&#39;GWFCON2_&#39;</span>, gwfex%id</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="comment">! .lst file for interface model</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordflow">if</span> (write_ifmodel_listfile) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;      fname = trim(name)//<span class="stringliteral">&#39;.im.lst&#39;</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;      <span class="keyword">call </span><a class="code" href="namespaceinputoutputmodule.html#ae97851e3edae8d9809e384058a1a4d52">openfile</a>(this%iout, 0, fname, <span class="stringliteral">&#39;LIST&#39;</span>, filstat_opt=<span class="stringliteral">&#39;REPLACE&#39;</span>)</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;      <span class="keyword">write</span> (this%iout, <span class="stringliteral">&#39;(4a)&#39;</span>) <span class="stringliteral">&#39;Creating GWF-GWF connection for model &#39;</span>, &amp;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        trim(this%gwfModel%name), <span class="stringliteral">&#39; from exchange &#39;</span>, &amp;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        trim(gwfex%name)</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="comment">! first call base constructor</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keyword">call </span>this%SpatialModelConnectionType%spatialConnection_ctor(model, &amp;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                                                                gwfex, &amp;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                                                                name)</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keyword">call </span>this%allocateScalars()</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    this%typename = <span class="stringliteral">&#39;GWF-GWF&#39;</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    this%iXt3dOnExchange = 0</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keyword">allocate</span> (this%gwfInterfaceModel)</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    this%interfaceModel =&gt; this%gwfInterfaceModel</div>
+<p class="definition">Definition at line <a class="el" href="_gwf_gwf_connection_8f90_source.html#l00080">80</a> of file <a class="el" href="_gwf_gwf_connection_8f90_source.html">GwfGwfConnection.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacenumericalmodelmodule.html">numericalmodelmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structnumericalmodelmodule_1_1numericalmodeltype.html">numericalmodeltype</a></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceinputoutputmodule.html">inputoutputmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceinputoutputmodule.html#ae97851e3edae8d9809e384058a1a4d52">openfile</a></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">class</span>(GwfGwfConnectionType) :: this<span class="comment"> !&lt; the connection</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType), <span class="keywordtype">pointer</span> :: model<span class="comment"> !&lt; the model owning this connection,</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment">                                                !! this must of course be a GwfModelType</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">class</span>(DisConnExchangeType), <span class="keywordtype">pointer</span> :: gwfEx<span class="comment"> !&lt; the exchange the interface model is created for</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">character(len=LINELENGTH)</span> :: fname</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">character(len=LENCOMPONENTNAME)</span> :: name</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span> :: objPtr</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: write_ifmodel_listfile = .false.</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    objptr =&gt; model</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    this%gwfModel =&gt; castasgwfmodel(objptr)</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    objptr =&gt; gwfex</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    this%gwfExchange =&gt; castasgwfexchange(objptr)</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">if</span> (gwfex%v_model1%is_local .and. gwfex%v_model2%is_local) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;      this%owns_exchange = (gwfex%v_model1 == model)</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;      this%owns_exchange = .true.</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordflow">if</span> (gwfex%v_model1 == model) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;      <span class="keyword">write</span> (name, <span class="stringliteral">&#39;(a,i0)&#39;</span>) <span class="stringliteral">&#39;GWFCON1_&#39;</span>, gwfex%id</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;      <span class="keyword">write</span> (name, <span class="stringliteral">&#39;(a,i0)&#39;</span>) <span class="stringliteral">&#39;GWFCON2_&#39;</span>, gwfex%id</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="comment">! .lst file for interface model</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordflow">if</span> (write_ifmodel_listfile) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;      fname = trim(name)//<span class="stringliteral">&#39;.im.lst&#39;</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;      <span class="keyword">call </span><a class="code" href="namespaceinputoutputmodule.html#ae97851e3edae8d9809e384058a1a4d52">openfile</a>(this%iout, 0, fname, <span class="stringliteral">&#39;LIST&#39;</span>, filstat_opt=<span class="stringliteral">&#39;REPLACE&#39;</span>)</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;      <span class="keyword">write</span> (this%iout, <span class="stringliteral">&#39;(4a)&#39;</span>) <span class="stringliteral">&#39;Creating GWF-GWF connection for model &#39;</span>, &amp;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        trim(this%gwfModel%name), <span class="stringliteral">&#39; from exchange &#39;</span>, &amp;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        trim(gwfex%name)</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="comment">! first call base constructor</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keyword">call </span>this%SpatialModelConnectionType%spatialConnection_ctor(model, &amp;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                                                                gwfex, &amp;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                                                                name)</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keyword">call </span>this%allocateScalars()</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    this%typename = <span class="stringliteral">&#39;GWF-GWF&#39;</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="comment">! determine the required size of the interface grid</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keyword">call </span>this%setGridExtent()</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keyword">allocate</span> (this%gwfInterfaceModel)</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    this%interface_model =&gt; this%gwfInterfaceModel</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
 <div class="ttc" id="anamespaceinputoutputmodule_html"><div class="ttname"><a href="namespaceinputoutputmodule.html">inputoutputmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_input_output_8f90_source.html#l00003">InputOutput.f90:3</a></div></div>
 <div class="ttc" id="anamespaceinputoutputmodule_html_ae97851e3edae8d9809e384058a1a4d52"><div class="ttname"><a href="namespaceinputoutputmodule.html#ae97851e3edae8d9809e384058a1a4d52">inputoutputmodule::openfile</a></div><div class="ttdeci">subroutine, public openfile(iu, iout, fname, ftype, fmtarg_opt, accarg_opt, filstat_opt, mode_opt)</div><div class="ttdoc">Open a file.</div><div class="ttdef"><b>Definition:</b> <a href="_input_output_8f90_source.html#l00036">InputOutput.f90:38</a></div></div>
 <div class="ttc" id="anamespacenumericalmodelmodule_html"><div class="ttname"><a href="namespacenumericalmodelmodule.html">numericalmodelmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_numerical_model_8f90_source.html#l00001">NumericalModel.f90:1</a></div></div>
@@ -1080,16 +1076,16 @@ Here is the caller graph for this function:</div>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="_gwf_gwf_connection_8f90_source.html#l00539">539</a> of file <a class="el" href="_gwf_gwf_connection_8f90_source.html">GwfGwfConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceinterfacemapmodule.html">interfacemapmodule</a></div>
+<div class="fragment"><div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceindexmapmodule.html">indexmapmodule</a></div>
 <div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;    <span class="keywordtype">class</span>(GwfGwfConnectionType) :: this<span class="comment"> !&lt; this connection</span></div>
 <div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;    <span class="comment">! local</span></div>
 <div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i</div>
 <div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;    <span class="keywordtype">class</span>(GwfExchangeType), <span class="keywordtype">pointer</span> :: gwfEx</div>
 <div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;    <span class="keywordtype">type</span>(IndexMapSgnType), <span class="keywordtype">pointer</span> :: map</div>
 <div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160; </div>
-<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;    <span class="keywordflow">if</span> (this%exchangeIsOwned) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;    <span class="keywordflow">if</span> (this%owns_exchange) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;      gwfex =&gt; this%gwfExchange</div>
-<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;      map =&gt; this%interfaceMap%exchange_map(this%interfaceMap%prim_exg_idx)</div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;      map =&gt; this%interface_map%exchange_map(this%interface_map%prim_exg_idx)</div>
 <div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160; </div>
 <div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;      <span class="comment">! use (half of) the exchange map in reverse:</span></div>
 <div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;      <span class="keywordflow">do</span> i = 1, <span class="keyword">size</span>(map%src_idx)</div>
@@ -1099,7 +1095,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;<span class="keywordflow">      end do</span></div>
 <div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160; </div>
-<div class="ttc" id="anamespaceinterfacemapmodule_html"><div class="ttname"><a href="namespaceinterfacemapmodule.html">interfacemapmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_interface_map_8f90_source.html#l00001">InterfaceMap.f90:1</a></div></div>
+<div class="ttc" id="anamespaceindexmapmodule_html"><div class="ttname"><a href="namespaceindexmapmodule.html">indexmapmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_index_map_8f90_source.html#l00001">IndexMap.f90:1</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1133,18 +1129,18 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_gwf_gwf_connection_8f90_source.html#l00225">225</a> of file <a class="el" href="_gwf_gwf_connection_8f90_source.html">GwfGwfConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <span class="keywordtype">class</span>(GwfGwfConnectionType) :: this<span class="comment"> !&lt; the connection</span></div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; </div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    this%iXt3dOnExchange = this%gwfExchange%ixt3d</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="keywordflow">if</span> (this%iXt3dOnExchange &gt; 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;      this%exchangeStencilDepth = 2</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;      <span class="keywordflow">if</span> (this%gwfModel%npf%ixt3d &gt; 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        this%internalStencilDepth = 2</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="keywordflow">      end if</span></div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="_gwf_gwf_connection_8f90_source.html#l00224">224</a> of file <a class="el" href="_gwf_gwf_connection_8f90_source.html">GwfGwfConnection.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keywordtype">class</span>(GwfGwfConnectionType) :: this<span class="comment"> !&lt; the connection</span></div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160; </div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    this%iXt3dOnExchange = this%gwfExchange%ixt3d</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keywordflow">if</span> (this%iXt3dOnExchange &gt; 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;      this%exg_stencil_depth = 2</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;      <span class="keywordflow">if</span> (this%gwfModel%npf%ixt3d &gt; 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        this%int_stencil_depth = 2</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;<span class="keywordflow">      end if</span></div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1194,7 +1190,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;    imdis =&gt; this%gwfInterfaceModel%dis</div>
 <div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;    imcon =&gt; this%gwfInterfaceModel%dis%con</div>
 <div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;    imnpf =&gt; this%gwfInterfaceModel%npf</div>
-<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;    toglobal =&gt; this%gridConnection%idxToGlobal</div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;    toglobal =&gt; this%ig_builder%idxToGlobal</div>
 <div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160; </div>
 <div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;    nozee = .false.</div>
 <div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;    <span class="keywordflow">if</span> (imnpf%ixt3d &gt; 0) <span class="keywordflow">then</span></div>
@@ -1205,7 +1201,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;    <span class="comment">! for flows crossing the boundary, and set flowja for internal</span></div>
 <div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;    <span class="comment">! flows affected by the connection.</span></div>
 <div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;    <span class="keywordflow">do</span> n = 1, this%neq</div>
-<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;      <span class="keywordflow">if</span> (.not. toglobal(n)%dmodel == this%owner) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;      <span class="keywordflow">if</span> (.not. toglobal(n)%v_model == this%owner) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;        <span class="comment">! only add flows to own model</span></div>
 <div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;        cycle</div>
 <div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;<span class="keywordflow">      end if</span></div>
@@ -1221,7 +1217,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;        m = imcon%ja(ipos)</div>
 <div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;        mloc = toglobal(m)%index</div>
 <div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160; </div>
-<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;        <span class="keywordflow">if</span> (.not. toglobal(m)%dmodel == this%owner) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;        <span class="keywordflow">if</span> (.not. toglobal(m)%v_model == this%owner) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;          <span class="comment">! boundary connection, set edge properties</span></div>
 <div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;          isym = imcon%jas(ipos)</div>
 <div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;          ihc = imcon%ihc(isym)</div>
@@ -1249,15 +1245,14 @@ Here is the caller graph for this function:</div>
 <div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;                                                     nx, ny, dist)</div>
 <div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;        <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;          <span class="comment">! internal, need to set flowja for n-m</span></div>
-<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;          <span class="comment">! TODO_MJR: should we mask the flowja calculation in the model?</span></div>
-<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;          iposloc = getcsrindex(nloc, mloc, this%gwfModel%ia, this%gwfModel%ja)</div>
-<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160; </div>
-<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;          <span class="comment">! update flowja with correct value</span></div>
-<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;          this%gwfModel%flowja(iposloc) = this%gwfInterfaceModel%flowja(ipos)</div>
-<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;<span class="keywordflow">        end if</span></div>
-<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;<span class="keywordflow">      end do</span></div>
-<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160; </div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;          iposloc = getcsrindex(nloc, mloc, this%gwfModel%ia, this%gwfModel%ja)</div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160; </div>
+<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;          <span class="comment">! update flowja with correct value</span></div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;          this%gwfModel%flowja(iposloc) = this%gwfInterfaceModel%flowja(ipos)</div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;<span class="keywordflow">        end if</span></div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;<span class="keywordflow">      end do</span></div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160; </div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1307,8 +1302,8 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;    <span class="comment">! local</span></div>
 <div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160; </div>
 <div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;    <span class="comment">! base validation (geometry/spatial)</span></div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;    <span class="keyword">call </span>this%SpatialModelConnectionType%validateConnection()</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;    <span class="keyword">call </span>this%validateGwfExchange()</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;    <span class="comment">!call this%SpatialModelConnectionType%validateConnection()</span></div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;    <span class="comment">!call this%validateGwfExchange()</span></div>
 <div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160; </div>
 <div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;    <span class="comment">! abort on errors</span></div>
 <div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="namespacesimmodule.html#a4c46e49de78d4498dd4ec106357775e6">count_errors</a>() &gt; 0) <span class="keywordflow">then</span></div>
@@ -1319,7 +1314,7 @@ Here is the call graph for this function:</div>
 <div class="ttc" id="anamespacesimmodule_html"><div class="ttname"><a href="namespacesimmodule.html">simmodule</a></div><div class="ttdoc">This module contains simulation methods.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_8f90_source.html#l00010">Sim.f90:10</a></div></div>
 <div class="ttc" id="anamespacesimmodule_html_a4c46e49de78d4498dd4ec106357775e6"><div class="ttname"><a href="namespacesimmodule.html#a4c46e49de78d4498dd4ec106357775e6">simmodule::count_errors</a></div><div class="ttdeci">integer(i4b) function, public count_errors()</div><div class="ttdoc">Return number of errors.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_8f90_source.html#l00058">Sim.f90:59</a></div></div>
 <div class="ttc" id="anamespacesimvariablesmodule_html"><div class="ttname"><a href="namespacesimvariablesmodule.html">simvariablesmodule</a></div><div class="ttdoc">This module contains simulation variables.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_variables_8f90_source.html#l00009">SimVariables.f90:9</a></div></div>
-<div class="ttc" id="anamespacesimvariablesmodule_html_a08c1a8900029e311ac640e2319c6a234"><div class="ttname"><a href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">simvariablesmodule::errmsg</a></div><div class="ttdeci">character(len=maxcharlen) errmsg</div><div class="ttdoc">error message string</div><div class="ttdef"><b>Definition:</b> <a href="_sim_variables_8f90_source.html#l00018">SimVariables.f90:18</a></div></div>
+<div class="ttc" id="anamespacesimvariablesmodule_html_a08c1a8900029e311ac640e2319c6a234"><div class="ttname"><a href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">simvariablesmodule::errmsg</a></div><div class="ttdeci">character(len=maxcharlen) errmsg</div><div class="ttdoc">error message string</div><div class="ttdef"><b>Definition:</b> <a href="_sim_variables_8f90_source.html#l00027">SimVariables.f90:27</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1452,7 +1447,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacegwfgwfconnectionmodule.html">gwfgwfconnectionmodule</a></li>
-    <li class="footer">Generated on Mon Feb 20 2023 13:50:52 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Mar 7 2023 07:21:48 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

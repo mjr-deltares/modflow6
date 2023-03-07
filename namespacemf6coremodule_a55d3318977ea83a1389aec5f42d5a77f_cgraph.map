@@ -2,11 +2,11 @@
 <area shape="rect" id="node1" title="Define the simulation." alt="" coords="5,115,228,141"/>
 <area shape="rect" id="node2" href="$namespacemf6coremodule.html#ad980c6690b8c6ad6d488c35d2730144d" title="Create the model connections from the exchanges." alt="" coords="308,5,539,32"/>
 <area shape="rect" id="node3" href="$namespacebasesolutionmodule.html#ad00fcf57eca44c1f8995e3904b1593de" title=" " alt="" coords="675,21,861,62"/>
-<area shape="rect" id="node5" href="$namespacebaseexchangemodule.html#ad92f8ec5d783349adc5a61e4e3d31f4b" title=" " alt="" coords="325,107,521,149"/>
-<area shape="rect" id="node7" href="$namespacebasemodelmodule.html#a79adefc92f4f7d0d032babb551c571f8" title=" " alt="" coords="276,173,571,200"/>
-<area shape="rect" id="node9" href="$namespacespatialmodelconnectionmodule.html#ab03c81ae159b53ae92e07d83d48cca29" title="Get the connection from a list." alt="" coords="294,225,553,266"/>
+<area shape="rect" id="node5" href="$namespacespatialmodelconnectionmodule.html#a2b761db429763a32bde62e7d67119574" title="Get the connection from a list." alt="" coords="310,107,537,149"/>
+<area shape="rect" id="node7" href="$namespacebaseexchangemodule.html#ad92f8ec5d783349adc5a61e4e3d31f4b" title=" " alt="" coords="325,173,521,214"/>
+<area shape="rect" id="node9" href="$namespacebasemodelmodule.html#a79adefc92f4f7d0d032babb551c571f8" title=" " alt="" coords="276,239,571,265"/>
 <area shape="rect" id="node4" href="$namespacebasesolutionmodule.html#afef773355b6646b420b266d7387099d7" title=" " alt="" coords="965,21,1153,62"/>
-<area shape="rect" id="node6" href="$namespacebaseexchangemodule.html#a471891cf69ccccc8dcca6ee6ee3e6993" title=" " alt="" coords="669,107,867,149"/>
-<area shape="rect" id="node8" href="$namespacebasemodelmodule.html#a6612a181104601a56b8227e88e5dc8f5" title=" " alt="" coords="619,173,917,200"/>
-<area shape="rect" id="node10" href="$namespacespatialmodelconnectionmodule.html#aef271cf59d66fe8e5baef704109028fc" title="Cast to SpatialModelConnectionType." alt="" coords="637,225,899,266"/>
+<area shape="rect" id="node6" href="$namespacespatialmodelconnectionmodule.html#aa5f44b372452361a6a7fd66bc0890d62" title="Cast to SpatialModelConnectionType." alt="" coords="655,107,881,149"/>
+<area shape="rect" id="node8" href="$namespacebaseexchangemodule.html#a471891cf69ccccc8dcca6ee6ee3e6993" title=" " alt="" coords="669,173,867,214"/>
+<area shape="rect" id="node10" href="$namespacebasemodelmodule.html#a6612a181104601a56b8227e88e5dc8f5" title=" " alt="" coords="619,239,917,265"/>
 </map>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>MODFLOW 6: /home/runner/work/modflow6/modflow6/src/Model/Connection/InterfaceMap.f90 File Reference</title>
+<title>MODFLOW 6: /home/runner/work/modflow6/modflow6/src/Distributed/InterfaceMap.f90 File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -111,7 +111,8 @@ $(document).ready(function(){initNavTree('_interface_map_8f90.html',''); initRes
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Types</a> &#124;
-<a href="#namespaces">Modules</a>  </div>
+<a href="#namespaces">Modules</a> &#124;
+<a href="#func-members">Functions/Subroutines</a>  </div>
   <div class="headertitle">
 <div class="title">InterfaceMap.f90 File Reference</div>  </div>
 </div><!--header-->
@@ -121,10 +122,6 @@ $(document).ready(function(){initNavTree('_interface_map_8f90.html',''); initRes
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Types</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structinterfacemapmodule_1_1indexmaptype.html">interfacemapmodule::indexmaptype</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structinterfacemapmodule_1_1indexmapsgntype.html">interfacemapmodule::indexmapsgntype</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structinterfacemapmodule_1_1interfacemaptype.html">interfacemapmodule::interfacemaptype</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -132,14 +129,24 @@ Data Types</h2></td></tr>
 Modules</h2></td></tr>
 <tr class="memitem:namespaceinterfacemapmodule"><td class="memItemLeft" align="right" valign="top">module &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceinterfacemapmodule.html">interfacemapmodule</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions/Subroutines</h2></td></tr>
+<tr class="memitem:afd3f70b3024422e35d3b12de1e2b5c44"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceinterfacemapmodule.html#afd3f70b3024422e35d3b12de1e2b5c44">interfacemapmodule::init</a> (this, nr_models, nr_exchanges)</td></tr>
+<tr class="separator:afd3f70b3024422e35d3b12de1e2b5c44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a886a5d6e2a2ab4470c96b32fbc3b3f6b"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceinterfacemapmodule.html#a886a5d6e2a2ab4470c96b32fbc3b3f6b">interfacemapmodule::add</a> (this, map_to_add)</td></tr>
+<tr class="memdesc:a886a5d6e2a2ab4470c96b32fbc3b3f6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">@ Adds a map, either by extending the existing map for a certain model or exchange, or by assigning the map to an empty slot.  <a href="namespaceinterfacemapmodule.html#a886a5d6e2a2ab4470c96b32fbc3b3f6b">More...</a><br /></td></tr>
+<tr class="separator:a886a5d6e2a2ab4470c96b32fbc3b3f6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14e1490e0c363b0ec2675c90c7a8dccc"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceinterfacemapmodule.html#a14e1490e0c363b0ec2675c90c7a8dccc">interfacemapmodule::destroy</a> (this)</td></tr>
+<tr class="separator:a14e1490e0c363b0ec2675c90c7a8dccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_32e188284d239da8bb14ec1dabb0c35f.html">Model</a></li><li class="navelem"><a class="el" href="dir_4602b8d0a0ef27d9d0b14db2c16038ea.html">Connection</a></li><li class="navelem"><a class="el" href="_interface_map_8f90.html">InterfaceMap.f90</a></li>
-    <li class="footer">Generated on Mon Feb 20 2023 13:50:52 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_beeb38743322ab7e14829ea581a5f71a.html">Distributed</a></li><li class="navelem"><a class="el" href="_interface_map_8f90.html">InterfaceMap.f90</a></li>
+    <li class="footer">Generated on Tue Mar 7 2023 07:21:47 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

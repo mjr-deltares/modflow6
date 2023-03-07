@@ -147,7 +147,7 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:aa32caddee8cc70805b4022e994f963ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">add str1d to StructArrayType  <a href="namespacestructarraymodule.html#aa32caddee8cc70805b4022e994f963ee">More...</a><br /></td></tr>
 <tr class="separator:aa32caddee8cc70805b4022e994f963ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac01e049d35fa059d37418d4858d0af44"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestructarraymodule.html#ac01e049d35fa059d37418d4858d0af44">add_vector_intvector</a> (this, varname, memoryPath, varname_shape, icol, intvector)</td></tr>
-<tr class="memdesc:ac01e049d35fa059d37418d4858d0af44"><td class="mdescLeft">&#160;</td><td class="mdescRight">add VectorInt to StructArrayType  <a href="namespacestructarraymodule.html#ac01e049d35fa059d37418d4858d0af44">More...</a><br /></td></tr>
+<tr class="memdesc:ac01e049d35fa059d37418d4858d0af44"><td class="mdescLeft">&#160;</td><td class="mdescRight">add STLVecInt to StructArrayType  <a href="namespacestructarraymodule.html#ac01e049d35fa059d37418d4858d0af44">More...</a><br /></td></tr>
 <tr class="separator:ac01e049d35fa059d37418d4858d0af44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97d89d6bcbfa7a7d9c2092a270b9d901"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestructarraymodule.html#a97d89d6bcbfa7a7d9c2092a270b9d901">load_intvector</a> (this)</td></tr>
 <tr class="memdesc:a97d89d6bcbfa7a7d9c2092a270b9d901"><td class="mdescLeft">&#160;</td><td class="mdescRight">load integer vector into StructArrayType  <a href="namespacestructarraymodule.html#a97d89d6bcbfa7a7d9c2092a270b9d901">More...</a><br /></td></tr>
@@ -360,7 +360,7 @@ Functions/Subroutines</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structvectorintmodule_1_1vectorint.html">vectorint</a>), intent(in), pointer&#160;</td>
+          <td class="paramtype">type(<a class="el" href="structstlvecintmodule_1_1stlvecint.html">stlvecint</a>), intent(in), pointer&#160;</td>
           <td class="paramname"><em>intvector</em>&#160;</td>
         </tr>
         <tr>
@@ -393,7 +393,7 @@ Functions/Subroutines</h2></td></tr>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: memoryPath<span class="comment"> !&lt; memory path to vector</span></div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: varname_shape<span class="comment"> !&lt; shape of variable</span></div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: icol<span class="comment"> !&lt; column of the vector</span></div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordtype">type</span>(VectorInt), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(in)</span> :: intvector<span class="comment"> !&lt; vector to add</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordtype">type</span>(STLVecInt), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(in)</span> :: intvector<span class="comment"> !&lt; vector to add</span></div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keywordtype">type</span>(StructVectorType) :: sv</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="keyword">call </span>intvector%init()</div>
@@ -786,7 +786,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: int1d</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: dbl1d</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">type</span>(CharacterStringType), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: cstr1d</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">type</span>(VectorInt), <span class="keywordtype">pointer</span> :: intvector</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">type</span>(STLVecInt), <span class="keywordtype">pointer</span> :: intvector</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: j</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: inodata = 999 <span class="comment">!todo: create INODATA in constants?</span></div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
@@ -915,7 +915,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacestructarraymodule.html">structarraymodule</a></li>
-    <li class="footer">Generated on Mon Feb 20 2023 13:50:54 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Mar 7 2023 07:21:50 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

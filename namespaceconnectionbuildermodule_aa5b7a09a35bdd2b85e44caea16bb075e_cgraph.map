@@ -1,7 +1,0 @@
-<map id="connectionbuildermodule::assignexchangestoconnections" name="connectionbuildermodule::assignexchangestoconnections">
-<area shape="rect" id="node1" title="Add global exchanges from a certain numerical solution to the connections." alt="" coords="5,39,239,80"/>
-<area shape="rect" id="node2" href="$namespacedisconnexchangemodule.html#a63ac91d936c8b44104f8e091a81e7ac2" title=" " alt="" coords="309,5,523,47"/>
-<area shape="rect" id="node4" href="$namespacespatialmodelconnectionmodule.html#ab03c81ae159b53ae92e07d83d48cca29" title="Get the connection from a list." alt="" coords="287,71,545,112"/>
-<area shape="rect" id="node3" href="$namespacedisconnexchangemodule.html#a9ad5f8b11f95c70aeda06b186754b567" title=" " alt="" coords="615,5,833,47"/>
-<area shape="rect" id="node5" href="$namespacespatialmodelconnectionmodule.html#aef271cf59d66fe8e5baef704109028fc" title="Cast to SpatialModelConnectionType." alt="" coords="593,71,855,112"/>
-</map>

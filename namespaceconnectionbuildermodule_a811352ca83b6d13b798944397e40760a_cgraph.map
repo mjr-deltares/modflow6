@@ -1,0 +1,5 @@
+<map id="connectionbuildermodule::createmodelconnectivity" name="connectionbuildermodule::createmodelconnectivity">
+<area shape="rect" id="node1" title="Create connectivity of models which contribute to the interface." alt="" coords="5,5,197,47"/>
+<area shape="rect" id="node2" href="$namespacespatialmodelconnectionmodule.html#a2b761db429763a32bde62e7d67119574" title="Get the connection from a list." alt="" coords="245,5,472,47"/>
+<area shape="rect" id="node3" href="$namespacespatialmodelconnectionmodule.html#aa5f44b372452361a6a7fd66bc0890d62" title="Cast to SpatialModelConnectionType." alt="" coords="520,5,747,47"/>
+</map>

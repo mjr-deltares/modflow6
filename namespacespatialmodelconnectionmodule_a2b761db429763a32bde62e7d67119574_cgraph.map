@@ -1,0 +1,4 @@
+<map id="spatialmodelconnectionmodule::get_smc_from_list" name="spatialmodelconnectionmodule::get_smc_from_list">
+<area shape="rect" id="node1" title="Get the connection from a list." alt="" coords="5,5,232,47"/>
+<area shape="rect" id="node2" href="$namespacespatialmodelconnectionmodule.html#aa5f44b372452361a6a7fd66bc0890d62" title="Cast to SpatialModelConnectionType." alt="" coords="280,5,507,47"/>
+</map>

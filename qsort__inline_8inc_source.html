@@ -119,17 +119,17 @@ $(document).ready(function(){initNavTree('qsort__inline_8inc_source.html',''); i
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;! FILE: qsort_inline.inc</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;! SOURCE: http:<span class="comment">//fortranwiki.org/fortran/show/qsort_inline</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;! PURPOSE:</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;! Generate a custom array <a class="code" href="namespacesparsemodule.html#aa05a62deb3797461ae0494c0c8a0d6f5">sort</a> procedure <span class="keywordflow">for</span> a specific type,</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;! without the comparison-callback overhead of a <span class="keyword">generic</span> <a class="code" href="namespacesparsemodule.html#aa05a62deb3797461ae0494c0c8a0d6f5">sort</a> procedure.</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;! Generate a custom array <a class="code" href="namespacesparsemodule.html#a14e1e407dfbd1a04e4b4b51d1834ce8f">sort</a> procedure <span class="keywordflow">for</span> a specific type,</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;! without the comparison-callback overhead of a <span class="keyword">generic</span> <a class="code" href="namespacesparsemodule.html#a14e1e407dfbd1a04e4b4b51d1834ce8f">sort</a> procedure.</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;! This is essentially the same as an in-line optimization, which generally</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;! is not feasible <span class="keywordflow">for</span> a library-based <span class="keyword">generic</span> <a class="code" href="namespacesparsemodule.html#aa05a62deb3797461ae0494c0c8a0d6f5">sort</a> procedure.</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;! is not feasible <span class="keywordflow">for</span> a library-based <span class="keyword">generic</span> <a class="code" href="namespacesparsemodule.html#a14e1e407dfbd1a04e4b4b51d1834ce8f">sort</a> procedure.</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;!</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;! This implementation is as <span class="keyword">generic</span> as possible, <span class="keywordflow">while</span> avoiding the need</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;! <span class="keywordflow">for</span> a code pre-processor. The success of <span class="keyword">this</span> approach assumes that</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;! <span class="keyword">internal</span> procedures are always in-lined with optimized Fortran compilation.</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;!</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;! USAGE:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;! This file <a class="code" href="namespacevectorintmodule.html#a9b45ccb59ec84276c7566607fa8dde1c">contains</a> the <a class="code" href="namespacesparsemodule.html#aa05a62deb3797461ae0494c0c8a0d6f5">sort</a> subroutine body. You must supply</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;! This file <a class="code" href="namespacestlvecintmodule.html#a7d2b120d5090fb1015ed361a968fced6">contains</a> the <a class="code" href="namespacesparsemodule.html#a14e1e407dfbd1a04e4b4b51d1834ce8f">sort</a> subroutine body. You must supply</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;! an integer parameter QSORT_THRESHOLD, and <span class="keyword">internal</span> procedures:</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;!    subroutine INIT()</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;!    logical <span class="keyword">function</span> lessThan(a,b)</div>
@@ -145,9 +145,9 @@ $(document).ready(function(){initNavTree('qsort__inline_8inc_source.html',''); i
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;!</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;! LOGICAL FUNCTION lessThan(a,b)</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;!   Return TRUE <span class="keywordflow">if</span> array member <span class="charliteral">&#39;a&#39;</span> is less than array member <span class="charliteral">&#39;b&#39;</span>.</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;!   Only a TRUE value causes a change in <a class="code" href="namespacesparsemodule.html#aa05a62deb3797461ae0494c0c8a0d6f5">sort</a> order. This minimizes data</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;!   Only a TRUE value causes a change in <a class="code" href="namespacesparsemodule.html#a14e1e407dfbd1a04e4b4b51d1834ce8f">sort</a> order. This minimizes data</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;!   manipulation, and maintains the original order <span class="keywordflow">for</span> values that are</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;!   equivalent by the <a class="code" href="namespacesparsemodule.html#aa05a62deb3797461ae0494c0c8a0d6f5">sort</a> comparison. It also avoids the need to</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;!   equivalent by the <a class="code" href="namespacesparsemodule.html#a14e1e407dfbd1a04e4b4b51d1834ce8f">sort</a> comparison. It also avoids the need to</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;!   distinguish equality from greater-than.</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;!</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;! SUBROUTINE SWAP(A,B)</div>
@@ -155,12 +155,12 @@ $(document).ready(function(){initNavTree('qsort__inline_8inc_source.html',''); i
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;!</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;! SUBROUTINE RSHIFT(LEFT,RIGHT)</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;!   Perform a circular shift of array members LEFT through RIGHT,</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;!   shifting the element <a class="code" href="namespacevectorintmodule.html#af8671611587fa5f89a2edbf3a5786d83">at</a> RIGHT back to the position <a class="code" href="namespacevectorintmodule.html#af8671611587fa5f89a2edbf3a5786d83">at</a> LEFT.</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;!   shifting the element <a class="code" href="namespacestlvecintmodule.html#a9c1898d1d6b7db6d520c030b8c8a8c20">at</a> RIGHT back to the position <a class="code" href="namespacestlvecintmodule.html#a9c1898d1d6b7db6d520c030b8c8a8c20">at</a> LEFT.</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;!</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;! QSORT_THRESHOLD:</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;!   The QSORT is used down to the QSORT_THRESHOLD size sorted blocks.</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;!   Then insertion <a class="code" href="namespacesparsemodule.html#aa05a62deb3797461ae0494c0c8a0d6f5">sort</a> is used <span class="keywordflow">for</span> the remainder, because it is faster</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;!   <span class="keywordflow">for</span> small <a class="code" href="namespacesparsemodule.html#aa05a62deb3797461ae0494c0c8a0d6f5">sort</a> ranges. The optimal size is not critical. Most of</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;!   Then insertion <a class="code" href="namespacesparsemodule.html#a14e1e407dfbd1a04e4b4b51d1834ce8f">sort</a> is used <span class="keywordflow">for</span> the remainder, because it is faster</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;!   <span class="keywordflow">for</span> small <a class="code" href="namespacesparsemodule.html#a14e1e407dfbd1a04e4b4b51d1834ce8f">sort</a> ranges. The optimal size is not critical. Most of</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;!   the benefit is in blocks of 8 or less, and values of 16 to 128</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;!   are generally about equal speed. However, the optimal value</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;!   depends a lot on the hardware and the data being sorted, so <span class="keyword">this</span></div>
@@ -172,11 +172,11 @@ $(document).ready(function(){initNavTree('qsort__inline_8inc_source.html',''); i
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;! The procedure uses a optimized combination of QSORT and INSERTION</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;! sorting. The algorithm is based on code used in GLIBC. </div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;! A stack is used in place of recursive calls. The stack size must</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;! be <a class="code" href="namespacevectorintmodule.html#af8671611587fa5f89a2edbf3a5786d83">at</a> least as big as the number of bits in the largest array index.</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;! be <a class="code" href="namespacestlvecintmodule.html#a9c1898d1d6b7db6d520c030b8c8a8c20">at</a> least as big as the number of bits in the largest array index.</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;!</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;! Sorting vectors of a multidimensional allocatable array can be</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;! VERY slow. In <span class="keyword">this</span> <span class="keywordflow">case</span>, or with large derived types, it is better</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;! to <a class="code" href="namespacesparsemodule.html#aa05a62deb3797461ae0494c0c8a0d6f5">sort</a> a simple derived type of key/index pairs, then reorder</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;! to <a class="code" href="namespacesparsemodule.html#a14e1e407dfbd1a04e4b4b51d1834ce8f">sort</a> a simple derived type of key/index pairs, then reorder</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;! tha actual data <span class="keyword">using</span> the sorted indices.</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;!</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;!---------------------------------------------------------------------</div>
@@ -273,12 +273,12 @@ $(document).ready(function(){initNavTree('qsort__inline_8inc_source.html',''); i
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    end <span class="keywordflow">do</span> QSORT_LOOP</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;  end <span class="keywordflow">if</span> ! (arraySize &gt; QSORT_THRESHOLD)</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;! Sort the remaining small partitions <span class="keyword">using</span> insertion <a class="code" href="namespacesparsemodule.html#aa05a62deb3797461ae0494c0c8a0d6f5">sort</a>,</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;! Sort the remaining small partitions <span class="keyword">using</span> insertion <a class="code" href="namespacesparsemodule.html#a14e1e407dfbd1a04e4b4b51d1834ce8f">sort</a>,</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;! which should be faster <span class="keywordflow">for</span> partitions smaller than the</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;! appropriate QSORT_THRESHOLD.</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;! First, find smallest element in first QSORT_THRESHOLD and</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;! place it <a class="code" href="namespacevectorintmodule.html#af8671611587fa5f89a2edbf3a5786d83">at</a> the array<span class="stringliteral">&#39;s beginning. This places a lower</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;! place it <a class="code" href="namespacestlvecintmodule.html#a9c1898d1d6b7db6d520c030b8c8a8c20">at</a> the array<span class="stringliteral">&#39;s beginning. This places a lower</span></div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="stringliteral">! bound &#39;</span>guard<span class="stringliteral">&#39; position, and speeds up the inner loop</span></div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="stringliteral">! below, because it will not need a lower-bound test.</span></div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="stringliteral">  low = 1</span></div>
@@ -306,16 +306,16 @@ $(document).ready(function(){initNavTree('qsort__inline_8inc_source.html',''); i
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="stringliteral">!--------------------------------------------------------------</span></div>
 <div class="ttc" id="a_grid_sorting_8f90_html_a8d6fb88aa9b65a273f65b89226533321"><div class="ttname"><a href="_grid_sorting_8f90.html#a8d6fb88aa9b65a273f65b89226533321">init</a></div><div class="ttdeci">subroutine init()</div><div class="ttdef"><b>Definition:</b> <a href="_grid_sorting_8f90_source.html#l00023">GridSorting.f90:24</a></div></div>
 <div class="ttc" id="anamespacelistmodule_html_aa918962a63d9dc4e0f22f8cf825977bc"><div class="ttname"><a href="namespacelistmodule.html#aa918962a63d9dc4e0f22f8cf825977bc">listmodule::next</a></div><div class="ttdeci">subroutine next(this)</div><div class="ttdef"><b>Definition:</b> <a href="_list_8f90_source.html#l00318">List.f90:319</a></div></div>
-<div class="ttc" id="anamespacesparsemodule_html_aa05a62deb3797461ae0494c0c8a0d6f5"><div class="ttname"><a href="namespacesparsemodule.html#aa05a62deb3797461ae0494c0c8a0d6f5">sparsemodule::sort</a></div><div class="ttdeci">subroutine sort(this)</div><div class="ttdef"><b>Definition:</b> <a href="_sparse_8f90_source.html#l00216">Sparse.f90:217</a></div></div>
-<div class="ttc" id="anamespacevectorintmodule_html_a9b45ccb59ec84276c7566607fa8dde1c"><div class="ttname"><a href="namespacevectorintmodule.html#a9b45ccb59ec84276c7566607fa8dde1c">vectorintmodule::contains</a></div><div class="ttdeci">logical(lgp) function contains(this, val)</div><div class="ttdef"><b>Definition:</b> <a href="_vector_int_8f90_source.html#l00146">VectorInt.f90:147</a></div></div>
-<div class="ttc" id="anamespacevectorintmodule_html_af8671611587fa5f89a2edbf3a5786d83"><div class="ttname"><a href="namespacevectorintmodule.html#af8671611587fa5f89a2edbf3a5786d83">vectorintmodule::at</a></div><div class="ttdeci">integer(i4b) function at(this, idx)</div><div class="ttdef"><b>Definition:</b> <a href="_vector_int_8f90_source.html#l00059">VectorInt.f90:60</a></div></div>
+<div class="ttc" id="anamespacesparsemodule_html_a14e1e407dfbd1a04e4b4b51d1834ce8f"><div class="ttname"><a href="namespacesparsemodule.html#a14e1e407dfbd1a04e4b4b51d1834ce8f">sparsemodule::sort</a></div><div class="ttdeci">subroutine sort(this, with_csr)</div><div class="ttdef"><b>Definition:</b> <a href="_sparse_8f90_source.html#l00229">Sparse.f90:230</a></div></div>
+<div class="ttc" id="anamespacestlvecintmodule_html_a7d2b120d5090fb1015ed361a968fced6"><div class="ttname"><a href="namespacestlvecintmodule.html#a7d2b120d5090fb1015ed361a968fced6">stlvecintmodule::contains</a></div><div class="ttdeci">logical(lgp) function contains(this, val)</div><div class="ttdef"><b>Definition:</b> <a href="_s_t_l_vec_int_8f90_source.html#l00186">STLVecInt.f90:187</a></div></div>
+<div class="ttc" id="anamespacestlvecintmodule_html_a9c1898d1d6b7db6d520c030b8c8a8c20"><div class="ttname"><a href="namespacestlvecintmodule.html#a9c1898d1d6b7db6d520c030b8c8a8c20">stlvecintmodule::at</a></div><div class="ttdeci">integer(i4b) function at(this, idx)</div><div class="ttdef"><b>Definition:</b> <a href="_s_t_l_vec_int_8f90_source.html#l00099">STLVecInt.f90:100</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_32e188284d239da8bb14ec1dabb0c35f.html">Model</a></li><li class="navelem"><a class="el" href="dir_4602b8d0a0ef27d9d0b14db2c16038ea.html">Connection</a></li><li class="navelem"><a class="el" href="qsort__inline_8inc.html">qsort_inline.inc</a></li>
-    <li class="footer">Generated on Mon Feb 20 2023 13:50:51 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Mar 7 2023 07:21:46 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

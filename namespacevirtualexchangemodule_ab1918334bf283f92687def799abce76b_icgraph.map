@@ -1,0 +1,10 @@
+<map id="virtualexchangemodule::get_virtual_exchange" name="virtualexchangemodule::get_virtual_exchange">
+<area shape="rect" id="node1" title="Returs a virtual exchange with the specified id." alt="" coords="312,187,488,229"/>
+<area shape="rect" id="node2" href="$namespacemappermodule.html#aab67d99c9dedc2695efba4d5fbf7d62a" title="Add virtual exchange variables." alt="" coords="5,5,264,32"/>
+<area shape="rect" id="node3" href="$namespacespatialmodelconnectionmodule.html#afea20dbc6188ed36d0172e377ea0e19e" title="Add neighbors and nbrs&#45;of&#45;nbrs to the model tree." alt="" coords="21,57,248,98"/>
+<area shape="rect" id="node4" href="$namespacegridconnectionmodule.html#ac869fee445f0b36077c881eeabab8b5b" title="Add cell neighbors across models using the stored exchange data structures." alt="" coords="51,122,218,163"/>
+<area shape="rect" id="node5" href="$namespacegridconnectionmodule.html#aff77227ba68457e46b1e602b8896f6d4" title="Build interface map object for outside use." alt="" coords="51,187,218,229"/>
+<area shape="rect" id="node6" href="$namespacegridconnectionmodule.html#a377a3a2cf20792c946eefd52cf4ff6cb" title="Fill connection data (ihc, cl1, ...) for." alt="" coords="11,253,258,294"/>
+<area shape="rect" id="node7" href="$namespacemappermodule.html#a5e5639cd562b0c37b97ed1b64bd6f276" title="Map memory from a Exchange to the specified memory entry,." alt="" coords="22,319,247,345"/>
+<area shape="rect" id="node8" href="$namespacevirtualdatamanagermodule.html#ac33ea4d249e2305f3109405dab3c9b8f" title="Add the models and exchanges from the passed solution to the virtual data structure...." alt="" coords="35,370,235,411"/>
+</map>

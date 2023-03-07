@@ -1,0 +1,7 @@
+<map id="mpiroutermodule::mr_initialize" name="mpiroutermodule::mr_initialize">
+<area shape="rect" id="node1" title=" " alt="" coords="5,71,167,112"/>
+<area shape="rect" id="node2" href="$namespacempiworldmodule.html#a1d244ae42dc7e37c90705dfafedf8da3" title=" " alt="" coords="235,5,397,47"/>
+<area shape="rect" id="node3" href="$namespacevirtualdatacontainermodule.html#ad42d5894760af135c909a4d2d48e18dc" title=" " alt="" coords="215,71,417,112"/>
+<area shape="rect" id="node4" href="$namespaceinputoutputmodule.html#a535bdfca3d31ebc3a8e4bd5af6890d55" title="Get a free unit number." alt="" coords="239,136,393,177"/>
+<area shape="rect" id="node5" href="$namespaceinputoutputmodule.html#ac5134655c31ac9beeb4688f504efd801" title="Assign a free unopened unit number." alt="" coords="465,136,620,177"/>
+</map>

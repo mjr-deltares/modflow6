@@ -14,8 +14,8 @@ var structgwfgwtexchangemodule_1_1gwfgwtexchangetype =
     [ "link_connections", "structgwfgwtexchangemodule_1_1gwfgwtexchangetype.html#a0611fc1f0a0736ff131ea34b21ea130f", null ],
     [ "set_model_pointers", "structgwfgwtexchangemodule_1_1gwfgwtexchangetype.html#afef0867577209962b76ecff40ace17c7", null ],
     [ "id", "structgwfgwtexchangemodule_1_1gwfgwtexchangetype.html#a784d546de8e7f5f5acde4dec16e377bc", null ],
-    [ "m1id", "structgwfgwtexchangemodule_1_1gwfgwtexchangetype.html#aeb5f4526eb3435e3fc6e2a04a0745ba7", null ],
-    [ "m2id", "structgwfgwtexchangemodule_1_1gwfgwtexchangetype.html#a464b76bcacc69df8a65936513ea65be7", null ],
+    [ "m1_idx", "structgwfgwtexchangemodule_1_1gwfgwtexchangetype.html#acc5c988f540195d5b426d6575e6f450a", null ],
+    [ "m2_idx", "structgwfgwtexchangemodule_1_1gwfgwtexchangetype.html#aac6feedeff5f0bdff5c1f5c5b4abdf25", null ],
     [ "memorypath", "structgwfgwtexchangemodule_1_1gwfgwtexchangetype.html#acda28385984c10f4e8025585fa118a48", null ],
     [ "name", "structgwfgwtexchangemodule_1_1gwfgwtexchangetype.html#a856b65a0fafc0ff269f4e2c78bdc2221", null ]
 ];

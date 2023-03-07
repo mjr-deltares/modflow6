@@ -32,14 +32,13 @@ var structgwtgwtexchangemodule_1_1gwtexchangetype =
     [ "use_interface_model", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#aeed7529ff999e911a16e18683838e7ed", null ],
     [ "validate_exchange", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#ad878dd5549f5c99de3893642bda56949", null ],
     [ "auxname", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#a0b1a812933dd1b735e7b89772ec48e81", null ],
+    [ "auxname_cst", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#af6a1b6a29b211b8a6e709ce0e59ff374", null ],
     [ "auxvar", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#afcad56819cc53546f7a9b9b272cc0532", null ],
     [ "boundname", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#ab957258936f54a9437ec143ac9f13d96", null ],
     [ "cl1", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#a317a01e6496d08949d4ecc1528f4ad1d", null ],
     [ "cl2", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#a5b9d107c0a435f0b490e66135f9d6a26", null ],
     [ "cond", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#ac0de96596943a48fb41558975e4512cc", null ],
     [ "dev_ifmod_on", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#a6eeb5b5b00af0ccc2bbb6662cf8f34fa", null ],
-    [ "dmodel1", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#a45a5af9c0db47cbd0416342b186e0ed5", null ],
-    [ "dmodel2", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#a8aaab1081bae062ff4b3cc166f9eb4f2", null ],
     [ "filename", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#a4a31943957e2ae29ca2a592d88f564d3", null ],
     [ "gwfmodelname1", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#a1b7bb8d2d387724b014c8fdc0e72e38e", null ],
     [ "gwfmodelname2", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#a9f5794035c3f9982716fad5f45b89300", null ],
@@ -59,6 +58,7 @@ var structgwtgwtexchangemodule_1_1gwtexchangetype =
     [ "ipakcb", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#a4f1e2c40b3458d6ef7215b7c5c771afe", null ],
     [ "iprflow", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#abb2ede8871b279ccf9a8ee5680fd8e35", null ],
     [ "iprpak", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#a9acbcad54db83d73a285579881a92dd4", null ],
+    [ "is_datacopy", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#a0f3d66c8493f90e0af665e15efc5bbfe", null ],
     [ "ixt3d", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#a44768618b24eb1c12e2e277a6f5116b8", null ],
     [ "memorypath", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#acda28385984c10f4e8025585fa118a48", null ],
     [ "model1", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#af9e2c774129fda02c847c22f7515346f", null ],
@@ -74,5 +74,7 @@ var structgwtgwtexchangemodule_1_1gwtexchangetype =
     [ "outputtab2", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#ae7bde909f033a509826f2b31aa2f58d0", null ],
     [ "parser", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#a204986c9ce77b130d71ff59be7c0aafa", null ],
     [ "simvals", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#a1950939f520671617e3454a88dd15f2b", null ],
-    [ "typename", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#a93de8d8c83db2fcdacb25b8f262a32a4", null ]
+    [ "typename", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#a93de8d8c83db2fcdacb25b8f262a32a4", null ],
+    [ "v_model1", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#a2f3e84bf72e5005fe6b90374cc2ddc7b", null ],
+    [ "v_model2", "structgwtgwtexchangemodule_1_1gwtexchangetype.html#af406087855a4ad5573130c6b3e84d180", null ]
 ];

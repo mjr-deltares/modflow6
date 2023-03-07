@@ -1,12 +1,14 @@
 var _numerical_solution_8f90 =
 [
     [ "numericalsolutiontype", "structnumericalsolutionmodule_1_1numericalsolutiontype.html", "structnumericalsolutionmodule_1_1numericalsolutiontype" ],
+    [ "synchronize_iface", "interfacenumericalsolutionmodule_1_1synchronize__iface.html", "interfacenumericalsolutionmodule_1_1synchronize__iface" ],
     [ "add_exchange", "_numerical_solution_8f90.html#af02235be2396e91532acce9a36abee97", null ],
     [ "add_model", "_numerical_solution_8f90.html#af0e2dfd5e0ff41ab84ee2829d01b9b83", null ],
     [ "allocate_arrays", "_numerical_solution_8f90.html#ad2518d004a3f094cc01c98f915b3c225", null ],
     [ "allocate_scalars", "_numerical_solution_8f90.html#aed3ab97a33364c36ba3d9395e30b81f1", null ],
     [ "castasnumericalsolutionclass", "_numerical_solution_8f90.html#aefead85b912cfb79e860d6fe3cb2069c", null ],
     [ "convergence_summary", "_numerical_solution_8f90.html#a049b24b9778d68a7ba2d6f7e7cd29ac7", null ],
+    [ "create_numerical_solution", "_numerical_solution_8f90.html#af0f9292c3c93f6766b8d875687e22069", null ],
     [ "csv_convergence_summary", "_numerical_solution_8f90.html#ac2c51dfe927f5da25fea34cf68b4a2ee", null ],
     [ "finalizesolve", "_numerical_solution_8f90.html#a7fcf392bb98599ca511fdf62749e9447", null ],
     [ "get_exchanges", "_numerical_solution_8f90.html#a2e970f4cb2e01ed160393b60036c79b7", null ],
@@ -36,7 +38,6 @@ var _numerical_solution_8f90 =
     [ "sln_reset", "_numerical_solution_8f90.html#ac6bb33e0aaff92c1244857513eedf312", null ],
     [ "sln_setouter", "_numerical_solution_8f90.html#a90145df172cfa4ef4e2e3505659d454e", null ],
     [ "sln_underrelax", "_numerical_solution_8f90.html#a714a62a841f370b7472eeed70f030f77", null ],
-    [ "solution_create", "_numerical_solution_8f90.html#afe1d36406e23aa824de7b49f7a96a543", null ],
     [ "solve", "_numerical_solution_8f90.html#a964262851ef62c07577f4b3bbf384e15", null ],
     [ "writecsvheader", "_numerical_solution_8f90.html#a45a269ecfdf5d4ba92cb06b49f83c93e", null ],
     [ "writeptcinfotofile", "_numerical_solution_8f90.html#ae96796cf48dfa4040e98467780719861", null ]

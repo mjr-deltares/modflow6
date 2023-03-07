@@ -110,7 +110,8 @@ $(document).ready(function(){initNavTree('namespaceinterfacemapmodule.html','');
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Data Types</a>  </div>
+<a href="#nested-classes">Data Types</a> &#124;
+<a href="#func-members">Functions/Subroutines</a>  </div>
   <div class="headertitle">
 <div class="title">interfacemapmodule Module Reference</div>  </div>
 </div><!--header-->
@@ -118,20 +119,222 @@ $(document).ready(function(){initNavTree('namespaceinterfacemapmodule.html','');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Types</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structinterfacemapmodule_1_1indexmaptype.html">indexmaptype</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structinterfacemapmodule_1_1indexmapsgntype.html">indexmapsgntype</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structinterfacemapmodule_1_1interfacemaptype.html">interfacemaptype</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions/Subroutines</h2></td></tr>
+<tr class="memitem:afd3f70b3024422e35d3b12de1e2b5c44"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceinterfacemapmodule.html#afd3f70b3024422e35d3b12de1e2b5c44">init</a> (this, nr_models, nr_exchanges)</td></tr>
+<tr class="separator:afd3f70b3024422e35d3b12de1e2b5c44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a886a5d6e2a2ab4470c96b32fbc3b3f6b"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceinterfacemapmodule.html#a886a5d6e2a2ab4470c96b32fbc3b3f6b">add</a> (this, map_to_add)</td></tr>
+<tr class="memdesc:a886a5d6e2a2ab4470c96b32fbc3b3f6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">@ Adds a map, either by extending the existing map for a certain model or exchange, or by assigning the map to an empty slot.  <a href="namespaceinterfacemapmodule.html#a886a5d6e2a2ab4470c96b32fbc3b3f6b">More...</a><br /></td></tr>
+<tr class="separator:a886a5d6e2a2ab4470c96b32fbc3b3f6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14e1490e0c363b0ec2675c90c7a8dccc"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceinterfacemapmodule.html#a14e1490e0c363b0ec2675c90c7a8dccc">destroy</a> (this)</td></tr>
+<tr class="separator:a14e1490e0c363b0ec2675c90c7a8dccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Function/Subroutine Documentation</h2>
+<a id="a886a5d6e2a2ab4470c96b32fbc3b3f6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a886a5d6e2a2ab4470c96b32fbc3b3f6b">&#9670;&nbsp;</a></span>add()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine interfacemapmodule::add </td>
+          <td>(</td>
+          <td class="paramtype">class(<a class="el" href="structinterfacemapmodule_1_1interfacemaptype.html">interfacemaptype</a>)&#160;</td>
+          <td class="paramname"><em>this</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class(<a class="el" href="structinterfacemapmodule_1_1interfacemaptype.html">interfacemaptype</a>)&#160;</td>
+          <td class="paramname"><em>map_to_add</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The map to which is added, should be properly </p>
+
+<p class="definition">Definition at line <a class="el" href="_interface_map_8f90_source.html#l00059">59</a> of file <a class="el" href="_interface_map_8f90_source.html">InterfaceMap.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacearrayhandlersmodule.html">arrayhandlersmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="interfacearrayhandlersmodule_1_1extendptrarray.html">extendptrarray</a>, <a class="code" href="interfacearrayhandlersmodule_1_1ifind.html">ifind</a></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">class</span>(InterfaceMapType) :: this</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">class</span>(InterfaceMapType) :: map_to_add</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: im, ie</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: m_id, m_index</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: e_id, e_index</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="comment">! add models</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">do</span> im = 1, map_to_add%nr_models</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      m_id = map_to_add%model_ids(im)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;      m_index = <a class="code" href="interfacearrayhandlersmodule_1_1ifind.html">ifind</a>(this%model_ids, m_id)</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      <span class="keywordflow">if</span> (m_index &gt; 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="comment">! extend existing index map</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keyword">call </span>this%node_map(m_index)%add(map_to_add%node_map(im))</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keyword">call </span>this%connection_map(m_index)%add(map_to_add%connection_map(im))</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="comment">! place in first empty spot</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        m_index = <a class="code" href="interfacearrayhandlersmodule_1_1ifind.html">ifind</a>(this%model_ids, -1)</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        this%model_ids(m_index) = m_id</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        this%model_names(m_index) = map_to_add%model_names(im)</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keyword">call </span>this%node_map(m_index)%copy(map_to_add%node_map(im))</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keyword">call </span>this%connection_map(m_index)%copy(map_to_add%connection_map(im))</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keywordflow">      end if</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="comment">! add exchanges</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">do</span> ie = 1, map_to_add%nr_exchanges</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;      e_id = map_to_add%exchange_ids(ie)</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;      e_index = <a class="code" href="interfacearrayhandlersmodule_1_1ifind.html">ifind</a>(this%exchange_ids, e_id)</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;      <span class="keywordflow">if</span> (e_index &gt; 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="comment">! extend existing index map</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keyword">call </span>this%exchange_map(e_index)%add(map_to_add%exchange_map(ie))</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="comment">! place in first empty spot</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        e_index = <a class="code" href="interfacearrayhandlersmodule_1_1ifind.html">ifind</a>(this%exchange_ids, -1)</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        this%exchange_ids(e_index) = e_id</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        this%exchange_names(e_index) = map_to_add%exchange_names(ie)</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keyword">call </span>this%exchange_map(e_index)%copy(map_to_add%exchange_map(ie))</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keywordflow">      end if</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="ttc" id="ainterfacearrayhandlersmodule_1_1extendptrarray_html"><div class="ttname"><a href="interfacearrayhandlersmodule_1_1extendptrarray.html">arrayhandlersmodule::extendptrarray</a></div><div class="ttdef"><b>Definition:</b> <a href="_array_handlers_8f90_source.html#l00026">ArrayHandlers.f90:26</a></div></div>
+<div class="ttc" id="ainterfacearrayhandlersmodule_1_1ifind_html"><div class="ttname"><a href="interfacearrayhandlersmodule_1_1ifind.html">arrayhandlersmodule::ifind</a></div><div class="ttdef"><b>Definition:</b> <a href="_array_handlers_8f90_source.html#l00036">ArrayHandlers.f90:36</a></div></div>
+<div class="ttc" id="anamespacearrayhandlersmodule_html"><div class="ttname"><a href="namespacearrayhandlersmodule.html">arrayhandlersmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_array_handlers_8f90_source.html#l00001">ArrayHandlers.f90:1</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a14e1490e0c363b0ec2675c90c7a8dccc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14e1490e0c363b0ec2675c90c7a8dccc">&#9670;&nbsp;</a></span>destroy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine interfacemapmodule::destroy </td>
+          <td>(</td>
+          <td class="paramtype">class(<a class="el" href="structinterfacemapmodule_1_1interfacemaptype.html">interfacemaptype</a>)&#160;</td>
+          <td class="paramname"><em>this</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_interface_map_8f90_source.html#l00104">104</a> of file <a class="el" href="_interface_map_8f90_source.html">InterfaceMap.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordtype">class</span>(InterfaceMapType) :: this</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keyword">deallocate</span> (this%model_ids)</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keyword">deallocate</span> (this%model_names)</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keyword">deallocate</span> (this%exchange_ids)</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keyword">deallocate</span> (this%exchange_names)</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordflow">do</span> i = 1, this%nr_models</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;      <span class="keyword">deallocate</span> (this%node_map(i)%src_idx)</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;      <span class="keyword">deallocate</span> (this%node_map(i)%tgt_idx)</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;      <span class="keyword">deallocate</span> (this%connection_map(i)%src_idx)</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;      <span class="keyword">deallocate</span> (this%connection_map(i)%tgt_idx)</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keyword">deallocate</span> (this%node_map)</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keyword">deallocate</span> (this%connection_map)</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordflow">do</span> i = 1, this%nr_exchanges</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;      <span class="keyword">deallocate</span> (this%exchange_map(i)%src_idx)</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;      <span class="keyword">deallocate</span> (this%exchange_map(i)%tgt_idx)</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;      <span class="keyword">deallocate</span> (this%exchange_map(i)%sign)</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keyword">deallocate</span> (this%exchange_map)</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
+</div><!-- fragment --><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceinterfacemapmodule_a14e1490e0c363b0ec2675c90c7a8dccc_icgraph.png" border="0" usemap="#anamespaceinterfacemapmodule_a14e1490e0c363b0ec2675c90c7a8dccc_icgraph" alt=""/></div>
+<map name="anamespaceinterfacemapmodule_a14e1490e0c363b0ec2675c90c7a8dccc_icgraph" id="anamespaceinterfacemapmodule_a14e1490e0c363b0ec2675c90c7a8dccc_icgraph">
+<area shape="rect" title=" " alt="" coords="280,27,439,69"/>
+<area shape="rect" href="namespacemappermodule.html#a97c74e0bee8264517e9831af5e3ada45" title=" " alt="" coords="29,5,208,32"/>
+<area shape="rect" href="namespacespatialmodelconnectionmodule.html#aec90536f741cddef194442f90e8d7aa7" title="Mask the owner&#39;s connections." alt="" coords="5,57,232,98"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="afd3f70b3024422e35d3b12de1e2b5c44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd3f70b3024422e35d3b12de1e2b5c44">&#9670;&nbsp;</a></span>init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine interfacemapmodule::init </td>
+          <td>(</td>
+          <td class="paramtype">class(<a class="el" href="structinterfacemapmodule_1_1interfacemaptype.html">interfacemaptype</a>)&#160;</td>
+          <td class="paramname"><em>this</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer(i4b)&#160;</td>
+          <td class="paramname"><em>nr_models</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer(i4b)&#160;</td>
+          <td class="paramname"><em>nr_exchanges</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_interface_map_8f90_source.html#l00030">30</a> of file <a class="el" href="_interface_map_8f90_source.html">InterfaceMap.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">class</span>(InterfaceMapType) :: this</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: nr_models</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: nr_exchanges</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    this%nr_models = nr_models</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    this%nr_exchanges = nr_exchanges</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">allocate</span> (this%model_ids(nr_models))</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">allocate</span> (this%model_names(nr_models))</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">allocate</span> (this%exchange_ids(nr_exchanges))</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">allocate</span> (this%exchange_names(nr_exchanges))</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">allocate</span> (this%node_map(nr_models))</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">allocate</span> (this%connection_map(nr_models))</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">allocate</span> (this%exchange_map(nr_exchanges))</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="comment">! model id == -1 when not set</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    this%model_ids = -1</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    this%exchange_ids = -1</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+</div><!-- fragment -->
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceinterfacemapmodule.html">interfacemapmodule</a></li>
-    <li class="footer">Generated on Mon Feb 20 2023 13:50:53 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Mar 7 2023 07:21:49 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

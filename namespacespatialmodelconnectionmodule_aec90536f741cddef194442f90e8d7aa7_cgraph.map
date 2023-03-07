@@ -1,6 +1,6 @@
 <map id="spatialmodelconnectionmodule::maskownerconnections" name="spatialmodelconnectionmodule::maskownerconnections">
 <area shape="rect" id="node1" title="Mask the owner&#39;s connections." alt="" coords="5,64,232,105"/>
-<area shape="rect" id="node2" href="$namespacedistributeddatamodule.html#ab0eba00e09fdf4d2e962d75227452809" title=" " alt="" coords="296,5,467,47"/>
+<area shape="rect" id="node2" href="$namespaceinterfacemapmodule.html#a14e1490e0c363b0ec2675c90c7a8dccc" title=" " alt="" coords="302,5,461,47"/>
 <area shape="rect" id="node3" href="$namespacecsrutilsmodule.html#a0fbb240524fa0172b9ee6a14844f4470" title="Return index for element i,j in CSR storage,." alt="" coords="280,71,483,98"/>
 <area shape="rect" id="node4" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="312,122,451,149"/>
 <area shape="rect" id="node5" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="531,81,699,123"/>

@@ -1,7 +1,7 @@
 <map id="spatialmodelconnectionmodule::spatialmodelconnectiontype" name="spatialmodelconnectionmodule::spatialmodelconnectiontype">
-<area shape="rect" id="node1" title="Class to manage spatial connection of a model to one or more models of the same type...." alt="" coords="102,593,329,1067"/>
-<area shape="rect" id="node4" href="$structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html" title="Connecting a GWF model to other models in space, implements NumericalExchangeType so the solution can..." alt="" coords="5,1181,204,1595"/>
-<area shape="rect" id="node5" href="$structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html" title="Connects a GWT model to other GWT models in space. Derives from NumericalExchangeType so the solution..." alt="" coords="228,1115,427,1661"/>
+<area shape="rect" id="node1" title="Class to manage spatial connection of a model to one or more models of the same type...." alt="" coords="102,593,329,1081"/>
+<area shape="rect" id="node4" href="$structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html" title="Connecting a GWF model to other models in space, implements NumericalExchangeType so the solution can..." alt="" coords="5,1195,204,1610"/>
+<area shape="rect" id="node5" href="$structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html" title="Connects a GWT model to other GWT models in space. Derives from NumericalExchangeType so the solution..." alt="" coords="228,1129,427,1676"/>
 <area shape="rect" id="node2" href="$structnumericalexchangemodule_1_1numericalexchangetype.html" title=" " alt="" coords="116,277,315,545"/>
 <area shape="rect" id="node3" href="$structbaseexchangemodule_1_1baseexchangetype.html" title=" " alt="" coords="133,5,298,229"/>
 </map>

@@ -1,9 +1,0 @@
-<map id="gridconnectionmodule::addmodelneighbors" name="gridconnectionmodule::addmodelneighbors">
-<area shape="rect" id="node1" title="Add neighbors and nbrs&#45;of&#45;nbrs to the model tree." alt="" coords="5,90,172,131"/>
-<area shape="rect" id="node2" href="$namespacelistmodule.html#a048fbc40d7f22a48ad719061694ee447" title=" " alt="" coords="223,5,432,32"/>
-<area shape="rect" id="node3" href="$namespacegridconnectionmodule.html#a56443ea7890582e0bca9b1ce2bd9b4c2" title="Deallocate grid connection resources." alt="" coords="244,57,411,98"/>
-<area shape="rect" id="node4" href="$namespacedisconnexchangemodule.html#a63ac91d936c8b44104f8e091a81e7ac2" title=" " alt="" coords="220,122,435,163"/>
-<area shape="rect" id="node6" href="$namespacedistributedmodelmodule.html#abf4210339bfdad4dc53fc0535d03e5f9" title=" " alt="" coords="236,187,419,229"/>
-<area shape="rect" id="node5" href="$namespacedisconnexchangemodule.html#a9ad5f8b11f95c70aeda06b186754b567" title=" " alt="" coords="483,122,701,163"/>
-<area shape="rect" id="node7" href="$namespacedistributedmodelmodule.html#af05b872efb96c320fb93a36acf09eb18" title=" " alt="" coords="501,187,683,229"/>
-</map>

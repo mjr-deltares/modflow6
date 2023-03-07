@@ -1,11 +1,6 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$structbaseexchangemodule_1_1baseexchangetype.html" title=" " alt="" coords="5,72,171,113"/>
-<area shape="rect" id="node2" href="$structgwfgwtexchangemodule_1_1gwfgwtexchangetype.html" title=" " alt="" coords="227,39,409,80"/>
-<area shape="rect" id="node3" href="$structnumericalexchangemodule_1_1numericalexchangetype.html" title=" " alt="" coords="219,104,417,145"/>
-<area shape="rect" id="node4" href="$structdisconnexchangemodule_1_1disconnexchangetype.html" title="Exchange based on connection between discretizations of DisBaseType. The data specifies the connectio..." alt="" coords="487,71,671,112"/>
-<area shape="rect" id="node7" href="$structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html" title="Class to manage spatial connection of a model to one or more models of the same type...." alt="" coords="465,136,692,177"/>
-<area shape="rect" id="node5" href="$structgwfgwfexchangemodule_1_1gwfexchangetype.html" title="Derived type for GwfExchangeType." alt="" coords="744,5,927,47"/>
-<area shape="rect" id="node6" href="$structgwtgwtexchangemodule_1_1gwtexchangetype.html" title="Derived type for GwtExchangeType." alt="" coords="744,71,927,112"/>
-<area shape="rect" id="node8" href="$structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html" title="Connecting a GWF model to other models in space, implements NumericalExchangeType so the solution can..." alt="" coords="740,136,931,177"/>
-<area shape="rect" id="node9" href="$structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html" title="Connects a GWT model to other GWT models in space. Derives from NumericalExchangeType so the solution..." alt="" coords="740,201,931,243"/>
+<area shape="rect" id="node1" href="$structbasedismodule_1_1disbasetype.html" title=" " alt="" coords="5,56,213,83"/>
+<area shape="rect" id="node2" href="$structgwfdismodule_1_1gwfdistype.html" title=" " alt="" coords="269,5,464,32"/>
+<area shape="rect" id="node3" href="$structgwfdisumodule_1_1gwfdisutype.html" title=" " alt="" coords="261,56,472,83"/>
+<area shape="rect" id="node4" href="$structgwfdisvmodule_1_1gwfdisvtype.html" title=" " alt="" coords="261,107,472,133"/>
 </map>

@@ -1,0 +1,11 @@
+<map id="virtualdatamanagermodule::vds_add_solution" name="virtualdatamanagermodule::vds_add_solution">
+<area shape="rect" id="node1" title="Add the models and exchanges from the passed solution to the virtual data structure...." alt="" coords="5,136,205,177"/>
+<area shape="rect" id="node2" href="$namespacespatialmodelconnectionmodule.html#a2b761db429763a32bde62e7d67119574" title="Get the connection from a list." alt="" coords="255,5,482,47"/>
+<area shape="rect" id="node4" href="$namespacevirtualexchangemodule.html#ab1918334bf283f92687def799abce76b" title="Returs a virtual exchange with the specified id." alt="" coords="281,71,457,112"/>
+<area shape="rect" id="node5" href="$namespacevirtualmodelmodule.html#abba1d301227ee5a4b869b54fc98e6e59" title="Returns a virtual model with the specified id." alt="" coords="291,136,446,177"/>
+<area shape="rect" id="node6" href="$namespacenumericalexchangemodule.html#a09ae423b40a16a7841cbb95815029b0f" title=" " alt="" coords="253,201,484,243"/>
+<area shape="rect" id="node8" href="$namespacenumericalmodelmodule.html#a4d031f0a98348529066eef37676f018d" title=" " alt="" coords="265,267,473,308"/>
+<area shape="rect" id="node3" href="$namespacespatialmodelconnectionmodule.html#aa5f44b372452361a6a7fd66bc0890d62" title="Cast to SpatialModelConnectionType." alt="" coords="535,5,762,47"/>
+<area shape="rect" id="node7" href="$namespacenumericalexchangemodule.html#ab1fef9adb89cbcfb556286fba47b988b" title=" " alt="" coords="532,201,765,243"/>
+<area shape="rect" id="node9" href="$namespacenumericalmodelmodule.html#a8bf90d83eebb9a967b5ad13d395d4c85" title=" " alt="" coords="543,267,754,308"/>
+</map>

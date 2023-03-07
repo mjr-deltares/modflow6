@@ -1,15 +1,15 @@
 <map id="gwfgwtexchangemodule::gwfconn2gwtconn" name="gwfgwtexchangemodule::gwfconn2gwtconn">
 <area shape="rect" id="node1" title="Link GWT connections to GWF connections or exchanges." alt="" coords="5,136,188,177"/>
-<area shape="rect" id="node2" href="$namespacegwfgwfconnectionmodule.html#a6c3e0778394e43c4098266172b6838b9" title="Cast to GwfGwfConnectionType." alt="" coords="270,5,461,47"/>
-<area shape="rect" id="node3" href="$namespacegwtgwtconnectionmodule.html#a23c026c8d893f128a2a5752d040d63d7" title="Cast to GwtGwtConnectionType." alt="" coords="270,71,461,112"/>
-<area shape="rect" id="node4" href="$namespacegwfgwfexchangemodule.html#a212a97d08a5d235f4aa6a96c92e715fa" title="@ brief Get exchange from list" alt="" coords="271,136,460,177"/>
-<area shape="rect" id="node6" href="$namespacespatialmodelconnectionmodule.html#ab03c81ae159b53ae92e07d83d48cca29" title="Get the connection from a list." alt="" coords="236,201,495,243"/>
-<area shape="rect" id="node8" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="278,267,453,294"/>
-<area shape="rect" id="node5" href="$namespacegwfgwfexchangemodule.html#aac43e7dbf0b8ccd7642cbc9a28badd77" title="@ brief Cast polymorphic object as exchange" alt="" coords="582,136,765,177"/>
-<area shape="rect" id="node7" href="$namespacespatialmodelconnectionmodule.html#aef271cf59d66fe8e5baef704109028fc" title="Cast to SpatialModelConnectionType." alt="" coords="543,201,804,243"/>
-<area shape="rect" id="node9" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="604,267,743,294"/>
-<area shape="rect" id="node10" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="852,227,1020,268"/>
-<area shape="rect" id="node13" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="852,292,1020,333"/>
-<area shape="rect" id="node11" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="1068,205,1263,231"/>
-<area shape="rect" id="node12" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1081,256,1249,297"/>
+<area shape="rect" id="node2" href="$namespacegwfgwfconnectionmodule.html#a6c3e0778394e43c4098266172b6838b9" title="Cast to GwfGwfConnectionType." alt="" coords="254,5,445,47"/>
+<area shape="rect" id="node3" href="$namespacegwtgwtconnectionmodule.html#a23c026c8d893f128a2a5752d040d63d7" title="Cast to GwtGwtConnectionType." alt="" coords="254,71,445,112"/>
+<area shape="rect" id="node4" href="$namespacespatialmodelconnectionmodule.html#a2b761db429763a32bde62e7d67119574" title="Get the connection from a list." alt="" coords="236,136,463,177"/>
+<area shape="rect" id="node6" href="$namespacegwfgwfexchangemodule.html#a212a97d08a5d235f4aa6a96c92e715fa" title="@ brief Get exchange from list" alt="" coords="255,201,444,243"/>
+<area shape="rect" id="node8" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="262,267,437,294"/>
+<area shape="rect" id="node5" href="$namespacespatialmodelconnectionmodule.html#aa5f44b372452361a6a7fd66bc0890d62" title="Cast to SpatialModelConnectionType." alt="" coords="511,136,737,177"/>
+<area shape="rect" id="node7" href="$namespacegwfgwfexchangemodule.html#aac43e7dbf0b8ccd7642cbc9a28badd77" title="@ brief Cast polymorphic object as exchange" alt="" coords="533,201,715,243"/>
+<area shape="rect" id="node9" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="555,267,693,294"/>
+<area shape="rect" id="node10" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="785,227,953,268"/>
+<area shape="rect" id="node13" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="785,292,953,333"/>
+<area shape="rect" id="node11" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="1001,205,1196,231"/>
+<area shape="rect" id="node12" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1015,256,1183,297"/>
 </map>

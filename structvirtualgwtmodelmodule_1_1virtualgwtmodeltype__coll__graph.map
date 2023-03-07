@@ -1,0 +1,15 @@
+<map id="virtualgwtmodelmodule::virtualgwtmodeltype" name="virtualgwtmodelmodule::virtualgwtmodeltype">
+<area shape="rect" id="node1" title=" " alt="" coords="727,1953,905,2104"/>
+<area shape="rect" id="node2" href="$structvirtualmodelmodule_1_1virtualmodeltype.html" title=" " alt="" coords="358,1665,535,1904"/>
+<area shape="rect" id="node3" href="$structvirtualdatacontainermodule_1_1virtualdatacontainertype.html" title="Container (list) of virtual data items." alt="" coords="5,1041,208,1456"/>
+<area shape="rect" id="node4" href="$structlistmodule_1_1listtype.html" title=" " alt="" coords="9,608,205,979"/>
+<area shape="rect" id="node5" href="$structlistmodule_1_1listnodetype.html" title=" " alt="" coords="17,343,197,435"/>
+<area shape="rect" id="node6" href="$structvirtualbasemodule_1_1virtualdbl1dtype.html" title=" " alt="" coords="760,1181,912,1317"/>
+<area shape="rect" id="node7" href="$structvirtualbasemodule_1_1virtualdatatype.html" title="This is a generic data structure to virtualize pieces of memory in 2 distinct ways:" alt="" coords="583,667,737,920"/>
+<area shape="rect" id="node10" href="$structvirtualbasemodule_1_1virtualdbltype.html" title=" " alt="" coords="232,1188,384,1309"/>
+<area shape="rect" id="node11" href="$structvirtualbasemodule_1_1virtualinttype.html" title=" " alt="" coords="584,1188,736,1309"/>
+<area shape="rect" id="node12" href="$structvirtualbasemodule_1_1virtualint1dtype.html" title=" " alt="" coords="408,1181,560,1317"/>
+<area shape="rect" id="node13" href="$structvirtualbasemodule_1_1virtualdbl2dtype.html" title=" " alt="" coords="928,1493,1080,1629"/>
+<area shape="rect" id="node8" href="$structmemorytypemodule_1_1memorytype.html" title=" " alt="" coords="537,263,783,516"/>
+<area shape="rect" id="node9" href="$structcharacterstringmodule_1_1characterstringtype.html" title="This class is used to store a single deferred&#45;length character string. It was designed to work in an ..." alt="" coords="561,5,759,200"/>
+</map>

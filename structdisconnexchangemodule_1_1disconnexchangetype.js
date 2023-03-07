@@ -25,13 +25,12 @@ var structdisconnexchangemodule_1_1disconnexchangetype =
     [ "read_dimensions", "structdisconnexchangemodule_1_1disconnexchangetype.html#af29118cfedc4a2e144cd131e256c0bbb", null ],
     [ "use_interface_model", "structdisconnexchangemodule_1_1disconnexchangetype.html#a2083a9b0c8e33e364e0dea472260249f", null ],
     [ "auxname", "structdisconnexchangemodule_1_1disconnexchangetype.html#a0b1a812933dd1b735e7b89772ec48e81", null ],
+    [ "auxname_cst", "structdisconnexchangemodule_1_1disconnexchangetype.html#af6a1b6a29b211b8a6e709ce0e59ff374", null ],
     [ "auxvar", "structdisconnexchangemodule_1_1disconnexchangetype.html#afcad56819cc53546f7a9b9b272cc0532", null ],
     [ "boundname", "structdisconnexchangemodule_1_1disconnexchangetype.html#ab957258936f54a9437ec143ac9f13d96", null ],
     [ "cl1", "structdisconnexchangemodule_1_1disconnexchangetype.html#a317a01e6496d08949d4ecc1528f4ad1d", null ],
     [ "cl2", "structdisconnexchangemodule_1_1disconnexchangetype.html#a5b9d107c0a435f0b490e66135f9d6a26", null ],
     [ "dev_ifmod_on", "structdisconnexchangemodule_1_1disconnexchangetype.html#a6eeb5b5b00af0ccc2bbb6662cf8f34fa", null ],
-    [ "dmodel1", "structdisconnexchangemodule_1_1disconnexchangetype.html#a45a5af9c0db47cbd0416342b186e0ed5", null ],
-    [ "dmodel2", "structdisconnexchangemodule_1_1disconnexchangetype.html#a8aaab1081bae062ff4b3cc166f9eb4f2", null ],
     [ "filename", "structdisconnexchangemodule_1_1disconnexchangetype.html#a4a31943957e2ae29ca2a592d88f564d3", null ],
     [ "hwva", "structdisconnexchangemodule_1_1disconnexchangetype.html#a9b3e0a86ea48175184542e796f17c0a3", null ],
     [ "ianglex", "structdisconnexchangemodule_1_1disconnexchangetype.html#a0239edd5302d2368765a4e041c8a727b", null ],
@@ -40,6 +39,7 @@ var structdisconnexchangemodule_1_1disconnexchangetype =
     [ "ihc", "structdisconnexchangemodule_1_1disconnexchangetype.html#a83cfabc82c4b83d4f934ce434e11dfe9", null ],
     [ "inamedbound", "structdisconnexchangemodule_1_1disconnexchangetype.html#a8e138a8d5ef8ba3c2c8990d61c7b79b0", null ],
     [ "iprpak", "structdisconnexchangemodule_1_1disconnexchangetype.html#a9acbcad54db83d73a285579881a92dd4", null ],
+    [ "is_datacopy", "structdisconnexchangemodule_1_1disconnexchangetype.html#a0f3d66c8493f90e0af665e15efc5bbfe", null ],
     [ "ixt3d", "structdisconnexchangemodule_1_1disconnexchangetype.html#a44768618b24eb1c12e2e277a6f5116b8", null ],
     [ "memorypath", "structdisconnexchangemodule_1_1disconnexchangetype.html#acda28385984c10f4e8025585fa118a48", null ],
     [ "model1", "structdisconnexchangemodule_1_1disconnexchangetype.html#af9e2c774129fda02c847c22f7515346f", null ],
@@ -50,5 +50,7 @@ var structdisconnexchangemodule_1_1disconnexchangetype =
     [ "nodem1", "structdisconnexchangemodule_1_1disconnexchangetype.html#a1108ebb9f67849cedc8a5eea5410097c", null ],
     [ "nodem2", "structdisconnexchangemodule_1_1disconnexchangetype.html#aa62559e283a8f1ba637312b06effcd8b", null ],
     [ "parser", "structdisconnexchangemodule_1_1disconnexchangetype.html#a204986c9ce77b130d71ff59be7c0aafa", null ],
-    [ "typename", "structdisconnexchangemodule_1_1disconnexchangetype.html#a93de8d8c83db2fcdacb25b8f262a32a4", null ]
+    [ "typename", "structdisconnexchangemodule_1_1disconnexchangetype.html#a93de8d8c83db2fcdacb25b8f262a32a4", null ],
+    [ "v_model1", "structdisconnexchangemodule_1_1disconnexchangetype.html#a2f3e84bf72e5005fe6b90374cc2ddc7b", null ],
+    [ "v_model2", "structdisconnexchangemodule_1_1disconnexchangetype.html#af406087855a4ad5573130c6b3e84d180", null ]
 ];

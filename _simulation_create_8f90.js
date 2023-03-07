@@ -1,8 +1,8 @@
 var _simulation_create_8f90 =
 [
-    [ "add_model", "_simulation_create_8f90.html#a54efe7fa57d3ceb3904343cfe258b6db", null ],
     [ "assign_exchanges", "_simulation_create_8f90.html#adf3e84522c23244a50903a4214a97395", null ],
     [ "check_model_assignment", "_simulation_create_8f90.html#a5248c082acee396032a2c0123cfc01d3", null ],
+    [ "check_model_name", "_simulation_create_8f90.html#a7cfdfdeea2c300b46e8b2468fc3d33e8", null ],
     [ "exchanges_create", "_simulation_create_8f90.html#abb116763d0b57efd5d804f40a52321ee", null ],
     [ "models_create", "_simulation_create_8f90.html#a0043d2fa8d8b96e41e5e0fdfecaadae7", null ],
     [ "options_create", "_simulation_create_8f90.html#a73d2884da5c5babce56618e5b3f8211e", null ],
@@ -12,6 +12,5 @@ var _simulation_create_8f90 =
     [ "solution_groups_create", "_simulation_create_8f90.html#aa6d30418b28eb07e46b20c32e8805806", null ],
     [ "timing_create", "_simulation_create_8f90.html#aad107ec5cfffd2e81af220f8227c926f", null ],
     [ "inunit", "_simulation_create_8f90.html#a1fe6fc75e32635b4c348c9d2acfe89c8", null ],
-    [ "modelname", "_simulation_create_8f90.html#a4b5f333c509488279a45b751887b0ad3", null ],
     [ "parser", "_simulation_create_8f90.html#a57935c0563b904cef494e0bd126d7c83", null ]
 ];

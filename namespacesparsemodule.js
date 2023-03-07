@@ -9,6 +9,6 @@ var namespacesparsemodule =
     [ "initialize", "namespacesparsemodule.html#aa628f8a01b0365f233b64b866a1b17ed", null ],
     [ "initializefixed", "namespacesparsemodule.html#ac192c3c24ae1c402bc678abc660cd672", null ],
     [ "insert", "namespacesparsemodule.html#ae0d273f0115396a4a6bd95f21a4e9af1", null ],
-    [ "sort", "namespacesparsemodule.html#aa05a62deb3797461ae0494c0c8a0d6f5", null ],
+    [ "sort", "namespacesparsemodule.html#a14e1e407dfbd1a04e4b4b51d1834ce8f", null ],
     [ "sortintarray", "namespacesparsemodule.html#ad38801a59ac4d54d1fe62c5d34f30461", null ]
 ];

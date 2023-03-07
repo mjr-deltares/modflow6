@@ -8,8 +8,9 @@ var mf6core_8f90 =
     [ "mf6preparetimestep", "mf6core_8f90.html#a40b8130d3cf17bc47fcb54c254aada8a", null ],
     [ "mf6run", "mf6core_8f90.html#a207819c711610066af1b83ec2a8efef0", null ],
     [ "mf6update", "mf6core_8f90.html#a7526420bd1fc4ebd3a09487e8509eff7", null ],
-    [ "printinfo", "mf6core_8f90.html#afe0de61eeb946afc5c3934b86b0082bd", null ],
+    [ "print_info", "mf6core_8f90.html#aea0af0a2f63d249a347392eef7ed8141", null ],
     [ "sim_step_retry", "mf6core_8f90.html#aa3df08d0706463a5a6574eac307a6636", null ],
     [ "simulation_ar", "mf6core_8f90.html#a622ba9fa9473eb16b9f17553d6483ae9", null ],
-    [ "simulation_df", "mf6core_8f90.html#a55d3318977ea83a1389aec5f42d5a77f", null ]
+    [ "simulation_df", "mf6core_8f90.html#a55d3318977ea83a1389aec5f42d5a77f", null ],
+    [ "run_ctrl", "mf6core_8f90.html#a62681a2697418168253837d5558ea6aa", null ]
 ];

@@ -1,12 +1,13 @@
 var namespacespatialmodelconnectionmodule =
 [
     [ "spatialmodelconnectiontype", "structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html", "structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype" ],
-    [ "adddistvar", "namespacespatialmodelconnectionmodule.html#a0bc3d01d58521258b0c148a6cae5cce5", null ],
-    [ "addspatialmodelconnectiontolist", "namespacespatialmodelconnectionmodule.html#a141064bc892a55a9bd63d64cdf575bbe", null ],
-    [ "castasspatialmodelconnectionclass", "namespacespatialmodelconnectionmodule.html#aef271cf59d66fe8e5baef704109028fc", null ],
+    [ "add_smc_to_list", "namespacespatialmodelconnectionmodule.html#aba8f84fafb08453a53a139fe17c9b2d6", null ],
+    [ "adddistvar", "namespacespatialmodelconnectionmodule.html#a047da77c38f654928681217ad114887d", null ],
+    [ "addmodelneighbors", "namespacespatialmodelconnectionmodule.html#afea20dbc6188ed36d0172e377ea0e19e", null ],
+    [ "cast_as_smc", "namespacespatialmodelconnectionmodule.html#aa5f44b372452361a6a7fd66bc0890d62", null ],
     [ "createcoefficientmatrix", "namespacespatialmodelconnectionmodule.html#ace61fc3d934039f47a0eff6f420c235b", null ],
-    [ "getspatialmodelconnectionfromlist", "namespacespatialmodelconnectionmodule.html#ab03c81ae159b53ae92e07d83d48cca29", null ],
-    [ "mapvariables", "namespacespatialmodelconnectionmodule.html#a8584563b799bb92c598076d3b3a212e7", null ],
+    [ "createmodelhalo", "namespacespatialmodelconnectionmodule.html#ae8c5b24f868e06ce9d6df25951a9ca64", null ],
+    [ "get_smc_from_list", "namespacespatialmodelconnectionmodule.html#a2b761db429763a32bde62e7d67119574", null ],
     [ "maskownerconnections", "namespacespatialmodelconnectionmodule.html#aec90536f741cddef194442f90e8d7aa7", null ],
     [ "spatialcon_ar", "namespacespatialmodelconnectionmodule.html#afce8ea9e92b18b6ea282c8ae1fc6c4f7", null ],
     [ "spatialcon_connect", "namespacespatialmodelconnectionmodule.html#a1b24a013bff5f6865ad9bccf37d713d4", null ],

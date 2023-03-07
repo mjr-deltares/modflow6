@@ -1,0 +1,4 @@
+<map id="spatialmodelconnectionmodule::spatialcon_df" name="spatialmodelconnectionmodule::spatialcon_df">
+<area shape="rect" id="node1" title="Define this connection, mostly sets up the grid." alt="" coords="5,5,232,47"/>
+<area shape="rect" id="node2" href="$namespacevirtualmodelmodule.html#abba1d301227ee5a4b869b54fc98e6e59" title="Returns a virtual model with the specified id." alt="" coords="280,5,435,47"/>
+</map>

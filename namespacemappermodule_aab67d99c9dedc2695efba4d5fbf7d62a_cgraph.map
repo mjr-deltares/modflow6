@@ -1,0 +1,6 @@
+<map id="mappermodule::add_exchange_vars" name="mappermodule::add_exchange_vars">
+<area shape="rect" id="node1" title="Add virtual exchange variables." alt="" coords="5,46,264,73"/>
+<area shape="rect" id="node2" href="$namespacespatialmodelconnectionmodule.html#a2b761db429763a32bde62e7d67119574" title="Get the connection from a list." alt="" coords="312,5,539,47"/>
+<area shape="rect" id="node4" href="$namespacevirtualexchangemodule.html#ab1918334bf283f92687def799abce76b" title="Returs a virtual exchange with the specified id." alt="" coords="337,71,513,112"/>
+<area shape="rect" id="node3" href="$namespacespatialmodelconnectionmodule.html#aa5f44b372452361a6a7fd66bc0890d62" title="Cast to SpatialModelConnectionType." alt="" coords="587,5,813,47"/>
+</map>

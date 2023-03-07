@@ -120,14 +120,14 @@ $(document).ready(function(){initNavTree('_timer_8f90_source.html',''); initResi
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacegenericutilitiesmodule.html">genericutilitiesmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf">sim_message</a></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;  <span class="keywordtype">implicit none</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;  <span class="keywordtype">private</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;  <span class="keywordtype">public</span> :: <a class="code" href="namespacetimermodule.html#aabd6b77317f11bb9dd7d89c52317c104">start_time</a></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;  <span class="keywordtype">public</span> :: <a class="code" href="namespacetimermodule.html#afa9c5fc2a06d8e7cdf691b2a70a60937">print_start_time</a></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  <span class="keywordtype">public</span> :: <a class="code" href="namespacetimermodule.html#a1f8301c0a31753924cb55e23ebb36b95">elapsed_time</a></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  <span class="keywordtype">public</span> :: <a class="code" href="namespacetimermodule.html#a38a274d978e44672bdb28134abec206a">code_timer</a></div>
 <div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="namespacetimermodule.html#a87b723757727d161d5d128609d3ed0d5">   11</a></span>&#160;  <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(8)</span> :: <a class="code" href="namespacetimermodule.html#a87b723757727d161d5d128609d3ed0d5">ibdt</a></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">contains</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="namespacetimermodule.html#aabd6b77317f11bb9dd7d89c52317c104">   15</a></span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacetimermodule.html#aabd6b77317f11bb9dd7d89c52317c104">start_time</a>()</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="namespacetimermodule.html#afa9c5fc2a06d8e7cdf691b2a70a60937">   15</a></span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacetimermodule.html#afa9c5fc2a06d8e7cdf691b2a70a60937">print_start_time</a>()</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">! ******************************************************************************</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">!  Start simulation timer</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">! ******************************************************************************</span></div>
@@ -151,7 +151,7 @@ $(document).ready(function(){initNavTree('_timer_8f90_source.html',''); initResi
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">!</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">! -- return</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacetimermodule.html#aabd6b77317f11bb9dd7d89c52317c104">start_time</a></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacetimermodule.html#afa9c5fc2a06d8e7cdf691b2a70a60937">print_start_time</a></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
 <div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="namespacetimermodule.html#a1f8301c0a31753924cb55e23ebb36b95">   41</a></span>&#160;  <span class="keyword">SUBROUTINE </span><a class="code" href="namespacetimermodule.html#a1f8301c0a31753924cb55e23ebb36b95">elapsed_time</a>(iout, iprtim)</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">! ******************************************************************************</span></div>
@@ -317,14 +317,14 @@ $(document).ready(function(){initNavTree('_timer_8f90_source.html',''); initResi
 <div class="ttc" id="anamespacetimermodule_html_a1f8301c0a31753924cb55e23ebb36b95"><div class="ttname"><a href="namespacetimermodule.html#a1f8301c0a31753924cb55e23ebb36b95">timermodule::elapsed_time</a></div><div class="ttdeci">subroutine, public elapsed_time(iout, iprtim)</div><div class="ttdef"><b>Definition:</b> <a href="_timer_8f90_source.html#l00041">Timer.f90:42</a></div></div>
 <div class="ttc" id="anamespacetimermodule_html_a38a274d978e44672bdb28134abec206a"><div class="ttname"><a href="namespacetimermodule.html#a38a274d978e44672bdb28134abec206a">timermodule::code_timer</a></div><div class="ttdeci">subroutine, public code_timer(it, t1, ts)</div><div class="ttdef"><b>Definition:</b> <a href="_timer_8f90_source.html#l00168">Timer.f90:169</a></div></div>
 <div class="ttc" id="anamespacetimermodule_html_a87b723757727d161d5d128609d3ed0d5"><div class="ttname"><a href="namespacetimermodule.html#a87b723757727d161d5d128609d3ed0d5">timermodule::ibdt</a></div><div class="ttdeci">integer(i4b), dimension(8) ibdt</div><div class="ttdef"><b>Definition:</b> <a href="_timer_8f90_source.html#l00011">Timer.f90:11</a></div></div>
-<div class="ttc" id="anamespacetimermodule_html_aabd6b77317f11bb9dd7d89c52317c104"><div class="ttname"><a href="namespacetimermodule.html#aabd6b77317f11bb9dd7d89c52317c104">timermodule::start_time</a></div><div class="ttdeci">subroutine, public start_time()</div><div class="ttdef"><b>Definition:</b> <a href="_timer_8f90_source.html#l00015">Timer.f90:16</a></div></div>
+<div class="ttc" id="anamespacetimermodule_html_afa9c5fc2a06d8e7cdf691b2a70a60937"><div class="ttname"><a href="namespacetimermodule.html#afa9c5fc2a06d8e7cdf691b2a70a60937">timermodule::print_start_time</a></div><div class="ttdeci">subroutine, public print_start_time()</div><div class="ttdef"><b>Definition:</b> <a href="_timer_8f90_source.html#l00015">Timer.f90:16</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ff383ddf1aa4eab0c4ce7910366d05a5.html">Utilities</a></li><li class="navelem"><a class="el" href="_timer_8f90.html">Timer.f90</a></li>
-    <li class="footer">Generated on Mon Feb 20 2023 13:50:51 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Mar 7 2023 07:21:47 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

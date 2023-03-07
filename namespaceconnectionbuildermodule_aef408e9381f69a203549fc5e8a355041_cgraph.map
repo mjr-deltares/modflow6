@@ -1,14 +1,14 @@
 <map id="connectionbuildermodule::processexchanges" name="connectionbuildermodule::processexchanges">
 <area shape="rect" id="node1" title="Create connections from exchanges." alt="" coords="5,129,192,171"/>
-<area shape="rect" id="node2" href="$namespacespatialmodelconnectionmodule.html#a141064bc892a55a9bd63d64cdf575bbe" title="Add connection to a list." alt="" coords="240,5,483,47"/>
-<area shape="rect" id="node3" href="$namespaceconnectionbuildermodule.html#a5601b21c926febbb01f731dc5c26d5a8" title="Create a model connection of a given type." alt="" coords="268,71,455,112"/>
-<area shape="rect" id="node4" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="571,107,709,134"/>
-<area shape="rect" id="node9" href="$namespacebaseexchangemodule.html#ad92f8ec5d783349adc5a61e4e3d31f4b" title=" " alt="" coords="263,188,459,229"/>
-<area shape="rect" id="node11" href="$namespacedisconnexchangemodule.html#a63ac91d936c8b44104f8e091a81e7ac2" title=" " alt="" coords="254,253,469,295"/>
-<area shape="rect" id="node5" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="797,68,965,109"/>
-<area shape="rect" id="node8" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="797,133,965,175"/>
-<area shape="rect" id="node6" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="1013,46,1208,73"/>
-<area shape="rect" id="node7" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1027,97,1195,139"/>
-<area shape="rect" id="node10" href="$namespacebaseexchangemodule.html#a471891cf69ccccc8dcca6ee6ee3e6993" title=" " alt="" coords="541,188,739,229"/>
-<area shape="rect" id="node12" href="$namespacedisconnexchangemodule.html#a9ad5f8b11f95c70aeda06b186754b567" title=" " alt="" coords="531,253,749,295"/>
+<area shape="rect" id="node2" href="$namespacespatialmodelconnectionmodule.html#aba8f84fafb08453a53a139fe17c9b2d6" title="Add connection to a list." alt="" coords="240,5,467,47"/>
+<area shape="rect" id="node3" href="$namespaceconnectionbuildermodule.html#a5601b21c926febbb01f731dc5c26d5a8" title="Create a model connection of a given type." alt="" coords="260,71,447,112"/>
+<area shape="rect" id="node4" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="555,107,693,134"/>
+<area shape="rect" id="node9" href="$namespacebaseexchangemodule.html#ad92f8ec5d783349adc5a61e4e3d31f4b" title=" " alt="" coords="255,188,451,229"/>
+<area shape="rect" id="node11" href="$namespacedisconnexchangemodule.html#a63ac91d936c8b44104f8e091a81e7ac2" title=" " alt="" coords="246,253,461,295"/>
+<area shape="rect" id="node5" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="781,68,949,109"/>
+<area shape="rect" id="node8" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="781,133,949,175"/>
+<area shape="rect" id="node6" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="997,46,1192,73"/>
+<area shape="rect" id="node7" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1011,97,1179,139"/>
+<area shape="rect" id="node10" href="$namespacebaseexchangemodule.html#a471891cf69ccccc8dcca6ee6ee3e6993" title=" " alt="" coords="525,188,723,229"/>
+<area shape="rect" id="node12" href="$namespacedisconnexchangemodule.html#a9ad5f8b11f95c70aeda06b186754b567" title=" " alt="" coords="515,253,733,295"/>
 </map>

@@ -1,0 +1,16 @@
+<map id="numericalsolutionmodule::create_numerical_solution" name="numericalsolutionmodule::create_numerical_solution">
+<area shape="rect" id="node1" title="@ brief Create a new solution" alt="" coords="5,104,208,145"/>
+<area shape="rect" id="node2" href="$namespacebasesolutionmodule.html#a325c28d7b2f545c1febe4491f9dcc811" title=" " alt="" coords="256,5,427,47"/>
+<area shape="rect" id="node3" href="$namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d" title="returns the path to the memory object" alt="" coords="258,71,425,112"/>
+<area shape="rect" id="node11" href="$namespaceinputoutputmodule.html#a535bdfca3d31ebc3a8e4bd5af6890d55" title="Get a free unit number." alt="" coords="264,136,419,177"/>
+<area shape="rect" id="node13" href="$namespaceinputoutputmodule.html#ae97851e3edae8d9809e384058a1a4d52" title="Open a file." alt="" coords="264,201,419,243"/>
+<area shape="rect" id="node4" href="$namespacememoryhelpermodule.html#a5405f58247a0962e5449ebc1e4dcff0f" title="Generic routine to check the length of (parts of) the memory address." alt="" coords="475,71,641,112"/>
+<area shape="rect" id="node5" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="689,141,864,167"/>
+<area shape="rect" id="node6" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="912,141,1051,167"/>
+<area shape="rect" id="node7" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="1099,100,1267,141"/>
+<area shape="rect" id="node10" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="1099,165,1267,207"/>
+<area shape="rect" id="node8" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="1315,78,1509,105"/>
+<area shape="rect" id="node9" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1328,129,1496,171"/>
+<area shape="rect" id="node12" href="$namespaceinputoutputmodule.html#ac5134655c31ac9beeb4688f504efd801" title="Assign a free unopened unit number." alt="" coords="481,136,635,177"/>
+<area shape="rect" id="node14" href="$namespaceinputoutputmodule.html#a8290bae8ca0756e38ce13459dfebe985" title="Convert to upper case." alt="" coords="481,253,635,295"/>
+</map>
