@@ -24,6 +24,7 @@ var structnumericalsolutionmodule_1_1numericalsolutiontype =
     [ "sln_fp", "structnumericalsolutionmodule_1_1numericalsolutiontype.html#a9cf1d793cf2eb25a93b1152b32b5342b", null ],
     [ "sln_get_loc", "structnumericalsolutionmodule_1_1numericalsolutiontype.html#ac4a0d0fa9999adffa7fa7afcb6ee8783", null ],
     [ "sln_get_nodeu", "structnumericalsolutionmodule_1_1numericalsolutiontype.html#ab766d24a9998ff92795dfd96bddde868", null ],
+    [ "sln_has_converged", "structnumericalsolutionmodule_1_1numericalsolutiontype.html#a98cd4eb5fb54743af45fe0b33ac379fa", null ],
     [ "sln_l2norm", "structnumericalsolutionmodule_1_1numericalsolutiontype.html#a486d0e3fe3b74f5438fea7624aa394ff", null ],
     [ "sln_ls", "structnumericalsolutionmodule_1_1numericalsolutiontype.html#a958b0852a46b7e180fa70ffc01f7ebb8", null ],
     [ "sln_maxval", "structnumericalsolutionmodule_1_1numericalsolutiontype.html#ad92f46acdeecde2e0eb51513d30cea67", null ],

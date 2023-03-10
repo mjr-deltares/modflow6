@@ -13,9 +13,7 @@ var dir_45e973df69963bbfe985a1f7e6db2b6f =
     ] ],
     [ "LinearSolverFactory.F90", "_linear_solver_factory_8_f90.html", "_linear_solver_factory_8_f90" ],
     [ "NumericalSolution.f90", "_numerical_solution_8f90.html", "_numerical_solution_8f90" ],
-    [ "ParallelSolution.f90", "_parallel_solution_8f90.html", [
-      [ "parallelsolutiontype", "structparallelsolutionmodule_1_1parallelsolutiontype.html", "structparallelsolutionmodule_1_1parallelsolutiontype" ]
-    ] ],
+    [ "ParallelSolution.f90", "_parallel_solution_8f90.html", "_parallel_solution_8f90" ],
     [ "SolutionFactory.F90", "_solution_factory_8_f90.html", "_solution_factory_8_f90" ],
     [ "SolutionGroup.f90", "_solution_group_8f90.html", "_solution_group_8f90" ]
 ];

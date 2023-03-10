@@ -24,6 +24,7 @@ var structparallelsolutionmodule_1_1parallelsolutiontype =
     [ "sln_fp", "structparallelsolutionmodule_1_1parallelsolutiontype.html#a9cf1d793cf2eb25a93b1152b32b5342b", null ],
     [ "sln_get_loc", "structparallelsolutionmodule_1_1parallelsolutiontype.html#ac4a0d0fa9999adffa7fa7afcb6ee8783", null ],
     [ "sln_get_nodeu", "structparallelsolutionmodule_1_1parallelsolutiontype.html#ab766d24a9998ff92795dfd96bddde868", null ],
+    [ "sln_has_converged", "structparallelsolutionmodule_1_1parallelsolutiontype.html#afb5d4154cc2b1ed54a680641bd93cc25", null ],
     [ "sln_l2norm", "structparallelsolutionmodule_1_1parallelsolutiontype.html#a486d0e3fe3b74f5438fea7624aa394ff", null ],
     [ "sln_ls", "structparallelsolutionmodule_1_1parallelsolutiontype.html#a958b0852a46b7e180fa70ffc01f7ebb8", null ],
     [ "sln_maxval", "structparallelsolutionmodule_1_1parallelsolutiontype.html#ad92f46acdeecde2e0eb51513d30cea67", null ],

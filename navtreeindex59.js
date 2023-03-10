@@ -1,5 +1,11 @@
 var NAVTREEINDEX59 =
 {
+"structsolutiongroupmodule_1_1solutiongrouptype.html#af869ee4207f50c5a4869bdaba3c89d65":[2,0,146,0,2],
+"structsparsematrixmodule_1_1sparsematrixtype.html":[2,0,148,0],
+"structsparsematrixmodule_1_1sparsematrixtype.html#a121c00e036226c2ccefa68fe489ea82d":[2,0,148,0,4],
+"structsparsematrixmodule_1_1sparsematrixtype.html#a186a79dff61daa5c50d81c48e5516810":[2,0,148,0,23],
+"structsparsematrixmodule_1_1sparsematrixtype.html#a1c11d7a52c48bd9e78a9a320fe783f57":[2,0,148,0,15],
+"structsparsematrixmodule_1_1sparsematrixtype.html#a21fa1062296cc25f9dca3948261eb794":[2,0,148,0,18],
 "structsparsematrixmodule_1_1sparsematrixtype.html#a29727b33bf8d7e6507abf2078ca611e8":[2,0,148,0,3],
 "structsparsematrixmodule_1_1sparsematrixtype.html#a33d8fa01c750a4e23efef082c098164b":[2,0,148,0,25],
 "structsparsematrixmodule_1_1sparsematrixtype.html#a3cfeb83b9a158bf82d25682046ef2458":[2,0,148,0,20],
@@ -243,11 +249,5 @@ var NAVTREEINDEX59 =
 "structtimearrayseriesmodule_1_1timearrayseriestype.html#a9f53350387781466e5afae6cd16f0156":[2,0,159,0,7],
 "structtimearrayseriesmodule_1_1timearrayseriestype.html#aa0cc84816828b9644c910a89deb793ec":[2,0,159,0,2],
 "structtimearrayseriesmodule_1_1timearrayseriestype.html#aa2fc0a0b439d968c1bab0ff5abac7c63":[2,0,159,0,10],
-"structtimearrayseriesmodule_1_1timearrayseriestype.html#aa5417ee5fc159b8fe021c24ccdef8006":[2,0,159,0,12],
-"structtimearrayseriesmodule_1_1timearrayseriestype.html#aa9dab7649a8fc4404b0873638d80ae95":[2,0,159,0,1],
-"structtimearrayseriesmodule_1_1timearrayseriestype.html#ab9bcd28aad18061339d24e9214ff48d2":[2,0,159,0,15],
-"structtimearrayseriesmodule_1_1timearrayseriestype.html#ad3eaf460f39de63288590a48104fe5d3":[2,0,159,0,3],
-"structtimearrayseriesmodule_1_1timearrayseriestype.html#ade02ca5ff6bae8d3201307f8b10eb124":[2,0,159,0,9],
-"structtimearrayseriesmodule_1_1timearrayseriestype.html#adf1befb631474e81e3722d657f15d84d":[2,0,159,0,14],
-"structtimearrayseriesmodule_1_1timearrayseriestype.html#ae25a77bbb91e37d6925c69ed9109bdc1":[2,0,159,0,18]
+"structtimearrayseriesmodule_1_1timearrayseriestype.html#aa5417ee5fc159b8fe021c24ccdef8006":[2,0,159,0,12]
 };

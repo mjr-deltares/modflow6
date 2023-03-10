@@ -1,5 +1,11 @@
 var NAVTREEINDEX62 =
 {
+"structuzfmodule_1_1uzftype.html#acb4ae3568883c8fef7daae7a865b0931":[2,0,170,0,131],
+"structuzfmodule_1_1uzftype.html#acd165488cb30524dc312c6d13f4a6156":[2,0,170,0,36],
+"structuzfmodule_1_1uzftype.html#acdca55d1d84b5b31abd2bec64e225a67":[2,0,170,0,152],
+"structuzfmodule_1_1uzftype.html#ad08fd832e26a1697c3c4d8a78651176b":[2,0,170,0,65],
+"structuzfmodule_1_1uzftype.html#ad2234f10c112e42c740845dbcb3eb9fe":[2,0,170,0,176],
+"structuzfmodule_1_1uzftype.html#ad2c1b2fe997ceb2c5854d33f681c3c4d":[2,0,170,0,51],
 "structuzfmodule_1_1uzftype.html#ad6177ab223666eb66774ddea7d190e42":[2,0,170,0,76],
 "structuzfmodule_1_1uzftype.html#ad70301095ae59f3fa7b2553ab4a4e74a":[2,0,170,0,126],
 "structuzfmodule_1_1uzftype.html#ad7ac0c146595e61aeb4e7a52c8b3f44d":[2,0,170,0,14],
@@ -243,11 +249,5 @@ var NAVTREEINDEX62 =
 "structvirtualgwfexchangemodule_1_1virtualgwfexchangetype.html#a37bebc936b8a974f7c80d73d6144e86a":[2,0,176,0,2],
 "structvirtualgwfexchangemodule_1_1virtualgwfexchangetype.html#a3a9c9652718e6d43de5001b63701e28c":[2,0,176,0,4],
 "structvirtualgwfexchangemodule_1_1virtualgwfexchangetype.html#a41c3d8a3976a9f85d6f9e31dfc394422":[2,0,176,0,19],
-"structvirtualgwfexchangemodule_1_1virtualgwfexchangetype.html#a465a25eb0a1a5657f357dd9fd72bd236":[2,0,176,0,18],
-"structvirtualgwfexchangemodule_1_1virtualgwfexchangetype.html#a48b885009c63de944eac8b1d1d1df4e3":[2,0,176,0,28],
-"structvirtualgwfexchangemodule_1_1virtualgwfexchangetype.html#a515d7b8eecadf3f28f5fc8665949eae0":[2,0,176,0,1],
-"structvirtualgwfexchangemodule_1_1virtualgwfexchangetype.html#a594ef4c77b665044c9980c1bcb4ae3c8":[2,0,176,0,37],
-"structvirtualgwfexchangemodule_1_1virtualgwfexchangetype.html#a5efbc3cb64224f9ab658efa7bebde3e1":[2,0,176,0,29],
-"structvirtualgwfexchangemodule_1_1virtualgwfexchangetype.html#a6081922f0b9c0aafed1c1e6cb99d26bf":[2,0,176,0,22],
-"structvirtualgwfexchangemodule_1_1virtualgwfexchangetype.html#a7a7ccf47c81316d0020cc43a6771b282":[2,0,176,0,38]
+"structvirtualgwfexchangemodule_1_1virtualgwfexchangetype.html#a465a25eb0a1a5657f357dd9fd72bd236":[2,0,176,0,18]
 };

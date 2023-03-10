@@ -30,6 +30,7 @@ var namespacenumericalsolutionmodule =
     [ "sln_fp", "namespacenumericalsolutionmodule.html#a2f9158456ae05512c728b125a9c877e1", null ],
     [ "sln_get_loc", "namespacenumericalsolutionmodule.html#a3e536e8da68c7f8a12f3731f27b409c0", null ],
     [ "sln_get_nodeu", "namespacenumericalsolutionmodule.html#a0673b47847b9b33923ecc11dbc2d8359", null ],
+    [ "sln_has_converged", "namespacenumericalsolutionmodule.html#a1ac679adcc2a31092288c8b0a4c666e5", null ],
     [ "sln_l2norm", "namespacenumericalsolutionmodule.html#a9532a1e6acbfbe4ec58a7b9b36ff09c8", null ],
     [ "sln_ls", "namespacenumericalsolutionmodule.html#aa3e6fe297bd0318f1d628ce549bca68d", null ],
     [ "sln_maxval", "namespacenumericalsolutionmodule.html#a475b3a3dafa811568f0ca944fc69d066", null ],
