@@ -11,5 +11,6 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "mf6lists.f90", "mf6lists_8f90.html", "mf6lists_8f90" ],
     [ "RunControl.f90", "_run_control_8f90.html", "_run_control_8f90" ],
     [ "RunControlFactory.F90", "_run_control_factory_8_f90.html", "_run_control_factory_8_f90" ],
+    [ "simnamidm.f90", "simnamidm_8f90.html", "simnamidm_8f90" ],
     [ "SimulationCreate.f90", "_simulation_create_8f90.html", "_simulation_create_8f90" ]
 ];

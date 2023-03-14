@@ -134,9 +134,9 @@ Modules</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
-<tr class="memitem:a3c08c740d235f0c24609a3a0681183e6"><td class="memItemLeft" align="right" valign="top">type(structarraytype) function, pointer, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestructarraymodule.html#a3c08c740d235f0c24609a3a0681183e6">structarraymodule::constructstructarray</a> (ncol, nrow)</td></tr>
-<tr class="memdesc:a3c08c740d235f0c24609a3a0681183e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor for a struct_array  <a href="namespacestructarraymodule.html#a3c08c740d235f0c24609a3a0681183e6">More...</a><br /></td></tr>
-<tr class="separator:a3c08c740d235f0c24609a3a0681183e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb8dea58c18e29979e0169e4d78a16fd"><td class="memItemLeft" align="right" valign="top">type(structarraytype) function, pointer, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestructarraymodule.html#afb8dea58c18e29979e0169e4d78a16fd">structarraymodule::constructstructarray</a> (ncol, nrow, blocknum)</td></tr>
+<tr class="memdesc:afb8dea58c18e29979e0169e4d78a16fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor for a struct_array  <a href="namespacestructarraymodule.html#afb8dea58c18e29979e0169e4d78a16fd">More...</a><br /></td></tr>
+<tr class="separator:afb8dea58c18e29979e0169e4d78a16fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb732b5f0362eb6246448f981611ea72"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestructarraymodule.html#aeb732b5f0362eb6246448f981611ea72">structarraymodule::destructstructarray</a> (struct_array)</td></tr>
 <tr class="memdesc:aeb732b5f0362eb6246448f981611ea72"><td class="mdescLeft">&#160;</td><td class="mdescRight">destructor for a struct_array  <a href="namespacestructarraymodule.html#aeb732b5f0362eb6246448f981611ea72">More...</a><br /></td></tr>
 <tr class="separator:aeb732b5f0362eb6246448f981611ea72"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -149,18 +149,23 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:af101db4003d32a43d3284f6aa5983595"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestructarraymodule.html#af101db4003d32a43d3284f6aa5983595">structarraymodule::add_vector_dbl1d</a> (this, varname, memoryPath, icol, dbl1d)</td></tr>
 <tr class="memdesc:af101db4003d32a43d3284f6aa5983595"><td class="mdescLeft">&#160;</td><td class="mdescRight">add dbl1d to StructArrayType  <a href="namespacestructarraymodule.html#af101db4003d32a43d3284f6aa5983595">More...</a><br /></td></tr>
 <tr class="separator:af101db4003d32a43d3284f6aa5983595"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa32caddee8cc70805b4022e994f963ee"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestructarraymodule.html#aa32caddee8cc70805b4022e994f963ee">structarraymodule::add_vector_str1d</a> (this, icol, str1d, preserve_case)</td></tr>
-<tr class="memdesc:aa32caddee8cc70805b4022e994f963ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">add str1d to StructArrayType  <a href="namespacestructarraymodule.html#aa32caddee8cc70805b4022e994f963ee">More...</a><br /></td></tr>
-<tr class="separator:aa32caddee8cc70805b4022e994f963ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2fe6c483a0806e45af1748545a5ce44"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestructarraymodule.html#ac2fe6c483a0806e45af1748545a5ce44">structarraymodule::add_vector_charstr1d</a> (this, varname, memoryPath, icol, charstr1d, varname_shape, preserve_case)</td></tr>
+<tr class="memdesc:ac2fe6c483a0806e45af1748545a5ce44"><td class="mdescLeft">&#160;</td><td class="mdescRight">add charstr1d to StructArrayType  <a href="namespacestructarraymodule.html#ac2fe6c483a0806e45af1748545a5ce44">More...</a><br /></td></tr>
+<tr class="separator:ac2fe6c483a0806e45af1748545a5ce44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac01e049d35fa059d37418d4858d0af44"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestructarraymodule.html#ac01e049d35fa059d37418d4858d0af44">structarraymodule::add_vector_intvector</a> (this, varname, memoryPath, varname_shape, icol, intvector)</td></tr>
 <tr class="memdesc:ac01e049d35fa059d37418d4858d0af44"><td class="mdescLeft">&#160;</td><td class="mdescRight">add STLVecInt to StructArrayType  <a href="namespacestructarraymodule.html#ac01e049d35fa059d37418d4858d0af44">More...</a><br /></td></tr>
 <tr class="separator:ac01e049d35fa059d37418d4858d0af44"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97d89d6bcbfa7a7d9c2092a270b9d901"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestructarraymodule.html#a97d89d6bcbfa7a7d9c2092a270b9d901">structarraymodule::load_intvector</a> (this)</td></tr>
-<tr class="memdesc:a97d89d6bcbfa7a7d9c2092a270b9d901"><td class="mdescLeft">&#160;</td><td class="mdescRight">load integer vector into StructArrayType  <a href="namespacestructarraymodule.html#a97d89d6bcbfa7a7d9c2092a270b9d901">More...</a><br /></td></tr>
-<tr class="separator:a97d89d6bcbfa7a7d9c2092a270b9d901"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ffb8fe22259f97f085315262edf5b8d"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestructarraymodule.html#a7ffb8fe22259f97f085315262edf5b8d">structarraymodule::load_deferred_vector</a> (this, icol)</td></tr>
+<tr class="separator:a7ffb8fe22259f97f085315262edf5b8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33bfed066bf55714a4cf24b0263419a7"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestructarraymodule.html#a33bfed066bf55714a4cf24b0263419a7">structarraymodule::memload_vectors</a> (this)</td></tr>
+<tr class="memdesc:a33bfed066bf55714a4cf24b0263419a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">load deferred vectors into managed memory  <a href="namespacestructarraymodule.html#a33bfed066bf55714a4cf24b0263419a7">More...</a><br /></td></tr>
+<tr class="separator:a33bfed066bf55714a4cf24b0263419a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acdd23f14ff1603968cefdff5e3f80bcc"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestructarraymodule.html#acdd23f14ff1603968cefdff5e3f80bcc">structarraymodule::log_structarray_vars</a> (this, iout)</td></tr>
 <tr class="memdesc:acdd23f14ff1603968cefdff5e3f80bcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">log information about the StructArrayType  <a href="namespacestructarraymodule.html#acdd23f14ff1603968cefdff5e3f80bcc">More...</a><br /></td></tr>
 <tr class="separator:acdd23f14ff1603968cefdff5e3f80bcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6effc98014233ded0810391e14d6a8b8"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestructarraymodule.html#a6effc98014233ded0810391e14d6a8b8">structarraymodule::check_reallocate</a> (this)</td></tr>
+<tr class="memdesc:a6effc98014233ded0810391e14d6a8b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">reallocate local memory for deferred vectors if necessary  <a href="namespacestructarraymodule.html#a6effc98014233ded0810391e14d6a8b8">More...</a><br /></td></tr>
+<tr class="separator:a6effc98014233ded0810391e14d6a8b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca583184c2ca94ba7eefc48ff56560ac"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestructarraymodule.html#aca583184c2ca94ba7eefc48ff56560ac">structarraymodule::read_from_parser</a> (this, parser, iout)</td></tr>
 <tr class="memdesc:aca583184c2ca94ba7eefc48ff56560ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">read from the block parser to fill the StructArrayType  <a href="namespacestructarraymodule.html#aca583184c2ca94ba7eefc48ff56560ac">More...</a><br /></td></tr>
 <tr class="separator:aca583184c2ca94ba7eefc48ff56560ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -171,7 +176,7 @@ Functions/Subroutines</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ff383ddf1aa4eab0c4ce7910366d05a5.html">Utilities</a></li><li class="navelem"><a class="el" href="dir_e928979709fe2fa453a43ff0cf89a4ed.html">Idm</a></li><li class="navelem"><a class="el" href="_struct_array_8f90.html">StructArray.f90</a></li>
-    <li class="footer">Generated on Fri Mar 10 2023 12:06:26 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Mar 14 2023 07:20:02 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

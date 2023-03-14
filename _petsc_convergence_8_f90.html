@@ -112,7 +112,8 @@ $(document).ready(function(){initNavTree('_petsc_convergence_8_f90.html',''); in
   <div class="summary">
 <a href="#nested-classes">Data Types</a> &#124;
 <a href="#namespaces">Modules</a> &#124;
-<a href="#func-members">Functions/Subroutines</a>  </div>
+<a href="#func-members">Functions/Subroutines</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">PetscConvergence.F90 File Reference</div>  </div>
 </div><!--header-->
@@ -142,8 +143,17 @@ Modules</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
-<tr class="memitem:a24ca8add3c14d8f041328fa586ccab6d"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepetscconvergencemodule.html#a24ca8add3c14d8f041328fa586ccab6d">petscconvergencemodule::petsc_check_convergence</a> (ksp, n, rnorm, flag, petsc_context, ierr)</td></tr>
-<tr class="separator:a24ca8add3c14d8f041328fa586ccab6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4134f12ac9513ffcaa0f099b0ef8a636"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepetscconvergencemodule.html#a4134f12ac9513ffcaa0f099b0ef8a636">petscconvergencemodule::petsc_add_context</a> (ctx, idx)</td></tr>
+<tr class="memdesc:a4134f12ac9513ffcaa0f099b0ef8a636"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a context to the static list. The.  <a href="namespacepetscconvergencemodule.html#a4134f12ac9513ffcaa0f099b0ef8a636">More...</a><br /></td></tr>
+<tr class="separator:a4134f12ac9513ffcaa0f099b0ef8a636"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedcc1aa8d353b15ae924bfb3f9cbd7ef"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepetscconvergencemodule.html#aedcc1aa8d353b15ae924bfb3f9cbd7ef">petscconvergencemodule::petsc_check_convergence</a> (ksp, n, rnorm, flag, ctx_id, ierr)</td></tr>
+<tr class="memdesc:aedcc1aa8d353b15ae924bfb3f9cbd7ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Routine to check the convergence. This is called.  <a href="namespacepetscconvergencemodule.html#aedcc1aa8d353b15ae924bfb3f9cbd7ef">More...</a><br /></td></tr>
+<tr class="separator:aedcc1aa8d353b15ae924bfb3f9cbd7ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a2c5b5a1b695810de846587c9a623f825"><td class="memItemLeft" align="right" valign="top">type(listtype)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepetscconvergencemodule.html#a2c5b5a1b695810de846587c9a623f825">petscconvergencemodule::ctx_list</a></td></tr>
+<tr class="separator:a2c5b5a1b695810de846587c9a623f825"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -151,7 +161,7 @@ Functions/Subroutines</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_45e973df69963bbfe985a1f7e6db2b6f.html">Solution</a></li><li class="navelem"><a class="el" href="dir_2378c6c6283a07d1ba0912d62995a244.html">PETSc</a></li><li class="navelem"><a class="el" href="_petsc_convergence_8_f90.html">PetscConvergence.F90</a></li>
-    <li class="footer">Generated on Fri Mar 10 2023 12:06:26 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Mar 14 2023 07:20:02 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -26,6 +26,7 @@ var gwf3sfr8_8f90 =
     [ "sfr_cc", "gwf3sfr8_8f90.html#a19fcebfb4dc1f317beaf82d9bf5af7a4", null ],
     [ "sfr_cf", "gwf3sfr8_8f90.html#a9e647aebe799daa24b7fc145a1f425d9", null ],
     [ "sfr_check_connections", "gwf3sfr8_8f90.html#a72ae02795191b6875226f19aebd056ad", null ],
+    [ "sfr_check_conversion", "gwf3sfr8_8f90.html#ae92626453ada0b78e59c012bf8610b23", null ],
     [ "sfr_check_diversions", "gwf3sfr8_8f90.html#a4d8c519f90b35fd498f1006b22267c2c", null ],
     [ "sfr_check_reaches", "gwf3sfr8_8f90.html#a982f769cc3bd67789b08e3823384cafd", null ],
     [ "sfr_check_ustrf", "gwf3sfr8_8f90.html#a341aafee87310288ad4e23da535d9a27", null ],

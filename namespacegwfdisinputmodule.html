@@ -154,7 +154,7 @@ Variables</h2></td></tr>
 <tr class="separator:a0ede0825c402a9b19a88a825a6bbede7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af36108cc12dd8ab45f26f4e9f2638304"><td class="memItemLeft" align="right" valign="top">type(<a class="el" href="structinputdefinitionmodule_1_1inputparamdefinitiontype.html">inputparamdefinitiontype</a>), dimension(*), parameter, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfdisinputmodule.html#af36108cc12dd8ab45f26f4e9f2638304">gwf_dis_aggregate_definitions</a> = [ InputParamDefinitionType :: ]</td></tr>
 <tr class="separator:af36108cc12dd8ab45f26f4e9f2638304"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4696908f1b29bee9b7b3679b087ab38a"><td class="memItemLeft" align="right" valign="top">type(<a class="el" href="structinputdefinitionmodule_1_1inputblockdefinitiontype.html">inputblockdefinitiontype</a>), dimension(*), parameter, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfdisinputmodule.html#a4696908f1b29bee9b7b3679b087ab38a">gwf_dis_block_definitions</a> = [ InputBlockDefinitionType( 'OPTIONS', .false., .false. ), InputBlockDefinitionType( 'DIMENSIONS', .true., .false. ), InputBlockDefinitionType( 'GRIDDATA', .true., .false. ) ]</td></tr>
+<tr class="memitem:a4696908f1b29bee9b7b3679b087ab38a"><td class="memItemLeft" align="right" valign="top">type(<a class="el" href="structinputdefinitionmodule_1_1inputblockdefinitiontype.html">inputblockdefinitiontype</a>), dimension(*), parameter, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfdisinputmodule.html#a4696908f1b29bee9b7b3679b087ab38a">gwf_dis_block_definitions</a> = [ InputBlockDefinitionType( 'OPTIONS', .false., .false., .false. ), InputBlockDefinitionType( 'DIMENSIONS', .true., .false., .false. ), InputBlockDefinitionType( 'GRIDDATA', .true., .false., .false. ) ]</td></tr>
 <tr class="separator:a4696908f1b29bee9b7b3679b087ab38a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Variable Documentation</h2>
@@ -186,7 +186,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">type(<a class="el" href="structinputdefinitionmodule_1_1inputblockdefinitiontype.html">inputblockdefinitiontype</a>), dimension(*), parameter, public gwfdisinputmodule::gwf_dis_block_definitions = [ InputBlockDefinitionType( 'OPTIONS', .false., .false. ), InputBlockDefinitionType( 'DIMENSIONS', .true., .false. ), InputBlockDefinitionType( 'GRIDDATA', .true., .false. ) ]</td>
+          <td class="memname">type(<a class="el" href="structinputdefinitionmodule_1_1inputblockdefinitiontype.html">inputblockdefinitiontype</a>), dimension(*), parameter, public gwfdisinputmodule::gwf_dis_block_definitions = [ InputBlockDefinitionType( 'OPTIONS', .false., .false., .false. ), InputBlockDefinitionType( 'DIMENSIONS', .true., .false., .false. ), InputBlockDefinitionType( 'GRIDDATA', .true., .false., .false. ) ]</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -198,19 +198,22 @@ Variables</h2></td></tr>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    inputblockdefinitiontype( &amp;</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    <span class="stringliteral">&#39;OPTIONS&#39;</span>, &amp; <span class="comment">! blockname</span></div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    .false., &amp; <span class="comment">! required</span></div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    .false. &amp; <span class="comment">! aggregate</span></div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    ), &amp;</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    inputblockdefinitiontype( &amp;</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="stringliteral">&#39;DIMENSIONS&#39;</span>, &amp; <span class="comment">! blockname</span></div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    .true., &amp; <span class="comment">! required</span></div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    .false. &amp; <span class="comment">! aggregate</span></div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    ), &amp;</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    inputblockdefinitiontype( &amp;</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="stringliteral">&#39;GRIDDATA&#39;</span>, &amp; <span class="comment">! blockname</span></div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    .true., &amp; <span class="comment">! required</span></div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    .false. &amp; <span class="comment">! aggregate</span></div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    ) &amp;</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    ]</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    .false., &amp; <span class="comment">! aggregate</span></div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    .false. &amp; <span class="comment">! block_variable</span></div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    ), &amp;</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    inputblockdefinitiontype( &amp;</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="stringliteral">&#39;DIMENSIONS&#39;</span>, &amp; <span class="comment">! blockname</span></div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    .true., &amp; <span class="comment">! required</span></div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    .false., &amp; <span class="comment">! aggregate</span></div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    .false. &amp; <span class="comment">! block_variable</span></div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    ), &amp;</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    inputblockdefinitiontype( &amp;</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <span class="stringliteral">&#39;GRIDDATA&#39;</span>, &amp; <span class="comment">! blockname</span></div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    .true., &amp; <span class="comment">! required</span></div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    .false., &amp; <span class="comment">! aggregate</span></div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    .false. &amp; <span class="comment">! block_variable</span></div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    ) &amp;</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    ]</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -760,7 +763,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacegwfdisinputmodule.html">gwfdisinputmodule</a></li>
-    <li class="footer">Generated on Fri Mar 10 2023 12:06:27 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Mar 14 2023 07:20:02 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

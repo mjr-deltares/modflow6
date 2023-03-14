@@ -9,6 +9,7 @@ var structpetscsolvermodule_1_1petscsolvertype =
     [ "initialize", "structpetscsolvermodule_1_1petscsolvertype.html#a259eec277cf451824e54dbdeb4a044d3", null ],
     [ "print_vec", "structpetscsolvermodule_1_1petscsolvertype.html#ab443f70c46ef367284ece0e55d72a130", null ],
     [ "solve", "structpetscsolvermodule_1_1petscsolvertype.html#a7af02c9f975a70091d434ee03c9d0f40", null ],
+    [ "ctx_idx", "structpetscsolvermodule_1_1petscsolvertype.html#a657850abe0bec67f1ed881199b84dd15", null ],
     [ "dvclose", "structpetscsolvermodule_1_1petscsolvertype.html#a26aee08fa6d0c9bcc486f9cf9bad582b", null ],
     [ "is_converged", "structpetscsolvermodule_1_1petscsolvertype.html#aaae148e1350768fd809c46e293226398", null ],
     [ "iteration_number", "structpetscsolvermodule_1_1petscsolvertype.html#af702e1456f4c507e101691df69d9a475", null ],

@@ -144,7 +144,7 @@ Variables</h2></td></tr>
 <tr class="separator:a71b466c84606cf9bfd0ede24f4a8078a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f3d3a8c44447c6dfb42efc14cedb53c"><td class="memItemLeft" align="right" valign="top">type(<a class="el" href="structinputdefinitionmodule_1_1inputparamdefinitiontype.html">inputparamdefinitiontype</a>), dimension(*), parameter, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwtdspinputmodule.html#a5f3d3a8c44447c6dfb42efc14cedb53c">gwt_dsp_aggregate_definitions</a> = [ InputParamDefinitionType :: ]</td></tr>
 <tr class="separator:a5f3d3a8c44447c6dfb42efc14cedb53c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a31e372bac9a7ecbbdedee23a6637f8"><td class="memItemLeft" align="right" valign="top">type(<a class="el" href="structinputdefinitionmodule_1_1inputblockdefinitiontype.html">inputblockdefinitiontype</a>), dimension(*), parameter, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwtdspinputmodule.html#a8a31e372bac9a7ecbbdedee23a6637f8">gwt_dsp_block_definitions</a> = [ InputBlockDefinitionType( 'OPTIONS', .false., .false. ), InputBlockDefinitionType( 'GRIDDATA', .false., .false. ) ]</td></tr>
+<tr class="memitem:a8a31e372bac9a7ecbbdedee23a6637f8"><td class="memItemLeft" align="right" valign="top">type(<a class="el" href="structinputdefinitionmodule_1_1inputblockdefinitiontype.html">inputblockdefinitiontype</a>), dimension(*), parameter, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwtdspinputmodule.html#a8a31e372bac9a7ecbbdedee23a6637f8">gwt_dsp_block_definitions</a> = [ InputBlockDefinitionType( 'OPTIONS', .false., .false., .false. ), InputBlockDefinitionType( 'GRIDDATA', .false., .false., .false. ) ]</td></tr>
 <tr class="separator:a8a31e372bac9a7ecbbdedee23a6637f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Variable Documentation</h2>
@@ -176,7 +176,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">type(<a class="el" href="structinputdefinitionmodule_1_1inputblockdefinitiontype.html">inputblockdefinitiontype</a>), dimension(*), parameter, public gwtdspinputmodule::gwt_dsp_block_definitions = [ InputBlockDefinitionType( 'OPTIONS', .false., .false. ), InputBlockDefinitionType( 'GRIDDATA', .false., .false. ) ]</td>
+          <td class="memname">type(<a class="el" href="structinputdefinitionmodule_1_1inputblockdefinitiontype.html">inputblockdefinitiontype</a>), dimension(*), parameter, public gwtdspinputmodule::gwt_dsp_block_definitions = [ InputBlockDefinitionType( 'OPTIONS', .false., .false., .false. ), InputBlockDefinitionType( 'GRIDDATA', .false., .false., .false. ) ]</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -188,14 +188,16 @@ Variables</h2></td></tr>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    inputblockdefinitiontype( &amp;</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="stringliteral">&#39;OPTIONS&#39;</span>, &amp; <span class="comment">! blockname</span></div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    .false., &amp; <span class="comment">! required</span></div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    .false. &amp; <span class="comment">! aggregate</span></div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    ), &amp;</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    inputblockdefinitiontype( &amp;</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="stringliteral">&#39;GRIDDATA&#39;</span>, &amp; <span class="comment">! blockname</span></div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    .false., &amp; <span class="comment">! required</span></div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    .false. &amp; <span class="comment">! aggregate</span></div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    ) &amp;</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    ]</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    .false., &amp; <span class="comment">! aggregate</span></div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    .false. &amp; <span class="comment">! block_variable</span></div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    ), &amp;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    inputblockdefinitiontype( &amp;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="stringliteral">&#39;GRIDDATA&#39;</span>, &amp; <span class="comment">! blockname</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    .false., &amp; <span class="comment">! required</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    .false., &amp; <span class="comment">! aggregate</span></div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    .false. &amp; <span class="comment">! block_variable</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    ) &amp;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    ]</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -545,7 +547,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacegwtdspinputmodule.html">gwtdspinputmodule</a></li>
-    <li class="footer">Generated on Fri Mar 10 2023 12:06:28 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Mar 14 2023 07:20:03 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

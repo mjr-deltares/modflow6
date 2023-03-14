@@ -1,6 +1,0 @@
-<map id="modflowinputmodule::getmodflowinput" name="modflowinputmodule::getmodflowinput">
-<area shape="rect" id="node1" title="function to return ModflowInputType" alt="" coords="236,93,396,134"/>
-<area shape="rect" id="node2" href="$interfaceloadmf6filetypemodule_1_1idm__load.html#afbaa6249ac8f975bd274b74c0f33471e" title="procedure to load a file" alt="" coords="9,5,184,61"/>
-<area shape="rect" id="node3" href="$interfaceidmmf6fileloadermodule_1_1input__load.html#a9a38650fac749aaaf183c6abc8e961be" title="main entry to mf6 input load" alt="" coords="5,85,188,141"/>
-<area shape="rect" id="node4" href="$interfaceidmmf6fileloadermodule_1_1input__load.html#af783d4b7242be642aaadb2e646da1d58" title="main entry to mf6 input load" alt="" coords="5,165,188,221"/>
-</map>

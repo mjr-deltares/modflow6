@@ -1,6 +1,7 @@
 <map id="simmodule::get_filename" name="simmodule::get_filename">
-<area shape="rect" id="node1" title="Get the file name." alt="" coords="503,35,691,61"/>
-<area shape="rect" id="node2" href="$namespacesimmodule.html#a6c8d05246b2eddf358b9f81a147ebdd8" title="Store deprecation warning message." alt="" coords="275,27,455,69"/>
+<area shape="rect" id="node1" title="Get the file name." alt="" coords="503,56,691,83"/>
+<area shape="rect" id="node2" href="$namespacesimmodule.html#a6c8d05246b2eddf358b9f81a147ebdd8" title="Store deprecation warning message." alt="" coords="275,49,455,90"/>
 <area shape="rect" id="node3" href="$namespaceimslinearmodule.html#adc53fde85ec8778e18693bf25c20a75d" title="@ brief Allocate storage and read data" alt="" coords="5,5,227,32"/>
-<area shape="rect" id="node4" href="$namespacenumericalsolutionmodule.html#abe804dcafea9bef2ef528e68475ac3ec" title="@ brief Allocate and read data" alt="" coords="22,57,210,98"/>
+<area shape="rect" id="node4" href="$namespacesfrmodule.html#a6ba3494107dd3b9909fc6dcefb4468e9" title="@ brief Read additional options for package" alt="" coords="32,56,200,83"/>
+<area shape="rect" id="node5" href="$namespacenumericalsolutionmodule.html#abe804dcafea9bef2ef528e68475ac3ec" title="@ brief Allocate and read data" alt="" coords="22,107,210,149"/>
 </map>

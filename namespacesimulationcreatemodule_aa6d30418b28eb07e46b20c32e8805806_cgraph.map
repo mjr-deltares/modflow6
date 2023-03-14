@@ -1,19 +1,25 @@
 <map id="simulationcreatemodule::solution_groups_create" name="simulationcreatemodule::solution_groups_create">
-<area shape="rect" id="node1" title="Set the solution_groups to be used for the simulation." alt="" coords="5,298,187,339"/>
-<area shape="rect" id="node2" href="$namespacesolutionfactorymodule.html#a1976b31eb3bae12786b11bf9e96d2044" title="Create an IMS solution of type NumericalSolution for serial runs or its sub&#45;type ParallelSolution for..." alt="" coords="235,142,404,183"/>
-<area shape="rect" id="node7" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="1136,172,1311,199"/>
-<area shape="rect" id="node17" href="$namespacesolutiongroupmodule.html#a80234e288af53849ccc1c4582e6e6f08" title=" " alt="" coords="236,357,403,398"/>
-<area shape="rect" id="node3" href="$namespacenumericalsolutionmodule.html#af0f9292c3c93f6766b8d875687e22069" title="@ brief Create a new solution" alt="" coords="452,142,655,183"/>
-<area shape="rect" id="node8" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="1359,83,1497,109"/>
-<area shape="rect" id="node4" href="$namespacebasesolutionmodule.html#a325c28d7b2f545c1febe4491f9dcc811" title=" " alt="" coords="703,109,873,150"/>
-<area shape="rect" id="node5" href="$namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d" title="returns the path to the memory object" alt="" coords="705,239,871,281"/>
-<area shape="rect" id="node13" href="$namespaceinputoutputmodule.html#a535bdfca3d31ebc3a8e4bd5af6890d55" title="Get a free unit number." alt="" coords="711,174,865,215"/>
-<area shape="rect" id="node15" href="$namespaceinputoutputmodule.html#ae97851e3edae8d9809e384058a1a4d52" title="Open a file." alt="" coords="711,43,865,85"/>
-<area shape="rect" id="node6" href="$namespacememoryhelpermodule.html#a5405f58247a0962e5449ebc1e4dcff0f" title="Generic routine to check the length of (parts of) the memory address." alt="" coords="921,237,1088,278"/>
-<area shape="rect" id="node9" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="1545,42,1713,83"/>
-<area shape="rect" id="node12" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="1545,107,1713,149"/>
-<area shape="rect" id="node10" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="1761,20,1956,47"/>
-<area shape="rect" id="node11" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1775,71,1943,113"/>
-<area shape="rect" id="node14" href="$namespaceinputoutputmodule.html#ac5134655c31ac9beeb4688f504efd801" title="Assign a free unopened unit number." alt="" coords="927,165,1082,206"/>
-<area shape="rect" id="node16" href="$namespaceinputoutputmodule.html#a8290bae8ca0756e38ce13459dfebe985" title="Convert to upper case." alt="" coords="927,43,1082,85"/>
+<area shape="rect" id="node1" title="Set the solution_groups to be used for the simulation." alt="" coords="5,154,187,195"/>
+<area shape="rect" id="node2" href="$namespacesolutionfactorymodule.html#a1976b31eb3bae12786b11bf9e96d2044" title="Create an IMS solution of type NumericalSolution for serial runs or its sub&#45;type ParallelSolution for..." alt="" coords="235,213,404,254"/>
+<area shape="rect" id="node5" href="$namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d" title="returns the path to the memory object" alt="" coords="705,95,871,137"/>
+<area shape="rect" id="node7" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="1152,165,1327,192"/>
+<area shape="rect" id="node16" href="$namespaceinputoutputmodule.html#a8290bae8ca0756e38ce13459dfebe985" title="Convert to upper case." alt="" coords="927,161,1082,202"/>
+<area shape="rect" id="node17" href="$namespaceinputoutputmodule.html#a6c54d102f5c67defd36241a197a7ca56" title=" " alt="" coords="476,461,631,502"/>
+<area shape="rect" id="node22" href="$namespacesimulationcreatemodule.html#af22243294eccf197fcc67a3ec44aa613" title="Check a solution_group to be used for the simulation." alt="" coords="463,45,644,86"/>
+<area shape="rect" id="node23" href="$namespacesolutiongroupmodule.html#a80234e288af53849ccc1c4582e6e6f08" title=" " alt="" coords="236,330,403,371"/>
+<area shape="rect" id="node3" href="$namespacenumericalsolutionmodule.html#af0f9292c3c93f6766b8d875687e22069" title="@ brief Create a new solution" alt="" coords="452,213,655,254"/>
+<area shape="rect" id="node8" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="1391,432,1529,459"/>
+<area shape="rect" id="node4" href="$namespacebasesolutionmodule.html#a325c28d7b2f545c1febe4491f9dcc811" title=" " alt="" coords="703,343,873,385"/>
+<area shape="rect" id="node13" href="$namespaceinputoutputmodule.html#a535bdfca3d31ebc3a8e4bd5af6890d55" title="Get a free unit number." alt="" coords="711,278,865,319"/>
+<area shape="rect" id="node15" href="$namespaceinputoutputmodule.html#ae97851e3edae8d9809e384058a1a4d52" title="Open a file." alt="" coords="711,213,865,254"/>
+<area shape="rect" id="node6" href="$namespacememoryhelpermodule.html#a5405f58247a0962e5449ebc1e4dcff0f" title="Generic routine to check the length of (parts of) the memory address." alt="" coords="921,95,1088,137"/>
+<area shape="rect" id="node9" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="1577,425,1745,466"/>
+<area shape="rect" id="node12" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="1577,490,1745,531"/>
+<area shape="rect" id="node10" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="1793,432,1988,459"/>
+<area shape="rect" id="node11" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1807,515,1975,557"/>
+<area shape="rect" id="node14" href="$namespaceinputoutputmodule.html#ac5134655c31ac9beeb4688f504efd801" title="Assign a free unopened unit number." alt="" coords="927,278,1082,319"/>
+<area shape="rect" id="node18" href="$namespaceinputoutputmodule.html#a87643079f91094dcead5dcc634ce1b4d" title="Get the number of words in a string." alt="" coords="711,515,865,557"/>
+<area shape="rect" id="node19" href="$namespaceinputoutputmodule.html#a653efe7e8a111c5e477fea26e0b04fe5" title="Extract a word from a string." alt="" coords="927,490,1082,531"/>
+<area shape="rect" id="node20" href="$namespaceinputoutputmodule.html#a5d0681efcccbea67f1d521a6729cbb4f" title="Convert to lower case." alt="" coords="1162,511,1317,553"/>
+<area shape="rect" id="node21" href="$namespacesimmodule.html#a83910ed20af1fec9bdf46cad8c276538" title="Store the file unit number." alt="" coords="1136,460,1343,487"/>
 </map>

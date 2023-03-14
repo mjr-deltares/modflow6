@@ -122,8 +122,6 @@ $(document).ready(function(){initNavTree('namespaceidmmf6fileloadermodule.html',
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Types</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceidmmf6fileloadermodule_1_1input__load.html">input_load</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structidmmf6fileloadermodule_1_1packageload.html">packageload</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">derived type for storing package loader  <a href="structidmmf6fileloadermodule_1_1packageload.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -135,12 +133,9 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a4538adc2bc36308a6b195a162aa74998"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceidmmf6fileloadermodule.html#a4538adc2bc36308a6b195a162aa74998">generic_mf6_load</a> (parser, mf6_input, iout)</td></tr>
 <tr class="memdesc:a4538adc2bc36308a6b195a162aa74998"><td class="mdescLeft">&#160;</td><td class="mdescRight">generic procedure to MODFLOW 6 load routine  <a href="namespaceidmmf6fileloadermodule.html#a4538adc2bc36308a6b195a162aa74998">More...</a><br /></td></tr>
 <tr class="separator:a4538adc2bc36308a6b195a162aa74998"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff1a84b395b8d71da3b0fc893c58b95e"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceidmmf6fileloadermodule.html#aff1a84b395b8d71da3b0fc893c58b95e">input_load_blockparser</a> (parser, filetype, component_type, subcomponent_type, component_name, subcomponent_name, iout)</td></tr>
-<tr class="memdesc:aff1a84b395b8d71da3b0fc893c58b95e"><td class="mdescLeft">&#160;</td><td class="mdescRight">main entry to mf6 input load  <a href="namespaceidmmf6fileloadermodule.html#aff1a84b395b8d71da3b0fc893c58b95e">More...</a><br /></td></tr>
-<tr class="separator:aff1a84b395b8d71da3b0fc893c58b95e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5bf7fbfe9260d49df6fb4a59c7b3fcc"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceidmmf6fileloadermodule.html#ab5bf7fbfe9260d49df6fb4a59c7b3fcc">input_load_generic</a> (filetype, component_type, subcomponent_type, component_name, subcomponent_name, inunit, iout)</td></tr>
-<tr class="memdesc:ab5bf7fbfe9260d49df6fb4a59c7b3fcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">main entry to mf6 input load  <a href="namespaceidmmf6fileloadermodule.html#ab5bf7fbfe9260d49df6fb4a59c7b3fcc">More...</a><br /></td></tr>
-<tr class="separator:ab5bf7fbfe9260d49df6fb4a59c7b3fcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a585aac4e43d78c87a524ff1ec9f39b49"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceidmmf6fileloadermodule.html#a585aac4e43d78c87a524ff1ec9f39b49">input_load</a> (pkgtype, component_type, subcomponent_type, component_name, subcomponent_name, inunit, iout)</td></tr>
+<tr class="memdesc:a585aac4e43d78c87a524ff1ec9f39b49"><td class="mdescLeft">&#160;</td><td class="mdescRight">input load for traditional mf6 simulation input file  <a href="namespaceidmmf6fileloadermodule.html#a585aac4e43d78c87a524ff1ec9f39b49">More...</a><br /></td></tr>
+<tr class="separator:a585aac4e43d78c87a524ff1ec9f39b49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This module contains the high-level routines for loading a MODFLOW input file into the <b>INPUT</b> memory manager space. </p>
@@ -185,143 +180,120 @@ Functions/Subroutines</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_idm_mf6_file_loader_8f90_source.html#l00049">49</a> of file <a class="el" href="_idm_mf6_file_loader_8f90_source.html">IdmMf6FileLoader.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceloadmf6filetypemodule.html">loadmf6filetypemodule</a>, <span class="keywordtype">only</span>: <a class="code" href="interfaceloadmf6filetypemodule_1_1idm__load.html">idm_load</a></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">type</span>(BlockParserType), <span class="keywordtype">intent(inout)</span> :: parser<span class="comment"> !&lt; block parser</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">type</span>(ModflowInputType), <span class="keywordtype">intent(in)</span> :: mf6_input<span class="comment"> !&lt; ModflowInputType object that describes the input</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: iout<span class="comment"> !&lt; unit number for output</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">call </span><a class="code" href="interfaceloadmf6filetypemodule_1_1idm__load.html">idm_load</a>(parser, mf6_input%file_type, &amp;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                  mf6_input%component_type, mf6_input%subcomponent_type, &amp;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                  mf6_input%component_name, mf6_input%subcomponent_name, &amp;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                  iout)</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="ttc" id="ainterfaceloadmf6filetypemodule_1_1idm__load_html"><div class="ttname"><a href="interfaceloadmf6filetypemodule_1_1idm__load.html">loadmf6filetypemodule::idm_load</a></div><div class="ttdef"><b>Definition:</b> <a href="_load_mf6_file_type_8f90_source.html#l00038">LoadMf6FileType.f90:38</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_idm_mf6_file_loader_8f90_source.html#l00045">45</a> of file <a class="el" href="_idm_mf6_file_loader_8f90_source.html">IdmMf6FileLoader.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceloadmf6filetypemodule.html">loadmf6filetypemodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceloadmf6filetypemodule.html#a30d624422e532a91ef70fb5f1703a97f">idm_load</a></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">type</span>(BlockParserType), <span class="keywordtype">intent(inout)</span> :: parser<span class="comment"> !&lt; block parser</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">type</span>(ModflowInputType), <span class="keywordtype">intent(in)</span> :: mf6_input<span class="comment"> !&lt; ModflowInputType object that describes the input</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: iout<span class="comment"> !&lt; unit number for output</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">call </span><a class="code" href="namespaceloadmf6filetypemodule.html#a30d624422e532a91ef70fb5f1703a97f">idm_load</a>(parser, mf6_input%pkgtype, &amp;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                  mf6_input%component_type, mf6_input%subcomponent_type, &amp;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                  mf6_input%component_name, mf6_input%subcomponent_name, &amp;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                  iout)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
 <div class="ttc" id="anamespaceloadmf6filetypemodule_html"><div class="ttname"><a href="namespaceloadmf6filetypemodule.html">loadmf6filetypemodule</a></div><div class="ttdoc">This module contains the LoadMf6FileTypeModule.</div><div class="ttdef"><b>Definition:</b> <a href="_load_mf6_file_type_8f90_source.html#l00008">LoadMf6FileType.f90:8</a></div></div>
+<div class="ttc" id="anamespaceloadmf6filetypemodule_html_a30d624422e532a91ef70fb5f1703a97f"><div class="ttname"><a href="namespaceloadmf6filetypemodule.html#a30d624422e532a91ef70fb5f1703a97f">loadmf6filetypemodule::idm_load</a></div><div class="ttdeci">subroutine, public idm_load(parser, pkgtype, component_type, subcomponent_type, component_name, subcomponent_name, iout)</div><div class="ttdoc">procedure to load a file</div><div class="ttdef"><b>Definition:</b> <a href="_load_mf6_file_type_8f90_source.html#l00046">LoadMf6FileType.f90:50</a></div></div>
 </div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceidmmf6fileloadermodule_a4538adc2bc36308a6b195a162aa74998_cgraph.png" border="0" usemap="#anamespaceidmmf6fileloadermodule_a4538adc2bc36308a6b195a162aa74998_cgraph" alt=""/></div>
+<map name="anamespaceidmmf6fileloadermodule_a4538adc2bc36308a6b195a162aa74998_cgraph" id="anamespaceidmmf6fileloadermodule_a4538adc2bc36308a6b195a162aa74998_cgraph">
+<area shape="rect" title="generic procedure to MODFLOW 6 load routine" alt="" coords="5,217,188,259"/>
+<area shape="rect" href="namespaceloadmf6filetypemodule.html#a30d624422e532a91ef70fb5f1703a97f" title="procedure to load a file" alt="" coords="236,217,411,259"/>
+<area shape="rect" href="namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d" title="returns the path to the memory object" alt="" coords="707,5,873,47"/>
+<area shape="rect" href="namespacemodflowinputmodule.html#a3e33a9d3121d016a43b66788a5713e29" title="function to return ModflowInputType" alt="" coords="466,119,626,160"/>
+<area shape="rect" href="namespaceidmloggermodule.html#a3ae23224a91eb891281be25f0dfb4ed9" title="@ brief log the closing message" alt="" coords="461,184,631,225"/>
+<area shape="rect" href="namespaceidmloggermodule.html#aa48192a1f714a8aa43d94c4af8b89e77" title="@ brief log a header message" alt="" coords="461,249,631,291"/>
+<area shape="rect" href="namespaceloadmf6filetypemodule.html#aa4d6603c1b892bd38b10fb075999d67c" title="procedure to load a block" alt="" coords="459,513,633,555"/>
+<area shape="rect" href="namespaceloadmf6filetypemodule.html#af8bd63043633225e1d1b5e76592e778c" title="routine for setting the model shape" alt="" coords="459,315,633,356"/>
+<area shape="rect" href="namespacememoryhelpermodule.html#a5405f58247a0962e5449ebc1e4dcff0f" title="Generic routine to check the length of (parts of) the memory address." alt="" coords="1721,97,1888,139"/>
+<area shape="rect" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="2212,419,2387,446"/>
+<area shape="rect" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="2435,419,2573,446"/>
+<area shape="rect" href="namespaceinputdefinitionselectormodule.html#ab8ebde38144032fc3952adf69b827bb9" title="Return the aggregate definition for the specified component." alt="" coords="681,136,899,177"/>
+<area shape="rect" href="namespaceinputdefinitionselectormodule.html#a8ab069214dc850a78faea381dc54bdd0" title="Return the block definition for the specified component." alt="" coords="681,71,899,112"/>
+<area shape="rect" href="namespaceinputdefinitionselectormodule.html#ac33654eccb12a34d5fa0b5a4db389190" title="Return the parameter definition for the specified component." alt="" coords="681,201,899,243"/>
+<area shape="rect" href="namespaceinputdefinitionselectormodule.html#a44b6a05b842caa71e6889f9c03e43690" title="Set pointer from input_definition to input_definition_target." alt="" coords="947,185,1164,227"/>
+<area shape="rect" href="namespacesimmodule.html#a0c10520244b0246773a188954a67ec9e" title="Store warning message." alt="" coords="958,134,1153,161"/>
+<area shape="rect" href="namespaceinputdefinitionselectormodule.html#a865b8495efc8f153683253f4e3595f30" title="Set pointer from input_definition to input_definition_target." alt="" coords="947,68,1164,109"/>
+<area shape="rect" href="namespacememorymanagermodule.html#a8e6f199b7218d6ec1ab68f383cb6e20f" title="@ brief Get a memory type entry from the memory list" alt="" coords="698,315,882,356"/>
+<area shape="rect" href="namespaceloadmf6filetypemodule.html#a6b3b721405277cbcd657a7719c139564" title="parse a structured array record into memory manager" alt="" coords="1217,1355,1403,1396"/>
+<area shape="rect" href="namespaceloadmf6filetypemodule.html#a6ca43ebf44faeb4586e8ad98a215a07c" title="load an individual input record into memory" alt="" coords="703,652,877,693"/>
+<area shape="rect" href="namespacestructarraymodule.html#afb8dea58c18e29979e0169e4d78a16fd" title="constructor for a struct_array" alt="" coords="1488,1420,1641,1461"/>
+<area shape="rect" href="namespacestructarraymodule.html#aeb732b5f0362eb6246448f981611ea72" title="destructor for a struct_array" alt="" coords="1489,1303,1640,1344"/>
+<area shape="rect" href="namespaceinputdefinitionselectormodule.html#a0a3675f2a9c4e08f5b96a43cc6d99b34" title="Return aggregate definition." alt="" coords="1936,1248,2164,1289"/>
+<area shape="rect" href="namespaceinputdefinitionselectormodule.html#a7bc93f0cec4aed6041816aa646e86c05" title="Return parameter definition." alt="" coords="1456,1237,1673,1279"/>
+<area shape="rect" href="namespaceinputoutputmodule.html#a6c54d102f5c67defd36241a197a7ca56" title=" " alt="" coords="1487,887,1642,928"/>
+<area shape="rect" href="namespaceinputoutputmodule.html#a87643079f91094dcead5dcc634ce1b4d" title="Get the number of words in a string." alt="" coords="1727,828,1882,869"/>
+<area shape="rect" href="namespaceinputoutputmodule.html#a653efe7e8a111c5e477fea26e0b04fe5" title="Extract a word from a string." alt="" coords="1973,828,2127,869"/>
+<area shape="rect" href="namespaceloadmf6filetypemodule.html#a945dfddae6315610132b2ec2509d9cae" title="load type 1d double" alt="" coords="968,821,1143,863"/>
+<area shape="rect" href="namespaceloadmf6filetypemodule.html#ab2be15e521b4ab2c4204cdc9c5ecb1b2" title="load type 2d double" alt="" coords="968,887,1143,928"/>
+<area shape="rect" href="namespaceloadmf6filetypemodule.html#adb320ab5679505058aa4fc4eab2d6221" title="load type 3d double" alt="" coords="968,952,1143,993"/>
+<area shape="rect" href="namespaceloadmf6filetypemodule.html#a31e7caa91d515b95ac0d47c87d0e6170" title="load type double" alt="" coords="968,1017,1143,1059"/>
+<area shape="rect" href="namespaceloadmf6filetypemodule.html#a379d88fde8b32b156962aee62fa760e4" title="load type 1d integer" alt="" coords="968,756,1143,797"/>
+<area shape="rect" href="namespaceloadmf6filetypemodule.html#a50c45228fbaa4aa631081494b9dafdca" title="load type 2d integer" alt="" coords="968,684,1143,725"/>
+<area shape="rect" href="namespaceloadmf6filetypemodule.html#a47010583dff4a200c99919d07977dd9b" title="load type 3d integer" alt="" coords="968,619,1143,660"/>
+<area shape="rect" href="namespaceloadmf6filetypemodule.html#ab67313058dbe91c9ad02d1303b8a6254" title="load type integer" alt="" coords="968,425,1143,467"/>
+<area shape="rect" href="namespaceloadmf6filetypemodule.html#a1dcd2f0f9858d3f87c34319e4c75b432" title="load type keyword" alt="" coords="968,491,1143,532"/>
+<area shape="rect" href="namespaceloadmf6filetypemodule.html#aa9533e1eb1ea965e2a3157102323e3f3" title="load type string" alt="" coords="1223,353,1397,395"/>
+<area shape="rect" href="namespaceloadmf6filetypemodule.html#a0f4434aa1e326498705a989853b471c6" title=" " alt="" coords="968,308,1143,349"/>
+<area shape="rect" href="namespaceloadmf6filetypemodule.html#a807ce05bf7824404ea8b028bbd4381d8" title=" " alt="" coords="1223,821,1397,863"/>
+<area shape="rect" href="namespaceloadmf6filetypemodule.html#a2c3cf3591c9f724af17ffe7a1517ad54" title=" " alt="" coords="1221,887,1399,928"/>
+<area shape="rect" href="namespacedouble1dreadermodule.html#aa3da25f20852f65dee07eb92cf36d070" title=" " alt="" coords="1478,1036,1651,1077"/>
+<area shape="rect" href="namespacelayeredarrayreadermodule.html#a3ebfdf4b7a90f89d93136644234c6650" title=" " alt="" coords="1212,1004,1408,1045"/>
+<area shape="rect" href="namespacedouble2dreadermodule.html#a022351b870ed9506264535467d4ddd70" title=" " alt="" coords="1478,1172,1651,1213"/>
+<area shape="rect" href="namespacelayeredarrayreadermodule.html#a89c3087a54ba5406bd1c7a51e6e317df" title=" " alt="" coords="1212,1069,1408,1111"/>
+<area shape="rect" href="namespacelayeredarrayreadermodule.html#ac7eb1a68c5421322e13bf3702ce06def" title=" " alt="" coords="1212,1237,1408,1279"/>
+<area shape="rect" href="namespaceinteger1dreadermodule.html#acc243bb5020cfcc72ccd07bcc7006f40" title=" " alt="" coords="1477,672,1652,713"/>
+<area shape="rect" href="namespacelayeredarrayreadermodule.html#a2ab43880e54ddd6526effa77ef338847" title=" " alt="" coords="1212,704,1408,745"/>
+<area shape="rect" href="namespaceinteger2dreadermodule.html#a09e2e62bc322433fec4dfe96060bf3c6" title=" " alt="" coords="1477,529,1652,571"/>
+<area shape="rect" href="namespacelayeredarrayreadermodule.html#ad4389563f47d3a6ef35ca053ab2984f3" title=" " alt="" coords="1212,639,1408,680"/>
+<area shape="rect" href="namespacelayeredarrayreadermodule.html#ac30fec78e9fb7731b2751783ee6bde5e" title=" " alt="" coords="1212,471,1408,512"/>
+</map>
+</div>
+<div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespaceidmmf6fileloadermodule_a4538adc2bc36308a6b195a162aa74998_icgraph.png" border="0" usemap="#anamespaceidmmf6fileloadermodule_a4538adc2bc36308a6b195a162aa74998_icgraph" alt=""/></div>
 <map name="anamespaceidmmf6fileloadermodule_a4538adc2bc36308a6b195a162aa74998_icgraph" id="anamespaceidmmf6fileloadermodule_a4538adc2bc36308a6b195a162aa74998_icgraph">
-<area shape="rect" title="generic procedure to MODFLOW 6 load routine" alt="" coords="236,53,419,94"/>
-<area shape="rect" href="interfaceidmmf6fileloadermodule_1_1input__load.html#a9a38650fac749aaaf183c6abc8e961be" title="main entry to mf6 input load" alt="" coords="5,5,188,61"/>
-<area shape="rect" href="interfaceidmmf6fileloadermodule_1_1input__load.html#af783d4b7242be642aaadb2e646da1d58" title="main entry to mf6 input load" alt="" coords="5,85,188,141"/>
+<area shape="rect" title="generic procedure to MODFLOW 6 load routine" alt="" coords="1983,201,2165,242"/>
+<area shape="rect" href="namespaceidmmf6fileloadermodule.html#a585aac4e43d78c87a524ff1ec9f39b49" title="input load for traditional mf6 simulation input file" alt="" coords="1752,201,1935,242"/>
+<area shape="rect" href="namespacegwfdismodule.html#a9222ac487b748af9411a41d49a011ec8" title=" " alt="" coords="1535,56,1695,83"/>
+<area shape="rect" href="namespacegwfdisumodule.html#a67d8cf4775770e7251d1207669a219f9" title=" " alt="" coords="1527,157,1703,184"/>
+<area shape="rect" href="namespacegwfdisvmodule.html#a34be39910f2ea98503e299531ab27542" title=" " alt="" coords="1527,5,1703,32"/>
+<area shape="rect" href="namespacegwtdspmodule.html#a1025fe40ad98520c0d26e25f792b4df3" title=" " alt="" coords="1531,208,1699,235"/>
+<area shape="rect" href="namespacegwfmodule.html#ad4aafc2c26f55935aa145f47571f79bf" title="Load input context for supported package." alt="" coords="1534,325,1697,366"/>
+<area shape="rect" href="namespacegwtmodule.html#a1fdfa6fd840ad673726568242a968742" title="Load input context for supported package." alt="" coords="1534,390,1697,431"/>
+<area shape="rect" href="namespacenumericalmodelmodule.html#a0636c71d6108851b6c4f46cdc20898d4" title="Load input context for supported package." alt="" coords="1527,455,1704,497"/>
+<area shape="rect" href="namespacegwfnpfmodule.html#ab369813a4f2a00c7cc7eec2a4cbbc2d4" title=" " alt="" coords="1533,107,1697,133"/>
+<area shape="rect" href="namespaceidmsimulationmodule.html#a7f1922da3afd870b788436b6333d5c87" title="MODFLOW 6 mfsim.nam input load routine." alt="" coords="1533,259,1698,301"/>
+<area shape="rect" href="namespacegwfmodule.html#a0cb07c0232ce3627b9120eb42e7e164f" title="Create a new groundwater flow model object." alt="" coords="1308,33,1455,60"/>
+<area shape="rect" href="namespacegwtmodule.html#ad4f6eefd4112176d49bd99d8944bdef3" title=" " alt="" coords="1308,84,1455,111"/>
+<area shape="rect" href="namespacesimulationcreatemodule.html#a0043d2fa8d8b96e41e5e0fdfecaadae7" title="Set the models to be used for the simulation." alt="" coords="1055,77,1236,118"/>
+<area shape="rect" href="namespacesimulationcreatemodule.html#a812a26909f2491fa8fe05d1585bd1728" title="Source the simulation name file." alt="" coords="821,107,1007,149"/>
+<area shape="rect" href="namespacesimulationcreatemodule.html#afcbe0fd3c140a3ba4f0a5409e5dc8781" title="Read the simulation name file and initialize the models, exchanges." alt="" coords="592,138,773,179"/>
+<area shape="rect" href="namespacemf6coremodule.html#aa847da5116e01f4fad8885b0c4f96757" title="Initialize a simulation." alt="" coords="329,176,544,203"/>
+<area shape="rect" href="namespacemf6bmi.html#aa886df822e4ea66c30a97a9060da5de8" title="Initialize the computational core." alt="" coords="107,151,276,177"/>
+<area shape="rect" href="namespacemf6coremodule.html#a207819c711610066af1b83ec2a8efef0" title="Main controller." alt="" coords="101,201,281,228"/>
+<area shape="rect" href="mf6_8f90.html#aa95bf577752f92b917375902bbb13863" title="MODFLOW 6 main entry point." alt="" coords="5,201,53,228"/>
+<area shape="rect" href="namespacegwfinterfacemodelmodule.html#a3a10d1462f3b13cb9dfff3831a24c9ac" title="set up the interface model, analogously to what" alt="" coords="1285,135,1478,177"/>
+<area shape="rect" href="namespacegwtinterfacemodelmodule.html#ada68ea42046fb1af9fbae3faf24bfc38" title="Create the interface model, analogously to what." alt="" coords="1284,201,1479,242"/>
+<area shape="rect" href="namespacemf6coremodule.html#a3a6232615cb313d2887d936bc2edcd0a" title="Create simulation input context." alt="" coords="1061,201,1230,242"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="aff1a84b395b8d71da3b0fc893c58b95e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aff1a84b395b8d71da3b0fc893c58b95e">&#9670;&nbsp;</a></span>input_load_blockparser()</h2>
+<a id="a585aac4e43d78c87a524ff1ec9f39b49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a585aac4e43d78c87a524ff1ec9f39b49">&#9670;&nbsp;</a></span>input_load()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">subroutine idmmf6fileloadermodule::input_load_blockparser </td>
-          <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structblockparsermodule_1_1blockparsertype.html">blockparsertype</a>), intent(inout)&#160;</td>
-          <td class="paramname"><em>parser</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">character(len=*), intent(in)&#160;</td>
-          <td class="paramname"><em>filetype</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">character(len=*), intent(in)&#160;</td>
-          <td class="paramname"><em>component_type</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">character(len=*), intent(in)&#160;</td>
-          <td class="paramname"><em>subcomponent_type</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">character(len=*), intent(in)&#160;</td>
-          <td class="paramname"><em>component_name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">character(len=*), intent(in)&#160;</td>
-          <td class="paramname"><em>subcomponent_name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer(i4b), intent(in)&#160;</td>
-          <td class="paramname"><em>iout</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">parser</td><td>block parser </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">filetype</td><td>file type to load, such as DIS6, DISV6, NPF6 </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">component_type</td><td>component type, such as GWF or GWT </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">subcomponent_type</td><td>subcomponent type, such as DIS or NPF </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">component_name</td><td>component name, such as MYGWFMODEL </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">subcomponent_name</td><td>subcomponent name, such as MYWELLPACKAGE </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">iout</td><td>unit number for output </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="_idm_mf6_file_loader_8f90_source.html#l00064">64</a> of file <a class="el" href="_idm_mf6_file_loader_8f90_source.html">IdmMf6FileLoader.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">type</span>(BlockParserType), <span class="keywordtype">intent(inout)</span> :: parser<span class="comment"> !&lt; block parser</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: filetype<span class="comment"> !&lt; file type to load, such as DIS6, DISV6, NPF6</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: component_type<span class="comment"> !&lt; component type, such as GWF or GWT</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: subcomponent_type<span class="comment"> !&lt; subcomponent type, such as DIS or NPF</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: component_name<span class="comment"> !&lt; component name, such as MYGWFMODEL</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: subcomponent_name<span class="comment"> !&lt; subcomponent name, such as MYWELLPACKAGE</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: iout<span class="comment"> !&lt; unit number for output</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">type</span>(ModflowInputType) :: mf6_input</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">type</span>(PackageLoad) :: pkgloader</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    mf6_input = getmodflowinput(filetype, component_type, &amp;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                                subcomponent_type, component_name, &amp;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                                subcomponent_name)</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="comment">! -- set mf6 parser based package loader by file type</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">select case</span> (filetype)</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keywordflow">    case default</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;      pkgloader%load_package =&gt; generic_mf6_load</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keywordflow">    end select</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="comment">! -- invoke the selected load routine</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">call </span>pkgloader%load_package(parser, mf6_input, iout)</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="comment">! -- return</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">return</span></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="ab5bf7fbfe9260d49df6fb4a59c7b3fcc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab5bf7fbfe9260d49df6fb4a59c7b3fcc">&#9670;&nbsp;</a></span>input_load_generic()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine idmmf6fileloadermodule::input_load_generic </td>
+          <td class="memname">subroutine, public idmmf6fileloadermodule::input_load </td>
           <td>(</td>
           <td class="paramtype">character(len=*), intent(in)&#160;</td>
-          <td class="paramname"><em>filetype</em>, </td>
+          <td class="paramname"><em>pkgtype</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -365,15 +337,10 @@ Here is the caller graph for this function:</div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">filetype</td><td>file type to load, such as DIS6, DISV6, NPF6 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pkgtype</td><td>pkgtype to load, such as DIS6, DISV6, NPF6 </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">component_type</td><td>component type, such as GWF or GWT </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">subcomponent_type</td><td>subcomponent type, such as DIS or NPF </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">component_name</td><td>component name, such as MYGWFMODEL </td></tr>
@@ -384,40 +351,129 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_idm_mf6_file_loader_8f90_source.html#l00097">97</a> of file <a class="el" href="_idm_mf6_file_loader_8f90_source.html">IdmMf6FileLoader.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: filetype<span class="comment"> !&lt; file type to load, such as DIS6, DISV6, NPF6</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: component_type<span class="comment"> !&lt; component type, such as GWF or GWT</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: subcomponent_type<span class="comment"> !&lt; subcomponent type, such as DIS or NPF</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: component_name<span class="comment"> !&lt; component name, such as MYGWFMODEL</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: subcomponent_name<span class="comment"> !&lt; subcomponent name, such as MYWELLPACKAGE</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: inunit<span class="comment"> !&lt; unit number for input</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: iout<span class="comment"> !&lt; unit number for output</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">type</span>(BlockParserType), <span class="keywordtype">allocatable</span> :: parser<span class="comment"> !&lt; block parser</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordtype">type</span>(ModflowInputType) :: mf6_input</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordtype">type</span>(PackageLoad) :: pkgloader</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="comment">! -- create description of input</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    mf6_input = getmodflowinput(filetype, component_type, &amp;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                                subcomponent_type, component_name, &amp;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                                subcomponent_name)</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="comment">! -- set mf6 parser based package loader by file type</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordflow">select case</span> (filetype)</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="keywordflow">    case default</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;      <span class="keyword">allocate</span> (parser)</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;      <span class="keyword">call </span>parser%Initialize(inunit, iout)</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;      pkgloader%load_package =&gt; generic_mf6_load</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="keywordflow">    end select</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="comment">! -- invoke the selected load routine</span></div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keyword">call </span>pkgloader%load_package(parser, mf6_input, iout)</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="comment">! -- deallocate</span></div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">allocated</span>(parser)) <span class="keyword">deallocate</span> (parser)</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="comment">! -- return</span></div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordflow">return</span></div>
-</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="_idm_mf6_file_loader_8f90_source.html#l00060">60</a> of file <a class="el" href="_idm_mf6_file_loader_8f90_source.html">IdmMf6FileLoader.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: pkgtype<span class="comment"> !&lt; pkgtype to load, such as DIS6, DISV6, NPF6</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: component_type<span class="comment"> !&lt; component type, such as GWF or GWT</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: subcomponent_type<span class="comment"> !&lt; subcomponent type, such as DIS or NPF</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: component_name<span class="comment"> !&lt; component name, such as MYGWFMODEL</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: subcomponent_name<span class="comment"> !&lt; subcomponent name, such as MYWELLPACKAGE</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: inunit<span class="comment"> !&lt; unit number for input</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: iout<span class="comment"> !&lt; unit number for output</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">type</span>(BlockParserType), <span class="keywordtype">allocatable</span> :: parser<span class="comment"> !&lt; block parser</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">type</span>(ModflowInputType) :: mf6_input</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">type</span>(PackageLoad) :: pkgloader</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="comment">! -- create description of input</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    mf6_input = getmodflowinput(pkgtype, component_type, &amp;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                                subcomponent_type, component_name, &amp;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                                subcomponent_name)</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="comment">! -- set mf6 parser based package loader by file type</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">select case</span> (pkgtype)</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keywordflow">    case default</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;      <span class="keyword">allocate</span> (parser)</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      <span class="keyword">call </span>parser%Initialize(inunit, iout)</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;      pkgloader%load_package =&gt; generic_mf6_load</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keywordflow">    end select</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="comment">! -- invoke the selected load routine</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">call </span>pkgloader%load_package(parser, mf6_input, iout)</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="comment">! -- close files and deallocate</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">allocated</span>(parser)) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      <span class="comment">!call parser%clear()</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      <span class="keyword">deallocate</span> (parser)</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="comment">! -- return</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">return</span></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceidmmf6fileloadermodule_a585aac4e43d78c87a524ff1ec9f39b49_cgraph.png" border="0" usemap="#anamespaceidmmf6fileloadermodule_a585aac4e43d78c87a524ff1ec9f39b49_cgraph" alt=""/></div>
+<map name="anamespaceidmmf6fileloadermodule_a585aac4e43d78c87a524ff1ec9f39b49_cgraph" id="anamespaceidmmf6fileloadermodule_a585aac4e43d78c87a524ff1ec9f39b49_cgraph">
+<area shape="rect" title="input load for traditional mf6 simulation input file" alt="" coords="5,147,188,188"/>
+<area shape="rect" href="namespaceidmmf6fileloadermodule.html#a4538adc2bc36308a6b195a162aa74998" title="generic procedure to MODFLOW 6 load routine" alt="" coords="236,176,419,217"/>
+<area shape="rect" href="namespacemodflowinputmodule.html#a3e33a9d3121d016a43b66788a5713e29" title="function to return ModflowInputType" alt="" coords="697,84,857,125"/>
+<area shape="rect" href="namespaceloadmf6filetypemodule.html#a30d624422e532a91ef70fb5f1703a97f" title="procedure to load a file" alt="" coords="467,208,641,249"/>
+<area shape="rect" href="namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d" title="returns the path to the memory object" alt="" coords="937,201,1104,243"/>
+<area shape="rect" href="namespaceidmloggermodule.html#a3ae23224a91eb891281be25f0dfb4ed9" title="@ brief log the closing message" alt="" coords="691,397,862,439"/>
+<area shape="rect" href="namespaceidmloggermodule.html#aa48192a1f714a8aa43d94c4af8b89e77" title="@ brief log a header message" alt="" coords="691,149,862,191"/>
+<area shape="rect" href="namespaceloadmf6filetypemodule.html#aa4d6603c1b892bd38b10fb075999d67c" title="procedure to load a block" alt="" coords="689,332,864,373"/>
+<area shape="rect" href="namespaceloadmf6filetypemodule.html#af8bd63043633225e1d1b5e76592e778c" title="routine for setting the model shape" alt="" coords="689,267,864,308"/>
+<area shape="rect" href="namespacememoryhelpermodule.html#a5405f58247a0962e5449ebc1e4dcff0f" title="Generic routine to check the length of (parts of) the memory address." alt="" coords="1952,199,2119,240"/>
+<area shape="rect" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="2443,546,2617,573"/>
+<area shape="rect" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="2665,546,2804,573"/>
+<area shape="rect" href="namespaceinputdefinitionselectormodule.html#ab8ebde38144032fc3952adf69b827bb9" title="Return the aggregate definition for the specified component." alt="" coords="912,136,1129,177"/>
+<area shape="rect" href="namespaceinputdefinitionselectormodule.html#a8ab069214dc850a78faea381dc54bdd0" title="Return the block definition for the specified component." alt="" coords="912,5,1129,47"/>
+<area shape="rect" href="namespaceinputdefinitionselectormodule.html#ac33654eccb12a34d5fa0b5a4db389190" title="Return the parameter definition for the specified component." alt="" coords="912,71,1129,112"/>
+<area shape="rect" href="namespaceinputdefinitionselectormodule.html#a44b6a05b842caa71e6889f9c03e43690" title="Set pointer from input_definition to input_definition_target." alt="" coords="1177,132,1395,173"/>
+<area shape="rect" href="namespacesimmodule.html#a0c10520244b0246773a188954a67ec9e" title="Store warning message." alt="" coords="1189,78,1383,105"/>
+<area shape="rect" href="namespaceinputdefinitionselectormodule.html#a865b8495efc8f153683253f4e3595f30" title="Set pointer from input_definition to input_definition_target." alt="" coords="1177,5,1395,47"/>
+<area shape="rect" href="namespacememorymanagermodule.html#a8e6f199b7218d6ec1ab68f383cb6e20f" title="@ brief Get a memory type entry from the memory list" alt="" coords="929,267,1113,308"/>
+<area shape="rect" href="namespaceloadmf6filetypemodule.html#a6b3b721405277cbcd657a7719c139564" title="parse a structured array record into memory manager" alt="" coords="1447,388,1634,429"/>
+<area shape="rect" href="namespaceloadmf6filetypemodule.html#a6ca43ebf44faeb4586e8ad98a215a07c" title="load an individual input record into memory" alt="" coords="933,924,1108,965"/>
+<area shape="rect" href="namespacestructarraymodule.html#afb8dea58c18e29979e0169e4d78a16fd" title="constructor for a struct_array" alt="" coords="1719,316,1872,357"/>
+<area shape="rect" href="namespacestructarraymodule.html#aeb732b5f0362eb6246448f981611ea72" title="destructor for a struct_array" alt="" coords="1720,381,1871,423"/>
+<area shape="rect" href="namespaceinputdefinitionselectormodule.html#a0a3675f2a9c4e08f5b96a43cc6d99b34" title="Return aggregate definition." alt="" coords="2167,461,2395,503"/>
+<area shape="rect" href="namespaceinputdefinitionselectormodule.html#a7bc93f0cec4aed6041816aa646e86c05" title="Return parameter definition." alt="" coords="1687,564,1904,605"/>
+<area shape="rect" href="namespaceinputoutputmodule.html#a6c54d102f5c67defd36241a197a7ca56" title=" " alt="" coords="1718,499,1873,540"/>
+<area shape="rect" href="namespaceinputoutputmodule.html#a87643079f91094dcead5dcc634ce1b4d" title="Get the number of words in a string." alt="" coords="1958,549,2113,591"/>
+<area shape="rect" href="namespaceinputoutputmodule.html#a653efe7e8a111c5e477fea26e0b04fe5" title="Extract a word from a string." alt="" coords="2203,539,2358,580"/>
+<area shape="rect" href="namespaceloadmf6filetypemodule.html#a945dfddae6315610132b2ec2509d9cae" title="load type 1d double" alt="" coords="1199,892,1373,933"/>
+<area shape="rect" href="namespaceloadmf6filetypemodule.html#ab2be15e521b4ab2c4204cdc9c5ecb1b2" title="load type 2d double" alt="" coords="1199,1023,1373,1064"/>
+<area shape="rect" href="namespaceloadmf6filetypemodule.html#adb320ab5679505058aa4fc4eab2d6221" title="load type 3d double" alt="" coords="1199,957,1373,999"/>
+<area shape="rect" href="namespaceloadmf6filetypemodule.html#a31e7caa91d515b95ac0d47c87d0e6170" title="load type double" alt="" coords="1199,1088,1373,1129"/>
+<area shape="rect" href="namespaceloadmf6filetypemodule.html#a379d88fde8b32b156962aee62fa760e4" title="load type 1d integer" alt="" coords="1199,761,1373,803"/>
+<area shape="rect" href="namespaceloadmf6filetypemodule.html#a50c45228fbaa4aa631081494b9dafdca" title="load type 2d integer" alt="" coords="1199,696,1373,737"/>
+<area shape="rect" href="namespaceloadmf6filetypemodule.html#a47010583dff4a200c99919d07977dd9b" title="load type 3d integer" alt="" coords="1199,827,1373,868"/>
+<area shape="rect" href="namespaceloadmf6filetypemodule.html#ab67313058dbe91c9ad02d1303b8a6254" title="load type integer" alt="" coords="1199,1447,1373,1488"/>
+<area shape="rect" href="namespaceloadmf6filetypemodule.html#a1dcd2f0f9858d3f87c34319e4c75b432" title="load type keyword" alt="" coords="1199,396,1373,437"/>
+<area shape="rect" href="namespaceloadmf6filetypemodule.html#aa9533e1eb1ea965e2a3157102323e3f3" title="load type string" alt="" coords="1453,1331,1628,1372"/>
+<area shape="rect" href="namespaceloadmf6filetypemodule.html#a0f4434aa1e326498705a989853b471c6" title=" " alt="" coords="1199,1381,1373,1423"/>
+<area shape="rect" href="namespaceloadmf6filetypemodule.html#a807ce05bf7824404ea8b028bbd4381d8" title=" " alt="" coords="1453,863,1628,904"/>
+<area shape="rect" href="namespaceloadmf6filetypemodule.html#a2c3cf3591c9f724af17ffe7a1517ad54" title=" " alt="" coords="1451,797,1630,839"/>
+<area shape="rect" href="namespacedouble1dreadermodule.html#aa3da25f20852f65dee07eb92cf36d070" title=" " alt="" coords="1709,1005,1882,1047"/>
+<area shape="rect" href="namespacelayeredarrayreadermodule.html#a3ebfdf4b7a90f89d93136644234c6650" title=" " alt="" coords="1443,980,1639,1021"/>
+<area shape="rect" href="namespacedouble2dreadermodule.html#a022351b870ed9506264535467d4ddd70" title=" " alt="" coords="1709,1097,1882,1139"/>
+<area shape="rect" href="namespacelayeredarrayreadermodule.html#a89c3087a54ba5406bd1c7a51e6e317df" title=" " alt="" coords="1443,1163,1639,1204"/>
+<area shape="rect" href="namespacelayeredarrayreadermodule.html#ac7eb1a68c5421322e13bf3702ce06def" title=" " alt="" coords="1443,1097,1639,1139"/>
+<area shape="rect" href="namespaceinteger1dreadermodule.html#acc243bb5020cfcc72ccd07bcc7006f40" title=" " alt="" coords="1708,695,1883,736"/>
+<area shape="rect" href="namespacelayeredarrayreadermodule.html#a2ab43880e54ddd6526effa77ef338847" title=" " alt="" coords="1443,629,1639,671"/>
+<area shape="rect" href="namespaceinteger2dreadermodule.html#a09e2e62bc322433fec4dfe96060bf3c6" title=" " alt="" coords="1708,629,1883,671"/>
+<area shape="rect" href="namespacelayeredarrayreadermodule.html#ad4389563f47d3a6ef35ca053ab2984f3" title=" " alt="" coords="1443,564,1639,605"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceidmmf6fileloadermodule_a585aac4e43d78c87a524ff1ec9f39b49_icgraph.png" border="0" usemap="#anamespaceidmmf6fileloadermodule_a585aac4e43d78c87a524ff1ec9f39b49_icgraph" alt=""/></div>
+<map name="anamespaceidmmf6fileloadermodule_a585aac4e43d78c87a524ff1ec9f39b49_icgraph" id="anamespaceidmmf6fileloadermodule_a585aac4e43d78c87a524ff1ec9f39b49_icgraph">
+<area shape="rect" title="input load for traditional mf6 simulation input file" alt="" coords="1752,201,1935,242"/>
+<area shape="rect" href="namespacegwfdismodule.html#a9222ac487b748af9411a41d49a011ec8" title=" " alt="" coords="1535,56,1695,83"/>
+<area shape="rect" href="namespacegwfdisumodule.html#a67d8cf4775770e7251d1207669a219f9" title=" " alt="" coords="1527,157,1703,184"/>
+<area shape="rect" href="namespacegwfdisvmodule.html#a34be39910f2ea98503e299531ab27542" title=" " alt="" coords="1527,5,1703,32"/>
+<area shape="rect" href="namespacegwtdspmodule.html#a1025fe40ad98520c0d26e25f792b4df3" title=" " alt="" coords="1531,208,1699,235"/>
+<area shape="rect" href="namespacegwfmodule.html#ad4aafc2c26f55935aa145f47571f79bf" title="Load input context for supported package." alt="" coords="1534,325,1697,366"/>
+<area shape="rect" href="namespacegwtmodule.html#a1fdfa6fd840ad673726568242a968742" title="Load input context for supported package." alt="" coords="1534,390,1697,431"/>
+<area shape="rect" href="namespacenumericalmodelmodule.html#a0636c71d6108851b6c4f46cdc20898d4" title="Load input context for supported package." alt="" coords="1527,455,1704,497"/>
+<area shape="rect" href="namespacegwfnpfmodule.html#ab369813a4f2a00c7cc7eec2a4cbbc2d4" title=" " alt="" coords="1533,107,1697,133"/>
+<area shape="rect" href="namespaceidmsimulationmodule.html#a7f1922da3afd870b788436b6333d5c87" title="MODFLOW 6 mfsim.nam input load routine." alt="" coords="1533,259,1698,301"/>
+<area shape="rect" href="namespacegwfmodule.html#a0cb07c0232ce3627b9120eb42e7e164f" title="Create a new groundwater flow model object." alt="" coords="1308,33,1455,60"/>
+<area shape="rect" href="namespacegwtmodule.html#ad4f6eefd4112176d49bd99d8944bdef3" title=" " alt="" coords="1308,84,1455,111"/>
+<area shape="rect" href="namespacesimulationcreatemodule.html#a0043d2fa8d8b96e41e5e0fdfecaadae7" title="Set the models to be used for the simulation." alt="" coords="1055,77,1236,118"/>
+<area shape="rect" href="namespacesimulationcreatemodule.html#a812a26909f2491fa8fe05d1585bd1728" title="Source the simulation name file." alt="" coords="821,107,1007,149"/>
+<area shape="rect" href="namespacesimulationcreatemodule.html#afcbe0fd3c140a3ba4f0a5409e5dc8781" title="Read the simulation name file and initialize the models, exchanges." alt="" coords="592,138,773,179"/>
+<area shape="rect" href="namespacemf6coremodule.html#aa847da5116e01f4fad8885b0c4f96757" title="Initialize a simulation." alt="" coords="329,176,544,203"/>
+<area shape="rect" href="namespacemf6bmi.html#aa886df822e4ea66c30a97a9060da5de8" title="Initialize the computational core." alt="" coords="107,151,276,177"/>
+<area shape="rect" href="namespacemf6coremodule.html#a207819c711610066af1b83ec2a8efef0" title="Main controller." alt="" coords="101,201,281,228"/>
+<area shape="rect" href="mf6_8f90.html#aa95bf577752f92b917375902bbb13863" title="MODFLOW 6 main entry point." alt="" coords="5,201,53,228"/>
+<area shape="rect" href="namespacegwfinterfacemodelmodule.html#a3a10d1462f3b13cb9dfff3831a24c9ac" title="set up the interface model, analogously to what" alt="" coords="1285,135,1478,177"/>
+<area shape="rect" href="namespacegwtinterfacemodelmodule.html#ada68ea42046fb1af9fbae3faf24bfc38" title="Create the interface model, analogously to what." alt="" coords="1284,201,1479,242"/>
+<area shape="rect" href="namespacemf6coremodule.html#a3a6232615cb313d2887d936bc2edcd0a" title="Create simulation input context." alt="" coords="1061,201,1230,242"/>
+</map>
+</div>
+
 </div>
 </div>
 </div><!-- contents -->
@@ -426,7 +482,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceidmmf6fileloadermodule.html">idmmf6fileloadermodule</a></li>
-    <li class="footer">Generated on Fri Mar 10 2023 12:06:29 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Mar 14 2023 07:20:04 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

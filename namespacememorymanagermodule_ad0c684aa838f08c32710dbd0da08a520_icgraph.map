@@ -1,5 +1,13 @@
 <map id="memorymanagermodule::get_isize" name="memorymanagermodule::get_isize">
-<area shape="rect" id="node1" title="@ brief Get the number of elements for this variable" alt="" coords="243,23,427,65"/>
-<area shape="rect" id="node2" href="$namespacemf6bmi.html#adead93d5d8e83e6b85bbaf10cfcdd74a" title="Copy the string(s) of a variable into the array." alt="" coords="5,5,195,32"/>
-<area shape="rect" id="node3" href="$namespacemf6bmi.html#a66624bcfe63949d6338d7df22b2c4da8" title="Get size of the variable, in bytes." alt="" coords="9,56,191,83"/>
+<area shape="rect" id="node1" title="@ brief Get the number of elements for this variable" alt="" coords="1260,78,1444,119"/>
+<area shape="rect" id="node2" href="$namespacemf6bmi.html#adead93d5d8e83e6b85bbaf10cfcdd74a" title="Copy the string(s) of a variable into the array." alt="" coords="1023,5,1212,32"/>
+<area shape="rect" id="node3" href="$namespacemf6bmi.html#a66624bcfe63949d6338d7df22b2c4da8" title="Get size of the variable, in bytes." alt="" coords="1027,56,1208,83"/>
+<area shape="rect" id="node4" href="$namespacestructarraymodule.html#a7ffb8fe22259f97f085315262edf5b8d" title=" " alt="" coords="1037,107,1197,149"/>
+<area shape="rect" id="node5" href="$namespaceidmsimulationmodule.html#afb0fa7dbb0bd13f0c3ed44fbe459caac" title="MODFLOW 6 mfsim.nam input context parameter allocation." alt="" coords="1035,173,1200,214"/>
+<area shape="rect" id="node6" href="$namespaceidmsimulationmodule.html#a7f1922da3afd870b788436b6333d5c87" title="MODFLOW 6 mfsim.nam input load routine." alt="" coords="809,173,975,214"/>
+<area shape="rect" id="node7" href="$namespacemf6coremodule.html#a3a6232615cb313d2887d936bc2edcd0a" title="Create simulation input context." alt="" coords="592,173,761,214"/>
+<area shape="rect" id="node8" href="$namespacemf6coremodule.html#aa847da5116e01f4fad8885b0c4f96757" title="Initialize a simulation." alt="" coords="329,180,544,207"/>
+<area shape="rect" id="node9" href="$namespacemf6bmi.html#aa886df822e4ea66c30a97a9060da5de8" title="Initialize the computational core." alt="" coords="107,155,276,181"/>
+<area shape="rect" id="node10" href="$namespacemf6coremodule.html#a207819c711610066af1b83ec2a8efef0" title="Main controller." alt="" coords="101,205,281,232"/>
+<area shape="rect" id="node11" href="$mf6_8f90.html#aa95bf577752f92b917375902bbb13863" title="MODFLOW 6 main entry point." alt="" coords="5,205,53,232"/>
 </map>

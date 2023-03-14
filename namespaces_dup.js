@@ -256,6 +256,11 @@ var namespaces_dup =
     [ "headfilereadermodule", "namespaceheadfilereadermodule.html", "namespaceheadfilereadermodule" ],
     [ "idmloggermodule", "namespaceidmloggermodule.html", "namespaceidmloggermodule" ],
     [ "idmmf6fileloadermodule", "namespaceidmmf6fileloadermodule.html", "namespaceidmmf6fileloadermodule" ],
+    [ "idmsimulationmodule", "namespaceidmsimulationmodule.html", [
+      [ "set_default_value", "namespaceidmsimulationmodule.html#a2e3af981ea938759c10504804fc4f455", null ],
+      [ "simnam_allocate", "namespaceidmsimulationmodule.html#afb0fa7dbb0bd13f0c3ed44fbe459caac", null ],
+      [ "simnam_load", "namespaceidmsimulationmodule.html#a7f1922da3afd870b788436b6333d5c87", null ]
+    ] ],
     [ "imslinearbasemodule", "namespaceimslinearbasemodule.html", [
       [ "ims_base_bcgs", "namespaceimslinearbasemodule.html#a4ea318d12fd3c9a9157e9d9105dcc0e2", null ],
       [ "ims_base_calc_order", "namespaceimslinearbasemodule.html#a9d54501991afe15edfff277da7f3b193", null ],
@@ -370,7 +375,26 @@ var namespaces_dup =
       [ "basesolutionlist", "namespacelistsmodule.html#aa1a3cd1509449addb1bb6d6f4ff0b7fb", null ],
       [ "solutiongrouplist", "namespacelistsmodule.html#a733280dd05725ffbe3969344a79a964c", null ]
     ] ],
-    [ "loadmf6filetypemodule", "namespaceloadmf6filetypemodule.html", "namespaceloadmf6filetypemodule" ],
+    [ "loadmf6filetypemodule", "namespaceloadmf6filetypemodule.html", [
+      [ "get_layered_shape", "namespaceloadmf6filetypemodule.html#a807ce05bf7824404ea8b028bbd4381d8", null ],
+      [ "get_shape_from_string", "namespaceloadmf6filetypemodule.html#a2c3cf3591c9f724af17ffe7a1517ad54", null ],
+      [ "idm_load", "namespaceloadmf6filetypemodule.html#a30d624422e532a91ef70fb5f1703a97f", null ],
+      [ "load_double1d_type", "namespaceloadmf6filetypemodule.html#a945dfddae6315610132b2ec2509d9cae", null ],
+      [ "load_double2d_type", "namespaceloadmf6filetypemodule.html#ab2be15e521b4ab2c4204cdc9c5ecb1b2", null ],
+      [ "load_double3d_type", "namespaceloadmf6filetypemodule.html#adb320ab5679505058aa4fc4eab2d6221", null ],
+      [ "load_double_type", "namespaceloadmf6filetypemodule.html#a31e7caa91d515b95ac0d47c87d0e6170", null ],
+      [ "load_integer1d_type", "namespaceloadmf6filetypemodule.html#a379d88fde8b32b156962aee62fa760e4", null ],
+      [ "load_integer2d_type", "namespaceloadmf6filetypemodule.html#a50c45228fbaa4aa631081494b9dafdca", null ],
+      [ "load_integer3d_type", "namespaceloadmf6filetypemodule.html#a47010583dff4a200c99919d07977dd9b", null ],
+      [ "load_integer_type", "namespaceloadmf6filetypemodule.html#ab67313058dbe91c9ad02d1303b8a6254", null ],
+      [ "load_keyword_type", "namespaceloadmf6filetypemodule.html#a1dcd2f0f9858d3f87c34319e4c75b432", null ],
+      [ "load_string_type", "namespaceloadmf6filetypemodule.html#aa9533e1eb1ea965e2a3157102323e3f3", null ],
+      [ "parse_block", "namespaceloadmf6filetypemodule.html#aa4d6603c1b892bd38b10fb075999d67c", null ],
+      [ "parse_iofile_tag", "namespaceloadmf6filetypemodule.html#a0f4434aa1e326498705a989853b471c6", null ],
+      [ "parse_structarray_block", "namespaceloadmf6filetypemodule.html#a6b3b721405277cbcd657a7719c139564", null ],
+      [ "parse_tag", "namespaceloadmf6filetypemodule.html#a6ca43ebf44faeb4586e8ad98a215a07c", null ],
+      [ "set_model_shape", "namespaceloadmf6filetypemodule.html#af8bd63043633225e1d1b5e76592e778c", null ]
+    ] ],
     [ "mappedmemorymodule", "namespacemappedmemorymodule.html", "namespacemappedmemorymodule" ],
     [ "mappermodule", "namespacemappermodule.html", "namespacemappermodule" ],
     [ "matrixbasemodule", "namespacematrixbasemodule.html", "namespacematrixbasemodule" ],
@@ -464,6 +488,7 @@ var namespaces_dup =
     ] ],
     [ "mf6coremodule", "namespacemf6coremodule.html", [
       [ "connections_cr", "namespacemf6coremodule.html#ad980c6690b8c6ad6d488c35d2730144d", null ],
+      [ "create_lstfile", "namespacemf6coremodule.html#ab9b814efeb5552876e817dadd5cf2e01", null ],
       [ "mf6dotimestep", "namespacemf6coremodule.html#a0e06aa9086d6da08ce7a9a4982905d39", null ],
       [ "mf6finalize", "namespacemf6coremodule.html#ae17efa5a9e03fd31617a08c08e20ae03", null ],
       [ "mf6finalizetimestep", "namespacemf6coremodule.html#aab3891c5763fe8a941e6799fe9c82388", null ],
@@ -475,6 +500,7 @@ var namespaces_dup =
       [ "sim_step_retry", "namespacemf6coremodule.html#aa3df08d0706463a5a6574eac307a6636", null ],
       [ "simulation_ar", "namespacemf6coremodule.html#a622ba9fa9473eb16b9f17553d6483ae9", null ],
       [ "simulation_df", "namespacemf6coremodule.html#a55d3318977ea83a1389aec5f42d5a77f", null ],
+      [ "static_input_load", "namespacemf6coremodule.html#a3a6232615cb313d2887d936bc2edcd0a", null ],
       [ "run_ctrl", "namespacemf6coremodule.html#a62681a2697418168253837d5558ea6aa", null ]
     ] ],
     [ "mf6xmi", "namespacemf6xmi.html", [
@@ -563,6 +589,7 @@ var namespaces_dup =
       [ "sim_uniterrors", "namespacesimmodule.html#af4c0290bb7db4cbc9ebcadda4c9f3d1f", null ],
       [ "sim_warnings", "namespacesimmodule.html#abcb936e49f46eb9ed869e583f9f94319", null ]
     ] ],
+    [ "simnaminputmodule", "namespacesimnaminputmodule.html", "namespacesimnaminputmodule" ],
     [ "simstagesmodule", "namespacesimstagesmodule.html", [
       [ "stg_to_str", "namespacesimstagesmodule.html#a96a0bd17b87f066ff28acef6d14d28e4", null ],
       [ "stg_after_ar", "namespacesimstagesmodule.html#a1ca9b6b6abe95e4b275f05957b3c877c", null ],
@@ -585,13 +612,12 @@ var namespaces_dup =
       [ "exchanges_create", "namespacesimulationcreatemodule.html#abb116763d0b57efd5d804f40a52321ee", null ],
       [ "models_create", "namespacesimulationcreatemodule.html#a0043d2fa8d8b96e41e5e0fdfecaadae7", null ],
       [ "options_create", "namespacesimulationcreatemodule.html#a73d2884da5c5babce56618e5b3f8211e", null ],
-      [ "read_simulation_namefile", "namespacesimulationcreatemodule.html#a7d37a8b63b2b0874f875f45b6cf93f03", null ],
       [ "simulation_cr", "namespacesimulationcreatemodule.html#afcbe0fd3c140a3ba4f0a5409e5dc8781", null ],
       [ "simulation_da", "namespacesimulationcreatemodule.html#a691031f7a9eed08077855afbff144a1d", null ],
+      [ "solution_group_check", "namespacesimulationcreatemodule.html#af22243294eccf197fcc67a3ec44aa613", null ],
       [ "solution_groups_create", "namespacesimulationcreatemodule.html#aa6d30418b28eb07e46b20c32e8805806", null ],
-      [ "timing_create", "namespacesimulationcreatemodule.html#aad107ec5cfffd2e81af220f8227c926f", null ],
-      [ "inunit", "namespacesimulationcreatemodule.html#a1fe6fc75e32635b4c348c9d2acfe89c8", null ],
-      [ "parser", "namespacesimulationcreatemodule.html#a57935c0563b904cef494e0bd126d7c83", null ]
+      [ "source_simulation_nam", "namespacesimulationcreatemodule.html#a812a26909f2491fa8fe05d1585bd1728", null ],
+      [ "timing_create", "namespacesimulationcreatemodule.html#aad107ec5cfffd2e81af220f8227c926f", null ]
     ] ],
     [ "simvariablesmodule", "namespacesimvariablesmodule.html", [
       [ "errmsg", "namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234", null ],

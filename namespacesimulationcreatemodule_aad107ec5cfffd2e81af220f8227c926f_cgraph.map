@@ -1,32 +1,34 @@
 <map id="simulationcreatemodule::timing_create" name="simulationcreatemodule::timing_create">
-<area shape="rect" id="node1" title="Set the timing module to be used for the simulation." alt="" coords="5,532,187,573"/>
-<area shape="rect" id="node2" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="909,481,1083,507"/>
-<area shape="rect" id="node8" href="$namespacetdismodule.html#a8c9a06d57dc33ece9ff2351b6ba13d61" title=" " alt="" coords="235,786,381,813"/>
-<area shape="rect" id="node3" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="1141,481,1280,507"/>
-<area shape="rect" id="node4" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="1328,440,1496,481"/>
-<area shape="rect" id="node7" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="1328,505,1496,547"/>
-<area shape="rect" id="node5" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="1544,418,1739,445"/>
-<area shape="rect" id="node6" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1557,469,1725,511"/>
-<area shape="rect" id="node9" href="$namespaceadaptivetimestepmodule.html#a3e2c6ad757cfd226850cbde7bb96ad25" title="@ brief Create ATS object" alt="" coords="429,473,616,515"/>
-<area shape="rect" id="node21" href="$namespaceinputoutputmodule.html#a535bdfca3d31ebc3a8e4bd5af6890d55" title="Get a free unit number." alt="" coords="680,903,835,944"/>
-<area shape="rect" id="node23" href="$namespaceinputoutputmodule.html#ae97851e3edae8d9809e384058a1a4d52" title="Open a file." alt="" coords="680,837,835,879"/>
-<area shape="rect" id="node25" href="$namespacetdismodule.html#aa2f32eaa136046dfc784db94f5b64081" title=" " alt="" coords="429,896,616,937"/>
-<area shape="rect" id="node26" href="$namespacetdismodule.html#af1887bd8a7ebb2717e0425556674aa25" title=" " alt="" coords="429,961,616,1003"/>
-<area shape="rect" id="node27" href="$namespacetdismodule.html#a0ae7bae9a14b63ce86f5352cb213e336" title=" " alt="" coords="441,713,604,755"/>
-<area shape="rect" id="node28" href="$namespacetdismodule.html#acd8ce15c823423204f34106227c44e29" title=" " alt="" coords="441,779,604,820"/>
-<area shape="rect" id="node29" href="$namespacetdismodule.html#a7a451136daa552e63c867bdbbcaadeda" title=" " alt="" coords="441,168,604,209"/>
-<area shape="rect" id="node10" href="$namespaceadaptivetimestepmodule.html#a1f35da20567fb391379ed066d335a96f" title="@ brief Allocate arrays" alt="" coords="664,539,851,580"/>
-<area shape="rect" id="node11" href="$namespaceadaptivetimestepmodule.html#ae21a205956d300f1131589a25525dd13" title="@ brief Allocate scalars" alt="" coords="664,408,851,449"/>
-<area shape="rect" id="node12" href="$namespaceadaptivetimestepmodule.html#a90a92d26e6f9b618f7d8ac9b61a1d7bf" title="@ brief Check timing" alt="" coords="664,175,851,216"/>
-<area shape="rect" id="node15" href="$namespaceadaptivetimestepmodule.html#a7a8d5d540da42c6209a4941483f5cdfa" title="@ brief Write input table" alt="" coords="664,44,851,85"/>
-<area shape="rect" id="node17" href="$namespaceadaptivetimestepmodule.html#acdd7bac22d77e33343d981b725914c98" title="@ brief Process input" alt="" coords="664,473,851,515"/>
-<area shape="rect" id="node18" href="$namespaceadaptivetimestepmodule.html#acac998739cb60f15166eaad8b01dd71d" title="@ brief Read dimensions" alt="" coords="664,604,851,645"/>
-<area shape="rect" id="node19" href="$namespaceadaptivetimestepmodule.html#aef8193d44c7240ac3bd111a8c11dc088" title="@ brief Read options" alt="" coords="664,669,851,711"/>
-<area shape="rect" id="node20" href="$namespaceadaptivetimestepmodule.html#a12ce696ecfbbd942b6e7403a6996435d" title="@ brief Read timing" alt="" coords="664,343,851,384"/>
-<area shape="rect" id="node13" href="$namespacesimmodule.html#a4c46e49de78d4498dd4ec106357775e6" title="Return number of errors." alt="" coords="904,123,1088,150"/>
-<area shape="rect" id="node14" href="$namespacesimmodule.html#a0c10520244b0246773a188954a67ec9e" title="Store warning message." alt="" coords="899,182,1093,209"/>
-<area shape="rect" id="node16" href="$namespacetablemodule.html#a7632d784ec9e94277a76705ef56725f2" title=" " alt="" coords="914,51,1078,78"/>
-<area shape="rect" id="node22" href="$namespaceinputoutputmodule.html#ac5134655c31ac9beeb4688f504efd801" title="Assign a free unopened unit number." alt="" coords="919,903,1073,944"/>
-<area shape="rect" id="node24" href="$namespaceinputoutputmodule.html#a8290bae8ca0756e38ce13459dfebe985" title="Convert to upper case." alt="" coords="919,837,1073,879"/>
-<area shape="rect" id="node30" href="$namespacetdismodule.html#aeadc4d3e568eee1ff5bb151979614178" title=" " alt="" coords="671,109,843,151"/>
+<area shape="rect" id="node1" title="Set the timing module to be used for the simulation." alt="" coords="5,736,187,777"/>
+<area shape="rect" id="node2" href="$namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d" title="returns the path to the memory object" alt="" coords="235,736,401,777"/>
+<area shape="rect" id="node4" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="929,646,1103,673"/>
+<area shape="rect" id="node10" href="$namespacetdismodule.html#a8c9a06d57dc33ece9ff2351b6ba13d61" title=" " alt="" coords="245,867,391,894"/>
+<area shape="rect" id="node3" href="$namespacememoryhelpermodule.html#a5405f58247a0962e5449ebc1e4dcff0f" title="Generic routine to check the length of (parts of) the memory address." alt="" coords="459,736,626,777"/>
+<area shape="rect" id="node5" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="1161,646,1300,673"/>
+<area shape="rect" id="node6" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="1348,605,1516,647"/>
+<area shape="rect" id="node9" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="1348,671,1516,712"/>
+<area shape="rect" id="node7" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="1564,583,1759,610"/>
+<area shape="rect" id="node8" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1577,635,1745,676"/>
+<area shape="rect" id="node11" href="$namespaceadaptivetimestepmodule.html#a3e2c6ad757cfd226850cbde7bb96ad25" title="@ brief Create ATS object" alt="" coords="449,267,636,308"/>
+<area shape="rect" id="node23" href="$namespaceinputoutputmodule.html#a535bdfca3d31ebc3a8e4bd5af6890d55" title="Get a free unit number." alt="" coords="700,932,855,973"/>
+<area shape="rect" id="node25" href="$namespaceinputoutputmodule.html#ae97851e3edae8d9809e384058a1a4d52" title="Open a file." alt="" coords="700,1049,855,1091"/>
+<area shape="rect" id="node27" href="$namespacetdismodule.html#aa2f32eaa136046dfc784db94f5b64081" title=" " alt="" coords="449,919,636,960"/>
+<area shape="rect" id="node28" href="$namespacetdismodule.html#af1887bd8a7ebb2717e0425556674aa25" title=" " alt="" coords="449,984,636,1025"/>
+<area shape="rect" id="node29" href="$namespacetdismodule.html#a0ae7bae9a14b63ce86f5352cb213e336" title=" " alt="" coords="461,801,624,843"/>
+<area shape="rect" id="node30" href="$namespacetdismodule.html#acd8ce15c823423204f34106227c44e29" title=" " alt="" coords="461,1049,624,1091"/>
+<area shape="rect" id="node31" href="$namespacetdismodule.html#a7a451136daa552e63c867bdbbcaadeda" title=" " alt="" coords="461,567,624,608"/>
+<area shape="rect" id="node12" href="$namespaceadaptivetimestepmodule.html#a1f35da20567fb391379ed066d335a96f" title="@ brief Allocate arrays" alt="" coords="684,201,871,243"/>
+<area shape="rect" id="node13" href="$namespaceadaptivetimestepmodule.html#ae21a205956d300f1131589a25525dd13" title="@ brief Allocate scalars" alt="" coords="684,267,871,308"/>
+<area shape="rect" id="node14" href="$namespaceadaptivetimestepmodule.html#a90a92d26e6f9b618f7d8ac9b61a1d7bf" title="@ brief Check timing" alt="" coords="684,71,871,112"/>
+<area shape="rect" id="node17" href="$namespaceadaptivetimestepmodule.html#a7a8d5d540da42c6209a4941483f5cdfa" title="@ brief Write input table" alt="" coords="684,5,871,47"/>
+<area shape="rect" id="node19" href="$namespaceadaptivetimestepmodule.html#acdd7bac22d77e33343d981b725914c98" title="@ brief Process input" alt="" coords="684,332,871,373"/>
+<area shape="rect" id="node20" href="$namespaceadaptivetimestepmodule.html#acac998739cb60f15166eaad8b01dd71d" title="@ brief Read dimensions" alt="" coords="684,580,871,621"/>
+<area shape="rect" id="node21" href="$namespaceadaptivetimestepmodule.html#aef8193d44c7240ac3bd111a8c11dc088" title="@ brief Read options" alt="" coords="684,397,871,439"/>
+<area shape="rect" id="node22" href="$namespaceadaptivetimestepmodule.html#a12ce696ecfbbd942b6e7403a6996435d" title="@ brief Read timing" alt="" coords="684,136,871,177"/>
+<area shape="rect" id="node15" href="$namespacesimmodule.html#a4c46e49de78d4498dd4ec106357775e6" title="Return number of errors." alt="" coords="924,303,1108,330"/>
+<area shape="rect" id="node16" href="$namespacesimmodule.html#a0c10520244b0246773a188954a67ec9e" title="Store warning message." alt="" coords="919,78,1113,105"/>
+<area shape="rect" id="node18" href="$namespacetablemodule.html#a7632d784ec9e94277a76705ef56725f2" title=" " alt="" coords="934,13,1098,39"/>
+<area shape="rect" id="node24" href="$namespaceinputoutputmodule.html#ac5134655c31ac9beeb4688f504efd801" title="Assign a free unopened unit number." alt="" coords="939,957,1093,999"/>
+<area shape="rect" id="node26" href="$namespaceinputoutputmodule.html#a8290bae8ca0756e38ce13459dfebe985" title="Convert to upper case." alt="" coords="939,1049,1093,1091"/>
+<area shape="rect" id="node32" href="$namespacetdismodule.html#aeadc4d3e568eee1ff5bb151979614178" title=" " alt="" coords="691,515,863,556"/>
 </map>

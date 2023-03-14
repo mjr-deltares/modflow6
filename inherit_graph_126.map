@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$interfacelinearsolverbasemodule_1_1initialize__if.html" title=" " alt="" coords="5,5,184,47"/>
+<area shape="rect" id="node1" href="$structlinearsolverbasemodule_1_1linearsolverbasetype.html" title="Abstract type for linear solver." alt="" coords="5,39,184,80"/>
+<area shape="rect" id="node2" href="$structimslinearsolvermodule_1_1imslinearsolvertype.html" title=" " alt="" coords="232,5,404,47"/>
+<area shape="rect" id="node3" href="$structpetscsolvermodule_1_1petscsolvertype.html" title=" " alt="" coords="241,71,395,112"/>
 </map>

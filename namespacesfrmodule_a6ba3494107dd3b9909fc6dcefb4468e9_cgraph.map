@@ -1,13 +1,16 @@
 <map id="sfrmodule::sfr_options" name="sfrmodule::sfr_options">
-<area shape="rect" id="node1" title="@ brief Read additional options for package" alt="" coords="5,78,173,105"/>
-<area shape="rect" id="node2" href="$namespaceinputoutputmodule.html#a535bdfca3d31ebc3a8e4bd5af6890d55" title="Get a free unit number." alt="" coords="221,5,376,47"/>
-<area shape="rect" id="node4" href="$namespaceinputoutputmodule.html#ae97851e3edae8d9809e384058a1a4d52" title="Open a file." alt="" coords="221,71,376,112"/>
-<area shape="rect" id="node5" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="424,137,599,163"/>
-<area shape="rect" id="node3" href="$namespaceinputoutputmodule.html#ac5134655c31ac9beeb4688f504efd801" title="Assign a free unopened unit number." alt="" coords="434,5,589,47"/>
-<area shape="rect" id="node11" href="$namespaceinputoutputmodule.html#a8290bae8ca0756e38ce13459dfebe985" title="Convert to upper case." alt="" coords="434,71,589,112"/>
-<area shape="rect" id="node6" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="647,137,785,163"/>
-<area shape="rect" id="node7" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="833,96,1001,137"/>
-<area shape="rect" id="node10" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="833,161,1001,203"/>
-<area shape="rect" id="node8" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="1049,74,1244,101"/>
-<area shape="rect" id="node9" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1063,125,1231,167"/>
+<area shape="rect" id="node1" title="@ brief Read additional options for package" alt="" coords="5,111,173,138"/>
+<area shape="rect" id="node2" href="$namespacesimmodule.html#a6c8d05246b2eddf358b9f81a147ebdd8" title="Store deprecation warning message." alt="" coords="221,5,401,47"/>
+<area shape="rect" id="node5" href="$namespaceinputoutputmodule.html#a535bdfca3d31ebc3a8e4bd5af6890d55" title="Get a free unit number." alt="" coords="234,71,389,112"/>
+<area shape="rect" id="node7" href="$namespaceinputoutputmodule.html#ae97851e3edae8d9809e384058a1a4d52" title="Open a file." alt="" coords="234,136,389,177"/>
+<area shape="rect" id="node8" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="456,202,631,229"/>
+<area shape="rect" id="node3" href="$namespacesimmodule.html#a8caad8ba9aaacfbc94f08b98ab770eea" title="Get the file name." alt="" coords="449,13,637,39"/>
+<area shape="rect" id="node4" href="$namespacedefinedmacros.html#afc9b290c56584c273f369dac8aa026d5" title="Get operating system." alt="" coords="685,13,855,39"/>
+<area shape="rect" id="node6" href="$namespaceinputoutputmodule.html#ac5134655c31ac9beeb4688f504efd801" title="Assign a free unopened unit number." alt="" coords="466,71,621,112"/>
+<area shape="rect" id="node14" href="$namespaceinputoutputmodule.html#a8290bae8ca0756e38ce13459dfebe985" title="Convert to upper case." alt="" coords="466,136,621,177"/>
+<area shape="rect" id="node9" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="701,202,839,229"/>
+<area shape="rect" id="node10" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="903,161,1071,203"/>
+<area shape="rect" id="node13" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="903,227,1071,268"/>
+<area shape="rect" id="node11" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="1119,139,1313,166"/>
+<area shape="rect" id="node12" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1132,191,1300,232"/>
 </map>

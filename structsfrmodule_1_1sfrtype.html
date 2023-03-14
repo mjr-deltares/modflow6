@@ -260,6 +260,8 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:acf07707c954afde9ff7543624392d1e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19fe87c481e0c8b842b157511023afd8"><td class="memItemLeft" align="right" valign="top">procedure, private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsfrmodule_1_1sfrtype.html#a19fe87c481e0c8b842b157511023afd8">sfr_calc_xs_depth</a></td></tr>
 <tr class="separator:a19fe87c481e0c8b842b157511023afd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac149d724d36f6af0c954f388a2ea29a1"><td class="memItemLeft" align="right" valign="top">procedure, private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsfrmodule_1_1sfrtype.html#ac149d724d36f6af0c954f388a2ea29a1">sfr_check_conversion</a></td></tr>
+<tr class="separator:ac149d724d36f6af0c954f388a2ea29a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78751ecac911cc24db2188f826215565"><td class="memItemLeft" align="right" valign="top">procedure, private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsfrmodule_1_1sfrtype.html#a78751ecac911cc24db2188f826215565">sfr_check_reaches</a></td></tr>
 <tr class="separator:a78751ecac911cc24db2188f826215565"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7dec735d8ae8c0ced0f503a729daa389"><td class="memItemLeft" align="right" valign="top">procedure, private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsfrmodule_1_1sfrtype.html#a7dec735d8ae8c0ced0f503a729daa389">sfr_check_connections</a></td></tr>
@@ -384,6 +386,12 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:aa47fff038bee63c6c4190850998cc661"><td class="memItemLeft" align="right" valign="top">real(dp), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsfrmodule_1_1sfrtype.html#aa47fff038bee63c6c4190850998cc661">unitconv</a> =&gt; NULL()</td></tr>
 <tr class="memdesc:aa47fff038bee63c6c4190850998cc661"><td class="mdescLeft">&#160;</td><td class="mdescRight">unit conversion factor (SI to model units)  <a href="structsfrmodule_1_1sfrtype.html#aa47fff038bee63c6c4190850998cc661">More...</a><br /></td></tr>
 <tr class="separator:aa47fff038bee63c6c4190850998cc661"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb80968bce24e1cdad88406025530356"><td class="memItemLeft" align="right" valign="top">real(dp), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsfrmodule_1_1sfrtype.html#afb80968bce24e1cdad88406025530356">lengthconv</a> =&gt; NULL()</td></tr>
+<tr class="memdesc:afb80968bce24e1cdad88406025530356"><td class="mdescLeft">&#160;</td><td class="mdescRight">length conversion factor (SI to model units)  <a href="structsfrmodule_1_1sfrtype.html#afb80968bce24e1cdad88406025530356">More...</a><br /></td></tr>
+<tr class="separator:afb80968bce24e1cdad88406025530356"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af90883ce056d4d808aa4b6ca8852a92e"><td class="memItemLeft" align="right" valign="top">real(dp), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsfrmodule_1_1sfrtype.html#af90883ce056d4d808aa4b6ca8852a92e">timeconv</a> =&gt; NULL()</td></tr>
+<tr class="memdesc:af90883ce056d4d808aa4b6ca8852a92e"><td class="mdescLeft">&#160;</td><td class="mdescRight">time conversion factor (SI to model units)  <a href="structsfrmodule_1_1sfrtype.html#af90883ce056d4d808aa4b6ca8852a92e">More...</a><br /></td></tr>
+<tr class="separator:af90883ce056d4d808aa4b6ca8852a92e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24c9882ae17ecf14b05aa063ca7dea61"><td class="memItemLeft" align="right" valign="top">real(dp), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsfrmodule_1_1sfrtype.html#a24c9882ae17ecf14b05aa063ca7dea61">dmaxchg</a> =&gt; NULL()</td></tr>
 <tr class="memdesc:a24c9882ae17ecf14b05aa063ca7dea61"><td class="mdescLeft">&#160;</td><td class="mdescRight">maximum depth change allowed  <a href="structsfrmodule_1_1sfrtype.html#a24c9882ae17ecf14b05aa063ca7dea61">More...</a><br /></td></tr>
 <tr class="separator:a24c9882ae17ecf14b05aa063ca7dea61"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -749,7 +757,7 @@ Private Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00051">51</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00052">52</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 </div><h2 class="groupheader">Member Function/Subroutine Documentation</h2>
 <a id="a62907d903980d1167a23bb086fdcd1e7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a62907d903980d1167a23bb086fdcd1e7">&#9670;&nbsp;</a></span>allocate_arrays()</h2>
@@ -867,7 +875,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00162">162</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00165">165</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -891,7 +899,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00160">160</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00163">163</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -931,7 +939,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00177">177</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00180">180</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -955,7 +963,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00166">166</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00169">169</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -979,7 +987,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00163">163</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00166">166</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -1027,7 +1035,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00167">167</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00170">170</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -1099,7 +1107,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00171">171</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00174">174</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -1139,7 +1147,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00175">175</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00178">178</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -1163,7 +1171,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00164">164</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00167">167</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -1187,7 +1195,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00165">165</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00168">168</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -1251,7 +1259,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00174">174</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00177">177</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -1275,7 +1283,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00157">157</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00160">160</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -1299,7 +1307,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00170">170</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00173">173</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -1323,7 +1331,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00169">169</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00172">172</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -1395,7 +1403,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00168">168</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00171">171</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -1419,7 +1427,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00161">161</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00164">164</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -1435,7 +1443,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00176">176</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00179">179</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -1507,7 +1515,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00189">189</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00192">192</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -1531,7 +1539,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00190">190</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00193">193</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -1555,7 +1563,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00191">191</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00194">194</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -1579,7 +1587,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00192">192</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00195">195</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -1603,7 +1611,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00193">193</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00196">196</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -1675,7 +1683,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00172">172</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00175">175</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -1795,7 +1803,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00158">158</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00161">161</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -1915,7 +1923,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00213">213</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00217">217</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -1939,7 +1947,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00216">216</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00220">220</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -1963,7 +1971,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00156">156</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00159">159</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -1987,7 +1995,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00155">155</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00158">158</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -2011,7 +2019,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00183">183</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00186">186</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -2035,7 +2043,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00187">187</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00190">190</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -2059,7 +2067,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00185">185</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00188">188</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -2083,7 +2091,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00182">182</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00185">185</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -2107,7 +2115,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00184">184</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00187">187</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -2131,7 +2139,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00186">186</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00189">189</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -2155,7 +2163,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00200">200</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00203">203</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -2179,7 +2187,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00201">201</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00204">204</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -2203,7 +2211,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00214">214</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00218">218</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -2227,7 +2235,31 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00204">204</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00208">208</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+
+</div>
+</div>
+<a id="ac149d724d36f6af0c954f388a2ea29a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac149d724d36f6af0c954f388a2ea29a1">&#9670;&nbsp;</a></span>sfr_check_conversion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">procedure, private sfrmodule::sfrtype::sfr_check_conversion</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00206">206</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -2251,7 +2283,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00205">205</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00209">209</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -2275,7 +2307,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00203">203</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00207">207</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -2299,7 +2331,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00206">206</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00210">210</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -2323,7 +2355,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00209">209</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00213">213</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -2347,7 +2379,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00197">197</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00200">200</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -2371,7 +2403,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00196">196</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00199">199</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -2395,7 +2427,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00198">198</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00201">201</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -2419,7 +2451,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00195">195</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00198">198</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -2443,7 +2475,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00179">179</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00182">182</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -2467,7 +2499,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00208">208</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00212">212</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -2491,7 +2523,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00211">211</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00215">215</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -2515,7 +2547,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00180">180</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00183">183</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -2539,7 +2571,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00181">181</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00184">184</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
 
 </div>
 </div>
@@ -2666,8 +2698,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00069">69</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: bditems =&gt; null() <span class="comment">!&lt; number of SFR budget items</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00070">70</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: bditems =&gt; null() <span class="comment">!&lt; number of SFR budget items</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2768,8 +2800,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00103">103</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: bthick =&gt; null() <span class="comment">!&lt; reach bed thickness</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00106">106</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: bthick =&gt; null() <span class="comment">!&lt; reach bed thickness</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2793,8 +2825,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00090">90</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">type</span>(BudgetObjectType), <span class="keywordtype">pointer</span> :: budobj =&gt; null() <span class="comment">!&lt; SFR budget object</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00093">93</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">type</span>(BudgetObjectType), <span class="keywordtype">pointer</span> :: budobj =&gt; null() <span class="comment">!&lt; SFR budget object</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2818,8 +2850,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00056">56</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">character(len=16)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: cauxcbc =&gt; null() <span class="comment">!&lt; aux names</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00057">57</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">character(len=16)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: cauxcbc =&gt; null() <span class="comment">!&lt; aux names</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2843,8 +2875,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00070">70</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: cbcauxitems =&gt; null() <span class="comment">!&lt; number of aux items in cell-by-cell budget file</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00071">71</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: cbcauxitems =&gt; null() <span class="comment">!&lt; number of aux items in cell-by-cell budget file</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2893,8 +2925,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00055">55</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">character(len=16)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: csfrbudget =&gt; null() <span class="comment">!&lt; advanced package budget names</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00056">56</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">character(len=16)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: csfrbudget =&gt; null() <span class="comment">!&lt; advanced package budget names</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2918,8 +2950,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00087">87</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: dbuff =&gt; null() <span class="comment">!&lt; temporary vector</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00090">90</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: dbuff =&gt; null() <span class="comment">!&lt; temporary vector</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2943,8 +2975,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00148">148</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:, :)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: denseterms =&gt; null() <span class="comment">!&lt; density terms</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00151">151</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:, :)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: denseterms =&gt; null() <span class="comment">!&lt; density terms</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2968,8 +3000,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00078">78</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">pointer</span> :: deps =&gt; null() <span class="comment">!&lt; perturbation value</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00081">81</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">pointer</span> :: deps =&gt; null() <span class="comment">!&lt; perturbation value</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2993,8 +3025,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00112">112</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: depth =&gt; null() <span class="comment">!&lt; reach depth</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00115">115</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: depth =&gt; null() <span class="comment">!&lt; reach depth</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -3043,8 +3075,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00142">142</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keywordtype">character(len=10)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: divcprior =&gt; null() <span class="comment">!&lt; diversion rule</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00145">145</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keywordtype">character(len=10)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: divcprior =&gt; null() <span class="comment">!&lt; diversion rule</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -3068,8 +3100,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00143">143</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: divflow =&gt; null() <span class="comment">!&lt; specified diversion flow value</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00146">146</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: divflow =&gt; null() <span class="comment">!&lt; specified diversion flow value</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -3093,8 +3125,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00144">144</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: divq =&gt; null() <span class="comment">!&lt; simulated diversion flow</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00147">147</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: divq =&gt; null() <span class="comment">!&lt; simulated diversion flow</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -3118,8 +3150,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00141">141</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: divreach =&gt; null() <span class="comment">!&lt; diversion reach</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00144">144</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: divreach =&gt; null() <span class="comment">!&lt; diversion reach</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -3143,8 +3175,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00077">77</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">pointer</span> :: dmaxchg =&gt; null() <span class="comment">!&lt; maximum depth change allowed</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00080">80</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">pointer</span> :: dmaxchg =&gt; null() <span class="comment">!&lt; maximum depth change allowed</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -3168,8 +3200,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00111">111</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: dsflow =&gt; null() <span class="comment">!&lt; downstream reach flow</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00114">114</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: dsflow =&gt; null() <span class="comment">!&lt; downstream reach flow</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -3218,8 +3250,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00133">133</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: evap =&gt; null() <span class="comment">!&lt; reach potential evaporation</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00136">136</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: evap =&gt; null() <span class="comment">!&lt; reach potential evaporation</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -3293,8 +3325,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00108">108</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: ftotnd =&gt; null() <span class="comment">!&lt; total fraction of connected reaches that are not diversions</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00111">111</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: ftotnd =&gt; null() <span class="comment">!&lt; total fraction of connected reaches that are not diversions</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -3318,8 +3350,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00073">73</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: gwfiss =&gt; null() <span class="comment">!&lt; groundwater model steady-state flag</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00074">74</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: gwfiss =&gt; null() <span class="comment">!&lt; groundwater model steady-state flag</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -3343,8 +3375,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00114">114</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: gwflow =&gt; null() <span class="comment">!&lt; flow from groundwater to reach</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00117">117</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: gwflow =&gt; null() <span class="comment">!&lt; flow from groundwater to reach</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -3393,8 +3425,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00104">104</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: hk =&gt; null() <span class="comment">!&lt; vertical hydraulic conductivity of reach bed sediments</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00107">107</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: hk =&gt; null() <span class="comment">!&lt; vertical hydraulic conductivity of reach bed sediments</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -3418,8 +3450,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00081">81</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: ia =&gt; null() <span class="comment">!&lt; CRS row pointer for SFR reaches</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00084">84</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: ia =&gt; null() <span class="comment">!&lt; CRS row pointer for SFR reaches</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -3443,8 +3475,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00122">122</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: iacross =&gt; null() <span class="comment">!&lt; pointers to cross-section data for each reach</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00125">125</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: iacross =&gt; null() <span class="comment">!&lt; pointers to cross-section data for each reach</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -3468,8 +3500,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00140">140</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: iadiv =&gt; null() <span class="comment">!&lt; row pointer for reach diversions</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00143">143</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: iadiv =&gt; null() <span class="comment">!&lt; row pointer for reach diversions</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -3493,8 +3525,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00074">74</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: ianynone =&gt; null() <span class="comment">!&lt; number of reaches with &#39;none&#39; connection</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00075">75</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: ianynone =&gt; null() <span class="comment">!&lt; number of reaches with &#39;none&#39; connection</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -3618,8 +3650,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00097">97</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: iboundpak =&gt; null() <span class="comment">!&lt; ibound array for SFR reaches that defines active, inactive, and constant reaches</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00100">100</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: iboundpak =&gt; null() <span class="comment">!&lt; ibound array for SFR reaches that defines active, inactive, and constant reaches</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -3643,8 +3675,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00063">63</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: ibudcsv =&gt; null() <span class="comment">!&lt; unit number for csv budget output file</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00064">64</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: ibudcsv =&gt; null() <span class="comment">!&lt; unit number for csv budget output file</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -3668,8 +3700,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00062">62</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: ibudgetout =&gt; null() <span class="comment">!&lt; flag and unit number for binary sfr budget output</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00063">63</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: ibudgetout =&gt; null() <span class="comment">!&lt; flag and unit number for binary sfr budget output</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -3718,8 +3750,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00071">71</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: icheck =&gt; null() <span class="comment">!&lt; flag indicating if input should be checked (default is yes)</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00072">72</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: icheck =&gt; null() <span class="comment">!&lt; flag indicating if input should be checked (default is yes)</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -3743,8 +3775,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00072">72</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: iconvchk =&gt; null() <span class="comment">!&lt; flag indicating of final convergence run is executed</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00073">73</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: iconvchk =&gt; null() <span class="comment">!&lt; flag indicating of final convergence run is executed</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -3818,8 +3850,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00147">147</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: idense<span class="comment"> !&lt; flag indicating if density corrections are active</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00150">150</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: idense<span class="comment"> !&lt; flag indicating if density corrections are active</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -3843,8 +3875,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00127">127</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: idir =&gt; null() <span class="comment">!&lt; reach connection direction</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00130">130</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: idir =&gt; null() <span class="comment">!&lt; reach connection direction</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -3868,8 +3900,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00128">128</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: idiv =&gt; null() <span class="comment">!&lt; reach connection diversion number</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00131">131</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: idiv =&gt; null() <span class="comment">!&lt; reach connection diversion number</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -3893,8 +3925,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00065">65</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: idiversions =&gt; null() <span class="comment">!&lt; flag indicating if there are any diversions</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00066">66</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: idiversions =&gt; null() <span class="comment">!&lt; flag indicating if there are any diversions</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -3918,8 +3950,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00098">98</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: igwfnode =&gt; null() <span class="comment">!&lt; groundwater node connected to SFR reaches</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00101">101</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: igwfnode =&gt; null() <span class="comment">!&lt; groundwater node connected to SFR reaches</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -3943,8 +3975,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00099">99</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: igwftopnode =&gt; null() <span class="comment">!&lt; highest active groundwater node under SFR reaches</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00102">102</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: igwftopnode =&gt; null() <span class="comment">!&lt; highest active groundwater node under SFR reaches</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -4068,8 +4100,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00134">134</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: inflow =&gt; null() <span class="comment">!&lt; reach upstream inflow</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00137">137</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: inflow =&gt; null() <span class="comment">!&lt; reach upstream inflow</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -4268,8 +4300,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00064">64</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: ipakcsv =&gt; null() <span class="comment">!&lt; flag and unit number for package convergence information</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00065">65</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: ipakcsv =&gt; null() <span class="comment">!&lt; flag and unit number for package convergence information</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -4318,8 +4350,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00060">60</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: iprhed =&gt; null() <span class="comment">!&lt; flag for printing stages to listing file</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00061">61</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: iprhed =&gt; null() <span class="comment">!&lt; flag for printing stages to listing file</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -4418,8 +4450,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00080">80</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: isfrorder =&gt; null() <span class="comment">!&lt; sfr reach order determined from DAG of upstream reaches</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00083">83</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: isfrorder =&gt; null() <span class="comment">!&lt; sfr reach order determined from DAG of upstream reaches</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -4443,8 +4475,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00061">61</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: istageout =&gt; null() <span class="comment">!&lt; flag and unit number for binary stage output</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00062">62</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: istageout =&gt; null() <span class="comment">!&lt; flag and unit number for binary stage output</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -4493,8 +4525,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00082">82</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: ja =&gt; null() <span class="comment">!&lt; CRS column pointers for SFR reach connections</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00085">85</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: ja =&gt; null() <span class="comment">!&lt; CRS column pointers for SFR reach connections</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -4543,8 +4575,33 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00100">100</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: length =&gt; null() <span class="comment">!&lt; reach length</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00103">103</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: length =&gt; null() <span class="comment">!&lt; reach length</span></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="afb80968bce24e1cdad88406025530356"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb80968bce24e1cdad88406025530356">&#9670;&nbsp;</a></span>lengthconv</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(dp), pointer sfrmodule::sfrtype::lengthconv =&gt; NULL()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00078">78</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">pointer</span> :: lengthconv =&gt; null() <span class="comment">!&lt; length conversion factor (SI to model units)</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -4618,8 +4675,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00068">68</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: maxsfrit =&gt; null() <span class="comment">!&lt; maximum number of iterations in SFR solve</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00069">69</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: maxsfrit =&gt; null() <span class="comment">!&lt; maximum number of iterations in SFR solve</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -4643,8 +4700,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00067">67</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: maxsfrpicard =&gt; null() <span class="comment">!&lt; maximum number of Picard iteration calls to SFR solve</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00068">68</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: maxsfrpicard =&gt; null() <span class="comment">!&lt; maximum number of Picard iteration calls to SFR solve</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -4818,8 +4875,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00066">66</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: nconn =&gt; null() <span class="comment">!&lt; number of reach connections</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00067">67</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: nconn =&gt; null() <span class="comment">!&lt; number of reach connections</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -4843,8 +4900,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00106">106</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: nconnreach =&gt; null() <span class="comment">!&lt; number of connections for each reach</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00109">109</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: nconnreach =&gt; null() <span class="comment">!&lt; number of connections for each reach</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -4868,8 +4925,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00121">121</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: ncrosspts =&gt; null() <span class="comment">!&lt; number of cross-section points for each reach</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00124">124</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: ncrosspts =&gt; null() <span class="comment">!&lt; number of cross-section points for each reach</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -4893,8 +4950,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00120">120</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: ncrossptstot =&gt; null() <span class="comment">!&lt; total number of cross-section points</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00123">123</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: ncrossptstot =&gt; null() <span class="comment">!&lt; total number of cross-section points</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -4918,8 +4975,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00109">109</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: ndiv =&gt; null() <span class="comment">!&lt; number of diversions for each reach</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00112">112</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: ndiv =&gt; null() <span class="comment">!&lt; number of diversions for each reach</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -5143,8 +5200,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00094">94</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">type</span>(TableType), <span class="keywordtype">pointer</span> :: pakcsvtab =&gt; null() <span class="comment">!&lt; SFR package convergence table</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00097">97</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">type</span>(TableType), <span class="keywordtype">pointer</span> :: pakcsvtab =&gt; null() <span class="comment">!&lt; SFR package convergence table</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -5218,8 +5275,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00086">86</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: qauxcbc =&gt; null() <span class="comment">!&lt; aux value</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00089">89</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: qauxcbc =&gt; null() <span class="comment">!&lt; aux value</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -5243,8 +5300,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00129">129</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: qconn =&gt; null() <span class="comment">!&lt; reach connection flow</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00132">132</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: qconn =&gt; null() <span class="comment">!&lt; reach connection flow</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -5268,8 +5325,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00085">85</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: qextoutflow =&gt; null() <span class="comment">!&lt; reach discharge to external boundary</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00088">88</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: qextoutflow =&gt; null() <span class="comment">!&lt; reach discharge to external boundary</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -5293,8 +5350,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00084">84</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: qoutflow =&gt; null() <span class="comment">!&lt; reach downstream flow</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00087">87</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: qoutflow =&gt; null() <span class="comment">!&lt; reach downstream flow</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -5318,8 +5375,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00132">132</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: rain =&gt; null() <span class="comment">!&lt; reach rainfall</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00135">135</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: rain =&gt; null() <span class="comment">!&lt; reach rainfall</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -5343,8 +5400,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00138">138</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:, :)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: rauxvar =&gt; null() <span class="comment">!&lt; reach aux variable</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00141">141</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:, :)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: rauxvar =&gt; null() <span class="comment">!&lt; reach aux variable</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -5393,8 +5450,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00131">131</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: rough =&gt; null() <span class="comment">!&lt; reach Manning&#39;s roughness coefficient (SI units)</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00134">134</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: rough =&gt; null() <span class="comment">!&lt; reach Manning&#39;s roughness coefficient (SI units)</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -5418,8 +5475,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00135">135</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: runoff =&gt; null() <span class="comment">!&lt; reach maximum runoff</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00138">138</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: runoff =&gt; null() <span class="comment">!&lt; reach maximum runoff</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -5443,9 +5500,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00057">57</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">character(len=LENBOUNDNAME)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, &amp;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      <span class="keywordtype">contiguous</span> :: sfrname =&gt; null() <span class="comment">!&lt; internal SFR reach name</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00058">58</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">character(len=LENBOUNDNAME)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, &amp;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      <span class="keywordtype">contiguous</span> :: sfrname =&gt; null() <span class="comment">!&lt; internal SFR reach name</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -5469,8 +5526,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00115">115</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: simevap =&gt; null() <span class="comment">!&lt; simulated reach evaporation</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00118">118</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: simevap =&gt; null() <span class="comment">!&lt; simulated reach evaporation</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -5494,8 +5551,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00116">116</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: simrunoff =&gt; null() <span class="comment">!&lt; simulated reach runoff</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00119">119</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: simrunoff =&gt; null() <span class="comment">!&lt; simulated reach runoff</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -5569,8 +5626,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00105">105</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: slope =&gt; null() <span class="comment">!&lt; reach slope</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00108">108</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: slope =&gt; null() <span class="comment">!&lt; reach slope</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -5594,8 +5651,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00136">136</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: sstage =&gt; null() <span class="comment">!&lt; reach specified stage</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00139">139</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: sstage =&gt; null() <span class="comment">!&lt; reach specified stage</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -5619,8 +5676,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00113">113</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: stage =&gt; null() <span class="comment">!&lt; reach stage</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00116">116</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: stage =&gt; null() <span class="comment">!&lt; reach stage</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -5644,8 +5701,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00117">117</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: stage0 =&gt; null() <span class="comment">!&lt; previous reach stage iterate</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00120">120</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: stage0 =&gt; null() <span class="comment">!&lt; previous reach stage iterate</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -5669,8 +5726,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00093">93</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">type</span>(TableType), <span class="keywordtype">pointer</span> :: stagetab =&gt; null() <span class="comment">!&lt; reach stage table written to the listing file</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00096">96</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">type</span>(TableType), <span class="keywordtype">pointer</span> :: stagetab =&gt; null() <span class="comment">!&lt; reach stage table written to the listing file</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -5694,8 +5751,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00123">123</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: station =&gt; null() <span class="comment">!&lt; cross-section station (x-position) data</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00126">126</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: station =&gt; null() <span class="comment">!&lt; cross-section station (x-position) data</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -5719,8 +5776,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00102">102</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: strtop =&gt; null() <span class="comment">!&lt; reach bed top elevation</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00105">105</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: strtop =&gt; null() <span class="comment">!&lt; reach bed top elevation</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -5774,6 +5831,31 @@ Private Attributes</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
+<a id="af90883ce056d4d808aa4b6ca8852a92e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af90883ce056d4d808aa4b6ca8852a92e">&#9670;&nbsp;</a></span>timeconv</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(dp), pointer sfrmodule::sfrtype::timeconv =&gt; NULL()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00079">79</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">pointer</span> :: timeconv =&gt; null() <span class="comment">!&lt; time conversion factor (SI to model units)</span></div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="a2d243e2c837af1473411e23a667d2444"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2d243e2c837af1473411e23a667d2444">&#9670;&nbsp;</a></span>tsmanager</h2>
 
@@ -5819,8 +5901,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00076">76</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">pointer</span> :: unitconv =&gt; null() <span class="comment">!&lt; unit conversion factor (SI to model units)</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00077">77</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">pointer</span> :: unitconv =&gt; null() <span class="comment">!&lt; unit conversion factor (SI to model units)</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -5844,8 +5926,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00110">110</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: usflow =&gt; null() <span class="comment">!&lt; upstream reach flow</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00113">113</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: usflow =&gt; null() <span class="comment">!&lt; upstream reach flow</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -5869,8 +5951,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00118">118</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: usflow0 =&gt; null() <span class="comment">!&lt; previous upstream reach flow iterate</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00121">121</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: usflow0 =&gt; null() <span class="comment">!&lt; previous upstream reach flow iterate</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -5894,8 +5976,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00107">107</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: ustrf =&gt; null() <span class="comment">!&lt; upstream flow fraction for upstream connections</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00110">110</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: ustrf =&gt; null() <span class="comment">!&lt; upstream flow fraction for upstream connections</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -5919,8 +6001,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00151">151</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:, :)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: viscratios =&gt; null() <span class="comment">!&lt; viscosity ratios (1: sfr vsc ratio; 2: gwf vsc ratio)</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00154">154</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:, :)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: viscratios =&gt; null() <span class="comment">!&lt; viscosity ratios (1: sfr vsc ratio; 2: gwf vsc ratio)</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -5944,8 +6026,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00101">101</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: width =&gt; null() <span class="comment">!&lt; reach width</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00104">104</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: width =&gt; null() <span class="comment">!&lt; reach width</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -6019,8 +6101,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00124">124</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: xsheight =&gt; null() <span class="comment">!&lt; cross-section height data</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00127">127</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: xsheight =&gt; null() <span class="comment">!&lt; cross-section height data</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -6044,8 +6126,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00125">125</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: xsrough =&gt; null() <span class="comment">!&lt; cross-section roughness data</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3sfr8_8f90_source.html#l00128">128</a> of file <a class="el" href="gwf3sfr8_8f90_source.html">gwf3sfr8.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: xsrough =&gt; null() <span class="comment">!&lt; cross-section roughness data</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -6058,7 +6140,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacesfrmodule.html">sfrmodule</a></li><li class="navelem"><a class="el" href="structsfrmodule_1_1sfrtype.html">sfrtype</a></li>
-    <li class="footer">Generated on Fri Mar 10 2023 12:06:30 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Mar 14 2023 07:20:04 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

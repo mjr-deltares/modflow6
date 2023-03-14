@@ -1,0 +1,9 @@
+<map id="sfrmodule::sfr_check_conversion" name="sfrmodule::sfr_check_conversion">
+<area shape="rect" id="node1" title="Check unit conversion data." alt="" coords="5,61,164,102"/>
+<area shape="rect" id="node2" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="212,68,387,95"/>
+<area shape="rect" id="node3" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="435,68,573,95"/>
+<area shape="rect" id="node4" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="621,27,789,69"/>
+<area shape="rect" id="node7" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="621,93,789,134"/>
+<area shape="rect" id="node5" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="837,5,1032,32"/>
+<area shape="rect" id="node6" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="851,57,1019,98"/>
+</map>

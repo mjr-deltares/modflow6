@@ -1,11 +1,13 @@
 <map id="simulationcreatemodule::options_create" name="simulationcreatemodule::options_create">
-<area shape="rect" id="node1" title="Set the simulation options." alt="" coords="5,57,187,98"/>
-<area shape="rect" id="node2" href="$namespacesimmodule.html#a229655c49149560a7e9faca23ee81486" title="Set the maximum number of errors stored." alt="" coords="242,5,411,32"/>
-<area shape="rect" id="node3" href="$namespacememorymanagermodule.html#af132849a84e8ffb066b5c4833f501c50" title="Set the memory print option." alt="" coords="235,57,419,98"/>
-<area shape="rect" id="node4" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="239,123,414,149"/>
-<area shape="rect" id="node5" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="467,123,605,149"/>
-<area shape="rect" id="node6" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="653,82,821,123"/>
-<area shape="rect" id="node9" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="653,147,821,189"/>
-<area shape="rect" id="node7" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="869,60,1064,87"/>
-<area shape="rect" id="node8" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="883,111,1051,153"/>
+<area shape="rect" id="node1" title="Set the simulation options." alt="" coords="5,115,187,157"/>
+<area shape="rect" id="node2" href="$namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d" title="returns the path to the memory object" alt="" coords="243,31,410,73"/>
+<area shape="rect" id="node4" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="681,68,856,95"/>
+<area shape="rect" id="node10" href="$namespacesimmodule.html#a229655c49149560a7e9faca23ee81486" title="Set the maximum number of errors stored." alt="" coords="242,148,411,175"/>
+<area shape="rect" id="node11" href="$namespacememorymanagermodule.html#af132849a84e8ffb066b5c4833f501c50" title="Set the memory print option." alt="" coords="235,199,419,241"/>
+<area shape="rect" id="node3" href="$namespacememoryhelpermodule.html#a5405f58247a0962e5449ebc1e4dcff0f" title="Generic routine to check the length of (parts of) the memory address." alt="" coords="467,31,633,73"/>
+<area shape="rect" id="node5" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="904,68,1043,95"/>
+<area shape="rect" id="node6" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="1091,27,1259,69"/>
+<area shape="rect" id="node9" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="1091,93,1259,134"/>
+<area shape="rect" id="node7" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="1307,5,1501,32"/>
+<area shape="rect" id="node8" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1320,57,1488,98"/>
 </map>
