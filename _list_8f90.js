@@ -13,6 +13,7 @@ var _list_8f90 =
     [ "get_current_item", "_list_8f90.html#a87ac95fe084d6d450fa87d5e18f5520e", null ],
     [ "get_item_by_index", "_list_8f90.html#a5347e497790a0b10a8d76235b2f5d034", null ],
     [ "get_node_by_index", "_list_8f90.html#ae955a6df22586725bcc19946ba4f4cda", null ],
+    [ "getindex", "_list_8f90.html#ab5a85b97953dd31bb35bfe3d43d614b7", null ],
     [ "getitem", "_list_8f90.html#a500c0bd3176ec5a493eda427f2787d55", null ],
     [ "getnextitem", "_list_8f90.html#abce4fdec1b6ac3cf8861270ff17f010b", null ],
     [ "getpreviousitem", "_list_8f90.html#a5201366d4beb0a32bacb5bce09c703f1", null ],

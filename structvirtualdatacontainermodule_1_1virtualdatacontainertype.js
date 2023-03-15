@@ -14,6 +14,7 @@ var structvirtualdatacontainermodule_1_1virtualdatacontainertype =
     [ "map_internal", "structvirtualdatacontainermodule_1_1virtualdatacontainertype.html#a2844a39da434932a3017d7627d5669a3", null ],
     [ "map_scalar", "structvirtualdatacontainermodule_1_1virtualdatacontainertype.html#a872317bb068c381bd8d19d629e9ada43", null ],
     [ "prepare_stage", "structvirtualdatacontainermodule_1_1virtualdatacontainertype.html#a0ae48cfe90fa21f3e304a940b190a84f", null ],
+    [ "print_items", "structvirtualdatacontainermodule_1_1virtualdatacontainertype.html#a9511014ed5d5c72437c16bce20afa86e", null ],
     [ "set_orig_rank", "structvirtualdatacontainermodule_1_1virtualdatacontainertype.html#aa85ef70739cb21cdafc1b829e0dc0c2d", null ],
     [ "vdc_create", "structvirtualdatacontainermodule_1_1virtualdatacontainertype.html#a465a25eb0a1a5657f357dd9fd72bd236", null ],
     [ "vdc_get_virtual_data", "structvirtualdatacontainermodule_1_1virtualdatacontainertype.html#a41c3d8a3976a9f85d6f9e31dfc394422", null ],

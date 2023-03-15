@@ -2,6 +2,11 @@ var namespacempimessagebuildermodule =
 [
     [ "vdcheadertype", "structmpimessagebuildermodule_1_1vdcheadertype.html", "structmpimessagebuildermodule_1_1vdcheadertype" ],
     [ "mpimessagebuildertype", "structmpimessagebuildermodule_1_1mpimessagebuildertype.html", "structmpimessagebuildermodule_1_1mpimessagebuildertype" ],
+    [ "attach_data", "namespacempimessagebuildermodule.html#a87a95d6f33af3c7f6e758f01d1a89124", null ],
+    [ "create_body_rcv", "namespacempimessagebuildermodule.html#ab7331df84c34c84f649587cc88f14e49", null ],
+    [ "create_body_snd", "namespacempimessagebuildermodule.html#aa1227d4eb4cd9172e716ef679d23e6d4", null ],
+    [ "create_header_rcv", "namespacempimessagebuildermodule.html#ae14df294eec8ff80da9d352fdd9d3ef6", null ],
+    [ "create_header_snd", "namespacempimessagebuildermodule.html#ae40c62c3afb8b32f603abcac20deb36e", null ],
     [ "create_vdc_body", "namespacempimessagebuildermodule.html#ab3ff239300f2c7d1f63c2d77a25a1a74", null ],
     [ "create_vdc_rcv_body", "namespacempimessagebuildermodule.html#ad716f8403c082f235d75f3be31e96ef3", null ],
     [ "create_vdc_snd_body", "namespacempimessagebuildermodule.html#ae2bd944ed2d9c04daeb79bf9d26fbb62", null ],
@@ -17,10 +22,7 @@ var namespacempimessagebuildermodule =
     [ "get_mpitype_for_int2d", "namespacempimessagebuildermodule.html#ab69887ff7c165ebd871bcc6cd5f97538", null ],
     [ "get_mpitype_for_int3d", "namespacempimessagebuildermodule.html#a5114785012836b7a030cbed6411e9dbc", null ],
     [ "get_vdc_from_hdr", "namespacempimessagebuildermodule.html#aeb3b14d5cc1f6e45ea1b8234d8b9d47f", null ],
-    [ "mb_attach_data", "namespacempimessagebuildermodule.html#ad0831f30cdbb280b892927202eb70a52", null ],
-    [ "mb_create_body_rcv", "namespacempimessagebuildermodule.html#a8255b4f418380c278d8e2e5c75f6e58e", null ],
-    [ "mb_create_body_snd", "namespacempimessagebuildermodule.html#a2043f2863b124bbb32f4cf5cf1c45f9a", null ],
-    [ "mb_create_header_rcv", "namespacempimessagebuildermodule.html#ab673eca0f6917322ed41ba2022a0ed31", null ],
-    [ "mb_create_header_snd", "namespacempimessagebuildermodule.html#a19de014ad515f8e46e76f6b430f9b976", null ],
-    [ "mb_release_data", "namespacempimessagebuildermodule.html#a66ce4e1c16a77b84b5431a3a79b7db90", null ]
+    [ "init", "namespacempimessagebuildermodule.html#a291becf08c224d7383c705b0975c2932", null ],
+    [ "release_data", "namespacempimessagebuildermodule.html#a4e9f90d66a02a04d78cbe902eea1dac9", null ],
+    [ "set_monitor", "namespacempimessagebuildermodule.html#a334ecccacbbdf4c635150a8e92545d9e", null ]
 ];

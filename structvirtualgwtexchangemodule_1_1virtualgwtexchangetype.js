@@ -17,6 +17,7 @@ var structvirtualgwtexchangemodule_1_1virtualgwtexchangetype =
     [ "map_internal", "structvirtualgwtexchangemodule_1_1virtualgwtexchangetype.html#a2844a39da434932a3017d7627d5669a3", null ],
     [ "map_scalar", "structvirtualgwtexchangemodule_1_1virtualgwtexchangetype.html#a872317bb068c381bd8d19d629e9ada43", null ],
     [ "prepare_stage", "structvirtualgwtexchangemodule_1_1virtualgwtexchangetype.html#a8d476101e8b7d7f85882bee0b9821361", null ],
+    [ "print_items", "structvirtualgwtexchangemodule_1_1virtualgwtexchangetype.html#a9511014ed5d5c72437c16bce20afa86e", null ],
     [ "set_orig_rank", "structvirtualgwtexchangemodule_1_1virtualgwtexchangetype.html#aa85ef70739cb21cdafc1b829e0dc0c2d", null ],
     [ "vdc_create", "structvirtualgwtexchangemodule_1_1virtualgwtexchangetype.html#a465a25eb0a1a5657f357dd9fd72bd236", null ],
     [ "vdc_get_virtual_data", "structvirtualgwtexchangemodule_1_1virtualgwtexchangetype.html#a41c3d8a3976a9f85d6f9e31dfc394422", null ],

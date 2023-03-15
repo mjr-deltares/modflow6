@@ -145,7 +145,7 @@ $(document).ready(function(){initNavTree('_parallel_solution_8f90_source.html','
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    has_converged = .false.</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    global_max_dvc = huge(0.0)</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">call </span>mpi_allreduce(max_dvc, global_max_dvc, 1, mpi_double_precision, &amp;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                       mpi_min, <a class="code" href="namespacempiworldmodule.html#a558d147cd521fc6a1ce6deba061dd38c">mf6_comm_world</a>, ierr)</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                       mpi_max, <a class="code" href="namespacempiworldmodule.html#a558d147cd521fc6a1ce6deba061dd38c">mf6_comm_world</a>, ierr)</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">if</span> (global_max_dvc &lt;= this%dvclose) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      has_converged = .true.</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keywordflow">    end if</span></div>
@@ -167,7 +167,7 @@ $(document).ready(function(){initNavTree('_parallel_solution_8f90_source.html','
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_45e973df69963bbfe985a1f7e6db2b6f.html">Solution</a></li><li class="navelem"><a class="el" href="_parallel_solution_8f90.html">ParallelSolution.f90</a></li>
-    <li class="footer">Generated on Tue Mar 14 2023 07:20:01 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Mar 15 2023 14:26:48 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

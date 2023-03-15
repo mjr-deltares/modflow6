@@ -10,6 +10,7 @@ var namespacevirtualdatacontainermodule =
     [ "map_array2d", "namespacevirtualdatacontainermodule.html#a55c9b2ff55aef0192eb0fa1e954c04aa", null ],
     [ "map_internal", "namespacevirtualdatacontainermodule.html#a789eb1ae90da8c545b4df75bf7474fd3", null ],
     [ "map_scalar", "namespacevirtualdatacontainermodule.html#acb9adc935b2789dea9ca7e29a2babb54", null ],
+    [ "print_items", "namespacevirtualdatacontainermodule.html#abb73aca3dbc1dd3114822a6b086912f4", null ],
     [ "vdc_create", "namespacevirtualdatacontainermodule.html#a2953631f57e2f71d24c6bc717fcd967c", null ],
     [ "vdc_destroy", "namespacevirtualdatacontainermodule.html#abcf2a42e784507ae5cd3df189dacbae7", null ],
     [ "vdc_get_recv_items", "namespacevirtualdatacontainermodule.html#a2f4243256f328a183ef20104f8760ea5", null ],

@@ -1,7 +1,9 @@
 var namespacempiroutermodule =
 [
     [ "mpiroutertype", "structmpiroutermodule_1_1mpiroutertype.html", "structmpiroutermodule_1_1mpiroutertype" ],
+    [ "activate", "namespacempiroutermodule.html#a695844d8861f377247ff680ebe231795", null ],
     [ "create_mpi_router", "namespacempiroutermodule.html#a4dc73eba9b7f95797f76d55c3f3a4538", null ],
+    [ "deactivate", "namespacempiroutermodule.html#a94c97fed5f7f4fdb686d4a60e1e5bcd1", null ],
     [ "mr_destroy", "namespacempiroutermodule.html#ad09f391fd6ae66ed8e0721d2418d58b7", null ],
     [ "mr_initialize", "namespacempiroutermodule.html#ae32318abfd17fbc0120061b2ddb09933", null ],
     [ "mr_route_active", "namespacempiroutermodule.html#a7bad329839d717bb004db4e829aca158", null ],

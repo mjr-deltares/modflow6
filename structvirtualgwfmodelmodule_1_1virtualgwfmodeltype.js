@@ -22,6 +22,7 @@ var structvirtualgwfmodelmodule_1_1virtualgwfmodeltype =
     [ "map_scalar", "structvirtualgwfmodelmodule_1_1virtualgwfmodeltype.html#a872317bb068c381bd8d19d629e9ada43", null ],
     [ "operator", "structvirtualgwfmodelmodule_1_1virtualgwfmodeltype.html#a93ec7536cba601ddd61622b18836d86d", null ],
     [ "prepare_stage", "structvirtualgwfmodelmodule_1_1virtualgwfmodeltype.html#a7aeba06f93dabe9967c31aaf65b7b06e", null ],
+    [ "print_items", "structvirtualgwfmodelmodule_1_1virtualgwfmodeltype.html#a9511014ed5d5c72437c16bce20afa86e", null ],
     [ "set_orig_rank", "structvirtualgwfmodelmodule_1_1virtualgwfmodeltype.html#aa85ef70739cb21cdafc1b829e0dc0c2d", null ],
     [ "vdc_create", "structvirtualgwfmodelmodule_1_1virtualgwfmodeltype.html#a465a25eb0a1a5657f357dd9fd72bd236", null ],
     [ "vdc_get_virtual_data", "structvirtualgwfmodelmodule_1_1virtualgwfmodeltype.html#a41c3d8a3976a9f85d6f9e31dfc394422", null ],

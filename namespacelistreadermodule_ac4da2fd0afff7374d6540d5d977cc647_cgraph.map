@@ -1,10 +1,13 @@
 <map id="listreadermodule::read_binary" name="listreadermodule::read_binary">
-<area shape="rect" id="node1" title=" " alt="" coords="5,35,176,76"/>
-<area shape="rect" id="node2" href="$namespaceinputoutputmodule.html#a22620cf6624502feca9621056c5c161a" title=" " alt="" coords="234,5,389,47"/>
-<area shape="rect" id="node3" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="224,71,399,98"/>
-<area shape="rect" id="node4" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="447,71,585,98"/>
-<area shape="rect" id="node5" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="633,31,801,72"/>
-<area shape="rect" id="node8" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="633,96,801,137"/>
-<area shape="rect" id="node6" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="849,9,1044,35"/>
-<area shape="rect" id="node7" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="863,60,1031,101"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,115,176,156"/>
+<area shape="rect" id="node2" href="$namespacelistreadermodule.html#a4d335cbf25baab664f2cb9fbf411d753" title="@ brief Check for valid cellid" alt="" coords="227,5,405,47"/>
+<area shape="rect" id="node3" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="472,71,647,98"/>
+<area shape="rect" id="node9" href="$namespacesimmodule.html#a4c46e49de78d4498dd4ec106357775e6" title="Return number of errors." alt="" coords="224,122,408,149"/>
+<area shape="rect" id="node10" href="$namespaceinputoutputmodule.html#a22620cf6624502feca9621056c5c161a" title=" " alt="" coords="239,173,393,215"/>
+<area shape="rect" id="node11" href="$namespacesimmodule.html#a83910ed20af1fec9bdf46cad8c276538" title="Store the file unit number." alt="" coords="456,181,663,207"/>
+<area shape="rect" id="node4" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="711,155,849,182"/>
+<area shape="rect" id="node5" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="897,115,1065,156"/>
+<area shape="rect" id="node8" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="897,180,1065,221"/>
+<area shape="rect" id="node6" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="1113,93,1308,119"/>
+<area shape="rect" id="node7" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1127,144,1295,185"/>
 </map>

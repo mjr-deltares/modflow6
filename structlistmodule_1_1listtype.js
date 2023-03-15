@@ -8,6 +8,7 @@ var structlistmodule_1_1listtype =
     [ "get_current_item", "structlistmodule_1_1listtype.html#a78bf6a3b447513ae67a4c45337cf6e0d", null ],
     [ "get_item_by_index", "structlistmodule_1_1listtype.html#abe408c7a05deec8e0c5ff0389aad3632", null ],
     [ "get_node_by_index", "structlistmodule_1_1listtype.html#a66d4074f93b01ba721244d6c0f8777c7", null ],
+    [ "getindex", "structlistmodule_1_1listtype.html#a8898db6ac52daaf9d85cd742965fcb87", null ],
     [ "getitem", "structlistmodule_1_1listtype.html#a91abefa77edf1b11b36d0c73ac604f77", null ],
     [ "getnextitem", "structlistmodule_1_1listtype.html#a0c4ebb40956b0fd5e3db8b075399ac13", null ],
     [ "getpreviousitem", "structlistmodule_1_1listtype.html#ab979e231c42d77f21329d3d3436fb9d7", null ],

@@ -1,10 +1,9 @@
 <map id="numericalexchangemodule::getnumericalexchangefromlist" name="numericalexchangemodule::getnumericalexchangefromlist">
-<area shape="rect" id="node1" title=" " alt="" coords="253,201,484,243"/>
-<area shape="rect" id="node2" href="$namespacenumericalsolutionmodule.html#a7fcf392bb98599ca511fdf62749e9447" title="@ brief finalize a solution" alt="" coords="11,5,199,47"/>
-<area shape="rect" id="node3" href="$namespacenumericalsolutionmodule.html#ad38d2c1f3ad4cdb32b3e9e51329d5913" title="@ brief prepare to solve" alt="" coords="11,71,199,112"/>
-<area shape="rect" id="node4" href="$namespacenumericalsolutionmodule.html#abe804dcafea9bef2ef528e68475ac3ec" title="@ brief Allocate and read data" alt="" coords="11,136,199,177"/>
-<area shape="rect" id="node5" href="$namespacenumericalsolutionmodule.html#a46eed3012776928555270aaecc977684" title=" " alt="" coords="11,201,199,243"/>
-<area shape="rect" id="node6" href="$namespacenumericalsolutionmodule.html#a3af64aed80e4521475b814733555b327" title="@ brief Assign solution connections" alt="" coords="11,267,199,308"/>
-<area shape="rect" id="node7" href="$namespacenumericalsolutionmodule.html#a964262851ef62c07577f4b3bbf384e15" title="@ brief Build and solve the simulation" alt="" coords="11,332,199,373"/>
-<area shape="rect" id="node8" href="$namespacevirtualdatamanagermodule.html#ac33ea4d249e2305f3109405dab3c9b8f" title="Add the models and exchanges from the passed solution to the virtual data structure...." alt="" coords="5,397,205,439"/>
+<area shape="rect" id="node1" title=" " alt="" coords="241,169,472,211"/>
+<area shape="rect" id="node2" href="$namespacenumericalsolutionmodule.html#a7fcf392bb98599ca511fdf62749e9447" title="@ brief finalize a solution" alt="" coords="5,5,193,47"/>
+<area shape="rect" id="node3" href="$namespacenumericalsolutionmodule.html#ad38d2c1f3ad4cdb32b3e9e51329d5913" title="@ brief prepare to solve" alt="" coords="5,71,193,112"/>
+<area shape="rect" id="node4" href="$namespacenumericalsolutionmodule.html#abe804dcafea9bef2ef528e68475ac3ec" title="@ brief Allocate and read data" alt="" coords="5,136,193,177"/>
+<area shape="rect" id="node5" href="$namespacenumericalsolutionmodule.html#a46eed3012776928555270aaecc977684" title=" " alt="" coords="5,201,193,243"/>
+<area shape="rect" id="node6" href="$namespacenumericalsolutionmodule.html#a3af64aed80e4521475b814733555b327" title="@ brief Assign solution connections" alt="" coords="5,267,193,308"/>
+<area shape="rect" id="node7" href="$namespacenumericalsolutionmodule.html#a964262851ef62c07577f4b3bbf384e15" title="@ brief Build and solve the simulation" alt="" coords="5,332,193,373"/>
 </map>

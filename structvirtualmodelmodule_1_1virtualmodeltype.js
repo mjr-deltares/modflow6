@@ -22,6 +22,7 @@ var structvirtualmodelmodule_1_1virtualmodeltype =
     [ "map_scalar", "structvirtualmodelmodule_1_1virtualmodeltype.html#a872317bb068c381bd8d19d629e9ada43", null ],
     [ "operator", "structvirtualmodelmodule_1_1virtualmodeltype.html#a93ec7536cba601ddd61622b18836d86d", null ],
     [ "prepare_stage", "structvirtualmodelmodule_1_1virtualmodeltype.html#a28687dbf13badf18021a6ba93e47dc87", null ],
+    [ "print_items", "structvirtualmodelmodule_1_1virtualmodeltype.html#a9511014ed5d5c72437c16bce20afa86e", null ],
     [ "set_orig_rank", "structvirtualmodelmodule_1_1virtualmodeltype.html#aa85ef70739cb21cdafc1b829e0dc0c2d", null ],
     [ "vdc_create", "structvirtualmodelmodule_1_1virtualmodeltype.html#a465a25eb0a1a5657f357dd9fd72bd236", null ],
     [ "vdc_get_virtual_data", "structvirtualmodelmodule_1_1virtualmodeltype.html#a41c3d8a3976a9f85d6f9e31dfc394422", null ],

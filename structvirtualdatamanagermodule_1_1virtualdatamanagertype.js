@@ -9,6 +9,7 @@ var structvirtualdatamanagermodule_1_1virtualdatamanagertype =
     [ "link_sln", "structvirtualdatamanagermodule_1_1virtualdatamanagertype.html#a179abdbf05f66a15bfcc2fd1e096810f", null ],
     [ "prepare_all", "structvirtualdatamanagermodule_1_1virtualdatamanagertype.html#afbfa4e64836aa788d07b42cea31aae5c", null ],
     [ "prepare_sln", "structvirtualdatamanagermodule_1_1virtualdatamanagertype.html#aa67d8f7a4cdc58cf91db89352187393d", null ],
+    [ "reduce_halo", "structvirtualdatamanagermodule_1_1virtualdatamanagertype.html#a110e59d67832c291587f90890b920534", null ],
     [ "synchronize", "structvirtualdatamanagermodule_1_1virtualdatamanagertype.html#a2cf8ed7302481909b88b72551b9c8e68", null ],
     [ "synchronize_sln", "structvirtualdatamanagermodule_1_1virtualdatamanagertype.html#a984e348519c2da72ae7a31e217002045", null ],
     [ "vds_synchronize", "structvirtualdatamanagermodule_1_1virtualdatamanagertype.html#a7461a22b705d30de051b27f6b0cedfaf", null ],

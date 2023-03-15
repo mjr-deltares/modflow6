@@ -1,5 +1,6 @@
 <map id="disconnexchangemodule::castasdisconnexchangeclass" name="disconnexchangemodule::castasdisconnexchangeclass">
-<area shape="rect" id="node1" title=" " alt="" coords="503,5,721,47"/>
-<area shape="rect" id="node2" href="$namespacedisconnexchangemodule.html#a63ac91d936c8b44104f8e091a81e7ac2" title=" " alt="" coords="240,5,455,47"/>
-<area shape="rect" id="node3" href="$namespaceconnectionbuildermodule.html#aef408e9381f69a203549fc5e8a355041" title="Create connections from exchanges." alt="" coords="5,5,192,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="516,39,735,80"/>
+<area shape="rect" id="node2" href="$namespacedisconnexchangemodule.html#a63ac91d936c8b44104f8e091a81e7ac2" title=" " alt="" coords="253,39,468,80"/>
+<area shape="rect" id="node3" href="$namespaceconnectionbuildermodule.html#aef408e9381f69a203549fc5e8a355041" title="Create connections from exchanges." alt="" coords="12,5,199,47"/>
+<area shape="rect" id="node4" href="$namespacevirtualdatamanagermodule.html#ac33ea4d249e2305f3109405dab3c9b8f" title="Add the models and exchanges from the passed solution to the virtual data structure...." alt="" coords="5,71,205,112"/>
 </map>

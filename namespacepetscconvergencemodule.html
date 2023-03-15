@@ -126,8 +126,11 @@ Data Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a4134f12ac9513ffcaa0f099b0ef8a636"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepetscconvergencemodule.html#a4134f12ac9513ffcaa0f099b0ef8a636">petsc_add_context</a> (ctx, idx)</td></tr>
-<tr class="memdesc:a4134f12ac9513ffcaa0f099b0ef8a636"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a context to the static list. The.  <a href="namespacepetscconvergencemodule.html#a4134f12ac9513ffcaa0f099b0ef8a636">More...</a><br /></td></tr>
+<tr class="memdesc:a4134f12ac9513ffcaa0f099b0ef8a636"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a context to the static list. The generated idx can then be used as a handle when calling 'KSPSetConvergenceTest'. Make sure to remove.  <a href="namespacepetscconvergencemodule.html#a4134f12ac9513ffcaa0f099b0ef8a636">More...</a><br /></td></tr>
 <tr class="separator:a4134f12ac9513ffcaa0f099b0ef8a636"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad03e89d836b0bcdfdd93e2af5fe2b751"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepetscconvergencemodule.html#ad03e89d836b0bcdfdd93e2af5fe2b751">petsc_remove_context</a> (ctx)</td></tr>
+<tr class="memdesc:ad03e89d836b0bcdfdd93e2af5fe2b751"><td class="mdescLeft">&#160;</td><td class="mdescRight">This will clear the list with context pointers.  <a href="namespacepetscconvergencemodule.html#ad03e89d836b0bcdfdd93e2af5fe2b751">More...</a><br /></td></tr>
+<tr class="separator:ad03e89d836b0bcdfdd93e2af5fe2b751"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aedcc1aa8d353b15ae924bfb3f9cbd7ef"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepetscconvergencemodule.html#aedcc1aa8d353b15ae924bfb3f9cbd7ef">petsc_check_convergence</a> (ksp, n, rnorm, flag, ctx_id, ierr)</td></tr>
 <tr class="memdesc:aedcc1aa8d353b15ae924bfb3f9cbd7ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Routine to check the convergence. This is called.  <a href="namespacepetscconvergencemodule.html#aedcc1aa8d353b15ae924bfb3f9cbd7ef">More...</a><br /></td></tr>
 <tr class="separator:aedcc1aa8d353b15ae924bfb3f9cbd7ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -164,22 +167,22 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_petsc_convergence_8_f90_source.html#l00025">25</a> of file <a class="el" href="_petsc_convergence_8_f90_source.html">PetscConvergence.F90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">class</span>(PetscContextType), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(in)</span> :: ctx</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(out)</span> :: idx</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span> :: ctx_ptr</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    ctx_ptr =&gt; ctx</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">call </span>ctx_list%Add(ctx_ptr)</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    idx = ctx_list%Count()</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="_petsc_convergence_8_f90_source.html#l00027">27</a> of file <a class="el" href="_petsc_convergence_8_f90_source.html">PetscConvergence.F90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">class</span>(PetscContextType), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(in)</span> :: ctx</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(out)</span> :: idx</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span> :: obj_ptr</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    obj_ptr =&gt; ctx</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">call </span>ctx_list%Add(obj_ptr)</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    idx = ctx_list%Count()</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacepetscconvergencemodule_a4134f12ac9513ffcaa0f099b0ef8a636_icgraph.png" border="0" usemap="#anamespacepetscconvergencemodule_a4134f12ac9513ffcaa0f099b0ef8a636_icgraph" alt=""/></div>
 <map name="anamespacepetscconvergencemodule_a4134f12ac9513ffcaa0f099b0ef8a636_icgraph" id="anamespacepetscconvergencemodule_a4134f12ac9513ffcaa0f099b0ef8a636_icgraph">
-<area shape="rect" title="Add a context to the static list. The." alt="" coords="252,5,441,47"/>
+<area shape="rect" title="Add a context to the static list. The generated idx can then be used as a handle when calling &#39;KSPSet..." alt="" coords="252,5,441,47"/>
 <area shape="rect" href="namespacepetscsolvermodule.html#af3a010cabd3b10995e28dfda3cd52bc4" title="Create and assign a custom convergence." alt="" coords="5,5,204,47"/>
 </map>
 </div>
@@ -236,53 +239,53 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_petsc_convergence_8_f90_source.html#l00039">39</a> of file <a class="el" href="_petsc_convergence_8_f90_source.html">PetscConvergence.F90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    ksp :: ksp <span class="comment">!&lt; Iterative context</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    petscint :: n <span class="comment">!&lt; Iteration number</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    petscreal :: rnorm <span class="comment">!&lt; 2-norm (preconditioned) residual value</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    kspconvergedreason :: flag <span class="comment">!&lt; Converged reason</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    petscint :: ctx_id <span class="comment">!&lt; index into the static context list</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    petscerrorcode :: ierr <span class="comment">!&lt; error</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    petscscalar :: alpha = -1.0</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keywordtype">    real</span>(DP) :: norm</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    vec :: x</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">class</span>(PetscContextType), <span class="keywordtype">pointer</span> :: petsc_context</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span> :: obj_ptr</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment">! get the context from the list</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    petsc_context =&gt; null()</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    obj_ptr =&gt; ctx_list%GetItem(ctx_id)</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">select type</span> (obj_ptr)</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keywordflow">    class is</span> (petsccontexttype)</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      petsc_context =&gt; obj_ptr</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keywordflow">    end select</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">call </span>kspbuildsolution(ksp, petsc_null_vec, x, ierr)</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    chkerrq(ierr)</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">if</span> (n == 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      <span class="keyword">call </span>veccopy(x, petsc_context%x_old, ierr)</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;      chkerrq(ierr)</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      flag = ksp_converged_iterating</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">call </span>vecwaxpy(petsc_context%delta_x, alpha, x, petsc_context%x_old, ierr)</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    chkerrq(ierr)</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">call </span>vecnorm(petsc_context%delta_x, norm_infinity, norm, ierr)</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    chkerrq(ierr)</div>
+<p class="definition">Definition at line <a class="el" href="_petsc_convergence_8_f90_source.html#l00055">55</a> of file <a class="el" href="_petsc_convergence_8_f90_source.html">PetscConvergence.F90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    ksp :: ksp <span class="comment">!&lt; Iterative context</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    petscint :: n <span class="comment">!&lt; Iteration number</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    petscreal :: rnorm <span class="comment">!&lt; 2-norm (preconditioned) residual value</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    kspconvergedreason :: flag <span class="comment">!&lt; Converged reason</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    petscint :: ctx_id <span class="comment">!&lt; index into the static context list</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    petscerrorcode :: ierr <span class="comment">!&lt; error</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    petscscalar :: alpha = -1.0</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keywordtype">    real</span>(DP) :: norm</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    vec :: x</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">class</span>(PetscContextType), <span class="keywordtype">pointer</span> :: petsc_context</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span> :: obj_ptr</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="comment">! get the context from the list</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    petsc_context =&gt; null()</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    obj_ptr =&gt; ctx_list%GetItem(ctx_id)</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">select type</span> (obj_ptr)</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keywordflow">    class is</span> (petsccontexttype)</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;      petsc_context =&gt; obj_ptr</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keywordflow">    end select</span></div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">call </span>veccopy(x, petsc_context%x_old, ierr)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">call </span>kspbuildsolution(ksp, petsc_null_vec, x, ierr)</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    chkerrq(ierr)</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">if</span> (norm &lt; petsc_context%dvclose) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      flag = ksp_converged_happy_breakdown <span class="comment">! Converged</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;      flag = ksp_converged_iterating <span class="comment">! Not yet converged</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">if</span> (n == 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      <span class="keyword">call </span>veccopy(x, petsc_context%x_old, ierr)</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      chkerrq(ierr)</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;      flag = ksp_converged_iterating</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keyword">call </span>vecwaxpy(petsc_context%delta_x, alpha, x, petsc_context%x_old, ierr)</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    chkerrq(ierr)</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keyword">call </span>vecnorm(petsc_context%delta_x, norm_infinity, norm, ierr)</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    chkerrq(ierr)</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keyword">call </span>veccopy(x, petsc_context%x_old, ierr)</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    chkerrq(ierr)</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">if</span> (norm &lt; petsc_context%dvclose) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;      flag = ksp_converged_happy_breakdown <span class="comment">! Converged</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;      flag = ksp_converged_iterating <span class="comment">! Not yet converged</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -293,6 +296,35 @@ Here is the caller graph for this function:</div>
 </map>
 </div>
 
+</div>
+</div>
+<a id="ad03e89d836b0bcdfdd93e2af5fe2b751"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad03e89d836b0bcdfdd93e2af5fe2b751">&#9670;&nbsp;</a></span>petsc_remove_context()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public petscconvergencemodule::petsc_remove_context </td>
+          <td>(</td>
+          <td class="paramtype">class(<a class="el" href="structpetscconvergencemodule_1_1petsccontexttype.html">petsccontexttype</a>), intent(in), pointer&#160;</td>
+          <td class="paramname"><em>ctx</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_petsc_convergence_8_f90_source.html#l00041">41</a> of file <a class="el" href="_petsc_convergence_8_f90_source.html">PetscConvergence.F90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">class</span>(PetscContextType), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(in)</span> :: ctx</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: idx</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span> :: obj_ptr</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    obj_ptr =&gt; ctx</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    idx = ctx_list%GetIndex(obj_ptr)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">call </span>ctx_list%RemoveNode(idx, .false.)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
@@ -308,8 +340,8 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_petsc_convergence_8_f90_source.html#l00018">18</a> of file <a class="el" href="_petsc_convergence_8_f90_source.html">PetscConvergence.F90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <span class="keywordtype">type</span>(ListType) :: ctx_list</div>
+<p class="definition">Definition at line <a class="el" href="_petsc_convergence_8_f90_source.html#l00019">19</a> of file <a class="el" href="_petsc_convergence_8_f90_source.html">PetscConvergence.F90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <span class="keywordtype">type</span>(ListType) :: ctx_list</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -319,7 +351,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacepetscconvergencemodule.html">petscconvergencemodule</a></li>
-    <li class="footer">Generated on Tue Mar 14 2023 07:20:04 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Mar 15 2023 14:26:52 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
