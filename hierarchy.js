@@ -28,6 +28,7 @@ var hierarchy =
       [ "rectangulargeometrymodule::rectangulargeometrytype", "structrectangulargeometrymodule_1_1rectangulargeometrytype.html", null ]
     ] ],
     [ "basemodelmodule::basemodeltype", "structbasemodelmodule_1_1basemodeltype.html", [
+      [ "explicitmodelmodule::explicitmodeltype", "structexplicitmodelmodule_1_1explicitmodeltype.html", null ],
       [ "numericalmodelmodule::numericalmodeltype", "structnumericalmodelmodule_1_1numericalmodeltype.html", [
         [ "gwfmodule::gwfmodeltype", "structgwfmodule_1_1gwfmodeltype.html", [
           [ "gwfinterfacemodelmodule::gwfinterfacemodeltype", "structgwfinterfacemodelmodule_1_1gwfinterfacemodeltype.html", null ]
@@ -40,6 +41,7 @@ var hierarchy =
       ] ]
     ] ],
     [ "basesolutionmodule::basesolutiontype", "structbasesolutionmodule_1_1basesolutiontype.html", [
+      [ "explicitsolutionmodule::explicitsolutiontype", "structexplicitsolutionmodule_1_1explicitsolutiontype.html", null ],
       [ "numericalsolutionmodule::numericalsolutiontype", "structnumericalsolutionmodule_1_1numericalsolutiontype.html", [
         [ "parallelsolutionmodule::parallelsolutiontype", "structparallelsolutionmodule_1_1parallelsolutiontype.html", null ]
       ] ]

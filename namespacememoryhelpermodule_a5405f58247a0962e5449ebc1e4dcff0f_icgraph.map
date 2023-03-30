@@ -16,37 +16,37 @@
 <area shape="rect" id="node15" href="$interfacememorymanagermodule_1_1mem__checkin.html#a650bf8bfdaa0493403e0c25bbfd7893a" title="Check in an existing 2d double precision array with a new address (name + path)" alt="" coords="498,886,721,927"/>
 <area shape="rect" id="node16" href="$interfacememorymanagermodule_1_1mem__checkin.html#a50b8a3f278d0b28edb2e7c4b8b0fbaf1" title="Check in an existing 1d integer array with a new address (name + path)" alt="" coords="500,951,719,993"/>
 <area shape="rect" id="node17" href="$namespacememoryhelpermodule.html#abda60b8cd05bba132ea82b23bf12c36c" title="returns the address string of the memory object" alt="" coords="524,1017,695,1058"/>
-<area shape="rect" id="node22" href="$namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d" title="returns the path to the memory object" alt="" coords="526,1909,693,1950"/>
+<area shape="rect" id="node22" href="$namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d" title="returns the path to the memory object" alt="" coords="526,1894,693,1935"/>
 <area shape="rect" id="node18" href="$namespacemf6bmi.html#a071e272ea0c04f3b71c45d3f0164ff55" title="Returns all input variables in the simulation." alt="" coords="261,1017,432,1058"/>
 <area shape="rect" id="node19" href="$namespacemf6bmi.html#abdf3d594c1532800d8cf98aa2954af49" title="Returns all output variables in the simulation." alt="" coords="271,886,422,927"/>
 <area shape="rect" id="node20" href="$namespacemf6xmi.html#af8d28c72dda6783a01843bcc2ed56fe3" title="Get the full address string for a variable." alt="" coords="253,1083,441,1109"/>
 <area shape="rect" id="node21" href="$namespacememorytypemodule.html#aadef09c718c031b8a26e0daafa948f43" title=" " alt="" coords="249,951,445,993"/>
-<area shape="rect" id="node23" href="$namespacegwfnpfmodule.html#ae44de5bba8e892bcfea0585a3afd426b" title="@ brief Allocate scalars" alt="" coords="259,1382,435,1423"/>
-<area shape="rect" id="node24" href="$namespacebndmodule.html#a20ea539a7c70f9999cfb0e133195b1df" title="@ brief Allocate package scalars" alt="" coords="269,1447,424,1489"/>
-<area shape="rect" id="node25" href="$namespaceconnectionsmodule.html#ae71d867478877b7cfc5e2fd0a8147d49" title=" " alt="" coords="268,1513,425,1554"/>
-<area shape="rect" id="node26" href="$namespacebasedismodule.html#a66cb0050e8ca0bf34ea6f977a979907b" title=" " alt="" coords="256,1578,437,1619"/>
-<area shape="rect" id="node27" href="$namespaceoutputcontrolmodule.html#ab4c21f744ae8f5f98d68147622968261" title="@ brief Allocate scalars method for OutputControlType" alt="" coords="267,1643,426,1685"/>
-<area shape="rect" id="node28" href="$namespaceapimodule.html#a69610802564ad710cb88863117b38a46" title="@ brief Create a new package object" alt="" coords="263,1709,430,1736"/>
-<area shape="rect" id="node29" href="$namespacechdmodule.html#a061dea5df09ddd53e4ca09a1fb9168e6" title=" " alt="" coords="260,1760,433,1787"/>
-<area shape="rect" id="node30" href="$namespacegridconnectionmodule.html#a51ea2469018d3c02815e4c1e67e962a4" title="Construct the GridConnection and allocate the data structures for the primary connections." alt="" coords="263,1811,430,1853"/>
-<area shape="rect" id="node31" href="$namespacevirtualdatacontainermodule.html#a26061c47f4aed9f76e0945bcd65dd29b" title="Create virtual data item, without allocation,." alt="" coords="245,1877,448,1918"/>
-<area shape="rect" id="node32" href="$namespacenumericalsolutionmodule.html#af0f9292c3c93f6766b8d875687e22069" title="@ brief Create a new solution" alt="" coords="245,1942,448,1983"/>
-<area shape="rect" id="node33" href="$namespacegwfcsubmodule.html#aadc0a0e9249722a2c4669507d5d073ac" title="@ brief Create a new package object" alt="" coords="255,2261,438,2288"/>
-<area shape="rect" id="node34" href="$namespacegwfmodule.html#a0cb07c0232ce3627b9120eb42e7e164f" title="Create a new groundwater flow model object." alt="" coords="28,2164,175,2191"/>
-<area shape="rect" id="node35" href="$namespacegwfdisumodule.html#a0969d37f0887eb04aedc156a63ec072b" title=" " alt="" coords="251,2109,443,2136"/>
-<area shape="rect" id="node36" href="$namespacedrnmodule.html#adb1e33b478a85e63f7bc39db2b8ccec0" title=" " alt="" coords="262,2160,431,2187"/>
-<area shape="rect" id="node37" href="$namespaceevtmodule.html#a40c5e5dede94b4a79ba0917d8518798e" title=" " alt="" coords="262,2211,431,2237"/>
-<area shape="rect" id="node38" href="$namespacesimulationcreatemodule.html#abb116763d0b57efd5d804f40a52321ee" title="Set the exchanges to be used for the simulation." alt="" coords="11,1626,192,1667"/>
-<area shape="rect" id="node39" href="$namespacemf6bmigrid.html#a576ebe2e6fe82ce03bc4651345629873" title=" " alt="" coords="22,2334,181,2375"/>
-<area shape="rect" id="node40" href="$namespacemf6bmigrid.html#ad88efccd58e4838c717b0ba1aa59cd03" title=" " alt="" coords="267,2429,426,2470"/>
-<area shape="rect" id="node41" href="$namespacemf6bmigrid.html#ad2676805217059dd0dff87264a2dc510" title=" " alt="" coords="5,2465,197,2492"/>
-<area shape="rect" id="node42" href="$namespacemf6bmigrid.html#ad01b75893110495984c1615f208b9abd" title=" " alt="" coords="267,2363,426,2405"/>
-<area shape="rect" id="node43" href="$namespacemf6bmigrid.html#a304e7491c03e05d71c8fb1431f016770" title=" " alt="" coords="249,2545,444,2572"/>
-<area shape="rect" id="node44" href="$namespacemf6bmigrid.html#a5095eb86239dc8fbcbdb91d818936322" title=" " alt="" coords="267,2597,426,2638"/>
-<area shape="rect" id="node45" href="$namespacemf6bmigrid.html#afea0bc5291b3ce31f4109bfb07074366" title=" " alt="" coords="259,2663,434,2689"/>
-<area shape="rect" id="node46" href="$namespacemf6bmigrid.html#af44b2f8aff3d1d8f393ac2bba8242cb5" title=" " alt="" coords="259,2713,434,2740"/>
-<area shape="rect" id="node47" href="$namespacemodflowinputmodule.html#a3e33a9d3121d016a43b66788a5713e29" title="function to return ModflowInputType" alt="" coords="267,1134,427,1175"/>
-<area shape="rect" id="node48" href="$namespaceghbmodule.html#a3d6d6999ad03785f86a66e6f09899500" title=" " alt="" coords="259,1200,434,1227"/>
-<area shape="rect" id="node49" href="$namespacegwfgwfexchangemodule.html#a8e8db965870b9878ff9fb5476227b92d" title="@ brief Create GWF GWF exchange" alt="" coords="255,1251,438,1293"/>
-<area shape="rect" id="node50" href="$namespacegwfinterfacemodelmodule.html#a3a10d1462f3b13cb9dfff3831a24c9ac" title="set up the interface model, analogously to what" alt="" coords="250,1317,443,1358"/>
+<area shape="rect" id="node23" href="$namespacegwfnpfmodule.html#ae44de5bba8e892bcfea0585a3afd426b" title="@ brief Allocate scalars" alt="" coords="259,1367,435,1409"/>
+<area shape="rect" id="node24" href="$namespacebndmodule.html#a20ea539a7c70f9999cfb0e133195b1df" title="@ brief Allocate package scalars" alt="" coords="269,1433,424,1474"/>
+<area shape="rect" id="node25" href="$namespaceconnectionsmodule.html#ae71d867478877b7cfc5e2fd0a8147d49" title=" " alt="" coords="268,1498,425,1539"/>
+<area shape="rect" id="node26" href="$namespacebasedismodule.html#a66cb0050e8ca0bf34ea6f977a979907b" title=" " alt="" coords="256,1563,437,1605"/>
+<area shape="rect" id="node27" href="$namespaceoutputcontrolmodule.html#ab4c21f744ae8f5f98d68147622968261" title="@ brief Allocate scalars method for OutputControlType" alt="" coords="267,1629,426,1670"/>
+<area shape="rect" id="node28" href="$namespaceapimodule.html#a69610802564ad710cb88863117b38a46" title="@ brief Create a new package object" alt="" coords="263,1695,430,1721"/>
+<area shape="rect" id="node29" href="$namespacechdmodule.html#a061dea5df09ddd53e4ca09a1fb9168e6" title=" " alt="" coords="260,1745,433,1772"/>
+<area shape="rect" id="node30" href="$namespacegridconnectionmodule.html#a51ea2469018d3c02815e4c1e67e962a4" title="Construct the GridConnection and allocate the data structures for the primary connections." alt="" coords="263,1797,430,1838"/>
+<area shape="rect" id="node31" href="$namespaceexplicitsolutionmodule.html#a286085fd89cf90c1b550a9052307b0d2" title="@ brief Create a new solution" alt="" coords="254,1862,439,1903"/>
+<area shape="rect" id="node32" href="$namespacevirtualdatacontainermodule.html#a26061c47f4aed9f76e0945bcd65dd29b" title="Create virtual data item, without allocation,." alt="" coords="245,1927,448,1969"/>
+<area shape="rect" id="node33" href="$namespacenumericalsolutionmodule.html#af0f9292c3c93f6766b8d875687e22069" title="@ brief Create a new solution" alt="" coords="245,1993,448,2034"/>
+<area shape="rect" id="node34" href="$namespacegwfcsubmodule.html#aadc0a0e9249722a2c4669507d5d073ac" title="@ brief Create a new package object" alt="" coords="255,2312,438,2339"/>
+<area shape="rect" id="node35" href="$namespacegwfmodule.html#a0cb07c0232ce3627b9120eb42e7e164f" title="Create a new groundwater flow model object." alt="" coords="28,2215,175,2241"/>
+<area shape="rect" id="node36" href="$namespacegwfdisumodule.html#a0969d37f0887eb04aedc156a63ec072b" title=" " alt="" coords="251,2160,443,2187"/>
+<area shape="rect" id="node37" href="$namespacedrnmodule.html#adb1e33b478a85e63f7bc39db2b8ccec0" title=" " alt="" coords="262,2211,431,2237"/>
+<area shape="rect" id="node38" href="$namespaceevtmodule.html#a40c5e5dede94b4a79ba0917d8518798e" title=" " alt="" coords="262,2261,431,2288"/>
+<area shape="rect" id="node39" href="$namespacesimulationcreatemodule.html#abb116763d0b57efd5d804f40a52321ee" title="Set the exchanges to be used for the simulation." alt="" coords="11,1677,192,1718"/>
+<area shape="rect" id="node40" href="$namespacemf6bmigrid.html#a576ebe2e6fe82ce03bc4651345629873" title=" " alt="" coords="22,2385,181,2426"/>
+<area shape="rect" id="node41" href="$namespacemf6bmigrid.html#ad88efccd58e4838c717b0ba1aa59cd03" title=" " alt="" coords="267,2479,426,2521"/>
+<area shape="rect" id="node42" href="$namespacemf6bmigrid.html#ad2676805217059dd0dff87264a2dc510" title=" " alt="" coords="5,2516,197,2543"/>
+<area shape="rect" id="node43" href="$namespacemf6bmigrid.html#ad01b75893110495984c1615f208b9abd" title=" " alt="" coords="267,2414,426,2455"/>
+<area shape="rect" id="node44" href="$namespacemf6bmigrid.html#a304e7491c03e05d71c8fb1431f016770" title=" " alt="" coords="249,2596,444,2623"/>
+<area shape="rect" id="node45" href="$namespacemf6bmigrid.html#a5095eb86239dc8fbcbdb91d818936322" title=" " alt="" coords="267,2647,426,2689"/>
+<area shape="rect" id="node46" href="$namespacemf6bmigrid.html#afea0bc5291b3ce31f4109bfb07074366" title=" " alt="" coords="259,2713,434,2740"/>
+<area shape="rect" id="node47" href="$namespacemf6bmigrid.html#af44b2f8aff3d1d8f393ac2bba8242cb5" title=" " alt="" coords="259,1133,434,1160"/>
+<area shape="rect" id="node48" href="$namespacemodflowinputmodule.html#a3e33a9d3121d016a43b66788a5713e29" title="function to return ModflowInputType" alt="" coords="267,1185,427,1226"/>
+<area shape="rect" id="node49" href="$namespaceghbmodule.html#a3d6d6999ad03785f86a66e6f09899500" title=" " alt="" coords="259,1251,434,1277"/>
+<area shape="rect" id="node50" href="$namespacegwfgwfexchangemodule.html#a8e8db965870b9878ff9fb5476227b92d" title="@ brief Create GWF GWF exchange" alt="" coords="255,1302,438,1343"/>
 </map>

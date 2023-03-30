@@ -11,6 +11,7 @@ var gwf3lak8_8f90 =
     [ "lak_allocate_scalars", "gwf3lak8_8f90.html#adb379416d8d2c5c1a25b4ad861adf37a", null ],
     [ "lak_ar", "gwf3lak8_8f90.html#af8c16e0951f22e438ebfac8ef88c40f1", null ],
     [ "lak_bd_obs", "gwf3lak8_8f90.html#aead9e65a310fc4419c2294387b3ec71c", null ],
+    [ "lak_bisection", "gwf3lak8_8f90.html#ab6df6eb051bf30a02b6bfc6822056b67", null ],
     [ "lak_bound_update", "gwf3lak8_8f90.html#ae8dc5586a30429281785f32744ddc82c", null ],
     [ "lak_calculate_available", "gwf3lak8_8f90.html#a5ef188ef5e590dbce6996e20e678771b", null ],
     [ "lak_calculate_cond_head", "gwf3lak8_8f90.html#ae96058094cece238863fcb70ef0994c6", null ],

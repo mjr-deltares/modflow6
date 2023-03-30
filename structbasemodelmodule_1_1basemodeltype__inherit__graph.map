@@ -1,9 +1,10 @@
 <map id="basemodelmodule::basemodeltype" name="basemodelmodule::basemodeltype">
-<area shape="rect" id="node1" title=" " alt="" coords="85,5,337,332"/>
-<area shape="rect" id="node2" href="$structnumericalmodelmodule_1_1numericalmodeltype.html" title=" " alt="" coords="123,380,300,765"/>
-<area shape="rect" id="node3" href="$structgwfmodule_1_1gwfmodeltype.html" title=" " alt="" coords="9,813,206,1184"/>
-<area shape="rect" id="node5" href="$structtransportmodelmodule_1_1transportmodeltype.html" title=" " alt="" coords="233,953,403,1045"/>
-<area shape="rect" id="node4" href="$structgwfinterfacemodelmodule_1_1gwfinterfacemodeltype.html" title="The GWF Interface Model is a utility to calculate the solution&#39;s exchange coefficients from the inter..." alt="" coords="5,1327,199,1507"/>
-<area shape="rect" id="node6" href="$structgwtmodule_1_1gwtmodeltype.html" title=" " alt="" coords="223,1232,421,1603"/>
-<area shape="rect" id="node7" href="$structgwtinterfacemodelmodule_1_1gwtinterfacemodeltype.html" title="The GWT Interface Model is a utility to calculate the solution&#39;s exchange coefficients from the inter..." alt="" coords="225,1651,419,1860"/>
+<area shape="rect" id="node1" title=" " alt="" coords="55,5,307,332"/>
+<area shape="rect" id="node2" href="$structexplicitmodelmodule_1_1explicitmodeltype.html" title="Derived type for the Explicit Model Type." alt="" coords="5,483,165,663"/>
+<area shape="rect" id="node3" href="$structnumericalmodelmodule_1_1numericalmodeltype.html" title=" " alt="" coords="190,380,367,765"/>
+<area shape="rect" id="node4" href="$structgwfmodule_1_1gwfmodeltype.html" title=" " alt="" coords="75,813,272,1184"/>
+<area shape="rect" id="node6" href="$structtransportmodelmodule_1_1transportmodeltype.html" title=" " alt="" coords="299,953,469,1045"/>
+<area shape="rect" id="node5" href="$structgwfinterfacemodelmodule_1_1gwfinterfacemodeltype.html" title="The GWF Interface Model is a utility to calculate the solution&#39;s exchange coefficients from the inter..." alt="" coords="71,1327,265,1507"/>
+<area shape="rect" id="node7" href="$structgwtmodule_1_1gwtmodeltype.html" title=" " alt="" coords="289,1232,487,1603"/>
+<area shape="rect" id="node8" href="$structgwtinterfacemodelmodule_1_1gwtinterfacemodeltype.html" title="The GWT Interface Model is a utility to calculate the solution&#39;s exchange coefficients from the inter..." alt="" coords="291,1651,485,1860"/>
 </map>

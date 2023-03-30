@@ -3,6 +3,7 @@ var namespacesimnaminputmodule =
     [ "simnamparamfoundtype", "structsimnaminputmodule_1_1simnamparamfoundtype.html", "structsimnaminputmodule_1_1simnamparamfoundtype" ],
     [ "sim_nam_aggregate_definitions", "namespacesimnaminputmodule.html#a89e96ffb40bf253e538383bf190dd70e", null ],
     [ "sim_nam_block_definitions", "namespacesimnaminputmodule.html#a07e5d0c13b3f1e533ca72dd965394c37", null ],
+    [ "sim_nam_multi_package", "namespacesimnaminputmodule.html#a06a17c7858cbb3e5bb98245519489acc", null ],
     [ "sim_nam_param_definitions", "namespacesimnaminputmodule.html#a4f2e6029a410fc441c8869f8603087f0", null ],
     [ "simnam_continue", "namespacesimnaminputmodule.html#ac54805dd4de66cb01ac2d0d0ac0f82d2", null ],
     [ "simnam_exchanges", "namespacesimnaminputmodule.html#a4c208dde45702aed1635a0349df3786e", null ],

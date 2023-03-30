@@ -1,4 +1,5 @@
 <map id="timermodule::code_timer" name="timermodule::code_timer">
-<area shape="rect" id="node1" title=" " alt="" coords="241,13,428,39"/>
-<area shape="rect" id="node2" href="$namespacenumericalsolutionmodule.html#a964262851ef62c07577f4b3bbf384e15" title="@ brief Build and solve the simulation" alt="" coords="5,5,193,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="241,46,428,73"/>
+<area shape="rect" id="node2" href="$namespaceexplicitsolutionmodule.html#acfa0c9d0f2a166947a95dcb81d23e5cc" title="@ brief Solution solve each model" alt="" coords="14,5,185,47"/>
+<area shape="rect" id="node3" href="$namespacenumericalsolutionmodule.html#a964262851ef62c07577f4b3bbf384e15" title="@ brief Build and solve the simulation" alt="" coords="5,71,193,112"/>
 </map>

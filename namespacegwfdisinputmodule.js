@@ -3,6 +3,7 @@ var namespacegwfdisinputmodule =
     [ "gwfdisparamfoundtype", "structgwfdisinputmodule_1_1gwfdisparamfoundtype.html", "structgwfdisinputmodule_1_1gwfdisparamfoundtype" ],
     [ "gwf_dis_aggregate_definitions", "namespacegwfdisinputmodule.html#af36108cc12dd8ab45f26f4e9f2638304", null ],
     [ "gwf_dis_block_definitions", "namespacegwfdisinputmodule.html#a4696908f1b29bee9b7b3679b087ab38a", null ],
+    [ "gwf_dis_multi_package", "namespacegwfdisinputmodule.html#a1fd5afb631279a09a9adad88ba4323e7", null ],
     [ "gwf_dis_param_definitions", "namespacegwfdisinputmodule.html#a0ede0825c402a9b19a88a825a6bbede7", null ],
     [ "gwfdis_angrot", "namespacegwfdisinputmodule.html#a8deb2cfe6cabb21b3084fbfa6c75c9fc", null ],
     [ "gwfdis_botm", "namespacegwfdisinputmodule.html#a0f502b5c4956112ac7946987218f3715", null ],

@@ -119,49 +119,84 @@ $(document).ready(function(){initNavTree('_solution_factory_8_f90_source.html','
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacebasesolutionmodule.html">basesolutionmodule</a></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacenumericalsolutionmodule.html">numericalsolutionmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structnumericalsolutionmodule_1_1numericalsolutiontype.html">numericalsolutiontype</a>, &amp;</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;                                     <a class="code" href="namespacenumericalsolutionmodule.html#af0f9292c3c93f6766b8d875687e22069">create_numerical_solution</a></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#if defined(__WITH_MPI__)</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor"></span>  <span class="keywordtype">use </span><a class="code" href="namespaceparallelsolutionmodule.html">parallelsolutionmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structparallelsolutionmodule_1_1parallelsolutiontype.html">parallelsolutiontype</a></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span> </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <span class="keywordtype">implicit none</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  <span class="keywordtype">private</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <span class="keywordtype">public</span> :: <a class="code" href="namespacesolutionfactorymodule.html#a1976b31eb3bae12786b11bf9e96d2044">create_ims_solution</a></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespaceexplicitsolutionmodule.html">explicitsolutionmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structexplicitsolutionmodule_1_1explicitsolutiontype.html">explicitsolutiontype</a>, &amp;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;                                    <a class="code" href="namespaceexplicitsolutionmodule.html#a286085fd89cf90c1b550a9052307b0d2">create_explicit_solution</a></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#if defined(__WITH_MPI__)</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span>  <span class="keywordtype">use </span><a class="code" href="namespaceparallelsolutionmodule.html">parallelsolutionmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structparallelsolutionmodule_1_1parallelsolutiontype.html">parallelsolutiontype</a></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span> </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  <span class="keywordtype">implicit none</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <span class="keywordtype">private</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">contains</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">  !&gt; @brief Create an IMS solution of type NumericalSolution</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">  !! for serial runs or its sub-type ParallelSolution for</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">  !&lt; parallel runs. Returns the base pointer.</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="namespacesolutionfactorymodule.html#a1976b31eb3bae12786b11bf9e96d2044">   21</a></span>&#160;  <span class="keyword">function </span><a class="code" href="namespacesolutionfactorymodule.html#a1976b31eb3bae12786b11bf9e96d2044">create_ims_solution</a>(sim_mode, filename, sol_id) <span class="keyword">result</span>(base_sol)</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">character(len=*)</span> :: sim_mode</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">character(len=*)</span> :: filename</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: sol_id</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structbasesolutionmodule_1_1basesolutiontype.html">basesolutiontype</a>), <span class="keywordtype">pointer</span> :: base_sol</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structnumericalsolutionmodule_1_1numericalsolutiontype.html">numericalsolutiontype</a>), <span class="keywordtype">pointer</span> :: num_sol =&gt; null()</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#if defined(__WITH_MPI__)</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor"></span>    <span class="keywordtype">class</span>(<a class="code" href="structparallelsolutionmodule_1_1parallelsolutiontype.html">parallelsolutiontype</a>), <span class="keywordtype">pointer</span> :: par_sol =&gt; null()</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor"></span> </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">if</span> (sim_mode == <span class="stringliteral">&#39;SEQUENTIAL&#39;</span>) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;      <span class="keyword">allocate</span> (num_sol)</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#if defined(__WITH_MPI__)</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (sim_mode == <span class="stringliteral">&#39;PARALLEL&#39;</span>) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      <span class="keyword">allocate</span> (par_sol)</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      num_sol =&gt; par_sol</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61">ustop</a>(<span class="stringliteral">&#39;Unsupported simulation mode for creating solution: &#39;</span>&amp;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                 &amp;//trim(sim_mode))</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">call </span><a class="code" href="namespacenumericalsolutionmodule.html#af0f9292c3c93f6766b8d875687e22069">create_numerical_solution</a>(num_sol, filename, sol_id)</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    base_sol =&gt; num_sol</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="keywordtype">public</span> :: <a class="code" href="namespacesolutionfactorymodule.html#a1976b31eb3bae12786b11bf9e96d2044">create_ims_solution</a></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <span class="keywordtype">public</span> :: <a class="code" href="namespacesolutionfactorymodule.html#a6bfa978c034f3df706e1852f177a275b">create_ems_solution</a></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">contains</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">  !&gt; @brief Create an IMS solution of type NumericalSolution</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">  !! for serial runs or its sub-type ParallelSolution for</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">  !&lt; parallel runs. Returns the base pointer.</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="namespacesolutionfactorymodule.html#a1976b31eb3bae12786b11bf9e96d2044">   24</a></span>&#160;  <span class="keyword">function </span><a class="code" href="namespacesolutionfactorymodule.html#a1976b31eb3bae12786b11bf9e96d2044">create_ims_solution</a>(sim_mode, filename, sol_id) <span class="keyword">result</span>(base_sol)</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">character(len=*)</span> :: sim_mode</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">character(len=*)</span> :: filename</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: sol_id</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structbasesolutionmodule_1_1basesolutiontype.html">basesolutiontype</a>), <span class="keywordtype">pointer</span> :: base_sol</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structnumericalsolutionmodule_1_1numericalsolutiontype.html">numericalsolutiontype</a>), <span class="keywordtype">pointer</span> :: num_sol =&gt; null()</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#if defined(__WITH_MPI__)</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor"></span>    <span class="keywordtype">class</span>(<a class="code" href="structparallelsolutionmodule_1_1parallelsolutiontype.html">parallelsolutiontype</a>), <span class="keywordtype">pointer</span> :: par_sol =&gt; null()</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor"></span> </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">if</span> (sim_mode == <span class="stringliteral">&#39;SEQUENTIAL&#39;</span>) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      <span class="keyword">allocate</span> (num_sol)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#if defined(__WITH_MPI__)</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (sim_mode == <span class="stringliteral">&#39;PARALLEL&#39;</span>) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      <span class="keyword">allocate</span> (par_sol)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;      num_sol =&gt; par_sol</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61">ustop</a>(<span class="stringliteral">&#39;Unsupported simulation mode for creating solution: &#39;</span>&amp;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                 &amp;//trim(sim_mode))</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keyword">end function </span><a class="code" href="namespacesolutionfactorymodule.html#a1976b31eb3bae12786b11bf9e96d2044">create_ims_solution</a></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">end module</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">call </span><a class="code" href="namespacenumericalsolutionmodule.html#af0f9292c3c93f6766b8d875687e22069">create_numerical_solution</a>(num_sol, filename, sol_id)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    base_sol =&gt; num_sol</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keyword">end function </span><a class="code" href="namespacesolutionfactorymodule.html#a1976b31eb3bae12786b11bf9e96d2044">create_ims_solution</a></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">  !&gt; @brief Create an EMS solution of type ExplicitSolution</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">  !! for serial runs or its sub-type ParallelSolution for</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">  !&lt; parallel runs. Returns the base pointer.</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="namespacesolutionfactorymodule.html#a6bfa978c034f3df706e1852f177a275b">   54</a></span>&#160;  <span class="keyword">function </span><a class="code" href="namespacesolutionfactorymodule.html#a6bfa978c034f3df706e1852f177a275b">create_ems_solution</a>(sim_mode, filename, sol_id) <span class="keyword">result</span>(base_sol)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">character(len=*)</span> :: sim_mode</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">character(len=*)</span> :: filename</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: sol_id</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structbasesolutionmodule_1_1basesolutiontype.html">basesolutiontype</a>), <span class="keywordtype">pointer</span> :: base_sol</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structexplicitsolutionmodule_1_1explicitsolutiontype.html">explicitsolutiontype</a>), <span class="keywordtype">pointer</span> :: exp_sol =&gt; null()</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">!#if defined(__WITH_MPI__)</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">!    class(ParallelSolutionType), pointer :: par_sol =&gt; null()</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">!#endif</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">if</span> (sim_mode == <span class="stringliteral">&#39;SEQUENTIAL&#39;</span>) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      <span class="keyword">allocate</span> (exp_sol)</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">!#if defined(__WITH_MPI__)</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">!    else if (sim_mode == &#39;PARALLEL&#39;) then</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">!      allocate (par_sol)</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">!      exp_sol =&gt; par_sol</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">!#endif</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61">ustop</a>(<span class="stringliteral">&#39;Unsupported simulation mode for creating solution: &#39;</span>&amp;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                 &amp;//trim(sim_mode))</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">call </span><a class="code" href="namespaceexplicitsolutionmodule.html#a286085fd89cf90c1b550a9052307b0d2">create_explicit_solution</a>(exp_sol, filename, sol_id)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    base_sol =&gt; exp_sol</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <span class="keyword">end function </span><a class="code" href="namespacesolutionfactorymodule.html#a6bfa978c034f3df706e1852f177a275b">create_ems_solution</a></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword">end module</span></div>
 <div class="ttc" id="anamespacebasesolutionmodule_html"><div class="ttname"><a href="namespacebasesolutionmodule.html">basesolutionmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_base_solution_8f90_source.html#l00002">BaseSolution.f90:2</a></div></div>
+<div class="ttc" id="anamespaceexplicitsolutionmodule_html"><div class="ttname"><a href="namespaceexplicitsolutionmodule.html">explicitsolutionmodule</a></div><div class="ttdoc">Explicit Solution Module.</div><div class="ttdef"><b>Definition:</b> <a href="_explicit_solution_8f90_source.html#l00009">ExplicitSolution.f90:9</a></div></div>
+<div class="ttc" id="anamespaceexplicitsolutionmodule_html_a286085fd89cf90c1b550a9052307b0d2"><div class="ttname"><a href="namespaceexplicitsolutionmodule.html#a286085fd89cf90c1b550a9052307b0d2">explicitsolutionmodule::create_explicit_solution</a></div><div class="ttdeci">subroutine, public create_explicit_solution(exp_sol, filename, id)</div><div class="ttdoc">@ brief Create a new solution</div><div class="ttdef"><b>Definition:</b> <a href="_explicit_solution_8f90_source.html#l00079">ExplicitSolution.f90:80</a></div></div>
 <div class="ttc" id="anamespacekindmodule_html"><div class="ttname"><a href="namespacekindmodule.html">kindmodule</a></div><div class="ttdoc">This module defines variable data types.</div><div class="ttdef"><b>Definition:</b> <a href="kind_8f90_source.html#l00008">kind.f90:8</a></div></div>
 <div class="ttc" id="anamespacenumericalsolutionmodule_html"><div class="ttname"><a href="namespacenumericalsolutionmodule.html">numericalsolutionmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_numerical_solution_8f90_source.html#l00003">NumericalSolution.f90:3</a></div></div>
 <div class="ttc" id="anamespacenumericalsolutionmodule_html_af0f9292c3c93f6766b8d875687e22069"><div class="ttname"><a href="namespacenumericalsolutionmodule.html#af0f9292c3c93f6766b8d875687e22069">numericalsolutionmodule::create_numerical_solution</a></div><div class="ttdeci">subroutine, public create_numerical_solution(num_sol, filename, id)</div><div class="ttdoc">@ brief Create a new solution</div><div class="ttdef"><b>Definition:</b> <a href="_numerical_solution_8f90_source.html#l00213">NumericalSolution.f90:214</a></div></div>
@@ -169,8 +204,10 @@ $(document).ready(function(){initNavTree('_solution_factory_8_f90_source.html','
 <div class="ttc" id="anamespacesimmodule_html"><div class="ttname"><a href="namespacesimmodule.html">simmodule</a></div><div class="ttdoc">This module contains simulation methods.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_8f90_source.html#l00010">Sim.f90:10</a></div></div>
 <div class="ttc" id="anamespacesimmodule_html_a0be97214c1d4fcf42bc4ddc27b111b61"><div class="ttname"><a href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61">simmodule::ustop</a></div><div class="ttdeci">subroutine, public ustop(stopmess, ioutlocal)</div><div class="ttdoc">Stop the simulation.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_8f90_source.html#l00363">Sim.f90:364</a></div></div>
 <div class="ttc" id="anamespacesolutionfactorymodule_html"><div class="ttname"><a href="namespacesolutionfactorymodule.html">solutionfactorymodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_solution_factory_8_f90_source.html#l00001">SolutionFactory.F90:1</a></div></div>
-<div class="ttc" id="anamespacesolutionfactorymodule_html_a1976b31eb3bae12786b11bf9e96d2044"><div class="ttname"><a href="namespacesolutionfactorymodule.html#a1976b31eb3bae12786b11bf9e96d2044">solutionfactorymodule::create_ims_solution</a></div><div class="ttdeci">class(basesolutiontype) function, pointer, public create_ims_solution(sim_mode, filename, sol_id)</div><div class="ttdoc">Create an IMS solution of type NumericalSolution for serial runs or its sub-type ParallelSolution for...</div><div class="ttdef"><b>Definition:</b> <a href="_solution_factory_8_f90_source.html#l00021">SolutionFactory.F90:22</a></div></div>
+<div class="ttc" id="anamespacesolutionfactorymodule_html_a1976b31eb3bae12786b11bf9e96d2044"><div class="ttname"><a href="namespacesolutionfactorymodule.html#a1976b31eb3bae12786b11bf9e96d2044">solutionfactorymodule::create_ims_solution</a></div><div class="ttdeci">class(basesolutiontype) function, pointer, public create_ims_solution(sim_mode, filename, sol_id)</div><div class="ttdoc">Create an IMS solution of type NumericalSolution for serial runs or its sub-type ParallelSolution for...</div><div class="ttdef"><b>Definition:</b> <a href="_solution_factory_8_f90_source.html#l00024">SolutionFactory.F90:25</a></div></div>
+<div class="ttc" id="anamespacesolutionfactorymodule_html_a6bfa978c034f3df706e1852f177a275b"><div class="ttname"><a href="namespacesolutionfactorymodule.html#a6bfa978c034f3df706e1852f177a275b">solutionfactorymodule::create_ems_solution</a></div><div class="ttdeci">class(basesolutiontype) function, pointer, public create_ems_solution(sim_mode, filename, sol_id)</div><div class="ttdoc">Create an EMS solution of type ExplicitSolution for serial runs or its sub-type ParallelSolution for.</div><div class="ttdef"><b>Definition:</b> <a href="_solution_factory_8_f90_source.html#l00054">SolutionFactory.F90:55</a></div></div>
 <div class="ttc" id="astructbasesolutionmodule_1_1basesolutiontype_html"><div class="ttname"><a href="structbasesolutionmodule_1_1basesolutiontype.html">basesolutionmodule::basesolutiontype</a></div><div class="ttdef"><b>Definition:</b> <a href="_base_solution_8f90_source.html#l00015">BaseSolution.f90:15</a></div></div>
+<div class="ttc" id="astructexplicitsolutionmodule_1_1explicitsolutiontype_html"><div class="ttname"><a href="structexplicitsolutionmodule_1_1explicitsolutiontype.html">explicitsolutionmodule::explicitsolutiontype</a></div><div class="ttdoc">Derived type for the Explicit Solution Type.</div><div class="ttdef"><b>Definition:</b> <a href="_explicit_solution_8f90_source.html#l00038">ExplicitSolution.f90:38</a></div></div>
 <div class="ttc" id="astructnumericalsolutionmodule_1_1numericalsolutiontype_html"><div class="ttname"><a href="structnumericalsolutionmodule_1_1numericalsolutiontype.html">numericalsolutionmodule::numericalsolutiontype</a></div><div class="ttdef"><b>Definition:</b> <a href="_numerical_solution_8f90_source.html#l00048">NumericalSolution.f90:48</a></div></div>
 <div class="ttc" id="astructparallelsolutionmodule_1_1parallelsolutiontype_html"><div class="ttname"><a href="structparallelsolutionmodule_1_1parallelsolutiontype.html">parallelsolutionmodule::parallelsolutiontype</a></div><div class="ttdef"><b>Definition:</b> <a href="_parallel_solution_8f90_source.html#l00011">ParallelSolution.f90:11</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -179,7 +216,7 @@ $(document).ready(function(){initNavTree('_solution_factory_8_f90_source.html','
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_45e973df69963bbfe985a1f7e6db2b6f.html">Solution</a></li><li class="navelem"><a class="el" href="_solution_factory_8_f90.html">SolutionFactory.F90</a></li>
-    <li class="footer">Generated on Mon Mar 20 2023 16:56:27 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Mar 30 2023 05:57:32 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

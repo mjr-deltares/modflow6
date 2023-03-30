@@ -1,0 +1,6 @@
+<map id="explicitsolutionmodule::solve" name="explicitsolutionmodule::solve">
+<area shape="rect" id="node1" title="@ brief Solution solve each model" alt="" coords="5,27,176,69"/>
+<area shape="rect" id="node2" href="$namespacetimermodule.html#a38a274d978e44672bdb28134abec206a" title=" " alt="" coords="226,5,413,32"/>
+<area shape="rect" id="node3" href="$namespaceexplicitmodelmodule.html#a1ae685989fd9e383d145cf037363439f" title="@ brief Get generic object from list and return as explicit model" alt="" coords="224,57,415,98"/>
+<area shape="rect" id="node4" href="$namespaceexplicitmodelmodule.html#ac7abe2cd6d2ff78fd2f1d4ba0c57054c" title="@ brief Cast a generic object into an explicit model" alt="" coords="463,57,657,98"/>
+</map>

@@ -3,6 +3,7 @@ var namespacegwtdspinputmodule =
     [ "gwtdspparamfoundtype", "structgwtdspinputmodule_1_1gwtdspparamfoundtype.html", "structgwtdspinputmodule_1_1gwtdspparamfoundtype" ],
     [ "gwt_dsp_aggregate_definitions", "namespacegwtdspinputmodule.html#a5f3d3a8c44447c6dfb42efc14cedb53c", null ],
     [ "gwt_dsp_block_definitions", "namespacegwtdspinputmodule.html#a8a31e372bac9a7ecbbdedee23a6637f8", null ],
+    [ "gwt_dsp_multi_package", "namespacegwtdspinputmodule.html#ac96d846c014cbbc8bcfe9280ad57aacb", null ],
     [ "gwt_dsp_param_definitions", "namespacegwtdspinputmodule.html#a71b466c84606cf9bfd0ede24f4a8078a", null ],
     [ "gwtdsp_alh", "namespacegwtdspinputmodule.html#ab9aa1c6501583c1856dfcb6012d6ba75", null ],
     [ "gwtdsp_alv", "namespacegwtdspinputmodule.html#a065ded680c412aeca03053b7c1ac1374", null ],

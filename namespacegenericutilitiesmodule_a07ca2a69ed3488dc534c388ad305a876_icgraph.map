@@ -1,5 +1,5 @@
 <map id="genericutilitiesmodule::is_same" name="genericutilitiesmodule::is_same">
-<area shape="rect" id="node1" title="Function to determine if two reals are the same." alt="" coords="604,365,772,407"/>
+<area shape="rect" id="node1" title="Function to determine if two reals are the same." alt="" coords="604,397,772,439"/>
 <area shape="rect" id="node2" href="$namespacetimeseriesmodule.html#a80bc57fc2894760a116810375982ad97" title=" " alt="" coords="332,5,501,47"/>
 <area shape="rect" id="node3" href="$namespacetimearrayseriesmodule.html#a2a8b1422980be6a3865e3178d5fe18f0" title=" " alt="" coords="314,71,519,112"/>
 <area shape="rect" id="node4" href="$namespacetimeseriesmodule.html#a431a0beb6499b3a56175c5e347a564bb" title=" " alt="" coords="329,136,505,177"/>
@@ -10,7 +10,8 @@
 <area shape="rect" id="node9" href="$namespacetimeseriesmodule.html#a5d52e4dd03b6af93d7b2dbd1b6cad096" title=" " alt="" coords="277,463,556,490"/>
 <area shape="rect" id="node10" href="$namespaceimslinearbasemodule.html#a4ea318d12fd3c9a9157e9d9105dcc0e2" title="@ brief Preconditioned BiConjugate Gradient Stabilized linear accelerator" alt="" coords="335,515,498,556"/>
 <area shape="rect" id="node12" href="$namespaceimslinearbasemodule.html#afbf0c8cb5e5b740b9ff34f7c7141f251" title="@ brief Preconditioned Conjugate Gradient linear accelerator" alt="" coords="335,580,498,621"/>
-<area shape="rect" id="node13" href="$_grid_sorting_8f90.html#a528d005319a5aca834a0ed205fd1a770" title=" " alt="" coords="378,646,455,673"/>
-<area shape="rect" id="node14" href="$namespacenumericalsolutionmodule.html#aa3e6fe297bd0318f1d628ce549bca68d" title="@ brief Solve the linear system of equations" alt="" coords="323,697,511,739"/>
+<area shape="rect" id="node13" href="$namespacelakmodule.html#a3a0822b2c2ec379e2976850ccec7b03d" title=" " alt="" coords="324,645,509,687"/>
+<area shape="rect" id="node14" href="$_grid_sorting_8f90.html#a528d005319a5aca834a0ed205fd1a770" title=" " alt="" coords="378,711,455,738"/>
+<area shape="rect" id="node15" href="$namespacenumericalsolutionmodule.html#aa3e6fe297bd0318f1d628ce549bca68d" title="@ brief Solve the linear system of equations" alt="" coords="323,763,511,804"/>
 <area shape="rect" id="node11" href="$namespaceimslinearmodule.html#a7c756a5435a1749f8b81d2c0148f756c" title="@ brief Base linear accelerator subroutine" alt="" coords="5,555,229,582"/>
 </map>

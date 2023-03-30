@@ -1,0 +1,5 @@
+<map id="explicitsolutionmodule::finalizesolve" name="explicitsolutionmodule::finalizesolve">
+<area shape="rect" id="node1" title="@ brief Solution finalize solve" alt="" coords="5,5,176,47"/>
+<area shape="rect" id="node2" href="$namespaceexplicitmodelmodule.html#a1ae685989fd9e383d145cf037363439f" title="@ brief Get generic object from list and return as explicit model" alt="" coords="224,5,415,47"/>
+<area shape="rect" id="node3" href="$namespaceexplicitmodelmodule.html#ac7abe2cd6d2ff78fd2f1d4ba0c57054c" title="@ brief Cast a generic object into an explicit model" alt="" coords="463,5,657,47"/>
+</map>

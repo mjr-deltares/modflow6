@@ -1,5 +1,5 @@
 <map id="modflowinputmodule::modflowinputtype" name="modflowinputmodule::modflowinputtype">
-<area shape="rect" id="node1" title="derived type for storing input definition for a file" alt="" coords="125,321,296,501"/>
+<area shape="rect" id="node1" title="derived type for storing input definition for a file" alt="" coords="125,321,296,487"/>
 <area shape="rect" id="node2" href="$structinputdefinitionmodule_1_1inputparamdefinitiontype.html" title="derived type for storing input definition" alt="" coords="5,5,200,244"/>
 <area shape="rect" id="node3" href="$structinputdefinitionmodule_1_1inputblockdefinitiontype.html" title="derived type for storing block information" alt="" coords="225,57,413,193"/>
 </map>

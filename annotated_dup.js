@@ -157,6 +157,12 @@ var annotated_dup =
     [ "evtmodule", "namespaceevtmodule.html", [
       [ "evttype", "structevtmodule_1_1evttype.html", "structevtmodule_1_1evttype" ]
     ] ],
+    [ "explicitmodelmodule", "namespaceexplicitmodelmodule.html", [
+      [ "explicitmodeltype", "structexplicitmodelmodule_1_1explicitmodeltype.html", "structexplicitmodelmodule_1_1explicitmodeltype" ]
+    ] ],
+    [ "explicitsolutionmodule", "namespaceexplicitsolutionmodule.html", [
+      [ "explicitsolutiontype", "structexplicitsolutionmodule_1_1explicitsolutiontype.html", "structexplicitsolutionmodule_1_1explicitsolutiontype" ]
+    ] ],
     [ "ghbmodule", "namespaceghbmodule.html", [
       [ "ghbtype", "structghbmodule_1_1ghbtype.html", "structghbmodule_1_1ghbtype" ]
     ] ],

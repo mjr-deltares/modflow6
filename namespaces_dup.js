@@ -123,6 +123,7 @@ var namespaces_dup =
       [ "iuserformatstrip", "namespaceconstantsmodule.html#a6d366b0fb2a7bb591d1700fe614ae384", null ],
       [ "iuserformatwrap", "namespaceconstantsmodule.html#a7b8d677e1ca983dd9bdaaed17dd8fbd9", null ],
       [ "iustart", "namespaceconstantsmodule.html#a4c97c83c0354b0d18b16ed8ff425aaa4", null ],
+      [ "iwetlake", "namespaceconstantsmodule.html#a35de7f143d28e3643eb55c6c9f9311f5", null ],
       [ "izero", "namespaceconstantsmodule.html#aae7c048de23e9b2f66a7514ad2004cff", null ],
       [ "lenauxname", "namespaceconstantsmodule.html#a9ee3f8405321b057b32648a5dc031e20", null ],
       [ "lenbigline", "namespaceconstantsmodule.html#a5a5bc481197413bb50013a92490ffa14", null ],
@@ -151,6 +152,7 @@ var namespaces_dup =
       [ "lentimeseriestext", "namespaceconstantsmodule.html#a8128a47da98d91469cdc370e09bb0111", null ],
       [ "lenvarname", "namespaceconstantsmodule.html#a8a23c620a738ea7c5a9b5c4893b6bfbb", null ],
       [ "linelength", "namespaceconstantsmodule.html#a060d310ded5535ce2dc85bd1ca1afd3d", null ],
+      [ "maxadpit", "namespaceconstantsmodule.html#a87319a52501f195d9999270a5cef155a", null ],
       [ "maxcharlen", "namespaceconstantsmodule.html#ac9c1da291f7c6bfb35a47957c588ab20", null ],
       [ "maxmemrank", "namespaceconstantsmodule.html#a9ec08a833e9347ea3239bc60b9b129b8", null ],
       [ "maxobstypes", "namespaceconstantsmodule.html#a7bc1680f8ee7a7b1b5d8ad6927951da7", null ],
@@ -170,6 +172,8 @@ var namespaces_dup =
     [ "double2dreadermodule", "namespacedouble2dreadermodule.html", "namespacedouble2dreadermodule" ],
     [ "drnmodule", "namespacedrnmodule.html", "namespacedrnmodule" ],
     [ "evtmodule", "namespaceevtmodule.html", "namespaceevtmodule" ],
+    [ "explicitmodelmodule", "namespaceexplicitmodelmodule.html", "namespaceexplicitmodelmodule" ],
+    [ "explicitsolutionmodule", "namespaceexplicitsolutionmodule.html", "namespaceexplicitsolutionmodule" ],
     [ "genericutilitiesmodule", "namespacegenericutilitiesmodule.html", [
       [ "is_same", "namespacegenericutilitiesmodule.html#a07ca2a69ed3488dc534c388ad305a876", null ],
       [ "sim_message", "namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf", null ],
@@ -254,8 +258,47 @@ var namespaces_dup =
     [ "gwtuztmodule", "namespacegwtuztmodule.html", "namespacegwtuztmodule" ],
     [ "hashtablemodule", "namespacehashtablemodule.html", "namespacehashtablemodule" ],
     [ "headfilereadermodule", "namespaceheadfilereadermodule.html", "namespaceheadfilereadermodule" ],
+    [ "idmdfnselectormodule", "namespaceidmdfnselectormodule.html", [
+      [ "aggregate_definitions", "namespaceidmdfnselectormodule.html#ae266cbd3ce4f1b9e255d7908510937bb", null ],
+      [ "block_definitions", "namespaceidmdfnselectormodule.html#a3a92c1bf1eb613aa881e1661c3c75f10", null ],
+      [ "idm_integrated", "namespaceidmdfnselectormodule.html#a5b550a5ff154a9db8676380cecdeb433", null ],
+      [ "idm_multi_package", "namespaceidmdfnselectormodule.html#ab93814c65c16a54299c53a2d7f4ab650", null ],
+      [ "param_definitions", "namespaceidmdfnselectormodule.html#a6fe12c735f09a92b355be5aa60493888", null ]
+    ] ],
+    [ "idmdfnselectorutilsmodule", "namespaceidmdfnselectorutilsmodule.html", [
+      [ "get_aggregate_definition_type", "namespaceidmdfnselectorutilsmodule.html#a7b35b362f30b377aa442de6ffeefc57c", null ],
+      [ "get_param_definition_type", "namespaceidmdfnselectorutilsmodule.html#aaedca60d28809c93f30f38b04aab7247", null ],
+      [ "split_record_definition", "namespaceidmdfnselectorutilsmodule.html#a41444053729e358512efdb306806f5b2", null ]
+    ] ],
+    [ "idmgwfdfnselectormodule", "namespaceidmgwfdfnselectormodule.html", [
+      [ "gwf_aggregate_definitions", "namespaceidmgwfdfnselectormodule.html#a89d37ae2e84a521316999d1a136d53ae", null ],
+      [ "gwf_block_definitions", "namespaceidmgwfdfnselectormodule.html#a76da87fd551b1917032ddfa145f89ce6", null ],
+      [ "gwf_idm_integrated", "namespaceidmgwfdfnselectormodule.html#a0eff0989d7e9814160c58e9b35156621", null ],
+      [ "gwf_idm_multi_package", "namespaceidmgwfdfnselectormodule.html#af4029e10265cef9a9e832df8ea05efb6", null ],
+      [ "gwf_param_definitions", "namespaceidmgwfdfnselectormodule.html#a9decc649ff91664c826b720f8f182dbc", null ],
+      [ "set_block_pointer", "namespaceidmgwfdfnselectormodule.html#afe8ad2d745ef81c4657ffb0d81fcad7c", null ],
+      [ "set_param_pointer", "namespaceidmgwfdfnselectormodule.html#a401f35417721e0fd5ad14f09c78b9a07", null ]
+    ] ],
+    [ "idmgwtdfnselectormodule", "namespaceidmgwtdfnselectormodule.html", [
+      [ "gwt_aggregate_definitions", "namespaceidmgwtdfnselectormodule.html#a81ea6d1816de80e39a772812623131e2", null ],
+      [ "gwt_block_definitions", "namespaceidmgwtdfnselectormodule.html#aacc9f64151926a4532b9e4768673d250", null ],
+      [ "gwt_idm_integrated", "namespaceidmgwtdfnselectormodule.html#a2a4ce156808773e22d14f9969a923104", null ],
+      [ "gwt_idm_multi_package", "namespaceidmgwtdfnselectormodule.html#ab76090b09cbe5cf5fb9936b6b6b35d00", null ],
+      [ "gwt_param_definitions", "namespaceidmgwtdfnselectormodule.html#a9dc41230cbc60b6871b9d5a2ff764f32", null ],
+      [ "set_block_pointer", "namespaceidmgwtdfnselectormodule.html#a29294be202345a8dc616a1fe5e784c83", null ],
+      [ "set_param_pointer", "namespaceidmgwtdfnselectormodule.html#a7cf561bcbbeebd6698715d3c26f4bc48", null ]
+    ] ],
     [ "idmloggermodule", "namespaceidmloggermodule.html", "namespaceidmloggermodule" ],
     [ "idmmf6fileloadermodule", "namespaceidmmf6fileloadermodule.html", "namespaceidmmf6fileloadermodule" ],
+    [ "idmsimdfnselectormodule", "namespaceidmsimdfnselectormodule.html", [
+      [ "set_block_pointer", "namespaceidmsimdfnselectormodule.html#aa6d560de7450b2ae75d97e829d876b28", null ],
+      [ "set_param_pointer", "namespaceidmsimdfnselectormodule.html#a38f4d3ed7bdd75b32f63cd94a358e0a2", null ],
+      [ "sim_aggregate_definitions", "namespaceidmsimdfnselectormodule.html#a43f59a95c0859821ac5df4e3a8e3443c", null ],
+      [ "sim_block_definitions", "namespaceidmsimdfnselectormodule.html#a0ed84de566f4fd4413a60897609a4f9e", null ],
+      [ "sim_idm_integrated", "namespaceidmsimdfnselectormodule.html#ad2130858290252609c5b4ed91bae9e96", null ],
+      [ "sim_idm_multi_package", "namespaceidmsimdfnselectormodule.html#a169683ef8c8406ddc296b9e13d9565f6", null ],
+      [ "sim_param_definitions", "namespaceidmsimdfnselectormodule.html#ab7f496ef3b0855160c5b8875ea4c008a", null ]
+    ] ],
     [ "idmsimulationmodule", "namespaceidmsimulationmodule.html", [
       [ "set_default_value", "namespaceidmsimulationmodule.html#a2e3af981ea938759c10504804fc4f455", null ],
       [ "simnam_allocate", "namespaceidmsimulationmodule.html#afb0fa7dbb0bd13f0c3ed44fbe459caac", null ],
@@ -292,16 +335,6 @@ var namespaces_dup =
     ] ],
     [ "indexmapmodule", "namespaceindexmapmodule.html", "namespaceindexmapmodule" ],
     [ "inputdefinitionmodule", "namespaceinputdefinitionmodule.html", "namespaceinputdefinitionmodule" ],
-    [ "inputdefinitionselectormodule", "namespaceinputdefinitionselectormodule.html", [
-      [ "aggregate_definitions", "namespaceinputdefinitionselectormodule.html#ab8ebde38144032fc3952adf69b827bb9", null ],
-      [ "block_definitions", "namespaceinputdefinitionselectormodule.html#a8ab069214dc850a78faea381dc54bdd0", null ],
-      [ "get_aggregate_definition_type", "namespaceinputdefinitionselectormodule.html#a0a3675f2a9c4e08f5b96a43cc6d99b34", null ],
-      [ "get_param_definition_type", "namespaceinputdefinitionselectormodule.html#a7bc93f0cec4aed6041816aa646e86c05", null ],
-      [ "param_definitions", "namespaceinputdefinitionselectormodule.html#ac33654eccb12a34d5fa0b5a4db389190", null ],
-      [ "set_block_pointer", "namespaceinputdefinitionselectormodule.html#a865b8495efc8f153683253f4e3595f30", null ],
-      [ "set_pointer", "namespaceinputdefinitionselectormodule.html#a44b6a05b842caa71e6889f9c03e43690", null ],
-      [ "split_record_definition", "namespaceinputdefinitionselectormodule.html#ab38fe8707bd3f6cb67b257320f29d7df", null ]
-    ] ],
     [ "inputoutputmodule", "namespaceinputoutputmodule.html", [
       [ "buildfixedformat", "namespaceinputoutputmodule.html#a773e394f96cb0df2875d4e796abda982", null ],
       [ "buildfloatformat", "namespaceinputoutputmodule.html#a801099aaeb2c213c5b8e6a7c76ee73a8", null ],
@@ -668,6 +701,7 @@ var namespaces_dup =
       [ "svangenuchtensaturation", "namespacesmoothingmodule.html#a061163f3dbacf1167b06f1bae89411f4", null ]
     ] ],
     [ "solutionfactorymodule", "namespacesolutionfactorymodule.html", [
+      [ "create_ems_solution", "namespacesolutionfactorymodule.html#a6bfa978c034f3df706e1852f177a275b", null ],
       [ "create_ims_solution", "namespacesolutionfactorymodule.html#a1976b31eb3bae12786b11bf9e96d2044", null ]
     ] ],
     [ "solutiongroupmodule", "namespacesolutiongroupmodule.html", "namespacesolutiongroupmodule" ],

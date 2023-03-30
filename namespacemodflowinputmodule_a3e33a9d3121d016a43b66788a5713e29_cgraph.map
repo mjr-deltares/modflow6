@@ -1,17 +1,29 @@
 <map id="modflowinputmodule::getmodflowinput" name="modflowinputmodule::getmodflowinput">
-<area shape="rect" id="node1" title="function to return ModflowInputType" alt="" coords="5,104,165,145"/>
-<area shape="rect" id="node2" href="$namespaceinputdefinitionselectormodule.html#ab8ebde38144032fc3952adf69b827bb9" title="Return the aggregate definition for the specified component." alt="" coords="213,5,431,47"/>
-<area shape="rect" id="node5" href="$namespaceinputdefinitionselectormodule.html#a8ab069214dc850a78faea381dc54bdd0" title="Return the block definition for the specified component." alt="" coords="213,136,431,177"/>
-<area shape="rect" id="node7" href="$namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d" title="returns the path to the memory object" alt="" coords="239,201,405,243"/>
-<area shape="rect" id="node15" href="$namespaceinputdefinitionselectormodule.html#ac33654eccb12a34d5fa0b5a4db389190" title="Return the parameter definition for the specified component." alt="" coords="213,71,431,112"/>
-<area shape="rect" id="node3" href="$namespaceinputdefinitionselectormodule.html#a44b6a05b842caa71e6889f9c03e43690" title="Set pointer from input_definition to input_definition_target." alt="" coords="479,9,696,51"/>
-<area shape="rect" id="node4" href="$namespacesimmodule.html#a0c10520244b0246773a188954a67ec9e" title="Store warning message." alt="" coords="490,78,685,105"/>
-<area shape="rect" id="node6" href="$namespaceinputdefinitionselectormodule.html#a865b8495efc8f153683253f4e3595f30" title="Set pointer from input_definition to input_definition_target." alt="" coords="479,136,696,177"/>
-<area shape="rect" id="node8" href="$namespacememoryhelpermodule.html#a5405f58247a0962e5449ebc1e4dcff0f" title="Generic routine to check the length of (parts of) the memory address." alt="" coords="504,201,671,243"/>
-<area shape="rect" id="node9" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="744,209,919,235"/>
-<area shape="rect" id="node10" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="967,209,1105,235"/>
-<area shape="rect" id="node11" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="1153,168,1321,209"/>
-<area shape="rect" id="node14" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="1153,233,1321,275"/>
-<area shape="rect" id="node12" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="1369,146,1564,173"/>
-<area shape="rect" id="node13" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1383,197,1551,239"/>
+<area shape="rect" id="node1" title="function to return ModflowInputType" alt="" coords="5,417,165,459"/>
+<area shape="rect" id="node2" href="$namespaceidmdfnselectormodule.html#ae266cbd3ce4f1b9e255d7908510937bb" title=" " alt="" coords="213,384,384,425"/>
+<area shape="rect" id="node15" href="$namespaceidmdfnselectormodule.html#a3a92c1bf1eb613aa881e1661c3c75f10" title=" " alt="" coords="214,619,383,660"/>
+<area shape="rect" id="node22" href="$namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d" title="returns the path to the memory object" alt="" coords="215,476,382,517"/>
+<area shape="rect" id="node24" href="$namespaceidmdfnselectormodule.html#a6fe12c735f09a92b355be5aa60493888" title=" " alt="" coords="214,201,383,243"/>
+<area shape="rect" id="node3" href="$namespaceidmgwfdfnselectormodule.html#a89d37ae2e84a521316999d1a136d53ae" title=" " alt="" coords="432,267,635,308"/>
+<area shape="rect" id="node5" href="$namespaceidmgwtdfnselectormodule.html#a81ea6d1816de80e39a772812623131e2" title=" " alt="" coords="432,384,635,425"/>
+<area shape="rect" id="node7" href="$namespaceidmsimdfnselectormodule.html#a43f59a95c0859821ac5df4e3a8e3443c" title=" " alt="" coords="432,136,635,177"/>
+<area shape="rect" id="node9" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="692,479,867,506"/>
+<area shape="rect" id="node4" href="$namespaceidmgwfdfnselectormodule.html#a401f35417721e0fd5ad14f09c78b9a07" title=" " alt="" coords="683,201,876,243"/>
+<area shape="rect" id="node6" href="$namespaceidmgwtdfnselectormodule.html#a7cf561bcbbeebd6698715d3c26f4bc48" title=" " alt="" coords="683,325,876,367"/>
+<area shape="rect" id="node8" href="$namespaceidmsimdfnselectormodule.html#a38f4d3ed7bdd75b32f63cd94a358e0a2" title=" " alt="" coords="683,71,876,112"/>
+<area shape="rect" id="node10" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="924,479,1063,506"/>
+<area shape="rect" id="node11" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="1111,439,1279,480"/>
+<area shape="rect" id="node14" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="1111,504,1279,545"/>
+<area shape="rect" id="node12" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="1327,417,1521,443"/>
+<area shape="rect" id="node13" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1340,468,1508,509"/>
+<area shape="rect" id="node16" href="$namespaceidmgwfdfnselectormodule.html#a76da87fd551b1917032ddfa145f89ce6" title=" " alt="" coords="437,749,630,791"/>
+<area shape="rect" id="node18" href="$namespaceidmgwtdfnselectormodule.html#aacc9f64151926a4532b9e4768673d250" title=" " alt="" coords="437,619,630,660"/>
+<area shape="rect" id="node20" href="$namespaceidmsimdfnselectormodule.html#a0ed84de566f4fd4413a60897609a4f9e" title=" " alt="" coords="437,684,630,725"/>
+<area shape="rect" id="node17" href="$namespaceidmgwfdfnselectormodule.html#afe8ad2d745ef81c4657ffb0d81fcad7c" title=" " alt="" coords="683,749,876,791"/>
+<area shape="rect" id="node19" href="$namespaceidmgwtdfnselectormodule.html#a29294be202345a8dc616a1fe5e784c83" title=" " alt="" coords="683,619,876,660"/>
+<area shape="rect" id="node21" href="$namespaceidmsimdfnselectormodule.html#aa6d560de7450b2ae75d97e829d876b28" title=" " alt="" coords="683,684,876,725"/>
+<area shape="rect" id="node23" href="$namespacememoryhelpermodule.html#a5405f58247a0962e5449ebc1e4dcff0f" title="Generic routine to check the length of (parts of) the memory address." alt="" coords="450,501,617,543"/>
+<area shape="rect" id="node25" href="$namespaceidmgwfdfnselectormodule.html#a9decc649ff91664c826b720f8f182dbc" title=" " alt="" coords="437,71,630,112"/>
+<area shape="rect" id="node26" href="$namespaceidmgwtdfnselectormodule.html#a9dc41230cbc60b6871b9d5a2ff764f32" title=" " alt="" coords="437,201,630,243"/>
+<area shape="rect" id="node27" href="$namespaceidmsimdfnselectormodule.html#ab7f496ef3b0855160c5b8875ea4c008a" title=" " alt="" coords="437,5,630,47"/>
 </map>

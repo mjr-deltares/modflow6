@@ -1,0 +1,11 @@
+<map id="explicitsolutionmodule::create_explicit_solution" name="explicitsolutionmodule::create_explicit_solution">
+<area shape="rect" id="node1" title="@ brief Create a new solution" alt="" coords="1501,23,1687,65"/>
+<area shape="rect" id="node2" href="$namespacesolutionfactorymodule.html#a6bfa978c034f3df706e1852f177a275b" title="Create an EMS solution of type ExplicitSolution for serial runs or its sub&#45;type ParallelSolution for." alt="" coords="1284,23,1453,65"/>
+<area shape="rect" id="node3" href="$namespacesimulationcreatemodule.html#aa6d30418b28eb07e46b20c32e8805806" title="Set the solution_groups to be used for the simulation." alt="" coords="1055,23,1236,65"/>
+<area shape="rect" id="node4" href="$namespacesimulationcreatemodule.html#a812a26909f2491fa8fe05d1585bd1728" title="Source the simulation name file." alt="" coords="821,23,1007,65"/>
+<area shape="rect" id="node5" href="$namespacesimulationcreatemodule.html#afcbe0fd3c140a3ba4f0a5409e5dc8781" title="Read the simulation name file and initialize the models, exchanges." alt="" coords="592,23,773,65"/>
+<area shape="rect" id="node6" href="$namespacemf6coremodule.html#aa847da5116e01f4fad8885b0c4f96757" title="Initialize a simulation." alt="" coords="329,31,544,57"/>
+<area shape="rect" id="node7" href="$namespacemf6bmi.html#aa886df822e4ea66c30a97a9060da5de8" title="Initialize the computational core." alt="" coords="107,5,276,32"/>
+<area shape="rect" id="node8" href="$namespacemf6coremodule.html#a207819c711610066af1b83ec2a8efef0" title="Main controller." alt="" coords="101,56,281,83"/>
+<area shape="rect" id="node9" href="$mf6_8f90.html#aa95bf577752f92b917375902bbb13863" title="MODFLOW 6 main entry point." alt="" coords="5,56,53,83"/>
+</map>
