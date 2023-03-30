@@ -7,7 +7,7 @@ var gwf3dis8_8f90 =
     [ "connection_vector", "gwf3dis8_8f90.html#a3cec485443a260b10f3354aa585874c0", null ],
     [ "dis3d_da", "gwf3dis8_8f90.html#a380ce49ee9eb37eba02db1c9327c2eb4", null ],
     [ "dis3d_df", "gwf3dis8_8f90.html#acc79a0dc99d5c6f305469ca00f5f60c4", null ],
-    [ "dis_cr", "gwf3dis8_8f90.html#a9222ac487b748af9411a41d49a011ec8", null ],
+    [ "dis_cr", "gwf3dis8_8f90.html#a14830302d98dade834286fef5c8af927", null ],
     [ "get_dis_type", "gwf3dis8_8f90.html#a596c2d2edcdb73cfc39f8cbf7cbdd6b3", null ],
     [ "get_ncpl", "gwf3dis8_8f90.html#a72043fa44b86783ec33a26ce69117e0d", null ],
     [ "get_nodenumber_idx1", "gwf3dis8_8f90.html#ab12b442e753038dae3e3dd5dd5931e82", null ],

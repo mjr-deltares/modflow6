@@ -1,4 +1,17 @@
 <map id="idmgwfdfnselectormodule::gwf_idm_integrated" name="idmgwfdfnselectormodule::gwf_idm_integrated">
-<area shape="rect" id="node1" title=" " alt="" coords="223,5,416,47"/>
-<area shape="rect" id="node2" href="$namespaceidmdfnselectormodule.html#a5b550a5ff154a9db8676380cecdeb433" title=" " alt="" coords="5,5,175,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="2301,89,2495,130"/>
+<area shape="rect" id="node2" href="$namespaceidmdfnselectormodule.html#a5b550a5ff154a9db8676380cecdeb433" title=" " alt="" coords="2084,89,2253,130"/>
+<area shape="rect" id="node3" href="$namespaceidmmf6filemodule.html#ab190d0cf37122b235816f83288a7e84b" title="input load model idm supported package files" alt="" coords="1843,23,2022,65"/>
+<area shape="rect" id="node13" href="$namespacemodelpackageinputsmodule.html#a6015a8c258e1070880559cb4ac468382" title="does model support multiple instances of this package type" alt="" coords="1829,89,2036,130"/>
+<area shape="rect" id="node15" href="$namespacemodelpackageinputsmodule.html#ad489ad42dcbe70acaa7225eed3360f52" title="add a new package instance to this package type" alt="" coords="1829,154,2036,195"/>
+<area shape="rect" id="node4" href="$namespaceidmmf6filemodule.html#ad277175cd90d4213ab9f2bb06735f5e3" title="load and make pkg info available to models" alt="" coords="1524,31,1781,57"/>
+<area shape="rect" id="node5" href="$namespaceidmmf6filemodule.html#a4630a9092fe7e6d4a06646788e993e14" title="input load a single model namfile and model package files" alt="" coords="1249,31,1476,57"/>
+<area shape="rect" id="node6" href="$namespaceidmmf6filemodule.html#a9f4e954ccbd4d29f91516e9594014eaf" title="input load model namfiles and model package files" alt="" coords="1023,23,1201,65"/>
+<area shape="rect" id="node7" href="$namespaceidmsimulationmodule.html#a66c92e5155c1bcb9fff0b2952473aa7c" title="source indenpendent model load entry point" alt="" coords="809,23,975,65"/>
+<area shape="rect" id="node8" href="$namespacemf6coremodule.html#a3a6232615cb313d2887d936bc2edcd0a" title="Create simulation input context." alt="" coords="592,23,761,65"/>
+<area shape="rect" id="node9" href="$namespacemf6coremodule.html#aa847da5116e01f4fad8885b0c4f96757" title="Initialize a simulation." alt="" coords="329,31,544,57"/>
+<area shape="rect" id="node10" href="$namespacemf6bmi.html#aa886df822e4ea66c30a97a9060da5de8" title="Initialize the computational core." alt="" coords="107,5,276,32"/>
+<area shape="rect" id="node11" href="$namespacemf6coremodule.html#a207819c711610066af1b83ec2a8efef0" title="Main controller." alt="" coords="101,56,281,83"/>
+<area shape="rect" id="node12" href="$mf6_8f90.html#aa95bf577752f92b917375902bbb13863" title="MODFLOW 6 main entry point." alt="" coords="5,56,53,83"/>
+<area shape="rect" id="node14" href="$namespacemodelpackageinputsmodule.html#ae3047b4d5cf08119d5aa67b3312ea463" title="get package instance count and verify base or multi of each" alt="" coords="1549,89,1756,130"/>
 </map>

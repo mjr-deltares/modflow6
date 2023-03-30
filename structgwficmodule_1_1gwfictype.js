@@ -15,6 +15,8 @@ var structgwficmodule_1_1gwfictype =
     [ "iasym", "structgwficmodule_1_1gwfictype.html#a36799df5486258f971096f98c3ab2706", null ],
     [ "id", "structgwficmodule_1_1gwfictype.html#aa7bafb76bcefbf61de61fa4d182d8d51", null ],
     [ "inewton", "structgwficmodule_1_1gwfictype.html#afaad297d505cf42c66a1048d2cd02c76", null ],
+    [ "input_fname", "structgwficmodule_1_1gwfictype.html#a4248323ef9faca61d011e242210bdaae", null ],
+    [ "input_mempath", "structgwficmodule_1_1gwfictype.html#acbfb7be470591c861de6abf754d6d1fb", null ],
     [ "inunit", "structgwficmodule_1_1gwfictype.html#adcd40b15f5a30bf74250ab28f242580f", null ],
     [ "ionper", "structgwficmodule_1_1gwfictype.html#a650ebab7fba8514b77b3c8f4a002aa9c", null ],
     [ "iout", "structgwficmodule_1_1gwfictype.html#ae0a01260b2421736c5baaf6ba418a4bf", null ],

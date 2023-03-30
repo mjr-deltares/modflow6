@@ -69,6 +69,8 @@ var structchdmodule_1_1chdtype =
     [ "indxconvertflux", "structchdmodule_1_1chdtype.html#aa8fa277f8de57badbc217ad5ff4e605a", null ],
     [ "inewton", "structchdmodule_1_1chdtype.html#afaad297d505cf42c66a1048d2cd02c76", null ],
     [ "inobspkg", "structchdmodule_1_1chdtype.html#a8e71999e30ec161d55651783b04e73a6", null ],
+    [ "input_fname", "structchdmodule_1_1chdtype.html#a4248323ef9faca61d011e242210bdaae", null ],
+    [ "input_mempath", "structchdmodule_1_1chdtype.html#acbfb7be470591c861de6abf754d6d1fb", null ],
     [ "inputtab", "structchdmodule_1_1chdtype.html#a37d944150fb1ae88c1dea5605a07ec48", null ],
     [ "inunit", "structchdmodule_1_1chdtype.html#adcd40b15f5a30bf74250ab28f242580f", null ],
     [ "ioffset", "structchdmodule_1_1chdtype.html#a5247b3ebeca79255794c84cb27a8036f", null ],

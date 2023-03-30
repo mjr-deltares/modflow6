@@ -23,6 +23,8 @@ var structgwtadvmodule_1_1gwtadvtype =
     [ "ibound", "structgwtadvmodule_1_1gwtadvtype.html#a49bffef6f9e0944e63be6315c5596b23", null ],
     [ "id", "structgwtadvmodule_1_1gwtadvtype.html#aa7bafb76bcefbf61de61fa4d182d8d51", null ],
     [ "inewton", "structgwtadvmodule_1_1gwtadvtype.html#afaad297d505cf42c66a1048d2cd02c76", null ],
+    [ "input_fname", "structgwtadvmodule_1_1gwtadvtype.html#a4248323ef9faca61d011e242210bdaae", null ],
+    [ "input_mempath", "structgwtadvmodule_1_1gwtadvtype.html#acbfb7be470591c861de6abf754d6d1fb", null ],
     [ "inunit", "structgwtadvmodule_1_1gwtadvtype.html#adcd40b15f5a30bf74250ab28f242580f", null ],
     [ "ionper", "structgwtadvmodule_1_1gwtadvtype.html#a650ebab7fba8514b77b3c8f4a002aa9c", null ],
     [ "iout", "structgwtadvmodule_1_1gwtadvtype.html#ae0a01260b2421736c5baaf6ba418a4bf", null ],

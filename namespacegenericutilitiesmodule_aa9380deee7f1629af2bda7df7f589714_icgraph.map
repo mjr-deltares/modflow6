@@ -1,16 +1,13 @@
 <map id="genericutilitiesmodule::write_centered" name="genericutilitiesmodule::write_centered">
-<area shape="rect" id="node1" title="Write centered text." alt="" coords="1700,27,1868,69"/>
-<area shape="rect" id="node2" href="$namespacegwfmodule.html#a0cb07c0232ce3627b9120eb42e7e164f" title="Create a new groundwater flow model object." alt="" coords="1297,5,1444,32"/>
-<area shape="rect" id="node10" href="$namespaceversionmodule.html#a0eedbf1f3bd80a688acb3f014addc767" title="@ brief Write program header" alt="" coords="1492,57,1652,98"/>
-<area shape="rect" id="node3" href="$namespacesimulationcreatemodule.html#a0043d2fa8d8b96e41e5e0fdfecaadae7" title="Set the models to be used for the simulation." alt="" coords="1068,34,1249,75"/>
-<area shape="rect" id="node4" href="$namespacesimulationcreatemodule.html#a812a26909f2491fa8fe05d1585bd1728" title="Source the simulation name file." alt="" coords="835,34,1020,75"/>
-<area shape="rect" id="node5" href="$namespacesimulationcreatemodule.html#afcbe0fd3c140a3ba4f0a5409e5dc8781" title="Read the simulation name file and initialize the models, exchanges." alt="" coords="599,38,780,79"/>
-<area shape="rect" id="node6" href="$namespacemf6coremodule.html#aa847da5116e01f4fad8885b0c4f96757" title="Initialize a simulation." alt="" coords="329,107,544,133"/>
-<area shape="rect" id="node7" href="$namespacemf6bmi.html#aa886df822e4ea66c30a97a9060da5de8" title="Initialize the computational core." alt="" coords="107,81,276,108"/>
-<area shape="rect" id="node8" href="$namespacemf6coremodule.html#a207819c711610066af1b83ec2a8efef0" title="Main controller." alt="" coords="101,132,281,159"/>
-<area shape="rect" id="node9" href="$mf6_8f90.html#aa95bf577752f92b917375902bbb13863" title="MODFLOW 6 main entry point." alt="" coords="5,132,53,159"/>
-<area shape="rect" id="node11" href="$namespacemf6coremodule.html#ab9b814efeb5552876e817dadd5cf2e01" title="Set up mfsim list file output logging." alt="" coords="840,99,1015,141"/>
-<area shape="rect" id="node12" href="$namespacegwtmodule.html#ad4f6eefd4112176d49bd99d8944bdef3" title=" " alt="" coords="1297,56,1444,83"/>
-<area shape="rect" id="node13" href="$namespacesimmodule.html#a3d864cdd9b024655fbc89f6caea11822" title="Print the header and initializes messaging." alt="" coords="1301,158,1441,199"/>
-<area shape="rect" id="node14" href="$namespacemf6coremodule.html#aea0af0a2f63d249a347392eef7ed8141" title="print initial message" alt="" coords="592,161,787,188"/>
+<area shape="rect" id="node1" title="Write centered text." alt="" coords="1277,56,1445,97"/>
+<area shape="rect" id="node2" href="$namespaceversionmodule.html#a0eedbf1f3bd80a688acb3f014addc767" title="@ brief Write program header" alt="" coords="1069,56,1229,97"/>
+<area shape="rect" id="node3" href="$namespacemf6coremodule.html#ab9b814efeb5552876e817dadd5cf2e01" title="Set up mfsim list file output logging." alt="" coords="602,5,777,47"/>
+<area shape="rect" id="node8" href="$namespacegwfmodule.html#ab0215fece3fe4596fc3791517408e068" title=" " alt="" coords="835,38,1021,65"/>
+<area shape="rect" id="node9" href="$namespacegwtmodule.html#a3a1bd1008ff11c633ccc96d4611cdd5c" title=" " alt="" coords="835,89,1021,115"/>
+<area shape="rect" id="node10" href="$namespacesimmodule.html#a3d864cdd9b024655fbc89f6caea11822" title="Print the header and initializes messaging." alt="" coords="858,140,998,181"/>
+<area shape="rect" id="node4" href="$namespacemf6coremodule.html#aa847da5116e01f4fad8885b0c4f96757" title="Initialize a simulation." alt="" coords="329,67,544,94"/>
+<area shape="rect" id="node5" href="$namespacemf6bmi.html#aa886df822e4ea66c30a97a9060da5de8" title="Initialize the computational core." alt="" coords="107,42,276,69"/>
+<area shape="rect" id="node6" href="$namespacemf6coremodule.html#a207819c711610066af1b83ec2a8efef0" title="Main controller." alt="" coords="101,93,281,119"/>
+<area shape="rect" id="node7" href="$mf6_8f90.html#aa95bf577752f92b917375902bbb13863" title="MODFLOW 6 main entry point." alt="" coords="5,93,53,119"/>
+<area shape="rect" id="node11" href="$namespacemf6coremodule.html#aea0af0a2f63d249a347392eef7ed8141" title="print initial message" alt="" coords="592,97,787,123"/>
 </map>

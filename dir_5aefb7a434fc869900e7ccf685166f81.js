@@ -16,6 +16,7 @@ var dir_5aefb7a434fc869900e7ccf685166f81 =
     [ "gwf3ghb8.f90", "gwf3ghb8_8f90.html", "gwf3ghb8_8f90" ],
     [ "gwf3hfb8.f90", "gwf3hfb8_8f90.html", "gwf3hfb8_8f90" ],
     [ "gwf3ic8.f90", "gwf3ic8_8f90.html", "gwf3ic8_8f90" ],
+    [ "gwf3idm.f90", "gwf3idm_8f90.html", "gwf3idm_8f90" ],
     [ "gwf3lak8.f90", "gwf3lak8_8f90.html", "gwf3lak8_8f90" ],
     [ "gwf3maw8.f90", "gwf3maw8_8f90.html", "gwf3maw8_8f90" ],
     [ "gwf3mvr8.f90", "gwf3mvr8_8f90.html", "gwf3mvr8_8f90" ],

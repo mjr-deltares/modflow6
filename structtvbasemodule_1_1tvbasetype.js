@@ -22,6 +22,8 @@ var structtvbasemodule_1_1tvbasetype =
     [ "iasym", "structtvbasemodule_1_1tvbasetype.html#a36799df5486258f971096f98c3ab2706", null ],
     [ "id", "structtvbasemodule_1_1tvbasetype.html#aa7bafb76bcefbf61de61fa4d182d8d51", null ],
     [ "inewton", "structtvbasemodule_1_1tvbasetype.html#afaad297d505cf42c66a1048d2cd02c76", null ],
+    [ "input_fname", "structtvbasemodule_1_1tvbasetype.html#a4248323ef9faca61d011e242210bdaae", null ],
+    [ "input_mempath", "structtvbasemodule_1_1tvbasetype.html#acbfb7be470591c861de6abf754d6d1fb", null ],
     [ "inunit", "structtvbasemodule_1_1tvbasetype.html#adcd40b15f5a30bf74250ab28f242580f", null ],
     [ "ionper", "structtvbasemodule_1_1tvbasetype.html#a650ebab7fba8514b77b3c8f4a002aa9c", null ],
     [ "iout", "structtvbasemodule_1_1tvbasetype.html#ae0a01260b2421736c5baaf6ba418a4bf", null ],

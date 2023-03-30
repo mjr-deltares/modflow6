@@ -76,6 +76,8 @@ var structrchmodule_1_1rchtype =
     [ "inewton", "structrchmodule_1_1rchtype.html#afaad297d505cf42c66a1048d2cd02c76", null ],
     [ "inirch", "structrchmodule_1_1rchtype.html#a4b513070c9c753e22ca45fe7d3663c7f", null ],
     [ "inobspkg", "structrchmodule_1_1rchtype.html#a8e71999e30ec161d55651783b04e73a6", null ],
+    [ "input_fname", "structrchmodule_1_1rchtype.html#a4248323ef9faca61d011e242210bdaae", null ],
+    [ "input_mempath", "structrchmodule_1_1rchtype.html#acbfb7be470591c861de6abf754d6d1fb", null ],
     [ "inputtab", "structrchmodule_1_1rchtype.html#a37d944150fb1ae88c1dea5605a07ec48", null ],
     [ "inunit", "structrchmodule_1_1rchtype.html#adcd40b15f5a30bf74250ab28f242580f", null ],
     [ "ioffset", "structrchmodule_1_1rchtype.html#a5247b3ebeca79255794c84cb27a8036f", null ],

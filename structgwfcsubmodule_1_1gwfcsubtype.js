@@ -145,6 +145,8 @@ var structgwfcsubmodule_1_1gwfcsubtype =
     [ "inewton", "structgwfcsubmodule_1_1gwfcsubtype.html#afaad297d505cf42c66a1048d2cd02c76", null ],
     [ "initialized", "structgwfcsubmodule_1_1gwfcsubtype.html#a46a4a08069c6e3482c8b1dc039e04747", null ],
     [ "inobspkg", "structgwfcsubmodule_1_1gwfcsubtype.html#a80f15ceee9344ce875b61f6c5269090a", null ],
+    [ "input_fname", "structgwfcsubmodule_1_1gwfcsubtype.html#a4248323ef9faca61d011e242210bdaae", null ],
+    [ "input_mempath", "structgwfcsubmodule_1_1gwfcsubtype.html#acbfb7be470591c861de6abf754d6d1fb", null ],
     [ "inputtab", "structgwfcsubmodule_1_1gwfcsubtype.html#ab1a854c01c9bc13770373822b619750a", null ],
     [ "inunit", "structgwfcsubmodule_1_1gwfcsubtype.html#adcd40b15f5a30bf74250ab28f242580f", null ],
     [ "ionper", "structgwfcsubmodule_1_1gwfcsubtype.html#a650ebab7fba8514b77b3c8f4a002aa9c", null ],

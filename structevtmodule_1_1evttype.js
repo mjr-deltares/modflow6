@@ -77,6 +77,8 @@ var structevtmodule_1_1evttype =
     [ "inewton", "structevtmodule_1_1evttype.html#afaad297d505cf42c66a1048d2cd02c76", null ],
     [ "inievt", "structevtmodule_1_1evttype.html#abc512af6c1f3adbb395d80d3a5e81565", null ],
     [ "inobspkg", "structevtmodule_1_1evttype.html#a8e71999e30ec161d55651783b04e73a6", null ],
+    [ "input_fname", "structevtmodule_1_1evttype.html#a4248323ef9faca61d011e242210bdaae", null ],
+    [ "input_mempath", "structevtmodule_1_1evttype.html#acbfb7be470591c861de6abf754d6d1fb", null ],
     [ "inputtab", "structevtmodule_1_1evttype.html#a37d944150fb1ae88c1dea5605a07ec48", null ],
     [ "inunit", "structevtmodule_1_1evttype.html#adcd40b15f5a30bf74250ab28f242580f", null ],
     [ "ioffset", "structevtmodule_1_1evttype.html#a5247b3ebeca79255794c84cb27a8036f", null ],

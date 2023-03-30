@@ -33,6 +33,8 @@ var structghostnodemodule_1_1ghostnodetype =
     [ "idxsymglo", "structghostnodemodule_1_1ghostnodetype.html#a861bf31386b2dad18425eb76e16aa34d", null ],
     [ "implicit", "structghostnodemodule_1_1ghostnodetype.html#a1f41cc7f506d0fe751fc25ff354735ac", null ],
     [ "inewton", "structghostnodemodule_1_1ghostnodetype.html#afaad297d505cf42c66a1048d2cd02c76", null ],
+    [ "input_fname", "structghostnodemodule_1_1ghostnodetype.html#a4248323ef9faca61d011e242210bdaae", null ],
+    [ "input_mempath", "structghostnodemodule_1_1ghostnodetype.html#acbfb7be470591c861de6abf754d6d1fb", null ],
     [ "inunit", "structghostnodemodule_1_1ghostnodetype.html#adcd40b15f5a30bf74250ab28f242580f", null ],
     [ "ionper", "structghostnodemodule_1_1ghostnodetype.html#a650ebab7fba8514b77b3c8f4a002aa9c", null ],
     [ "iout", "structghostnodemodule_1_1ghostnodetype.html#ae0a01260b2421736c5baaf6ba418a4bf", null ],

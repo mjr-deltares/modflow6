@@ -107,6 +107,8 @@ var structuzfmodule_1_1uzftype =
     [ "inewton", "structuzfmodule_1_1uzftype.html#afaad297d505cf42c66a1048d2cd02c76", null ],
     [ "infiltration", "structuzfmodule_1_1uzftype.html#ac93555ae2b61b999ad25d92d004fc213", null ],
     [ "inobspkg", "structuzfmodule_1_1uzftype.html#a8e71999e30ec161d55651783b04e73a6", null ],
+    [ "input_fname", "structuzfmodule_1_1uzftype.html#a4248323ef9faca61d011e242210bdaae", null ],
+    [ "input_mempath", "structuzfmodule_1_1uzftype.html#acbfb7be470591c861de6abf754d6d1fb", null ],
     [ "inputtab", "structuzfmodule_1_1uzftype.html#a37d944150fb1ae88c1dea5605a07ec48", null ],
     [ "inunit", "structuzfmodule_1_1uzftype.html#adcd40b15f5a30bf74250ab28f242580f", null ],
     [ "ioffset", "structuzfmodule_1_1uzftype.html#a5247b3ebeca79255794c84cb27a8036f", null ],

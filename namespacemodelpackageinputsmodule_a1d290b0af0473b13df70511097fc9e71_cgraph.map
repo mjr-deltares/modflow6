@@ -1,0 +1,13 @@
+<map id="modelpackageinputsmodule::modelpkgs_init" name="modelpackageinputsmodule::modelpkgs_init">
+<area shape="rect" id="node1" title="initialize model package inputs object" alt="" coords="5,71,212,112"/>
+<area shape="rect" id="node2" href="$namespacemodelpackageinputsmodule.html#aac603f1961b5329d6ab8f5c2e0cbbfe4" title="component from package or model type" alt="" coords="262,5,469,47"/>
+<area shape="rect" id="node3" href="$namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d" title="returns the path to the memory object" alt="" coords="282,71,449,112"/>
+<area shape="rect" id="node11" href="$namespacemodelpackageinputsmodule.html#a813b67e8bfd07cafca3414d7e2712c7e" title="set supported package types for model" alt="" coords="260,136,471,177"/>
+<area shape="rect" id="node4" href="$namespacememoryhelpermodule.html#a5405f58247a0962e5449ebc1e4dcff0f" title="Generic routine to check the length of (parts of) the memory address." alt="" coords="519,71,685,112"/>
+<area shape="rect" id="node5" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="733,78,908,105"/>
+<area shape="rect" id="node6" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="956,78,1095,105"/>
+<area shape="rect" id="node7" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="1143,37,1311,79"/>
+<area shape="rect" id="node10" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="1143,103,1311,144"/>
+<area shape="rect" id="node8" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="1359,15,1553,42"/>
+<area shape="rect" id="node9" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1372,67,1540,108"/>
+</map>

@@ -26,6 +26,8 @@ var structgwfstomodule_1_1gwfstotype =
     [ "iconvert", "structgwfstomodule_1_1gwfstotype.html#ac8e4f7252ff26a29ced8d8b71024500d", null ],
     [ "id", "structgwfstomodule_1_1gwfstotype.html#aa7bafb76bcefbf61de61fa4d182d8d51", null ],
     [ "inewton", "structgwfstomodule_1_1gwfstotype.html#afaad297d505cf42c66a1048d2cd02c76", null ],
+    [ "input_fname", "structgwfstomodule_1_1gwfstotype.html#a4248323ef9faca61d011e242210bdaae", null ],
+    [ "input_mempath", "structgwfstomodule_1_1gwfstotype.html#acbfb7be470591c861de6abf754d6d1fb", null ],
     [ "integratechanges", "structgwfstomodule_1_1gwfstotype.html#a7f87f581975d13ad7f295cccf98f2043", null ],
     [ "intvs", "structgwfstomodule_1_1gwfstotype.html#a47bd2aeef5332ec45f8d8a83c1c7ec15", null ],
     [ "inunit", "structgwfstomodule_1_1gwfstotype.html#adcd40b15f5a30bf74250ab28f242580f", null ],

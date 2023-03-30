@@ -7,7 +7,7 @@ var namespacegwfdisvmodule =
     [ "connection_normal", "namespacegwfdisvmodule.html#adfc66a6a3eb346fa57d695d349ec30c2", null ],
     [ "connection_vector", "namespacegwfdisvmodule.html#a9b00554470cf66f120a808efddeb00b0", null ],
     [ "define_cellverts", "namespacegwfdisvmodule.html#affe25921afea8cdf953802125f6a7157", null ],
-    [ "disv_cr", "namespacegwfdisvmodule.html#a34be39910f2ea98503e299531ab27542", null ],
+    [ "disv_cr", "namespacegwfdisvmodule.html#adc117011bad68a814f3c96520ca91a32", null ],
     [ "disv_da", "namespacegwfdisvmodule.html#af5af5f1c17c4e8a8a52c08def2b49b29", null ],
     [ "disv_df", "namespacegwfdisvmodule.html#a9a88426afbe7229bf7a9099d81486f48", null ],
     [ "disv_load", "namespacegwfdisvmodule.html#ad3d24d1bd80f70cae01417c78e2d8aa0", null ],

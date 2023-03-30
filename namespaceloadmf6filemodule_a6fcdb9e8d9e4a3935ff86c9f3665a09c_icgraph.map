@@ -1,0 +1,19 @@
+<map id="loadmf6filemodule::load_keyword_type" name="loadmf6filemodule::load_keyword_type">
+<area shape="rect" id="node1" title="load type keyword" alt="" coords="3173,64,3327,105"/>
+<area shape="rect" id="node2" href="$namespaceloadmf6filemodule.html#a60c230d116e0f6eacccea1fc6a91d76f" title="load an individual input record into memory" alt="" coords="2972,64,3125,105"/>
+<area shape="rect" id="node3" href="$namespaceloadmf6filemodule.html#aea4ef47eb6e12da03bf1fe59fe23ecc1" title="procedure to load a block" alt="" coords="2771,64,2924,105"/>
+<area shape="rect" id="node4" href="$namespaceloadmf6filemodule.html#a7c2308e2233e7623bf512430577b17c8" title="procedure to load a file" alt="" coords="2569,64,2723,105"/>
+<area shape="rect" id="node5" href="$namespaceidmmf6filemodule.html#ac5a311164315339c52a402257ba2e750" title="generic procedure to MODFLOW 6 load routine" alt="" coords="2323,64,2521,105"/>
+<area shape="rect" id="node6" href="$namespaceidmmf6filemodule.html#a5cb178360e0c7090d915b5ebc079d395" title="input load for traditional mf6 simulation input file" alt="" coords="2056,71,2275,98"/>
+<area shape="rect" id="node7" href="$namespaceidmmf6filemodule.html#ab190d0cf37122b235816f83288a7e84b" title="input load model idm supported package files" alt="" coords="1829,5,2008,47"/>
+<area shape="rect" id="node9" href="$namespaceidmmf6filemodule.html#a4630a9092fe7e6d4a06646788e993e14" title="input load a single model namfile and model package files" alt="" coords="1249,71,1476,98"/>
+<area shape="rect" id="node17" href="$namespaceidmsimulationmodule.html#a7f1922da3afd870b788436b6333d5c87" title="MODFLOW 6 mfsim.nam input load routine." alt="" coords="1570,123,1735,164"/>
+<area shape="rect" id="node8" href="$namespaceidmmf6filemodule.html#ad277175cd90d4213ab9f2bb06735f5e3" title="load and make pkg info available to models" alt="" coords="1524,17,1781,43"/>
+<area shape="rect" id="node10" href="$namespaceidmmf6filemodule.html#a9f4e954ccbd4d29f91516e9594014eaf" title="input load model namfiles and model package files" alt="" coords="1023,64,1201,105"/>
+<area shape="rect" id="node11" href="$namespaceidmsimulationmodule.html#a66c92e5155c1bcb9fff0b2952473aa7c" title="source indenpendent model load entry point" alt="" coords="809,64,975,105"/>
+<area shape="rect" id="node12" href="$namespacemf6coremodule.html#a3a6232615cb313d2887d936bc2edcd0a" title="Create simulation input context." alt="" coords="592,93,761,135"/>
+<area shape="rect" id="node13" href="$namespacemf6coremodule.html#aa847da5116e01f4fad8885b0c4f96757" title="Initialize a simulation." alt="" coords="329,101,544,127"/>
+<area shape="rect" id="node14" href="$namespacemf6bmi.html#aa886df822e4ea66c30a97a9060da5de8" title="Initialize the computational core." alt="" coords="107,75,276,102"/>
+<area shape="rect" id="node15" href="$namespacemf6coremodule.html#a207819c711610066af1b83ec2a8efef0" title="Main controller." alt="" coords="101,126,281,153"/>
+<area shape="rect" id="node16" href="$mf6_8f90.html#aa95bf577752f92b917375902bbb13863" title="MODFLOW 6 main entry point." alt="" coords="5,126,53,153"/>
+</map>

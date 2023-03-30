@@ -76,6 +76,8 @@ var structgwfdisumodule_1_1gwfdisutype =
     [ "icondir", "structgwfdisumodule_1_1gwfdisutype.html#ab3f2a0fc61a388359c66700becc7ca60", null ],
     [ "idomain", "structgwfdisumodule_1_1gwfdisutype.html#ab2e16e68d01423ec582c961fdfd0855d", null ],
     [ "ihcinp", "structgwfdisumodule_1_1gwfdisutype.html#adbd0a7d52428e5ed97ecf8ccbc93ab80", null ],
+    [ "input_fname", "structgwfdisumodule_1_1gwfdisutype.html#acb624eaa746fb9c8853f0c64508ca844", null ],
+    [ "input_mempath", "structgwfdisumodule_1_1gwfdisutype.html#ac9b7c86db5eb1615fdfccecceeacaad0", null ],
     [ "inunit", "structgwfdisumodule_1_1gwfdisutype.html#a046753b376be421c22e9e1c3c2bb4e77", null ],
     [ "iout", "structgwfdisumodule_1_1gwfdisutype.html#a4416ba38046e16bc00e8a01dde59d30f", null ],
     [ "jainp", "structgwfdisumodule_1_1gwfdisutype.html#a8c5144a7e6046e516fb48e1213a67e4d", null ],

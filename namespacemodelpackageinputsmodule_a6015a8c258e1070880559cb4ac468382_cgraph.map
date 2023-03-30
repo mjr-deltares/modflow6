@@ -1,0 +1,17 @@
+<map id="modelpackageinputsmodule::multi_pkg_type" name="modelpackageinputsmodule::multi_pkg_type">
+<area shape="rect" id="node1" title="does model support multiple instances of this package type" alt="" coords="5,199,212,240"/>
+<area shape="rect" id="node2" href="$namespaceidmdfnselectormodule.html#a5b550a5ff154a9db8676380cecdeb433" title=" " alt="" coords="260,104,429,145"/>
+<area shape="rect" id="node6" href="$namespaceidmdfnselectormodule.html#ab93814c65c16a54299c53a2d7f4ab650" title=" " alt="" coords="260,260,429,301"/>
+<area shape="rect" id="node3" href="$namespaceidmgwfdfnselectormodule.html#a0eff0989d7e9814160c58e9b35156621" title=" " alt="" coords="477,5,671,47"/>
+<area shape="rect" id="node4" href="$namespaceidmgwtdfnselectormodule.html#a2a4ce156808773e22d14f9969a923104" title=" " alt="" coords="477,71,671,112"/>
+<area shape="rect" id="node5" href="$namespaceidmsimdfnselectormodule.html#ad2130858290252609c5b4ed91bae9e96" title=" " alt="" coords="477,136,671,177"/>
+<area shape="rect" id="node7" href="$namespaceidmgwfdfnselectormodule.html#af4029e10265cef9a9e832df8ea05efb6" title=" " alt="" coords="477,201,671,243"/>
+<area shape="rect" id="node8" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="719,297,893,323"/>
+<area shape="rect" id="node14" href="$namespaceidmgwtdfnselectormodule.html#ab76090b09cbe5cf5fb9936b6b6b35d00" title=" " alt="" coords="477,319,671,360"/>
+<area shape="rect" id="node15" href="$namespaceidmsimdfnselectormodule.html#a169683ef8c8406ddc296b9e13d9565f6" title=" " alt="" coords="477,384,671,425"/>
+<area shape="rect" id="node9" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="941,297,1080,323"/>
+<area shape="rect" id="node10" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="1128,256,1296,297"/>
+<area shape="rect" id="node13" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="1128,321,1296,363"/>
+<area shape="rect" id="node11" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="1344,234,1539,261"/>
+<area shape="rect" id="node12" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1357,285,1525,327"/>
+</map>

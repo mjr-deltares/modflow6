@@ -139,6 +139,8 @@ var structsfrmodule_1_1sfrtype =
     [ "inewton", "structsfrmodule_1_1sfrtype.html#afaad297d505cf42c66a1048d2cd02c76", null ],
     [ "inflow", "structsfrmodule_1_1sfrtype.html#ade7017e78d18d8e5c9ae3310b6f9ed7d", null ],
     [ "inobspkg", "structsfrmodule_1_1sfrtype.html#a8e71999e30ec161d55651783b04e73a6", null ],
+    [ "input_fname", "structsfrmodule_1_1sfrtype.html#a4248323ef9faca61d011e242210bdaae", null ],
+    [ "input_mempath", "structsfrmodule_1_1sfrtype.html#acbfb7be470591c861de6abf754d6d1fb", null ],
     [ "inputtab", "structsfrmodule_1_1sfrtype.html#a37d944150fb1ae88c1dea5605a07ec48", null ],
     [ "inunit", "structsfrmodule_1_1sfrtype.html#adcd40b15f5a30bf74250ab28f242580f", null ],
     [ "ioffset", "structsfrmodule_1_1sfrtype.html#a5247b3ebeca79255794c84cb27a8036f", null ],

@@ -112,8 +112,7 @@ $(document).ready(function(){initNavTree('gwt1_8f90.html',''); initResizable(); 
   <div class="summary">
 <a href="#nested-classes">Data Types</a> &#124;
 <a href="#namespaces">Modules</a> &#124;
-<a href="#func-members">Functions/Subroutines</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions/Subroutines</a>  </div>
   <div class="headertitle">
 <div class="title">gwt1.f90 File Reference</div>  </div>
 </div><!--header-->
@@ -181,21 +180,22 @@ Functions/Subroutines</h2></td></tr>
 <tr class="separator:a5a8cbd98cab2c981d225285c2f899a54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af18b6e0a8010b0b5ac1eae25d179c0dd"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwtmodule.html#af18b6e0a8010b0b5ac1eae25d179c0dd">gwtmodule::package_create</a> (this, filtyp, ipakid, ipaknum, pakname, inunit, iout)</td></tr>
 <tr class="separator:af18b6e0a8010b0b5ac1eae25d179c0dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a8193d60b50c2a566851c726ef56756"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwtmodule.html#a2a8193d60b50c2a566851c726ef56756">gwtmodule::ftype_check</a> (this, namefile_obj, indis)</td></tr>
-<tr class="separator:a2a8193d60b50c2a566851c726ef56756"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b87b1b5a69c96631fcb3ec9c711a418"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwtmodule.html#a1b87b1b5a69c96631fcb3ec9c711a418">gwtmodule::ftype_check</a> (this, indis)</td></tr>
+<tr class="separator:a1b87b1b5a69c96631fcb3ec9c711a418"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69c21c98d464d85dd10f6126bba5b07f"><td class="memItemLeft" align="right" valign="top">class(gwtmodeltype) function, pointer, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwtmodule.html#a69c21c98d464d85dd10f6126bba5b07f">gwtmodule::castasgwtmodel</a> (model)</td></tr>
 <tr class="memdesc:a69c21c98d464d85dd10f6126bba5b07f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cast to GwtModelType.  <a href="namespacegwtmodule.html#a69c21c98d464d85dd10f6126bba5b07f">More...</a><br /></td></tr>
 <tr class="separator:a69c21c98d464d85dd10f6126bba5b07f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1fdfa6fd840ad673726568242a968742"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwtmodule.html#a1fdfa6fd840ad673726568242a968742">gwtmodule::gwt_load_input_context</a> (this, filtyp, modelname, pkgname, inunit, iout, ipaknum)</td></tr>
-<tr class="memdesc:a1fdfa6fd840ad673726568242a968742"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load input context for supported package.  <a href="namespacegwtmodule.html#a1fdfa6fd840ad673726568242a968742">More...</a><br /></td></tr>
-<tr class="separator:a1fdfa6fd840ad673726568242a968742"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a13e661babd7d9da7ecd857f431ac1d6f"><td class="memItemLeft" align="right" valign="top">integer(i4b), parameter&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwtmodule.html#a13e661babd7d9da7ecd857f431ac1d6f">gwtmodule::niunit</a> = 100</td></tr>
-<tr class="separator:a13e661babd7d9da7ecd857f431ac1d6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d484b8e90e674d13c2af96ac29e30d5"><td class="memItemLeft" align="right" valign="top">character(len=lenftype), dimension(niunit)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwtmodule.html#a1d484b8e90e674d13c2af96ac29e30d5">gwtmodule::cunit</a></td></tr>
-<tr class="separator:a1d484b8e90e674d13c2af96ac29e30d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84c065d6a85e412a703412b20b296956"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwtmodule.html#a84c065d6a85e412a703412b20b296956">gwtmodule::create_bndpkgs</a> (this, bndpkgs, pkgtypes, pkgnames, mempaths, inunits)</td></tr>
+<tr class="memdesc:a84c065d6a85e412a703412b20b296956"><td class="mdescLeft">&#160;</td><td class="mdescRight">Source package info and begin to process.  <a href="namespacegwtmodule.html#a84c065d6a85e412a703412b20b296956">More...</a><br /></td></tr>
+<tr class="separator:a84c065d6a85e412a703412b20b296956"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3afc7130bbc06a5eea61415f346c984"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwtmodule.html#ae3afc7130bbc06a5eea61415f346c984">gwtmodule::create_packages</a> (this)</td></tr>
+<tr class="memdesc:ae3afc7130bbc06a5eea61415f346c984"><td class="mdescLeft">&#160;</td><td class="mdescRight">Source package info and begin to process.  <a href="namespacegwtmodule.html#ae3afc7130bbc06a5eea61415f346c984">More...</a><br /></td></tr>
+<tr class="separator:ae3afc7130bbc06a5eea61415f346c984"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a1bd1008ff11c633ccc96d4611cdd5c"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwtmodule.html#a3a1bd1008ff11c633ccc96d4611cdd5c">gwtmodule::create_lstfile</a> (this, lst_fname, model_fname, defined)</td></tr>
+<tr class="separator:a3a1bd1008ff11c633ccc96d4611cdd5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bed8170a994bc0f991fbc853f0b292f"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwtmodule.html#a7bed8170a994bc0f991fbc853f0b292f">gwtmodule::log_namfile_options</a> (this, found)</td></tr>
+<tr class="memdesc:a7bed8170a994bc0f991fbc853f0b292f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write model namfile options to list file.  <a href="namespacegwtmodule.html#a7bed8170a994bc0f991fbc853f0b292f">More...</a><br /></td></tr>
+<tr class="separator:a7bed8170a994bc0f991fbc853f0b292f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -203,7 +203,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_32e188284d239da8bb14ec1dabb0c35f.html">Model</a></li><li class="navelem"><a class="el" href="dir_5ac382e795535087161f2a8b7f95a830.html">GroundWaterTransport</a></li><li class="navelem"><a class="el" href="gwt1_8f90.html">gwt1.f90</a></li>
-    <li class="footer">Generated on Thu Mar 30 2023 05:57:32 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Mar 30 2023 12:37:57 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

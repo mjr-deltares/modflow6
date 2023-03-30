@@ -24,6 +24,8 @@ var structtvkmodule_1_1tvktype =
     [ "ik22overk", "structtvkmodule_1_1tvktype.html#aa1ab05fa646b39fb2d6321da617cb0ff", null ],
     [ "ik33overk", "structtvkmodule_1_1tvktype.html#a9ed01c77084e44c50685759cb5bb0eec", null ],
     [ "inewton", "structtvkmodule_1_1tvktype.html#afaad297d505cf42c66a1048d2cd02c76", null ],
+    [ "input_fname", "structtvkmodule_1_1tvktype.html#a4248323ef9faca61d011e242210bdaae", null ],
+    [ "input_mempath", "structtvkmodule_1_1tvktype.html#acbfb7be470591c861de6abf754d6d1fb", null ],
     [ "inunit", "structtvkmodule_1_1tvktype.html#adcd40b15f5a30bf74250ab28f242580f", null ],
     [ "ionper", "structtvkmodule_1_1tvktype.html#a650ebab7fba8514b77b3c8f4a002aa9c", null ],
     [ "iout", "structtvkmodule_1_1tvktype.html#ae0a01260b2421736c5baaf6ba418a4bf", null ],

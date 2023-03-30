@@ -2,6 +2,9 @@ var structgwfinterfacemodelmodule_1_1gwfinterfacemodeltype =
 [
     [ "allocate_arrays", "structgwfinterfacemodelmodule_1_1gwfinterfacemodeltype.html#a0df23b580b4742535412a87a649d335a", null ],
     [ "allocate_scalars", "structgwfinterfacemodelmodule_1_1gwfinterfacemodeltype.html#a59271a88e8ee47253497d515f7d19cdc", null ],
+    [ "create_bndpkgs", "structgwfinterfacemodelmodule_1_1gwfinterfacemodeltype.html#afefd9f7b750fd7914ac53f7e79adaef7", null ],
+    [ "create_lstfile", "structgwfinterfacemodelmodule_1_1gwfinterfacemodeltype.html#af04728bea6dcf79a2c9d19d52ecf1418", null ],
+    [ "create_packages", "structgwfinterfacemodelmodule_1_1gwfinterfacemodeltype.html#a145fc2af1899635e9b83a39ac17184ff", null ],
     [ "ftype_check", "structgwfinterfacemodelmodule_1_1gwfinterfacemodeltype.html#a9be6a7149c9f77c44201985c5fe7c4fb", null ],
     [ "get_iasym", "structgwfinterfacemodelmodule_1_1gwfinterfacemodeltype.html#a42fa754ad8b0e57ffae9634f676abe25", null ],
     [ "get_mcellid", "structgwfinterfacemodelmodule_1_1gwfinterfacemodeltype.html#a33a59624b8a73c10e299401c3aff3a09", null ],
@@ -12,7 +15,7 @@ var structgwfinterfacemodelmodule_1_1gwfinterfacemodeltype =
     [ "gwf_ot_flow", "structgwfinterfacemodelmodule_1_1gwfinterfacemodeltype.html#a3ce3fe0848ab6e5a158aa9db9e15b951", null ],
     [ "gwf_ot_obs", "structgwfinterfacemodelmodule_1_1gwfinterfacemodeltype.html#ab2efbb24ffb696dfa3c39d913612554a", null ],
     [ "gwfifm_cr", "structgwfinterfacemodelmodule_1_1gwfinterfacemodeltype.html#a5997c24d344a1c4bf82315ddf29829a0", null ],
-    [ "load_input_context", "structgwfinterfacemodelmodule_1_1gwfinterfacemodeltype.html#af37d7e710b51b17fffeef6b26b034d33", null ],
+    [ "log_namfile_options", "structgwfinterfacemodelmodule_1_1gwfinterfacemodeltype.html#aa752954803418b4c843f2acc1f310a45", null ],
     [ "model_ac", "structgwfinterfacemodelmodule_1_1gwfinterfacemodeltype.html#add6e5072d852c68b271238279a0d598b", null ],
     [ "model_ad", "structgwfinterfacemodelmodule_1_1gwfinterfacemodeltype.html#a619b5eb7451e57d846faa3968daa49c1", null ],
     [ "model_ar", "structgwfinterfacemodelmodule_1_1gwfinterfacemodeltype.html#abe7dc94e79a9e6b615a4ec673845bd6a", null ],

@@ -44,6 +44,8 @@ var structgwfbuymodule_1_1gwfbuytype =
     [ "id", "structgwfbuymodule_1_1gwfbuytype.html#aa7bafb76bcefbf61de61fa4d182d8d51", null ],
     [ "iform", "structgwfbuymodule_1_1gwfbuytype.html#afd794f26768a36f29030cade409119b1", null ],
     [ "inewton", "structgwfbuymodule_1_1gwfbuytype.html#afaad297d505cf42c66a1048d2cd02c76", null ],
+    [ "input_fname", "structgwfbuymodule_1_1gwfbuytype.html#a4248323ef9faca61d011e242210bdaae", null ],
+    [ "input_mempath", "structgwfbuymodule_1_1gwfbuytype.html#acbfb7be470591c861de6abf754d6d1fb", null ],
     [ "inunit", "structgwfbuymodule_1_1gwfbuytype.html#adcd40b15f5a30bf74250ab28f242580f", null ],
     [ "ionper", "structgwfbuymodule_1_1gwfbuytype.html#a650ebab7fba8514b77b3c8f4a002aa9c", null ],
     [ "iout", "structgwfbuymodule_1_1gwfbuytype.html#ae0a01260b2421736c5baaf6ba418a4bf", null ],

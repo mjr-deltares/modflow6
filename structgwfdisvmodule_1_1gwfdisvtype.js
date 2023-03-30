@@ -67,6 +67,8 @@ var structgwfdisvmodule_1_1gwfdisvtype =
     [ "ibuff", "structgwfdisvmodule_1_1gwfdisvtype.html#a51e58e90461ff4af355fb01db4b9b930", null ],
     [ "icondir", "structgwfdisvmodule_1_1gwfdisvtype.html#ab3f2a0fc61a388359c66700becc7ca60", null ],
     [ "idomain", "structgwfdisvmodule_1_1gwfdisvtype.html#a9902b555fedeb2060e42679b57570c5f", null ],
+    [ "input_fname", "structgwfdisvmodule_1_1gwfdisvtype.html#acb624eaa746fb9c8853f0c64508ca844", null ],
+    [ "input_mempath", "structgwfdisvmodule_1_1gwfdisvtype.html#ac9b7c86db5eb1615fdfccecceeacaad0", null ],
     [ "inunit", "structgwfdisvmodule_1_1gwfdisvtype.html#a046753b376be421c22e9e1c3c2bb4e77", null ],
     [ "iout", "structgwfdisvmodule_1_1gwfdisvtype.html#a4416ba38046e16bc00e8a01dde59d30f", null ],
     [ "javert", "structgwfdisvmodule_1_1gwfdisvtype.html#afa650821a5076ad4c25cf4586a6737e5", null ],

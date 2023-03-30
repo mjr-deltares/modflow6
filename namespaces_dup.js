@@ -165,6 +165,11 @@ var namespaces_dup =
     [ "definedmacros", "namespacedefinedmacros.html", [
       [ "get_os", "namespacedefinedmacros.html#afc9b290c56584c273f369dac8aa026d5", null ]
     ] ],
+    [ "definitionselectmodule", "namespacedefinitionselectmodule.html", [
+      [ "get_aggregate_definition_type", "namespacedefinitionselectmodule.html#a775535585029b840e78d0bac37840d8c", null ],
+      [ "get_param_definition_type", "namespacedefinitionselectmodule.html#a4eb0382b577ab348e52a1bf32139ca34", null ],
+      [ "split_record_definition", "namespacedefinitionselectmodule.html#a417912ac72c33bb8b1cd8470f586b439", null ]
+    ] ],
     [ "disconnexchangemodule", "namespacedisconnexchangemodule.html", "namespacedisconnexchangemodule" ],
     [ "distvariablemodule", "namespacedistvariablemodule.html", "namespacedistvariablemodule" ],
     [ "disvgeom", "namespacedisvgeom.html", "namespacedisvgeom" ],
@@ -205,6 +210,7 @@ var namespaces_dup =
     [ "gwfmodule", "namespacegwfmodule.html", "namespacegwfmodule" ],
     [ "gwfmvrmodule", "namespacegwfmvrmodule.html", "namespacegwfmvrmodule" ],
     [ "gwfmvrperioddatamodule", "namespacegwfmvrperioddatamodule.html", "namespacegwfmvrperioddatamodule" ],
+    [ "gwfnaminputmodule", "namespacegwfnaminputmodule.html", "namespacegwfnaminputmodule" ],
     [ "gwfnpfinputmodule", "namespacegwfnpfinputmodule.html", "namespacegwfnpfinputmodule" ],
     [ "gwfnpfmodule", "namespacegwfnpfmodule.html", "namespacegwfnpfmodule" ],
     [ "gwfnpfoptionsmodule", "namespacegwfnpfoptionsmodule.html", "namespacegwfnpfoptionsmodule" ],
@@ -235,6 +241,9 @@ var namespaces_dup =
     [ "gwtadvoptionsmodule", "namespacegwtadvoptionsmodule.html", "namespacegwtadvoptionsmodule" ],
     [ "gwtaptmodule", "namespacegwtaptmodule.html", "namespacegwtaptmodule" ],
     [ "gwtcncmodule", "namespacegwtcncmodule.html", "namespacegwtcncmodule" ],
+    [ "gwtdisinputmodule", "namespacegwtdisinputmodule.html", "namespacegwtdisinputmodule" ],
+    [ "gwtdisuinputmodule", "namespacegwtdisuinputmodule.html", "namespacegwtdisuinputmodule" ],
+    [ "gwtdisvinputmodule", "namespacegwtdisvinputmodule.html", "namespacegwtdisvinputmodule" ],
     [ "gwtdspinputmodule", "namespacegwtdspinputmodule.html", "namespacegwtdspinputmodule" ],
     [ "gwtdspmodule", "namespacegwtdspmodule.html", "namespacegwtdspmodule" ],
     [ "gwtdspoptionsmodule", "namespacegwtdspoptionsmodule.html", "namespacegwtdspoptionsmodule" ],
@@ -249,6 +258,7 @@ var namespaces_dup =
     [ "gwtmstmodule", "namespacegwtmstmodule.html", "namespacegwtmstmodule" ],
     [ "gwtmvtmodule", "namespacegwtmvtmodule.html", "namespacegwtmvtmodule" ],
     [ "gwtmwtmodule", "namespacegwtmwtmodule.html", "namespacegwtmwtmodule" ],
+    [ "gwtnaminputmodule", "namespacegwtnaminputmodule.html", "namespacegwtnaminputmodule" ],
     [ "gwtobsmodule", "namespacegwtobsmodule.html", "namespacegwtobsmodule" ],
     [ "gwtocmodule", "namespacegwtocmodule.html", "namespacegwtocmodule" ],
     [ "gwtsftmodule", "namespacegwtsftmodule.html", "namespacegwtsftmodule" ],
@@ -264,11 +274,6 @@ var namespaces_dup =
       [ "idm_integrated", "namespaceidmdfnselectormodule.html#a5b550a5ff154a9db8676380cecdeb433", null ],
       [ "idm_multi_package", "namespaceidmdfnselectormodule.html#ab93814c65c16a54299c53a2d7f4ab650", null ],
       [ "param_definitions", "namespaceidmdfnselectormodule.html#a6fe12c735f09a92b355be5aa60493888", null ]
-    ] ],
-    [ "idmdfnselectorutilsmodule", "namespaceidmdfnselectorutilsmodule.html", [
-      [ "get_aggregate_definition_type", "namespaceidmdfnselectorutilsmodule.html#a7b35b362f30b377aa442de6ffeefc57c", null ],
-      [ "get_param_definition_type", "namespaceidmdfnselectorutilsmodule.html#aaedca60d28809c93f30f38b04aab7247", null ],
-      [ "split_record_definition", "namespaceidmdfnselectorutilsmodule.html#a41444053729e358512efdb306806f5b2", null ]
     ] ],
     [ "idmgwfdfnselectormodule", "namespaceidmgwfdfnselectormodule.html", [
       [ "gwf_aggregate_definitions", "namespaceidmgwfdfnselectormodule.html#a89d37ae2e84a521316999d1a136d53ae", null ],
@@ -289,7 +294,7 @@ var namespaces_dup =
       [ "set_param_pointer", "namespaceidmgwtdfnselectormodule.html#a7cf561bcbbeebd6698715d3c26f4bc48", null ]
     ] ],
     [ "idmloggermodule", "namespaceidmloggermodule.html", "namespaceidmloggermodule" ],
-    [ "idmmf6fileloadermodule", "namespaceidmmf6fileloadermodule.html", "namespaceidmmf6fileloadermodule" ],
+    [ "idmmf6filemodule", "namespaceidmmf6filemodule.html", "namespaceidmmf6filemodule" ],
     [ "idmsimdfnselectormodule", "namespaceidmsimdfnselectormodule.html", [
       [ "set_block_pointer", "namespaceidmsimdfnselectormodule.html#aa6d560de7450b2ae75d97e829d876b28", null ],
       [ "set_param_pointer", "namespaceidmsimdfnselectormodule.html#a38f4d3ed7bdd75b32f63cd94a358e0a2", null ],
@@ -300,9 +305,11 @@ var namespaces_dup =
       [ "sim_param_definitions", "namespaceidmsimdfnselectormodule.html#ab7f496ef3b0855160c5b8875ea4c008a", null ]
     ] ],
     [ "idmsimulationmodule", "namespaceidmsimulationmodule.html", [
+      [ "load_models", "namespaceidmsimulationmodule.html#a66c92e5155c1bcb9fff0b2952473aa7c", null ],
       [ "set_default_value", "namespaceidmsimulationmodule.html#a2e3af981ea938759c10504804fc4f455", null ],
-      [ "simnam_allocate", "namespaceidmsimulationmodule.html#afb0fa7dbb0bd13f0c3ed44fbe459caac", null ],
-      [ "simnam_load", "namespaceidmsimulationmodule.html#a7f1922da3afd870b788436b6333d5c87", null ]
+      [ "simnam_allocate", "namespaceidmsimulationmodule.html#ad948ba1e7b6058b45cde044e6d8abeb5", null ],
+      [ "simnam_load", "namespaceidmsimulationmodule.html#a7f1922da3afd870b788436b6333d5c87", null ],
+      [ "simnam_load_dim", "namespaceidmsimulationmodule.html#a46fed8443593dbebd1aba93fd38f6b48", null ]
     ] ],
     [ "imslinearbasemodule", "namespaceimslinearbasemodule.html", [
       [ "ims_base_bcgs", "namespaceimslinearbasemodule.html#a4ea318d12fd3c9a9157e9d9105dcc0e2", null ],
@@ -408,25 +415,25 @@ var namespaces_dup =
       [ "basesolutionlist", "namespacelistsmodule.html#aa1a3cd1509449addb1bb6d6f4ff0b7fb", null ],
       [ "solutiongrouplist", "namespacelistsmodule.html#a733280dd05725ffbe3969344a79a964c", null ]
     ] ],
-    [ "loadmf6filetypemodule", "namespaceloadmf6filetypemodule.html", [
-      [ "get_layered_shape", "namespaceloadmf6filetypemodule.html#a807ce05bf7824404ea8b028bbd4381d8", null ],
-      [ "get_shape_from_string", "namespaceloadmf6filetypemodule.html#a2c3cf3591c9f724af17ffe7a1517ad54", null ],
-      [ "idm_load", "namespaceloadmf6filetypemodule.html#a30d624422e532a91ef70fb5f1703a97f", null ],
-      [ "load_double1d_type", "namespaceloadmf6filetypemodule.html#a945dfddae6315610132b2ec2509d9cae", null ],
-      [ "load_double2d_type", "namespaceloadmf6filetypemodule.html#ab2be15e521b4ab2c4204cdc9c5ecb1b2", null ],
-      [ "load_double3d_type", "namespaceloadmf6filetypemodule.html#adb320ab5679505058aa4fc4eab2d6221", null ],
-      [ "load_double_type", "namespaceloadmf6filetypemodule.html#a31e7caa91d515b95ac0d47c87d0e6170", null ],
-      [ "load_integer1d_type", "namespaceloadmf6filetypemodule.html#a379d88fde8b32b156962aee62fa760e4", null ],
-      [ "load_integer2d_type", "namespaceloadmf6filetypemodule.html#a50c45228fbaa4aa631081494b9dafdca", null ],
-      [ "load_integer3d_type", "namespaceloadmf6filetypemodule.html#a47010583dff4a200c99919d07977dd9b", null ],
-      [ "load_integer_type", "namespaceloadmf6filetypemodule.html#ab67313058dbe91c9ad02d1303b8a6254", null ],
-      [ "load_keyword_type", "namespaceloadmf6filetypemodule.html#a1dcd2f0f9858d3f87c34319e4c75b432", null ],
-      [ "load_string_type", "namespaceloadmf6filetypemodule.html#aa9533e1eb1ea965e2a3157102323e3f3", null ],
-      [ "parse_block", "namespaceloadmf6filetypemodule.html#aa4d6603c1b892bd38b10fb075999d67c", null ],
-      [ "parse_iofile_tag", "namespaceloadmf6filetypemodule.html#a0f4434aa1e326498705a989853b471c6", null ],
-      [ "parse_structarray_block", "namespaceloadmf6filetypemodule.html#a6b3b721405277cbcd657a7719c139564", null ],
-      [ "parse_tag", "namespaceloadmf6filetypemodule.html#a6ca43ebf44faeb4586e8ad98a215a07c", null ],
-      [ "set_model_shape", "namespaceloadmf6filetypemodule.html#af8bd63043633225e1d1b5e76592e778c", null ]
+    [ "loadmf6filemodule", "namespaceloadmf6filemodule.html", [
+      [ "get_layered_shape", "namespaceloadmf6filemodule.html#a67a4d80f157075893e48b632ffc61b17", null ],
+      [ "get_shape_from_string", "namespaceloadmf6filemodule.html#ad888266a2a8725189bd435d06262104e", null ],
+      [ "idm_load", "namespaceloadmf6filemodule.html#a7c2308e2233e7623bf512430577b17c8", null ],
+      [ "load_double1d_type", "namespaceloadmf6filemodule.html#a9cec97e19630ce672d6965b818f75588", null ],
+      [ "load_double2d_type", "namespaceloadmf6filemodule.html#ac7dca15d8865efcc600891cd3309c6ac", null ],
+      [ "load_double3d_type", "namespaceloadmf6filemodule.html#a651c3243c32e92a29e4ce0b5391630bf", null ],
+      [ "load_double_type", "namespaceloadmf6filemodule.html#ae335e1537e1f8f7eb6a2c31b4f3cac15", null ],
+      [ "load_integer1d_type", "namespaceloadmf6filemodule.html#ad9e9689c59c6a064bdbe36adaf1eb1fe", null ],
+      [ "load_integer2d_type", "namespaceloadmf6filemodule.html#a5cd004fc1e8bb25d6d13405027112489", null ],
+      [ "load_integer3d_type", "namespaceloadmf6filemodule.html#a968f39d035cf55e2c2c18e02b3b87bdd", null ],
+      [ "load_integer_type", "namespaceloadmf6filemodule.html#a8a7dc9b530c6b3a0df4ec38d39a188e5", null ],
+      [ "load_keyword_type", "namespaceloadmf6filemodule.html#a6fcdb9e8d9e4a3935ff86c9f3665a09c", null ],
+      [ "load_string_type", "namespaceloadmf6filemodule.html#a5f0b90e56afdea9d9ab97f414de276a9", null ],
+      [ "parse_block", "namespaceloadmf6filemodule.html#aea4ef47eb6e12da03bf1fe59fe23ecc1", null ],
+      [ "parse_iofile_tag", "namespaceloadmf6filemodule.html#a36c06aa3fffb161a311a1e6bd6345638", null ],
+      [ "parse_structarray_block", "namespaceloadmf6filemodule.html#a7433cc5cb9b9e8f516b933c6d0879b53", null ],
+      [ "parse_tag", "namespaceloadmf6filemodule.html#a60c230d116e0f6eacccea1fc6a91d76f", null ],
+      [ "set_model_shape", "namespaceloadmf6filemodule.html#afa0d929705a0a6b2146c986b6f8325ac", null ]
     ] ],
     [ "mappedmemorymodule", "namespacemappedmemorymodule.html", "namespacemappedmemorymodule" ],
     [ "mappermodule", "namespacemappermodule.html", "namespacemappermodule" ],
@@ -548,13 +555,13 @@ var namespaces_dup =
       [ "xmi_solve", "namespacemf6xmi.html#a9f45fa8ef43555f9fbb049977c1e0de9", null ],
       [ "iterationcounter", "namespacemf6xmi.html#a9734577b4358f13b64fba1ddb017b90c", null ]
     ] ],
+    [ "modelpackageinputsmodule", "namespacemodelpackageinputsmodule.html", "namespacemodelpackageinputsmodule" ],
     [ "modflowinputmodule", "namespacemodflowinputmodule.html", "namespacemodflowinputmodule" ],
     [ "mpimessagebuildermodule", "namespacempimessagebuildermodule.html", "namespacempimessagebuildermodule" ],
     [ "mpiroutermodule", "namespacempiroutermodule.html", "namespacempiroutermodule" ],
     [ "mpiruncontrolmodule", "namespacempiruncontrolmodule.html", "namespacempiruncontrolmodule" ],
     [ "mpiworldmodule", "namespacempiworldmodule.html", "namespacempiworldmodule" ],
     [ "mvrmodule", "namespacemvrmodule.html", "namespacemvrmodule" ],
-    [ "namefilemodule", "namespacenamefilemodule.html", "namespacenamefilemodule" ],
     [ "numericalexchangemodule", "namespacenumericalexchangemodule.html", "namespacenumericalexchangemodule" ],
     [ "numericalmodelmodule", "namespacenumericalmodelmodule.html", "namespacenumericalmodelmodule" ],
     [ "numericalpackagemodule", "namespacenumericalpackagemodule.html", "namespacenumericalpackagemodule" ],

@@ -64,6 +64,8 @@ var structgwfdismodule_1_1gwfdistype =
     [ "ibuff", "structgwfdismodule_1_1gwfdistype.html#a51e58e90461ff4af355fb01db4b9b930", null ],
     [ "icondir", "structgwfdismodule_1_1gwfdistype.html#ab3f2a0fc61a388359c66700becc7ca60", null ],
     [ "idomain", "structgwfdismodule_1_1gwfdistype.html#ab472c91589c73b1c9f336d319592bfae", null ],
+    [ "input_fname", "structgwfdismodule_1_1gwfdistype.html#acb624eaa746fb9c8853f0c64508ca844", null ],
+    [ "input_mempath", "structgwfdismodule_1_1gwfdistype.html#ac9b7c86db5eb1615fdfccecceeacaad0", null ],
     [ "inunit", "structgwfdismodule_1_1gwfdistype.html#a046753b376be421c22e9e1c3c2bb4e77", null ],
     [ "iout", "structgwfdismodule_1_1gwfdistype.html#a4416ba38046e16bc00e8a01dde59d30f", null ],
     [ "lenuni", "structgwfdismodule_1_1gwfdistype.html#a5c1e31568c7f4133d0c91164d2bced9e", null ],

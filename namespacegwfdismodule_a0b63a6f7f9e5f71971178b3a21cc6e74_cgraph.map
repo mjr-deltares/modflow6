@@ -1,11 +1,11 @@
 <map id="gwfdismodule::grid_finalize" name="gwfdismodule::grid_finalize">
 <area shape="rect" id="node1" title=" " alt="" coords="5,49,152,90"/>
-<area shape="rect" id="node2" href="$namespacesimmodule.html#a4c46e49de78d4498dd4ec106357775e6" title="Return number of errors." alt="" coords="211,5,395,32"/>
-<area shape="rect" id="node3" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="216,56,391,83"/>
-<area shape="rect" id="node9" href="$namespacesimmodule.html#a83910ed20af1fec9bdf46cad8c276538" title="Store the file unit number." alt="" coords="200,107,407,133"/>
-<area shape="rect" id="node4" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="455,81,593,108"/>
-<area shape="rect" id="node5" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="641,41,809,82"/>
-<area shape="rect" id="node8" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="641,106,809,147"/>
-<area shape="rect" id="node6" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="857,19,1052,45"/>
-<area shape="rect" id="node7" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="871,70,1039,111"/>
+<area shape="rect" id="node2" href="$namespacesimmodule.html#a4c46e49de78d4498dd4ec106357775e6" title="Return number of errors." alt="" coords="200,5,384,32"/>
+<area shape="rect" id="node3" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="205,56,379,83"/>
+<area shape="rect" id="node9" href="$namespacesimmodule.html#a82b12515d9862bb8976671f47ddb667c" title="Store the erroring file name." alt="" coords="205,107,379,149"/>
+<area shape="rect" id="node4" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="432,85,571,112"/>
+<area shape="rect" id="node5" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="619,45,787,86"/>
+<area shape="rect" id="node8" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="619,110,787,151"/>
+<area shape="rect" id="node6" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="835,23,1029,49"/>
+<area shape="rect" id="node7" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="848,74,1016,115"/>
 </map>

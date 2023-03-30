@@ -1,5 +1,14 @@
 <map id="gwtmodule::gwt_da" name="gwtmodule::gwt_da">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,156,32"/>
-<area shape="rect" id="node2" href="$namespacebndmodule.html#a7ac2e1c143722a28d1f0ecb4c67a4a0a" title="Get boundary from package list." alt="" coords="204,5,403,32"/>
-<area shape="rect" id="node3" href="$namespacebndmodule.html#ae966cec4d8ca214ecfe519e29adf6b7e" title="Cast as a boundary tyoe." alt="" coords="451,5,653,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,39,156,65"/>
+<area shape="rect" id="node2" href="$namespacebndmodule.html#a7ac2e1c143722a28d1f0ecb4c67a4a0a" title="Get boundary from package list." alt="" coords="207,9,406,36"/>
+<area shape="rect" id="node4" href="$namespacememorymanagerextmodule.html#a07812da1ed02979e58278dfb4f83509b" title=" " alt="" coords="204,61,409,102"/>
+<area shape="rect" id="node3" href="$namespacebndmodule.html#ae966cec4d8ca214ecfe519e29adf6b7e" title="Cast as a boundary tyoe." alt="" coords="457,9,660,36"/>
+<area shape="rect" id="node5" href="$namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d" title="returns the path to the memory object" alt="" coords="475,61,642,102"/>
+<area shape="rect" id="node6" href="$namespacememoryhelpermodule.html#a5405f58247a0962e5449ebc1e4dcff0f" title="Generic routine to check the length of (parts of) the memory address." alt="" coords="708,61,875,102"/>
+<area shape="rect" id="node7" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="923,68,1097,95"/>
+<area shape="rect" id="node8" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="1145,68,1284,95"/>
+<area shape="rect" id="node9" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="1332,27,1500,69"/>
+<area shape="rect" id="node12" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="1332,93,1500,134"/>
+<area shape="rect" id="node10" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="1548,5,1743,32"/>
+<area shape="rect" id="node11" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1561,57,1729,98"/>
 </map>

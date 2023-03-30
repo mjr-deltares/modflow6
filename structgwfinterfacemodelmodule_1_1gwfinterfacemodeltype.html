@@ -262,8 +262,14 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:a493b9d2aeb9d0980c44ea544a32031a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4611ef97a4a04c57e6eef8004678bb9"><td class="memItemLeft" align="right" valign="top">procedure&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgwfmodule_1_1gwfmodeltype.html#ac4611ef97a4a04c57e6eef8004678bb9">gwf_ot_bdsummary</a></td></tr>
 <tr class="separator:ac4611ef97a4a04c57e6eef8004678bb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af37d7e710b51b17fffeef6b26b034d33"><td class="memItemLeft" align="right" valign="top">procedure&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgwfmodule_1_1gwfmodeltype.html#af37d7e710b51b17fffeef6b26b034d33">load_input_context</a> =&gt; gwf_load_input_context</td></tr>
-<tr class="separator:af37d7e710b51b17fffeef6b26b034d33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a145fc2af1899635e9b83a39ac17184ff"><td class="memItemLeft" align="right" valign="top">procedure, private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgwfmodule_1_1gwfmodeltype.html#a145fc2af1899635e9b83a39ac17184ff">create_packages</a></td></tr>
+<tr class="separator:a145fc2af1899635e9b83a39ac17184ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afefd9f7b750fd7914ac53f7e79adaef7"><td class="memItemLeft" align="right" valign="top">procedure, private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgwfmodule_1_1gwfmodeltype.html#afefd9f7b750fd7914ac53f7e79adaef7">create_bndpkgs</a></td></tr>
+<tr class="separator:afefd9f7b750fd7914ac53f7e79adaef7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af04728bea6dcf79a2c9d19d52ecf1418"><td class="memItemLeft" align="right" valign="top">procedure, private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgwfmodule_1_1gwfmodeltype.html#af04728bea6dcf79a2c9d19d52ecf1418">create_lstfile</a></td></tr>
+<tr class="separator:af04728bea6dcf79a2c9d19d52ecf1418"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa752954803418b4c843f2acc1f310a45"><td class="memItemLeft" align="right" valign="top">procedure, private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgwfmodule_1_1gwfmodeltype.html#aa752954803418b4c843f2acc1f310a45">log_namfile_options</a></td></tr>
+<tr class="separator:aa752954803418b4c843f2acc1f310a45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acda80e8ce22f097122c8d28300dfdc75"><td class="memItemLeft" align="right" valign="top">procedure&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnumericalmodelmodule_1_1numericalmodeltype.html#acda80e8ce22f097122c8d28300dfdc75">model_nr</a></td></tr>
 <tr class="separator:acda80e8ce22f097122c8d28300dfdc75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48a011f76b46a6c1f0fb595556be74d6"><td class="memItemLeft" align="right" valign="top">procedure&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnumericalmodelmodule_1_1numericalmodeltype.html#a48a011f76b46a6c1f0fb595556be74d6">model_bdcalc</a></td></tr>
@@ -461,7 +467,79 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00085">85</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00086">86</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+
+</div>
+</div>
+<a id="afefd9f7b750fd7914ac53f7e79adaef7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afefd9f7b750fd7914ac53f7e79adaef7">&#9670;&nbsp;</a></span>create_bndpkgs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">procedure, private gwfmodule::gwfmodeltype::create_bndpkgs</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00094">94</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+
+</div>
+</div>
+<a id="af04728bea6dcf79a2c9d19d52ecf1418"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af04728bea6dcf79a2c9d19d52ecf1418">&#9670;&nbsp;</a></span>create_lstfile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">procedure, private gwfmodule::gwfmodeltype::create_lstfile</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00095">95</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+
+</div>
+</div>
+<a id="a145fc2af1899635e9b83a39ac17184ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a145fc2af1899635e9b83a39ac17184ff">&#9670;&nbsp;</a></span>create_packages()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">procedure, private gwfmodule::gwfmodeltype::create_packages</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00093">93</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
 
 </div>
 </div>
@@ -485,7 +563,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00087">87</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00088">88</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
 
 </div>
 </div>
@@ -509,7 +587,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00083">83</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00084">84</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
 
 </div>
 </div>
@@ -605,7 +683,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00091">91</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00092">92</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
 
 </div>
 </div>
@@ -629,7 +707,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00090">90</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00091">91</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
 
 </div>
 </div>
@@ -653,7 +731,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00089">89</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00090">90</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
 
 </div>
 </div>
@@ -677,7 +755,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00088">88</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00089">89</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
 
 </div>
 </div>
@@ -697,8 +775,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="af37d7e710b51b17fffeef6b26b034d33"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af37d7e710b51b17fffeef6b26b034d33">&#9670;&nbsp;</a></span>load_input_context()</h2>
+<a id="aa752954803418b4c843f2acc1f310a45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa752954803418b4c843f2acc1f310a45">&#9670;&nbsp;</a></span>log_namfile_options()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -707,7 +785,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">procedure gwfmodule::gwfmodeltype::load_input_context</td>
+          <td class="memname">procedure, private gwfmodule::gwfmodeltype::log_namfile_options</td>
         </tr>
       </table>
   </td>
@@ -717,7 +795,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00092">92</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00096">96</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
 
 </div>
 </div>
@@ -741,7 +819,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00066">66</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00067">67</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
 
 </div>
 </div>
@@ -765,7 +843,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00070">70</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00071">71</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
 
 </div>
 </div>
@@ -805,7 +883,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00078">78</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00079">79</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
 
 </div>
 </div>
@@ -853,7 +931,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00082">82</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00083">83</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
 
 </div>
 </div>
@@ -925,7 +1003,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00073">73</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00074">74</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
 
 </div>
 </div>
@@ -949,7 +1027,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00071">71</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00072">72</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
 
 </div>
 </div>
@@ -973,7 +1051,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00077">77</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00078">78</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
 
 </div>
 </div>
@@ -1029,7 +1107,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00072">72</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00073">73</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
 
 </div>
 </div>
@@ -1053,7 +1131,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00080">80</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00081">81</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
 
 </div>
 </div>
@@ -1077,7 +1155,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00067">67</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00068">68</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
 
 </div>
 </div>
@@ -1149,7 +1227,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00076">76</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00077">77</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
 
 </div>
 </div>
@@ -1173,7 +1251,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00079">79</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00080">80</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
 
 </div>
 </div>
@@ -1197,7 +1275,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00075">75</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00076">76</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
 
 </div>
 </div>
@@ -1221,7 +1299,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00074">74</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00075">75</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
 
 </div>
 </div>
@@ -1245,7 +1323,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00069">69</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00070">70</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
 
 </div>
 </div>
@@ -1269,7 +1347,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00086">86</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00087">87</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
 
 </div>
 </div>
@@ -1487,8 +1565,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00048">48</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">type</span>(BudgetType), <span class="keywordtype">pointer</span> :: budget =&gt; null() <span class="comment">! budget object</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00049">49</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">type</span>(BudgetType), <span class="keywordtype">pointer</span> :: budget =&gt; null() <span class="comment">! budget object</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1512,8 +1590,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00039">39</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">type</span>(GwfBuyType), <span class="keywordtype">pointer</span> :: buy =&gt; null() <span class="comment">! buoyancy package</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00040">40</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">type</span>(GwfBuyType), <span class="keywordtype">pointer</span> :: buy =&gt; null() <span class="comment">! buoyancy package</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1562,8 +1640,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00042">42</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">type</span>(GwfCsubType), <span class="keywordtype">pointer</span> :: csub =&gt; null() <span class="comment">! subsidence package</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00043">43</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">type</span>(GwfCsubType), <span class="keywordtype">pointer</span> :: csub =&gt; null() <span class="comment">! subsidence package</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1662,8 +1740,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00044">44</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">type</span>(GhostNodeType), <span class="keywordtype">pointer</span> :: gnc =&gt; null() <span class="comment">! ghost node correction package</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00045">45</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">type</span>(GhostNodeType), <span class="keywordtype">pointer</span> :: gnc =&gt; null() <span class="comment">! ghost node correction package</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1704,8 +1782,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00045">45</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">type</span>(GwfHfbType), <span class="keywordtype">pointer</span> :: hfb =&gt; null() <span class="comment">! horizontal flow barrier package</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00046">46</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">type</span>(GwfHfbType), <span class="keywordtype">pointer</span> :: hfb =&gt; null() <span class="comment">! horizontal flow barrier package</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1779,8 +1857,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00036">36</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">type</span>(GwfIcType), <span class="keywordtype">pointer</span> :: ic =&gt; null() <span class="comment">! initial conditions package</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00037">37</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">type</span>(GwfIcType), <span class="keywordtype">pointer</span> :: ic =&gt; null() <span class="comment">! initial conditions package</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1904,8 +1982,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00052">52</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: inbuy =&gt; null() <span class="comment">! unit number BUY</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00053">53</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: inbuy =&gt; null() <span class="comment">! unit number BUY</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1929,8 +2007,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00055">55</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: incsub =&gt; null() <span class="comment">! unit number CSUB</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00056">56</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: incsub =&gt; null() <span class="comment">! unit number CSUB</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1979,8 +2057,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00061">61</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: inewtonur =&gt; null() <span class="comment">! newton under relaxation flag</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00062">62</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: inewtonur =&gt; null() <span class="comment">! newton under relaxation flag</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2004,8 +2082,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00058">58</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: ingnc =&gt; null() <span class="comment">! unit number GNC</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00059">59</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: ingnc =&gt; null() <span class="comment">! unit number GNC</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2029,8 +2107,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00057">57</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: inhfb =&gt; null() <span class="comment">! unit number HFB</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00058">58</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: inhfb =&gt; null() <span class="comment">! unit number HFB</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2054,8 +2132,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00049">49</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: inic =&gt; null() <span class="comment">! unit number IC</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00050">50</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: inic =&gt; null() <span class="comment">! unit number IC</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2079,8 +2157,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00056">56</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: inmvr =&gt; null() <span class="comment">! unit number MVR</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00057">57</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: inmvr =&gt; null() <span class="comment">! unit number MVR</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2104,8 +2182,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00051">51</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: innpf =&gt; null() <span class="comment">! unit number NPF</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00052">52</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: innpf =&gt; null() <span class="comment">! NPF enabled flag</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2129,8 +2207,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00059">59</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: inobs =&gt; null() <span class="comment">! unit number OBS</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00060">60</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: inobs =&gt; null() <span class="comment">! unit number OBS</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2154,8 +2232,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00050">50</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: inoc =&gt; null() <span class="comment">! unit number OC</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00051">51</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: inoc =&gt; null() <span class="comment">! unit number OC</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2179,8 +2257,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00054">54</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: insto =&gt; null() <span class="comment">! unit number STO</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00055">55</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: insto =&gt; null() <span class="comment">! unit number STO</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2204,8 +2282,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00053">53</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: invsc =&gt; null() <span class="comment">! unit number VSC</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00054">54</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: invsc =&gt; null() <span class="comment">! unit number VSC</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2329,8 +2407,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00060">60</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: iss =&gt; null() <span class="comment">! steady state flag</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00061">61</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: iss =&gt; null() <span class="comment">! steady state flag</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2454,8 +2532,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00046">46</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">type</span>(GwfMvrType), <span class="keywordtype">pointer</span> :: mvr =&gt; null() <span class="comment">! water mover package</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00047">47</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">type</span>(GwfMvrType), <span class="keywordtype">pointer</span> :: mvr =&gt; null() <span class="comment">! water mover package</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2554,8 +2632,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00037">37</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">type</span>(GwfNpfType), <span class="keywordtype">pointer</span> :: npf =&gt; null() <span class="comment">! node property flow package</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00038">38</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">type</span>(GwfNpfType), <span class="keywordtype">pointer</span> :: npf =&gt; null() <span class="comment">! node property flow package</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2579,8 +2657,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00047">47</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">type</span>(GwfObsType), <span class="keywordtype">pointer</span> :: obs =&gt; null() <span class="comment">! observation package</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00048">48</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">type</span>(GwfObsType), <span class="keywordtype">pointer</span> :: obs =&gt; null() <span class="comment">! observation package</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2604,8 +2682,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00043">43</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">type</span>(GwfOcType), <span class="keywordtype">pointer</span> :: oc =&gt; null() <span class="comment">! output control package</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00044">44</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">type</span>(GwfOcType), <span class="keywordtype">pointer</span> :: oc =&gt; null() <span class="comment">! output control package</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2679,8 +2757,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00041">41</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">type</span>(GwfStoType), <span class="keywordtype">pointer</span> :: sto =&gt; null() <span class="comment">! storage package</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00042">42</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">type</span>(GwfStoType), <span class="keywordtype">pointer</span> :: sto =&gt; null() <span class="comment">! storage package</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2704,8 +2782,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00040">40</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">type</span>(GwfVscType), <span class="keywordtype">pointer</span> :: vsc =&gt; null() <span class="comment">! viscosity package</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00041">41</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">type</span>(GwfVscType), <span class="keywordtype">pointer</span> :: vsc =&gt; null() <span class="comment">! viscosity package</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2779,8 +2857,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00038">38</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">type</span>(Xt3dType), <span class="keywordtype">pointer</span> :: xt3d =&gt; null() <span class="comment">! xt3d option for npf</span></div>
+<p class="definition">Definition at line <a class="el" href="gwf3_8f90_source.html#l00039">39</a> of file <a class="el" href="gwf3_8f90_source.html">gwf3.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">type</span>(Xt3dType), <span class="keywordtype">pointer</span> :: xt3d =&gt; null() <span class="comment">! xt3d option for npf</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2793,7 +2871,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacegwfinterfacemodelmodule.html">gwfinterfacemodelmodule</a></li><li class="navelem"><a class="el" href="structgwfinterfacemodelmodule_1_1gwfinterfacemodeltype.html">gwfinterfacemodeltype</a></li>
-    <li class="footer">Generated on Thu Mar 30 2023 05:57:34 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Mar 30 2023 12:37:58 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

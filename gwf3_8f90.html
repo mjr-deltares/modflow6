@@ -112,8 +112,7 @@ $(document).ready(function(){initNavTree('gwf3_8f90.html',''); initResizable(); 
   <div class="summary">
 <a href="#nested-classes">Data Types</a> &#124;
 <a href="#namespaces">Modules</a> &#124;
-<a href="#func-members">Functions/Subroutines</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions/Subroutines</a>  </div>
   <div class="headertitle">
 <div class="title">gwf3.f90 File Reference</div>  </div>
 </div><!--header-->
@@ -207,22 +206,23 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a9fc339c6daad0503d34ef42f994a98ec"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfmodule.html#a9fc339c6daad0503d34ef42f994a98ec">gwfmodule::package_create</a> (this, filtyp, ipakid, ipaknum, pakname, inunit, iout)</td></tr>
 <tr class="memdesc:a9fc339c6daad0503d34ef42f994a98ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create boundary condition packages for this model.  <a href="namespacegwfmodule.html#a9fc339c6daad0503d34ef42f994a98ec">More...</a><br /></td></tr>
 <tr class="separator:a9fc339c6daad0503d34ef42f994a98ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1897e9fec584b939ce862537cab87298"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfmodule.html#a1897e9fec584b939ce862537cab87298">gwfmodule::ftype_check</a> (this, namefile_obj, indis)</td></tr>
-<tr class="memdesc:a1897e9fec584b939ce862537cab87298"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check to make sure required input files have been specified.  <a href="namespacegwfmodule.html#a1897e9fec584b939ce862537cab87298">More...</a><br /></td></tr>
-<tr class="separator:a1897e9fec584b939ce862537cab87298"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd32888c8d2cc57aa2e93f2e7b5edc42"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfmodule.html#afd32888c8d2cc57aa2e93f2e7b5edc42">gwfmodule::ftype_check</a> (this, indis)</td></tr>
+<tr class="memdesc:afd32888c8d2cc57aa2e93f2e7b5edc42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check to make sure required input files have been specified.  <a href="namespacegwfmodule.html#afd32888c8d2cc57aa2e93f2e7b5edc42">More...</a><br /></td></tr>
+<tr class="separator:afd32888c8d2cc57aa2e93f2e7b5edc42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a540f61ff5972e75dba8d751050ca347f"><td class="memItemLeft" align="right" valign="top">class(gwfmodeltype) function, pointer, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfmodule.html#a540f61ff5972e75dba8d751050ca347f">gwfmodule::castasgwfmodel</a> (model)</td></tr>
 <tr class="memdesc:a540f61ff5972e75dba8d751050ca347f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cast to GWF model.  <a href="namespacegwfmodule.html#a540f61ff5972e75dba8d751050ca347f">More...</a><br /></td></tr>
 <tr class="separator:a540f61ff5972e75dba8d751050ca347f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4aafc2c26f55935aa145f47571f79bf"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfmodule.html#ad4aafc2c26f55935aa145f47571f79bf">gwfmodule::gwf_load_input_context</a> (this, filtyp, modelname, pkgname, inunit, iout, ipaknum)</td></tr>
-<tr class="memdesc:ad4aafc2c26f55935aa145f47571f79bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load input context for supported package.  <a href="namespacegwfmodule.html#ad4aafc2c26f55935aa145f47571f79bf">More...</a><br /></td></tr>
-<tr class="separator:ad4aafc2c26f55935aa145f47571f79bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:add95449a47ceedece9e01e9f7c90a0ba"><td class="memItemLeft" align="right" valign="top">integer(i4b), parameter&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfmodule.html#add95449a47ceedece9e01e9f7c90a0ba">gwfmodule::niunit</a> = 100</td></tr>
-<tr class="separator:add95449a47ceedece9e01e9f7c90a0ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e6cd7cc5fc9753992ada800a3905f70"><td class="memItemLeft" align="right" valign="top">character(len=lenftype), dimension(niunit)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfmodule.html#a0e6cd7cc5fc9753992ada800a3905f70">gwfmodule::cunit</a></td></tr>
-<tr class="separator:a0e6cd7cc5fc9753992ada800a3905f70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d8b9c025761f8c5cd036959660911c4"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfmodule.html#a6d8b9c025761f8c5cd036959660911c4">gwfmodule::create_bndpkgs</a> (this, bndpkgs, pkgtypes, pkgnames, mempaths, inunits)</td></tr>
+<tr class="memdesc:a6d8b9c025761f8c5cd036959660911c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Source package info and begin to process.  <a href="namespacegwfmodule.html#a6d8b9c025761f8c5cd036959660911c4">More...</a><br /></td></tr>
+<tr class="separator:a6d8b9c025761f8c5cd036959660911c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a449bff2dbf1904d57d55606e7bbf9222"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfmodule.html#a449bff2dbf1904d57d55606e7bbf9222">gwfmodule::create_packages</a> (this)</td></tr>
+<tr class="memdesc:a449bff2dbf1904d57d55606e7bbf9222"><td class="mdescLeft">&#160;</td><td class="mdescRight">Source package info and begin to process.  <a href="namespacegwfmodule.html#a449bff2dbf1904d57d55606e7bbf9222">More...</a><br /></td></tr>
+<tr class="separator:a449bff2dbf1904d57d55606e7bbf9222"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0215fece3fe4596fc3791517408e068"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfmodule.html#ab0215fece3fe4596fc3791517408e068">gwfmodule::create_lstfile</a> (this, lst_fname, model_fname, defined)</td></tr>
+<tr class="separator:ab0215fece3fe4596fc3791517408e068"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c929ef93e958691c875fec9807e1aa0"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegwfmodule.html#a2c929ef93e958691c875fec9807e1aa0">gwfmodule::log_namfile_options</a> (this, found)</td></tr>
+<tr class="memdesc:a2c929ef93e958691c875fec9807e1aa0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write model namfile options to list file.  <a href="namespacegwfmodule.html#a2c929ef93e958691c875fec9807e1aa0">More...</a><br /></td></tr>
+<tr class="separator:a2c929ef93e958691c875fec9807e1aa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -230,7 +230,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_32e188284d239da8bb14ec1dabb0c35f.html">Model</a></li><li class="navelem"><a class="el" href="dir_5aefb7a434fc869900e7ccf685166f81.html">GroundWaterFlow</a></li><li class="navelem"><a class="el" href="gwf3_8f90.html">gwf3.f90</a></li>
-    <li class="footer">Generated on Thu Mar 30 2023 05:57:32 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Mar 30 2023 12:37:57 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

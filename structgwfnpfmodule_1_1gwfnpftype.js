@@ -75,6 +75,8 @@ var structgwfnpfmodule_1_1gwfnpftype =
     [ "ik33overk", "structgwfnpfmodule_1_1gwfnpftype.html#a55da153b189a622906d318312d6a8def", null ],
     [ "iname", "structgwfnpfmodule_1_1gwfnpftype.html#ac18e00d8704980afcfa95cdcc836baf8", null ],
     [ "inewton", "structgwfnpfmodule_1_1gwfnpftype.html#afaad297d505cf42c66a1048d2cd02c76", null ],
+    [ "input_fname", "structgwfnpfmodule_1_1gwfnpftype.html#a4248323ef9faca61d011e242210bdaae", null ],
+    [ "input_mempath", "structgwfnpfmodule_1_1gwfnpftype.html#acbfb7be470591c861de6abf754d6d1fb", null ],
     [ "intvk", "structgwfnpfmodule_1_1gwfnpftype.html#a4cce96c883328cf9dc50255d854d7bde", null ],
     [ "inunit", "structgwfnpfmodule_1_1gwfnpftype.html#adcd40b15f5a30bf74250ab28f242580f", null ],
     [ "invsc", "structgwfnpfmodule_1_1gwfnpftype.html#ae7f73cae5def353d8a99f8bc5caa50aa", null ],

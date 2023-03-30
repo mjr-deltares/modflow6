@@ -36,6 +36,8 @@ var structgwtmvtmodule_1_1gwtmvttype =
     [ "ibudgetout", "structgwtmvtmodule_1_1gwtmvttype.html#ae858b1ac536849a58ed7d1e1412393a9", null ],
     [ "id", "structgwtmvtmodule_1_1gwtmvttype.html#aa7bafb76bcefbf61de61fa4d182d8d51", null ],
     [ "inewton", "structgwtmvtmodule_1_1gwtmvttype.html#afaad297d505cf42c66a1048d2cd02c76", null ],
+    [ "input_fname", "structgwtmvtmodule_1_1gwtmvttype.html#a4248323ef9faca61d011e242210bdaae", null ],
+    [ "input_mempath", "structgwtmvtmodule_1_1gwtmvttype.html#acbfb7be470591c861de6abf754d6d1fb", null ],
     [ "inunit", "structgwtmvtmodule_1_1gwtmvttype.html#adcd40b15f5a30bf74250ab28f242580f", null ],
     [ "ionper", "structgwtmvtmodule_1_1gwtmvttype.html#a650ebab7fba8514b77b3c8f4a002aa9c", null ],
     [ "iout", "structgwtmvtmodule_1_1gwtmvttype.html#ae0a01260b2421736c5baaf6ba418a4bf", null ],

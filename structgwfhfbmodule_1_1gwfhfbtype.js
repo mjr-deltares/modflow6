@@ -34,6 +34,8 @@ var structgwfhfbmodule_1_1gwfhfbtype =
     [ "idxloc", "structgwfhfbmodule_1_1gwfhfbtype.html#a3b246ef28ef3148dfd428b6d42940513", null ],
     [ "ihc", "structgwfhfbmodule_1_1gwfhfbtype.html#aef5e50e9e6108c2563a0126f5b5374cd", null ],
     [ "inewton", "structgwfhfbmodule_1_1gwfhfbtype.html#afaad297d505cf42c66a1048d2cd02c76", null ],
+    [ "input_fname", "structgwfhfbmodule_1_1gwfhfbtype.html#a4248323ef9faca61d011e242210bdaae", null ],
+    [ "input_mempath", "structgwfhfbmodule_1_1gwfhfbtype.html#acbfb7be470591c861de6abf754d6d1fb", null ],
     [ "inunit", "structgwfhfbmodule_1_1gwfhfbtype.html#adcd40b15f5a30bf74250ab28f242580f", null ],
     [ "ionper", "structgwfhfbmodule_1_1gwfhfbtype.html#a650ebab7fba8514b77b3c8f4a002aa9c", null ],
     [ "iout", "structgwfhfbmodule_1_1gwfhfbtype.html#ae0a01260b2421736c5baaf6ba418a4bf", null ],

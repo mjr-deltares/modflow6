@@ -2,6 +2,9 @@ var structgwfmodule_1_1gwfmodeltype =
 [
     [ "allocate_arrays", "structgwfmodule_1_1gwfmodeltype.html#a0df23b580b4742535412a87a649d335a", null ],
     [ "allocate_scalars", "structgwfmodule_1_1gwfmodeltype.html#a59271a88e8ee47253497d515f7d19cdc", null ],
+    [ "create_bndpkgs", "structgwfmodule_1_1gwfmodeltype.html#afefd9f7b750fd7914ac53f7e79adaef7", null ],
+    [ "create_lstfile", "structgwfmodule_1_1gwfmodeltype.html#af04728bea6dcf79a2c9d19d52ecf1418", null ],
+    [ "create_packages", "structgwfmodule_1_1gwfmodeltype.html#a145fc2af1899635e9b83a39ac17184ff", null ],
     [ "ftype_check", "structgwfmodule_1_1gwfmodeltype.html#a9be6a7149c9f77c44201985c5fe7c4fb", null ],
     [ "get_iasym", "structgwfmodule_1_1gwfmodeltype.html#a42fa754ad8b0e57ffae9634f676abe25", null ],
     [ "get_mcellid", "structgwfmodule_1_1gwfmodeltype.html#a33a59624b8a73c10e299401c3aff3a09", null ],
@@ -11,7 +14,7 @@ var structgwfmodule_1_1gwfmodeltype =
     [ "gwf_ot_dv", "structgwfmodule_1_1gwfmodeltype.html#a493b9d2aeb9d0980c44ea544a32031a3", null ],
     [ "gwf_ot_flow", "structgwfmodule_1_1gwfmodeltype.html#a3ce3fe0848ab6e5a158aa9db9e15b951", null ],
     [ "gwf_ot_obs", "structgwfmodule_1_1gwfmodeltype.html#ab2efbb24ffb696dfa3c39d913612554a", null ],
-    [ "load_input_context", "structgwfmodule_1_1gwfmodeltype.html#af37d7e710b51b17fffeef6b26b034d33", null ],
+    [ "log_namfile_options", "structgwfmodule_1_1gwfmodeltype.html#aa752954803418b4c843f2acc1f310a45", null ],
     [ "model_ac", "structgwfmodule_1_1gwfmodeltype.html#add6e5072d852c68b271238279a0d598b", null ],
     [ "model_ad", "structgwfmodule_1_1gwfmodeltype.html#a619b5eb7451e57d846faa3968daa49c1", null ],
     [ "model_ar", "structgwfmodule_1_1gwfmodeltype.html#a59c4c1eb560d9d55de8e7f2f9cc3cea0", null ],

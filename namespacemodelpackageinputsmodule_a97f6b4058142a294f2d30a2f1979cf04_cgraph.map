@@ -1,0 +1,11 @@
+<map id="modelpackageinputsmodule::modelpkgs_addpkgs" name="modelpackageinputsmodule::modelpkgs_addpkgs">
+<area shape="rect" id="node1" title="build the type list with all model package instances" alt="" coords="5,61,212,102"/>
+<area shape="rect" id="node2" href="$namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d" title="returns the path to the memory object" alt="" coords="260,61,427,102"/>
+<area shape="rect" id="node3" href="$namespacememoryhelpermodule.html#a5405f58247a0962e5449ebc1e4dcff0f" title="Generic routine to check the length of (parts of) the memory address." alt="" coords="475,61,641,102"/>
+<area shape="rect" id="node4" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="689,68,864,95"/>
+<area shape="rect" id="node5" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="912,68,1051,95"/>
+<area shape="rect" id="node6" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="1099,27,1267,69"/>
+<area shape="rect" id="node9" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="1099,93,1267,134"/>
+<area shape="rect" id="node7" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="1315,5,1509,32"/>
+<area shape="rect" id="node8" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1328,57,1496,98"/>
+</map>

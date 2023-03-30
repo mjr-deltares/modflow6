@@ -1,13 +1,15 @@
 <map id="memorymanagerextmodule::memorylist_remove" name="memorymanagerextmodule::memorylist_remove">
-<area shape="rect" id="node1" title=" " alt="" coords="813,125,1019,166"/>
+<area shape="rect" id="node1" title=" " alt="" coords="813,175,1019,217"/>
 <area shape="rect" id="node2" href="$namespacegwfdismodule.html#a380ce49ee9eb37eba02db1c9327c2eb4" title=" " alt="" coords="585,5,765,32"/>
 <area shape="rect" id="node3" href="$namespacegwfdisumodule.html#a42f97b56eb1b4eececf6360d34f07cfc" title=" " alt="" coords="585,56,765,83"/>
 <area shape="rect" id="node4" href="$namespacegwfdisvmodule.html#af5af5f1c17c4e8a8a52c08def2b49b29" title=" " alt="" coords="585,107,765,133"/>
 <area shape="rect" id="node5" href="$namespacegwtdspmodule.html#a5021a0a881600d8e3d7ce1c3ee6751c8" title=" " alt="" coords="589,157,761,184"/>
-<area shape="rect" id="node6" href="$namespacegwfnpfmodule.html#a7bb1666f3429ef5ac99568c8b09a4ad3" title=" " alt="" coords="591,208,759,235"/>
-<area shape="rect" id="node7" href="$namespacesimulationcreatemodule.html#a691031f7a9eed08077855afbff144a1d" title="Deallocate simulation variables." alt="" coords="584,259,765,301"/>
-<area shape="rect" id="node8" href="$namespacemf6coremodule.html#ae17efa5a9e03fd31617a08c08e20ae03" title="Finalize the simulation." alt="" coords="329,267,536,293"/>
-<area shape="rect" id="node9" href="$namespacemf6bmi.html#ab8397f78e5c3c405656064c227eca26f" title="Clean up the initialized simulation." alt="" coords="111,241,271,268"/>
-<area shape="rect" id="node10" href="$namespacemf6coremodule.html#a207819c711610066af1b83ec2a8efef0" title="Main controller." alt="" coords="101,292,281,319"/>
-<area shape="rect" id="node11" href="$mf6_8f90.html#aa95bf577752f92b917375902bbb13863" title="MODFLOW 6 main entry point." alt="" coords="5,292,53,319"/>
+<area shape="rect" id="node6" href="$namespacegwfmodule.html#a414e393a2b21abaf6edddedbf40b1133" title="Deallocate." alt="" coords="599,208,750,235"/>
+<area shape="rect" id="node7" href="$namespacegwtmodule.html#a69629985a6c43e03e8214901351a07f1" title=" " alt="" coords="599,259,750,285"/>
+<area shape="rect" id="node8" href="$namespacegwfnpfmodule.html#a7bb1666f3429ef5ac99568c8b09a4ad3" title=" " alt="" coords="591,309,759,336"/>
+<area shape="rect" id="node9" href="$namespacesimulationcreatemodule.html#a691031f7a9eed08077855afbff144a1d" title="Deallocate simulation variables." alt="" coords="584,361,765,402"/>
+<area shape="rect" id="node10" href="$namespacemf6coremodule.html#ae17efa5a9e03fd31617a08c08e20ae03" title="Finalize the simulation." alt="" coords="329,368,536,395"/>
+<area shape="rect" id="node11" href="$namespacemf6bmi.html#ab8397f78e5c3c405656064c227eca26f" title="Clean up the initialized simulation." alt="" coords="111,343,271,369"/>
+<area shape="rect" id="node12" href="$namespacemf6coremodule.html#a207819c711610066af1b83ec2a8efef0" title="Main controller." alt="" coords="101,393,281,420"/>
+<area shape="rect" id="node13" href="$mf6_8f90.html#aa95bf577752f92b917375902bbb13863" title="MODFLOW 6 main entry point." alt="" coords="5,393,53,420"/>
 </map>

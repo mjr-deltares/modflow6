@@ -50,6 +50,8 @@ var structbasedismodule_1_1disbasetype =
     [ "dbuff", "structbasedismodule_1_1disbasetype.html#a282902d368ddee7479a59565a34e2278", null ],
     [ "ibuff", "structbasedismodule_1_1disbasetype.html#a51e58e90461ff4af355fb01db4b9b930", null ],
     [ "icondir", "structbasedismodule_1_1disbasetype.html#ab3f2a0fc61a388359c66700becc7ca60", null ],
+    [ "input_fname", "structbasedismodule_1_1disbasetype.html#acb624eaa746fb9c8853f0c64508ca844", null ],
+    [ "input_mempath", "structbasedismodule_1_1disbasetype.html#ac9b7c86db5eb1615fdfccecceeacaad0", null ],
     [ "inunit", "structbasedismodule_1_1disbasetype.html#a046753b376be421c22e9e1c3c2bb4e77", null ],
     [ "iout", "structbasedismodule_1_1disbasetype.html#a4416ba38046e16bc00e8a01dde59d30f", null ],
     [ "lenuni", "structbasedismodule_1_1disbasetype.html#a5c1e31568c7f4133d0c91164d2bced9e", null ],
