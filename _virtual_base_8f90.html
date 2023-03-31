@@ -155,6 +155,9 @@ Functions/Subroutines</h2></td></tr>
 <tr class="separator:a22cbff7dcfb17200b885a8e1184a9ad9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a870f857007217cd0987ea947b6a60ddd"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevirtualbasemodule.html#a870f857007217cd0987ea947b6a60ddd">virtualbasemodule::vm_link</a> (this)</td></tr>
 <tr class="separator:a870f857007217cd0987ea947b6a60ddd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07bed52f5f0b1eb5772178fe48a88024"><td class="memItemLeft" align="right" valign="top">integer(i4b) function, dimension(:), pointer, contiguous&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevirtualbasemodule.html#a07bed52f5f0b1eb5772178fe48a88024">virtualbasemodule::get_element_map</a> (this)</td></tr>
+<tr class="memdesc:a07bed52f5f0b1eb5772178fe48a88024"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return array with offsets for elements.  <a href="namespacevirtualbasemodule.html#a07bed52f5f0b1eb5772178fe48a88024">More...</a><br /></td></tr>
+<tr class="separator:a07bed52f5f0b1eb5772178fe48a88024"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b04244522e1def46629f2368037aac4"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevirtualbasemodule.html#a8b04244522e1def46629f2368037aac4">virtualbasemodule::vm_allocate_int</a> (this, var_name, mem_path, shape)</td></tr>
 <tr class="separator:a8b04244522e1def46629f2368037aac4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1090126b946c894cfbe2c5723d8efaad"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevirtualbasemodule.html#a1090126b946c894cfbe2c5723d8efaad">virtualbasemodule::vm_deallocate_int</a> (this)</td></tr>
@@ -196,12 +199,14 @@ Functions/Subroutines</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a81eedd8d71a511a3d6e8b04372ca131c"><td class="memItemLeft" align="right" valign="top">integer(i4b), parameter, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevirtualbasemodule.html#a81eedd8d71a511a3d6e8b04372ca131c">virtualbasemodule::map_all_type</a> = 1</td></tr>
+<tr class="memitem:a81eedd8d71a511a3d6e8b04372ca131c"><td class="memItemLeft" align="right" valign="top">integer(i4b), parameter, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevirtualbasemodule.html#a81eedd8d71a511a3d6e8b04372ca131c">virtualbasemodule::map_all_type</a> = 0</td></tr>
 <tr class="separator:a81eedd8d71a511a3d6e8b04372ca131c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4b03b7fb0e37e4d106bddf41e53df8e"><td class="memItemLeft" align="right" valign="top">integer(i4b), parameter, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevirtualbasemodule.html#af4b03b7fb0e37e4d106bddf41e53df8e">virtualbasemodule::map_node_type</a> = 2</td></tr>
+<tr class="memitem:af4b03b7fb0e37e4d106bddf41e53df8e"><td class="memItemLeft" align="right" valign="top">integer(i4b), parameter, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevirtualbasemodule.html#af4b03b7fb0e37e4d106bddf41e53df8e">virtualbasemodule::map_node_type</a> = 1</td></tr>
 <tr class="separator:af4b03b7fb0e37e4d106bddf41e53df8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6fb0a58cc34d396c6d57a72ef6a36007"><td class="memItemLeft" align="right" valign="top">integer(i4b), parameter, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevirtualbasemodule.html#a6fb0a58cc34d396c6d57a72ef6a36007">virtualbasemodule::map_conn_type</a> = 3</td></tr>
+<tr class="memitem:a6fb0a58cc34d396c6d57a72ef6a36007"><td class="memItemLeft" align="right" valign="top">integer(i4b), parameter, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevirtualbasemodule.html#a6fb0a58cc34d396c6d57a72ef6a36007">virtualbasemodule::map_conn_type</a> = 2</td></tr>
 <tr class="separator:a6fb0a58cc34d396c6d57a72ef6a36007"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa778f32582c44fef30c82d03f23deca0"><td class="memItemLeft" align="right" valign="top">integer(i4b), parameter, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevirtualbasemodule.html#aa778f32582c44fef30c82d03f23deca0">virtualbasemodule::nr_vdc_element_maps</a> = 2</td></tr>
+<tr class="separator:aa778f32582c44fef30c82d03f23deca0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -209,7 +214,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_beeb38743322ab7e14829ea581a5f71a.html">Distributed</a></li><li class="navelem"><a class="el" href="_virtual_base_8f90.html">VirtualBase.f90</a></li>
-    <li class="footer">Generated on Thu Mar 30 2023 12:37:57 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Mar 31 2023 10:14:47 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

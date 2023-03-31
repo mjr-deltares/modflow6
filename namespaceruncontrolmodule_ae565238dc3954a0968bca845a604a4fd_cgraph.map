@@ -1,24 +1,25 @@
 <map id="runcontrolmodule::ctrl_finish" name="runcontrolmodule::ctrl_finish">
-<area shape="rect" id="node1" title=" " alt="" coords="5,244,172,285"/>
-<area shape="rect" id="node2" href="$namespacetimermodule.html#a1f8301c0a31753924cb55e23ebb36b95" title=" " alt="" coords="916,7,1119,34"/>
-<area shape="rect" id="node4" href="$namespacesimmodule.html#a685d6c48aafe461366433d5d778bb888" title="Create final message." alt="" coords="1167,254,1364,281"/>
-<area shape="rect" id="node8" href="$namespacememorymanagermodule.html#a4db1987bf8fd0385f329ac688662ced9" title="Deallocate memory in the memory manager." alt="" coords="220,119,404,160"/>
-<area shape="rect" id="node13" href="$namespacememorymanagermodule.html#a3482099aea98afc7340a70d4073de4d9" title="Write memory manager memory usage based on the user&#45;specified memory_print_option." alt="" coords="220,371,404,412"/>
-<area shape="rect" id="node3" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1641,156,1809,197"/>
-<area shape="rect" id="node5" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="1412,247,1580,288"/>
-<area shape="rect" id="node7" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="1412,181,1580,223"/>
-<area shape="rect" id="node6" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="1628,254,1823,281"/>
-<area shape="rect" id="node9" href="$namespacesimmodule.html#a4c46e49de78d4498dd4ec106357775e6" title="Return number of errors." alt="" coords="452,38,636,65"/>
-<area shape="rect" id="node10" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="930,195,1105,222"/>
-<area shape="rect" id="node12" href="$namespaceinputoutputmodule.html#a8290bae8ca0756e38ce13459dfebe985" title="Convert to upper case." alt="" coords="467,89,621,131"/>
-<area shape="rect" id="node11" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="1196,195,1335,222"/>
-<area shape="rect" id="node14" href="$namespacememorymanagermodule.html#a430466a5feab54cd89c60302f87a3740" title="Generic function to clean a memory manager table." alt="" coords="684,472,868,513"/>
-<area shape="rect" id="node15" href="$namespacememorymanagermodule.html#a26996233617cac05b555c6b28709ebee" title="Create a table if memory_print_option is &#39;ALL&#39;." alt="" coords="452,272,636,313"/>
-<area shape="rect" id="node17" href="$namespacememorymanagermodule.html#a10e4656f142379aef3565d335e86768d" title="Write a row for the memory_print_option &#39;SUMMARY&#39; table." alt="" coords="452,337,636,379"/>
-<area shape="rect" id="node18" href="$namespacememorymanagermodule.html#aed3e26ec4c612141d4f90133d199804c" title="Create a table if memory_print_option is &#39;SUMMARY&#39;." alt="" coords="452,403,636,444"/>
-<area shape="rect" id="node19" href="$namespacememorymanagermodule.html#acf5a8c25e83663c4a7a97b265b6b34a0" title="Create and fill a table with the total allocated memory." alt="" coords="452,520,636,561"/>
-<area shape="rect" id="node20" href="$namespacememorymanagermodule.html#a87b7f4b50d3bc870febbc95f79bd9a2e" title="Determine appropriate memory unit and conversion factor." alt="" coords="684,559,868,600"/>
-<area shape="rect" id="node21" href="$namespacememorymanagermodule.html#aeb0e184d8a311439281ab7578c7ec0b4" title="Create a array with unique first components from all memory paths. Only the first component of the me..." alt="" coords="452,207,636,248"/>
-<area shape="rect" id="node16" href="$namespacetablemodule.html#a7632d784ec9e94277a76705ef56725f2" title=" " alt="" coords="694,410,858,437"/>
-<area shape="rect" id="node22" href="$namespacememoryhelpermodule.html#adbac4ae082ee7fe4863792b0342855e5" title="Split the memory path into component(s)" alt="" coords="693,207,859,248"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,253,172,294"/>
+<area shape="rect" id="node2" href="$namespacetimermodule.html#a1f8301c0a31753924cb55e23ebb36b95" title=" " alt="" coords="916,14,1119,40"/>
+<area shape="rect" id="node4" href="$namespacesimmodule.html#a685d6c48aafe461366433d5d778bb888" title="Create final message." alt="" coords="1167,252,1364,279"/>
+<area shape="rect" id="node8" href="$namespacememorymanagermodule.html#a4db1987bf8fd0385f329ac688662ced9" title="Deallocate memory in the memory manager." alt="" coords="220,132,404,173"/>
+<area shape="rect" id="node13" href="$namespacememorymanagermodule.html#a3482099aea98afc7340a70d4073de4d9" title="Write memory manager memory usage based on the user&#45;specified memory_print_option." alt="" coords="220,373,404,414"/>
+<area shape="rect" id="node3" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1641,154,1809,196"/>
+<area shape="rect" id="node5" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="1412,245,1580,286"/>
+<area shape="rect" id="node7" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="1412,180,1580,221"/>
+<area shape="rect" id="node6" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="1628,252,1823,279"/>
+<area shape="rect" id="node9" href="$namespacesimmodule.html#a4c46e49de78d4498dd4ec106357775e6" title="Return number of errors." alt="" coords="452,110,636,136"/>
+<area shape="rect" id="node10" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="930,194,1105,220"/>
+<area shape="rect" id="node12" href="$namespaceinputoutputmodule.html#a8290bae8ca0756e38ce13459dfebe985" title="Convert to upper case." alt="" coords="467,161,621,202"/>
+<area shape="rect" id="node11" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="1196,194,1335,220"/>
+<area shape="rect" id="node14" href="$namespacememorymanagermodule.html#a430466a5feab54cd89c60302f87a3740" title="Generic function to clean a memory manager table." alt="" coords="684,406,868,448"/>
+<area shape="rect" id="node15" href="$namespacememorymanagermodule.html#abe8039c2f826ded5ca2cf1c06a620a54" title=" " alt="" coords="452,344,636,385"/>
+<area shape="rect" id="node18" href="$namespacememorymanagermodule.html#a10e4656f142379aef3565d335e86768d" title="Write a row for the memory_print_option &#39;SUMMARY&#39; table." alt="" coords="452,526,636,568"/>
+<area shape="rect" id="node19" href="$namespacememorymanagermodule.html#aed3e26ec4c612141d4f90133d199804c" title="Create a table if memory_print_option is &#39;SUMMARY&#39;." alt="" coords="684,276,868,317"/>
+<area shape="rect" id="node20" href="$namespacememorymanagermodule.html#acf5a8c25e83663c4a7a97b265b6b34a0" title="Create and fill a table with the total allocated memory." alt="" coords="452,461,636,502"/>
+<area shape="rect" id="node21" href="$namespacememorymanagermodule.html#a87b7f4b50d3bc870febbc95f79bd9a2e" title="Determine appropriate memory unit and conversion factor." alt="" coords="684,549,868,590"/>
+<area shape="rect" id="node22" href="$namespacememorymanagermodule.html#aeb0e184d8a311439281ab7578c7ec0b4" title="Create a array with unique first components from all memory paths. Only the first component of the me..." alt="" coords="452,226,636,268"/>
+<area shape="rect" id="node16" href="$namespacememorymanagermodule.html#a26996233617cac05b555c6b28709ebee" title="Create a table if memory_print_option is &#39;ALL&#39;." alt="" coords="684,341,868,382"/>
+<area shape="rect" id="node17" href="$namespacetablemodule.html#a7632d784ec9e94277a76705ef56725f2" title=" " alt="" coords="935,348,1099,375"/>
+<area shape="rect" id="node23" href="$namespacememoryhelpermodule.html#adbac4ae082ee7fe4863792b0342855e5" title="Split the memory path into component(s)" alt="" coords="693,194,859,236"/>
 </map>

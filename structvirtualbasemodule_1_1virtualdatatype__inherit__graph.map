@@ -1,8 +1,8 @@
 <map id="virtualbasemodule::virtualdatatype" name="virtualbasemodule::virtualdatatype">
-<area shape="rect" id="node1" title="This is a generic data structure to virtualize pieces of memory in 2 distinct ways:" alt="" coords="357,5,510,273"/>
-<area shape="rect" id="node2" href="$structvirtualbasemodule_1_1virtualdbl1dtype.html" title=" " alt="" coords="5,321,157,457"/>
-<area shape="rect" id="node3" href="$structvirtualbasemodule_1_1virtualdbl2dtype.html" title=" " alt="" coords="181,321,333,457"/>
-<area shape="rect" id="node4" href="$structvirtualbasemodule_1_1virtualdbltype.html" title=" " alt="" coords="357,329,509,450"/>
-<area shape="rect" id="node5" href="$structvirtualbasemodule_1_1virtualint1dtype.html" title=" " alt="" coords="533,321,685,457"/>
-<area shape="rect" id="node6" href="$structvirtualbasemodule_1_1virtualinttype.html" title=" " alt="" coords="709,329,861,450"/>
+<area shape="rect" id="node1" title="This is a generic data structure to virtualize pieces of memory in 2 distinct ways:" alt="" coords="351,5,516,303"/>
+<area shape="rect" id="node2" href="$structvirtualbasemodule_1_1virtualdbl1dtype.html" title=" " alt="" coords="5,351,157,487"/>
+<area shape="rect" id="node3" href="$structvirtualbasemodule_1_1virtualdbl2dtype.html" title=" " alt="" coords="181,351,333,487"/>
+<area shape="rect" id="node4" href="$structvirtualbasemodule_1_1virtualdbltype.html" title=" " alt="" coords="357,358,509,479"/>
+<area shape="rect" id="node5" href="$structvirtualbasemodule_1_1virtualint1dtype.html" title=" " alt="" coords="533,351,685,487"/>
+<area shape="rect" id="node6" href="$structvirtualbasemodule_1_1virtualinttype.html" title=" " alt="" coords="709,358,861,479"/>
 </map>

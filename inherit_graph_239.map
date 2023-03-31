@@ -1,3 +1,8 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$interfacevirtualbasemodule_1_1vm__allocate__if.html" title=" " alt="" coords="5,5,157,47"/>
+<area shape="rect" id="node1" href="$structvirtualbasemodule_1_1virtualdatatype.html" title="This is a generic data structure to virtualize pieces of memory in 2 distinct ways:" alt="" coords="5,136,157,177"/>
+<area shape="rect" id="node2" href="$structvirtualbasemodule_1_1virtualdbl1dtype.html" title=" " alt="" coords="205,5,357,47"/>
+<area shape="rect" id="node3" href="$structvirtualbasemodule_1_1virtualdbl2dtype.html" title=" " alt="" coords="205,71,357,112"/>
+<area shape="rect" id="node4" href="$structvirtualbasemodule_1_1virtualdbltype.html" title=" " alt="" coords="205,136,357,177"/>
+<area shape="rect" id="node5" href="$structvirtualbasemodule_1_1virtualint1dtype.html" title=" " alt="" coords="205,201,357,243"/>
+<area shape="rect" id="node6" href="$structvirtualbasemodule_1_1virtualinttype.html" title=" " alt="" coords="205,267,357,308"/>
 </map>

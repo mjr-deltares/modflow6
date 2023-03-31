@@ -1,6 +1,7 @@
 <map id="virtualbasemodule::get_virtual_data_from_list" name="virtualbasemodule::get_virtual_data_from_list">
-<area shape="rect" id="node1" title=" " alt="" coords="256,71,449,112"/>
-<area shape="rect" id="node2" href="$namespacempimessagebuildermodule.html#ab3ff239300f2c7d1f63c2d77a25a1a74" title="Create data type for this container, relative." alt="" coords="7,5,207,47"/>
-<area shape="rect" id="node3" href="$namespacevirtualdatacontainermodule.html#abb73aca3dbc1dd3114822a6b086912f4" title=" " alt="" coords="5,71,208,112"/>
-<area shape="rect" id="node4" href="$namespacevirtualdatacontainermodule.html#a0e489272c2814b6e8f0d15f31b06abac" title=" " alt="" coords="5,136,208,177"/>
+<area shape="rect" id="node1" title=" " alt="" coords="256,104,449,145"/>
+<area shape="rect" id="node2" href="$namespacempimessagebuildermodule.html#ad716f8403c082f235d75f3be31e96ef3" title=" " alt="" coords="7,5,207,47"/>
+<area shape="rect" id="node3" href="$namespacempimessagebuildermodule.html#a66e2d87dcd4649dfb6e894c525849446" title=" " alt="" coords="7,71,207,112"/>
+<area shape="rect" id="node4" href="$namespacevirtualdatacontainermodule.html#abb73aca3dbc1dd3114822a6b086912f4" title=" " alt="" coords="5,136,208,177"/>
+<area shape="rect" id="node5" href="$namespacevirtualdatacontainermodule.html#a0e489272c2814b6e8f0d15f31b06abac" title=" " alt="" coords="5,201,208,243"/>
 </map>

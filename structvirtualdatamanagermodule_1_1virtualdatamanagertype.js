@@ -17,5 +17,5 @@ var structvirtualdatamanagermodule_1_1virtualdatamanagertype =
     [ "nr_solutions", "structvirtualdatamanagermodule_1_1virtualdatamanagertype.html#a95485754b242275e9b9f81190fb1fed0", null ],
     [ "router", "structvirtualdatamanagermodule_1_1virtualdatamanagertype.html#a6feb31b7d880bf5dd088d1c43cb9f20c", null ],
     [ "solution_ids", "structvirtualdatamanagermodule_1_1virtualdatamanagertype.html#abb3a18c35a7addf484405d255b0f3e56", null ],
-    [ "virtual_solutions", "structvirtualdatamanagermodule_1_1virtualdatamanagertype.html#afc3a93c657f6fb4cd2463409e3f5c61e", null ]
+    [ "virtual_solutions", "structvirtualdatamanagermodule_1_1virtualdatamanagertype.html#ac740f2676aa601aae4124657086004b3", null ]
 ];

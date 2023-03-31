@@ -1,11 +1,11 @@
 <map id="spatialmodelconnectionmodule::spatialmodelconnectiontype" name="spatialmodelconnectionmodule::spatialmodelconnectiontype">
-<area shape="rect" id="node1" title="Class to manage spatial connection of a model to one or more models of the same type...." alt="" coords="365,784,592,1301"/>
-<area shape="rect" id="node2" href="$structnumericalexchangemodule_1_1numericalexchangetype.html" title=" " alt="" coords="31,380,230,648"/>
+<area shape="rect" id="node1" title="Class to manage spatial connection of a model to one or more models of the same type...." alt="" coords="372,784,599,1301"/>
+<area shape="rect" id="node2" href="$structnumericalexchangemodule_1_1numericalexchangetype.html" title=" " alt="" coords="21,380,219,648"/>
 <area shape="rect" id="node3" href="$structbaseexchangemodule_1_1baseexchangetype.html" title=" " alt="" coords="5,5,171,229"/>
-<area shape="rect" id="node4" href="$structinterfacemapmodule_1_1interfacemaptype.html" title=" " alt="" coords="271,409,430,619"/>
+<area shape="rect" id="node4" href="$structinterfacemapmodule_1_1interfacemaptype.html" title=" " alt="" coords="254,387,437,641"/>
 <area shape="rect" id="node5" href="$structindexmapmodule_1_1indexmapsgntype.html" title=" " alt="" coords="195,42,456,193"/>
 <area shape="rect" id="node6" href="$structindexmapmodule_1_1indexmaptype.html" title=" " alt="" coords="481,49,719,185"/>
-<area shape="rect" id="node7" href="$structstlvecintmodule_1_1stlvecint.html" title=" " alt="" coords="454,373,645,655"/>
-<area shape="rect" id="node8" href="$structlistmodule_1_1listtype.html" title=" " alt="" coords="682,321,878,707"/>
+<area shape="rect" id="node7" href="$structstlvecintmodule_1_1stlvecint.html" title=" " alt="" coords="461,373,651,655"/>
+<area shape="rect" id="node8" href="$structlistmodule_1_1listtype.html" title=" " alt="" coords="715,321,911,707"/>
 <area shape="rect" id="node9" href="$structlistmodule_1_1listnodetype.html" title=" " alt="" coords="743,71,923,163"/>
 </map>

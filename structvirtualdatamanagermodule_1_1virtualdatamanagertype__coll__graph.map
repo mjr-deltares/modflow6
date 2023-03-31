@@ -1,3 +1,8 @@
 <map id="virtualdatamanagermodule::virtualdatamanagertype" name="virtualdatamanagermodule::virtualdatamanagertype">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,205,332"/>
+<area shape="rect" id="node1" title=" " alt="" coords="281,733,481,1045"/>
+<area shape="rect" id="node2" href="$structvirtualsolutionmodule_1_1virtualsolutiontype.html" title="This bundles all virtual data for a particular solution." alt="" coords="299,564,464,671"/>
+<area shape="rect" id="node3" href="$structinterfacemapmodule_1_1interfacemaptype.html" title=" " alt="" coords="182,233,365,487"/>
+<area shape="rect" id="node4" href="$structindexmapmodule_1_1indexmapsgntype.html" title=" " alt="" coords="5,5,267,156"/>
+<area shape="rect" id="node5" href="$structindexmapmodule_1_1indexmaptype.html" title=" " alt="" coords="291,13,530,149"/>
+<area shape="rect" id="node6" href="$structvirtualdatacontainermodule_1_1vdcptrtype.html" title="Wrapper for virtual data containers." alt="" coords="389,314,592,406"/>
 </map>

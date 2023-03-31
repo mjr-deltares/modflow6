@@ -126,6 +126,10 @@ Data Types</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvirtualdatacontainermodule_1_1vdcptrtype.html">virtualdatacontainermodule::vdcptrtype</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for virtual data containers.  <a href="structvirtualdatacontainermodule_1_1vdcptrtype.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvirtualdatacontainermodule_1_1vdcelementmaptype.html">virtualdatacontainermodule::vdcelementmaptype</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvirtualdatacontainermodule_1_1vdcelementluttype.html">virtualdatacontainermodule::vdcelementluttype</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">type &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvirtualdatacontainermodule_1_1virtualdatacontainertype.html">virtualdatacontainermodule::virtualdatacontainertype</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container (list) of virtual data items.  <a href="structvirtualdatacontainermodule_1_1virtualdatacontainertype.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -149,14 +153,17 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a615b83f8671bad84ce8dc97f0ed1caaf"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevirtualdatacontainermodule.html#a615b83f8671bad84ce8dc97f0ed1caaf">virtualdatacontainermodule::vdc_link_items</a> (this, stage)</td></tr>
 <tr class="memdesc:a615b83f8671bad84ce8dc97f0ed1caaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Link all local data items to memory.  <a href="namespacevirtualdatacontainermodule.html#a615b83f8671bad84ce8dc97f0ed1caaf">More...</a><br /></td></tr>
 <tr class="separator:a615b83f8671bad84ce8dc97f0ed1caaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb9adc935b2789dea9ca7e29a2babb54"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevirtualdatacontainermodule.html#acb9adc935b2789dea9ca7e29a2babb54">virtualdatacontainermodule::map_scalar</a> (this, field, stages, map_type)</td></tr>
-<tr class="separator:acb9adc935b2789dea9ca7e29a2babb54"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0cb0dc8c4c7403a723419bd0a24252db"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevirtualdatacontainermodule.html#a0cb0dc8c4c7403a723419bd0a24252db">virtualdatacontainermodule::map_array1d</a> (this, field, nrow, stages, map_type)</td></tr>
-<tr class="separator:a0cb0dc8c4c7403a723419bd0a24252db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55c9b2ff55aef0192eb0fa1e954c04aa"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevirtualdatacontainermodule.html#a55c9b2ff55aef0192eb0fa1e954c04aa">virtualdatacontainermodule::map_array2d</a> (this, field, ncol, nrow, stages, map_type)</td></tr>
-<tr class="separator:a55c9b2ff55aef0192eb0fa1e954c04aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a789eb1ae90da8c545b4df75bf7474fd3"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevirtualdatacontainermodule.html#a789eb1ae90da8c545b4df75bf7474fd3">virtualdatacontainermodule::map_internal</a> (this, field, shape, stages, map_type)</td></tr>
-<tr class="separator:a789eb1ae90da8c545b4df75bf7474fd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a721e62b2ed41ff15a9463380a4c7f120"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevirtualdatacontainermodule.html#a721e62b2ed41ff15a9463380a4c7f120">virtualdatacontainermodule::vdc_set_element_map</a> (this, src_indexes, map_id)</td></tr>
+<tr class="memdesc:a721e62b2ed41ff15a9463380a4c7f120"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add the source indexes associated with map_id as a element map to this container, such that.  <a href="namespacevirtualdatacontainermodule.html#a721e62b2ed41ff15a9463380a4c7f120">More...</a><br /></td></tr>
+<tr class="separator:a721e62b2ed41ff15a9463380a4c7f120"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa872748f7c2cb2493bc622cfc864695c"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevirtualdatacontainermodule.html#aa872748f7c2cb2493bc622cfc864695c">virtualdatacontainermodule::map_scalar</a> (this, field, stages, map_id)</td></tr>
+<tr class="separator:aa872748f7c2cb2493bc622cfc864695c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa96bdda4c7ca3cf6539570504898bc97"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevirtualdatacontainermodule.html#aa96bdda4c7ca3cf6539570504898bc97">virtualdatacontainermodule::map_array1d</a> (this, field, nrow, stages, map_id)</td></tr>
+<tr class="separator:aa96bdda4c7ca3cf6539570504898bc97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a906ad8af0fd44e3ae9f37e79133cd3f1"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevirtualdatacontainermodule.html#a906ad8af0fd44e3ae9f37e79133cd3f1">virtualdatacontainermodule::map_array2d</a> (this, field, ncol, nrow, stages, map_id)</td></tr>
+<tr class="separator:a906ad8af0fd44e3ae9f37e79133cd3f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81c428828544403c5e3fb3df6673d1d4"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevirtualdatacontainermodule.html#a81c428828544403c5e3fb3df6673d1d4">virtualdatacontainermodule::map_internal</a> (this, field, shape, stages, map_id)</td></tr>
+<tr class="separator:a81c428828544403c5e3fb3df6673d1d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7583fa2767df9379f684412f6d25c1b7"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevirtualdatacontainermodule.html#a7583fa2767df9379f684412f6d25c1b7">virtualdatacontainermodule::vdc_get_send_items</a> (this, stage, rank, virtual_items)</td></tr>
 <tr class="memdesc:a7583fa2767df9379f684412f6d25c1b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get indexes of virtual data items to be.  <a href="namespacevirtualdatacontainermodule.html#a7583fa2767df9379f684412f6d25c1b7">More...</a><br /></td></tr>
 <tr class="separator:a7583fa2767df9379f684412f6d25c1b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -206,7 +213,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_beeb38743322ab7e14829ea581a5f71a.html">Distributed</a></li><li class="navelem"><a class="el" href="_virtual_data_container_8f90.html">VirtualDataContainer.f90</a></li>
-    <li class="footer">Generated on Thu Mar 30 2023 12:37:57 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Mar 31 2023 10:14:47 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

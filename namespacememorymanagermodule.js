@@ -49,6 +49,7 @@ var namespacememorymanagermodule =
     [ "mem_cleanup_table", "namespacememorymanagermodule.html#a430466a5feab54cd89c60302f87a3740", null ],
     [ "mem_da", "namespacememorymanagermodule.html#a4db1987bf8fd0385f329ac688662ced9", null ],
     [ "mem_detailed_table", "namespacememorymanagermodule.html#a26996233617cac05b555c6b28709ebee", null ],
+    [ "mem_print_detailed", "namespacememorymanagermodule.html#abe8039c2f826ded5ca2cf1c06a620a54", null ],
     [ "mem_set_print_option", "namespacememorymanagermodule.html#af132849a84e8ffb066b5c4833f501c50", null ],
     [ "mem_summary_line", "namespacememorymanagermodule.html#a10e4656f142379aef3565d335e86768d", null ],
     [ "mem_summary_table", "namespacememorymanagermodule.html#aed3e26ec4c612141d4f90133d199804c", null ],

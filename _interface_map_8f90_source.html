@@ -116,135 +116,210 @@ $(document).ready(function(){initNavTree('_interface_map_8f90_source.html',''); 
 <a href="_interface_map_8f90.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="namespaceinterfacemapmodule.html">    1</a></span>&#160;<span class="keyword">module</span> <a class="code" href="namespaceinterfacemapmodule.html">interfacemapmodule</a></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacekindmodule.html">kindmodule</a>, <span class="keywordtype">only</span>: i4b</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespaceconstantsmodule.html">constantsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceconstantsmodule.html#a2371bf2667814198ff255350fa3e3edd">lenmodelname</a>, <a class="code" href="namespaceconstantsmodule.html#a2c636eb1c2af29a8d9b384896408f12d">lenexchangename</a></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespaceindexmapmodule.html">indexmapmodule</a></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;  <span class="keywordtype">implicit none</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;  <span class="keywordtype">private</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="structinterfacemapmodule_1_1interfacemaptype.html">    9</a></span>&#160;  <span class="keyword">type</span>, <span class="keyword">public</span> :: <a class="code" href="structinterfacemapmodule_1_1interfacemaptype.html">interfacemaptype</a></div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="structinterfacemapmodule_1_1interfacemaptype.html#a09d85aef5c296af11c8e799416641b7c">   10</a></span>&#160;    <span class="keywordtype">integer(I4B)</span> :: nr_models</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="structinterfacemapmodule_1_1interfacemaptype.html#aecfec21a90b8e6d015cbbaf0a8621c21">   11</a></span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: model_ids =&gt; null()</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="structinterfacemapmodule_1_1interfacemaptype.html#a5c99c0ad444f230575227b29c74786f8">   12</a></span>&#160;    <span class="keywordtype">character(len=LENMODELNAME)</span>, <span class="keywordtype">dimension(:)</span>, &amp;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;      <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: model_names =&gt; null()</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="structinterfacemapmodule_1_1interfacemaptype.html#a9d0a76002b93c387170532999fc33413">   14</a></span>&#160;    <span class="keywordtype">integer(I4B)</span> :: nr_exchanges</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structinterfacemapmodule_1_1interfacemaptype.html#af17ceacf700c8210c6f03813538d8ad1">   15</a></span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: exchange_ids =&gt; null()</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structinterfacemapmodule_1_1interfacemaptype.html#a909303ba34d862732ab85cceb78c87e6">   16</a></span>&#160;    <span class="keywordtype">character(len=LENEXCHANGENAME)</span>, <span class="keywordtype">dimension(:)</span>, &amp;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;      <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: exchange_names =&gt; null()</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structinterfacemapmodule_1_1interfacemaptype.html#a80c7a69038af4eae834539e8006099fa">   18</a></span>&#160;    <span class="keywordtype">integer(I4B)</span> :: prim_exg_idx</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structinterfacemapmodule_1_1interfacemaptype.html#ab92b6b75f7b27aa12c61e50b7fb82a7e">   19</a></span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structindexmapmodule_1_1indexmaptype.html">indexmaptype</a>), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: node_map =&gt; null()</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structinterfacemapmodule_1_1interfacemaptype.html#a98f8e82ce7ba19d57f57618ae540cf74">   20</a></span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structindexmapmodule_1_1indexmaptype.html">indexmaptype</a>), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: connection_map =&gt; null()</div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="structinterfacemapmodule_1_1interfacemaptype.html#ab757c6020fa0caf87a9464fb03b0aa00">   21</a></span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structindexmapmodule_1_1indexmapsgntype.html">indexmapsgntype</a>), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: exchange_map =&gt; null()</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keyword">contains</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="structinterfacemapmodule_1_1interfacemaptype.html#a1b6dd7ffd482d8f807fc783126331277">   23</a></span>&#160;    <span class="keywordtype">procedure</span> :: <a class="code" href="namespaceinterfacemapmodule.html#afd3f70b3024422e35d3b12de1e2b5c44">init</a></div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="structinterfacemapmodule_1_1interfacemaptype.html#ae54dc962c5c82fe617bea8a972fa6dbb">   24</a></span>&#160;    <span class="keywordtype">procedure</span> :: <a class="code" href="namespaceinterfacemapmodule.html#a886a5d6e2a2ab4470c96b32fbc3b3f6b">add</a></div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="structinterfacemapmodule_1_1interfacemaptype.html#a27d87186ea118874efe9da076c1c81eb">   25</a></span>&#160;    <span class="keywordtype">procedure</span> :: <a class="code" href="namespaceinterfacemapmodule.html#a14e1490e0c363b0ec2675c90c7a8dccc">destroy</a></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keyword">end type </span><a class="code" href="structinterfacemapmodule_1_1interfacemaptype.html">interfacemaptype</a></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">contains</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="namespaceinterfacemapmodule.html#afd3f70b3024422e35d3b12de1e2b5c44">   30</a></span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespaceinterfacemapmodule.html#afd3f70b3024422e35d3b12de1e2b5c44">init</a>(this, nr_models, nr_exchanges)</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structinterfacemapmodule_1_1interfacemaptype.html">interfacemaptype</a>) :: this</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: nr_models</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: nr_exchanges</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    this%nr_models = nr_models</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    this%nr_exchanges = nr_exchanges</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">allocate</span> (this%model_ids(nr_models))</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">allocate</span> (this%model_names(nr_models))</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">allocate</span> (this%exchange_ids(nr_exchanges))</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">allocate</span> (this%exchange_names(nr_exchanges))</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">allocate</span> (this%node_map(nr_models))</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">allocate</span> (this%connection_map(nr_models))</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">allocate</span> (this%exchange_map(nr_exchanges))</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacearrayhandlersmodule.html">arrayhandlersmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="interfacearrayhandlersmodule_1_1extendptrarray.html">extendptrarray</a>, <a class="code" href="interfacearrayhandlersmodule_1_1ifind.html">ifind</a></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespaceindexmapmodule.html">indexmapmodule</a></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;  <span class="keywordtype">implicit none</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;  <span class="keywordtype">private</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="structinterfacemapmodule_1_1interfacemaptype.html">   10</a></span>&#160;  <span class="keyword">type</span>, <span class="keyword">public</span> :: <a class="code" href="structinterfacemapmodule_1_1interfacemaptype.html">interfacemaptype</a></div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="structinterfacemapmodule_1_1interfacemaptype.html#a09d85aef5c296af11c8e799416641b7c">   11</a></span>&#160;    <span class="keywordtype">integer(I4B)</span> :: nr_models</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="structinterfacemapmodule_1_1interfacemaptype.html#aecfec21a90b8e6d015cbbaf0a8621c21">   12</a></span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: model_ids =&gt; null()</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="structinterfacemapmodule_1_1interfacemaptype.html#a5c99c0ad444f230575227b29c74786f8">   13</a></span>&#160;    <span class="keywordtype">character(len=LENMODELNAME)</span>, <span class="keywordtype">dimension(:)</span>, &amp;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;      <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: model_names =&gt; null()</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structinterfacemapmodule_1_1interfacemaptype.html#a9d0a76002b93c387170532999fc33413">   15</a></span>&#160;    <span class="keywordtype">integer(I4B)</span> :: nr_exchanges</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structinterfacemapmodule_1_1interfacemaptype.html#af17ceacf700c8210c6f03813538d8ad1">   16</a></span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: exchange_ids =&gt; null()</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structinterfacemapmodule_1_1interfacemaptype.html#a909303ba34d862732ab85cceb78c87e6">   17</a></span>&#160;    <span class="keywordtype">character(len=LENEXCHANGENAME)</span>, <span class="keywordtype">dimension(:)</span>, &amp;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;      <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: exchange_names =&gt; null()</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structinterfacemapmodule_1_1interfacemaptype.html#a80c7a69038af4eae834539e8006099fa">   19</a></span>&#160;    <span class="keywordtype">integer(I4B)</span> :: prim_exg_idx</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structinterfacemapmodule_1_1interfacemaptype.html#ace66cc6cadd77a4c26afb4313d731435">   20</a></span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structindexmapmodule_1_1indexmaptype.html">indexmaptype</a>), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: node_maps =&gt; null()</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="structinterfacemapmodule_1_1interfacemaptype.html#a2f9c0a39de5c6ce9ce2553331f06081a">   21</a></span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structindexmapmodule_1_1indexmaptype.html">indexmaptype</a>), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: conn_maps =&gt; null()</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="structinterfacemapmodule_1_1interfacemaptype.html#aa8d7911e0777c509146a5f700b907804">   22</a></span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structindexmapmodule_1_1indexmapsgntype.html">indexmapsgntype</a>), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: exchange_maps =&gt; null()</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keyword">contains</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="structinterfacemapmodule_1_1interfacemaptype.html#a1b6dd7ffd482d8f807fc783126331277">   24</a></span>&#160;    <span class="keywordtype">procedure</span> :: <a class="code" href="namespaceinterfacemapmodule.html#afd3f70b3024422e35d3b12de1e2b5c44">init</a></div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="structinterfacemapmodule_1_1interfacemaptype.html#ae54dc962c5c82fe617bea8a972fa6dbb">   25</a></span>&#160;    <span class="keywordtype">procedure</span> :: <a class="code" href="namespaceinterfacemapmodule.html#a886a5d6e2a2ab4470c96b32fbc3b3f6b">add</a></div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="structinterfacemapmodule_1_1interfacemaptype.html#a27d87186ea118874efe9da076c1c81eb">   26</a></span>&#160;    <span class="keywordtype">procedure</span> :: <a class="code" href="namespaceinterfacemapmodule.html#a14e1490e0c363b0ec2675c90c7a8dccc">destroy</a></div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="structinterfacemapmodule_1_1interfacemaptype.html#adcd817bb2bb6a69ed2e98fd844b209d4">   27</a></span>&#160;    <span class="keywordtype">procedure</span> :: <a class="code" href="namespaceinterfacemapmodule.html#afe5daa18e090f3e5cbdf074337cda27d">get_node_map</a></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="structinterfacemapmodule_1_1interfacemaptype.html#aac12eb165b468566524c65069e94ad89">   28</a></span>&#160;    <span class="keywordtype">procedure</span> :: <a class="code" href="namespaceinterfacemapmodule.html#a2fc1e590e1c98280ae1db797ba170cbb">get_connection_map</a></div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="structinterfacemapmodule_1_1interfacemaptype.html#affd7effc5b91fac8ac95a8589d75d720">   29</a></span>&#160;    <span class="keywordtype">procedure</span> :: <a class="code" href="namespaceinterfacemapmodule.html#a4c109182fc5da6912bab06c6b15383bc">print_interface</a></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keyword">end type </span><a class="code" href="structinterfacemapmodule_1_1interfacemaptype.html">interfacemaptype</a></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">contains</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="namespaceinterfacemapmodule.html#afd3f70b3024422e35d3b12de1e2b5c44">   34</a></span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespaceinterfacemapmodule.html#afd3f70b3024422e35d3b12de1e2b5c44">init</a>(this, nr_models, nr_exchanges)</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structinterfacemapmodule_1_1interfacemaptype.html">interfacemaptype</a>) :: this</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: nr_models</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: nr_exchanges</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    this%nr_models = nr_models</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    this%nr_exchanges = nr_exchanges</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">allocate</span> (this%model_ids(nr_models))</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">allocate</span> (this%model_names(nr_models))</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">allocate</span> (this%exchange_ids(nr_exchanges))</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">allocate</span> (this%exchange_names(nr_exchanges))</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="comment">! model id == -1 when not set</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    this%model_ids = -1</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    this%exchange_ids = -1</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">allocate</span> (this%node_maps(nr_models))</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">allocate</span> (this%conn_maps(nr_models))</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">allocate</span> (this%exchange_maps(nr_exchanges))</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespaceinterfacemapmodule.html#afd3f70b3024422e35d3b12de1e2b5c44">init</a></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">  !&gt; @ Adds a map, either by extending the existing map</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">  !! for a certain model or exchange, or by assigning</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">  !! the map to an empty slot.</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">  !!</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">  !! The map to which is added, should be properly</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">  !&lt; initialized beforehand</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="namespaceinterfacemapmodule.html#a886a5d6e2a2ab4470c96b32fbc3b3f6b">   59</a></span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespaceinterfacemapmodule.html#a886a5d6e2a2ab4470c96b32fbc3b3f6b">add</a>(this, map_to_add)</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacearrayhandlersmodule.html">arrayhandlersmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="interfacearrayhandlersmodule_1_1extendptrarray.html">extendptrarray</a>, <a class="code" href="interfacearrayhandlersmodule_1_1ifind.html">ifind</a></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structinterfacemapmodule_1_1interfacemaptype.html">interfacemaptype</a>) :: this</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structinterfacemapmodule_1_1interfacemaptype.html">interfacemaptype</a>) :: map_to_add</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: im, ie</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: m_id, m_index</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: e_id, e_index</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="comment">! add models</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">do</span> im = 1, map_to_add%nr_models</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      m_id = map_to_add%model_ids(im)</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;      m_index = <a class="code" href="interfacearrayhandlersmodule_1_1ifind.html">ifind</a>(this%model_ids, m_id)</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      <span class="keywordflow">if</span> (m_index &gt; 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="comment">! extend existing index map</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keyword">call </span>this%node_map(m_index)%add(map_to_add%node_map(im))</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keyword">call </span>this%connection_map(m_index)%add(map_to_add%connection_map(im))</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="comment">! place in first empty spot</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        m_index = <a class="code" href="interfacearrayhandlersmodule_1_1ifind.html">ifind</a>(this%model_ids, -1)</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        this%model_ids(m_index) = m_id</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        this%model_names(m_index) = map_to_add%model_names(im)</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keyword">call </span>this%node_map(m_index)%copy(map_to_add%node_map(im))</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keyword">call </span>this%connection_map(m_index)%copy(map_to_add%connection_map(im))</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keywordflow">      end if</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="comment">! add exchanges</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">do</span> ie = 1, map_to_add%nr_exchanges</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;      e_id = map_to_add%exchange_ids(ie)</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;      e_index = <a class="code" href="interfacearrayhandlersmodule_1_1ifind.html">ifind</a>(this%exchange_ids, e_id)</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;      <span class="keywordflow">if</span> (e_index &gt; 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="comment">! extend existing index map</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keyword">call </span>this%exchange_map(e_index)%add(map_to_add%exchange_map(ie))</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="comment">! place in first empty spot</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        e_index = <a class="code" href="interfacearrayhandlersmodule_1_1ifind.html">ifind</a>(this%exchange_ids, -1)</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        this%exchange_ids(e_index) = e_id</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        this%exchange_names(e_index) = map_to_add%exchange_names(ie)</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keyword">call </span>this%exchange_map(e_index)%copy(map_to_add%exchange_map(ie))</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keywordflow">      end if</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespaceinterfacemapmodule.html#a886a5d6e2a2ab4470c96b32fbc3b3f6b">add</a></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="namespaceinterfacemapmodule.html#a14e1490e0c363b0ec2675c90c7a8dccc">  104</a></span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespaceinterfacemapmodule.html#a14e1490e0c363b0ec2675c90c7a8dccc">destroy</a>(this)</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structinterfacemapmodule_1_1interfacemaptype.html">interfacemaptype</a>) :: this</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keyword">deallocate</span> (this%model_ids)</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keyword">deallocate</span> (this%model_names)</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keyword">deallocate</span> (this%exchange_ids)</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keyword">deallocate</span> (this%exchange_names)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment">! model id == -1 when not set</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    this%model_ids = -1</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    this%exchange_ids = -1</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespaceinterfacemapmodule.html#afd3f70b3024422e35d3b12de1e2b5c44">init</a></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">  !&gt; @ Adds a map, either by extending the existing map</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">  !! for a certain model or exchange, or by assigning</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">  !! the map to an empty slot.</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">  !!</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">  !! The map to which is added, should be properly</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">  !&lt; initialized beforehand</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="namespaceinterfacemapmodule.html#a886a5d6e2a2ab4470c96b32fbc3b3f6b">   63</a></span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespaceinterfacemapmodule.html#a886a5d6e2a2ab4470c96b32fbc3b3f6b">add</a>(this, map_to_add)</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structinterfacemapmodule_1_1interfacemaptype.html">interfacemaptype</a>) :: this</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structinterfacemapmodule_1_1interfacemaptype.html">interfacemaptype</a>) :: map_to_add</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: im, ie</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: m_id, m_index</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: e_id, e_index</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="comment">! add models</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">do</span> im = 1, map_to_add%nr_models</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      m_id = map_to_add%model_ids(im)</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;      m_index = <a class="code" href="interfacearrayhandlersmodule_1_1ifind.html">ifind</a>(this%model_ids, m_id)</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      <span class="keywordflow">if</span> (m_index &gt; 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="comment">! extend existing index map</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keyword">call </span>this%node_maps(m_index)%add(map_to_add%node_maps(im))</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keyword">call </span>this%conn_maps(m_index)%add(map_to_add%conn_maps(im))</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;      <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="comment">! place in first empty spot</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        m_index = <a class="code" href="interfacearrayhandlersmodule_1_1ifind.html">ifind</a>(this%model_ids, -1)</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        this%model_ids(m_index) = m_id</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        this%model_names(m_index) = map_to_add%model_names(im)</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keyword">call </span>this%node_maps(m_index)%copy(map_to_add%node_maps(im))</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keyword">call </span>this%conn_maps(m_index)%copy(map_to_add%conn_maps(im))</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keywordflow">      end if</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="comment">! add exchanges</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">do</span> ie = 1, map_to_add%nr_exchanges</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;      e_id = map_to_add%exchange_ids(ie)</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;      e_index = <a class="code" href="interfacearrayhandlersmodule_1_1ifind.html">ifind</a>(this%exchange_ids, e_id)</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      <span class="keywordflow">if</span> (e_index &gt; 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="comment">! extend existing index map</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keyword">call </span>this%exchange_maps(e_index)%add(map_to_add%exchange_maps(ie))</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;      <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="comment">! place in first empty spot</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        e_index = <a class="code" href="interfacearrayhandlersmodule_1_1ifind.html">ifind</a>(this%exchange_ids, -1)</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        this%exchange_ids(e_index) = e_id</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        this%exchange_names(e_index) = map_to_add%exchange_names(ie)</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keyword">call </span>this%exchange_maps(e_index)%copy(map_to_add%exchange_maps(ie))</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keywordflow">      end if</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespaceinterfacemapmodule.html#a886a5d6e2a2ab4470c96b32fbc3b3f6b">add</a></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="namespaceinterfacemapmodule.html#afe5daa18e090f3e5cbdf074337cda27d">  107</a></span>&#160;  <span class="keyword">function </span><a class="code" href="namespaceinterfacemapmodule.html#afe5daa18e090f3e5cbdf074337cda27d">get_node_map</a>(this, model_id) <span class="keyword">result</span>(node_map)</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structinterfacemapmodule_1_1interfacemaptype.html">interfacemaptype</a>) :: this</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: model_id</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structindexmapmodule_1_1indexmaptype.html">indexmaptype</a>), <span class="keywordtype">pointer</span> :: node_map</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: m_idx</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordflow">do</span> i = 1, this%nr_models</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;      <span class="keyword">deallocate</span> (this%node_map(i)%src_idx)</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;      <span class="keyword">deallocate</span> (this%node_map(i)%tgt_idx)</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;      <span class="keyword">deallocate</span> (this%connection_map(i)%src_idx)</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;      <span class="keyword">deallocate</span> (this%connection_map(i)%tgt_idx)</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keyword">deallocate</span> (this%node_map)</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keyword">deallocate</span> (this%connection_map)</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordflow">do</span> i = 1, this%nr_exchanges</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;      <span class="keyword">deallocate</span> (this%exchange_map(i)%src_idx)</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;      <span class="keyword">deallocate</span> (this%exchange_map(i)%tgt_idx)</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;      <span class="keyword">deallocate</span> (this%exchange_map(i)%sign)</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keyword">deallocate</span> (this%exchange_map)</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespaceinterfacemapmodule.html#a14e1490e0c363b0ec2675c90c7a8dccc">destroy</a></div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="keyword">end module </span><a class="code" href="namespaceinterfacemapmodule.html">interfacemapmodule</a></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    node_map =&gt; null()</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    m_idx = <a class="code" href="interfacearrayhandlersmodule_1_1ifind.html">ifind</a>(this%model_ids, model_id)</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordflow">if</span> (m_idx &gt; 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;      node_map =&gt; this%node_maps(m_idx)</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  <span class="keyword">end function </span><a class="code" href="namespaceinterfacemapmodule.html#afe5daa18e090f3e5cbdf074337cda27d">get_node_map</a></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="namespaceinterfacemapmodule.html#a2fc1e590e1c98280ae1db797ba170cbb">  122</a></span>&#160;  <span class="keyword">function </span><a class="code" href="namespaceinterfacemapmodule.html#a2fc1e590e1c98280ae1db797ba170cbb">get_connection_map</a>(this, model_id) <span class="keyword">result</span>(connection_map)</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structinterfacemapmodule_1_1interfacemaptype.html">interfacemaptype</a>) :: this</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: model_id</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structindexmapmodule_1_1indexmaptype.html">indexmaptype</a>), <span class="keywordtype">pointer</span> :: connection_map</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: m_idx</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    connection_map =&gt; null()</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    m_idx = <a class="code" href="interfacearrayhandlersmodule_1_1ifind.html">ifind</a>(this%model_ids, model_id)</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordflow">if</span> (m_idx &gt; 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;      connection_map =&gt; this%conn_maps(m_idx)</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  <span class="keyword">end function </span><a class="code" href="namespaceinterfacemapmodule.html#a2fc1e590e1c98280ae1db797ba170cbb">get_connection_map</a></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="comment">  !&gt; @brief Dumps interface data to the screen</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="comment">  !&lt;</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="namespaceinterfacemapmodule.html#a4c109182fc5da6912bab06c6b15383bc">  139</a></span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespaceinterfacemapmodule.html#a4c109182fc5da6912bab06c6b15383bc">print_interface</a>(this, outunit)</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structinterfacemapmodule_1_1interfacemaptype.html">interfacemaptype</a>) :: this</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: outunit</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i, n</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keyword">write</span> (outunit, <span class="stringliteral">&#39;(a,i0)&#39;</span>) <span class="stringliteral">&quot;nr. models: &quot;</span>, this%nr_models</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keyword">write</span> (outunit, <span class="stringliteral">&#39;(a,i0)&#39;</span>) <span class="stringliteral">&quot;nr. exchanges: &quot;</span>, this%nr_exchanges</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keywordflow">do</span> i = 1, this%nr_models</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;      <span class="keywordflow">if</span> (this%model_ids(i) == -1) cycle</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;      <span class="keyword">write</span> (outunit, <span class="stringliteral">&#39;(3a,i0,a)&#39;</span>) <span class="stringliteral">&quot;model: &quot;</span>, trim(this%model_names(i)), &amp;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <span class="stringliteral">&quot;[&quot;</span>, this%model_ids(i), <span class="stringliteral">&quot;]&quot;</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;      <span class="keyword">write</span> (outunit, *) <span class="stringliteral">&quot;node map:&quot;</span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;      <span class="keywordflow">do</span> n = 1, <span class="keyword">size</span>(this%node_maps(i)%src_idx)</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        <span class="keyword">write</span> (outunit, <span class="stringliteral">&#39;(i7,a,i7)&#39;</span>) this%node_maps(i)%src_idx(n), &amp;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;          <span class="stringliteral">&quot; &quot;</span>, this%node_maps(i)%tgt_idx(n)</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="keywordflow">      end do</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;      <span class="keyword">write</span> (outunit, *) <span class="stringliteral">&quot;connection map:&quot;</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;      <span class="keywordflow">do</span> n = 1, <span class="keyword">size</span>(this%conn_maps(i)%src_idx)</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="keyword">write</span> (outunit, <span class="stringliteral">&#39;(i7,a,i7)&#39;</span>) this%conn_maps(i)%src_idx(n), &amp;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;          <span class="stringliteral">&quot; &quot;</span>, this%conn_maps(i)%tgt_idx(n)</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="keywordflow">      end do</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keywordflow">do</span> i = 1, this%nr_exchanges</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;      <span class="keywordflow">if</span> (this%exchange_ids(i) == -1) cycle</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;      <span class="keyword">write</span> (outunit, <span class="stringliteral">&#39;(3a,i0,a)&#39;</span>) <span class="stringliteral">&quot;exchange: &quot;</span>, trim(this%exchange_names(i)), &amp;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <span class="stringliteral">&quot;[&quot;</span>, this%exchange_ids(i), <span class="stringliteral">&quot;]&quot;</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;      <span class="keyword">write</span> (outunit, *) <span class="stringliteral">&quot;exchange map:&quot;</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;      <span class="keywordflow">do</span> n = 1, <span class="keyword">size</span>(this%exchange_maps(i)%src_idx)</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        <span class="keyword">write</span> (outunit, <span class="stringliteral">&#39;(i7,a,i7,a,i7)&#39;</span>) this%exchange_maps(i)%src_idx(n), &amp;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;          <span class="stringliteral">&quot; &quot;</span>, this%exchange_maps(i)%tgt_idx(n), &amp;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;          <span class="stringliteral">&quot; &quot;</span>, this%exchange_maps(i)%sign(n)</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="keywordflow">      end do</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespaceinterfacemapmodule.html#a4c109182fc5da6912bab06c6b15383bc">print_interface</a></div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
+<div class="line"><a name="l00177"></a><span class="lineno"><a class="line" href="namespaceinterfacemapmodule.html#a14e1490e0c363b0ec2675c90c7a8dccc">  177</a></span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespaceinterfacemapmodule.html#a14e1490e0c363b0ec2675c90c7a8dccc">destroy</a>(this)</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structinterfacemapmodule_1_1interfacemaptype.html">interfacemaptype</a>) :: this</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; </div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <span class="keywordflow">do</span> i = 1, this%nr_models</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;      <span class="keywordflow">if</span> (this%model_ids(i) == -1) cycle</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;      <span class="keyword">deallocate</span> (this%node_maps(i)%src_idx)</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;      <span class="keyword">deallocate</span> (this%node_maps(i)%tgt_idx)</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;      <span class="keyword">deallocate</span> (this%conn_maps(i)%src_idx)</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;      <span class="keyword">deallocate</span> (this%conn_maps(i)%tgt_idx)</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keyword">deallocate</span> (this%node_maps)</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="keyword">deallocate</span> (this%conn_maps)</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keywordflow">do</span> i = 1, this%nr_exchanges</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;      <span class="keywordflow">if</span> (this%exchange_ids(i) == -1) cycle</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;      <span class="keyword">deallocate</span> (this%exchange_maps(i)%src_idx)</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;      <span class="keyword">deallocate</span> (this%exchange_maps(i)%tgt_idx)</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;      <span class="keyword">deallocate</span> (this%exchange_maps(i)%sign)</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="keyword">deallocate</span> (this%exchange_maps)</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keyword">deallocate</span> (this%model_ids)</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <span class="keyword">deallocate</span> (this%model_names)</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="keyword">deallocate</span> (this%exchange_ids)</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <span class="keyword">deallocate</span> (this%exchange_names)</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; </div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespaceinterfacemapmodule.html#a14e1490e0c363b0ec2675c90c7a8dccc">destroy</a></div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="keyword">end module </span><a class="code" href="namespaceinterfacemapmodule.html">interfacemapmodule</a></div>
 <div class="ttc" id="ainterfacearrayhandlersmodule_1_1extendptrarray_html"><div class="ttname"><a href="interfacearrayhandlersmodule_1_1extendptrarray.html">arrayhandlersmodule::extendptrarray</a></div><div class="ttdef"><b>Definition:</b> <a href="_array_handlers_8f90_source.html#l00026">ArrayHandlers.f90:26</a></div></div>
 <div class="ttc" id="ainterfacearrayhandlersmodule_1_1ifind_html"><div class="ttname"><a href="interfacearrayhandlersmodule_1_1ifind.html">arrayhandlersmodule::ifind</a></div><div class="ttdef"><b>Definition:</b> <a href="_array_handlers_8f90_source.html#l00036">ArrayHandlers.f90:36</a></div></div>
 <div class="ttc" id="anamespacearrayhandlersmodule_html"><div class="ttname"><a href="namespacearrayhandlersmodule.html">arrayhandlersmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_array_handlers_8f90_source.html#l00001">ArrayHandlers.f90:1</a></div></div>
@@ -253,20 +328,23 @@ $(document).ready(function(){initNavTree('_interface_map_8f90_source.html',''); 
 <div class="ttc" id="anamespaceconstantsmodule_html_a2c636eb1c2af29a8d9b384896408f12d"><div class="ttname"><a href="namespaceconstantsmodule.html#a2c636eb1c2af29a8d9b384896408f12d">constantsmodule::lenexchangename</a></div><div class="ttdeci">integer(i4b), parameter lenexchangename</div><div class="ttdoc">maximum length of the exchange name</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00023">Constants.f90:23</a></div></div>
 <div class="ttc" id="anamespaceindexmapmodule_html"><div class="ttname"><a href="namespaceindexmapmodule.html">indexmapmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_index_map_8f90_source.html#l00001">IndexMap.f90:1</a></div></div>
 <div class="ttc" id="anamespaceinterfacemapmodule_html"><div class="ttname"><a href="namespaceinterfacemapmodule.html">interfacemapmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_interface_map_8f90_source.html#l00001">InterfaceMap.f90:1</a></div></div>
-<div class="ttc" id="anamespaceinterfacemapmodule_html_a14e1490e0c363b0ec2675c90c7a8dccc"><div class="ttname"><a href="namespaceinterfacemapmodule.html#a14e1490e0c363b0ec2675c90c7a8dccc">interfacemapmodule::destroy</a></div><div class="ttdeci">subroutine destroy(this)</div><div class="ttdef"><b>Definition:</b> <a href="_interface_map_8f90_source.html#l00104">InterfaceMap.f90:105</a></div></div>
-<div class="ttc" id="anamespaceinterfacemapmodule_html_a886a5d6e2a2ab4470c96b32fbc3b3f6b"><div class="ttname"><a href="namespaceinterfacemapmodule.html#a886a5d6e2a2ab4470c96b32fbc3b3f6b">interfacemapmodule::add</a></div><div class="ttdeci">subroutine add(this, map_to_add)</div><div class="ttdoc">@ Adds a map, either by extending the existing map for a certain model or exchange,...</div><div class="ttdef"><b>Definition:</b> <a href="_interface_map_8f90_source.html#l00059">InterfaceMap.f90:60</a></div></div>
-<div class="ttc" id="anamespaceinterfacemapmodule_html_afd3f70b3024422e35d3b12de1e2b5c44"><div class="ttname"><a href="namespaceinterfacemapmodule.html#afd3f70b3024422e35d3b12de1e2b5c44">interfacemapmodule::init</a></div><div class="ttdeci">subroutine init(this, nr_models, nr_exchanges)</div><div class="ttdef"><b>Definition:</b> <a href="_interface_map_8f90_source.html#l00030">InterfaceMap.f90:31</a></div></div>
+<div class="ttc" id="anamespaceinterfacemapmodule_html_a14e1490e0c363b0ec2675c90c7a8dccc"><div class="ttname"><a href="namespaceinterfacemapmodule.html#a14e1490e0c363b0ec2675c90c7a8dccc">interfacemapmodule::destroy</a></div><div class="ttdeci">subroutine destroy(this)</div><div class="ttdef"><b>Definition:</b> <a href="_interface_map_8f90_source.html#l00177">InterfaceMap.f90:178</a></div></div>
+<div class="ttc" id="anamespaceinterfacemapmodule_html_a2fc1e590e1c98280ae1db797ba170cbb"><div class="ttname"><a href="namespaceinterfacemapmodule.html#a2fc1e590e1c98280ae1db797ba170cbb">interfacemapmodule::get_connection_map</a></div><div class="ttdeci">type(indexmaptype) function, pointer get_connection_map(this, model_id)</div><div class="ttdef"><b>Definition:</b> <a href="_interface_map_8f90_source.html#l00122">InterfaceMap.f90:123</a></div></div>
+<div class="ttc" id="anamespaceinterfacemapmodule_html_a4c109182fc5da6912bab06c6b15383bc"><div class="ttname"><a href="namespaceinterfacemapmodule.html#a4c109182fc5da6912bab06c6b15383bc">interfacemapmodule::print_interface</a></div><div class="ttdeci">subroutine print_interface(this, outunit)</div><div class="ttdoc">Dumps interface data to the screen.</div><div class="ttdef"><b>Definition:</b> <a href="_interface_map_8f90_source.html#l00139">InterfaceMap.f90:140</a></div></div>
+<div class="ttc" id="anamespaceinterfacemapmodule_html_a886a5d6e2a2ab4470c96b32fbc3b3f6b"><div class="ttname"><a href="namespaceinterfacemapmodule.html#a886a5d6e2a2ab4470c96b32fbc3b3f6b">interfacemapmodule::add</a></div><div class="ttdeci">subroutine add(this, map_to_add)</div><div class="ttdoc">@ Adds a map, either by extending the existing map for a certain model or exchange,...</div><div class="ttdef"><b>Definition:</b> <a href="_interface_map_8f90_source.html#l00063">InterfaceMap.f90:64</a></div></div>
+<div class="ttc" id="anamespaceinterfacemapmodule_html_afd3f70b3024422e35d3b12de1e2b5c44"><div class="ttname"><a href="namespaceinterfacemapmodule.html#afd3f70b3024422e35d3b12de1e2b5c44">interfacemapmodule::init</a></div><div class="ttdeci">subroutine init(this, nr_models, nr_exchanges)</div><div class="ttdef"><b>Definition:</b> <a href="_interface_map_8f90_source.html#l00034">InterfaceMap.f90:35</a></div></div>
+<div class="ttc" id="anamespaceinterfacemapmodule_html_afe5daa18e090f3e5cbdf074337cda27d"><div class="ttname"><a href="namespaceinterfacemapmodule.html#afe5daa18e090f3e5cbdf074337cda27d">interfacemapmodule::get_node_map</a></div><div class="ttdeci">type(indexmaptype) function, pointer get_node_map(this, model_id)</div><div class="ttdef"><b>Definition:</b> <a href="_interface_map_8f90_source.html#l00107">InterfaceMap.f90:108</a></div></div>
 <div class="ttc" id="anamespacekindmodule_html"><div class="ttname"><a href="namespacekindmodule.html">kindmodule</a></div><div class="ttdoc">This module defines variable data types.</div><div class="ttdef"><b>Definition:</b> <a href="kind_8f90_source.html#l00008">kind.f90:8</a></div></div>
 <div class="ttc" id="astructindexmapmodule_1_1indexmapsgntype_html"><div class="ttname"><a href="structindexmapmodule_1_1indexmapsgntype.html">indexmapmodule::indexmapsgntype</a></div><div class="ttdef"><b>Definition:</b> <a href="_index_map_8f90_source.html#l00017">IndexMap.f90:17</a></div></div>
 <div class="ttc" id="astructindexmapmodule_1_1indexmaptype_html"><div class="ttname"><a href="structindexmapmodule_1_1indexmaptype.html">indexmapmodule::indexmaptype</a></div><div class="ttdef"><b>Definition:</b> <a href="_index_map_8f90_source.html#l00007">IndexMap.f90:7</a></div></div>
-<div class="ttc" id="astructinterfacemapmodule_1_1interfacemaptype_html"><div class="ttname"><a href="structinterfacemapmodule_1_1interfacemaptype.html">interfacemapmodule::interfacemaptype</a></div><div class="ttdef"><b>Definition:</b> <a href="_interface_map_8f90_source.html#l00009">InterfaceMap.f90:9</a></div></div>
+<div class="ttc" id="astructinterfacemapmodule_1_1interfacemaptype_html"><div class="ttname"><a href="structinterfacemapmodule_1_1interfacemaptype.html">interfacemapmodule::interfacemaptype</a></div><div class="ttdef"><b>Definition:</b> <a href="_interface_map_8f90_source.html#l00010">InterfaceMap.f90:10</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_beeb38743322ab7e14829ea581a5f71a.html">Distributed</a></li><li class="navelem"><a class="el" href="_interface_map_8f90.html">InterfaceMap.f90</a></li>
-    <li class="footer">Generated on Thu Mar 30 2023 12:37:56 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Mar 31 2023 10:14:45 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

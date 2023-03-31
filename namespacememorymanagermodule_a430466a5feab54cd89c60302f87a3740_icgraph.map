@@ -1,6 +1,8 @@
 <map id="memorymanagermodule::mem_cleanup_table" name="memorymanagermodule::mem_cleanup_table">
-<area shape="rect" id="node1" title="Generic function to clean a memory manager table." alt="" coords="684,35,868,76"/>
-<area shape="rect" id="node2" href="$namespacememorymanagermodule.html#acf5a8c25e83663c4a7a97b265b6b34a0" title="Create and fill a table with the total allocated memory." alt="" coords="452,5,636,47"/>
-<area shape="rect" id="node3" href="$namespacememorymanagermodule.html#a3482099aea98afc7340a70d4073de4d9" title="Write memory manager memory usage based on the user&#45;specified memory_print_option." alt="" coords="220,35,404,76"/>
-<area shape="rect" id="node4" href="$namespaceruncontrolmodule.html#ae565238dc3954a0968bca845a604a4fd" title=" " alt="" coords="5,35,172,76"/>
+<area shape="rect" id="node1" title="Generic function to clean a memory manager table." alt="" coords="684,25,868,67"/>
+<area shape="rect" id="node2" href="$namespacememorymanagermodule.html#abe8039c2f826ded5ca2cf1c06a620a54" title=" " alt="" coords="452,91,636,132"/>
+<area shape="rect" id="node3" href="$namespacememorymanagermodule.html#a3482099aea98afc7340a70d4073de4d9" title="Write memory manager memory usage based on the user&#45;specified memory_print_option." alt="" coords="220,25,404,67"/>
+<area shape="rect" id="node6" href="$namespacememorymanagermodule.html#acf5a8c25e83663c4a7a97b265b6b34a0" title="Create and fill a table with the total allocated memory." alt="" coords="452,25,636,67"/>
+<area shape="rect" id="node5" href="$namespacempiroutermodule.html#a552d3da2444ee7c8f7317cddf34bd631" title="This will route all remote data from the global models and exchanges over MPI, for a." alt="" coords="231,91,393,132"/>
+<area shape="rect" id="node4" href="$namespaceruncontrolmodule.html#ae565238dc3954a0968bca845a604a4fd" title=" " alt="" coords="5,25,172,67"/>
 </map>

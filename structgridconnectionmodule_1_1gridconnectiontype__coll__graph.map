@@ -1,13 +1,13 @@
 <map id="gridconnectionmodule::gridconnectiontype" name="gridconnectionmodule::gridconnectiontype">
-<area shape="rect" id="node1" title="This class is used to construct the connections object for the interface model&#39;s spatial discretizati..." alt="" coords="535,975,785,1492"/>
-<area shape="rect" id="node2" href="$structcellwithnbrsmodule_1_1cellwithnbrstype.html" title=" " alt="" coords="171,644,322,736"/>
-<area shape="rect" id="node3" href="$structcellwithnbrsmodule_1_1globalcelltype.html" title="Data structure to hold a global cell identifier, using a pointer to the model and its local cell." alt="" coords="18,145,169,251"/>
-<area shape="rect" id="node4" href="$structinterfacemapmodule_1_1interfacemaptype.html" title=" " alt="" coords="450,585,609,795"/>
-<area shape="rect" id="node5" href="$structindexmapmodule_1_1indexmapsgntype.html" title=" " alt="" coords="200,123,461,273"/>
-<area shape="rect" id="node6" href="$structindexmapmodule_1_1indexmaptype.html" title=" " alt="" coords="486,130,725,266"/>
-<area shape="rect" id="node7" href="$structstlvecintmodule_1_1stlvecint.html" title=" " alt="" coords="633,549,823,831"/>
-<area shape="rect" id="node8" href="$structlistmodule_1_1listtype.html" title=" " alt="" coords="847,497,1043,883"/>
-<area shape="rect" id="node9" href="$structlistmodule_1_1listnodetype.html" title=" " alt="" coords="826,152,1006,244"/>
-<area shape="rect" id="node10" href="$structconnectionsmodule_1_1connectionstype.html" title=" " alt="" coords="1106,483,1297,897"/>
-<area shape="rect" id="node11" href="$structblockparsermodule_1_1blockparsertype.html" title=" " alt="" coords="1131,5,1290,391"/>
+<area shape="rect" id="node1" title="This class is used to construct the connections object for the interface model&#39;s spatial discretizati..." alt="" coords="559,975,809,1492"/>
+<area shape="rect" id="node2" href="$structcellwithnbrsmodule_1_1cellwithnbrstype.html" title=" " alt="" coords="170,644,321,736"/>
+<area shape="rect" id="node3" href="$structcellwithnbrsmodule_1_1globalcelltype.html" title="Data structure to hold a global cell identifier, using a pointer to the model and its local cell." alt="" coords="29,145,179,251"/>
+<area shape="rect" id="node4" href="$structinterfacemapmodule_1_1interfacemaptype.html" title=" " alt="" coords="449,563,631,817"/>
+<area shape="rect" id="node5" href="$structindexmapmodule_1_1indexmapsgntype.html" title=" " alt="" coords="211,123,472,273"/>
+<area shape="rect" id="node6" href="$structindexmapmodule_1_1indexmaptype.html" title=" " alt="" coords="497,130,735,266"/>
+<area shape="rect" id="node7" href="$structstlvecintmodule_1_1stlvecint.html" title=" " alt="" coords="655,549,846,831"/>
+<area shape="rect" id="node8" href="$structlistmodule_1_1listtype.html" title=" " alt="" coords="870,497,1066,883"/>
+<area shape="rect" id="node9" href="$structlistmodule_1_1listnodetype.html" title=" " alt="" coords="849,152,1029,244"/>
+<area shape="rect" id="node10" href="$structconnectionsmodule_1_1connectionstype.html" title=" " alt="" coords="1129,483,1319,897"/>
+<area shape="rect" id="node11" href="$structblockparsermodule_1_1blockparsertype.html" title=" " alt="" coords="1154,5,1313,391"/>
 </map>

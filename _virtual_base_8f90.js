@@ -14,6 +14,7 @@ var _virtual_base_8f90 =
     [ "get_dbl", "_virtual_base_8f90.html#acfc357cf2c06a76b40e269a5fbb2a633", null ],
     [ "get_dbl1d", "_virtual_base_8f90.html#ad427a68a63fd713f777694c53fde512c", null ],
     [ "get_dbl2d", "_virtual_base_8f90.html#a18a9b24aff67af3c357ba880cec51326", null ],
+    [ "get_element_map", "_virtual_base_8f90.html#a07bed52f5f0b1eb5772178fe48a88024", null ],
     [ "get_int", "_virtual_base_8f90.html#a69c14c257af6268611d43a01818f50e4", null ],
     [ "get_int1d", "_virtual_base_8f90.html#a6a4adfd15ed0eae9dea71e89d7adda3a", null ],
     [ "get_virtual_data_from_list", "_virtual_base_8f90.html#a2c79eac7f1edadb48d2878f554f259c2", null ],
@@ -32,5 +33,6 @@ var _virtual_base_8f90 =
     [ "vm_to_base", "_virtual_base_8f90.html#addf0a4ae205c8dcca3ccf451966c86b2", null ],
     [ "map_all_type", "_virtual_base_8f90.html#a81eedd8d71a511a3d6e8b04372ca131c", null ],
     [ "map_conn_type", "_virtual_base_8f90.html#a6fb0a58cc34d396c6d57a72ef6a36007", null ],
-    [ "map_node_type", "_virtual_base_8f90.html#af4b03b7fb0e37e4d106bddf41e53df8e", null ]
+    [ "map_node_type", "_virtual_base_8f90.html#af4b03b7fb0e37e4d106bddf41e53df8e", null ],
+    [ "nr_vdc_element_maps", "_virtual_base_8f90.html#aa778f32582c44fef30c82d03f23deca0", null ]
 ];

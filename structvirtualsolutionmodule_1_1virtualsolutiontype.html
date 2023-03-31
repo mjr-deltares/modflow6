@@ -126,8 +126,11 @@ Collaboration diagram for virtualsolutionmodule::virtualsolutiontype:</div>
 <div class="dyncontent">
 <div class="center"><img src="structvirtualsolutionmodule_1_1virtualsolutiontype__coll__graph.png" border="0" usemap="#avirtualsolutionmodule_1_1virtualsolutiontype_coll__map" alt="Collaboration graph"/></div>
 <map name="avirtualsolutionmodule_1_1virtualsolutiontype_coll__map" id="avirtualsolutionmodule_1_1virtualsolutiontype_coll__map">
-<area shape="rect" title="This bundles all virtual data for a particular solution." alt="" coords="24,175,189,267"/>
-<area shape="rect" href="structvirtualdatacontainermodule_1_1vdcptrtype.html" title="Wrapper for virtual data containers." alt="" coords="5,5,208,97"/>
+<area shape="rect" title="This bundles all virtual data for a particular solution." alt="" coords="299,564,464,671"/>
+<area shape="rect" href="structinterfacemapmodule_1_1interfacemaptype.html" title=" " alt="" coords="182,233,365,487"/>
+<area shape="rect" href="structindexmapmodule_1_1indexmapsgntype.html" title=" " alt="" coords="5,5,267,156"/>
+<area shape="rect" href="structindexmapmodule_1_1indexmaptype.html" title=" " alt="" coords="291,13,530,149"/>
+<area shape="rect" href="structvirtualdatacontainermodule_1_1vdcptrtype.html" title="Wrapper for virtual data containers." alt="" coords="389,314,592,406"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -136,13 +139,21 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a36ce0d5ff99b61ce4bf8233e8f98ee47"><td class="memItemLeft" align="right" valign="top">integer(i4b)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvirtualsolutionmodule_1_1virtualsolutiontype.html#a36ce0d5ff99b61ce4bf8233e8f98ee47">solution_id</a> = -1</td></tr>
 <tr class="separator:a36ce0d5ff99b61ce4bf8233e8f98ee47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12a2873c569a412fb532057a5e9d06e2"><td class="memItemLeft" align="right" valign="top">type(<a class="el" href="structvirtualdatacontainermodule_1_1vdcptrtype.html">vdcptrtype</a>), dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvirtualsolutionmodule_1_1virtualsolutiontype.html#a12a2873c569a412fb532057a5e9d06e2">models</a> =&gt; null()</td></tr>
+<tr class="memdesc:a12a2873c569a412fb532057a5e9d06e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">the models as virtual data containers (wrapped)  <a href="structvirtualsolutionmodule_1_1virtualsolutiontype.html#a12a2873c569a412fb532057a5e9d06e2">More...</a><br /></td></tr>
 <tr class="separator:a12a2873c569a412fb532057a5e9d06e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5dcc9927885579daa8bd02a1e255b1f"><td class="memItemLeft" align="right" valign="top">type(<a class="el" href="structvirtualdatacontainermodule_1_1vdcptrtype.html">vdcptrtype</a>), dimension(:), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvirtualsolutionmodule_1_1virtualsolutiontype.html#af5dcc9927885579daa8bd02a1e255b1f">exchanges</a> =&gt; null()</td></tr>
+<tr class="memdesc:af5dcc9927885579daa8bd02a1e255b1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">the exchanges as virtual data containers (wrapped)  <a href="structvirtualsolutionmodule_1_1virtualsolutiontype.html#af5dcc9927885579daa8bd02a1e255b1f">More...</a><br /></td></tr>
 <tr class="separator:af5dcc9927885579daa8bd02a1e255b1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad89d5fd123f1c67cea66c7ee9d62abe7"><td class="memItemLeft" align="right" valign="top">class(<a class="el" href="structnumericalsolutionmodule_1_1numericalsolutiontype.html">numericalsolutiontype</a>), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvirtualsolutionmodule_1_1virtualsolutiontype.html#ad89d5fd123f1c67cea66c7ee9d62abe7">numerical_solution</a> =&gt; null()</td></tr>
+<tr class="memdesc:ad89d5fd123f1c67cea66c7ee9d62abe7"><td class="mdescLeft">&#160;</td><td class="mdescRight">points back to the actual numerical solution  <a href="structvirtualsolutionmodule_1_1virtualsolutiontype.html#ad89d5fd123f1c67cea66c7ee9d62abe7">More...</a><br /></td></tr>
+<tr class="separator:ad89d5fd123f1c67cea66c7ee9d62abe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6df5bb6a85815aaefe16c5d4e9c8c690"><td class="memItemLeft" align="right" valign="top">type(<a class="el" href="structinterfacemapmodule_1_1interfacemaptype.html">interfacemaptype</a>), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvirtualsolutionmodule_1_1virtualsolutiontype.html#a6df5bb6a85815aaefe16c5d4e9c8c690">interface_map</a> =&gt; null()</td></tr>
+<tr class="memdesc:a6df5bb6a85815aaefe16c5d4e9c8c690"><td class="mdescLeft">&#160;</td><td class="mdescRight">contains the aggregate interface map for the solution NB: the aggregation is over multiple interface models and there is no unique numbering there. The target indexes should therefore be considere invalid.  <a href="structvirtualsolutionmodule_1_1virtualsolutiontype.html#a6df5bb6a85815aaefe16c5d4e9c8c690">More...</a><br /></td></tr>
+<tr class="separator:a6df5bb6a85815aaefe16c5d4e9c8c690"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_virtual_solution_8f90_source.html#l00010">10</a> of file <a class="el" href="_virtual_solution_8f90_source.html">VirtualSolution.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_virtual_solution_8f90_source.html#l00012">12</a> of file <a class="el" href="_virtual_solution_8f90_source.html">VirtualSolution.f90</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="af5dcc9927885579daa8bd02a1e255b1f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af5dcc9927885579daa8bd02a1e255b1f">&#9670;&nbsp;</a></span>exchanges</h2>
@@ -156,8 +167,25 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_virtual_solution_8f90_source.html#l00013">13</a> of file <a class="el" href="_virtual_solution_8f90_source.html">VirtualSolution.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">type</span>(VdcPtrType), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: exchanges =&gt; null()</div>
+<p class="definition">Definition at line <a class="el" href="_virtual_solution_8f90_source.html#l00015">15</a> of file <a class="el" href="_virtual_solution_8f90_source.html">VirtualSolution.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">type</span>(VdcPtrType), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: exchanges =&gt; null() <span class="comment">!&lt; the exchanges as virtual data containers (wrapped)</span></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a6df5bb6a85815aaefe16c5d4e9c8c690"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6df5bb6a85815aaefe16c5d4e9c8c690">&#9670;&nbsp;</a></span>interface_map</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">type(<a class="el" href="structinterfacemapmodule_1_1interfacemaptype.html">interfacemaptype</a>), pointer virtualsolutionmodule::virtualsolutiontype::interface_map =&gt; null()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_virtual_solution_8f90_source.html#l00017">17</a> of file <a class="el" href="_virtual_solution_8f90_source.html">VirtualSolution.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">type</span>(InterfaceMapType), <span class="keywordtype">pointer</span> :: interface_map =&gt; null() <span class="comment">!&lt; contains the aggregate interface map for the solution</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -173,8 +201,25 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_virtual_solution_8f90_source.html#l00012">12</a> of file <a class="el" href="_virtual_solution_8f90_source.html">VirtualSolution.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordtype">type</span>(VdcPtrType), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: models =&gt; null()</div>
+<p class="definition">Definition at line <a class="el" href="_virtual_solution_8f90_source.html#l00014">14</a> of file <a class="el" href="_virtual_solution_8f90_source.html">VirtualSolution.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">type</span>(VdcPtrType), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: models =&gt; null() <span class="comment">!&lt; the models as virtual data containers (wrapped)</span></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ad89d5fd123f1c67cea66c7ee9d62abe7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad89d5fd123f1c67cea66c7ee9d62abe7">&#9670;&nbsp;</a></span>numerical_solution</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">class(<a class="el" href="structnumericalsolutionmodule_1_1numericalsolutiontype.html">numericalsolutiontype</a>), pointer virtualsolutionmodule::virtualsolutiontype::numerical_solution =&gt; null()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_virtual_solution_8f90_source.html#l00016">16</a> of file <a class="el" href="_virtual_solution_8f90_source.html">VirtualSolution.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">class</span>(NumericalSolutionType), <span class="keywordtype">pointer</span> :: numerical_solution =&gt; null() <span class="comment">!&lt; points back to the actual numerical solution</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -190,8 +235,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_virtual_solution_8f90_source.html#l00011">11</a> of file <a class="el" href="_virtual_solution_8f90_source.html">VirtualSolution.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: solution_id = -1</div>
+<p class="definition">Definition at line <a class="el" href="_virtual_solution_8f90_source.html#l00013">13</a> of file <a class="el" href="_virtual_solution_8f90_source.html">VirtualSolution.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: solution_id = -1</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -204,7 +249,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacevirtualsolutionmodule.html">virtualsolutionmodule</a></li><li class="navelem"><a class="el" href="structvirtualsolutionmodule_1_1virtualsolutiontype.html">virtualsolutiontype</a></li>
-    <li class="footer">Generated on Thu Mar 30 2023 12:38:00 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Mar 31 2023 10:14:51 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

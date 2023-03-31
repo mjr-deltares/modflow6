@@ -10,6 +10,7 @@ var structmappedmemorymodule_1_1mappedmemorytype =
     [ "sync_int1d", "structmappedmemorymodule_1_1mappedmemorytype.html#a4003e50783b9246c38589fb6befa2c81", null ],
     [ "controller_id", "structmappedmemorymodule_1_1mappedmemorytype.html#af64f90752e1816bbb200c3555914936c", null ],
     [ "copy_all", "structmappedmemorymodule_1_1mappedmemorytype.html#a0ba269e0dfef7b2edd19fea88d6fecb7", null ],
+    [ "lut", "structmappedmemorymodule_1_1mappedmemorytype.html#a7354c87ac3e6c7cfa035b5b73db2efc7", null ],
     [ "sign", "structmappedmemorymodule_1_1mappedmemorytype.html#af95ae5cb9bf7aacafa80617ede2d6f8f", null ],
     [ "src", "structmappedmemorymodule_1_1mappedmemorytype.html#a121df54854d5596bd16dafe38f939b3e", null ],
     [ "src_idx", "structmappedmemorymodule_1_1mappedmemorytype.html#a5c1491d1487bb87f90d99c4ad92feae0", null ],

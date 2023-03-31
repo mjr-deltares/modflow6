@@ -1,0 +1,7 @@
+<map id="virtualdatamanagermodule::vds_reduce_halo" name="virtualdatamanagermodule::vds_reduce_halo">
+<area shape="rect" id="node1" title="Reduce the halo for all solutions. This will." alt="" coords="5,39,205,80"/>
+<area shape="rect" id="node2" href="$namespacespatialmodelconnectionmodule.html#a2b761db429763a32bde62e7d67119574" title="Get the connection from a list." alt="" coords="253,5,480,47"/>
+<area shape="rect" id="node4" href="$namespaceinputoutputmodule.html#a535bdfca3d31ebc3a8e4bd5af6890d55" title="Get a free unit number." alt="" coords="289,71,444,112"/>
+<area shape="rect" id="node3" href="$namespacespatialmodelconnectionmodule.html#aa5f44b372452361a6a7fd66bc0890d62" title="Cast to SpatialModelConnectionType." alt="" coords="528,5,755,47"/>
+<area shape="rect" id="node5" href="$namespaceinputoutputmodule.html#ac5134655c31ac9beeb4688f504efd801" title="Assign a free unopened unit number." alt="" coords="564,71,719,112"/>
+</map>

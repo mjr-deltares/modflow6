@@ -1,5 +1,7 @@
 <map id="memorymanagermodule::mem_detailed_table" name="memorymanagermodule::mem_detailed_table">
-<area shape="rect" id="node1" title="Create a table if memory_print_option is &#39;ALL&#39;." alt="" coords="452,5,636,47"/>
-<area shape="rect" id="node2" href="$namespacememorymanagermodule.html#a3482099aea98afc7340a70d4073de4d9" title="Write memory manager memory usage based on the user&#45;specified memory_print_option." alt="" coords="220,5,404,47"/>
-<area shape="rect" id="node3" href="$namespaceruncontrolmodule.html#ae565238dc3954a0968bca845a604a4fd" title=" " alt="" coords="5,5,172,47"/>
+<area shape="rect" id="node1" title="Create a table if memory_print_option is &#39;ALL&#39;." alt="" coords="684,39,868,80"/>
+<area shape="rect" id="node2" href="$namespacememorymanagermodule.html#abe8039c2f826ded5ca2cf1c06a620a54" title=" " alt="" coords="452,39,636,80"/>
+<area shape="rect" id="node3" href="$namespacememorymanagermodule.html#a3482099aea98afc7340a70d4073de4d9" title="Write memory manager memory usage based on the user&#45;specified memory_print_option." alt="" coords="220,5,404,47"/>
+<area shape="rect" id="node5" href="$namespacempiroutermodule.html#a552d3da2444ee7c8f7317cddf34bd631" title="This will route all remote data from the global models and exchanges over MPI, for a." alt="" coords="231,71,393,112"/>
+<area shape="rect" id="node4" href="$namespaceruncontrolmodule.html#ae565238dc3954a0968bca845a604a4fd" title=" " alt="" coords="5,5,172,47"/>
 </map>

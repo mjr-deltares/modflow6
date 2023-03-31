@@ -187,18 +187,19 @@ Functions/Subroutines</h2></td></tr>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    petscerrorcode :: ierr</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    this%petsc_ctx%dvclose = this%dvclose</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keyword">call </span>matcreatevecs( &amp;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;      this%mat_petsc, this%petsc_ctx%x_old, petsc_null_vec, ierr)</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    chkerrq(ierr)</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keyword">call </span>matcreatevecs( &amp;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;      this%mat_petsc, this%petsc_ctx%delta_x, petsc_null_vec, ierr)</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    chkerrq(ierr)</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keyword">call </span>petsc_add_context(this%petsc_ctx, this%ctx_idx)</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keyword">call </span>kspsetconvergencetest(this%ksp_petsc, petsc_check_convergence, &amp;</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                               this%ctx_idx, petsc_null_function, ierr)</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    chkerrq(ierr)</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    this%petsc_ctx%max_its = this%nitermax</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keyword">call </span>matcreatevecs( &amp;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;      this%mat_petsc, this%petsc_ctx%x_old, petsc_null_vec, ierr)</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    chkerrq(ierr)</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keyword">call </span>matcreatevecs( &amp;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;      this%mat_petsc, this%petsc_ctx%delta_x, petsc_null_vec, ierr)</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    chkerrq(ierr)</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keyword">call </span>petsc_add_context(this%petsc_ctx, this%ctx_idx)</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keyword">call </span>kspsetconvergencetest(this%ksp_petsc, petsc_check_convergence, &amp;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                               this%ctx_idx, petsc_null_function, ierr)</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    chkerrq(ierr)</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -365,15 +366,15 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_petsc_solver_8_f90_source.html#l00200">200</a> of file <a class="el" href="_petsc_solver_8_f90_source.html">PetscSolver.F90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <span class="keywordtype">class</span>(PetscSolverType) :: this</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="keywordtype">class</span>(MatrixBaseType), <span class="keywordtype">pointer</span> :: matrix</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keywordtype">class</span>(PetscMatrixType), <span class="keywordtype">pointer</span> :: petsc_matrix</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160; </div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <span class="keyword">allocate</span> (petsc_matrix)</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    matrix =&gt; petsc_matrix</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="_petsc_solver_8_f90_source.html#l00201">201</a> of file <a class="el" href="_petsc_solver_8_f90_source.html">PetscSolver.F90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="keywordtype">class</span>(PetscSolverType) :: this</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <span class="keywordtype">class</span>(MatrixBaseType), <span class="keywordtype">pointer</span> :: matrix</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <span class="keywordtype">class</span>(PetscMatrixType), <span class="keywordtype">pointer</span> :: petsc_matrix</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="keyword">allocate</span> (petsc_matrix)</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    matrix =&gt; petsc_matrix</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -401,21 +402,21 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_petsc_solver_8_f90_source.html#l00183">183</a> of file <a class="el" href="_petsc_solver_8_f90_source.html">PetscSolver.F90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keywordtype">class</span>(PetscSolverType) :: this</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    petscerrorcode :: ierr</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    <span class="keyword">call </span>kspdestroy(this%ksp_petsc, ierr)</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    chkerrq(ierr)</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; </div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="comment">! delete context</span></div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keyword">call </span>vecdestroy(this%petsc_ctx%delta_x, ierr)</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    chkerrq(ierr)</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="keyword">call </span>vecdestroy(this%petsc_ctx%x_old, ierr)</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    chkerrq(ierr)</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keyword">deallocate</span> (this%petsc_ctx)</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="_petsc_solver_8_f90_source.html#l00184">184</a> of file <a class="el" href="_petsc_solver_8_f90_source.html">PetscSolver.F90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="keywordtype">class</span>(PetscSolverType) :: this</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    petscerrorcode :: ierr</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keyword">call </span>kspdestroy(this%ksp_petsc, ierr)</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    chkerrq(ierr)</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="comment">! delete context</span></div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keyword">call </span>vecdestroy(this%petsc_ctx%delta_x, ierr)</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    chkerrq(ierr)</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keyword">call </span>vecdestroy(this%petsc_ctx%x_old, ierr)</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    chkerrq(ierr)</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="keyword">deallocate</span> (this%petsc_ctx)</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -443,8 +444,8 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_petsc_solver_8_f90_source.html#l00179">179</a> of file <a class="el" href="_petsc_solver_8_f90_source.html">PetscSolver.F90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keywordtype">class</span>(PetscSolverType) :: this</div>
+<p class="definition">Definition at line <a class="el" href="_petsc_solver_8_f90_source.html#l00180">180</a> of file <a class="el" href="_petsc_solver_8_f90_source.html">PetscSolver.F90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="keywordtype">class</span>(PetscSolverType) :: this</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -558,40 +559,40 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_petsc_solver_8_f90_source.html#l00143">143</a> of file <a class="el" href="_petsc_solver_8_f90_source.html">PetscSolver.F90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="keywordtype">class</span>(PetscSolverType) :: this</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: kiter</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keywordtype">class</span>(VectorBaseType), <span class="keywordtype">pointer</span> :: rhs</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keywordtype">class</span>(VectorBaseType), <span class="keywordtype">pointer</span> :: x</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    petscerrorcode :: ierr</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keywordtype">class</span>(PetscVectorType), <span class="keywordtype">pointer</span> :: rhs_petsc, x_petsc</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    kspconvergedreason :: icnvg</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    rhs_petsc =&gt; null()</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keywordflow">select type</span> (rhs)</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="keywordflow">    class is</span> (petscvectortype)</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;      rhs_petsc =&gt; rhs</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="keywordflow">    end select</span></div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    x_petsc =&gt; null()</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keywordflow">select type</span> (x)</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="keywordflow">    class is</span> (petscvectortype)</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;      x_petsc =&gt; x</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="keywordflow">    end select</span></div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    this%iteration_number = 0</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    this%is_converged = 0</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="comment">! update matrix coefficients</span></div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keyword">call </span>this%matrix%update()</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="keyword">call </span>kspsolve(this%ksp_petsc, rhs_petsc%vec_impl, x_petsc%vec_impl, ierr)</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    chkerrq(ierr)</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keyword">call </span>kspgetiterationnumber(this%ksp_petsc, this%iteration_number, ierr)</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keyword">call </span>kspgetconvergedreason(this%ksp_petsc, icnvg, ierr)</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keywordflow">if</span> (icnvg &gt; 0) this%is_converged = 1</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="_petsc_solver_8_f90_source.html#l00144">144</a> of file <a class="el" href="_petsc_solver_8_f90_source.html">PetscSolver.F90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keywordtype">class</span>(PetscSolverType) :: this</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: kiter</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keywordtype">class</span>(VectorBaseType), <span class="keywordtype">pointer</span> :: rhs</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordtype">class</span>(VectorBaseType), <span class="keywordtype">pointer</span> :: x</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    petscerrorcode :: ierr</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordtype">class</span>(PetscVectorType), <span class="keywordtype">pointer</span> :: rhs_petsc, x_petsc</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    kspconvergedreason :: icnvg</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; </div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    rhs_petsc =&gt; null()</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keywordflow">select type</span> (rhs)</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="keywordflow">    class is</span> (petscvectortype)</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;      rhs_petsc =&gt; rhs</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="keywordflow">    end select</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    x_petsc =&gt; null()</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="keywordflow">select type</span> (x)</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="keywordflow">    class is</span> (petscvectortype)</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;      x_petsc =&gt; x</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="keywordflow">    end select</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    this%iteration_number = 0</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    this%is_converged = 0</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="comment">! update matrix coefficients</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="keyword">call </span>this%matrix%update()</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keyword">call </span>kspsolve(this%ksp_petsc, rhs_petsc%vec_impl, x_petsc%vec_impl, ierr)</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    chkerrq(ierr)</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keyword">call </span>kspgetiterationnumber(this%ksp_petsc, this%iteration_number, ierr)</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keyword">call </span>kspgetconvergedreason(this%ksp_petsc, icnvg, ierr)</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keywordflow">if</span> (icnvg &gt; 0) this%is_converged = 1</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -641,26 +642,26 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_petsc_solver_8_f90_source.html#l00211">211</a> of file <a class="el" href="_petsc_solver_8_f90_source.html">PetscSolver.F90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacetdismodule.html">tdismodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacetdismodule.html#afd8781393621765a2e864a230a23da50">nper</a>, <a class="code" href="namespacetdismodule.html#ad3443c7d7da2a67a75174c39c6d40c84">kstp</a></div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="keywordtype">class</span>(PetscSolverType) :: this</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="keywordtype">class</span>(PetscVectorType) :: vec</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="keywordtype">character(len=*)</span> :: vec_name</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: kiter</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    petscviewer :: viewer</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="keywordtype">character(len=24)</span> :: filename</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    petscerrorcode :: ierr</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160; </div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <span class="keyword">write</span> (filename, <span class="stringliteral">&#39;(2a,i0,a,i0,a,i0,a)&#39;</span>) vec_name, <span class="stringliteral">&#39;_&#39;</span>, <a class="code" href="namespacetdismodule.html#afd8781393621765a2e864a230a23da50">nper</a>, &amp;</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;      <span class="stringliteral">&#39;_&#39;</span>, <a class="code" href="namespacetdismodule.html#ad3443c7d7da2a67a75174c39c6d40c84">kstp</a>, <span class="stringliteral">&#39;_&#39;</span>, kiter, <span class="stringliteral">&#39;.txt&#39;</span></div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="keyword">call </span>petscviewerasciiopen(petsc_comm_world, filename, viewer, ierr)</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    chkerrq(ierr)</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <span class="keyword">call </span>vecview(vec%vec_impl, viewer, ierr)</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    chkerrq(ierr)</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="keyword">call </span>petscviewerdestroy(viewer, ierr)</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    chkerrq(ierr)</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="_petsc_solver_8_f90_source.html#l00212">212</a> of file <a class="el" href="_petsc_solver_8_f90_source.html">PetscSolver.F90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacetdismodule.html">tdismodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacetdismodule.html#afd8781393621765a2e864a230a23da50">nper</a>, <a class="code" href="namespacetdismodule.html#ad3443c7d7da2a67a75174c39c6d40c84">kstp</a></div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="keywordtype">class</span>(PetscSolverType) :: this</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="keywordtype">class</span>(PetscVectorType) :: vec</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="keywordtype">character(len=*)</span> :: vec_name</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: kiter</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    petscviewer :: viewer</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keywordtype">character(len=24)</span> :: filename</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    petscerrorcode :: ierr</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; </div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="keyword">write</span> (filename, <span class="stringliteral">&#39;(2a,i0,a,i0,a,i0,a)&#39;</span>) vec_name, <span class="stringliteral">&#39;_&#39;</span>, <a class="code" href="namespacetdismodule.html#afd8781393621765a2e864a230a23da50">nper</a>, &amp;</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;      <span class="stringliteral">&#39;_&#39;</span>, <a class="code" href="namespacetdismodule.html#ad3443c7d7da2a67a75174c39c6d40c84">kstp</a>, <span class="stringliteral">&#39;_&#39;</span>, kiter, <span class="stringliteral">&#39;.txt&#39;</span></div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keyword">call </span>petscviewerasciiopen(petsc_comm_world, filename, viewer, ierr)</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    chkerrq(ierr)</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <span class="keyword">call </span>vecview(vec%vec_impl, viewer, ierr)</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    chkerrq(ierr)</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keyword">call </span>petscviewerdestroy(viewer, ierr)</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    chkerrq(ierr)</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160; </div>
 <div class="ttc" id="anamespacetdismodule_html"><div class="ttname"><a href="namespacetdismodule.html">tdismodule</a></div><div class="ttdef"><b>Definition:</b> <a href="tdis_8f90_source.html#l00005">tdis.f90:5</a></div></div>
 <div class="ttc" id="anamespacetdismodule_html_ad3443c7d7da2a67a75174c39c6d40c84"><div class="ttname"><a href="namespacetdismodule.html#ad3443c7d7da2a67a75174c39c6d40c84">tdismodule::kstp</a></div><div class="ttdeci">integer(i4b), pointer, public kstp</div><div class="ttdoc">current time step number</div><div class="ttdef"><b>Definition:</b> <a href="tdis_8f90_source.html#l00025">tdis.f90:25</a></div></div>
 <div class="ttc" id="anamespacetdismodule_html_afd8781393621765a2e864a230a23da50"><div class="ttname"><a href="namespacetdismodule.html#afd8781393621765a2e864a230a23da50">tdismodule::nper</a></div><div class="ttdeci">integer(i4b), pointer, public nper</div><div class="ttdoc">number of stress period</div><div class="ttdef"><b>Definition:</b> <a href="tdis_8f90_source.html#l00022">tdis.f90:22</a></div></div>
@@ -673,7 +674,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacepetscsolvermodule.html">petscsolvermodule</a></li>
-    <li class="footer">Generated on Thu Mar 30 2023 12:37:59 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Mar 31 2023 10:14:50 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -572,7 +572,7 @@ $(document).ready(function(){initNavTree('_gwt_gwt_connection_8f90_source.html',
 <div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160; </div>
 <div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;    <span class="keywordflow">if</span> (this%exchangeIsOwned) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;      gwtex =&gt; this%gwtExchange</div>
-<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;      map =&gt; this%interface_map%exchange_map(this%interface_map%prim_exg_idx)</div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;      map =&gt; this%interface_map%exchange_maps(this%interface_map%prim_exg_idx)</div>
 <div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160; </div>
 <div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;      <span class="comment">! use (half of) the exchange map in reverse:</span></div>
 <div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;      <span class="keywordflow">do</span> i = 1, <span class="keyword">size</span>(map%src_idx)</div>
@@ -661,9 +661,9 @@ $(document).ready(function(){initNavTree('_gwt_gwt_connection_8f90_source.html',
 <div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;  <span class="keyword">end function </span><a class="code" href="namespacegwtgwtconnectionmodule.html#a23c026c8d893f128a2a5752d040d63d7">castasgwtgwtconnection</a></div>
 <div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160; </div>
 <div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;<span class="keyword">end module</span></div>
-<div class="ttc" id="ainterfacememorymanagermodule_1_1mem__allocate_html"><div class="ttname"><a href="interfacememorymanagermodule_1_1mem__allocate.html">memorymanagermodule::mem_allocate</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00050">MemoryManager.f90:50</a></div></div>
-<div class="ttc" id="ainterfacememorymanagermodule_1_1mem__checkin_html"><div class="ttname"><a href="interfacememorymanagermodule_1_1mem__checkin.html">memorymanagermodule::mem_checkin</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00066">MemoryManager.f90:66</a></div></div>
-<div class="ttc" id="ainterfacememorymanagermodule_1_1mem__deallocate_html"><div class="ttname"><a href="interfacememorymanagermodule_1_1mem__deallocate.html">memorymanagermodule::mem_deallocate</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00116">MemoryManager.f90:116</a></div></div>
+<div class="ttc" id="ainterfacememorymanagermodule_1_1mem__allocate_html"><div class="ttname"><a href="interfacememorymanagermodule_1_1mem__allocate.html">memorymanagermodule::mem_allocate</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00051">MemoryManager.f90:51</a></div></div>
+<div class="ttc" id="ainterfacememorymanagermodule_1_1mem__checkin_html"><div class="ttname"><a href="interfacememorymanagermodule_1_1mem__checkin.html">memorymanagermodule::mem_checkin</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00067">MemoryManager.f90:67</a></div></div>
+<div class="ttc" id="ainterfacememorymanagermodule_1_1mem__deallocate_html"><div class="ttname"><a href="interfacememorymanagermodule_1_1mem__deallocate.html">memorymanagermodule::mem_deallocate</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00117">MemoryManager.f90:117</a></div></div>
 <div class="ttc" id="anamespacebudgetmodule_html"><div class="ttname"><a href="namespacebudgetmodule.html">budgetmodule</a></div><div class="ttdoc">This module contains the BudgetModule.</div><div class="ttdef"><b>Definition:</b> <a href="_budget_8f90_source.html#l00020">Budget.f90:20</a></div></div>
 <div class="ttc" id="anamespacebudgetmodule_html_a917d4897942de165ea88d0c1f0850d8e"><div class="ttname"><a href="namespacebudgetmodule.html#a917d4897942de165ea88d0c1f0850d8e">budgetmodule::rate_accumulator</a></div><div class="ttdeci">subroutine, public rate_accumulator(flow, rin, rout)</div><div class="ttdoc">@ brief Rate accumulator subroutine</div><div class="ttdef"><b>Definition:</b> <a href="_budget_8f90_source.html#l00651">Budget.f90:652</a></div></div>
 <div class="ttc" id="anamespacecellwithnbrsmodule_html"><div class="ttname"><a href="namespacecellwithnbrsmodule.html">cellwithnbrsmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_cell_with_nbrs_8f90_source.html#l00001">CellWithNbrs.f90:1</a></div></div>
@@ -742,7 +742,7 @@ $(document).ready(function(){initNavTree('_gwt_gwt_connection_8f90_source.html',
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_32e188284d239da8bb14ec1dabb0c35f.html">Model</a></li><li class="navelem"><a class="el" href="dir_4602b8d0a0ef27d9d0b14db2c16038ea.html">Connection</a></li><li class="navelem"><a class="el" href="_gwt_gwt_connection_8f90.html">GwtGwtConnection.f90</a></li>
-    <li class="footer">Generated on Thu Mar 30 2023 12:37:56 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Mar 31 2023 10:14:45 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

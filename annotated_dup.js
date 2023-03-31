@@ -471,6 +471,7 @@ var annotated_dup =
     ] ],
     [ "mpimessagebuildermodule", "namespacempimessagebuildermodule.html", [
       [ "vdcheadertype", "structmpimessagebuildermodule_1_1vdcheadertype.html", "structmpimessagebuildermodule_1_1vdcheadertype" ],
+      [ "vdcreceivermapstype", "structmpimessagebuildermodule_1_1vdcreceivermapstype.html", "structmpimessagebuildermodule_1_1vdcreceivermapstype" ],
       [ "mpimessagebuildertype", "structmpimessagebuildermodule_1_1mpimessagebuildertype.html", "structmpimessagebuildermodule_1_1mpimessagebuildertype" ]
     ] ],
     [ "mpiroutermodule", "namespacempiroutermodule.html", [
@@ -687,6 +688,8 @@ var annotated_dup =
     ] ],
     [ "virtualdatacontainermodule", "namespacevirtualdatacontainermodule.html", [
       [ "vdcptrtype", "structvirtualdatacontainermodule_1_1vdcptrtype.html", "structvirtualdatacontainermodule_1_1vdcptrtype" ],
+      [ "vdcelementmaptype", "structvirtualdatacontainermodule_1_1vdcelementmaptype.html", "structvirtualdatacontainermodule_1_1vdcelementmaptype" ],
+      [ "vdcelementluttype", "structvirtualdatacontainermodule_1_1vdcelementluttype.html", "structvirtualdatacontainermodule_1_1vdcelementluttype" ],
       [ "virtualdatacontainertype", "structvirtualdatacontainermodule_1_1virtualdatacontainertype.html", "structvirtualdatacontainermodule_1_1virtualdatacontainertype" ]
     ] ],
     [ "virtualdatamanagermodule", "namespacevirtualdatamanagermodule.html", [

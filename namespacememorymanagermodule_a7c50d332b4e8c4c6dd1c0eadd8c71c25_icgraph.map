@@ -1,4 +1,5 @@
 <map id="memorymanagermodule::get_mem_shape" name="memorymanagermodule::get_mem_shape">
-<area shape="rect" id="node1" title="@ brief Get the variable memory shape" alt="" coords="229,5,413,47"/>
-<area shape="rect" id="node2" href="$namespacemf6bmi.html#aa6b446de7c8c4e4eb1fc5f02d227367e" title="Get the shape of the array for the variable (non&#45;BMI)" alt="" coords="5,13,181,39"/>
+<area shape="rect" id="node1" title="@ brief Get the variable memory shape" alt="" coords="253,35,437,76"/>
+<area shape="rect" id="node2" href="$namespacempimessagebuildermodule.html#a7628a66eb64045c68beb103285a35bcb" title="Temp. function to generate a dummy (complete) map." alt="" coords="5,5,205,47"/>
+<area shape="rect" id="node3" href="$namespacemf6bmi.html#aa6b446de7c8c4e4eb1fc5f02d227367e" title="Get the shape of the array for the variable (non&#45;BMI)" alt="" coords="17,71,193,98"/>
 </map>

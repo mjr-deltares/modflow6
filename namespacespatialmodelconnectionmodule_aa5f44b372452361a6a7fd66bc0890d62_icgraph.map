@@ -1,6 +1,6 @@
 <map id="spatialmodelconnectionmodule::cast_as_smc" name="spatialmodelconnectionmodule::cast_as_smc">
-<area shape="rect" id="node1" title="Cast to SpatialModelConnectionType." alt="" coords="1181,282,1408,323"/>
-<area shape="rect" id="node2" href="$namespacespatialmodelconnectionmodule.html#a2b761db429763a32bde62e7d67119574" title="Get the connection from a list." alt="" coords="907,282,1133,323"/>
+<area shape="rect" id="node1" title="Cast to SpatialModelConnectionType." alt="" coords="1181,307,1408,349"/>
+<area shape="rect" id="node2" href="$namespacespatialmodelconnectionmodule.html#a2b761db429763a32bde62e7d67119574" title="Get the connection from a list." alt="" coords="907,307,1133,349"/>
 <area shape="rect" id="node3" href="$namespacemappermodule.html#aab67d99c9dedc2695efba4d5fbf7d62a" title="Add virtual exchange variables." alt="" coords="596,5,855,32"/>
 <area shape="rect" id="node4" href="$namespacemappermodule.html#a9cdc8276aa4b5e023e04003133744b39" title="Add distributed interface variables as memory mapped items." alt="" coords="599,56,852,83"/>
 <area shape="rect" id="node5" href="$namespaceconnectionbuildermodule.html#a811352ca83b6d13b798944397e40760a" title="Create connectivity of models which contribute to the interface." alt="" coords="629,107,821,149"/>
@@ -8,17 +8,18 @@
 <area shape="rect" id="node7" href="$namespacemf6coremodule.html#ae17efa5a9e03fd31617a08c08e20ae03" title="Finalize the simulation." alt="" coords="622,340,829,367"/>
 <area shape="rect" id="node11" href="$namespacemf6coremodule.html#aab3891c5763fe8a941e6799fe9c82388" title="Finalize time step." alt="" coords="593,239,857,265"/>
 <area shape="rect" id="node15" href="$namespacemf6coremodule.html#a40b8130d3cf17bc47fcb54c254aada8a" title="Read and prepare time step." alt="" coords="592,289,859,316"/>
-<area shape="rect" id="node17" href="$namespaceconnectionbuildermodule.html#a70c99123d0984c94b5c28ee5f8cfccfe" title="Set connections to the solution." alt="" coords="629,391,822,433"/>
-<area shape="rect" id="node18" href="$namespacemf6coremodule.html#a622ba9fa9473eb16b9f17553d6483ae9" title="Simulation allocate and read." alt="" coords="614,508,837,535"/>
-<area shape="rect" id="node21" href="$namespacemf6coremodule.html#a55d3318977ea83a1389aec5f42d5a77f" title="Define the simulation." alt="" coords="614,457,837,484"/>
-<area shape="rect" id="node22" href="$namespacevirtualdatamanagermodule.html#ac33ea4d249e2305f3109405dab3c9b8f" title="Add the models and exchanges from the passed solution to the virtual data structure...." alt="" coords="625,559,825,601"/>
-<area shape="rect" id="node8" href="$namespacemf6bmi.html#ab8397f78e5c3c405656064c227eca26f" title="Clean up the initialized simulation." alt="" coords="357,356,517,383"/>
-<area shape="rect" id="node9" href="$namespacemf6coremodule.html#a207819c711610066af1b83ec2a8efef0" title="Main controller." alt="" coords="101,407,281,433"/>
-<area shape="rect" id="node10" href="$mf6_8f90.html#aa95bf577752f92b917375902bbb13863" title="MODFLOW 6 main entry point." alt="" coords="5,407,53,433"/>
-<area shape="rect" id="node12" href="$namespacemf6coremodule.html#a7526420bd1fc4ebd3a09487e8509eff7" title="Run a time step." alt="" coords="335,239,539,265"/>
-<area shape="rect" id="node14" href="$namespacemf6xmi.html#ac693e2880714e2c5d97a752123b19b7b" title="Finalize the time step." alt="" coords="357,173,517,214"/>
-<area shape="rect" id="node13" href="$namespacemf6bmi.html#a91fa63496b27ec97b5e1b689497cd10a" title="Perform a computational time step." alt="" coords="112,239,271,265"/>
-<area shape="rect" id="node16" href="$namespacemf6xmi.html#aa078192e78aa3e261fc712bbdf6b38f0" title="Prepare a single time step." alt="" coords="355,290,518,331"/>
-<area shape="rect" id="node19" href="$namespacemf6coremodule.html#aa847da5116e01f4fad8885b0c4f96757" title="Initialize a simulation." alt="" coords="329,457,544,484"/>
-<area shape="rect" id="node20" href="$namespacemf6bmi.html#aa886df822e4ea66c30a97a9060da5de8" title="Initialize the computational core." alt="" coords="107,457,276,484"/>
+<area shape="rect" id="node17" href="$namespaceconnectionbuildermodule.html#a70c99123d0984c94b5c28ee5f8cfccfe" title="Set connections to the solution." alt="" coords="629,493,822,534"/>
+<area shape="rect" id="node18" href="$namespacemf6coremodule.html#a622ba9fa9473eb16b9f17553d6483ae9" title="Simulation allocate and read." alt="" coords="614,391,837,417"/>
+<area shape="rect" id="node21" href="$namespacemf6coremodule.html#a55d3318977ea83a1389aec5f42d5a77f" title="Define the simulation." alt="" coords="614,441,837,468"/>
+<area shape="rect" id="node22" href="$namespacevirtualdatamanagermodule.html#ac33ea4d249e2305f3109405dab3c9b8f" title="Add the models and exchanges from the passed solution to the virtual data structure...." alt="" coords="625,558,825,599"/>
+<area shape="rect" id="node23" href="$namespacevirtualdatamanagermodule.html#a1c72e10d0cff35c73940065ba27aed06" title="Reduce the halo for all solutions. This will." alt="" coords="625,623,825,665"/>
+<area shape="rect" id="node8" href="$namespacemf6bmi.html#ab8397f78e5c3c405656064c227eca26f" title="Clean up the initialized simulation." alt="" coords="357,344,517,371"/>
+<area shape="rect" id="node9" href="$namespacemf6coremodule.html#a207819c711610066af1b83ec2a8efef0" title="Main controller." alt="" coords="101,395,281,421"/>
+<area shape="rect" id="node10" href="$mf6_8f90.html#aa95bf577752f92b917375902bbb13863" title="MODFLOW 6 main entry point." alt="" coords="5,395,53,421"/>
+<area shape="rect" id="node12" href="$namespacemf6coremodule.html#a7526420bd1fc4ebd3a09487e8509eff7" title="Run a time step." alt="" coords="335,227,539,253"/>
+<area shape="rect" id="node14" href="$namespacemf6xmi.html#ac693e2880714e2c5d97a752123b19b7b" title="Finalize the time step." alt="" coords="357,161,517,202"/>
+<area shape="rect" id="node13" href="$namespacemf6bmi.html#a91fa63496b27ec97b5e1b689497cd10a" title="Perform a computational time step." alt="" coords="112,227,271,253"/>
+<area shape="rect" id="node16" href="$namespacemf6xmi.html#aa078192e78aa3e261fc712bbdf6b38f0" title="Prepare a single time step." alt="" coords="355,278,518,319"/>
+<area shape="rect" id="node19" href="$namespacemf6coremodule.html#aa847da5116e01f4fad8885b0c4f96757" title="Initialize a simulation." alt="" coords="329,445,544,472"/>
+<area shape="rect" id="node20" href="$namespacemf6bmi.html#aa886df822e4ea66c30a97a9060da5de8" title="Initialize the computational core." alt="" coords="107,445,276,472"/>
 </map>

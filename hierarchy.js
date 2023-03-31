@@ -335,8 +335,11 @@ var hierarchy =
     [ "sortmodule::unique_values", "interfacesortmodule_1_1unique__values.html", null ],
     [ "uzfcellgroupmodule::uzfcellgrouptype", "structuzfcellgroupmodule_1_1uzfcellgrouptype.html", null ],
     [ "tvbasemodule::validate_change", "interfacetvbasemodule_1_1validate__change.html", null ],
+    [ "virtualdatacontainermodule::vdcelementluttype", "structvirtualdatacontainermodule_1_1vdcelementluttype.html", null ],
+    [ "virtualdatacontainermodule::vdcelementmaptype", "structvirtualdatacontainermodule_1_1vdcelementmaptype.html", null ],
     [ "mpimessagebuildermodule::vdcheadertype", "structmpimessagebuildermodule_1_1vdcheadertype.html", null ],
     [ "virtualdatacontainermodule::vdcptrtype", "structvirtualdatacontainermodule_1_1vdcptrtype.html", null ],
+    [ "mpimessagebuildermodule::vdcreceivermapstype", "structmpimessagebuildermodule_1_1vdcreceivermapstype.html", null ],
     [ "vectorbasemodule::vectorbasetype", "structvectorbasemodule_1_1vectorbasetype.html", [
       [ "petscvectormodule::petscvectortype", "structpetscvectormodule_1_1petscvectortype.html", null ],
       [ "seqvectormodule::seqvectortype", "structseqvectormodule_1_1seqvectortype.html", null ]

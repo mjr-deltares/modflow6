@@ -1,4 +1,4 @@
 <map id="mpiroutermodule::mr_route_active" name="mpiroutermodule::mr_route_active">
-<area shape="rect" id="node1" title="Routes the models and exchanges." alt="" coords="5,5,167,47"/>
+<area shape="rect" id="node1" title="Routes the models and exchanges. This is the." alt="" coords="5,5,167,47"/>
 <area shape="rect" id="node2" href="$namespacevirtualdatacontainermodule.html#a539248bece5ce139a47e7cfb365a6ea1" title="@ Converts a virtual container type to its string representation" alt="" coords="215,5,417,47"/>
 </map>

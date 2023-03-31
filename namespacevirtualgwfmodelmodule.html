@@ -455,7 +455,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (stage == stg_before_ar) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;      nr_nodes = this%dis_nodes%get()</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;      nr_nodes = this%element_maps(map_node_type)%nr_virt_elems</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;      <span class="comment">! Num. model data</span></div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;      <span class="keyword">call </span>this%map(this%x%to_base(), nr_nodes, &amp;</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                    (/stg_before_ar, stg_before_ad, stg_before_cf/), &amp;</div>
@@ -515,7 +515,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacevirtualgwfmodelmodule.html">virtualgwfmodelmodule</a></li>
-    <li class="footer">Generated on Thu Mar 30 2023 12:38:00 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Mar 31 2023 10:14:51 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

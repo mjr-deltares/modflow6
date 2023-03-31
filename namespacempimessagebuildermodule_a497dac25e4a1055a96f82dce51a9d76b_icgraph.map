@@ -1,4 +1,0 @@
-<map id="mpimessagebuildermodule::get_mpi_datatype" name="mpimessagebuildermodule::get_mpi_datatype">
-<area shape="rect" id="node1" title="Local routine to get elemental mpi data types representing the virtual data items...." alt="" coords="253,5,453,47"/>
-<area shape="rect" id="node2" href="$namespacempimessagebuildermodule.html#ab3ff239300f2c7d1f63c2d77a25a1a74" title="Create data type for this container, relative." alt="" coords="5,5,205,47"/>
-</map>
