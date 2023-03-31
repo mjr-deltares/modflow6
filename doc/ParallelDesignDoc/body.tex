@@ -1,0 +1,69 @@
+%Introduction
+\chapter{Introduction}
+
+\section{Motivation}
+Larger models, end of Moore's Law
+
+\section{Forms of Parallelism}
+Different forms of parallelism: thread, instruction level, data.
+
+\section{Target Use Cases}
+The two major use cases: one large model split up, a multi-domain (national-scale) model. Running on a local machine/laptop, deploying to a supercomputer.
+
+\section{Requirements}
+Requirements from user perspective. Requirements from developer's perspective.
+
+\section{Parallelization Strategy}
+Describes how we are going to implement parallelization in MODFLOW 6.
+
+%Design Overview
+\chapter{Design Overview}
+
+\section{Application Structure}
+Creation. Creation++: the interfaces. Assembly. Solution.
+\section{Parallel Simulation}
+This should describe a parallel simulation in terms of interdependence and timing of components.
+\section{Input/Output Data}
+
+
+%Advanced Exchanges
+\chapter{Advanced Exchanges}
+
+\begin{itemize}
+\item discuss approach vs. traditional halo exchange
+\end{itemize}
+\section{Construction}
+Halo construction, Grid builder, ...
+\section{Interface Model}
+\section{Timely Synchronization}
+
+%Virtual Data
+\chapter{Virtual Data}
+
+\section{Layout}
+\section{Run Control}
+\section{Message Passing with MPI}
+
+%Parallel Solution
+\chapter{Parallel Solution}
+
+\section{Extending Numerical Solution}
+\section{PETSc Solver}
+\section{Validation}
+How does a parallel solution compare to the serial case?
+
+%Parallel Development
+\chapter{Parallel Development}
+
+\section{Adding a Model or Package}
+
+%Test Framework
+\chapter{Test Framework}
+
+Describes autotest framework for parallel. Guidelines what to test for.
+
+%Outlook
+\chapter{Outlook}
+
+\section{Future Extensions}
+Make classic exchanges parallel too.
