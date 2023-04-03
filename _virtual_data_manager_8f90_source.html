@@ -299,195 +299,197 @@ $(document).ready(function(){initNavTree('_virtual_data_manager_8f90_source.html
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="keywordflow">    end do</span></div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="comment">! some testing</span></div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    outunit = <a class="code" href="namespaceinputoutputmodule.html#a535bdfca3d31ebc3a8e4bd5af6890d55">getunit</a>()</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    <span class="keyword">write</span> (monitor_file, <span class="stringliteral">&#39;(a,i0,a)&#39;</span>) <span class="stringliteral">&quot;iface.p&quot;</span>, <a class="code" href="namespacesimvariablesmodule.html#ad80329d14dcb3210a5eb9e94c589b8c1">proc_id</a>, <span class="stringliteral">&quot;.log&quot;</span></div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keyword">open</span> (unit=outunit, file=monitor_file)</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="keywordflow">do</span> isol = 1, this%nr_solutions</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;      <span class="keyword">write</span> (outunit, <span class="stringliteral">&#39;(a,i0,/)&#39;</span>) <span class="stringliteral">&quot;interface mape for solution &quot;</span>, &amp;</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        this%virtual_solutions(isol)%solution_id</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;      <span class="keyword">call </span>this%virtual_solutions(isol)%interface_map%print_interface(outunit)</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keyword">close</span> (outunit)</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; </div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="comment">! assign reduced maps to virtual data containers</span></div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="keywordflow">do</span> isol = 1, this%nr_solutions</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;      virt_sol =&gt; this%virtual_solutions(isol)</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;      <span class="keywordflow">do</span> ivm = 1, <span class="keyword">size</span>(virt_sol%models) <span class="comment">! TODO_MJR: other containers, exchanges?</span></div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        vdc =&gt; virt_sol%models(ivm)%ptr</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <span class="keywordflow">if</span> (vdc%is_local) cycle</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        nmap =&gt; virt_sol%interface_map%get_node_map(vdc%id)</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        cmap =&gt; virt_sol%interface_map%get_connection_map(vdc%id)</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        <span class="keyword">call </span>vdc%set_element_map(nmap%src_idx, <a class="code" href="namespacevirtualbasemodule.html#af4b03b7fb0e37e4d106bddf41e53df8e">map_node_type</a>)</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        <span class="keyword">call </span>vdc%set_element_map(cmap%src_idx, <a class="code" href="namespacevirtualbasemodule.html#a6fb0a58cc34d396c6d57a72ef6a36007">map_conn_type</a>)</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="keywordflow">      end do</span></div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; </div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacevirtualdatamanagermodule.html#a1c72e10d0cff35c73940065ba27aed06">vds_reduce_halo</a></div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="comment">  !&gt; @brief Synchronize the full virtual data store for this stage</span></div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="comment">  !&lt;</span></div>
-<div class="line"><a name="l00214"></a><span class="lineno"><a class="line" href="namespacevirtualdatamanagermodule.html#a642d768b5d42fca2701e166946eae2c7">  214</a></span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacevirtualdatamanagermodule.html#a642d768b5d42fca2701e166946eae2c7">vds_synchronize</a>(this, stage)</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvirtualdatamanagermodule_1_1virtualdatamanagertype.html">virtualdatamanagertype</a>) :: this<span class="comment"> !&lt; this vdm</span></div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: stage<span class="comment"> !&lt; the stage to sync</span></div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160; </div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keyword">call </span>this%prepare_all(stage)</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="keyword">call </span>this%link_all(stage)</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keyword">call </span>this%router%route_all(stage)</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160; </div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacevirtualdatamanagermodule.html#a642d768b5d42fca2701e166946eae2c7">vds_synchronize</a></div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="keywordflow">if</span> (.false.) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;      outunit = <a class="code" href="namespaceinputoutputmodule.html#a535bdfca3d31ebc3a8e4bd5af6890d55">getunit</a>()</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;      <span class="keyword">write</span> (monitor_file, <span class="stringliteral">&#39;(a,i0,a)&#39;</span>) <span class="stringliteral">&quot;iface.p&quot;</span>, <a class="code" href="namespacesimvariablesmodule.html#ad80329d14dcb3210a5eb9e94c589b8c1">proc_id</a>, <span class="stringliteral">&quot;.log&quot;</span></div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;      <span class="keyword">open</span> (unit=outunit, file=monitor_file)</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;      <span class="keywordflow">do</span> isol = 1, this%nr_solutions</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        <span class="keyword">write</span> (outunit, <span class="stringliteral">&#39;(a,i0,/)&#39;</span>) <span class="stringliteral">&quot;interface mape for solution &quot;</span>, &amp;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;          this%virtual_solutions(isol)%solution_id</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        <span class="keyword">call </span>this%virtual_solutions(isol)%interface_map%print_interface(outunit)</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="keywordflow">      end do</span></div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;      <span class="keyword">close</span> (outunit)</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="comment">! assign reduced maps to virtual data containers</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keywordflow">do</span> isol = 1, this%nr_solutions</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;      virt_sol =&gt; this%virtual_solutions(isol)</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;      <span class="keywordflow">do</span> ivm = 1, <span class="keyword">size</span>(virt_sol%models) <span class="comment">! TODO_MJR: other containers, exchanges?</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        vdc =&gt; virt_sol%models(ivm)%ptr</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        <span class="keywordflow">if</span> (vdc%is_local) cycle</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        nmap =&gt; virt_sol%interface_map%get_node_map(vdc%id)</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        cmap =&gt; virt_sol%interface_map%get_connection_map(vdc%id)</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        <span class="keyword">call </span>vdc%set_element_map(nmap%src_idx, <a class="code" href="namespacevirtualbasemodule.html#af4b03b7fb0e37e4d106bddf41e53df8e">map_node_type</a>)</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        <span class="keyword">call </span>vdc%set_element_map(cmap%src_idx, <a class="code" href="namespacevirtualbasemodule.html#a6fb0a58cc34d396c6d57a72ef6a36007">map_conn_type</a>)</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="keywordflow">      end do</span></div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160; </div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacevirtualdatamanagermodule.html#a1c72e10d0cff35c73940065ba27aed06">vds_reduce_halo</a></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="comment">  !&gt; @brief Synchronize the full virtual data store for this stage</span></div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;<span class="comment">  !&lt;</span></div>
+<div class="line"><a name="l00216"></a><span class="lineno"><a class="line" href="namespacevirtualdatamanagermodule.html#a642d768b5d42fca2701e166946eae2c7">  216</a></span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacevirtualdatamanagermodule.html#a642d768b5d42fca2701e166946eae2c7">vds_synchronize</a>(this, stage)</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvirtualdatamanagermodule_1_1virtualdatamanagertype.html">virtualdatamanagertype</a>) :: this<span class="comment"> !&lt; this vdm</span></div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: stage<span class="comment"> !&lt; the stage to sync</span></div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; </div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keyword">call </span>this%prepare_all(stage)</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="keyword">call </span>this%link_all(stage)</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <span class="keyword">call </span>this%router%route_all(stage)</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160; </div>
-<div class="line"><a name="l00224"></a><span class="lineno"><a class="line" href="namespacevirtualdatamanagermodule.html#a80edba34109a0d6efba7443c09db0425">  224</a></span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacevirtualdatamanagermodule.html#a80edba34109a0d6efba7443c09db0425">prepare_all</a>(this, stage)</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvirtualdatamanagermodule_1_1virtualdatamanagertype.html">virtualdatamanagertype</a>) :: this</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: stage</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvirtualdatacontainermodule_1_1virtualdatacontainertype.html">virtualdatacontainertype</a>), <span class="keywordtype">pointer</span> :: vdc</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160; </div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <span class="comment">! prepare all virtual data for this stage</span></div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="keywordflow">do</span> i = 1, <a class="code" href="namespacevirtualdatalistsmodule.html#a494bb037cec56235f140e54319928e5d">virtual_model_list</a>%Count()</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;      vdc =&gt; <a class="code" href="namespacevirtualdatacontainermodule.html#ad42d5894760af135c909a4d2d48e18dc">get_vdc_from_list</a>(<a class="code" href="namespacevirtualdatalistsmodule.html#a494bb037cec56235f140e54319928e5d">virtual_model_list</a>, i)</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;      <span class="keyword">call </span>vdc%prepare_stage(stage)</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="keywordflow">do</span> i = 1, <a class="code" href="namespacevirtualdatalistsmodule.html#a8f62c1e4aa6db83f79611ae19d2915db">virtual_exchange_list</a>%Count()</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;      vdc =&gt; <a class="code" href="namespacevirtualdatacontainermodule.html#ad42d5894760af135c909a4d2d48e18dc">get_vdc_from_list</a>(<a class="code" href="namespacevirtualdatalistsmodule.html#a8f62c1e4aa6db83f79611ae19d2915db">virtual_exchange_list</a>, i)</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;      <span class="keyword">call </span>vdc%prepare_stage(stage)</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160; </div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacevirtualdatamanagermodule.html#a80edba34109a0d6efba7443c09db0425">prepare_all</a></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacevirtualdatamanagermodule.html#a642d768b5d42fca2701e166946eae2c7">vds_synchronize</a></div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160; </div>
+<div class="line"><a name="l00226"></a><span class="lineno"><a class="line" href="namespacevirtualdatamanagermodule.html#a80edba34109a0d6efba7443c09db0425">  226</a></span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacevirtualdatamanagermodule.html#a80edba34109a0d6efba7443c09db0425">prepare_all</a>(this, stage)</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvirtualdatamanagermodule_1_1virtualdatamanagertype.html">virtualdatamanagertype</a>) :: this</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: stage</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvirtualdatacontainermodule_1_1virtualdatacontainertype.html">virtualdatacontainertype</a>), <span class="keywordtype">pointer</span> :: vdc</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160; </div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <span class="comment">! prepare all virtual data for this stage</span></div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    <span class="keywordflow">do</span> i = 1, <a class="code" href="namespacevirtualdatalistsmodule.html#a494bb037cec56235f140e54319928e5d">virtual_model_list</a>%Count()</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;      vdc =&gt; <a class="code" href="namespacevirtualdatacontainermodule.html#ad42d5894760af135c909a4d2d48e18dc">get_vdc_from_list</a>(<a class="code" href="namespacevirtualdatalistsmodule.html#a494bb037cec56235f140e54319928e5d">virtual_model_list</a>, i)</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;      <span class="keyword">call </span>vdc%prepare_stage(stage)</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    <span class="keywordflow">do</span> i = 1, <a class="code" href="namespacevirtualdatalistsmodule.html#a8f62c1e4aa6db83f79611ae19d2915db">virtual_exchange_list</a>%Count()</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;      vdc =&gt; <a class="code" href="namespacevirtualdatacontainermodule.html#ad42d5894760af135c909a4d2d48e18dc">get_vdc_from_list</a>(<a class="code" href="namespacevirtualdatalistsmodule.html#a8f62c1e4aa6db83f79611ae19d2915db">virtual_exchange_list</a>, i)</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;      <span class="keyword">call </span>vdc%prepare_stage(stage)</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="keywordflow">    end do</span></div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160; </div>
-<div class="line"><a name="l00243"></a><span class="lineno"><a class="line" href="namespacevirtualdatamanagermodule.html#a65d23892c29e52f0ae9a91ee4e3d8b69">  243</a></span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacevirtualdatamanagermodule.html#a65d23892c29e52f0ae9a91ee4e3d8b69">link_all</a>(this, stage)</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvirtualdatamanagermodule_1_1virtualdatamanagertype.html">virtualdatamanagertype</a>) :: this</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: stage</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvirtualdatacontainermodule_1_1virtualdatacontainertype.html">virtualdatacontainertype</a>), <span class="keywordtype">pointer</span> :: vdc</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160; </div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="comment">! link all local objects</span></div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="keywordflow">do</span> i = 1, <a class="code" href="namespacevirtualdatalistsmodule.html#a494bb037cec56235f140e54319928e5d">virtual_model_list</a>%Count()</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;      vdc =&gt; <a class="code" href="namespacevirtualdatacontainermodule.html#ad42d5894760af135c909a4d2d48e18dc">get_vdc_from_list</a>(<a class="code" href="namespacevirtualdatalistsmodule.html#a494bb037cec56235f140e54319928e5d">virtual_model_list</a>, i)</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;      <span class="keyword">call </span>vdc%link_items(stage)</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <span class="keywordflow">do</span> i = 1, <a class="code" href="namespacevirtualdatalistsmodule.html#a8f62c1e4aa6db83f79611ae19d2915db">virtual_exchange_list</a>%Count()</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;      vdc =&gt; <a class="code" href="namespacevirtualdatacontainermodule.html#ad42d5894760af135c909a4d2d48e18dc">get_vdc_from_list</a>(<a class="code" href="namespacevirtualdatalistsmodule.html#a8f62c1e4aa6db83f79611ae19d2915db">virtual_exchange_list</a>, i)</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;      <span class="keyword">call </span>vdc%link_items(stage)</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160; </div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacevirtualdatamanagermodule.html#a65d23892c29e52f0ae9a91ee4e3d8b69">link_all</a></div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;<span class="comment">  !&gt; @brief Synchronize one particular solution for this stage</span></div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="comment">  !&lt;</span></div>
-<div class="line"><a name="l00264"></a><span class="lineno"><a class="line" href="namespacevirtualdatamanagermodule.html#a25a5cee6abfcc0976fdaa4da5bf0aa78">  264</a></span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacevirtualdatamanagermodule.html#a25a5cee6abfcc0976fdaa4da5bf0aa78">vds_synchronize_sln</a>(this, id_sln, stage)</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacearrayhandlersmodule.html">arrayhandlersmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="interfacearrayhandlersmodule_1_1ifind.html">ifind</a></div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvirtualdatamanagermodule_1_1virtualdatamanagertype.html">virtualdatamanagertype</a>) :: this</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: id_sln<span class="comment"> !&lt; the id of the solution</span></div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: stage</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: sol_idx</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160; </div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    sol_idx = <a class="code" href="interfacearrayhandlersmodule_1_1ifind.html">ifind</a>(this%solution_ids, id_sln)</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <span class="keyword">call </span>this%prepare_sln(this%virtual_solutions(sol_idx), stage)</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <span class="keyword">call </span>this%link_sln(this%virtual_solutions(sol_idx), stage)</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <span class="keyword">call </span>this%router%route_sln(this%virtual_solutions(sol_idx), stage)</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160; </div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacevirtualdatamanagermodule.html#a25a5cee6abfcc0976fdaa4da5bf0aa78">vds_synchronize_sln</a></div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;<span class="comment">  !&gt; @brief Force the virtual data containers (models,</span></div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;<span class="comment">  !! exchanges, etc.) to schedule their virtual data</span></div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<span class="comment">  !&lt; items for synchronization</span></div>
-<div class="line"><a name="l00282"></a><span class="lineno"><a class="line" href="namespacevirtualdatamanagermodule.html#a6575f800fe792dd05caf27682ade802e">  282</a></span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacevirtualdatamanagermodule.html#a6575f800fe792dd05caf27682ade802e">prepare_sln</a>(this, virtual_sol, stage)</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvirtualdatamanagermodule_1_1virtualdatamanagertype.html">virtualdatamanagertype</a>) :: this</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structvirtualsolutionmodule_1_1virtualsolutiontype.html">virtualsolutiontype</a>) :: virtual_sol</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: stage</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvirtualdatacontainermodule_1_1virtualdatacontainertype.html">virtualdatacontainertype</a>), <span class="keywordtype">pointer</span> :: vdc</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160; </div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    <span class="keywordflow">do</span> i = 1, <span class="keyword">size</span>(virtual_sol%models)</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;      vdc =&gt; virtual_sol%models(i)%ptr</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;      <span class="keyword">call </span>vdc%prepare_stage(stage)</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160; </div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    <span class="keywordflow">do</span> i = 1, <span class="keyword">size</span>(virtual_sol%exchanges)</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;      vdc =&gt; virtual_sol%exchanges(i)%ptr</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;      <span class="keyword">call </span>vdc%prepare_stage(stage)</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160; </div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacevirtualdatamanagermodule.html#a6575f800fe792dd05caf27682ade802e">prepare_sln</a></div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span class="comment">  !&gt; @brief Connect virtual memory items to their</span></div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="comment">  !&lt; sources when they are local for this stage</span></div>
-<div class="line"><a name="l00304"></a><span class="lineno"><a class="line" href="namespacevirtualdatamanagermodule.html#a68e0b413ba14a59a59247fc6bcb2bfff">  304</a></span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacevirtualdatamanagermodule.html#a68e0b413ba14a59a59247fc6bcb2bfff">link_sln</a>(this, virtual_sol, stage)</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvirtualdatamanagermodule_1_1virtualdatamanagertype.html">virtualdatamanagertype</a>) :: this</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structvirtualsolutionmodule_1_1virtualsolutiontype.html">virtualsolutiontype</a>) :: virtual_sol</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: stage</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvirtualdatacontainermodule_1_1virtualdatacontainertype.html">virtualdatacontainertype</a>), <span class="keywordtype">pointer</span> :: vdc</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160; </div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    <span class="keywordflow">do</span> i = 1, <span class="keyword">size</span>(virtual_sol%models)</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;      vdc =&gt; virtual_sol%models(i)%ptr</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;      <span class="keyword">call </span>vdc%link_items(stage)</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160; </div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="keywordflow">do</span> i = 1, <span class="keyword">size</span>(virtual_sol%exchanges)</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;      vdc =&gt; virtual_sol%exchanges(i)%ptr</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;      <span class="keyword">call </span>vdc%link_items(stage)</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160; </div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacevirtualdatamanagermodule.html#a68e0b413ba14a59a59247fc6bcb2bfff">link_sln</a></div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;<span class="comment">  !&gt; @brief Returns the number of Numerical Solutions</span></div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;<span class="comment">  !&lt; in this simulation</span></div>
-<div class="line"><a name="l00326"></a><span class="lineno"><a class="line" href="namespacevirtualdatamanagermodule.html#a8eef15fa840e51a231109e9fd4f23e5e">  326</a></span>&#160;  <span class="keyword">function </span><a class="code" href="namespacevirtualdatamanagermodule.html#a8eef15fa840e51a231109e9fd4f23e5e">count_nr_solutions</a>(this) <span class="keyword">result</span>(count)</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacelistsmodule.html">listsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacelistsmodule.html#aa1a3cd1509449addb1bb6d6f4ff0b7fb">basesolutionlist</a></div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacenumericalsolutionmodule.html">numericalsolutionmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structnumericalsolutionmodule_1_1numericalsolutiontype.html">numericalsolutiontype</a></div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvirtualdatamanagermodule_1_1virtualdatamanagertype.html">virtualdatamanagertype</a>) :: this</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: count</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: isol</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span> :: sol</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160; </div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    <span class="comment">! count nr. of numerical solutions</span></div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    count = 0</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <span class="keywordflow">do</span> isol = 1, <a class="code" href="namespacelistsmodule.html#aa1a3cd1509449addb1bb6d6f4ff0b7fb">basesolutionlist</a>%Count()</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;      sol =&gt; <a class="code" href="namespacelistsmodule.html#aa1a3cd1509449addb1bb6d6f4ff0b7fb">basesolutionlist</a>%GetItem(isol)</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;      <span class="keywordflow">select type</span> (sol)</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;<span class="keywordflow">      class is</span> (<a class="code" href="structnumericalsolutionmodule_1_1numericalsolutiontype.html">numericalsolutiontype</a>)</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        count = count + 1</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;<span class="keywordflow">      end select</span></div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160; </div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;  <span class="keyword">end function </span><a class="code" href="namespacevirtualdatamanagermodule.html#a8eef15fa840e51a231109e9fd4f23e5e">count_nr_solutions</a></div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacevirtualdatamanagermodule.html#a80edba34109a0d6efba7443c09db0425">prepare_all</a></div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160; </div>
+<div class="line"><a name="l00245"></a><span class="lineno"><a class="line" href="namespacevirtualdatamanagermodule.html#a65d23892c29e52f0ae9a91ee4e3d8b69">  245</a></span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacevirtualdatamanagermodule.html#a65d23892c29e52f0ae9a91ee4e3d8b69">link_all</a>(this, stage)</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvirtualdatamanagermodule_1_1virtualdatamanagertype.html">virtualdatamanagertype</a>) :: this</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: stage</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvirtualdatacontainermodule_1_1virtualdatacontainertype.html">virtualdatacontainertype</a>), <span class="keywordtype">pointer</span> :: vdc</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160; </div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <span class="comment">! link all local objects</span></div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <span class="keywordflow">do</span> i = 1, <a class="code" href="namespacevirtualdatalistsmodule.html#a494bb037cec56235f140e54319928e5d">virtual_model_list</a>%Count()</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;      vdc =&gt; <a class="code" href="namespacevirtualdatacontainermodule.html#ad42d5894760af135c909a4d2d48e18dc">get_vdc_from_list</a>(<a class="code" href="namespacevirtualdatalistsmodule.html#a494bb037cec56235f140e54319928e5d">virtual_model_list</a>, i)</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;      <span class="keyword">call </span>vdc%link_items(stage)</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keywordflow">do</span> i = 1, <a class="code" href="namespacevirtualdatalistsmodule.html#a8f62c1e4aa6db83f79611ae19d2915db">virtual_exchange_list</a>%Count()</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;      vdc =&gt; <a class="code" href="namespacevirtualdatacontainermodule.html#ad42d5894760af135c909a4d2d48e18dc">get_vdc_from_list</a>(<a class="code" href="namespacevirtualdatalistsmodule.html#a8f62c1e4aa6db83f79611ae19d2915db">virtual_exchange_list</a>, i)</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;      <span class="keyword">call </span>vdc%link_items(stage)</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160; </div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacevirtualdatamanagermodule.html#a65d23892c29e52f0ae9a91ee4e3d8b69">link_all</a></div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="comment">  !&gt; @brief Synchronize one particular solution for this stage</span></div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="comment">  !&lt;</span></div>
+<div class="line"><a name="l00266"></a><span class="lineno"><a class="line" href="namespacevirtualdatamanagermodule.html#a25a5cee6abfcc0976fdaa4da5bf0aa78">  266</a></span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacevirtualdatamanagermodule.html#a25a5cee6abfcc0976fdaa4da5bf0aa78">vds_synchronize_sln</a>(this, id_sln, stage)</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacearrayhandlersmodule.html">arrayhandlersmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="interfacearrayhandlersmodule_1_1ifind.html">ifind</a></div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvirtualdatamanagermodule_1_1virtualdatamanagertype.html">virtualdatamanagertype</a>) :: this</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: id_sln<span class="comment"> !&lt; the id of the solution</span></div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: stage</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: sol_idx</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160; </div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    sol_idx = <a class="code" href="interfacearrayhandlersmodule_1_1ifind.html">ifind</a>(this%solution_ids, id_sln)</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <span class="keyword">call </span>this%prepare_sln(this%virtual_solutions(sol_idx), stage)</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <span class="keyword">call </span>this%link_sln(this%virtual_solutions(sol_idx), stage)</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="keyword">call </span>this%router%route_sln(this%virtual_solutions(sol_idx), stage)</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160; </div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacevirtualdatamanagermodule.html#a25a5cee6abfcc0976fdaa4da5bf0aa78">vds_synchronize_sln</a></div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<span class="comment">  !&gt; @brief Force the virtual data containers (models,</span></div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;<span class="comment">  !! exchanges, etc.) to schedule their virtual data</span></div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;<span class="comment">  !&lt; items for synchronization</span></div>
+<div class="line"><a name="l00284"></a><span class="lineno"><a class="line" href="namespacevirtualdatamanagermodule.html#a6575f800fe792dd05caf27682ade802e">  284</a></span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacevirtualdatamanagermodule.html#a6575f800fe792dd05caf27682ade802e">prepare_sln</a>(this, virtual_sol, stage)</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvirtualdatamanagermodule_1_1virtualdatamanagertype.html">virtualdatamanagertype</a>) :: this</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structvirtualsolutionmodule_1_1virtualsolutiontype.html">virtualsolutiontype</a>) :: virtual_sol</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: stage</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvirtualdatacontainermodule_1_1virtualdatacontainertype.html">virtualdatacontainertype</a>), <span class="keywordtype">pointer</span> :: vdc</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160; </div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    <span class="keywordflow">do</span> i = 1, <span class="keyword">size</span>(virtual_sol%models)</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;      vdc =&gt; virtual_sol%models(i)%ptr</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;      <span class="keyword">call </span>vdc%prepare_stage(stage)</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160; </div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    <span class="keywordflow">do</span> i = 1, <span class="keyword">size</span>(virtual_sol%exchanges)</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;      vdc =&gt; virtual_sol%exchanges(i)%ptr</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;      <span class="keyword">call </span>vdc%prepare_stage(stage)</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160; </div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacevirtualdatamanagermodule.html#a6575f800fe792dd05caf27682ade802e">prepare_sln</a></div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;<span class="comment">  !&gt; @brief Connect virtual memory items to their</span></div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="comment">  !&lt; sources when they are local for this stage</span></div>
+<div class="line"><a name="l00306"></a><span class="lineno"><a class="line" href="namespacevirtualdatamanagermodule.html#a68e0b413ba14a59a59247fc6bcb2bfff">  306</a></span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacevirtualdatamanagermodule.html#a68e0b413ba14a59a59247fc6bcb2bfff">link_sln</a>(this, virtual_sol, stage)</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvirtualdatamanagermodule_1_1virtualdatamanagertype.html">virtualdatamanagertype</a>) :: this</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structvirtualsolutionmodule_1_1virtualsolutiontype.html">virtualsolutiontype</a>) :: virtual_sol</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: stage</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvirtualdatacontainermodule_1_1virtualdatacontainertype.html">virtualdatacontainertype</a>), <span class="keywordtype">pointer</span> :: vdc</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160; </div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    <span class="keywordflow">do</span> i = 1, <span class="keyword">size</span>(virtual_sol%models)</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;      vdc =&gt; virtual_sol%models(i)%ptr</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;      <span class="keyword">call </span>vdc%link_items(stage)</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160; </div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    <span class="keywordflow">do</span> i = 1, <span class="keyword">size</span>(virtual_sol%exchanges)</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;      vdc =&gt; virtual_sol%exchanges(i)%ptr</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;      <span class="keyword">call </span>vdc%link_items(stage)</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160; </div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacevirtualdatamanagermodule.html#a68e0b413ba14a59a59247fc6bcb2bfff">link_sln</a></div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;<span class="comment">  !&gt; @brief Returns the number of Numerical Solutions</span></div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;<span class="comment">  !&lt; in this simulation</span></div>
+<div class="line"><a name="l00328"></a><span class="lineno"><a class="line" href="namespacevirtualdatamanagermodule.html#a8eef15fa840e51a231109e9fd4f23e5e">  328</a></span>&#160;  <span class="keyword">function </span><a class="code" href="namespacevirtualdatamanagermodule.html#a8eef15fa840e51a231109e9fd4f23e5e">count_nr_solutions</a>(this) <span class="keyword">result</span>(count)</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacelistsmodule.html">listsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacelistsmodule.html#aa1a3cd1509449addb1bb6d6f4ff0b7fb">basesolutionlist</a></div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacenumericalsolutionmodule.html">numericalsolutionmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structnumericalsolutionmodule_1_1numericalsolutiontype.html">numericalsolutiontype</a></div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvirtualdatamanagermodule_1_1virtualdatamanagertype.html">virtualdatamanagertype</a>) :: this</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: count</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: isol</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span> :: sol</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160; </div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <span class="comment">! count nr. of numerical solutions</span></div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    count = 0</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    <span class="keywordflow">do</span> isol = 1, <a class="code" href="namespacelistsmodule.html#aa1a3cd1509449addb1bb6d6f4ff0b7fb">basesolutionlist</a>%Count()</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;      sol =&gt; <a class="code" href="namespacelistsmodule.html#aa1a3cd1509449addb1bb6d6f4ff0b7fb">basesolutionlist</a>%GetItem(isol)</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;      <span class="keywordflow">select type</span> (sol)</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;<span class="keywordflow">      class is</span> (<a class="code" href="structnumericalsolutionmodule_1_1numericalsolutiontype.html">numericalsolutiontype</a>)</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        count = count + 1</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;<span class="keywordflow">      end select</span></div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;<span class="keywordflow">    end do</span></div>
 <div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160; </div>
-<div class="line"><a name="l00347"></a><span class="lineno"><a class="line" href="namespacevirtualdatamanagermodule.html#a990f45c7fd63612d469ab61252285a4d">  347</a></span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacevirtualdatamanagermodule.html#a990f45c7fd63612d469ab61252285a4d">destroy</a>(this)</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvirtualdatamanagermodule_1_1virtualdatamanagertype.html">virtualdatamanagertype</a>) :: this</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvirtualdatacontainermodule_1_1virtualdatacontainertype.html">virtualdatacontainertype</a>), <span class="keywordtype">pointer</span> :: vdc</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160; </div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    <span class="keywordflow">do</span> i = 1, <a class="code" href="namespacevirtualdatalistsmodule.html#a494bb037cec56235f140e54319928e5d">virtual_model_list</a>%Count()</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;      vdc =&gt; <a class="code" href="namespacevirtualdatacontainermodule.html#ad42d5894760af135c909a4d2d48e18dc">get_vdc_from_list</a>(<a class="code" href="namespacevirtualdatalistsmodule.html#a494bb037cec56235f140e54319928e5d">virtual_model_list</a>, i)</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;      <span class="keyword">call </span>vdc%destroy()</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;    <span class="keyword">call </span><a class="code" href="namespacevirtualdatalistsmodule.html#a494bb037cec56235f140e54319928e5d">virtual_model_list</a>%Clear(<a class="code" href="namespacevirtualdatamanagermodule.html#a990f45c7fd63612d469ab61252285a4d">destroy</a>=.true.)</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160; </div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    <span class="keywordflow">do</span> i = 1, <a class="code" href="namespacevirtualdatalistsmodule.html#a8f62c1e4aa6db83f79611ae19d2915db">virtual_exchange_list</a>%Count()</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;      vdc =&gt; <a class="code" href="namespacevirtualdatacontainermodule.html#ad42d5894760af135c909a4d2d48e18dc">get_vdc_from_list</a>(<a class="code" href="namespacevirtualdatalistsmodule.html#a8f62c1e4aa6db83f79611ae19d2915db">virtual_exchange_list</a>, i)</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;      <span class="keyword">call </span>vdc%destroy()</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;    <span class="keyword">call </span><a class="code" href="namespacevirtualdatalistsmodule.html#a8f62c1e4aa6db83f79611ae19d2915db">virtual_exchange_list</a>%Clear(<a class="code" href="namespacevirtualdatamanagermodule.html#a990f45c7fd63612d469ab61252285a4d">destroy</a>=.true.)</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160; </div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    <span class="keywordflow">do</span> i = 1, this%nr_solutions</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;      <span class="keyword">deallocate</span> (this%virtual_solutions(i)%models)</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;      <span class="keyword">deallocate</span> (this%virtual_solutions(i)%exchanges)</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;      <span class="keyword">call </span>this%virtual_solutions(i)%interface_map%destroy()</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;      <span class="keyword">deallocate</span> (this%virtual_solutions(i)%interface_map)</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    <span class="keyword">deallocate</span> (this%virtual_solutions)</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160; </div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacevirtualdatamanagermodule.html#a990f45c7fd63612d469ab61252285a4d">destroy</a></div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;  <span class="keyword">end function </span><a class="code" href="namespacevirtualdatamanagermodule.html#a8eef15fa840e51a231109e9fd4f23e5e">count_nr_solutions</a></div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160; </div>
+<div class="line"><a name="l00349"></a><span class="lineno"><a class="line" href="namespacevirtualdatamanagermodule.html#a990f45c7fd63612d469ab61252285a4d">  349</a></span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacevirtualdatamanagermodule.html#a990f45c7fd63612d469ab61252285a4d">destroy</a>(this)</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvirtualdatamanagermodule_1_1virtualdatamanagertype.html">virtualdatamanagertype</a>) :: this</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvirtualdatacontainermodule_1_1virtualdatacontainertype.html">virtualdatacontainertype</a>), <span class="keywordtype">pointer</span> :: vdc</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160; </div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    <span class="keywordflow">do</span> i = 1, <a class="code" href="namespacevirtualdatalistsmodule.html#a494bb037cec56235f140e54319928e5d">virtual_model_list</a>%Count()</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;      vdc =&gt; <a class="code" href="namespacevirtualdatacontainermodule.html#ad42d5894760af135c909a4d2d48e18dc">get_vdc_from_list</a>(<a class="code" href="namespacevirtualdatalistsmodule.html#a494bb037cec56235f140e54319928e5d">virtual_model_list</a>, i)</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;      <span class="keyword">call </span>vdc%destroy()</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    <span class="keyword">call </span><a class="code" href="namespacevirtualdatalistsmodule.html#a494bb037cec56235f140e54319928e5d">virtual_model_list</a>%Clear(<a class="code" href="namespacevirtualdatamanagermodule.html#a990f45c7fd63612d469ab61252285a4d">destroy</a>=.true.)</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160; </div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    <span class="keywordflow">do</span> i = 1, <a class="code" href="namespacevirtualdatalistsmodule.html#a8f62c1e4aa6db83f79611ae19d2915db">virtual_exchange_list</a>%Count()</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;      vdc =&gt; <a class="code" href="namespacevirtualdatacontainermodule.html#ad42d5894760af135c909a4d2d48e18dc">get_vdc_from_list</a>(<a class="code" href="namespacevirtualdatalistsmodule.html#a8f62c1e4aa6db83f79611ae19d2915db">virtual_exchange_list</a>, i)</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;      <span class="keyword">call </span>vdc%destroy()</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    <span class="keyword">call </span><a class="code" href="namespacevirtualdatalistsmodule.html#a8f62c1e4aa6db83f79611ae19d2915db">virtual_exchange_list</a>%Clear(<a class="code" href="namespacevirtualdatamanagermodule.html#a990f45c7fd63612d469ab61252285a4d">destroy</a>=.true.)</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160; </div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;    <span class="keywordflow">do</span> i = 1, this%nr_solutions</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;      <span class="keyword">deallocate</span> (this%virtual_solutions(i)%models)</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;      <span class="keyword">deallocate</span> (this%virtual_solutions(i)%exchanges)</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;      <span class="keyword">call </span>this%virtual_solutions(i)%interface_map%destroy()</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;      <span class="keyword">deallocate</span> (this%virtual_solutions(i)%interface_map)</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    <span class="keyword">deallocate</span> (this%virtual_solutions)</div>
 <div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160; </div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;<span class="keyword">end module </span><a class="code" href="namespacevirtualdatamanagermodule.html">virtualdatamanagermodule</a></div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespacevirtualdatamanagermodule.html#a990f45c7fd63612d469ab61252285a4d">destroy</a></div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160; </div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;<span class="keyword">end module </span><a class="code" href="namespacevirtualdatamanagermodule.html">virtualdatamanagermodule</a></div>
 <div class="ttc" id="a_grid_sorting_8f90_html_a8d6fb88aa9b65a273f65b89226533321"><div class="ttname"><a href="_grid_sorting_8f90.html#a8d6fb88aa9b65a273f65b89226533321">init</a></div><div class="ttdeci">subroutine init()</div><div class="ttdef"><b>Definition:</b> <a href="_grid_sorting_8f90_source.html#l00023">GridSorting.f90:24</a></div></div>
 <div class="ttc" id="ainterfacearrayhandlersmodule_1_1ifind_html"><div class="ttname"><a href="interfacearrayhandlersmodule_1_1ifind.html">arrayhandlersmodule::ifind</a></div><div class="ttdef"><b>Definition:</b> <a href="_array_handlers_8f90_source.html#l00036">ArrayHandlers.f90:36</a></div></div>
 <div class="ttc" id="anamespacearrayhandlersmodule_html"><div class="ttname"><a href="namespacearrayhandlersmodule.html">arrayhandlersmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_array_handlers_8f90_source.html#l00001">ArrayHandlers.f90:1</a></div></div>
@@ -523,15 +525,15 @@ $(document).ready(function(){initNavTree('_virtual_data_manager_8f90_source.html
 <div class="ttc" id="anamespacevirtualdatamanagermodule_html"><div class="ttname"><a href="namespacevirtualdatamanagermodule.html">virtualdatamanagermodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_virtual_data_manager_8f90_source.html#l00001">VirtualDataManager.f90:1</a></div></div>
 <div class="ttc" id="anamespacevirtualdatamanagermodule_html_a12d18992b63fbcc1aba93bc8c839aff9"><div class="ttname"><a href="namespacevirtualdatamanagermodule.html#a12d18992b63fbcc1aba93bc8c839aff9">virtualdatamanagermodule::vds_create</a></div><div class="ttdeci">subroutine vds_create(this, sim_mode)</div><div class="ttdoc">Initialize the virtual data store.</div><div class="ttdef"><b>Definition:</b> <a href="_virtual_data_manager_8f90_source.html#l00051">VirtualDataManager.f90:52</a></div></div>
 <div class="ttc" id="anamespacevirtualdatamanagermodule_html_a1c72e10d0cff35c73940065ba27aed06"><div class="ttname"><a href="namespacevirtualdatamanagermodule.html#a1c72e10d0cff35c73940065ba27aed06">virtualdatamanagermodule::vds_reduce_halo</a></div><div class="ttdeci">subroutine vds_reduce_halo(this)</div><div class="ttdoc">Reduce the halo for all solutions. This will.</div><div class="ttdef"><b>Definition:</b> <a href="_virtual_data_manager_8f90_source.html#l00158">VirtualDataManager.f90:159</a></div></div>
-<div class="ttc" id="anamespacevirtualdatamanagermodule_html_a25a5cee6abfcc0976fdaa4da5bf0aa78"><div class="ttname"><a href="namespacevirtualdatamanagermodule.html#a25a5cee6abfcc0976fdaa4da5bf0aa78">virtualdatamanagermodule::vds_synchronize_sln</a></div><div class="ttdeci">subroutine vds_synchronize_sln(this, id_sln, stage)</div><div class="ttdoc">Synchronize one particular solution for this stage.</div><div class="ttdef"><b>Definition:</b> <a href="_virtual_data_manager_8f90_source.html#l00264">VirtualDataManager.f90:265</a></div></div>
+<div class="ttc" id="anamespacevirtualdatamanagermodule_html_a25a5cee6abfcc0976fdaa4da5bf0aa78"><div class="ttname"><a href="namespacevirtualdatamanagermodule.html#a25a5cee6abfcc0976fdaa4da5bf0aa78">virtualdatamanagermodule::vds_synchronize_sln</a></div><div class="ttdeci">subroutine vds_synchronize_sln(this, id_sln, stage)</div><div class="ttdoc">Synchronize one particular solution for this stage.</div><div class="ttdef"><b>Definition:</b> <a href="_virtual_data_manager_8f90_source.html#l00266">VirtualDataManager.f90:267</a></div></div>
 <div class="ttc" id="anamespacevirtualdatamanagermodule_html_a4c277076ceb928ec8ea353673936ad4c"><div class="ttname"><a href="namespacevirtualdatamanagermodule.html#a4c277076ceb928ec8ea353673936ad4c">virtualdatamanagermodule::vds_init</a></div><div class="ttdeci">subroutine vds_init(this)</div><div class="ttdoc">Initialize internal components.</div><div class="ttdef"><b>Definition:</b> <a href="_virtual_data_manager_8f90_source.html#l00071">VirtualDataManager.f90:72</a></div></div>
-<div class="ttc" id="anamespacevirtualdatamanagermodule_html_a642d768b5d42fca2701e166946eae2c7"><div class="ttname"><a href="namespacevirtualdatamanagermodule.html#a642d768b5d42fca2701e166946eae2c7">virtualdatamanagermodule::vds_synchronize</a></div><div class="ttdeci">subroutine vds_synchronize(this, stage)</div><div class="ttdoc">Synchronize the full virtual data store for this stage.</div><div class="ttdef"><b>Definition:</b> <a href="_virtual_data_manager_8f90_source.html#l00214">VirtualDataManager.f90:215</a></div></div>
-<div class="ttc" id="anamespacevirtualdatamanagermodule_html_a6575f800fe792dd05caf27682ade802e"><div class="ttname"><a href="namespacevirtualdatamanagermodule.html#a6575f800fe792dd05caf27682ade802e">virtualdatamanagermodule::prepare_sln</a></div><div class="ttdeci">subroutine prepare_sln(this, virtual_sol, stage)</div><div class="ttdoc">Force the virtual data containers (models, exchanges, etc.) to schedule their virtual data.</div><div class="ttdef"><b>Definition:</b> <a href="_virtual_data_manager_8f90_source.html#l00282">VirtualDataManager.f90:283</a></div></div>
-<div class="ttc" id="anamespacevirtualdatamanagermodule_html_a65d23892c29e52f0ae9a91ee4e3d8b69"><div class="ttname"><a href="namespacevirtualdatamanagermodule.html#a65d23892c29e52f0ae9a91ee4e3d8b69">virtualdatamanagermodule::link_all</a></div><div class="ttdeci">subroutine link_all(this, stage)</div><div class="ttdef"><b>Definition:</b> <a href="_virtual_data_manager_8f90_source.html#l00243">VirtualDataManager.f90:244</a></div></div>
-<div class="ttc" id="anamespacevirtualdatamanagermodule_html_a68e0b413ba14a59a59247fc6bcb2bfff"><div class="ttname"><a href="namespacevirtualdatamanagermodule.html#a68e0b413ba14a59a59247fc6bcb2bfff">virtualdatamanagermodule::link_sln</a></div><div class="ttdeci">subroutine link_sln(this, virtual_sol, stage)</div><div class="ttdoc">Connect virtual memory items to their.</div><div class="ttdef"><b>Definition:</b> <a href="_virtual_data_manager_8f90_source.html#l00304">VirtualDataManager.f90:305</a></div></div>
-<div class="ttc" id="anamespacevirtualdatamanagermodule_html_a80edba34109a0d6efba7443c09db0425"><div class="ttname"><a href="namespacevirtualdatamanagermodule.html#a80edba34109a0d6efba7443c09db0425">virtualdatamanagermodule::prepare_all</a></div><div class="ttdeci">subroutine prepare_all(this, stage)</div><div class="ttdef"><b>Definition:</b> <a href="_virtual_data_manager_8f90_source.html#l00224">VirtualDataManager.f90:225</a></div></div>
-<div class="ttc" id="anamespacevirtualdatamanagermodule_html_a8eef15fa840e51a231109e9fd4f23e5e"><div class="ttname"><a href="namespacevirtualdatamanagermodule.html#a8eef15fa840e51a231109e9fd4f23e5e">virtualdatamanagermodule::count_nr_solutions</a></div><div class="ttdeci">integer(i4b) function count_nr_solutions(this)</div><div class="ttdoc">Returns the number of Numerical Solutions.</div><div class="ttdef"><b>Definition:</b> <a href="_virtual_data_manager_8f90_source.html#l00326">VirtualDataManager.f90:327</a></div></div>
-<div class="ttc" id="anamespacevirtualdatamanagermodule_html_a990f45c7fd63612d469ab61252285a4d"><div class="ttname"><a href="namespacevirtualdatamanagermodule.html#a990f45c7fd63612d469ab61252285a4d">virtualdatamanagermodule::destroy</a></div><div class="ttdeci">subroutine destroy(this)</div><div class="ttdef"><b>Definition:</b> <a href="_virtual_data_manager_8f90_source.html#l00347">VirtualDataManager.f90:348</a></div></div>
+<div class="ttc" id="anamespacevirtualdatamanagermodule_html_a642d768b5d42fca2701e166946eae2c7"><div class="ttname"><a href="namespacevirtualdatamanagermodule.html#a642d768b5d42fca2701e166946eae2c7">virtualdatamanagermodule::vds_synchronize</a></div><div class="ttdeci">subroutine vds_synchronize(this, stage)</div><div class="ttdoc">Synchronize the full virtual data store for this stage.</div><div class="ttdef"><b>Definition:</b> <a href="_virtual_data_manager_8f90_source.html#l00216">VirtualDataManager.f90:217</a></div></div>
+<div class="ttc" id="anamespacevirtualdatamanagermodule_html_a6575f800fe792dd05caf27682ade802e"><div class="ttname"><a href="namespacevirtualdatamanagermodule.html#a6575f800fe792dd05caf27682ade802e">virtualdatamanagermodule::prepare_sln</a></div><div class="ttdeci">subroutine prepare_sln(this, virtual_sol, stage)</div><div class="ttdoc">Force the virtual data containers (models, exchanges, etc.) to schedule their virtual data.</div><div class="ttdef"><b>Definition:</b> <a href="_virtual_data_manager_8f90_source.html#l00284">VirtualDataManager.f90:285</a></div></div>
+<div class="ttc" id="anamespacevirtualdatamanagermodule_html_a65d23892c29e52f0ae9a91ee4e3d8b69"><div class="ttname"><a href="namespacevirtualdatamanagermodule.html#a65d23892c29e52f0ae9a91ee4e3d8b69">virtualdatamanagermodule::link_all</a></div><div class="ttdeci">subroutine link_all(this, stage)</div><div class="ttdef"><b>Definition:</b> <a href="_virtual_data_manager_8f90_source.html#l00245">VirtualDataManager.f90:246</a></div></div>
+<div class="ttc" id="anamespacevirtualdatamanagermodule_html_a68e0b413ba14a59a59247fc6bcb2bfff"><div class="ttname"><a href="namespacevirtualdatamanagermodule.html#a68e0b413ba14a59a59247fc6bcb2bfff">virtualdatamanagermodule::link_sln</a></div><div class="ttdeci">subroutine link_sln(this, virtual_sol, stage)</div><div class="ttdoc">Connect virtual memory items to their.</div><div class="ttdef"><b>Definition:</b> <a href="_virtual_data_manager_8f90_source.html#l00306">VirtualDataManager.f90:307</a></div></div>
+<div class="ttc" id="anamespacevirtualdatamanagermodule_html_a80edba34109a0d6efba7443c09db0425"><div class="ttname"><a href="namespacevirtualdatamanagermodule.html#a80edba34109a0d6efba7443c09db0425">virtualdatamanagermodule::prepare_all</a></div><div class="ttdeci">subroutine prepare_all(this, stage)</div><div class="ttdef"><b>Definition:</b> <a href="_virtual_data_manager_8f90_source.html#l00226">VirtualDataManager.f90:227</a></div></div>
+<div class="ttc" id="anamespacevirtualdatamanagermodule_html_a8eef15fa840e51a231109e9fd4f23e5e"><div class="ttname"><a href="namespacevirtualdatamanagermodule.html#a8eef15fa840e51a231109e9fd4f23e5e">virtualdatamanagermodule::count_nr_solutions</a></div><div class="ttdeci">integer(i4b) function count_nr_solutions(this)</div><div class="ttdoc">Returns the number of Numerical Solutions.</div><div class="ttdef"><b>Definition:</b> <a href="_virtual_data_manager_8f90_source.html#l00328">VirtualDataManager.f90:329</a></div></div>
+<div class="ttc" id="anamespacevirtualdatamanagermodule_html_a990f45c7fd63612d469ab61252285a4d"><div class="ttname"><a href="namespacevirtualdatamanagermodule.html#a990f45c7fd63612d469ab61252285a4d">virtualdatamanagermodule::destroy</a></div><div class="ttdeci">subroutine destroy(this)</div><div class="ttdef"><b>Definition:</b> <a href="_virtual_data_manager_8f90_source.html#l00349">VirtualDataManager.f90:350</a></div></div>
 <div class="ttc" id="anamespacevirtualdatamanagermodule_html_ac33ea4d249e2305f3109405dab3c9b8f"><div class="ttname"><a href="namespacevirtualdatamanagermodule.html#ac33ea4d249e2305f3109405dab3c9b8f">virtualdatamanagermodule::vds_add_solution</a></div><div class="ttdeci">subroutine vds_add_solution(this, num_sol)</div><div class="ttdoc">Add the models and exchanges from the passed solution to the virtual data structure....</div><div class="ttdef"><b>Definition:</b> <a href="_virtual_data_manager_8f90_source.html#l00081">VirtualDataManager.f90:82</a></div></div>
 <div class="ttc" id="anamespacevirtualexchangemodule_html"><div class="ttname"><a href="namespacevirtualexchangemodule.html">virtualexchangemodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_virtual_exchange_8f90_source.html#l00001">VirtualExchange.f90:1</a></div></div>
 <div class="ttc" id="anamespacevirtualexchangemodule_html_ab1918334bf283f92687def799abce76b"><div class="ttname"><a href="namespacevirtualexchangemodule.html#ab1918334bf283f92687def799abce76b">virtualexchangemodule::get_virtual_exchange</a></div><div class="ttdeci">class(virtualexchangetype) function, pointer, public get_virtual_exchange(exg_id)</div><div class="ttdoc">Returs a virtual exchange with the specified id.</div><div class="ttdef"><b>Definition:</b> <a href="_virtual_exchange_8f90_source.html#l00288">VirtualExchange.f90:289</a></div></div>
@@ -555,7 +557,7 @@ $(document).ready(function(){initNavTree('_virtual_data_manager_8f90_source.html
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_beeb38743322ab7e14829ea581a5f71a.html">Distributed</a></li><li class="navelem"><a class="el" href="_virtual_data_manager_8f90.html">VirtualDataManager.f90</a></li>
-    <li class="footer">Generated on Mon Apr 3 2023 14:49:33 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Apr 3 2023 15:30:30 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
