@@ -135,6 +135,12 @@ Modules</h2></td></tr>
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a1d244ae42dc7e37c90705dfafedf8da3"><td class="memItemLeft" align="right" valign="top">type(mpiworldtype) function, pointer, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacempiworldmodule.html#a1d244ae42dc7e37c90705dfafedf8da3">mpiworldmodule::get_mpi_world</a> ()</td></tr>
 <tr class="separator:a1d244ae42dc7e37c90705dfafedf8da3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ee5d8f9e88ec31b7842e44529578c91"><td class="memItemLeft" align="right" valign="top">logical(lgp) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacempiworldmodule.html#a4ee5d8f9e88ec31b7842e44529578c91">mpiworldmodule::mpiw_has_comm</a> (this)</td></tr>
+<tr class="memdesc:a4ee5d8f9e88ec31b7842e44529578c91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true when a communicator has been set.  <a href="namespacempiworldmodule.html#a4ee5d8f9e88ec31b7842e44529578c91">More...</a><br /></td></tr>
+<tr class="separator:a4ee5d8f9e88ec31b7842e44529578c91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e99a49c9c58e7266aed0c0abce9bb5a"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacempiworldmodule.html#a5e99a49c9c58e7266aed0c0abce9bb5a">mpiworldmodule::mpiw_set_comm</a> (this, comm)</td></tr>
+<tr class="memdesc:a5e99a49c9c58e7266aed0c0abce9bb5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a communicator on this world, can.  <a href="namespacempiworldmodule.html#a5e99a49c9c58e7266aed0c0abce9bb5a">More...</a><br /></td></tr>
+<tr class="separator:a5e99a49c9c58e7266aed0c0abce9bb5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac020728d350783d7f1ddd90563cd670"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacempiworldmodule.html#aac020728d350783d7f1ddd90563cd670">mpiworldmodule::mpiw_init</a> (this)</td></tr>
 <tr class="separator:aac020728d350783d7f1ddd90563cd670"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a857800a228cce99f003ab1fcda493a8a"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacempiworldmodule.html#a857800a228cce99f003ab1fcda493a8a">mpiworldmodule::mpiw_begin_order</a> (this)</td></tr>
@@ -146,8 +152,6 @@ Functions/Subroutines</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a558d147cd521fc6a1ce6deba061dd38c"><td class="memItemLeft" align="right" valign="top">integer(i4b), public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacempiworldmodule.html#a558d147cd521fc6a1ce6deba061dd38c">mpiworldmodule::mf6_comm_world</a> = -1</td></tr>
-<tr class="separator:a558d147cd521fc6a1ce6deba061dd38c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a932f222a84996c2485249017b382e046"><td class="memItemLeft" align="right" valign="top">type(mpiworldtype), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacempiworldmodule.html#a932f222a84996c2485249017b382e046">mpiworldmodule::global_mpi_world</a></td></tr>
 <tr class="separator:a932f222a84996c2485249017b382e046"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -157,7 +161,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_beeb38743322ab7e14829ea581a5f71a.html">Distributed</a></li><li class="navelem"><a class="el" href="_mpi_world_8f90.html">MpiWorld.f90</a></li>
-    <li class="footer">Generated on Mon Apr 3 2023 09:08:19 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Apr 3 2023 14:49:34 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

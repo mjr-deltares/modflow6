@@ -1,5 +1,10 @@
 var NAVTREEINDEX66 =
 {
+"structvirtualdatamanagermodule_1_1virtualdatamanagertype.html#a360eaffe804ca83524444076e210e2ea":[2,0,181,0,2],
+"structvirtualdatamanagermodule_1_1virtualdatamanagertype.html#a6feb31b7d880bf5dd088d1c43cb9f20c":[2,0,181,0,15],
+"structvirtualdatamanagermodule_1_1virtualdatamanagertype.html#a7461a22b705d30de051b27f6b0cedfaf":[2,0,181,0,12],
+"structvirtualdatamanagermodule_1_1virtualdatamanagertype.html#a95485754b242275e9b9f81190fb1fed0":[2,0,181,0,14],
+"structvirtualdatamanagermodule_1_1virtualdatamanagertype.html#a984e348519c2da72ae7a31e217002045":[2,0,181,0,11],
 "structvirtualdatamanagermodule_1_1virtualdatamanagertype.html#aa67d8f7a4cdc58cf91db89352187393d":[2,0,181,0,8],
 "structvirtualdatamanagermodule_1_1virtualdatamanagertype.html#abb3a18c35a7addf484405d255b0f3e56":[2,0,181,0,16],
 "structvirtualdatamanagermodule_1_1virtualdatamanagertype.html#abd15b5ea0907cfc7f6041a9c1896b66b":[2,0,181,0,5],
@@ -244,10 +249,5 @@ var NAVTREEINDEX66 =
 "structvirtualgwtmodelmodule_1_1virtualgwtmodeltype.html#a465a25eb0a1a5657f357dd9fd72bd236":[2,0,186,0,25],
 "structvirtualgwtmodelmodule_1_1virtualgwtmodeltype.html#a48b885009c63de944eac8b1d1d1df4e3":[2,0,186,0,68],
 "structvirtualgwtmodelmodule_1_1virtualgwtmodeltype.html#a4a3b5d6d7ccae2eda3d33c8843186323":[2,0,186,0,53],
-"structvirtualgwtmodelmodule_1_1virtualgwtmodeltype.html#a4ba1b99fee96e5281c693102a6ad711f":[2,0,186,0,49],
-"structvirtualgwtmodelmodule_1_1virtualgwtmodeltype.html#a505fd1f9372d2117ff7460d48588f26b":[2,0,186,0,72],
-"structvirtualgwtmodelmodule_1_1virtualgwtmodeltype.html#a50a1efa85d1f45af90f83ad9a98db7e8":[2,0,186,0,29],
-"structvirtualgwtmodelmodule_1_1virtualgwtmodeltype.html#a53cd2dd430d8858ef1ea1e6ec6f95f3d":[2,0,186,0,77],
-"structvirtualgwtmodelmodule_1_1virtualgwtmodeltype.html#a54a08b34fd99dbbff44f42d6cba4ad95":[2,0,186,0,63],
-"structvirtualgwtmodelmodule_1_1virtualgwtmodeltype.html#a5c6c8d19e97adf4dd43f92f4d19982fd":[2,0,186,0,61]
+"structvirtualgwtmodelmodule_1_1virtualgwtmodeltype.html#a4ba1b99fee96e5281c693102a6ad711f":[2,0,186,0,49]
 };

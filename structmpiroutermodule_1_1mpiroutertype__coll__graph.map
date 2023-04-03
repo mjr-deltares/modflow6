@@ -1,7 +1,7 @@
 <map id="mpiroutermodule::mpiroutertype" name="mpiroutermodule::mpiroutertype">
 <area shape="rect" id="node1" title=" " alt="" coords="439,564,675,832"/>
 <area shape="rect" id="node2" href="$structrouterbasemodule_1_1routerbasetype.html" title=" " alt="" coords="5,270,253,391"/>
-<area shape="rect" id="node3" href="$structmpiworldmodule_1_1mpiworldtype.html" title=" " alt="" coords="278,263,509,399"/>
+<area shape="rect" id="node3" href="$structmpiworldmodule_1_1mpiworldtype.html" title=" " alt="" coords="278,241,509,421"/>
 <area shape="rect" id="node4" href="$structvirtualdatacontainermodule_1_1vdcptrtype.html" title="Wrapper for virtual data containers." alt="" coords="477,5,680,97"/>
 <area shape="rect" id="node6" href="$structmpimessagebuildermodule_1_1mpimessagebuildertype.html" title=" " alt="" coords="691,175,891,487"/>
 <area shape="rect" id="node5" href="$structstlvecintmodule_1_1stlvecint.html" title=" " alt="" coords="915,189,1106,472"/>

@@ -1,5 +1,7 @@
 <map id="mpiworldmodule::get_mpi_world" name="mpiworldmodule::get_mpi_world">
-<area shape="rect" id="node1" title=" " alt="" coords="216,39,377,80"/>
-<area shape="rect" id="node2" href="$namespacempiruncontrolmodule.html#afcf262793b8ca88ab4d938cee08e0c04" title=" " alt="" coords="5,5,168,47"/>
-<area shape="rect" id="node3" href="$namespacempiroutermodule.html#ae32318abfd17fbc0120061b2ddb09933" title=" " alt="" coords="6,71,167,112"/>
+<area shape="rect" id="node1" title=" " alt="" coords="225,104,387,145"/>
+<area shape="rect" id="node2" href="$namespacempiruncontrolmodule.html#afcf262793b8ca88ab4d938cee08e0c04" title=" " alt="" coords="10,5,173,47"/>
+<area shape="rect" id="node3" href="$namespacempiroutermodule.html#ae32318abfd17fbc0120061b2ddb09933" title=" " alt="" coords="11,71,172,112"/>
+<area shape="rect" id="node4" href="$namespaceparallelsolutionmodule.html#a00a3167f242f49acdac4990bf8b5cd11" title="Check global convergence. The local maximum dependent variable change is reduced over MPI with all ot..." alt="" coords="5,136,177,177"/>
+<area shape="rect" id="node5" href="$namespacempiruncontrolmodule.html#a38f756e18d0ee4e23b36b46fa1e1830c" title=" " alt="" coords="10,201,173,243"/>
 </map>

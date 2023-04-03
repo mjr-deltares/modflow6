@@ -1,5 +1,7 @@
 var NAVTREEINDEX56 =
 {
+"structmawmodule_1_1mawtype.html#a0b4e60edad287959901f88ec7cf9a25b":[2,0,110,0,199],
+"structmawmodule_1_1mawtype.html#a0d1995a96e381ccaeb14831f7600b5fa":[2,0,110,0,207],
 "structmawmodule_1_1mawtype.html#a0d66dffb03c7a004caf60bbeb443ae1b":[2,0,110,0,101],
 "structmawmodule_1_1mawtype.html#a0dbd5f2db63ecdb4022da8eab520805c":[2,0,110,0,183],
 "structmawmodule_1_1mawtype.html#a0e8c85c0247da3ebb8543b743154e59b":[2,0,110,0,81],
@@ -247,7 +249,5 @@ var NAVTREEINDEX56 =
 "structmemorytypemodule_1_1memorytype.html#af713779b7ae3fcdd20528010b0577e3d":[2,0,115,0,23],
 "structmessagemodule_1_1messagetype.html":[2,0,116,0],
 "structmessagemodule_1_1messagetype.html#a05e0f79f42d0e602c0a8a9612e8e8192":[2,0,116,0,6],
-"structmessagemodule_1_1messagetype.html#a29248068276f9a8c37162bdd5900bf87":[2,0,116,0,1],
-"structmessagemodule_1_1messagetype.html#a392f9623f57aa6690416fea2601d8059":[2,0,116,0,12],
-"structmessagemodule_1_1messagetype.html#a3b67c1416bc1252c0f62a5aca51d2b10":[2,0,116,0,2]
+"structmessagemodule_1_1messagetype.html#a29248068276f9a8c37162bdd5900bf87":[2,0,116,0,1]
 };

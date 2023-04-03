@@ -1,5 +1,7 @@
 var NAVTREEINDEX38 =
 {
+"structgwfbuyinputdatamodule_1_1gwfbuyinputdatatype.html#aaecf8096682cc8e06305a86a40d4735f":[2,0,35,0,6],
+"structgwfbuyinputdatamodule_1_1gwfbuyinputdatatype.html#ad91f0dcdea70f17c702051656e8d6496":[2,0,35,0,4],
 "structgwfbuyinputdatamodule_1_1gwfbuyinputdatatype.html#afbcc7bac8f3aa5a77270c21b82e6a6d5":[2,0,35,0,5],
 "structgwfbuymodule_1_1concentrationpointer.html":[2,0,36,0],
 "structgwfbuymodule_1_1concentrationpointer.html#a3d41888602208e8162a2aef8fc888376":[2,0,36,0,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX38 =
 "structgwfcsubmodule_1_1gwfcsubtype.html#acd63a2306afd412a028ab91b64b6728c":[2,0,37,0,19],
 "structgwfcsubmodule_1_1gwfcsubtype.html#acd70fefbdee73fd3ee99bd1977c6be07":[2,0,37,0,133],
 "structgwfcsubmodule_1_1gwfcsubtype.html#acfc7b7c704db6bdf873a87df504f5c01":[2,0,37,0,117],
-"structgwfcsubmodule_1_1gwfcsubtype.html#acfd7c1c6a1673e5db09b7ce9d4fa03cc":[2,0,37,0,127],
-"structgwfcsubmodule_1_1gwfcsubtype.html#ad05a2db4c011acf7b0614bf094ef4877":[2,0,37,0,0],
-"structgwfcsubmodule_1_1gwfcsubtype.html#ad20b511ae92f3fc3fc1ae2f4b11858af":[2,0,37,0,184]
+"structgwfcsubmodule_1_1gwfcsubtype.html#acfd7c1c6a1673e5db09b7ce9d4fa03cc":[2,0,37,0,127]
 };

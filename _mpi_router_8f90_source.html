@@ -216,7 +216,7 @@ $(document).ready(function(){initNavTree('_mpi_router_8f90_source.html',''); ini
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keywordflow">    end do</span></div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keyword">call </span>mpi_allreduce(mpi_in_place, this%model_proc_ids, nr_models, &amp;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                       mpi_integer, mpi_sum, <a class="code" href="namespacempiworldmodule.html#a558d147cd521fc6a1ce6deba061dd38c">mf6_comm_world</a>, ierr)</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                       mpi_integer, mpi_sum, this%mpi_world%comm, ierr)</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="comment">! set the process id to the models and exchanges</span></div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordflow">do</span> i = 1, nr_models</div>
@@ -405,7 +405,7 @@ $(document).ready(function(){initNavTree('_mpi_router_8f90_source.html',''); ini
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;<span class="keywordflow">      end if</span></div>
 <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;      <span class="keyword">call </span>this%message_builder%create_header_rcv(hdr_rcv_t(i))</div>
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;      <span class="keyword">call </span>mpi_irecv(headers(:, i), max_headers, hdr_rcv_t(i), rnk, stage, &amp;</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;                     <a class="code" href="namespacempiworldmodule.html#a558d147cd521fc6a1ce6deba061dd38c">mf6_comm_world</a>, rcv_req(i), ierr)</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;                     this%mpi_world%comm, rcv_req(i), ierr)</div>
 <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;      <span class="comment">! don&#39;t free mpi datatype, we need the count below</span></div>
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;<span class="keywordflow">    end do</span></div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160; </div>
@@ -417,7 +417,7 @@ $(document).ready(function(){initNavTree('_mpi_router_8f90_source.html',''); ini
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span class="keywordflow">      end if</span></div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;      <span class="keyword">call </span>this%message_builder%create_header_snd(rnk, stage, hdr_snd_t(i))</div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;      <span class="keyword">call </span>mpi_isend(mpi_bottom, 1, hdr_snd_t(i), rnk, stage, &amp;</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;                     <a class="code" href="namespacempiworldmodule.html#a558d147cd521fc6a1ce6deba061dd38c">mf6_comm_world</a>, snd_req(i), ierr)</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;                     this%mpi_world%comm, snd_req(i), ierr)</div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;      <span class="keyword">call </span>mpi_type_free(hdr_snd_t(i), ierr)</div>
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;<span class="keywordflow">    end do</span></div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160; </div>
@@ -464,7 +464,7 @@ $(document).ready(function(){initNavTree('_mpi_router_8f90_source.html',''); ini
 <div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;                                               map_rcv_t(i))</div>
 <div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160; </div>
 <div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;      <span class="keyword">call </span>mpi_irecv(mpi_bottom, 1, map_rcv_t(i), rnk, stage, &amp;</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;                     <a class="code" href="namespacempiworldmodule.html#a558d147cd521fc6a1ce6deba061dd38c">mf6_comm_world</a>, rcv_req(i), ierr)</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;                     this%mpi_world%comm, rcv_req(i), ierr)</div>
 <div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;<span class="keywordflow">    end do</span></div>
 <div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160; </div>
 <div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    <span class="comment">! send maps</span></div>
@@ -475,7 +475,7 @@ $(document).ready(function(){initNavTree('_mpi_router_8f90_source.html',''); ini
 <div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;<span class="keywordflow">      end if</span></div>
 <div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;      <span class="keyword">call </span>this%message_builder%create_map_snd(rnk, stage, map_snd_t(i))</div>
 <div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;      <span class="keyword">call </span>mpi_isend(mpi_bottom, 1, map_snd_t(i), rnk, stage, &amp;</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;                     <a class="code" href="namespacempiworldmodule.html#a558d147cd521fc6a1ce6deba061dd38c">mf6_comm_world</a>, snd_req(i), ierr)</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;                     this%mpi_world%comm, snd_req(i), ierr)</div>
 <div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;<span class="keywordflow">    end do</span></div>
 <div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160; </div>
 <div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;    <span class="comment">! wait on receiving maps</span></div>
@@ -524,7 +524,7 @@ $(document).ready(function(){initNavTree('_mpi_router_8f90_source.html',''); ini
 <div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;      <span class="keyword">call </span>mpi_type_size(body_rcv_t(i), msg_size, ierr)</div>
 <div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;      <span class="keywordflow">if</span> (msg_size &gt; 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;        <span class="keyword">call </span>mpi_irecv(mpi_bottom, 1, body_rcv_t(i), rnk, stage, &amp;</div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;                       <a class="code" href="namespacempiworldmodule.html#a558d147cd521fc6a1ce6deba061dd38c">mf6_comm_world</a>, rcv_req(i), ierr)</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;                       this%mpi_world%comm, rcv_req(i), ierr)</div>
 <div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;<span class="keywordflow">      end if</span></div>
 <div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160; </div>
 <div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;      <span class="keywordflow">if</span> (this%enable_monitor) <span class="keywordflow">then</span></div>
@@ -544,7 +544,7 @@ $(document).ready(function(){initNavTree('_mpi_router_8f90_source.html',''); ini
 <div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;      <span class="keyword">call </span>mpi_type_size(body_snd_t(i), msg_size, ierr)</div>
 <div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;      <span class="keywordflow">if</span> (msg_size &gt; 0) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;        <span class="keyword">call </span>mpi_isend(mpi_bottom, 1, body_snd_t(i), rnk, stage, &amp;</div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;                       <a class="code" href="namespacempiworldmodule.html#a558d147cd521fc6a1ce6deba061dd38c">mf6_comm_world</a>, snd_req(i), ierr)</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;                       this%mpi_world%comm, snd_req(i), ierr)</div>
 <div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;<span class="keywordflow">      end if</span></div>
 <div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160; </div>
 <div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;      <span class="keywordflow">if</span> (this%enable_monitor) <span class="keywordflow">then</span></div>
@@ -692,8 +692,7 @@ $(document).ready(function(){initNavTree('_mpi_router_8f90_source.html',''); ini
 <div class="ttc" id="anamespacempiroutermodule_html_af04439aed9f0a39884a61a470ee5d3a1"><div class="ttname"><a href="namespacempiroutermodule.html#af04439aed9f0a39884a61a470ee5d3a1">mpiroutermodule::mr_update_receivers</a></div><div class="ttdeci">subroutine mr_update_receivers(this)</div><div class="ttdef"><b>Definition:</b> <a href="_mpi_router_8f90_source.html#l00515">MpiRouter.f90:516</a></div></div>
 <div class="ttc" id="anamespacempiroutermodule_html_af934d3bf032f8e276e53eb139fc06cb5"><div class="ttname"><a href="namespacempiroutermodule.html#af934d3bf032f8e276e53eb139fc06cb5">mpiroutermodule::mr_update_senders</a></div><div class="ttdeci">subroutine mr_update_senders(this)</div><div class="ttdef"><b>Definition:</b> <a href="_mpi_router_8f90_source.html#l00468">MpiRouter.f90:469</a></div></div>
 <div class="ttc" id="anamespacempiworldmodule_html"><div class="ttname"><a href="namespacempiworldmodule.html">mpiworldmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_mpi_world_8f90_source.html#l00001">MpiWorld.f90:1</a></div></div>
-<div class="ttc" id="anamespacempiworldmodule_html_a1d244ae42dc7e37c90705dfafedf8da3"><div class="ttname"><a href="namespacempiworldmodule.html#a1d244ae42dc7e37c90705dfafedf8da3">mpiworldmodule::get_mpi_world</a></div><div class="ttdeci">type(mpiworldtype) function, pointer, public get_mpi_world()</div><div class="ttdef"><b>Definition:</b> <a href="_mpi_world_8f90_source.html#l00026">MpiWorld.f90:27</a></div></div>
-<div class="ttc" id="anamespacempiworldmodule_html_a558d147cd521fc6a1ce6deba061dd38c"><div class="ttname"><a href="namespacempiworldmodule.html#a558d147cd521fc6a1ce6deba061dd38c">mpiworldmodule::mf6_comm_world</a></div><div class="ttdeci">integer(i4b), public mf6_comm_world</div><div class="ttdef"><b>Definition:</b> <a href="_mpi_world_8f90_source.html#l00009">MpiWorld.f90:9</a></div></div>
+<div class="ttc" id="anamespacempiworldmodule_html_a1d244ae42dc7e37c90705dfafedf8da3"><div class="ttname"><a href="namespacempiworldmodule.html#a1d244ae42dc7e37c90705dfafedf8da3">mpiworldmodule::get_mpi_world</a></div><div class="ttdeci">type(mpiworldtype) function, pointer, public get_mpi_world()</div><div class="ttdef"><b>Definition:</b> <a href="_mpi_world_8f90_source.html#l00029">MpiWorld.f90:30</a></div></div>
 <div class="ttc" id="anamespacerouterbasemodule_html"><div class="ttname"><a href="namespacerouterbasemodule.html">routerbasemodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_router_base_8f90_source.html#l00001">RouterBase.f90:1</a></div></div>
 <div class="ttc" id="anamespacesimstagesmodule_html"><div class="ttname"><a href="namespacesimstagesmodule.html">simstagesmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_sim_stages_8f90_source.html#l00001">SimStages.f90:1</a></div></div>
 <div class="ttc" id="anamespacesimstagesmodule_html_a96a0bd17b87f066ff28acef6d14d28e4"><div class="ttname"><a href="namespacesimstagesmodule.html#a96a0bd17b87f066ff28acef6d14d28e4">simstagesmodule::stg_to_str</a></div><div class="ttdeci">character(len=24) function, public stg_to_str(stage)</div><div class="ttdoc">Converts a stage to its string representation.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_stages_8f90_source.html#l00027">SimStages.f90:28</a></div></div>
@@ -715,7 +714,7 @@ $(document).ready(function(){initNavTree('_mpi_router_8f90_source.html',''); ini
 <div class="ttc" id="astructmpimessagebuildermodule_1_1vdcheadertype_html"><div class="ttname"><a href="structmpimessagebuildermodule_1_1vdcheadertype.html">mpimessagebuildermodule::vdcheadertype</a></div><div class="ttdef"><b>Definition:</b> <a href="_mpi_message_builder_8f90_source.html#l00011">MpiMessageBuilder.f90:11</a></div></div>
 <div class="ttc" id="astructmpimessagebuildermodule_1_1vdcreceivermapstype_html"><div class="ttname"><a href="structmpimessagebuildermodule_1_1vdcreceivermapstype.html">mpimessagebuildermodule::vdcreceivermapstype</a></div><div class="ttdef"><b>Definition:</b> <a href="_mpi_message_builder_8f90_source.html#l00017">MpiMessageBuilder.f90:17</a></div></div>
 <div class="ttc" id="astructmpiroutermodule_1_1mpiroutertype_html"><div class="ttname"><a href="structmpiroutermodule_1_1mpiroutertype.html">mpiroutermodule::mpiroutertype</a></div><div class="ttdef"><b>Definition:</b> <a href="_mpi_router_8f90_source.html#l00021">MpiRouter.f90:21</a></div></div>
-<div class="ttc" id="astructmpiworldmodule_1_1mpiworldtype_html"><div class="ttname"><a href="structmpiworldmodule_1_1mpiworldtype.html">mpiworldmodule::mpiworldtype</a></div><div class="ttdef"><b>Definition:</b> <a href="_mpi_world_8f90_source.html#l00011">MpiWorld.f90:11</a></div></div>
+<div class="ttc" id="astructmpiworldmodule_1_1mpiworldtype_html"><div class="ttname"><a href="structmpiworldmodule_1_1mpiworldtype.html">mpiworldmodule::mpiworldtype</a></div><div class="ttdef"><b>Definition:</b> <a href="_mpi_world_8f90_source.html#l00010">MpiWorld.f90:10</a></div></div>
 <div class="ttc" id="astructrouterbasemodule_1_1routerbasetype_html"><div class="ttname"><a href="structrouterbasemodule_1_1routerbasetype.html">routerbasemodule::routerbasetype</a></div><div class="ttdef"><b>Definition:</b> <a href="_router_base_8f90_source.html#l00007">RouterBase.f90:7</a></div></div>
 <div class="ttc" id="astructstlvecintmodule_1_1stlvecint_html"><div class="ttname"><a href="structstlvecintmodule_1_1stlvecint.html">stlvecintmodule::stlvecint</a></div><div class="ttdef"><b>Definition:</b> <a href="_s_t_l_vec_int_8f90_source.html#l00012">STLVecInt.f90:12</a></div></div>
 <div class="ttc" id="astructvirtualdatacontainermodule_1_1vdcptrtype_html"><div class="ttname"><a href="structvirtualdatacontainermodule_1_1vdcptrtype.html">virtualdatacontainermodule::vdcptrtype</a></div><div class="ttdoc">Wrapper for virtual data containers.</div><div class="ttdef"><b>Definition:</b> <a href="_virtual_data_container_8f90_source.html#l00029">VirtualDataContainer.f90:29</a></div></div>
@@ -728,7 +727,7 @@ $(document).ready(function(){initNavTree('_mpi_router_8f90_source.html',''); ini
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_beeb38743322ab7e14829ea581a5f71a.html">Distributed</a></li><li class="navelem"><a class="el" href="_mpi_router_8f90.html">MpiRouter.f90</a></li>
-    <li class="footer">Generated on Mon Apr 3 2023 09:08:18 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Apr 3 2023 14:49:33 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
