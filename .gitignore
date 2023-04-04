@@ -133,3 +133,4 @@ unittests/
 
 **/__pycache__
 **/.benchmarks
+doc/ParallelDesignDoc/mf6parallel.pdf
