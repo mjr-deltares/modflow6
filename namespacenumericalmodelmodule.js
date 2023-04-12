@@ -28,7 +28,7 @@ var namespacenumericalmodelmodule =
     [ "model_nr", "namespacenumericalmodelmodule.html#a6af90f260871926c13684c01280b72e1", null ],
     [ "model_nur", "namespacenumericalmodelmodule.html#a79f419be7db8f0de853c3fa8da3d1c9e", null ],
     [ "model_ot", "namespacenumericalmodelmodule.html#adc30ba3b4954df6c2d4c4637dbe9a4bf", null ],
-    [ "model_ptc", "namespacenumericalmodelmodule.html#ac82cc8862fb4632a3175568c7ed5f137", null ],
+    [ "model_ptc", "namespacenumericalmodelmodule.html#a1aba4ae10eabcd5bb57f0ae4f695c544", null ],
     [ "model_ptcchk", "namespacenumericalmodelmodule.html#a998c6edfb646c5a1de2314c3f38a7cd7", null ],
     [ "model_rp", "namespacenumericalmodelmodule.html#affa76b7c8ff3a6456ad6e304c31059dc", null ],
     [ "set_iboundptr", "namespacenumericalmodelmodule.html#ad822c312de20e949b76dcd2db75068ba", null ],
