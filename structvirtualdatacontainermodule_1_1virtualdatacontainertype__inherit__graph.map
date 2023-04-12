@@ -1,9 +1,9 @@
 <map id="virtualdatacontainermodule::virtualdatacontainertype" name="virtualdatacontainermodule::virtualdatacontainertype">
-<area shape="rect" id="node1" title="Container (list) of virtual data items." alt="" coords="335,5,537,493"/>
-<area shape="rect" id="node2" href="$structvirtualexchangemodule_1_1virtualexchangetype.html" title="The Virtual Exchange is based on two Virtual Models and is therefore not always strictly local or rem..." alt="" coords="241,556,417,897"/>
-<area shape="rect" id="node5" href="$structvirtualmodelmodule_1_1virtualmodeltype.html" title=" " alt="" coords="454,541,631,912"/>
-<area shape="rect" id="node3" href="$structvirtualgwfexchangemodule_1_1virtualgwfexchangetype.html" title=" " alt="" coords="5,1085,205,1191"/>
-<area shape="rect" id="node4" href="$structvirtualgwtexchangemodule_1_1virtualgwtexchangetype.html" title=" " alt="" coords="229,1063,429,1213"/>
-<area shape="rect" id="node6" href="$structvirtualgwfmodelmodule_1_1virtualgwfmodeltype.html" title=" " alt="" coords="453,982,632,1294"/>
-<area shape="rect" id="node7" href="$structvirtualgwtmodelmodule_1_1virtualgwtmodeltype.html" title=" " alt="" coords="656,960,835,1316"/>
+<area shape="rect" id="node1" title="Container (list) of virtual data items." alt="" coords="335,5,537,508"/>
+<area shape="rect" id="node2" href="$structvirtualexchangemodule_1_1virtualexchangetype.html" title="The Virtual Exchange is based on two Virtual Models and is therefore not always strictly local or rem..." alt="" coords="241,571,417,927"/>
+<area shape="rect" id="node5" href="$structvirtualmodelmodule_1_1virtualmodeltype.html" title=" " alt="" coords="454,556,631,941"/>
+<area shape="rect" id="node3" href="$structvirtualgwfexchangemodule_1_1virtualgwfexchangetype.html" title=" " alt="" coords="5,1121,205,1228"/>
+<area shape="rect" id="node4" href="$structvirtualgwtexchangemodule_1_1virtualgwtexchangetype.html" title=" " alt="" coords="229,1092,429,1257"/>
+<area shape="rect" id="node6" href="$structvirtualgwfmodelmodule_1_1virtualgwfmodeltype.html" title=" " alt="" coords="453,1011,632,1338"/>
+<area shape="rect" id="node7" href="$structvirtualgwtmodelmodule_1_1virtualgwtmodeltype.html" title=" " alt="" coords="656,989,835,1360"/>
 </map>

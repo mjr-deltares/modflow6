@@ -16,6 +16,7 @@ var _sim_variables_8f90 =
     [ "laststepfailed", "_sim_variables_8f90.html#a60aca8a96874ad92369d2d692c97da85", null ],
     [ "model_loc_idx", "_sim_variables_8f90.html#a40086273e616c360164600463821ba4d", null ],
     [ "model_names", "_sim_variables_8f90.html#a83e9bb9be7dc02bd7f45ffeee60c3d1e", null ],
+    [ "model_ranks", "_sim_variables_8f90.html#a51ce0fcda2a2708cbfbff084ae19469b", null ],
     [ "nr_procs", "_sim_variables_8f90.html#a2ccf60ba751a1ae92064b3b87324eefa", null ],
     [ "numnoconverge", "_sim_variables_8f90.html#a6d529c5cff9dc9ee06ad1f1332d9e799", null ],
     [ "proc_id", "_sim_variables_8f90.html#ad80329d14dcb3210a5eb9e94c589b8c1", null ],

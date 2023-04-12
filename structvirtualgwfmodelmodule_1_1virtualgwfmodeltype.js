@@ -1,9 +1,8 @@
 var structvirtualgwfmodelmodule_1_1virtualgwfmodeltype =
 [
     [ "add_to_list", "structvirtualgwfmodelmodule_1_1virtualgwfmodeltype.html#a11ddd9c8245b1267bed082a02b70bb80", null ],
+    [ "allocate_data", "structvirtualgwfmodelmodule_1_1virtualgwfmodeltype.html#ada914d4db49eccf677b0dad5a9a7ebda", null ],
     [ "create", "structvirtualgwfmodelmodule_1_1virtualgwfmodeltype.html#a4040ec7d769188e14fa79523978ea6db", null ],
-    [ "create_field", "structvirtualgwfmodelmodule_1_1virtualgwfmodeltype.html#a37bebc936b8a974f7c80d73d6144e86a", null ],
-    [ "create_virtual_fields", "structvirtualgwfmodelmodule_1_1virtualgwfmodeltype.html#a7e010a298d7c39e57812fc41579d9be9", null ],
     [ "deallocate_data", "structvirtualgwfmodelmodule_1_1virtualgwfmodeltype.html#a7481787f288067b3d6e33d880aed36e1", null ],
     [ "destroy", "structvirtualgwfmodelmodule_1_1virtualgwfmodeltype.html#a6e36a0d42473f92bac23061099fff329", null ],
     [ "dis_get_nodeuser", "structvirtualgwfmodelmodule_1_1virtualgwfmodeltype.html#aca7d5f77d8489c4f1f4f6e24a49456a6", null ],
@@ -13,7 +12,9 @@ var structvirtualgwfmodelmodule_1_1virtualgwfmodeltype =
     [ "get_items_for_stage", "structvirtualgwfmodelmodule_1_1virtualgwfmodeltype.html#ab6c1621f592f32b2a5588db47972b63f", null ],
     [ "get_recv_items", "structvirtualgwfmodelmodule_1_1virtualgwfmodeltype.html#a942494031ab89754ef40d66da0dbd954", null ],
     [ "get_send_items", "structvirtualgwfmodelmodule_1_1virtualgwfmodeltype.html#a2ebc7ead533a1e746e179bedf8ed4ef6", null ],
+    [ "get_virtual_data", "structvirtualgwfmodelmodule_1_1virtualgwfmodeltype.html#a42011d6261369927495330c3f5007fe3", null ],
     [ "get_vrt_mem_path", "structvirtualgwfmodelmodule_1_1virtualgwfmodeltype.html#aabd4990ceeecd76e160cb2295cd8203a", null ],
+    [ "init_virtual_data", "structvirtualgwfmodelmodule_1_1virtualgwfmodeltype.html#a88c6b622e8086b8df92f082c633577e5", null ],
     [ "link_items", "structvirtualgwfmodelmodule_1_1virtualgwfmodeltype.html#aef0a3b32e8274b5ee7820a4ad09276b1", null ],
     [ "map", "structvirtualgwfmodelmodule_1_1virtualgwfmodeltype.html#a8ffe4b28f5d63920423d831f92e08154", null ],
     [ "map_array1d", "structvirtualgwfmodelmodule_1_1virtualgwfmodeltype.html#ad7a86b487e3efa66d58ba0e01a69a819", null ],
@@ -23,6 +24,7 @@ var structvirtualgwfmodelmodule_1_1virtualgwfmodeltype =
     [ "operator", "structvirtualgwfmodelmodule_1_1virtualgwfmodeltype.html#a93ec7536cba601ddd61622b18836d86d", null ],
     [ "prepare_stage", "structvirtualgwfmodelmodule_1_1virtualgwfmodeltype.html#a7aeba06f93dabe9967c31aaf65b7b06e", null ],
     [ "print_items", "structvirtualgwfmodelmodule_1_1virtualgwfmodeltype.html#a9511014ed5d5c72437c16bce20afa86e", null ],
+    [ "set", "structvirtualgwfmodelmodule_1_1virtualgwfmodeltype.html#afb8aac9d787ab8a5e4e8033dfb7715c2", null ],
     [ "set_element_map", "structvirtualgwfmodelmodule_1_1virtualgwfmodeltype.html#a9bdba1db42cd88dd99b572061ee22789", null ],
     [ "set_orig_rank", "structvirtualgwfmodelmodule_1_1virtualgwfmodeltype.html#aa85ef70739cb21cdafc1b829e0dc0c2d", null ],
     [ "vdc_create", "structvirtualgwfmodelmodule_1_1virtualgwfmodeltype.html#a465a25eb0a1a5657f357dd9fd72bd236", null ],

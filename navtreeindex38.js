@@ -1,5 +1,13 @@
 var NAVTREEINDEX38 =
 {
+"structgridconnectionmodule_1_1gridconnectiontype.html#aef1f3750f70558be99ee197ea02aa4fd":[2,0,34,0,3],
+"structgwfbuyinputdatamodule_1_1gwfbuyinputdatatype.html":[2,0,35,0],
+"structgwfbuyinputdatamodule_1_1gwfbuyinputdatatype.html#a0d17b96b88a1e629800e623da2da482a":[2,0,35,0,0],
+"structgwfbuyinputdatamodule_1_1gwfbuyinputdatatype.html#a6c8ae2ef74395592782894e4bdfaba87":[2,0,35,0,8],
+"structgwfbuyinputdatamodule_1_1gwfbuyinputdatatype.html#a7dea66f02ac5dfb0ff96fb237a514acf":[2,0,35,0,1],
+"structgwfbuyinputdatamodule_1_1gwfbuyinputdatatype.html#a889b4d7a7671929b5e05a9372db354f9":[2,0,35,0,3],
+"structgwfbuyinputdatamodule_1_1gwfbuyinputdatatype.html#a8f9443f582354e36ec51562a59b2b503":[2,0,35,0,7],
+"structgwfbuyinputdatamodule_1_1gwfbuyinputdatatype.html#aa73750ff3785c9b8b4ec57e064a88237":[2,0,35,0,2],
 "structgwfbuyinputdatamodule_1_1gwfbuyinputdatatype.html#aaecf8096682cc8e06305a86a40d4735f":[2,0,35,0,6],
 "structgwfbuyinputdatamodule_1_1gwfbuyinputdatatype.html#ad91f0dcdea70f17c702051656e8d6496":[2,0,35,0,4],
 "structgwfbuyinputdatamodule_1_1gwfbuyinputdatatype.html#afbcc7bac8f3aa5a77270c21b82e6a6d5":[2,0,35,0,5],
@@ -241,13 +249,5 @@ var NAVTREEINDEX38 =
 "structgwfcsubmodule_1_1gwfcsubtype.html#ac957fcf630587a1c15a01fdd30b3dc6f":[2,0,37,0,90],
 "structgwfcsubmodule_1_1gwfcsubtype.html#acb4ae3568883c8fef7daae7a865b0931":[2,0,37,0,177],
 "structgwfcsubmodule_1_1gwfcsubtype.html#acbc6b5c4604fae3b93d26d980d44ecca":[2,0,37,0,194],
-"structgwfcsubmodule_1_1gwfcsubtype.html#acbfb7be470591c861de6abf754d6d1fb":[2,0,37,0,146],
-"structgwfcsubmodule_1_1gwfcsubtype.html#acc05e49aa6e73430f41114f8db78c33c":[2,0,37,0,2],
-"structgwfcsubmodule_1_1gwfcsubtype.html#acc344fcb906acd888b3271a11efd3d0d":[2,0,37,0,152],
-"structgwfcsubmodule_1_1gwfcsubtype.html#acc47292a8cca7be4bda193f6ef005c3f":[2,0,37,0,27],
-"structgwfcsubmodule_1_1gwfcsubtype.html#acd0855ea4d3444c18661c020d5c2aa38":[2,0,37,0,38],
-"structgwfcsubmodule_1_1gwfcsubtype.html#acd63a2306afd412a028ab91b64b6728c":[2,0,37,0,19],
-"structgwfcsubmodule_1_1gwfcsubtype.html#acd70fefbdee73fd3ee99bd1977c6be07":[2,0,37,0,133],
-"structgwfcsubmodule_1_1gwfcsubtype.html#acfc7b7c704db6bdf873a87df504f5c01":[2,0,37,0,117],
-"structgwfcsubmodule_1_1gwfcsubtype.html#acfd7c1c6a1673e5db09b7ce9d4fa03cc":[2,0,37,0,127]
+"structgwfcsubmodule_1_1gwfcsubtype.html#acbfb7be470591c861de6abf754d6d1fb":[2,0,37,0,146]
 };

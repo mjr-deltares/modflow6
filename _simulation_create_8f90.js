@@ -3,6 +3,8 @@ var _simulation_create_8f90 =
     [ "assign_exchanges", "_simulation_create_8f90.html#adf3e84522c23244a50903a4214a97395", null ],
     [ "check_model_assignment", "_simulation_create_8f90.html#a5248c082acee396032a2c0123cfc01d3", null ],
     [ "check_model_name", "_simulation_create_8f90.html#a7cfdfdeea2c300b46e8b2468fc3d33e8", null ],
+    [ "create_load_balance", "_simulation_create_8f90.html#a64526df00721ad90611eccb81cf8d2ec", null ],
+    [ "create_load_mask", "_simulation_create_8f90.html#acb42261fa09ca76e64c2e04c08ca696b", null ],
     [ "exchanges_create", "_simulation_create_8f90.html#abb116763d0b57efd5d804f40a52321ee", null ],
     [ "models_create", "_simulation_create_8f90.html#a0043d2fa8d8b96e41e5e0fdfecaadae7", null ],
     [ "options_create", "_simulation_create_8f90.html#a73d2884da5c5babce56618e5b3f8211e", null ],

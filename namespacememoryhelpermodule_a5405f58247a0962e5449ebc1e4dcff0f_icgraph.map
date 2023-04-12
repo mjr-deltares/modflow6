@@ -30,7 +30,7 @@
 <area shape="rect" id="node29" href="$namespacechdmodule.html#a061dea5df09ddd53e4ca09a1fb9168e6" title=" " alt="" coords="285,1512,458,1539"/>
 <area shape="rect" id="node30" href="$namespacegridconnectionmodule.html#a51ea2469018d3c02815e4c1e67e962a4" title="Construct the GridConnection and allocate the data structures for the primary connections." alt="" coords="288,1563,455,1605"/>
 <area shape="rect" id="node31" href="$namespaceexplicitsolutionmodule.html#a286085fd89cf90c1b550a9052307b0d2" title="@ brief Create a new solution" alt="" coords="279,1629,464,1670"/>
-<area shape="rect" id="node32" href="$namespacevirtualdatacontainermodule.html#a26061c47f4aed9f76e0945bcd65dd29b" title="Create virtual data item, without allocation,." alt="" coords="270,1694,473,1735"/>
+<area shape="rect" id="node32" href="$namespacesimulationcreatemodule.html#a64526df00721ad90611eccb81cf8d2ec" title="Distribute the models over the available processes in a parallel run. Expects an array sized." alt="" coords="281,1694,462,1735"/>
 <area shape="rect" id="node33" href="$namespacenumericalsolutionmodule.html#af0f9292c3c93f6766b8d875687e22069" title="@ brief Create a new solution" alt="" coords="270,1759,473,1801"/>
 <area shape="rect" id="node34" href="$namespacegwfmodule.html#a449bff2dbf1904d57d55606e7bbf9222" title="Source package info and begin to process." alt="" coords="5,1876,217,1903"/>
 <area shape="rect" id="node35" href="$namespacegwtmodule.html#ae3afc7130bbc06a5eea61415f346c984" title="Source package info and begin to process." alt="" coords="265,1876,477,1903"/>

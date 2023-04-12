@@ -301,11 +301,11 @@ Here is the caller graph for this function:</div>
 <div class="fragment"><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">class</span>(RunControlType) :: this</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: stage</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">if</span> (stage == stg_init) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">if</span> (stage == stg_bfr_mdl_df) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;      <span class="keyword">call </span>this%init_handler()</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (stage == stg_before_con_df) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (stage == stg_bfr_con_df) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      <span class="keyword">call </span>this%before_con_df_handler()</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (stage == stg_after_con_df) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (stage == stg_aft_con_df) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      <span class="keyword">call </span>this%after_con_df_handler()</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
@@ -361,7 +361,7 @@ Here is the caller graph for this function:</div>
 <div class="ttc" id="anamespacesimmodule_html"><div class="ttname"><a href="namespacesimmodule.html">simmodule</a></div><div class="ttdoc">This module contains simulation methods.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_8f90_source.html#l00010">Sim.f90:10</a></div></div>
 <div class="ttc" id="anamespacesimmodule_html_a685d6c48aafe461366433d5d778bb888"><div class="ttname"><a href="namespacesimmodule.html#a685d6c48aafe461366433d5d778bb888">simmodule::final_message</a></div><div class="ttdeci">subroutine, public final_message()</div><div class="ttdoc">Create final message.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_8f90_source.html#l00526">Sim.f90:527</a></div></div>
 <div class="ttc" id="anamespacesimvariablesmodule_html"><div class="ttname"><a href="namespacesimvariablesmodule.html">simvariablesmodule</a></div><div class="ttdoc">This module contains simulation variables.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_variables_8f90_source.html#l00009">SimVariables.f90:9</a></div></div>
-<div class="ttc" id="anamespacesimvariablesmodule_html_a70ea2f76b35a03119367efdd0dd88ccc"><div class="ttname"><a href="namespacesimvariablesmodule.html#a70ea2f76b35a03119367efdd0dd88ccc">simvariablesmodule::iout</a></div><div class="ttdeci">integer(i4b) iout</div><div class="ttdoc">file unit number for simulation output</div><div class="ttdef"><b>Definition:</b> <a href="_sim_variables_8f90_source.html#l00032">SimVariables.f90:32</a></div></div>
+<div class="ttc" id="anamespacesimvariablesmodule_html_a70ea2f76b35a03119367efdd0dd88ccc"><div class="ttname"><a href="namespacesimvariablesmodule.html#a70ea2f76b35a03119367efdd0dd88ccc">simvariablesmodule::iout</a></div><div class="ttdeci">integer(i4b) iout</div><div class="ttdoc">file unit number for simulation output</div><div class="ttdef"><b>Definition:</b> <a href="_sim_variables_8f90_source.html#l00033">SimVariables.f90:33</a></div></div>
 <div class="ttc" id="anamespacetimermodule_html"><div class="ttname"><a href="namespacetimermodule.html">timermodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_timer_8f90_source.html#l00001">Timer.f90:1</a></div></div>
 <div class="ttc" id="anamespacetimermodule_html_a1f8301c0a31753924cb55e23ebb36b95"><div class="ttname"><a href="namespacetimermodule.html#a1f8301c0a31753924cb55e23ebb36b95">timermodule::elapsed_time</a></div><div class="ttdeci">subroutine, public elapsed_time(iout, iprtim)</div><div class="ttdef"><b>Definition:</b> <a href="_timer_8f90_source.html#l00041">Timer.f90:42</a></div></div>
 </div><!-- fragment --><div class="dynheader">
@@ -562,7 +562,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceruncontrolmodule.html">runcontrolmodule</a></li>
-    <li class="footer">Generated on Mon Apr 3 2023 15:30:34 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Apr 12 2023 08:01:19 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

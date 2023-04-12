@@ -1,6 +1,6 @@
 <map id="virtualexchangemodule::virtualexchangetype" name="virtualexchangemodule::virtualexchangetype">
-<area shape="rect" id="node1" title="The Virtual Exchange is based on two Virtual Models and is therefore not always strictly local or rem..." alt="" coords="129,541,305,883"/>
-<area shape="rect" id="node3" href="$structvirtualgwfexchangemodule_1_1virtualgwfexchangetype.html" title=" " alt="" coords="5,953,205,1059"/>
-<area shape="rect" id="node4" href="$structvirtualgwtexchangemodule_1_1virtualgwtexchangetype.html" title=" " alt="" coords="229,931,429,1081"/>
-<area shape="rect" id="node2" href="$structvirtualdatacontainermodule_1_1virtualdatacontainertype.html" title="Container (list) of virtual data items." alt="" coords="116,5,319,493"/>
+<area shape="rect" id="node1" title="The Virtual Exchange is based on two Virtual Models and is therefore not always strictly local or rem..." alt="" coords="129,556,305,912"/>
+<area shape="rect" id="node3" href="$structvirtualgwfexchangemodule_1_1virtualgwfexchangetype.html" title=" " alt="" coords="5,989,205,1096"/>
+<area shape="rect" id="node4" href="$structvirtualgwtexchangemodule_1_1virtualgwtexchangetype.html" title=" " alt="" coords="229,960,429,1125"/>
+<area shape="rect" id="node2" href="$structvirtualdatacontainermodule_1_1virtualdatacontainertype.html" title="Container (list) of virtual data items." alt="" coords="116,5,319,508"/>
 </map>

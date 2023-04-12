@@ -128,10 +128,12 @@ Functions/Subroutines</h2></td></tr>
 <tr class="separator:a48202e5facb00d208fa5ec1ca68d8079"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05aee0d6c46870e505ff76213558266d"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevirtualgwtmodelmodule.html#a05aee0d6c46870e505ff76213558266d">vgwt_create</a> (this, name, id, model)</td></tr>
 <tr class="separator:a05aee0d6c46870e505ff76213558266d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad45d048178ac8d8ca74b63762b469b4a"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevirtualgwtmodelmodule.html#ad45d048178ac8d8ca74b63762b469b4a">create_virtual_fields</a> (this)</td></tr>
-<tr class="separator:ad45d048178ac8d8ca74b63762b469b4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae95a99b4e4ab55be764e375f78976c3e"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevirtualgwtmodelmodule.html#ae95a99b4e4ab55be764e375f78976c3e">init_virtual_data</a> (this)</td></tr>
+<tr class="separator:ae95a99b4e4ab55be764e375f78976c3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54ac681bd8db12ab203378b3d814afb7"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevirtualgwtmodelmodule.html#a54ac681bd8db12ab203378b3d814afb7">vgwt_prepare_stage</a> (this, stage)</td></tr>
 <tr class="separator:a54ac681bd8db12ab203378b3d814afb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe40d8d572aa3edc90e4224833f89d42"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevirtualgwtmodelmodule.html#abe40d8d572aa3edc90e4224833f89d42">allocate_data</a> (this)</td></tr>
+<tr class="separator:abe40d8d572aa3edc90e4224833f89d42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d3b8d6cd47f502da9ffa274b1ef0b61"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevirtualgwtmodelmodule.html#a3d3b8d6cd47f502da9ffa274b1ef0b61">deallocate_data</a> (this)</td></tr>
 <tr class="separator:a3d3b8d6cd47f502da9ffa274b1ef0b61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abafa66bd91675100880f5a65398499a2"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevirtualgwtmodelmodule.html#abafa66bd91675100880f5a65398499a2">vgwt_destroy</a> (this)</td></tr>
@@ -178,21 +180,21 @@ Functions/Subroutines</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_virtual_gwt_model_8f90_source.html#l00045">45</a> of file <a class="el" href="_virtual_gwt_model_8f90_source.html">VirtualGwtModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacevirtualdatalistsmodule.html">virtualdatalistsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacevirtualdatalistsmodule.html#a494bb037cec56235f140e54319928e5d">virtual_model_list</a></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: model_id<span class="comment"> !&lt; global model id</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">character(len=*)</span> :: model_name<span class="comment"> !&lt; model name</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType), <span class="keywordtype">pointer</span> :: model<span class="comment"> !&lt; the actual model (can be null() when remote)</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">class</span>(VirtualGwtModelType), <span class="keywordtype">pointer</span> :: virtual_gwt_model</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span> :: obj</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">allocate</span> (virtual_gwt_model)</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">call </span>virtual_gwt_model%create(model_name, model_id, model)</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    obj =&gt; virtual_gwt_model</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">call </span><a class="code" href="namespacevirtualdatalistsmodule.html#a494bb037cec56235f140e54319928e5d">virtual_model_list</a>%Add(obj)</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="_virtual_gwt_model_8f90_source.html#l00046">46</a> of file <a class="el" href="_virtual_gwt_model_8f90_source.html">VirtualGwtModel.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacevirtualdatalistsmodule.html">virtualdatalistsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacevirtualdatalistsmodule.html#a494bb037cec56235f140e54319928e5d">virtual_model_list</a></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: model_id<span class="comment"> !&lt; global model id</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">character(len=*)</span> :: model_name<span class="comment"> !&lt; model name</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType), <span class="keywordtype">pointer</span> :: model<span class="comment"> !&lt; the actual model (can be null() when remote)</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">class</span>(VirtualGwtModelType), <span class="keywordtype">pointer</span> :: virtual_gwt_model</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span> :: obj</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">allocate</span> (virtual_gwt_model)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">call </span>virtual_gwt_model%create(model_name, model_id, model)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    obj =&gt; virtual_gwt_model</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">call </span><a class="code" href="namespacevirtualdatalistsmodule.html#a494bb037cec56235f140e54319928e5d">virtual_model_list</a>%Add(obj)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
 <div class="ttc" id="anamespacevirtualdatalistsmodule_html"><div class="ttname"><a href="namespacevirtualdatalistsmodule.html">virtualdatalistsmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_virtual_data_lists_8f90_source.html#l00001">VirtualDataLists.f90:1</a></div></div>
 <div class="ttc" id="anamespacevirtualdatalistsmodule_html_a494bb037cec56235f140e54319928e5d"><div class="ttname"><a href="namespacevirtualdatalistsmodule.html#a494bb037cec56235f140e54319928e5d">virtualdatalistsmodule::virtual_model_list</a></div><div class="ttdeci">type(listtype), public virtual_model_list</div><div class="ttdef"><b>Definition:</b> <a href="_virtual_data_lists_8f90_source.html#l00009">VirtualDataLists.f90:9</a></div></div>
 </div><!-- fragment --><div class="dynheader">
@@ -213,8 +215,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="ad45d048178ac8d8ca74b63762b469b4a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad45d048178ac8d8ca74b63762b469b4a">&#9670;&nbsp;</a></span>create_virtual_fields()</h2>
+<a id="abe40d8d572aa3edc90e4224833f89d42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe40d8d572aa3edc90e4224833f89d42">&#9670;&nbsp;</a></span>allocate_data()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -223,7 +225,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">subroutine virtualgwtmodelmodule::create_virtual_fields </td>
+          <td class="memname">subroutine virtualgwtmodelmodule::allocate_data </td>
           <td>(</td>
           <td class="paramtype">class(<a class="el" href="structvirtualgwtmodelmodule_1_1virtualgwtmodeltype.html">virtualgwtmodeltype</a>)&#160;</td>
           <td class="paramname"><em>this</em></td><td>)</td>
@@ -237,40 +239,25 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_virtual_gwt_model_8f90_source.html#l00077">77</a> of file <a class="el" href="_virtual_gwt_model_8f90_source.html">VirtualGwtModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">class</span>(VirtualGwtModelType) :: this</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">allocate</span> (this%dsp_idiffc)</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keyword">call </span>this%create_field(this%dsp_idiffc%to_base(), <span class="stringliteral">&#39;IDIFFC&#39;</span>, <span class="stringliteral">&#39;DSP&#39;</span>)</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keyword">allocate</span> (this%dsp_idisp)</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keyword">call </span>this%create_field(this%dsp_idisp%to_base(), <span class="stringliteral">&#39;IDISP&#39;</span>, <span class="stringliteral">&#39;DSP&#39;</span>)</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keyword">allocate</span> (this%dsp_diffc)</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keyword">call </span>this%create_field(this%dsp_diffc%to_base(), <span class="stringliteral">&#39;DIFFC&#39;</span>, <span class="stringliteral">&#39;DSP&#39;</span>)</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keyword">allocate</span> (this%dsp_alh)</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keyword">call </span>this%create_field(this%dsp_alh%to_base(), <span class="stringliteral">&#39;ALH&#39;</span>, <span class="stringliteral">&#39;DSP&#39;</span>)</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keyword">allocate</span> (this%dsp_alv)</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">call </span>this%create_field(this%dsp_alv%to_base(), <span class="stringliteral">&#39;ALV&#39;</span>, <span class="stringliteral">&#39;DSP&#39;</span>)</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keyword">allocate</span> (this%dsp_ath1)</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keyword">call </span>this%create_field(this%dsp_ath1%to_base(), <span class="stringliteral">&#39;ATH1&#39;</span>, <span class="stringliteral">&#39;DSP&#39;</span>)</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">allocate</span> (this%dsp_ath2)</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keyword">call </span>this%create_field(this%dsp_ath2%to_base(), <span class="stringliteral">&#39;ATH2&#39;</span>, <span class="stringliteral">&#39;DSP&#39;</span>)</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keyword">allocate</span> (this%dsp_atv)</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keyword">call </span>this%create_field(this%dsp_atv%to_base(), <span class="stringliteral">&#39;ATV&#39;</span>, <span class="stringliteral">&#39;DSP&#39;</span>)</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keyword">allocate</span> (this%fmi_gwfhead)</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keyword">call </span>this%create_field(this%fmi_gwfhead%to_base(), <span class="stringliteral">&#39;GWFHEAD&#39;</span>, <span class="stringliteral">&#39;FMI&#39;</span>)</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keyword">allocate</span> (this%fmi_gwfsat)</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keyword">call </span>this%create_field(this%fmi_gwfsat%to_base(), <span class="stringliteral">&#39;GWFSAT&#39;</span>, <span class="stringliteral">&#39;FMI&#39;</span>)</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keyword">allocate</span> (this%fmi_gwfspdis)</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keyword">call </span>this%create_field(this%fmi_gwfspdis%to_base(), <span class="stringliteral">&#39;GWFSPDIS&#39;</span>, <span class="stringliteral">&#39;FMI&#39;</span>)</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keyword">allocate</span> (this%fmi_gwfflowja)</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keyword">call </span>this%create_field(this%fmi_gwfflowja%to_base(), <span class="stringliteral">&#39;GWFFLOWJA&#39;</span>, <span class="stringliteral">&#39;FMI&#39;</span>)</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keyword">allocate</span> (this%mst_porosity)</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keyword">call </span>this%create_field(this%mst_porosity%to_base(), <span class="stringliteral">&#39;POROSITY&#39;</span>, <span class="stringliteral">&#39;MST&#39;</span>)</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keyword">allocate</span> (this%indsp)</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keyword">call </span>this%create_field(this%indsp%to_base(), <span class="stringliteral">&#39;INDSP&#39;</span>, <span class="stringliteral">&#39;&#39;</span>)</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keyword">allocate</span> (this%inmst)</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keyword">call </span>this%create_field(this%inmst%to_base(), <span class="stringliteral">&#39;INMST&#39;</span>, <span class="stringliteral">&#39;&#39;</span>)</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="_virtual_gwt_model_8f90_source.html#l00149">149</a> of file <a class="el" href="_virtual_gwt_model_8f90_source.html">VirtualGwtModel.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keywordtype">class</span>(VirtualGwtModelType) :: this</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keyword">allocate</span> (this%dsp_idiffc)</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keyword">allocate</span> (this%dsp_idisp)</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keyword">allocate</span> (this%dsp_diffc)</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keyword">allocate</span> (this%dsp_alh)</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keyword">allocate</span> (this%dsp_alv)</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keyword">allocate</span> (this%dsp_ath1)</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keyword">allocate</span> (this%dsp_ath2)</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keyword">allocate</span> (this%dsp_atv)</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keyword">allocate</span> (this%fmi_gwfhead)</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="keyword">allocate</span> (this%fmi_gwfsat)</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="keyword">allocate</span> (this%fmi_gwfspdis)</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keyword">allocate</span> (this%fmi_gwfflowja)</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="keyword">allocate</span> (this%mst_porosity)</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keyword">allocate</span> (this%indsp)</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="keyword">allocate</span> (this%inmst)</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -298,25 +285,71 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_virtual_gwt_model_8f90_source.html#l00180">180</a> of file <a class="el" href="_virtual_gwt_model_8f90_source.html">VirtualGwtModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="keywordtype">class</span>(VirtualGwtModelType) :: this</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; </div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keyword">deallocate</span> (this%dsp_idiffc)</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keyword">deallocate</span> (this%dsp_idisp)</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="keyword">deallocate</span> (this%dsp_diffc)</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keyword">deallocate</span> (this%dsp_alh)</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="keyword">deallocate</span> (this%dsp_alv)</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    <span class="keyword">deallocate</span> (this%dsp_ath1)</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keyword">deallocate</span> (this%dsp_ath2)</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="keyword">deallocate</span> (this%dsp_atv)</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="keyword">deallocate</span> (this%fmi_gwfhead)</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keyword">deallocate</span> (this%fmi_gwfsat)</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keyword">deallocate</span> (this%fmi_gwfspdis)</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="keyword">deallocate</span> (this%fmi_gwfflowja)</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keyword">deallocate</span> (this%mst_porosity)</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keyword">deallocate</span> (this%indsp)</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="keyword">deallocate</span> (this%inmst)</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="_virtual_gwt_model_8f90_source.html#l00170">170</a> of file <a class="el" href="_virtual_gwt_model_8f90_source.html">VirtualGwtModel.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordtype">class</span>(VirtualGwtModelType) :: this</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keyword">deallocate</span> (this%dsp_idiffc)</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keyword">deallocate</span> (this%dsp_idisp)</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keyword">deallocate</span> (this%dsp_diffc)</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keyword">deallocate</span> (this%dsp_alh)</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keyword">deallocate</span> (this%dsp_alv)</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keyword">deallocate</span> (this%dsp_ath1)</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keyword">deallocate</span> (this%dsp_ath2)</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keyword">deallocate</span> (this%dsp_atv)</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="keyword">deallocate</span> (this%fmi_gwfhead)</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <span class="keyword">deallocate</span> (this%fmi_gwfsat)</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keyword">deallocate</span> (this%fmi_gwfspdis)</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keyword">deallocate</span> (this%fmi_gwfflowja)</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="keyword">deallocate</span> (this%mst_porosity)</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keyword">deallocate</span> (this%indsp)</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="keyword">deallocate</span> (this%inmst)</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ae95a99b4e4ab55be764e375f78976c3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae95a99b4e4ab55be764e375f78976c3e">&#9670;&nbsp;</a></span>init_virtual_data()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine virtualgwtmodelmodule::init_virtual_data </td>
+          <td>(</td>
+          <td class="paramtype">class(<a class="el" href="structvirtualgwtmodelmodule_1_1virtualgwtmodeltype.html">virtualgwtmodeltype</a>)&#160;</td>
+          <td class="paramname"><em>this</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_virtual_gwt_model_8f90_source.html#l00078">78</a> of file <a class="el" href="_virtual_gwt_model_8f90_source.html">VirtualGwtModel.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">class</span>(VirtualGwtModelType) :: this</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keyword">call </span>this%set(this%dsp_idiffc%base(), <span class="stringliteral">&#39;IDIFFC&#39;</span>, <span class="stringliteral">&#39;DSP&#39;</span>, map_all_type)</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keyword">call </span>this%set(this%dsp_idisp%base(), <span class="stringliteral">&#39;IDISP&#39;</span>, <span class="stringliteral">&#39;DSP&#39;</span>, map_all_type)</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keyword">call </span>this%set(this%dsp_diffc%base(), <span class="stringliteral">&#39;DIFFC&#39;</span>, <span class="stringliteral">&#39;DSP&#39;</span>, map_node_type)</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keyword">call </span>this%set(this%dsp_alh%base(), <span class="stringliteral">&#39;ALH&#39;</span>, <span class="stringliteral">&#39;DSP&#39;</span>, map_node_type)</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keyword">call </span>this%set(this%dsp_alv%base(), <span class="stringliteral">&#39;ALV&#39;</span>, <span class="stringliteral">&#39;DSP&#39;</span>, map_node_type)</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keyword">call </span>this%set(this%dsp_ath1%base(), <span class="stringliteral">&#39;ATH1&#39;</span>, <span class="stringliteral">&#39;DSP&#39;</span>, map_node_type)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keyword">call </span>this%set(this%dsp_ath2%base(), <span class="stringliteral">&#39;ATH2&#39;</span>, <span class="stringliteral">&#39;DSP&#39;</span>, map_node_type)</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keyword">call </span>this%set(this%dsp_atv%base(), <span class="stringliteral">&#39;ATV&#39;</span>, <span class="stringliteral">&#39;DSP&#39;</span>, map_node_type)</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">call </span>this%set(this%fmi_gwfhead%base(), <span class="stringliteral">&#39;GWFHEAD&#39;</span>, <span class="stringliteral">&#39;FMI&#39;</span>, map_node_type)</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keyword">call </span>this%set(this%fmi_gwfsat%base(), <span class="stringliteral">&#39;GWFSAT&#39;</span>, <span class="stringliteral">&#39;FMI&#39;</span>, map_node_type)</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keyword">call </span>this%set(this%fmi_gwfspdis%base(), <span class="stringliteral">&#39;GWFSPDIS&#39;</span>, <span class="stringliteral">&#39;FMI&#39;</span>, map_node_type)</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">call </span>this%set(this%fmi_gwfflowja%base(), <span class="stringliteral">&#39;GWFFLOWJA&#39;</span>, <span class="stringliteral">&#39;FMI&#39;</span>, map_node_type)</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keyword">call </span>this%set(this%mst_porosity%base(), <span class="stringliteral">&#39;POROSITY&#39;</span>, <span class="stringliteral">&#39;MST&#39;</span>, map_node_type)</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keyword">call </span>this%set(this%indsp%base(), <span class="stringliteral">&#39;INDSP&#39;</span>, <span class="stringliteral">&#39;&#39;</span>, map_all_type)</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keyword">call </span>this%set(this%inmst%base(), <span class="stringliteral">&#39;INMST&#39;</span>, <span class="stringliteral">&#39;&#39;</span>, map_all_type)</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -358,19 +391,19 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_virtual_gwt_model_8f90_source.html#l00062">62</a> of file <a class="el" href="_virtual_gwt_model_8f90_source.html">VirtualGwtModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">class</span>(VirtualGwtModelType) :: this</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">character(len=*)</span> :: name</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: id</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType), <span class="keywordtype">pointer</span> :: model</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="comment">! create base</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">call </span>this%VirtualModelType%create(name, id, model)</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    this%container_type = vdc_gwtmodel_type</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="comment">! allocate fields</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">call </span>this%create_virtual_fields()</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="_virtual_gwt_model_8f90_source.html#l00063">63</a> of file <a class="el" href="_virtual_gwt_model_8f90_source.html">VirtualGwtModel.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">class</span>(VirtualGwtModelType) :: this</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">character(len=*)</span> :: name</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: id</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType), <span class="keywordtype">pointer</span> :: model</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="comment">! create base</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">call </span>this%VirtualModelType%create(name, id, model)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    this%container_type = vdc_gwtmodel_type</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">call </span>this%allocate_data()</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">call </span>this%init_virtual_data()</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -398,12 +431,12 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_virtual_gwt_model_8f90_source.html#l00201">201</a> of file <a class="el" href="_virtual_gwt_model_8f90_source.html">VirtualGwtModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="keywordtype">class</span>(VirtualGwtModelType) :: this</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keyword">call </span>this%VirtualModelType%destroy()</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <span class="keyword">call </span>this%deallocate_data()</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="_virtual_gwt_model_8f90_source.html#l00191">191</a> of file <a class="el" href="_virtual_gwt_model_8f90_source.html">VirtualGwtModel.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keywordtype">class</span>(VirtualGwtModelType) :: this</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="keyword">call </span>this%VirtualModelType%destroy()</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keyword">call </span>this%deallocate_data()</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -441,71 +474,54 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_virtual_gwt_model_8f90_source.html#l00113">113</a> of file <a class="el" href="_virtual_gwt_model_8f90_source.html">VirtualGwtModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordtype">class</span>(VirtualGwtModelType) :: this</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: stage</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: nr_nodes, nr_conns</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="comment">! prepare base (=numerical) model data items</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keyword">call </span>this%VirtualModelType%prepare_stage(stage)</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    nr_nodes = 0</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    nr_conns = 0</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordflow">if</span> (stage == stg_after_mdl_df) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;      <span class="keyword">call </span>this%map(this%dsp_idiffc%to_base(), &amp;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                    (/stg_after_mdl_df/), map_all_type)</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;      <span class="keyword">call </span>this%map(this%dsp_idisp%to_base(), &amp;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                    (/stg_after_mdl_df/), map_all_type)</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;      <span class="keyword">call </span>this%map(this%indsp%to_base(), &amp;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                    (/stg_after_mdl_df/), map_all_type)</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;      <span class="keyword">call </span>this%map(this%inmst%to_base(), &amp;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                    (/stg_after_mdl_df/), map_all_type)</div>
+<p class="definition">Definition at line <a class="el" href="_virtual_gwt_model_8f90_source.html#l00099">99</a> of file <a class="el" href="_virtual_gwt_model_8f90_source.html">VirtualGwtModel.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">class</span>(VirtualGwtModelType) :: this</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: stage</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: nr_nodes, nr_conns</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="comment">! prepare base (=numerical) model data items</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keyword">call </span>this%VirtualModelType%prepare_stage(stage)</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    nr_nodes = 0</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    nr_conns = 0</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordflow">if</span> (stage == stg_aft_mdl_df) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;      <span class="keyword">call </span>this%map(this%dsp_idiffc%base(), (/stg_aft_mdl_df/))</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;      <span class="keyword">call </span>this%map(this%dsp_idisp%base(), (/stg_aft_mdl_df/))</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;      <span class="keyword">call </span>this%map(this%indsp%base(), (/stg_aft_mdl_df/))</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;      <span class="keyword">call </span>this%map(this%inmst%base(), (/stg_aft_mdl_df/))</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (stage == stg_bfr_con_ar) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;      <span class="keyword">call </span>this%map(this%x%base(), nr_nodes, &amp;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                    (/stg_bfr_con_ar, stg_bfr_exg_ad, stg_bfr_exg_cf/))</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;      <span class="keyword">call </span>this%map(this%ibound%base(), nr_nodes, (/stg_bfr_con_ar/))</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;      <span class="keywordflow">if</span> (this%dsp_idiffc%get() &gt; 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <span class="keyword">call </span>this%map(this%dsp_diffc%base(), nr_nodes, (/stg_bfr_con_ar/))</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="keywordflow">      end if</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;      <span class="keywordflow">if</span> (this%dsp_idisp%get() &gt; 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="keyword">call </span>this%map(this%dsp_alh%base(), nr_nodes, (/stg_bfr_con_ar/))</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="keyword">call </span>this%map(this%dsp_alv%base(), nr_nodes, (/stg_bfr_con_ar/))</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <span class="keyword">call </span>this%map(this%dsp_ath1%base(), nr_nodes, (/stg_bfr_con_ar/))</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="keyword">call </span>this%map(this%dsp_ath2%base(), nr_nodes, (/stg_bfr_con_ar/))</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <span class="keyword">call </span>this%map(this%dsp_atv%base(), nr_nodes, (/stg_bfr_con_ar/))</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="keywordflow">      end if</span></div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (stage == stg_before_ar) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;      <span class="keyword">call </span>this%map(this%x%to_base(), nr_nodes, &amp;</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                    (/stg_before_ar, stg_before_ad, stg_before_cf/), &amp;</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                    map_node_type)</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;      <span class="keyword">call </span>this%map(this%ibound%to_base(), nr_nodes, &amp;</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;                    (/stg_before_ar/), map_node_type)</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;      <span class="keywordflow">if</span> (this%dsp_idiffc%get() &gt; 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        <span class="keyword">call </span>this%map(this%dsp_diffc%to_base(), nr_nodes, &amp;</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;                      (/stg_before_ar/), map_node_type)</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="keywordflow">      end if</span></div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;      <span class="keywordflow">if</span> (this%dsp_idisp%get() &gt; 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <span class="keyword">call </span>this%map(this%dsp_alh%to_base(), nr_nodes, &amp;</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                      (/stg_before_ar/), map_node_type)</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        <span class="keyword">call </span>this%map(this%dsp_alv%to_base(), nr_nodes, &amp;</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                      (/stg_before_ar/), map_node_type)</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="keyword">call </span>this%map(this%dsp_ath1%to_base(), nr_nodes, &amp;</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                      (/stg_before_ar/), map_node_type)</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        <span class="keyword">call </span>this%map(this%dsp_ath2%to_base(), nr_nodes, &amp;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                      (/stg_before_ar/), map_node_type)</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="keyword">call </span>this%map(this%dsp_atv%to_base(), nr_nodes, &amp;</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                      (/stg_before_ar/), map_node_type)</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="keywordflow">      end if</span></div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;      <span class="keyword">call </span>this%map(this%fmi_gwfhead%to_base(), nr_nodes, &amp;</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                    (/stg_before_ad/), map_node_type)</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;      <span class="keyword">call </span>this%map(this%fmi_gwfsat%to_base(), nr_nodes, &amp;</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                    (/stg_before_ad/), map_node_type)</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;      <span class="keyword">call </span>this%map(this%fmi_gwfspdis%to_base(), 3, nr_nodes, &amp;</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                    (/stg_before_ad/), map_node_type)</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;      <span class="keyword">call </span>this%map(this%fmi_gwfflowja%to_base(), nr_conns, &amp;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;                    (/stg_before_ad/), map_node_type)</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;      <span class="keywordflow">if</span> (this%indsp%get() &gt; 0 .and. this%inmst%get() &gt; 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        <span class="keyword">call </span>this%map(this%mst_porosity%to_base(), nr_nodes, &amp;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                      (/stg_after_ar/), map_node_type)</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="keywordflow">      end if</span></div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;      <span class="keyword">call </span>this%map(this%fmi_gwfhead%base(), nr_nodes, (/stg_bfr_exg_ad/))</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;      <span class="keyword">call </span>this%map(this%fmi_gwfsat%base(), nr_nodes, (/stg_bfr_exg_ad/))</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;      <span class="keyword">call </span>this%map(this%fmi_gwfspdis%base(), 3, nr_nodes, (/stg_bfr_exg_ad/))</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;      <span class="keyword">call </span>this%map(this%fmi_gwfflowja%base(), nr_conns, (/stg_bfr_exg_ad/))</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;      <span class="keywordflow">if</span> (this%indsp%get() &gt; 0 .and. this%inmst%get() &gt; 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <span class="keyword">call </span>this%map(this%mst_porosity%base(), nr_nodes, (/stg_aft_con_ar/))</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="keywordflow">      end if</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -515,7 +531,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacevirtualgwtmodelmodule.html">virtualgwtmodelmodule</a></li>
-    <li class="footer">Generated on Mon Apr 3 2023 15:30:35 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Apr 12 2023 08:01:20 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

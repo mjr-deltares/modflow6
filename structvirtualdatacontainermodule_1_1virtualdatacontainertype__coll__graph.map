@@ -1,5 +1,5 @@
 <map id="virtualdatacontainermodule::virtualdatacontainertype" name="virtualdatacontainermodule::virtualdatacontainertype">
-<area shape="rect" id="node1" title="Container (list) of virtual data items." alt="" coords="232,637,435,1081"/>
+<area shape="rect" id="node1" title="Container (list) of virtual data items." alt="" coords="232,637,435,1096"/>
 <area shape="rect" id="node2" href="$structvirtualdatacontainermodule_1_1vdcelementluttype.html" title=" " alt="" coords="5,329,208,435"/>
 <area shape="rect" id="node3" href="$structvirtualdatacontainermodule_1_1vdcelementmaptype.html" title=" " alt="" coords="232,329,435,435"/>
 <area shape="rect" id="node4" href="$structlistmodule_1_1listtype.html" title=" " alt="" coords="459,189,655,575"/>

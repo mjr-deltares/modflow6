@@ -126,7 +126,7 @@ Inheritance diagram for numericalsolutionmodule::numericalsolutiontype:</div>
 <div class="center"><img src="structnumericalsolutionmodule_1_1numericalsolutiontype__inherit__graph.png" border="0" usemap="#anumericalsolutionmodule_1_1numericalsolutiontype_inherit__map" alt="Inheritance graph"/></div>
 <map name="anumericalsolutionmodule_1_1numericalsolutiontype_inherit__map" id="anumericalsolutionmodule_1_1numericalsolutiontype_inherit__map">
 <area shape="rect" title=" " alt="" coords="5,307,193,736"/>
-<area shape="rect" href="structparallelsolutionmodule_1_1parallelsolutiontype.html" title=" " alt="" coords="13,784,185,876"/>
+<area shape="rect" href="structparallelsolutionmodule_1_1parallelsolutiontype.html" title=" " alt="" coords="13,784,185,891"/>
 <area shape="rect" href="structbasesolutionmodule_1_1basesolutiontype.html" title=" " alt="" coords="20,5,179,259"/>
 </map>
 </div>
@@ -185,6 +185,8 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:ae5690450e2ad508dfc608f0de47a6236"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a865a6c4532d495af68f571c4d293b35d"><td class="memItemLeft" align="right" valign="top">procedure&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnumericalsolutionmodule_1_1numericalsolutiontype.html#a865a6c4532d495af68f571c4d293b35d">sln_has_converged</a></td></tr>
 <tr class="separator:a865a6c4532d495af68f571c4d293b35d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56d7b9fce5f3fb980b5c7d1518d2c14a"><td class="memItemLeft" align="right" valign="top">procedure&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnumericalsolutionmodule_1_1numericalsolutiontype.html#a56d7b9fce5f3fb980b5c7d1518d2c14a">sln_l2norm</a></td></tr>
+<tr class="separator:a56d7b9fce5f3fb980b5c7d1518d2c14a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a634090db0635cd62c980f57250b61676"><td class="memItemLeft" align="right" valign="top">procedure, private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnumericalsolutionmodule_1_1numericalsolutiontype.html#a634090db0635cd62c980f57250b61676">sln_connect</a></td></tr>
 <tr class="separator:a634090db0635cd62c980f57250b61676"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc5708ae51a72c12a99fccd4c8e2674d"><td class="memItemLeft" align="right" valign="top">procedure, private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnumericalsolutionmodule_1_1numericalsolutiontype.html#adc5708ae51a72c12a99fccd4c8e2674d">sln_reset</a></td></tr>
@@ -197,8 +199,6 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:a7992fe38354469eb9f9ab7dd19a227d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a896c5ea41117a2eb5b8516edaaa3f88d"><td class="memItemLeft" align="right" valign="top">procedure, private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnumericalsolutionmodule_1_1numericalsolutiontype.html#a896c5ea41117a2eb5b8516edaaa3f88d">sln_backtracking_xupdate</a></td></tr>
 <tr class="separator:a896c5ea41117a2eb5b8516edaaa3f88d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a486d0e3fe3b74f5438fea7624aa394ff"><td class="memItemLeft" align="right" valign="top">procedure, private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnumericalsolutionmodule_1_1numericalsolutiontype.html#a486d0e3fe3b74f5438fea7624aa394ff">sln_l2norm</a></td></tr>
-<tr class="separator:a486d0e3fe3b74f5438fea7624aa394ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad92f46acdeecde2e0eb51513d30cea67"><td class="memItemLeft" align="right" valign="top">procedure, private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnumericalsolutionmodule_1_1numericalsolutiontype.html#ad92f46acdeecde2e0eb51513d30cea67">sln_maxval</a></td></tr>
 <tr class="separator:ad92f46acdeecde2e0eb51513d30cea67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47309edad197cb0cffe308612340d050"><td class="memItemLeft" align="right" valign="top">procedure, private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnumericalsolutionmodule_1_1numericalsolutiontype.html#a47309edad197cb0cffe308612340d050">sln_calcdx</a></td></tr>
@@ -768,7 +768,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00170">170</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00171">171</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
 
 </div>
 </div>
@@ -792,7 +792,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00171">171</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00172">172</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
 
 </div>
 </div>
@@ -912,7 +912,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00166">166</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00167">167</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
 
 </div>
 </div>
@@ -1060,8 +1060,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a486d0e3fe3b74f5438fea7624aa394ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a486d0e3fe3b74f5438fea7624aa394ff">&#9670;&nbsp;</a></span>sln_l2norm()</h2>
+<a id="a56d7b9fce5f3fb980b5c7d1518d2c14a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56d7b9fce5f3fb980b5c7d1518d2c14a">&#9670;&nbsp;</a></span>sln_l2norm()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1070,7 +1070,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">procedure, private numericalsolutionmodule::numericalsolutiontype::sln_l2norm</td>
+          <td class="memname">procedure numericalsolutionmodule::numericalsolutiontype::sln_l2norm</td>
         </tr>
       </table>
   </td>
@@ -1080,7 +1080,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00172">172</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00164">164</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
 
 </div>
 </div>
@@ -1104,7 +1104,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00168">168</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00169">169</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
 
 </div>
 </div>
@@ -1200,7 +1200,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00167">167</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00168">168</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
 
 </div>
 </div>
@@ -1224,7 +1224,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00169">169</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_numerical_solution_8f90_source.html#l00170">170</a> of file <a class="el" href="_numerical_solution_8f90_source.html">NumericalSolution.f90</a>.</p>
 
 </div>
 </div>
@@ -3376,7 +3376,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacenumericalsolutionmodule.html">numericalsolutionmodule</a></li><li class="navelem"><a class="el" href="structnumericalsolutionmodule_1_1numericalsolutiontype.html">numericalsolutiontype</a></li>
-    <li class="footer">Generated on Mon Apr 3 2023 15:30:34 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Apr 12 2023 08:01:19 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

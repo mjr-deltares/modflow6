@@ -131,6 +131,7 @@ var hierarchy =
     [ "matrixbasemodule::get_column_if", "interfacematrixbasemodule_1_1get__column__if.html", null ],
     [ "matrixbasemodule::get_diag_value_if", "interfacematrixbasemodule_1_1get__diag__value__if.html", null ],
     [ "matrixbasemodule::get_first_col_pos_if", "interfacematrixbasemodule_1_1get__first__col__pos__if.html", null ],
+    [ "linearsolverbasemodule::get_l2_norm_if", "interfacelinearsolverbasemodule_1_1get__l2__norm__if.html", null ],
     [ "matrixbasemodule::get_last_col_pos_if", "interfacematrixbasemodule_1_1get__last__col__pos__if.html", null ],
     [ "vectorbasemodule::get_ownership_range_if", "interfacevectorbasemodule_1_1get__ownership__range__if.html", null ],
     [ "tvbasemodule::get_pointer_to_value", "interfacetvbasemodule_1_1get__pointer__to__value.html", null ],
@@ -179,8 +180,7 @@ var hierarchy =
     [ "iunitmodule::iunittype", "structiunitmodule_1_1iunittype.html", null ],
     [ "lakmodule::laktabtype", "structlakmodule_1_1laktabtype.html", null ],
     [ "linearsolverbasemodule::linearsolverbasetype", "structlinearsolverbasemodule_1_1linearsolverbasetype.html", [
-      [ "imslinearsolvermodule::imslinearsolvertype", "structimslinearsolvermodule_1_1imslinearsolvertype.html", null ],
-      [ "petscsolvermodule::petscsolvertype", "structpetscsolvermodule_1_1petscsolvertype.html", null ]
+      [ "imslinearsolvermodule::imslinearsolvertype", "structimslinearsolvermodule_1_1imslinearsolvertype.html", null ]
     ] ],
     [ "hashtablemodule::listdatatype", "structhashtablemodule_1_1listdatatype.html", null ],
     [ "listmodule::listnodetype", "structlistmodule_1_1listnodetype.html", null ],

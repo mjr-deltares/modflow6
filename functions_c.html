@@ -279,6 +279,13 @@ $(document).ready(function(){initNavTree('functions_c.html',''); initResizable()
 <li>cf()
 : <a class="el" href="structpackagemovermodule_1_1packagemovertype.html#ab5f864a8083c242609b13a5d78fd8edc">packagemovermodule::packagemovertype</a>
 </li>
+<li>cfg_dist_vars()
+: <a class="el" href="structgwfgwfconnectionmodule_1_1gwfgwfconnectiontype.html#adfb1d5a99e0954036e48ed448eb046d7">gwfgwfconnectionmodule::gwfgwfconnectiontype</a>
+, <a class="el" href="structgwtgwtconnectionmodule_1_1gwtgwtconnectiontype.html#a3fbab70f0453418c0b6336d60c250b0b">gwtgwtconnectionmodule::gwtgwtconnectiontype</a>
+</li>
+<li>cfg_dv()
+: <a class="el" href="structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html#a86693676bbdaebf16ae439847de49eba">spatialmodelconnectionmodule::spatialmodelconnectiontype</a>
+</li>
 <li>cg_comp
 : <a class="el" href="structgwfcsubmodule_1_1gwfcsubtype.html#a70eeadd1e3d5306ad93c1f616b5d5a7f">gwfcsubmodule::gwfcsubtype</a>
 </li>
@@ -338,6 +345,9 @@ $(document).ready(function(){initNavTree('functions_c.html',''); initResizable()
 </li>
 <li>charstring_eq_character()
 : <a class="el" href="structcharacterstringmodule_1_1characterstringtype.html#a1a9032c74651d5295b8f2b76f9f79413">characterstringmodule::characterstringtype</a>
+</li>
+<li>charstring_eq_charstring()
+: <a class="el" href="structcharacterstringmodule_1_1characterstringtype.html#ac413f6c7e1a02cad58911320648ce778">characterstringmodule::characterstringtype</a>
 </li>
 <li>check_attr
 : <a class="el" href="structlakmodule_1_1laktype.html#a0895b72b76ef0abbca40b89dab00e1fe">lakmodule::laktype</a>
@@ -771,14 +781,8 @@ $(document).ready(function(){initNavTree('functions_c.html',''); initResizable()
 <li>create_body_snd()
 : <a class="el" href="structmpimessagebuildermodule_1_1mpimessagebuildertype.html#ae623388fd266cddc8b5a5ca75737504a">mpimessagebuildermodule::mpimessagebuildertype</a>
 </li>
-<li>create_convergence_check()
-: <a class="el" href="structpetscsolvermodule_1_1petscsolvertype.html#a0f20de1cfd8cbdc6f34d387cda86f68c">petscsolvermodule::petscsolvertype</a>
-</li>
 <li>create_element_map()
 : <a class="el" href="structmpimessagebuildermodule_1_1mpimessagebuildertype.html#a5975ab95a7b90d0ecb084f8cef880c4b">mpimessagebuildermodule::mpimessagebuildertype</a>
-</li>
-<li>create_field()
-: <a class="el" href="structvirtualdatacontainermodule_1_1virtualdatacontainertype.html#a37bebc936b8a974f7c80d73d6144e86a">virtualdatacontainermodule::virtualdatacontainertype</a>
 </li>
 <li>create_header_rcv()
 : <a class="el" href="structmpimessagebuildermodule_1_1mpimessagebuildertype.html#a299b6bcbe146baedd7d3bf308a49d875">mpimessagebuildermodule::mpimessagebuildertype</a>
@@ -788,9 +792,6 @@ $(document).ready(function(){initNavTree('functions_c.html',''); initResizable()
 </li>
 <li>create_if()
 : <a class="el" href="interfacevectorbasemodule_1_1create__if.html#a9db1438475b6c0492d5b268f19ce92cd">vectorbasemodule::create_if</a>
-</li>
-<li>create_ksp()
-: <a class="el" href="structpetscsolvermodule_1_1petscsolvertype.html#a80eee9e6af55bd89c650452ae7e5e421">petscsolvermodule::petscsolvertype</a>
 </li>
 <li>create_lstfile()
 : <a class="el" href="structgwfmodule_1_1gwfmodeltype.html#af04728bea6dcf79a2c9d19d52ecf1418">gwfmodule::gwfmodeltype</a>
@@ -805,7 +806,6 @@ $(document).ready(function(){initNavTree('functions_c.html',''); initResizable()
 <li>create_matrix()
 : <a class="el" href="structimslinearsolvermodule_1_1imslinearsolvertype.html#ac9edf729f5b26d71fec90a7ffc625569">imslinearsolvermodule::imslinearsolvertype</a>
 , <a class="el" href="structlinearsolverbasemodule_1_1linearsolverbasetype.html#a335520435e50508ab0c9db305556b465">linearsolverbasemodule::linearsolverbasetype</a>
-, <a class="el" href="structpetscsolvermodule_1_1petscsolvertype.html#ae41df7019133d95d15848375a6d703cb">petscsolvermodule::petscsolvertype</a>
 </li>
 <li>create_matrix_if()
 : <a class="el" href="interfacelinearsolverbasemodule_1_1create__matrix__if.html#ab5e440f1334dc4747a12b3233bd22c32">linearsolverbasemodule::create_matrix_if</a>
@@ -833,13 +833,6 @@ $(document).ready(function(){initNavTree('functions_c.html',''); initResizable()
 </li>
 <li>create_vector_if()
 : <a class="el" href="interfacematrixbasemodule_1_1create__vector__if.html#ae279eed1b7222c227390d1c76610e61a">matrixbasemodule::create_vector_if</a>
-</li>
-<li>create_virtual_fields()
-: <a class="el" href="structvirtualexchangemodule_1_1virtualexchangetype.html#a007af50f89489e1d441cda9b8c127855">virtualexchangemodule::virtualexchangetype</a>
-, <a class="el" href="structvirtualgwfmodelmodule_1_1virtualgwfmodeltype.html#a7e010a298d7c39e57812fc41579d9be9">virtualgwfmodelmodule::virtualgwfmodeltype</a>
-, <a class="el" href="structvirtualgwtexchangemodule_1_1virtualgwtexchangetype.html#a6d115446c065c53c77123bfcfb447a93">virtualgwtexchangemodule::virtualgwtexchangetype</a>
-, <a class="el" href="structvirtualgwtmodelmodule_1_1virtualgwtmodeltype.html#a6733db9150f9a8f4fd4991b0e4af825e">virtualgwtmodelmodule::virtualgwtmodeltype</a>
-, <a class="el" href="structvirtualmodelmodule_1_1virtualmodeltype.html#a4f366bbf0576dcfe36cc0a34857da2d3">virtualmodelmodule::virtualmodeltype</a>
 </li>
 <li>createcoefficientmatrix()
 : <a class="el" href="structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html#a2e42f68302c2dda3d444b1b386e8f9da">spatialmodelconnectionmodule::spatialmodelconnectiontype</a>
@@ -1059,9 +1052,6 @@ $(document).ready(function(){initNavTree('functions_c.html',''); initResizable()
 : <a class="el" href="structgwfbuymodule_1_1gwfbuytype.html#abf80ef2134bb2a8768abbdddd3e296fd">gwfbuymodule::gwfbuytype</a>
 , <a class="el" href="structgwfvscmodule_1_1gwfvsctype.html#a84f37b4da7d45ebc75a2751f0441a291">gwfvscmodule::gwfvsctype</a>
 </li>
-<li>ctx_idx
-: <a class="el" href="structpetscsolvermodule_1_1petscsolvertype.html#a657850abe0bec67f1ed881199b84dd15">petscsolvermodule::petscsolvertype</a>
-</li>
 <li>cumulative
 : <a class="el" href="structobservemodule_1_1obsdatatype.html#a6b1c34751ffaa7f983ee014aee7a484b">observemodule::obsdatatype</a>
 </li>
@@ -1094,7 +1084,7 @@ $(document).ready(function(){initNavTree('functions_c.html',''); initResizable()
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon Apr 3 2023 15:30:35 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Apr 12 2023 08:01:20 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

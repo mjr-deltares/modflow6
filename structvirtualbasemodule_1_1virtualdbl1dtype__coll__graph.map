@@ -1,6 +1,6 @@
 <map id="virtualbasemodule::virtualdbl1dtype" name="virtualbasemodule::virtualdbl1dtype">
-<area shape="rect" id="node1" title=" " alt="" coords="53,911,205,1047"/>
-<area shape="rect" id="node2" href="$structvirtualbasemodule_1_1virtualdatatype.html" title="This is a generic data structure to virtualize pieces of memory in 2 distinct ways:" alt="" coords="46,579,211,861"/>
-<area shape="rect" id="node3" href="$structmemorytypemodule_1_1memorytype.html" title=" " alt="" coords="5,263,252,516"/>
-<area shape="rect" id="node4" href="$structcharacterstringmodule_1_1characterstringtype.html" title="This class is used to store a single deferred&#45;length character string. It was designed to work in an ..." alt="" coords="30,5,227,200"/>
+<area shape="rect" id="node1" title=" " alt="" coords="53,925,205,1061"/>
+<area shape="rect" id="node2" href="$structvirtualbasemodule_1_1virtualdatatype.html" title="This is a generic data structure to virtualize pieces of memory in 2 distinct ways:" alt="" coords="46,593,211,876"/>
+<area shape="rect" id="node3" href="$structmemorytypemodule_1_1memorytype.html" title=" " alt="" coords="5,277,252,531"/>
+<area shape="rect" id="node4" href="$structcharacterstringmodule_1_1characterstringtype.html" title="This class is used to store a single deferred&#45;length character string. It was designed to work in an ..." alt="" coords="28,5,229,215"/>
 </map>

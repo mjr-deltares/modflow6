@@ -1,9 +1,9 @@
 var structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype =
 [
-    [ "adddistvar", "structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html#a6d8b95662b7e2739cb259ca804fe86f7", null ],
     [ "addmodelneighbors", "structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html#ad6eb1acb4a7c506116c847de13d18e82", null ],
     [ "allocatearrays", "structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html#a1a9f9566683769f860975cbc36517435", null ],
     [ "allocatescalars", "structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html#a2fd965135cea3c20a9dd68a51536953c", null ],
+    [ "cfg_dv", "structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html#a86693676bbdaebf16ae439847de49eba", null ],
     [ "connects_model", "structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html#a2fa65441271757b313e2e7824172cfe7", null ],
     [ "construct", "structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html#a9a8646d6e793d99f3a83e81a05d8a9f1", null ],
     [ "createcoefficientmatrix", "structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html#a2e42f68302c2dda3d444b1b386e8f9da", null ],

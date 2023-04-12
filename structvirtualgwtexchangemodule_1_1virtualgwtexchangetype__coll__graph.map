@@ -1,16 +1,16 @@
 <map id="virtualgwtexchangemodule::virtualgwtexchangetype" name="virtualgwtexchangemodule::virtualgwtexchangetype">
-<area shape="rect" id="node1" title=" " alt="" coords="849,1836,1049,1987"/>
-<area shape="rect" id="node2" href="$structvirtualexchangemodule_1_1virtualexchangetype.html" title="The Virtual Exchange is based on two Virtual Models and is therefore not always strictly local or rem..." alt="" coords="715,1592,891,1787"/>
-<area shape="rect" id="node3" href="$structvirtualdatacontainermodule_1_1virtualdatacontainertype.html" title="Container (list) of virtual data items." alt="" coords="229,1056,432,1500"/>
-<area shape="rect" id="node4" href="$structvirtualdatacontainermodule_1_1vdcelementluttype.html" title=" " alt="" coords="453,747,656,854"/>
-<area shape="rect" id="node5" href="$structvirtualdatacontainermodule_1_1vdcelementmaptype.html" title=" " alt="" coords="5,747,208,854"/>
-<area shape="rect" id="node6" href="$structlistmodule_1_1listtype.html" title=" " alt="" coords="233,608,429,993"/>
-<area shape="rect" id="node7" href="$structlistmodule_1_1listnodetype.html" title=" " alt="" coords="241,343,421,435"/>
-<area shape="rect" id="node8" href="$structvirtualbasemodule_1_1virtualdbl1dtype.html" title=" " alt="" coords="984,1210,1136,1346"/>
-<area shape="rect" id="node9" href="$structvirtualbasemodule_1_1virtualdatatype.html" title="This is a generic data structure to virtualize pieces of memory in 2 distinct ways:" alt="" coords="751,659,916,942"/>
-<area shape="rect" id="node12" href="$structvirtualbasemodule_1_1virtualdbl2dtype.html" title=" " alt="" coords="808,1210,960,1346"/>
-<area shape="rect" id="node13" href="$structvirtualbasemodule_1_1virtualint1dtype.html" title=" " alt="" coords="456,1210,608,1346"/>
-<area shape="rect" id="node14" href="$structvirtualbasemodule_1_1virtualinttype.html" title=" " alt="" coords="632,1217,784,1339"/>
-<area shape="rect" id="node10" href="$structmemorytypemodule_1_1memorytype.html" title=" " alt="" coords="710,263,957,516"/>
-<area shape="rect" id="node11" href="$structcharacterstringmodule_1_1characterstringtype.html" title="This class is used to store a single deferred&#45;length character string. It was designed to work in an ..." alt="" coords="735,5,932,200"/>
+<area shape="rect" id="node1" title=" " alt="" coords="849,1880,1049,2045"/>
+<area shape="rect" id="node2" href="$structvirtualexchangemodule_1_1virtualexchangetype.html" title="The Virtual Exchange is based on two Virtual Models and is therefore not always strictly local or rem..." alt="" coords="715,1621,891,1831"/>
+<area shape="rect" id="node3" href="$structvirtualdatacontainermodule_1_1virtualdatacontainertype.html" title="Container (list) of virtual data items." alt="" coords="229,1071,432,1529"/>
+<area shape="rect" id="node4" href="$structvirtualdatacontainermodule_1_1vdcelementluttype.html" title=" " alt="" coords="453,762,656,869"/>
+<area shape="rect" id="node5" href="$structvirtualdatacontainermodule_1_1vdcelementmaptype.html" title=" " alt="" coords="5,762,208,869"/>
+<area shape="rect" id="node6" href="$structlistmodule_1_1listtype.html" title=" " alt="" coords="233,623,429,1008"/>
+<area shape="rect" id="node7" href="$structlistmodule_1_1listnodetype.html" title=" " alt="" coords="241,358,421,450"/>
+<area shape="rect" id="node8" href="$structvirtualbasemodule_1_1virtualdbl1dtype.html" title=" " alt="" coords="984,1232,1136,1368"/>
+<area shape="rect" id="node9" href="$structvirtualbasemodule_1_1virtualdatatype.html" title="This is a generic data structure to virtualize pieces of memory in 2 distinct ways:" alt="" coords="751,674,916,957"/>
+<area shape="rect" id="node12" href="$structvirtualbasemodule_1_1virtualdbl2dtype.html" title=" " alt="" coords="808,1232,960,1368"/>
+<area shape="rect" id="node13" href="$structvirtualbasemodule_1_1virtualint1dtype.html" title=" " alt="" coords="456,1232,608,1368"/>
+<area shape="rect" id="node14" href="$structvirtualbasemodule_1_1virtualinttype.html" title=" " alt="" coords="632,1239,784,1361"/>
+<area shape="rect" id="node10" href="$structmemorytypemodule_1_1memorytype.html" title=" " alt="" coords="710,277,957,531"/>
+<area shape="rect" id="node11" href="$structcharacterstringmodule_1_1characterstringtype.html" title="This class is used to store a single deferred&#45;length character string. It was designed to work in an ..." alt="" coords="733,5,934,215"/>
 </map>

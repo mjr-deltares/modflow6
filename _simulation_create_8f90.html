@@ -162,6 +162,12 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a7cfdfdeea2c300b46e8b2468fc3d33e8"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesimulationcreatemodule.html#a7cfdfdeea2c300b46e8b2468fc3d33e8">simulationcreatemodule::check_model_name</a> (mtype, mname)</td></tr>
 <tr class="memdesc:a7cfdfdeea2c300b46e8b2468fc3d33e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check that the model name is valid.  <a href="namespacesimulationcreatemodule.html#a7cfdfdeea2c300b46e8b2468fc3d33e8">More...</a><br /></td></tr>
 <tr class="separator:a7cfdfdeea2c300b46e8b2468fc3d33e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb42261fa09ca76e64c2e04c08ca696b"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesimulationcreatemodule.html#acb42261fa09ca76e64c2e04c08ca696b">simulationcreatemodule::create_load_mask</a> (mask_array)</td></tr>
+<tr class="memdesc:acb42261fa09ca76e64c2e04c08ca696b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a load mask to determine which models should be loaded by idm on this process. This is in sync with models create. The mask array should be pre-allocated with size equal to the global number of models. It is returned as (1, 1, 0, 0, ... 0) with each entry being a load mask for the model at the corresponding location in the 'MNAME' array.  <a href="namespacesimulationcreatemodule.html#acb42261fa09ca76e64c2e04c08ca696b">More...</a><br /></td></tr>
+<tr class="separator:acb42261fa09ca76e64c2e04c08ca696b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64526df00721ad90611eccb81cf8d2ec"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesimulationcreatemodule.html#a64526df00721ad90611eccb81cf8d2ec">simulationcreatemodule::create_load_balance</a> (mranks)</td></tr>
+<tr class="memdesc:a64526df00721ad90611eccb81cf8d2ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distribute the models over the available processes in a parallel run. Expects an array sized.  <a href="namespacesimulationcreatemodule.html#a64526df00721ad90611eccb81cf8d2ec">More...</a><br /></td></tr>
+<tr class="separator:a64526df00721ad90611eccb81cf8d2ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -169,7 +175,7 @@ Functions/Subroutines</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="_simulation_create_8f90.html">SimulationCreate.f90</a></li>
-    <li class="footer">Generated on Mon Apr 3 2023 15:30:31 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Apr 12 2023 08:01:16 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

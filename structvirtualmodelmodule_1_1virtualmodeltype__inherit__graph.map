@@ -1,6 +1,6 @@
 <map id="virtualmodelmodule::virtualmodeltype" name="virtualmodelmodule::virtualmodeltype">
-<area shape="rect" id="node1" title=" " alt="" coords="107,541,285,912"/>
-<area shape="rect" id="node3" href="$structvirtualgwfmodelmodule_1_1virtualgwfmodeltype.html" title=" " alt="" coords="5,982,184,1294"/>
-<area shape="rect" id="node4" href="$structvirtualgwtmodelmodule_1_1virtualgwtmodeltype.html" title=" " alt="" coords="208,960,387,1316"/>
-<area shape="rect" id="node2" href="$structvirtualdatacontainermodule_1_1virtualdatacontainertype.html" title="Container (list) of virtual data items." alt="" coords="95,5,297,493"/>
+<area shape="rect" id="node1" title=" " alt="" coords="107,556,285,941"/>
+<area shape="rect" id="node3" href="$structvirtualgwfmodelmodule_1_1virtualgwfmodeltype.html" title=" " alt="" coords="5,1011,184,1338"/>
+<area shape="rect" id="node4" href="$structvirtualgwtmodelmodule_1_1virtualgwtmodeltype.html" title=" " alt="" coords="208,989,387,1360"/>
+<area shape="rect" id="node2" href="$structvirtualdatacontainermodule_1_1virtualdatacontainertype.html" title="Container (list) of virtual data items." alt="" coords="95,5,297,508"/>
 </map>

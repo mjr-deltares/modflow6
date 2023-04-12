@@ -1,11 +1,11 @@
 var structvirtualbasemodule_1_1virtualdbl2dtype =
 [
+    [ "base", "structvirtualbasemodule_1_1virtualdbl2dtype.html#a8aed6b424079ff059f91c0a8cf862d9c", null ],
     [ "check_stage", "structvirtualbasemodule_1_1virtualdbl2dtype.html#a5d20c57072307bb2732d34681cae7cc3", null ],
     [ "get", "structvirtualbasemodule_1_1virtualdbl2dtype.html#ab52065f3be65ce346eb355d2e9174afb", null ],
     [ "get_array", "structvirtualbasemodule_1_1virtualdbl2dtype.html#a5d81ddd6cf1d79e20de3ffad305fe344", null ],
     [ "get_element_map", "structvirtualbasemodule_1_1virtualdbl2dtype.html#ab6e303b049f8c6538eca514fc54b7d47", null ],
     [ "link", "structvirtualbasemodule_1_1virtualdbl2dtype.html#ac580eb9ba3a74d0b7cdc84d543623ecc", null ],
-    [ "to_base", "structvirtualbasemodule_1_1virtualdbl2dtype.html#ae905731aca23d48b47f7692a773ea4a6", null ],
     [ "vm_allocate", "structvirtualbasemodule_1_1virtualdbl2dtype.html#ad92934d041694f8efeb2bea6b64c60e3", null ],
     [ "vm_deallocate", "structvirtualbasemodule_1_1virtualdbl2dtype.html#aa29b01d49ea35be22364b5e7ec3c0abf", null ],
     [ "dbl2d", "structvirtualbasemodule_1_1virtualdbl2dtype.html#a93dbb8b920c0f4d100b1f4e6ddc2183f", null ],

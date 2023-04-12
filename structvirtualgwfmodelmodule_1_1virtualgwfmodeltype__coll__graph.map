@@ -1,16 +1,16 @@
 <map id="virtualgwfmodelmodule::virtualgwfmodeltype" name="virtualgwfmodelmodule::virtualgwfmodeltype">
-<area shape="rect" id="node1" title=" " alt="" coords="224,1997,403,2148"/>
-<area shape="rect" id="node2" href="$structvirtualmodelmodule_1_1virtualmodeltype.html" title=" " alt="" coords="338,1709,515,1948"/>
-<area shape="rect" id="node3" href="$structvirtualdatacontainermodule_1_1virtualdatacontainertype.html" title="Container (list) of virtual data items." alt="" coords="709,1056,912,1500"/>
-<area shape="rect" id="node4" href="$structvirtualdatacontainermodule_1_1vdcelementluttype.html" title=" " alt="" coords="933,747,1136,854"/>
-<area shape="rect" id="node5" href="$structvirtualdatacontainermodule_1_1vdcelementmaptype.html" title=" " alt="" coords="485,747,688,854"/>
-<area shape="rect" id="node6" href="$structlistmodule_1_1listtype.html" title=" " alt="" coords="713,608,909,993"/>
-<area shape="rect" id="node7" href="$structlistmodule_1_1listnodetype.html" title=" " alt="" coords="721,343,901,435"/>
-<area shape="rect" id="node8" href="$structvirtualbasemodule_1_1virtualdbl1dtype.html" title=" " alt="" coords="181,1210,333,1346"/>
-<area shape="rect" id="node9" href="$structvirtualbasemodule_1_1virtualdatatype.html" title="This is a generic data structure to virtualize pieces of memory in 2 distinct ways:" alt="" coords="236,659,401,942"/>
-<area shape="rect" id="node12" href="$structvirtualbasemodule_1_1virtualdbltype.html" title=" " alt="" coords="357,1217,509,1339"/>
-<area shape="rect" id="node13" href="$structvirtualbasemodule_1_1virtualinttype.html" title=" " alt="" coords="5,1217,157,1339"/>
-<area shape="rect" id="node14" href="$structvirtualbasemodule_1_1virtualint1dtype.html" title=" " alt="" coords="533,1210,685,1346"/>
-<area shape="rect" id="node10" href="$structmemorytypemodule_1_1memorytype.html" title=" " alt="" coords="195,263,442,516"/>
-<area shape="rect" id="node11" href="$structcharacterstringmodule_1_1characterstringtype.html" title="This class is used to store a single deferred&#45;length character string. It was designed to work in an ..." alt="" coords="220,5,417,200"/>
+<area shape="rect" id="node1" title=" " alt="" coords="224,2041,403,2207"/>
+<area shape="rect" id="node2" href="$structvirtualmodelmodule_1_1virtualmodeltype.html" title=" " alt="" coords="338,1739,516,1992"/>
+<area shape="rect" id="node3" href="$structvirtualdatacontainermodule_1_1virtualdatacontainertype.html" title="Container (list) of virtual data items." alt="" coords="710,1071,912,1529"/>
+<area shape="rect" id="node4" href="$structvirtualdatacontainermodule_1_1vdcelementluttype.html" title=" " alt="" coords="934,762,1136,869"/>
+<area shape="rect" id="node5" href="$structvirtualdatacontainermodule_1_1vdcelementmaptype.html" title=" " alt="" coords="486,762,688,869"/>
+<area shape="rect" id="node6" href="$structlistmodule_1_1listtype.html" title=" " alt="" coords="713,623,909,1008"/>
+<area shape="rect" id="node7" href="$structlistmodule_1_1listnodetype.html" title=" " alt="" coords="721,358,901,450"/>
+<area shape="rect" id="node8" href="$structvirtualbasemodule_1_1virtualdbl1dtype.html" title=" " alt="" coords="182,1232,334,1368"/>
+<area shape="rect" id="node9" href="$structvirtualbasemodule_1_1virtualdatatype.html" title="This is a generic data structure to virtualize pieces of memory in 2 distinct ways:" alt="" coords="236,674,402,957"/>
+<area shape="rect" id="node12" href="$structvirtualbasemodule_1_1virtualdbltype.html" title=" " alt="" coords="358,1239,510,1361"/>
+<area shape="rect" id="node13" href="$structvirtualbasemodule_1_1virtualinttype.html" title=" " alt="" coords="6,1239,158,1361"/>
+<area shape="rect" id="node14" href="$structvirtualbasemodule_1_1virtualint1dtype.html" title=" " alt="" coords="534,1232,686,1368"/>
+<area shape="rect" id="node10" href="$structmemorytypemodule_1_1memorytype.html" title=" " alt="" coords="196,277,442,531"/>
+<area shape="rect" id="node11" href="$structcharacterstringmodule_1_1characterstringtype.html" title="This class is used to store a single deferred&#45;length character string. It was designed to work in an ..." alt="" coords="218,5,420,215"/>
 </map>

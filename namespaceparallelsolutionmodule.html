@@ -127,6 +127,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a00a3167f242f49acdac4990bf8b5cd11"><td class="memItemLeft" align="right" valign="top">logical(lgp) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparallelsolutionmodule.html#a00a3167f242f49acdac4990bf8b5cd11">par_has_converged</a> (this, max_dvc)</td></tr>
 <tr class="memdesc:a00a3167f242f49acdac4990bf8b5cd11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check global convergence. The local maximum dependent variable change is reduced over MPI with all other processes.  <a href="namespaceparallelsolutionmodule.html#a00a3167f242f49acdac4990bf8b5cd11">More...</a><br /></td></tr>
 <tr class="separator:a00a3167f242f49acdac4990bf8b5cd11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb7fc7cfecd185846fb47a5dc0c651b6"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparallelsolutionmodule.html#aeb7fc7cfecd185846fb47a5dc0c651b6">par_l2norm</a> (this, l2norm)</td></tr>
+<tr class="separator:aeb7fc7cfecd185846fb47a5dc0c651b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function/Subroutine Documentation</h2>
 <a id="a00a3167f242f49acdac4990bf8b5cd11"></a>
@@ -164,32 +166,34 @@ Functions/Subroutines</h2></td></tr>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">this</td><td>ParallelSolutionType instance </td></tr>
+    <tr><td class="paramname">this</td><td>parallel solution </td></tr>
     <tr><td class="paramname">max_dvc</td><td>the LOCAL maximum dependent variable change </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True, when GLOBALLY converged </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_parallel_solution_8f90_source.html#l00022">22</a> of file <a class="el" href="_parallel_solution_8f90_source.html">ParallelSolution.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">class</span>(ParallelSolutionType) :: this<span class="comment"> !&lt; ParallelSolutionType instance</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">    real</span>(DP) :: max_dvc<span class="comment"> !&lt; the LOCAL maximum dependent variable change</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: has_converged<span class="comment"> !&lt; True, when GLOBALLY converged</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">    real</span>(DP) :: global_max_dvc</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">integer</span> :: ierr</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">type</span>(MpiWorldType), <span class="keywordtype">pointer</span> :: mpi_world</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    mpi_world =&gt; get_mpi_world()</div>
+<p class="definition">Definition at line <a class="el" href="_parallel_solution_8f90_source.html#l00023">23</a> of file <a class="el" href="_parallel_solution_8f90_source.html">ParallelSolution.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">class</span>(ParallelSolutionType) :: this<span class="comment"> !&lt; parallel solution</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">    real</span>(DP) :: max_dvc<span class="comment"> !&lt; the LOCAL maximum dependent variable change</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: has_converged<span class="comment"> !&lt; True, when GLOBALLY converged</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">    real</span>(DP) :: global_max_dvc</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keywordtype">    real</span>(DP) :: abs_max_dvc</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">integer</span> :: ierr</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">type</span>(MpiWorldType), <span class="keywordtype">pointer</span> :: mpi_world</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    has_converged = .false.</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    global_max_dvc = huge(0.0)</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">call </span>mpi_allreduce(max_dvc, global_max_dvc, 1, mpi_double_precision, &amp;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                       mpi_max, mpi_world%comm, ierr)</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">if</span> (global_max_dvc &lt;= this%dvclose) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      has_converged = .true.</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    mpi_world =&gt; get_mpi_world()</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    has_converged = .false.</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    global_max_dvc = huge(0.0)</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    abs_max_dvc = abs(max_dvc)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">call </span>mpi_allreduce(abs_max_dvc, global_max_dvc, 1, mpi_double_precision, &amp;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                       mpi_max, mpi_world%comm, ierr)</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">if</span> (global_max_dvc &lt;= this%dvclose) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      has_converged = .true.</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -202,13 +206,64 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="aeb7fc7cfecd185846fb47a5dc0c651b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb7fc7cfecd185846fb47a5dc0c651b6">&#9670;&nbsp;</a></span>par_l2norm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine parallelsolutionmodule::par_l2norm </td>
+          <td>(</td>
+          <td class="paramtype">class(<a class="el" href="structparallelsolutionmodule_1_1parallelsolutiontype.html">parallelsolutiontype</a>), intent(inout)&#160;</td>
+          <td class="paramname"><em>this</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(dp), intent(inout)&#160;</td>
+          <td class="paramname"><em>l2norm</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">this</td><td>parallel solution</td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">l2norm</td><td>calculated L-2 norm </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_parallel_solution_8f90_source.html#l00046">46</a> of file <a class="el" href="_parallel_solution_8f90_source.html">ParallelSolution.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">class</span>(ParallelSolutionType), <span class="keywordtype">intent(inout)</span> :: this<span class="comment"> !&lt; parallel solution</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">intent(inout)</span> :: l2norm<span class="comment"> !&lt; calculated L-2 norm</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    l2norm = this%linear_solver%get_l2_norm(this%vec_x, this%vec_rhs, &amp;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                                            this%active)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+</div><!-- fragment -->
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceparallelsolutionmodule.html">parallelsolutionmodule</a></li>
-    <li class="footer">Generated on Mon Apr 3 2023 15:30:34 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Apr 12 2023 08:01:19 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

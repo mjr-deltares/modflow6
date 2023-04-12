@@ -132,6 +132,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="separator:afc225ef00a7ef8421af1b8f6a6db4399"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae41d9919b65ff6d7e78e6c175562be3e"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceimslinearsolvermodule.html#ae41d9919b65ff6d7e78e6c175562be3e">ims_get_result</a> (this)</td></tr>
 <tr class="separator:ae41d9919b65ff6d7e78e6c175562be3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15c8be482e40d4025bd56853e73ff3cd"><td class="memItemLeft" align="right" valign="top">real(dp) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceimslinearsolvermodule.html#a15c8be482e40d4025bd56853e73ff3cd">ims_get_l2_norm</a> (this, x, rhs, active)</td></tr>
+<tr class="separator:a15c8be482e40d4025bd56853e73ff3cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d3ed7406c4cb4e924d3a169dd0662f1"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceimslinearsolvermodule.html#a4d3ed7406c4cb4e924d3a169dd0662f1">ims_destroy</a> (this)</td></tr>
 <tr class="separator:a4d3ed7406c4cb4e924d3a169dd0662f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66346f52d33354c9c0a928908b41d413"><td class="memItemLeft" align="right" valign="top">class(<a class="el" href="structmatrixbasemodule_1_1matrixbasetype.html">matrixbasetype</a>) function, pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceimslinearsolvermodule.html#a66346f52d33354c9c0a928908b41d413">ims_create_matrix</a> (this)</td></tr>
@@ -150,14 +152,14 @@ Functions/Subroutines</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_ims_linear_solver_8f90_source.html#l00024">24</a> of file <a class="el" href="_ims_linear_solver_8f90_source.html">ImsLinearSolver.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">class</span>(LinearSolverBaseType), <span class="keywordtype">pointer</span> :: solver</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">class</span>(ImsLinearSolverType), <span class="keywordtype">pointer</span> :: ims_solver</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">allocate</span> (ims_solver)</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    solver =&gt; ims_solver</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="_ims_linear_solver_8f90_source.html#l00025">25</a> of file <a class="el" href="_ims_linear_solver_8f90_source.html">ImsLinearSolver.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">class</span>(LinearSolverBaseType), <span class="keywordtype">pointer</span> :: solver</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">class</span>(ImsLinearSolverType), <span class="keywordtype">pointer</span> :: ims_solver</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">allocate</span> (ims_solver)</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    solver =&gt; ims_solver</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -195,15 +197,15 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_ims_linear_solver_8f90_source.html#l00054">54</a> of file <a class="el" href="_ims_linear_solver_8f90_source.html">ImsLinearSolver.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">class</span>(ImsLinearSolverType) :: this</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">class</span>(MatrixBaseType), <span class="keywordtype">pointer</span> :: matrix</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">class</span>(SparseMatrixType), <span class="keywordtype">pointer</span> :: ims_matrix</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">allocate</span> (ims_matrix)</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    matrix =&gt; ims_matrix</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="_ims_linear_solver_8f90_source.html#l00064">64</a> of file <a class="el" href="_ims_linear_solver_8f90_source.html">ImsLinearSolver.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">class</span>(ImsLinearSolverType) :: this</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">class</span>(MatrixBaseType), <span class="keywordtype">pointer</span> :: matrix</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">class</span>(SparseMatrixType), <span class="keywordtype">pointer</span> :: ims_matrix</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">allocate</span> (ims_matrix)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    matrix =&gt; ims_matrix</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -231,8 +233,64 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_ims_linear_solver_8f90_source.html#l00050">50</a> of file <a class="el" href="_ims_linear_solver_8f90_source.html">ImsLinearSolver.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">class</span>(ImsLinearSolverType) :: this</div>
+<p class="definition">Definition at line <a class="el" href="_ims_linear_solver_8f90_source.html#l00060">60</a> of file <a class="el" href="_ims_linear_solver_8f90_source.html">ImsLinearSolver.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">class</span>(ImsLinearSolverType) :: this</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a15c8be482e40d4025bd56853e73ff3cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15c8be482e40d4025bd56853e73ff3cd">&#9670;&nbsp;</a></span>ims_get_l2_norm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(dp) function imslinearsolvermodule::ims_get_l2_norm </td>
+          <td>(</td>
+          <td class="paramtype">class(<a class="el" href="structimslinearsolvermodule_1_1imslinearsolvertype.html">imslinearsolvertype</a>)&#160;</td>
+          <td class="paramname"><em>this</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class(<a class="el" href="structvectorbasemodule_1_1vectorbasetype.html">vectorbasetype</a>), pointer&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class(<a class="el" href="structvectorbasemodule_1_1vectorbasetype.html">vectorbasetype</a>), pointer&#160;</td>
+          <td class="paramname"><em>rhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer(i4b), dimension(:), pointer, contiguous&#160;</td>
+          <td class="paramname"><em>active</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_ims_linear_solver_8f90_source.html#l00051">51</a> of file <a class="el" href="_ims_linear_solver_8f90_source.html">ImsLinearSolver.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">class</span>(ImsLinearSolverType) :: this</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">class</span>(VectorBaseType), <span class="keywordtype">pointer</span> :: x</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">class</span>(VectorBaseType), <span class="keywordtype">pointer</span> :: rhs</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: active</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keywordtype">    real</span>(DP) :: l2norm</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    l2norm = 0.0_dp</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -260,8 +318,8 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_ims_linear_solver_8f90_source.html#l00046">46</a> of file <a class="el" href="_ims_linear_solver_8f90_source.html">ImsLinearSolver.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">class</span>(ImsLinearSolverType) :: this</div>
+<p class="definition">Definition at line <a class="el" href="_ims_linear_solver_8f90_source.html#l00047">47</a> of file <a class="el" href="_ims_linear_solver_8f90_source.html">ImsLinearSolver.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">class</span>(ImsLinearSolverType) :: this</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -299,9 +357,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_ims_linear_solver_8f90_source.html#l00034">34</a> of file <a class="el" href="_ims_linear_solver_8f90_source.html">ImsLinearSolver.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">class</span>(ImsLinearSolverType) :: this</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">class</span>(MatrixBaseType), <span class="keywordtype">pointer</span> :: matrix</div>
+<p class="definition">Definition at line <a class="el" href="_ims_linear_solver_8f90_source.html#l00035">35</a> of file <a class="el" href="_ims_linear_solver_8f90_source.html">ImsLinearSolver.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">class</span>(ImsLinearSolverType) :: this</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">class</span>(MatrixBaseType), <span class="keywordtype">pointer</span> :: matrix</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -351,11 +409,11 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_ims_linear_solver_8f90_source.html#l00039">39</a> of file <a class="el" href="_ims_linear_solver_8f90_source.html">ImsLinearSolver.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">class</span>(ImsLinearSolverType) :: this</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: kiter</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">class</span>(VectorBaseType), <span class="keywordtype">pointer</span> :: rhs</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">class</span>(VectorBaseType), <span class="keywordtype">pointer</span> :: x</div>
+<p class="definition">Definition at line <a class="el" href="_ims_linear_solver_8f90_source.html#l00040">40</a> of file <a class="el" href="_ims_linear_solver_8f90_source.html">ImsLinearSolver.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">class</span>(ImsLinearSolverType) :: this</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: kiter</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">class</span>(VectorBaseType), <span class="keywordtype">pointer</span> :: rhs</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">class</span>(VectorBaseType), <span class="keywordtype">pointer</span> :: x</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -365,7 +423,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceimslinearsolvermodule.html">imslinearsolvermodule</a></li>
-    <li class="footer">Generated on Mon Apr 3 2023 15:30:33 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Apr 12 2023 08:01:18 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

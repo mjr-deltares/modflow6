@@ -1,11 +1,11 @@
 var structvirtualdatacontainermodule_1_1virtualdatacontainertype =
 [
     [ "add_to_list", "structvirtualdatacontainermodule_1_1virtualdatacontainertype.html#a11ddd9c8245b1267bed082a02b70bb80", null ],
-    [ "create_field", "structvirtualdatacontainermodule_1_1virtualdatacontainertype.html#a37bebc936b8a974f7c80d73d6144e86a", null ],
     [ "destroy", "structvirtualdatacontainermodule_1_1virtualdatacontainertype.html#a34fd3769f9442d8f8c794f2c974a4168", null ],
     [ "get_items_for_stage", "structvirtualdatacontainermodule_1_1virtualdatacontainertype.html#ab6c1621f592f32b2a5588db47972b63f", null ],
     [ "get_recv_items", "structvirtualdatacontainermodule_1_1virtualdatacontainertype.html#a942494031ab89754ef40d66da0dbd954", null ],
     [ "get_send_items", "structvirtualdatacontainermodule_1_1virtualdatacontainertype.html#a2ebc7ead533a1e746e179bedf8ed4ef6", null ],
+    [ "get_virtual_data", "structvirtualdatacontainermodule_1_1virtualdatacontainertype.html#a42011d6261369927495330c3f5007fe3", null ],
     [ "get_vrt_mem_path", "structvirtualdatacontainermodule_1_1virtualdatacontainertype.html#aabd4990ceeecd76e160cb2295cd8203a", null ],
     [ "link_items", "structvirtualdatacontainermodule_1_1virtualdatacontainertype.html#aef0a3b32e8274b5ee7820a4ad09276b1", null ],
     [ "map", "structvirtualdatacontainermodule_1_1virtualdatacontainertype.html#a8ffe4b28f5d63920423d831f92e08154", null ],
@@ -15,6 +15,7 @@ var structvirtualdatacontainermodule_1_1virtualdatacontainertype =
     [ "map_scalar", "structvirtualdatacontainermodule_1_1virtualdatacontainertype.html#a872317bb068c381bd8d19d629e9ada43", null ],
     [ "prepare_stage", "structvirtualdatacontainermodule_1_1virtualdatacontainertype.html#a0ae48cfe90fa21f3e304a940b190a84f", null ],
     [ "print_items", "structvirtualdatacontainermodule_1_1virtualdatacontainertype.html#a9511014ed5d5c72437c16bce20afa86e", null ],
+    [ "set", "structvirtualdatacontainermodule_1_1virtualdatacontainertype.html#afb8aac9d787ab8a5e4e8033dfb7715c2", null ],
     [ "set_element_map", "structvirtualdatacontainermodule_1_1virtualdatacontainertype.html#a9bdba1db42cd88dd99b572061ee22789", null ],
     [ "set_orig_rank", "structvirtualdatacontainermodule_1_1virtualdatacontainertype.html#aa85ef70739cb21cdafc1b829e0dc0c2d", null ],
     [ "vdc_create", "structvirtualdatacontainermodule_1_1virtualdatacontainertype.html#a465a25eb0a1a5657f357dd9fd72bd236", null ],

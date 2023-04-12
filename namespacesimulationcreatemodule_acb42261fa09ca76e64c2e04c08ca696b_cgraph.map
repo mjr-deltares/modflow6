@@ -1,0 +1,12 @@
+<map id="simulationcreatemodule::create_load_mask" name="simulationcreatemodule::create_load_mask">
+<area shape="rect" id="node1" title="Create a load mask to determine which models should be loaded by idm on this process...." alt="" coords="5,61,187,102"/>
+<area shape="rect" id="node2" href="$namespacesimulationcreatemodule.html#a64526df00721ad90611eccb81cf8d2ec" title="Distribute the models over the available processes in a parallel run. Expects an array sized." alt="" coords="235,61,416,102"/>
+<area shape="rect" id="node3" href="$namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d" title="returns the path to the memory object" alt="" coords="464,31,631,73"/>
+<area shape="rect" id="node5" href="$namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="893,68,1068,95"/>
+<area shape="rect" id="node4" href="$namespacememoryhelpermodule.html#a5405f58247a0962e5449ebc1e4dcff0f" title="Generic routine to check the length of (parts of) the memory address." alt="" coords="679,31,845,73"/>
+<area shape="rect" id="node6" href="$namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="1116,68,1255,95"/>
+<area shape="rect" id="node7" href="$namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="1303,27,1471,69"/>
+<area shape="rect" id="node10" href="$namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="1303,93,1471,134"/>
+<area shape="rect" id="node8" href="$namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="1519,5,1713,32"/>
+<area shape="rect" id="node9" href="$namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1532,57,1700,98"/>
+</map>

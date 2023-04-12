@@ -130,12 +130,14 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a8e46d3605f61196e15753f180ca17e90"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevirtualgwtexchangemodule.html#a8e46d3605f61196e15753f180ca17e90">vtx_create</a> (this, name, exg_id, m1_id, m2_id)</td></tr>
 <tr class="memdesc:a8e46d3605f61196e15753f180ca17e90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a virtual GWT-GWT exchange.  <a href="namespacevirtualgwtexchangemodule.html#a8e46d3605f61196e15753f180ca17e90">More...</a><br /></td></tr>
 <tr class="separator:a8e46d3605f61196e15753f180ca17e90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0541ad8bc4bd11b13702c9fca157b375"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevirtualgwtexchangemodule.html#a0541ad8bc4bd11b13702c9fca157b375">create_virtual_fields</a> (this)</td></tr>
-<tr class="separator:a0541ad8bc4bd11b13702c9fca157b375"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a72927b6230b45bdb27c39c6d9e982f"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevirtualgwtexchangemodule.html#a9a72927b6230b45bdb27c39c6d9e982f">init_virtual_data</a> (this)</td></tr>
+<tr class="separator:a9a72927b6230b45bdb27c39c6d9e982f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7cd7216299a087fad124ba2111b6aea4"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevirtualgwtexchangemodule.html#a7cd7216299a087fad124ba2111b6aea4">vtx_prepare_stage</a> (this, stage)</td></tr>
 <tr class="separator:a7cd7216299a087fad124ba2111b6aea4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e2f60c6ad6ec11d17259be481d302bb"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevirtualgwtexchangemodule.html#a6e2f60c6ad6ec11d17259be481d302bb">vtx_destroy</a> (this)</td></tr>
 <tr class="separator:a6e2f60c6ad6ec11d17259be481d302bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97f35a5975c1f444f182a91e04be0844"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevirtualgwtexchangemodule.html#a97f35a5975c1f444f182a91e04be0844">allocate_data</a> (this)</td></tr>
+<tr class="separator:a97f35a5975c1f444f182a91e04be0844"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2fed6742272fdec51e076004f07f0568"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevirtualgwtexchangemodule.html#a2fed6742272fdec51e076004f07f0568">deallocate_data</a> (this)</td></tr>
 <tr class="separator:a2fed6742272fdec51e076004f07f0568"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -178,21 +180,21 @@ Functions/Subroutines</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_virtual_gwt_exchange_8f90_source.html#l00028">28</a> of file <a class="el" href="_virtual_gwt_exchange_8f90_source.html">VirtualGwtExchange.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">character(len=*)</span> :: name</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: exchange_id</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: model1_id</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: model2_id</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">class</span>(VirtualGwtExchangeType), <span class="keywordtype">pointer</span> :: v_exg</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span> :: obj_ptr</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">allocate</span> (v_exg)</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">call </span>v_exg%create(name, exchange_id, model1_id, model2_id)</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    obj_ptr =&gt; v_exg</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">call </span>virtual_exchange_list%Add(obj_ptr)</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="_virtual_gwt_exchange_8f90_source.html#l00029">29</a> of file <a class="el" href="_virtual_gwt_exchange_8f90_source.html">VirtualGwtExchange.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">character(len=*)</span> :: name</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: exchange_id</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: model1_id</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: model2_id</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">class</span>(VirtualGwtExchangeType), <span class="keywordtype">pointer</span> :: v_exg</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span> :: obj_ptr</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">allocate</span> (v_exg)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">call </span>v_exg%create(name, exchange_id, model1_id, model2_id)</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    obj_ptr =&gt; v_exg</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">call </span>virtual_exchange_list%Add(obj_ptr)</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -211,8 +213,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a0541ad8bc4bd11b13702c9fca157b375"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0541ad8bc4bd11b13702c9fca157b375">&#9670;&nbsp;</a></span>create_virtual_fields()</h2>
+<a id="a97f35a5975c1f444f182a91e04be0844"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97f35a5975c1f444f182a91e04be0844">&#9670;&nbsp;</a></span>allocate_data()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -221,7 +223,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">subroutine virtualgwtexchangemodule::create_virtual_fields </td>
+          <td class="memname">subroutine virtualgwtexchangemodule::allocate_data </td>
           <td>(</td>
           <td class="paramtype">class(<a class="el" href="structvirtualgwtexchangemodule_1_1virtualgwtexchangetype.html">virtualgwtexchangetype</a>)&#160;</td>
           <td class="paramname"><em>this</em></td><td>)</td>
@@ -235,12 +237,11 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_virtual_gwt_exchange_8f90_source.html#l00063">63</a> of file <a class="el" href="_virtual_gwt_exchange_8f90_source.html">VirtualGwtExchange.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">class</span>(VirtualGwtExchangeType) :: this</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">allocate</span> (this%gwfsimvals)</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keyword">call </span>this%create_field(this%gwfsimvals%to_base(), <span class="stringliteral">&#39;GWFSIMVALS&#39;</span>, <span class="stringliteral">&#39;&#39;</span>)</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="_virtual_gwt_exchange_8f90_source.html#l00095">95</a> of file <a class="el" href="_virtual_gwt_exchange_8f90_source.html">VirtualGwtExchange.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">class</span>(VirtualGwtExchangeType) :: this</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keyword">allocate</span> (this%gwfsimvals)</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -268,11 +269,43 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_virtual_gwt_exchange_8f90_source.html#l00096">96</a> of file <a class="el" href="_virtual_gwt_exchange_8f90_source.html">VirtualGwtExchange.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">class</span>(VirtualGwtExchangeType) :: this</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keyword">deallocate</span> (this%gwfsimvals)</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="_virtual_gwt_exchange_8f90_source.html#l00102">102</a> of file <a class="el" href="_virtual_gwt_exchange_8f90_source.html">VirtualGwtExchange.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordtype">class</span>(VirtualGwtExchangeType) :: this</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keyword">deallocate</span> (this%gwfsimvals)</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a9a72927b6230b45bdb27c39c6d9e982f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a72927b6230b45bdb27c39c6d9e982f">&#9670;&nbsp;</a></span>init_virtual_data()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine virtualgwtexchangemodule::init_virtual_data </td>
+          <td>(</td>
+          <td class="paramtype">class(<a class="el" href="structvirtualgwtexchangemodule_1_1virtualgwtexchangetype.html">virtualgwtexchangetype</a>)&#160;</td>
+          <td class="paramname"><em>this</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_virtual_gwt_exchange_8f90_source.html#l00064">64</a> of file <a class="el" href="_virtual_gwt_exchange_8f90_source.html">VirtualGwtExchange.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">class</span>(VirtualGwtExchangeType) :: this</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keyword">call </span>this%set(this%gwfsimvals%base(), <span class="stringliteral">&#39;GWFSIMVALS&#39;</span>, <span class="stringliteral">&#39;&#39;</span>, map_all_type)</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -328,20 +361,20 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_virtual_gwt_exchange_8f90_source.html#l00047">47</a> of file <a class="el" href="_virtual_gwt_exchange_8f90_source.html">VirtualGwtExchange.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">class</span>(VirtualGwtExchangeType) :: this</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">character(len=*)</span> :: name</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: exg_id</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: m1_id</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: m2_id</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="comment">! create base</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">call </span>this%VirtualExchangeType%create(name, exg_id, m1_id, m2_id)</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    this%container_type = vdc_gwtexg_type</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="comment">! allocate gwtgwt field(s)</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">call </span>this%create_virtual_fields()</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="_virtual_gwt_exchange_8f90_source.html#l00048">48</a> of file <a class="el" href="_virtual_gwt_exchange_8f90_source.html">VirtualGwtExchange.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">class</span>(VirtualGwtExchangeType) :: this</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">character(len=*)</span> :: name</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: exg_id</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: m1_id</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: m2_id</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="comment">! create base</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">call </span>this%VirtualExchangeType%create(name, exg_id, m1_id, m2_id)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    this%container_type = vdc_gwtexg_type</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">call </span>this%allocate_data()</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">call </span>this%init_virtual_data()</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -369,12 +402,12 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_virtual_gwt_exchange_8f90_source.html#l00088">88</a> of file <a class="el" href="_virtual_gwt_exchange_8f90_source.html">VirtualGwtExchange.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">class</span>(VirtualGwtExchangeType) :: this</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keyword">call </span>this%VirtualExchangeType%destroy()</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">call </span>this%deallocate_data()</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="_virtual_gwt_exchange_8f90_source.html#l00087">87</a> of file <a class="el" href="_virtual_gwt_exchange_8f90_source.html">VirtualGwtExchange.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">class</span>(VirtualGwtExchangeType) :: this</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keyword">call </span>this%VirtualExchangeType%destroy()</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keyword">call </span>this%deallocate_data()</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -421,12 +454,11 @@ Here is the caller graph for this function:</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="comment">! prepare base exchange data items</span></div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">call </span>this%VirtualExchangeType%prepare_stage(stage)</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">if</span> (stage == stg_before_ar) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">if</span> (stage == stg_bfr_con_ar) <span class="keywordflow">then</span></div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      nexg = this%nexg%get()</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      <span class="keyword">call </span>this%map(this%gwfsimvals%to_base(), nexg, &amp;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                    (/stg_before_ad/), map_all_type)</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      <span class="keyword">call </span>this%map(this%gwfsimvals%base(), nexg, (/stg_bfr_exg_ad/))</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -436,7 +468,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacevirtualgwtexchangemodule.html">virtualgwtexchangemodule</a></li>
-    <li class="footer">Generated on Mon Apr 3 2023 15:30:35 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Apr 12 2023 08:01:20 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

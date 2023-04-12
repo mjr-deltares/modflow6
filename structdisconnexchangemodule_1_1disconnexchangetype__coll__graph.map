@@ -1,7 +1,7 @@
 <map id="disconnexchangemodule::disconnexchangetype" name="disconnexchangemodule::disconnexchangetype">
-<area shape="rect" id="node1" title="Exchange based on connection between discretizations of DisBaseType. The data specifies the connectio..." alt="" coords="235,727,419,1053"/>
+<area shape="rect" id="node1" title="Exchange based on connection between discretizations of DisBaseType. The data specifies the connectio..." alt="" coords="237,727,421,1053"/>
 <area shape="rect" id="node2" href="$structnumericalexchangemodule_1_1numericalexchangetype.html" title=" " alt="" coords="5,337,204,605"/>
 <area shape="rect" id="node3" href="$structbaseexchangemodule_1_1baseexchangetype.html" title=" " alt="" coords="22,5,187,229"/>
-<area shape="rect" id="node4" href="$structcharacterstringmodule_1_1characterstringtype.html" title="This class is used to store a single deferred&#45;length character string. It was designed to work in an ..." alt="" coords="229,374,426,569"/>
-<area shape="rect" id="node5" href="$structblockparsermodule_1_1blockparsertype.html" title=" " alt="" coords="451,279,609,664"/>
+<area shape="rect" id="node4" href="$structcharacterstringmodule_1_1characterstringtype.html" title="This class is used to store a single deferred&#45;length character string. It was designed to work in an ..." alt="" coords="228,367,429,576"/>
+<area shape="rect" id="node5" href="$structblockparsermodule_1_1blockparsertype.html" title=" " alt="" coords="453,279,612,664"/>
 </map>

@@ -155,8 +155,9 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a0574292d636407e09dae880717f67331"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacespatialmodelconnectionmodule.html#a0574292d636407e09dae880717f67331">validateconnection</a> (this)</td></tr>
 <tr class="memdesc:a0574292d636407e09dae880717f67331"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validate this connection.  <a href="namespacespatialmodelconnectionmodule.html#a0574292d636407e09dae880717f67331">More...</a><br /></td></tr>
 <tr class="separator:a0574292d636407e09dae880717f67331"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a047da77c38f654928681217ad114887d"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacespatialmodelconnectionmodule.html#a047da77c38f654928681217ad114887d">adddistvar</a> (this, var_name, subcomp_name, map_type, sync_stages, exg_var_name)</td></tr>
-<tr class="separator:a047da77c38f654928681217ad114887d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a733685758e6ba27838f104d116cdee2d"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacespatialmodelconnectionmodule.html#a733685758e6ba27838f104d116cdee2d">cfg_dv</a> (this, var_name, subcomp_name, map_type, sync_stages, exg_var_name)</td></tr>
+<tr class="memdesc:a733685758e6ba27838f104d116cdee2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a variable from the interface model to be synchronized at the configured stages by copying from the source memory in the models/exchanges that are part.  <a href="namespacespatialmodelconnectionmodule.html#a733685758e6ba27838f104d116cdee2d">More...</a><br /></td></tr>
+<tr class="separator:a733685758e6ba27838f104d116cdee2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa5f44b372452361a6a7fd66bc0890d62"><td class="memItemLeft" align="right" valign="top">class(<a class="el" href="structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html">spatialmodelconnectiontype</a>) function, pointer, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacespatialmodelconnectionmodule.html#aa5f44b372452361a6a7fd66bc0890d62">cast_as_smc</a> (obj)</td></tr>
 <tr class="memdesc:aa5f44b372452361a6a7fd66bc0890d62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cast to SpatialModelConnectionType.  <a href="namespacespatialmodelconnectionmodule.html#aa5f44b372452361a6a7fd66bc0890d62">More...</a><br /></td></tr>
 <tr class="separator:aa5f44b372452361a6a7fd66bc0890d62"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -201,18 +202,18 @@ Functions/Subroutines</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_spatial_model_connection_8f90_source.html#l00619">619</a> of file <a class="el" href="_spatial_model_connection_8f90_source.html">SpatialModelConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;    <span class="keywordtype">implicit none</span></div>
-<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;    <span class="keywordtype">type</span>(ListType), <span class="keywordtype">intent(inout)</span> :: list<span class="comment"> !&lt; the list</span></div>
-<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;    <span class="keywordtype">class</span>(SpatialModelConnectionType), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(in)</span> :: conn<span class="comment"> !&lt; the connection</span></div>
-<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;    <span class="comment">! -- local</span></div>
-<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span> :: obj</div>
-<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;    obj =&gt; conn</div>
-<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;    <span class="keyword">call </span>list%Add(obj)</div>
-<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;    <span class="keywordflow">return</span></div>
+<p class="definition">Definition at line <a class="el" href="_spatial_model_connection_8f90_source.html#l00621">621</a> of file <a class="el" href="_spatial_model_connection_8f90_source.html">SpatialModelConnection.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;    <span class="keywordtype">implicit none</span></div>
+<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;    <span class="comment">! -- dummy</span></div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;    <span class="keywordtype">type</span>(ListType), <span class="keywordtype">intent(inout)</span> :: list<span class="comment"> !&lt; the list</span></div>
+<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;    <span class="keywordtype">class</span>(SpatialModelConnectionType), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(in)</span> :: conn<span class="comment"> !&lt; the connection</span></div>
+<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;    <span class="comment">! -- local</span></div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span> :: obj</div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;    obj =&gt; conn</div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;    <span class="keyword">call </span>list%Add(obj)</div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;    <span class="keywordflow">return</span></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -223,96 +224,6 @@ Here is the caller graph for this function:</div>
 </map>
 </div>
 
-</div>
-</div>
-<a id="a047da77c38f654928681217ad114887d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a047da77c38f654928681217ad114887d">&#9670;&nbsp;</a></span>adddistvar()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine spatialmodelconnectionmodule::adddistvar </td>
-          <td>(</td>
-          <td class="paramtype">class(<a class="el" href="structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html">spatialmodelconnectiontype</a>)&#160;</td>
-          <td class="paramname"><em>this</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">character(len=*)&#160;</td>
-          <td class="paramname"><em>var_name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">character(len=*)&#160;</td>
-          <td class="paramname"><em>subcomp_name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer(i4b)&#160;</td>
-          <td class="paramname"><em>map_type</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer(i4b), dimension(:)&#160;</td>
-          <td class="paramname"><em>sync_stages</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">character(len=*), optional&#160;</td>
-          <td class="paramname"><em>exg_var_name</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">this</td><td>this connection</td></tr>
-    <tr><td class="paramname">var_name</td><td>name of variable, e.g. "K11"</td></tr>
-    <tr><td class="paramname">subcomp_name</td><td>subcomponent, e.g. "NPF"</td></tr>
-    <tr><td class="paramname">map_type</td><td>can be 0 = scalar, 1 = node based, 2 = connection based, 3 = exchange based (connections crossing model boundaries)</td></tr>
-    <tr><td class="paramname">sync_stages</td><td>when to sync, e.g. (/ STAGE_AD, STAGE_CF /) which is before AD and CF</td></tr>
-    <tr><td class="paramname">exg_var_name</td><td>needed for exchange variables, e.g. SIMVALS </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="_spatial_model_connection_8f90_source.html#l00571">571</a> of file <a class="el" href="_spatial_model_connection_8f90_source.html">SpatialModelConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;    <span class="keywordtype">class</span>(SpatialModelConnectionType) :: this<span class="comment"> !&lt; this connection</span></div>
-<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;    <span class="keywordtype">character(len=*)</span> :: var_name<span class="comment"> !&lt; name of variable, e.g. &quot;K11&quot;</span></div>
-<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;    <span class="keywordtype">character(len=*)</span> :: subcomp_name<span class="comment"> !&lt; subcomponent, e.g. &quot;NPF&quot;</span></div>
-<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: map_type<span class="comment"> !&lt; can be 0 = scalar, 1 = node based, 2 = connection based,</span></div>
-<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;<span class="comment">                             !! 3 = exchange based (connections crossing model boundaries)</span></div>
-<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span> :: sync_stages<span class="comment"> !&lt; when to sync, e.g. (/ STAGE_AD, STAGE_CF /)</span></div>
-<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;<span class="comment">                                              !! which is before AD and CF</span></div>
-<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">optional</span> :: exg_var_name<span class="comment"> !&lt; needed for exchange variables, e.g. SIMVALS</span></div>
-<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;    <span class="keywordtype">type</span>(DistVarType), <span class="keywordtype">pointer</span> :: dist_var =&gt; null()</div>
-<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span> :: obj</div>
-<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160; </div>
-<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;    <span class="keywordflow">if</span> (.not. <span class="keyword">present</span>(exg_var_name)) exg_var_name = <span class="stringliteral">&#39;&#39;</span></div>
-<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160; </div>
-<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;    <span class="keyword">allocate</span> (dist_var)</div>
-<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;    dist_var%var_name = var_name</div>
-<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;    dist_var%subcomp_name = subcomp_name</div>
-<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;    dist_var%comp_name = this%interface_model%name</div>
-<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;    dist_var%map_type = map_type</div>
-<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;    dist_var%sync_stages = sync_stages</div>
-<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;    dist_var%exg_var_name = exg_var_name</div>
-<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160; </div>
-<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;    obj =&gt; dist_var</div>
-<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;    <span class="keyword">call </span>this%iface_dist_vars%Add(obj)</div>
-<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160; </div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="afea20dbc6188ed36d0172e377ea0e19e"></a>
@@ -440,7 +351,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keyword">call </span>nbr_models%destroy()</div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160; </div>
 <div class="ttc" id="anamespacevirtualexchangemodule_html"><div class="ttname"><a href="namespacevirtualexchangemodule.html">virtualexchangemodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_virtual_exchange_8f90_source.html#l00001">VirtualExchange.f90:1</a></div></div>
-<div class="ttc" id="anamespacevirtualexchangemodule_html_ab1918334bf283f92687def799abce76b"><div class="ttname"><a href="namespacevirtualexchangemodule.html#ab1918334bf283f92687def799abce76b">virtualexchangemodule::get_virtual_exchange</a></div><div class="ttdeci">class(virtualexchangetype) function, pointer, public get_virtual_exchange(exg_id)</div><div class="ttdoc">Returs a virtual exchange with the specified id.</div><div class="ttdef"><b>Definition:</b> <a href="_virtual_exchange_8f90_source.html#l00288">VirtualExchange.f90:289</a></div></div>
+<div class="ttc" id="anamespacevirtualexchangemodule_html_ab1918334bf283f92687def799abce76b"><div class="ttname"><a href="namespacevirtualexchangemodule.html#ab1918334bf283f92687def799abce76b">virtualexchangemodule::get_virtual_exchange</a></div><div class="ttdeci">class(virtualexchangetype) function, pointer, public get_virtual_exchange(exg_id)</div><div class="ttdoc">Returs a virtual exchange with the specified id.</div><div class="ttdef"><b>Definition:</b> <a href="_virtual_exchange_8f90_source.html#l00286">VirtualExchange.f90:287</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -476,19 +387,19 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the instance of SpatialModelConnectionType </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_spatial_model_connection_8f90_source.html#l00602">602</a> of file <a class="el" href="_spatial_model_connection_8f90_source.html">SpatialModelConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;    <span class="keywordtype">implicit none</span></div>
-<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(inout)</span> :: obj<span class="comment"> !&lt; object to be cast</span></div>
-<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;    <span class="keywordtype">class</span>(SpatialModelConnectionType), <span class="keywordtype">pointer</span> :: res<span class="comment"> !&lt; the instance of SpatialModelConnectionType</span></div>
-<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;    res =&gt; null()</div>
-<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;    <span class="keywordflow">if</span> (.not. <span class="keyword">associated</span>(obj)) <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;    <span class="keywordflow">select type</span> (obj)</div>
-<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;<span class="keywordflow">    class is</span> (spatialmodelconnectiontype)</div>
-<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;      res =&gt; obj</div>
-<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;<span class="keywordflow">    end select</span></div>
-<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;    <span class="keywordflow">return</span></div>
+<p class="definition">Definition at line <a class="el" href="_spatial_model_connection_8f90_source.html#l00604">604</a> of file <a class="el" href="_spatial_model_connection_8f90_source.html">SpatialModelConnection.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;    <span class="keywordtype">implicit none</span></div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(inout)</span> :: obj<span class="comment"> !&lt; object to be cast</span></div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;    <span class="keywordtype">class</span>(SpatialModelConnectionType), <span class="keywordtype">pointer</span> :: res<span class="comment"> !&lt; the instance of SpatialModelConnectionType</span></div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;    res =&gt; null()</div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;    <span class="keywordflow">if</span> (.not. <span class="keyword">associated</span>(obj)) <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;    <span class="keywordflow">select type</span> (obj)</div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;<span class="keywordflow">    class is</span> (spatialmodelconnectiontype)</div>
+<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;      res =&gt; obj</div>
+<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;<span class="keywordflow">    end select</span></div>
+<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;    <span class="keywordflow">return</span></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -520,6 +431,94 @@ Here is the caller graph for this function:</div>
 </map>
 </div>
 
+</div>
+</div>
+<a id="a733685758e6ba27838f104d116cdee2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a733685758e6ba27838f104d116cdee2d">&#9670;&nbsp;</a></span>cfg_dv()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine spatialmodelconnectionmodule::cfg_dv </td>
+          <td>(</td>
+          <td class="paramtype">class(<a class="el" href="structspatialmodelconnectionmodule_1_1spatialmodelconnectiontype.html">spatialmodelconnectiontype</a>)&#160;</td>
+          <td class="paramname"><em>this</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*)&#160;</td>
+          <td class="paramname"><em>var_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*)&#160;</td>
+          <td class="paramname"><em>subcomp_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer(i4b)&#160;</td>
+          <td class="paramname"><em>map_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer(i4b), dimension(:)&#160;</td>
+          <td class="paramname"><em>sync_stages</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">character(len=*), optional&#160;</td>
+          <td class="paramname"><em>exg_var_name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">this</td><td>this connection </td></tr>
+    <tr><td class="paramname">var_name</td><td>name of variable, e.g. "K11" </td></tr>
+    <tr><td class="paramname">subcomp_name</td><td>subcomponent, e.g. "NPF" </td></tr>
+    <tr><td class="paramname">map_type</td><td>type of variable map </td></tr>
+    <tr><td class="paramname">sync_stages</td><td>stages to sync </td></tr>
+    <tr><td class="paramname">exg_var_name</td><td>needed for exchange variables, e.g. SIMVALS </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_spatial_model_connection_8f90_source.html#l00575">575</a> of file <a class="el" href="_spatial_model_connection_8f90_source.html">SpatialModelConnection.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;    <span class="keywordtype">class</span>(SpatialModelConnectionType) :: this<span class="comment"> !&lt; this connection</span></div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;    <span class="keywordtype">character(len=*)</span> :: var_name<span class="comment"> !&lt; name of variable, e.g. &quot;K11&quot;</span></div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;    <span class="keywordtype">character(len=*)</span> :: subcomp_name<span class="comment"> !&lt; subcomponent, e.g. &quot;NPF&quot;</span></div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: map_type<span class="comment"> !&lt; type of variable map</span></div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span> :: sync_stages<span class="comment"> !&lt; stages to sync</span></div>
+<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">optional</span> :: exg_var_name<span class="comment"> !&lt; needed for exchange variables, e.g. SIMVALS</span></div>
+<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;    <span class="keywordtype">type</span>(DistVarType), <span class="keywordtype">pointer</span> :: dist_var =&gt; null()</div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span> :: obj</div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160; </div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;    <span class="keywordflow">if</span> (.not. <span class="keyword">present</span>(exg_var_name)) exg_var_name = <span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160; </div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;    <span class="keyword">allocate</span> (dist_var)</div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;    dist_var%var_name = var_name</div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;    dist_var%subcomp_name = subcomp_name</div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;    dist_var%comp_name = this%interface_model%name</div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;    dist_var%map_type = map_type</div>
+<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;    dist_var%sync_stages = sync_stages</div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;    dist_var%exg_var_name = exg_var_name</div>
+<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160; </div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;    obj =&gt; dist_var</div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;    <span class="keyword">call </span>this%iface_dist_vars%Add(obj)</div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160; </div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ace61fc3d934039f47a0eff6f420c235b"></a>
@@ -657,17 +656,17 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the returned connection </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_spatial_model_connection_8f90_source.html#l00635">635</a> of file <a class="el" href="_spatial_model_connection_8f90_source.html">SpatialModelConnection.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;    <span class="keywordtype">type</span>(ListType), <span class="keywordtype">intent(inout)</span> :: list<span class="comment"> !&lt; the list</span></div>
-<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: idx<span class="comment"> !&lt; the index of the connection</span></div>
-<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;    <span class="keywordtype">class</span>(SpatialModelConnectionType), <span class="keywordtype">pointer</span> :: res<span class="comment"> !&lt; the returned connection</span></div>
-<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160; </div>
-<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span> :: obj</div>
-<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;    obj =&gt; list%GetItem(idx)</div>
-<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;    res =&gt; cast_as_smc(obj)</div>
-<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;    <span class="keywordflow">return</span></div>
+<p class="definition">Definition at line <a class="el" href="_spatial_model_connection_8f90_source.html#l00637">637</a> of file <a class="el" href="_spatial_model_connection_8f90_source.html">SpatialModelConnection.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;    <span class="keywordtype">type</span>(ListType), <span class="keywordtype">intent(inout)</span> :: list<span class="comment"> !&lt; the list</span></div>
+<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: idx<span class="comment"> !&lt; the index of the connection</span></div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;    <span class="keywordtype">class</span>(SpatialModelConnectionType), <span class="keywordtype">pointer</span> :: res<span class="comment"> !&lt; the returned connection</span></div>
+<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160; </div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span> :: obj</div>
+<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;    obj =&gt; list%GetItem(idx)</div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;    res =&gt; cast_as_smc(obj)</div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;    <span class="keywordflow">return</span></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1163,7 +1162,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160; </div>
 <div class="ttc" id="anamespacesimmodule_html_a21870712a1166225fdcd5b60bffb353e"><div class="ttname"><a href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e">simmodule::store_error</a></div><div class="ttdeci">subroutine, public store_error(msg, terminate)</div><div class="ttdoc">Store error message.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_8f90_source.html#l00128">Sim.f90:129</a></div></div>
 <div class="ttc" id="anamespacesimvariablesmodule_html"><div class="ttname"><a href="namespacesimvariablesmodule.html">simvariablesmodule</a></div><div class="ttdoc">This module contains simulation variables.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_variables_8f90_source.html#l00009">SimVariables.f90:9</a></div></div>
-<div class="ttc" id="anamespacesimvariablesmodule_html_a08c1a8900029e311ac640e2319c6a234"><div class="ttname"><a href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">simvariablesmodule::errmsg</a></div><div class="ttdeci">character(len=maxcharlen) errmsg</div><div class="ttdoc">error message string</div><div class="ttdef"><b>Definition:</b> <a href="_sim_variables_8f90_source.html#l00027">SimVariables.f90:27</a></div></div>
+<div class="ttc" id="anamespacesimvariablesmodule_html_a08c1a8900029e311ac640e2319c6a234"><div class="ttname"><a href="namespacesimvariablesmodule.html#a08c1a8900029e311ac640e2319c6a234">simvariablesmodule::errmsg</a></div><div class="ttdeci">character(len=maxcharlen) errmsg</div><div class="ttdoc">error message string</div><div class="ttdef"><b>Definition:</b> <a href="_sim_variables_8f90_source.html#l00028">SimVariables.f90:28</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1187,7 +1186,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacespatialmodelconnectionmodule.html">spatialmodelconnectionmodule</a></li>
-    <li class="footer">Generated on Mon Apr 3 2023 15:30:34 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Apr 12 2023 08:01:19 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

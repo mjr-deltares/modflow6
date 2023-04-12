@@ -1,9 +1,8 @@
 var structvirtualmodelmodule_1_1virtualmodeltype =
 [
     [ "add_to_list", "structvirtualmodelmodule_1_1virtualmodeltype.html#a11ddd9c8245b1267bed082a02b70bb80", null ],
+    [ "allocate_data", "structvirtualmodelmodule_1_1virtualmodeltype.html#a0cf5e0bedcc975c9bcc891c26a4ec1ce", null ],
     [ "create", "structvirtualmodelmodule_1_1virtualmodeltype.html#ac31221478c8db2f3db267331731464ec", null ],
-    [ "create_field", "structvirtualmodelmodule_1_1virtualmodeltype.html#a37bebc936b8a974f7c80d73d6144e86a", null ],
-    [ "create_virtual_fields", "structvirtualmodelmodule_1_1virtualmodeltype.html#a4f366bbf0576dcfe36cc0a34857da2d3", null ],
     [ "deallocate_data", "structvirtualmodelmodule_1_1virtualmodeltype.html#adc61bcff84afb902a88f2c7b3ac2d0b5", null ],
     [ "destroy", "structvirtualmodelmodule_1_1virtualmodeltype.html#ab684933840009498c8583cfb1320d48a", null ],
     [ "dis_get_nodeuser", "structvirtualmodelmodule_1_1virtualmodeltype.html#aca7d5f77d8489c4f1f4f6e24a49456a6", null ],
@@ -13,7 +12,9 @@ var structvirtualmodelmodule_1_1virtualmodeltype =
     [ "get_items_for_stage", "structvirtualmodelmodule_1_1virtualmodeltype.html#ab6c1621f592f32b2a5588db47972b63f", null ],
     [ "get_recv_items", "structvirtualmodelmodule_1_1virtualmodeltype.html#a942494031ab89754ef40d66da0dbd954", null ],
     [ "get_send_items", "structvirtualmodelmodule_1_1virtualmodeltype.html#a2ebc7ead533a1e746e179bedf8ed4ef6", null ],
+    [ "get_virtual_data", "structvirtualmodelmodule_1_1virtualmodeltype.html#a42011d6261369927495330c3f5007fe3", null ],
     [ "get_vrt_mem_path", "structvirtualmodelmodule_1_1virtualmodeltype.html#aabd4990ceeecd76e160cb2295cd8203a", null ],
+    [ "init_virtual_data", "structvirtualmodelmodule_1_1virtualmodeltype.html#a6624d8bcdfcb18f8d8189d8ab5b49804", null ],
     [ "link_items", "structvirtualmodelmodule_1_1virtualmodeltype.html#aef0a3b32e8274b5ee7820a4ad09276b1", null ],
     [ "map", "structvirtualmodelmodule_1_1virtualmodeltype.html#a8ffe4b28f5d63920423d831f92e08154", null ],
     [ "map_array1d", "structvirtualmodelmodule_1_1virtualmodeltype.html#ad7a86b487e3efa66d58ba0e01a69a819", null ],
@@ -23,6 +24,7 @@ var structvirtualmodelmodule_1_1virtualmodeltype =
     [ "operator", "structvirtualmodelmodule_1_1virtualmodeltype.html#a93ec7536cba601ddd61622b18836d86d", null ],
     [ "prepare_stage", "structvirtualmodelmodule_1_1virtualmodeltype.html#a28687dbf13badf18021a6ba93e47dc87", null ],
     [ "print_items", "structvirtualmodelmodule_1_1virtualmodeltype.html#a9511014ed5d5c72437c16bce20afa86e", null ],
+    [ "set", "structvirtualmodelmodule_1_1virtualmodeltype.html#afb8aac9d787ab8a5e4e8033dfb7715c2", null ],
     [ "set_element_map", "structvirtualmodelmodule_1_1virtualmodeltype.html#a9bdba1db42cd88dd99b572061ee22789", null ],
     [ "set_orig_rank", "structvirtualmodelmodule_1_1virtualmodeltype.html#aa85ef70739cb21cdafc1b829e0dc0c2d", null ],
     [ "vdc_create", "structvirtualmodelmodule_1_1virtualmodeltype.html#a465a25eb0a1a5657f357dd9fd72bd236", null ],

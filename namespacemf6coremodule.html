@@ -188,30 +188,30 @@ Variables</h2></td></tr>
 <p>This will upgrade the numerical exchanges in the solution, whenever the configuration requires this, to Connection objects. Currently we anticipate:</p>
 <p>GWF-GWF =&gt; GwfGwfConnection GWT-GWT =&gt; GwtGwtConecction </p>
 
-<p class="definition">Definition at line <a class="el" href="mf6core_8f90_source.html#l00431">431</a> of file <a class="el" href="mf6core_8f90_source.html">mf6core.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceconnectionbuildermodule.html">connectionbuildermodule</a></div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacesimvariablesmodule.html">simvariablesmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacesimvariablesmodule.html#a70ea2f76b35a03119367efdd0dd88ccc">iout</a></div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: isol</div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;    <span class="keywordtype">type</span>(ConnectionBuilderType) :: connectionBuilder</div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;    <span class="keywordtype">class</span>(BaseSolutionType), <span class="keywordtype">pointer</span> :: sol =&gt; null()</div>
+<p class="definition">Definition at line <a class="el" href="mf6core_8f90_source.html#l00423">423</a> of file <a class="el" href="mf6core_8f90_source.html">mf6core.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceconnectionbuildermodule.html">connectionbuildermodule</a></div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacesimvariablesmodule.html">simvariablesmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacesimvariablesmodule.html#a70ea2f76b35a03119367efdd0dd88ccc">iout</a></div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: isol</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;    <span class="keywordtype">type</span>(ConnectionBuilderType) :: connectionBuilder</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;    <span class="keywordtype">class</span>(BaseSolutionType), <span class="keywordtype">pointer</span> :: sol =&gt; null()</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160; </div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;    <span class="keyword">write</span> (<a class="code" href="namespacesimvariablesmodule.html#a70ea2f76b35a03119367efdd0dd88ccc">iout</a>, <span class="stringliteral">&#39;(/a)&#39;</span>) <span class="stringliteral">&#39;PROCESSING MODEL CONNECTIONS&#39;</span></div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160; </div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;    <span class="keywordflow">if</span> (baseexchangelist%Count() == 0) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;      <span class="comment">! if this is not a coupled simulation in any way,</span></div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;      <span class="comment">! then we will not need model connections</span></div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;      <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;<span class="keywordflow">    end if</span></div>
 <div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160; </div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;    <span class="keyword">write</span> (<a class="code" href="namespacesimvariablesmodule.html#a70ea2f76b35a03119367efdd0dd88ccc">iout</a>, <span class="stringliteral">&#39;(/a)&#39;</span>) <span class="stringliteral">&#39;PROCESSING MODEL CONNECTIONS&#39;</span></div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160; </div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;    <span class="keywordflow">if</span> (baseexchangelist%Count() == 0) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;      <span class="comment">! if this is not a coupled simulation in any way,</span></div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;      <span class="comment">! then we will not need model connections</span></div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;      <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160; </div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;    <span class="keywordflow">do</span> isol = 1, basesolutionlist%Count()</div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;      sol =&gt; getbasesolutionfromlist(basesolutionlist, isol)</div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;      <span class="keyword">call </span>connectionbuilder%processSolution(sol)</div>
-<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160; </div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;    <span class="keyword">write</span> (<a class="code" href="namespacesimvariablesmodule.html#a70ea2f76b35a03119367efdd0dd88ccc">iout</a>, <span class="stringliteral">&#39;(a)&#39;</span>) <span class="stringliteral">&#39;END OF MODEL CONNECTIONS&#39;</span></div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;    <span class="keywordflow">do</span> isol = 1, basesolutionlist%Count()</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;      sol =&gt; getbasesolutionfromlist(basesolutionlist, isol)</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;      <span class="keyword">call </span>connectionbuilder%processSolution(sol)</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160; </div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;    <span class="keyword">write</span> (<a class="code" href="namespacesimvariablesmodule.html#a70ea2f76b35a03119367efdd0dd88ccc">iout</a>, <span class="stringliteral">&#39;(a)&#39;</span>) <span class="stringliteral">&#39;END OF MODEL CONNECTIONS&#39;</span></div>
 <div class="ttc" id="anamespaceconnectionbuildermodule_html"><div class="ttname"><a href="namespaceconnectionbuildermodule.html">connectionbuildermodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_connection_builder_8f90_source.html#l00001">ConnectionBuilder.f90:1</a></div></div>
 <div class="ttc" id="anamespacesimvariablesmodule_html"><div class="ttname"><a href="namespacesimvariablesmodule.html">simvariablesmodule</a></div><div class="ttdoc">This module contains simulation variables.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_variables_8f90_source.html#l00009">SimVariables.f90:9</a></div></div>
-<div class="ttc" id="anamespacesimvariablesmodule_html_a70ea2f76b35a03119367efdd0dd88ccc"><div class="ttname"><a href="namespacesimvariablesmodule.html#a70ea2f76b35a03119367efdd0dd88ccc">simvariablesmodule::iout</a></div><div class="ttdeci">integer(i4b) iout</div><div class="ttdoc">file unit number for simulation output</div><div class="ttdef"><b>Definition:</b> <a href="_sim_variables_8f90_source.html#l00032">SimVariables.f90:32</a></div></div>
+<div class="ttc" id="anamespacesimvariablesmodule_html_a70ea2f76b35a03119367efdd0dd88ccc"><div class="ttname"><a href="namespacesimvariablesmodule.html#a70ea2f76b35a03119367efdd0dd88ccc">simvariablesmodule::iout</a></div><div class="ttdeci">integer(i4b) iout</div><div class="ttdoc">file unit number for simulation output</div><div class="ttdef"><b>Definition:</b> <a href="_sim_variables_8f90_source.html#l00033">SimVariables.f90:33</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -344,40 +344,40 @@ Here is the caller graph for this function:</div>
 <li>solve each solution </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="mf6core_8f90_source.html#l00568">568</a> of file <a class="el" href="mf6core_8f90_source.html">mf6core.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;    <span class="comment">! --  modules</span></div>
-<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacekindmodule.html">kindmodule</a>, <span class="keywordtype">only</span>: i4b</div>
-<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacelistsmodule.html">listsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacelistsmodule.html#a733280dd05725ffbe3969344a79a964c">solutiongrouplist</a></div>
-<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacesimvariablesmodule.html">simvariablesmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacesimvariablesmodule.html#a284e1959b1aa8757d3f107ab44d64e21">ifailedstepretry</a></div>
-<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacesolutiongroupmodule.html">solutiongroupmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structsolutiongroupmodule_1_1solutiongrouptype.html">solutiongrouptype</a>, <a class="code" href="namespacesolutiongroupmodule.html#a7adf638009121f69976a00aa98c604b5">getsolutiongroupfromlist</a></div>
-<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;    <span class="comment">! -- local variables</span></div>
-<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;    <span class="keywordtype">class</span>(SolutionGroupType), <span class="keywordtype">pointer</span> :: sgp =&gt; null()</div>
-<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: isg</div>
-<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;    <span class="keywordtype">logical</span> :: finishedTrying</div>
+<p class="definition">Definition at line <a class="el" href="mf6core_8f90_source.html#l00560">560</a> of file <a class="el" href="mf6core_8f90_source.html">mf6core.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;    <span class="comment">! --  modules</span></div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacekindmodule.html">kindmodule</a>, <span class="keywordtype">only</span>: i4b</div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacelistsmodule.html">listsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacelistsmodule.html#a733280dd05725ffbe3969344a79a964c">solutiongrouplist</a></div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacesimvariablesmodule.html">simvariablesmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacesimvariablesmodule.html#a284e1959b1aa8757d3f107ab44d64e21">ifailedstepretry</a></div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacesolutiongroupmodule.html">solutiongroupmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structsolutiongroupmodule_1_1solutiongrouptype.html">solutiongrouptype</a>, <a class="code" href="namespacesolutiongroupmodule.html#a7adf638009121f69976a00aa98c604b5">getsolutiongroupfromlist</a></div>
+<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;    <span class="comment">! -- local variables</span></div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;    <span class="keywordtype">class</span>(SolutionGroupType), <span class="keywordtype">pointer</span> :: sgp =&gt; null()</div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: isg</div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;    <span class="keywordtype">logical</span> :: finishedTrying</div>
+<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160; </div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;    <span class="comment">! -- By default, the solution groups will be solved once, and</span></div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;    <span class="comment">!    may fail.  But if adaptive stepping is active, then</span></div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;    <span class="comment">!    the solution groups may be solved over and over with</span></div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;    <span class="comment">!    progressively smaller time steps to see if convergence</span></div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;    <span class="comment">!    can be obtained.</span></div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;    <a class="code" href="namespacesimvariablesmodule.html#a284e1959b1aa8757d3f107ab44d64e21">ifailedstepretry</a> = 0</div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;    retryloop: <span class="keywordflow">do</span></div>
 <div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160; </div>
-<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;    <span class="comment">! -- By default, the solution groups will be solved once, and</span></div>
-<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;    <span class="comment">!    may fail.  But if adaptive stepping is active, then</span></div>
-<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;    <span class="comment">!    the solution groups may be solved over and over with</span></div>
-<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;    <span class="comment">!    progressively smaller time steps to see if convergence</span></div>
-<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;    <span class="comment">!    can be obtained.</span></div>
-<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;    <a class="code" href="namespacesimvariablesmodule.html#a284e1959b1aa8757d3f107ab44d64e21">ifailedstepretry</a> = 0</div>
-<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;    retryloop: <span class="keywordflow">do</span></div>
-<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160; </div>
-<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;      <span class="keywordflow">do</span> isg = 1, <a class="code" href="namespacelistsmodule.html#a733280dd05725ffbe3969344a79a964c">solutiongrouplist</a>%Count()</div>
-<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;        sgp =&gt; <a class="code" href="namespacesolutiongroupmodule.html#a7adf638009121f69976a00aa98c604b5">getsolutiongroupfromlist</a>(<a class="code" href="namespacelistsmodule.html#a733280dd05725ffbe3969344a79a964c">solutiongrouplist</a>, isg)</div>
-<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;        <span class="keyword">call </span>sgp%sgp_ca()</div>
-<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;<span class="keywordflow">      end do</span></div>
-<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160; </div>
-<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;      <span class="keyword">call </span>sim_step_retry(finishedtrying)</div>
-<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;      <span class="keywordflow">if</span> (finishedtrying) <span class="keywordflow">exit</span> retryloop</div>
-<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;      <a class="code" href="namespacesimvariablesmodule.html#a284e1959b1aa8757d3f107ab44d64e21">ifailedstepretry</a> = <a class="code" href="namespacesimvariablesmodule.html#a284e1959b1aa8757d3f107ab44d64e21">ifailedstepretry</a> + 1</div>
-<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160; </div>
-<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;<span class="keywordflow">    end do</span> retryloop</div>
-<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160; </div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;      <span class="keywordflow">do</span> isg = 1, <a class="code" href="namespacelistsmodule.html#a733280dd05725ffbe3969344a79a964c">solutiongrouplist</a>%Count()</div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;        sgp =&gt; <a class="code" href="namespacesolutiongroupmodule.html#a7adf638009121f69976a00aa98c604b5">getsolutiongroupfromlist</a>(<a class="code" href="namespacelistsmodule.html#a733280dd05725ffbe3969344a79a964c">solutiongrouplist</a>, isg)</div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;        <span class="keyword">call </span>sgp%sgp_ca()</div>
+<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;<span class="keywordflow">      end do</span></div>
+<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160; </div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;      <span class="keyword">call </span>sim_step_retry(finishedtrying)</div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;      <span class="keywordflow">if</span> (finishedtrying) <span class="keywordflow">exit</span> retryloop</div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;      <a class="code" href="namespacesimvariablesmodule.html#a284e1959b1aa8757d3f107ab44d64e21">ifailedstepretry</a> = <a class="code" href="namespacesimvariablesmodule.html#a284e1959b1aa8757d3f107ab44d64e21">ifailedstepretry</a> + 1</div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160; </div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;<span class="keywordflow">    end do</span> retryloop</div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160; </div>
 <div class="ttc" id="anamespacekindmodule_html"><div class="ttname"><a href="namespacekindmodule.html">kindmodule</a></div><div class="ttdoc">This module defines variable data types.</div><div class="ttdef"><b>Definition:</b> <a href="kind_8f90_source.html#l00008">kind.f90:8</a></div></div>
 <div class="ttc" id="anamespacelistsmodule_html"><div class="ttname"><a href="namespacelistsmodule.html">listsmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="mf6lists_8f90_source.html#l00001">mf6lists.f90:1</a></div></div>
 <div class="ttc" id="anamespacelistsmodule_html_a733280dd05725ffbe3969344a79a964c"><div class="ttname"><a href="namespacelistsmodule.html#a733280dd05725ffbe3969344a79a964c">listsmodule::solutiongrouplist</a></div><div class="ttdeci">type(listtype), public solutiongrouplist</div><div class="ttdef"><b>Definition:</b> <a href="mf6lists_8f90_source.html#l00022">mf6lists.f90:22</a></div></div>
-<div class="ttc" id="anamespacesimvariablesmodule_html_a284e1959b1aa8757d3f107ab44d64e21"><div class="ttname"><a href="namespacesimvariablesmodule.html#a284e1959b1aa8757d3f107ab44d64e21">simvariablesmodule::ifailedstepretry</a></div><div class="ttdeci">integer(i4b) ifailedstepretry</div><div class="ttdoc">current retry for this time step</div><div class="ttdef"><b>Definition:</b> <a href="_sim_variables_8f90_source.html#l00041">SimVariables.f90:41</a></div></div>
+<div class="ttc" id="anamespacesimvariablesmodule_html_a284e1959b1aa8757d3f107ab44d64e21"><div class="ttname"><a href="namespacesimvariablesmodule.html#a284e1959b1aa8757d3f107ab44d64e21">simvariablesmodule::ifailedstepretry</a></div><div class="ttdeci">integer(i4b) ifailedstepretry</div><div class="ttdoc">current retry for this time step</div><div class="ttdef"><b>Definition:</b> <a href="_sim_variables_8f90_source.html#l00042">SimVariables.f90:42</a></div></div>
 <div class="ttc" id="anamespacesolutiongroupmodule_html"><div class="ttname"><a href="namespacesolutiongroupmodule.html">solutiongroupmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_solution_group_8f90_source.html#l00001">SolutionGroup.f90:1</a></div></div>
 <div class="ttc" id="anamespacesolutiongroupmodule_html_a7adf638009121f69976a00aa98c604b5"><div class="ttname"><a href="namespacesolutiongroupmodule.html#a7adf638009121f69976a00aa98c604b5">solutiongroupmodule::getsolutiongroupfromlist</a></div><div class="ttdeci">class(solutiongrouptype) function, pointer, public getsolutiongroupfromlist(list, idx)</div><div class="ttdef"><b>Definition:</b> <a href="_solution_group_8f90_source.html#l00215">SolutionGroup.f90:216</a></div></div>
 <div class="ttc" id="astructsolutiongroupmodule_1_1solutiongrouptype_html"><div class="ttname"><a href="structsolutiongroupmodule_1_1solutiongrouptype.html">solutiongroupmodule::solutiongrouptype</a></div><div class="ttdef"><b>Definition:</b> <a href="_solution_group_8f90_source.html#l00014">SolutionGroup.f90:14</a></div></div>
@@ -512,7 +512,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <span class="comment">!</span></div>
 <div class="ttc" id="anamespacelistsmodule_html_acfc4a2fee6511bdae3eae6fbf510e46c"><div class="ttname"><a href="namespacelistsmodule.html#acfc4a2fee6511bdae3eae6fbf510e46c">listsmodule::lists_da</a></div><div class="ttdeci">subroutine, public lists_da()</div><div class="ttdef"><b>Definition:</b> <a href="mf6lists_8f90_source.html#l00032">mf6lists.f90:33</a></div></div>
 <div class="ttc" id="anamespacesimulationcreatemodule_html"><div class="ttname"><a href="namespacesimulationcreatemodule.html">simulationcreatemodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_simulation_create_8f90_source.html#l00001">SimulationCreate.f90:1</a></div></div>
-<div class="ttc" id="anamespacesimulationcreatemodule_html_a691031f7a9eed08077855afbff144a1d"><div class="ttname"><a href="namespacesimulationcreatemodule.html#a691031f7a9eed08077855afbff144a1d">simulationcreatemodule::simulation_da</a></div><div class="ttdeci">subroutine, public simulation_da()</div><div class="ttdoc">Deallocate simulation variables.</div><div class="ttdef"><b>Definition:</b> <a href="_simulation_create_8f90_source.html#l00047">SimulationCreate.f90:48</a></div></div>
+<div class="ttc" id="anamespacesimulationcreatemodule_html_a691031f7a9eed08077855afbff144a1d"><div class="ttname"><a href="namespacesimulationcreatemodule.html#a691031f7a9eed08077855afbff144a1d">simulationcreatemodule::simulation_da</a></div><div class="ttdeci">subroutine, public simulation_da()</div><div class="ttdoc">Deallocate simulation variables.</div><div class="ttdef"><b>Definition:</b> <a href="_simulation_create_8f90_source.html#l00051">SimulationCreate.f90:52</a></div></div>
 <div class="ttc" id="anamespacetdismodule_html"><div class="ttname"><a href="namespacetdismodule.html">tdismodule</a></div><div class="ttdef"><b>Definition:</b> <a href="tdis_8f90_source.html#l00005">tdis.f90:5</a></div></div>
 <div class="ttc" id="anamespacetdismodule_html_add64b0264997708a5d9019384517696b"><div class="ttname"><a href="namespacetdismodule.html#add64b0264997708a5d9019384517696b">tdismodule::tdis_da</a></div><div class="ttdeci">subroutine, public tdis_da()</div><div class="ttdef"><b>Definition:</b> <a href="tdis_8f90_source.html#l00446">tdis.f90:447</a></div></div>
 </div><!-- fragment --><div class="dynheader">
@@ -579,77 +579,77 @@ Here is the caller graph for this function:</div>
 </ul>
 <dl class="section return"><dt>Returns</dt><dd>hasConverged boolean indicating if convergence was achieved for the time step </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="mf6core_8f90_source.html#l00649">649</a> of file <a class="el" href="mf6core_8f90_source.html">mf6core.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;    <span class="comment">! -- modules</span></div>
-<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacekindmodule.html">kindmodule</a>, <span class="keywordtype">only</span>: i4b</div>
-<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceconstantsmodule.html">constantsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceconstantsmodule.html#a060d310ded5535ce2dc85bd1ca1afd3d">linelength</a>, <a class="code" href="namespaceconstantsmodule.html#a8f91ce3a7d9214a7dd504a557c9302cbad1cabe51afa7f9201930acec652dc51f">mnormal</a>, <a class="code" href="namespaceconstantsmodule.html#a8f91ce3a7d9214a7dd504a557c9302cba1bac4f31bb8e9d2c8da14300c920f483">mvalidate</a></div>
-<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacelistsmodule.html">listsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacelistsmodule.html#aa1a3cd1509449addb1bb6d6f4ff0b7fb">basesolutionlist</a>, <a class="code" href="namespacelistsmodule.html#a3b242f17eecc25a4acea6ab6e3c5ae7b">basemodellist</a>, <a class="code" href="namespacelistsmodule.html#a3e857b53bd777fd84ebcc75f2d7fe273">baseexchangelist</a></div>
-<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacebasemodelmodule.html">basemodelmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structbasemodelmodule_1_1basemodeltype.html">basemodeltype</a>, <a class="code" href="namespacebasemodelmodule.html#a79adefc92f4f7d0d032babb551c571f8">getbasemodelfromlist</a></div>
-<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacebaseexchangemodule.html">baseexchangemodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structbaseexchangemodule_1_1baseexchangetype.html">baseexchangetype</a>, <a class="code" href="namespacebaseexchangemodule.html#ad92f8ec5d783349adc5a61e4e3d31f4b">getbaseexchangefromlist</a></div>
-<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacebasesolutionmodule.html">basesolutionmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structbasesolutionmodule_1_1basesolutiontype.html">basesolutiontype</a>, <a class="code" href="namespacebasesolutionmodule.html#ad00fcf57eca44c1f8995e3904b1593de">getbasesolutionfromlist</a></div>
-<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacesimmodule.html">simmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacesimmodule.html#af24424b2b14a2c21680d1185f3ae84b5">converge_check</a></div>
-<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacesimvariablesmodule.html">simvariablesmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacesimvariablesmodule.html#aed164026d7ee76a480c460834765a2b8">isim_mode</a></div>
-<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;    <span class="comment">! -- return variable</span></div>
-<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: hasConverged</div>
-<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;    <span class="comment">! -- local variables</span></div>
-<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;    <span class="keywordtype">class</span>(BaseSolutionType), <span class="keywordtype">pointer</span> :: sp =&gt; null()</div>
-<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;    <span class="keywordtype">class</span>(BaseModelType), <span class="keywordtype">pointer</span> :: mp =&gt; null()</div>
-<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;    <span class="keywordtype">class</span>(BaseExchangeType), <span class="keywordtype">pointer</span> :: ep =&gt; null()</div>
-<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;    <span class="keywordtype">class</span>(SpatialModelConnectionType), <span class="keywordtype">pointer</span> :: mc =&gt; null()</div>
-<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;    <span class="keywordtype">character(len=LINELENGTH)</span> :: line</div>
-<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;    <span class="keywordtype">character(len=LINELENGTH)</span> :: fmt</div>
-<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: im</div>
-<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: ix</div>
-<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: ic</div>
-<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: is</div>
-<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;    <span class="comment">! -- initialize format and line</span></div>
-<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;    fmt = <span class="stringliteral">&quot;(/,a,/)&quot;</span></div>
-<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;    line = <span class="stringliteral">&#39;end timestep&#39;</span></div>
-<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;    <span class="comment">! -- evaluate simulation mode</span></div>
-<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;    <span class="keywordflow">select case</span> (<a class="code" href="namespacesimvariablesmodule.html#aed164026d7ee76a480c460834765a2b8">isim_mode</a>)</div>
-<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;    <span class="keywordflow">case</span> (<a class="code" href="namespaceconstantsmodule.html#a8f91ce3a7d9214a7dd504a557c9302cba1bac4f31bb8e9d2c8da14300c920f483">mvalidate</a>)</div>
-<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;      <span class="comment">!</span></div>
-<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;      <span class="comment">! -- Write final message for timestep for each model</span></div>
-<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;      <span class="keywordflow">do</span> im = 1, <a class="code" href="namespacelistsmodule.html#a3b242f17eecc25a4acea6ab6e3c5ae7b">basemodellist</a>%Count()</div>
-<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;        mp =&gt; <a class="code" href="namespacebasemodelmodule.html#a79adefc92f4f7d0d032babb551c571f8">getbasemodelfromlist</a>(<a class="code" href="namespacelistsmodule.html#a3b242f17eecc25a4acea6ab6e3c5ae7b">basemodellist</a>, im)</div>
+<p class="definition">Definition at line <a class="el" href="mf6core_8f90_source.html#l00641">641</a> of file <a class="el" href="mf6core_8f90_source.html">mf6core.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;    <span class="comment">! -- modules</span></div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacekindmodule.html">kindmodule</a>, <span class="keywordtype">only</span>: i4b</div>
+<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceconstantsmodule.html">constantsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceconstantsmodule.html#a060d310ded5535ce2dc85bd1ca1afd3d">linelength</a>, <a class="code" href="namespaceconstantsmodule.html#a8f91ce3a7d9214a7dd504a557c9302cbad1cabe51afa7f9201930acec652dc51f">mnormal</a>, <a class="code" href="namespaceconstantsmodule.html#a8f91ce3a7d9214a7dd504a557c9302cba1bac4f31bb8e9d2c8da14300c920f483">mvalidate</a></div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacelistsmodule.html">listsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacelistsmodule.html#aa1a3cd1509449addb1bb6d6f4ff0b7fb">basesolutionlist</a>, <a class="code" href="namespacelistsmodule.html#a3b242f17eecc25a4acea6ab6e3c5ae7b">basemodellist</a>, <a class="code" href="namespacelistsmodule.html#a3e857b53bd777fd84ebcc75f2d7fe273">baseexchangelist</a></div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacebasemodelmodule.html">basemodelmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structbasemodelmodule_1_1basemodeltype.html">basemodeltype</a>, <a class="code" href="namespacebasemodelmodule.html#a79adefc92f4f7d0d032babb551c571f8">getbasemodelfromlist</a></div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacebaseexchangemodule.html">baseexchangemodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structbaseexchangemodule_1_1baseexchangetype.html">baseexchangetype</a>, <a class="code" href="namespacebaseexchangemodule.html#ad92f8ec5d783349adc5a61e4e3d31f4b">getbaseexchangefromlist</a></div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacebasesolutionmodule.html">basesolutionmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structbasesolutionmodule_1_1basesolutiontype.html">basesolutiontype</a>, <a class="code" href="namespacebasesolutionmodule.html#ad00fcf57eca44c1f8995e3904b1593de">getbasesolutionfromlist</a></div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacesimmodule.html">simmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacesimmodule.html#af24424b2b14a2c21680d1185f3ae84b5">converge_check</a></div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacesimvariablesmodule.html">simvariablesmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacesimvariablesmodule.html#aed164026d7ee76a480c460834765a2b8">isim_mode</a></div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;    <span class="comment">! -- return variable</span></div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: hasConverged</div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;    <span class="comment">! -- local variables</span></div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;    <span class="keywordtype">class</span>(BaseSolutionType), <span class="keywordtype">pointer</span> :: sp =&gt; null()</div>
+<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;    <span class="keywordtype">class</span>(BaseModelType), <span class="keywordtype">pointer</span> :: mp =&gt; null()</div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;    <span class="keywordtype">class</span>(BaseExchangeType), <span class="keywordtype">pointer</span> :: ep =&gt; null()</div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;    <span class="keywordtype">class</span>(SpatialModelConnectionType), <span class="keywordtype">pointer</span> :: mc =&gt; null()</div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;    <span class="keywordtype">character(len=LINELENGTH)</span> :: line</div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;    <span class="keywordtype">character(len=LINELENGTH)</span> :: fmt</div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: im</div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: ix</div>
+<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: ic</div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: is</div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;    <span class="comment">! -- initialize format and line</span></div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;    fmt = <span class="stringliteral">&quot;(/,a,/)&quot;</span></div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;    line = <span class="stringliteral">&#39;end timestep&#39;</span></div>
+<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;    <span class="comment">! -- evaluate simulation mode</span></div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;    <span class="keywordflow">select case</span> (<a class="code" href="namespacesimvariablesmodule.html#aed164026d7ee76a480c460834765a2b8">isim_mode</a>)</div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;    <span class="keywordflow">case</span> (<a class="code" href="namespaceconstantsmodule.html#a8f91ce3a7d9214a7dd504a557c9302cba1bac4f31bb8e9d2c8da14300c920f483">mvalidate</a>)</div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;      <span class="comment">!</span></div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;      <span class="comment">! -- Write final message for timestep for each model</span></div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;      <span class="keywordflow">do</span> im = 1, <a class="code" href="namespacelistsmodule.html#a3b242f17eecc25a4acea6ab6e3c5ae7b">basemodellist</a>%Count()</div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;        mp =&gt; <a class="code" href="namespacebasemodelmodule.html#a79adefc92f4f7d0d032babb551c571f8">getbasemodelfromlist</a>(<a class="code" href="namespacelistsmodule.html#a3b242f17eecc25a4acea6ab6e3c5ae7b">basemodellist</a>, im)</div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;        <span class="keyword">call </span>mp%model_message(line, fmt=fmt)</div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;<span class="keywordflow">      end do</span></div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;    <span class="keywordflow">case</span> (<a class="code" href="namespaceconstantsmodule.html#a8f91ce3a7d9214a7dd504a557c9302cbad1cabe51afa7f9201930acec652dc51f">mnormal</a>)</div>
+<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;      <span class="comment">!</span></div>
+<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;      <span class="comment">! -- Write output and final message for timestep for each model</span></div>
+<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;      <span class="keywordflow">do</span> im = 1, <a class="code" href="namespacelistsmodule.html#a3b242f17eecc25a4acea6ab6e3c5ae7b">basemodellist</a>%Count()</div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;        mp =&gt; <a class="code" href="namespacebasemodelmodule.html#a79adefc92f4f7d0d032babb551c571f8">getbasemodelfromlist</a>(<a class="code" href="namespacelistsmodule.html#a3b242f17eecc25a4acea6ab6e3c5ae7b">basemodellist</a>, im)</div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;        <span class="keyword">call </span>mp%model_ot()</div>
 <div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;        <span class="keyword">call </span>mp%model_message(line, fmt=fmt)</div>
 <div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;<span class="keywordflow">      end do</span></div>
-<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;    <span class="keywordflow">case</span> (<a class="code" href="namespaceconstantsmodule.html#a8f91ce3a7d9214a7dd504a557c9302cbad1cabe51afa7f9201930acec652dc51f">mnormal</a>)</div>
-<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;      <span class="comment">!</span></div>
-<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;      <span class="comment">! -- Write output and final message for timestep for each model</span></div>
-<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;      <span class="keywordflow">do</span> im = 1, <a class="code" href="namespacelistsmodule.html#a3b242f17eecc25a4acea6ab6e3c5ae7b">basemodellist</a>%Count()</div>
-<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;        mp =&gt; <a class="code" href="namespacebasemodelmodule.html#a79adefc92f4f7d0d032babb551c571f8">getbasemodelfromlist</a>(<a class="code" href="namespacelistsmodule.html#a3b242f17eecc25a4acea6ab6e3c5ae7b">basemodellist</a>, im)</div>
-<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;        <span class="keyword">call </span>mp%model_ot()</div>
-<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;        <span class="keyword">call </span>mp%model_message(line, fmt=fmt)</div>
-<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;<span class="keywordflow">      end do</span></div>
-<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;      <span class="comment">!</span></div>
-<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;      <span class="comment">! -- Write output for each exchange</span></div>
-<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;      <span class="keywordflow">do</span> ix = 1, <a class="code" href="namespacelistsmodule.html#a3e857b53bd777fd84ebcc75f2d7fe273">baseexchangelist</a>%Count()</div>
-<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;        ep =&gt; <a class="code" href="namespacebaseexchangemodule.html#ad92f8ec5d783349adc5a61e4e3d31f4b">getbaseexchangefromlist</a>(<a class="code" href="namespacelistsmodule.html#a3e857b53bd777fd84ebcc75f2d7fe273">baseexchangelist</a>, ix)</div>
-<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;        <span class="keyword">call </span>ep%exg_ot()</div>
-<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;<span class="keywordflow">      end do</span></div>
-<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;      <span class="comment">!</span></div>
-<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;      <span class="comment">! -- Write output for each connection</span></div>
-<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;      <span class="keywordflow">do</span> ic = 1, baseconnectionlist%Count()</div>
-<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;        mc =&gt; get_smc_from_list(baseconnectionlist, ic)</div>
-<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;        <span class="keyword">call </span>mc%exg_ot()</div>
-<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;<span class="keywordflow">      end do</span></div>
-<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;      <span class="comment">!</span></div>
-<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;      <span class="comment">! -- Write output for each solution</span></div>
-<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;      <span class="keywordflow">do</span> is = 1, <a class="code" href="namespacelistsmodule.html#aa1a3cd1509449addb1bb6d6f4ff0b7fb">basesolutionlist</a>%Count()</div>
-<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;        sp =&gt; <a class="code" href="namespacebasesolutionmodule.html#ad00fcf57eca44c1f8995e3904b1593de">getbasesolutionfromlist</a>(<a class="code" href="namespacelistsmodule.html#aa1a3cd1509449addb1bb6d6f4ff0b7fb">basesolutionlist</a>, is)</div>
-<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;        <span class="keyword">call </span>sp%sln_ot()</div>
-<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;<span class="keywordflow">      end do</span></div>
-<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;<span class="keywordflow">    end select</span></div>
-<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;    <span class="comment">! -- Check if we&#39;re done</span></div>
-<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;    <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#af24424b2b14a2c21680d1185f3ae84b5">converge_check</a>(hasconverged)</div>
-<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;    <span class="comment">! -- return</span></div>
-<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160; </div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;      <span class="comment">!</span></div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;      <span class="comment">! -- Write output for each exchange</span></div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;      <span class="keywordflow">do</span> ix = 1, <a class="code" href="namespacelistsmodule.html#a3e857b53bd777fd84ebcc75f2d7fe273">baseexchangelist</a>%Count()</div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;        ep =&gt; <a class="code" href="namespacebaseexchangemodule.html#ad92f8ec5d783349adc5a61e4e3d31f4b">getbaseexchangefromlist</a>(<a class="code" href="namespacelistsmodule.html#a3e857b53bd777fd84ebcc75f2d7fe273">baseexchangelist</a>, ix)</div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;        <span class="keyword">call </span>ep%exg_ot()</div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;<span class="keywordflow">      end do</span></div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;      <span class="comment">!</span></div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;      <span class="comment">! -- Write output for each connection</span></div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;      <span class="keywordflow">do</span> ic = 1, baseconnectionlist%Count()</div>
+<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;        mc =&gt; get_smc_from_list(baseconnectionlist, ic)</div>
+<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;        <span class="keyword">call </span>mc%exg_ot()</div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;<span class="keywordflow">      end do</span></div>
+<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;      <span class="comment">!</span></div>
+<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;      <span class="comment">! -- Write output for each solution</span></div>
+<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;      <span class="keywordflow">do</span> is = 1, <a class="code" href="namespacelistsmodule.html#aa1a3cd1509449addb1bb6d6f4ff0b7fb">basesolutionlist</a>%Count()</div>
+<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;        sp =&gt; <a class="code" href="namespacebasesolutionmodule.html#ad00fcf57eca44c1f8995e3904b1593de">getbasesolutionfromlist</a>(<a class="code" href="namespacelistsmodule.html#aa1a3cd1509449addb1bb6d6f4ff0b7fb">basesolutionlist</a>, is)</div>
+<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;        <span class="keyword">call </span>sp%sln_ot()</div>
+<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;<span class="keywordflow">      end do</span></div>
+<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;<span class="keywordflow">    end select</span></div>
+<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;    <span class="comment">! -- Check if we&#39;re done</span></div>
+<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;    <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#af24424b2b14a2c21680d1185f3ae84b5">converge_check</a>(hasconverged)</div>
+<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;    <span class="comment">! -- return</span></div>
+<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;    <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160; </div>
 <div class="ttc" id="anamespacebaseexchangemodule_html"><div class="ttname"><a href="namespacebaseexchangemodule.html">baseexchangemodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_base_exchange_8f90_source.html#l00001">BaseExchange.f90:1</a></div></div>
 <div class="ttc" id="anamespacebaseexchangemodule_html_ad92f8ec5d783349adc5a61e4e3d31f4b"><div class="ttname"><a href="namespacebaseexchangemodule.html#ad92f8ec5d783349adc5a61e4e3d31f4b">baseexchangemodule::getbaseexchangefromlist</a></div><div class="ttdeci">class(baseexchangetype) function, pointer, public getbaseexchangefromlist(list, idx)</div><div class="ttdef"><b>Definition:</b> <a href="_base_exchange_8f90_source.html#l00188">BaseExchange.f90:189</a></div></div>
 <div class="ttc" id="anamespacebasemodelmodule_html"><div class="ttname"><a href="namespacebasemodelmodule.html">basemodelmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_base_model_8f90_source.html#l00003">BaseModel.f90:3</a></div></div>
@@ -663,7 +663,7 @@ Here is the caller graph for this function:</div>
 <div class="ttc" id="anamespacelistsmodule_html_aa1a3cd1509449addb1bb6d6f4ff0b7fb"><div class="ttname"><a href="namespacelistsmodule.html#aa1a3cd1509449addb1bb6d6f4ff0b7fb">listsmodule::basesolutionlist</a></div><div class="ttdeci">type(listtype), public basesolutionlist</div><div class="ttdef"><b>Definition:</b> <a href="mf6lists_8f90_source.html#l00019">mf6lists.f90:19</a></div></div>
 <div class="ttc" id="anamespacesimmodule_html"><div class="ttname"><a href="namespacesimmodule.html">simmodule</a></div><div class="ttdoc">This module contains simulation methods.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_8f90_source.html#l00010">Sim.f90:10</a></div></div>
 <div class="ttc" id="anamespacesimmodule_html_af24424b2b14a2c21680d1185f3ae84b5"><div class="ttname"><a href="namespacesimmodule.html#af24424b2b14a2c21680d1185f3ae84b5">simmodule::converge_check</a></div><div class="ttdeci">subroutine, public converge_check(hasConverged)</div><div class="ttdoc">Simulation convergence check.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_8f90_source.html#l00456">Sim.f90:457</a></div></div>
-<div class="ttc" id="anamespacesimvariablesmodule_html_aed164026d7ee76a480c460834765a2b8"><div class="ttname"><a href="namespacesimvariablesmodule.html#aed164026d7ee76a480c460834765a2b8">simvariablesmodule::isim_mode</a></div><div class="ttdeci">integer(i4b) isim_mode</div><div class="ttdoc">simulation mode</div><div class="ttdef"><b>Definition:</b> <a href="_sim_variables_8f90_source.html#l00031">SimVariables.f90:31</a></div></div>
+<div class="ttc" id="anamespacesimvariablesmodule_html_aed164026d7ee76a480c460834765a2b8"><div class="ttname"><a href="namespacesimvariablesmodule.html#aed164026d7ee76a480c460834765a2b8">simvariablesmodule::isim_mode</a></div><div class="ttdeci">integer(i4b) isim_mode</div><div class="ttdoc">simulation mode</div><div class="ttdef"><b>Definition:</b> <a href="_sim_variables_8f90_source.html#l00032">SimVariables.f90:32</a></div></div>
 <div class="ttc" id="astructbaseexchangemodule_1_1baseexchangetype_html"><div class="ttname"><a href="structbaseexchangemodule_1_1baseexchangetype.html">baseexchangemodule::baseexchangetype</a></div><div class="ttdef"><b>Definition:</b> <a href="_base_exchange_8f90_source.html#l00014">BaseExchange.f90:14</a></div></div>
 <div class="ttc" id="astructbasemodelmodule_1_1basemodeltype_html"><div class="ttname"><a href="structbasemodelmodule_1_1basemodeltype.html">basemodelmodule::basemodeltype</a></div><div class="ttdef"><b>Definition:</b> <a href="_base_model_8f90_source.html#l00014">BaseModel.f90:14</a></div></div>
 <div class="ttc" id="astructbasesolutionmodule_1_1basesolutiontype_html"><div class="ttname"><a href="structbasesolutionmodule_1_1basesolutiontype.html">basesolutionmodule::basesolutiontype</a></div><div class="ttdef"><b>Definition:</b> <a href="_base_solution_8f90_source.html#l00015">BaseSolution.f90:15</a></div></div>
@@ -747,62 +747,62 @@ Here is the caller graph for this function:</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
 <div class="ttc" id="anamespaceruncontrolfactorymodule_html"><div class="ttname"><a href="namespaceruncontrolfactorymodule.html">runcontrolfactorymodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_run_control_factory_8_f90_source.html#l00001">RunControlFactory.F90:1</a></div></div>
 <div class="ttc" id="anamespaceruncontrolfactorymodule_html_a28cda210ae6cf0b1e03904b4306dd3df"><div class="ttname"><a href="namespaceruncontrolfactorymodule.html#a28cda210ae6cf0b1e03904b4306dd3df">runcontrolfactorymodule::create_run_control</a></div><div class="ttdeci">class(runcontroltype) function, pointer, public create_run_control()</div><div class="ttdef"><b>Definition:</b> <a href="_run_control_factory_8_f90_source.html#l00014">RunControlFactory.F90:15</a></div></div>
-<div class="ttc" id="anamespacesimulationcreatemodule_html_afcbe0fd3c140a3ba4f0a5409e5dc8781"><div class="ttname"><a href="namespacesimulationcreatemodule.html#afcbe0fd3c140a3ba4f0a5409e5dc8781">simulationcreatemodule::simulation_cr</a></div><div class="ttdeci">subroutine, public simulation_cr()</div><div class="ttdoc">Read the simulation name file and initialize the models, exchanges.</div><div class="ttdef"><b>Definition:</b> <a href="_simulation_create_8f90_source.html#l00033">SimulationCreate.f90:34</a></div></div>
+<div class="ttc" id="anamespacesimulationcreatemodule_html_afcbe0fd3c140a3ba4f0a5409e5dc8781"><div class="ttname"><a href="namespacesimulationcreatemodule.html#afcbe0fd3c140a3ba4f0a5409e5dc8781">simulationcreatemodule::simulation_cr</a></div><div class="ttdeci">subroutine, public simulation_cr()</div><div class="ttdoc">Read the simulation name file and initialize the models, exchanges.</div><div class="ttdef"><b>Definition:</b> <a href="_simulation_create_8f90_source.html#l00037">SimulationCreate.f90:38</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacemf6coremodule_aa847da5116e01f4fad8885b0c4f96757_cgraph.png" border="0" usemap="#anamespacemf6coremodule_aa847da5116e01f4fad8885b0c4f96757_cgraph" alt=""/></div>
 <map name="anamespacemf6coremodule_aa847da5116e01f4fad8885b0c4f96757_cgraph" id="anamespacemf6coremodule_aa847da5116e01f4fad8885b0c4f96757_cgraph">
-<area shape="rect" title="Initialize a simulation." alt="" coords="5,614,220,641"/>
-<area shape="rect" href="namespacemf6coremodule.html#ab9b814efeb5552876e817dadd5cf2e01" title="Set up mfsim list file output logging." alt="" coords="535,607,709,648"/>
-<area shape="rect" href="namespaceruncontrolfactorymodule.html#a28cda210ae6cf0b1e03904b4306dd3df" title=" " alt="" coords="274,274,457,315"/>
-<area shape="rect" href="namespacemf6coremodule.html#aea0af0a2f63d249a347392eef7ed8141" title="print initial message" alt="" coords="268,105,463,132"/>
-<area shape="rect" href="namespacemf6coremodule.html#a622ba9fa9473eb16b9f17553d6483ae9" title="Simulation allocate and read." alt="" coords="785,665,1008,692"/>
-<area shape="rect" href="namespacesimulationcreatemodule.html#afcbe0fd3c140a3ba4f0a5409e5dc8781" title="Read the simulation name file and initialize the models, exchanges." alt="" coords="275,906,456,947"/>
-<area shape="rect" href="namespacemf6coremodule.html#a55d3318977ea83a1389aec5f42d5a77f" title="Define the simulation." alt="" coords="511,556,733,582"/>
-<area shape="rect" href="namespacemf6coremodule.html#a3a6232615cb313d2887d936bc2edcd0a" title="Create simulation input context." alt="" coords="281,1444,450,1486"/>
-<area shape="rect" href="namespaceinputoutputmodule.html#a535bdfca3d31ebc3a8e4bd5af6890d55" title="Get a free unit number." alt="" coords="819,899,974,940"/>
-<area shape="rect" href="namespaceinputoutputmodule.html#ae97851e3edae8d9809e384058a1a4d52" title="Open a file." alt="" coords="819,964,974,1006"/>
-<area shape="rect" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1468,250,1636,291"/>
-<area shape="rect" href="namespaceversionmodule.html#a0eedbf1f3bd80a688acb3f014addc767" title="@ brief Write program header" alt="" coords="817,244,977,286"/>
-<area shape="rect" href="namespaceinputoutputmodule.html#ac5134655c31ac9beeb4688f504efd801" title="Assign a free unopened unit number." alt="" coords="1130,896,1285,938"/>
-<area shape="rect" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="1749,1156,1924,1182"/>
-<area shape="rect" href="namespaceinputoutputmodule.html#a8290bae8ca0756e38ce13459dfebe985" title="Convert to upper case." alt="" coords="1130,1014,1285,1055"/>
-<area shape="rect" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="1972,1156,2111,1182"/>
-<area shape="rect" href="namespacecompilerversion.html#a85cc70f8c5b07f026dd10963d0b24944" title="@ brief Get compilation options" alt="" coords="1129,374,1285,415"/>
-<area shape="rect" href="namespacecompilerversion.html#a340e9d1856b5f223fa830a94697e6608" title="@ brief Get compiler information" alt="" coords="1129,126,1285,167"/>
-<area shape="rect" href="namespacegenericutilitiesmodule.html#aa9380deee7f1629af2bda7df7f589714" title="Write centered text." alt="" coords="1123,191,1291,232"/>
-<area shape="rect" href="namespacekindmodule.html#a1385ae78c6dcc5b120d6f263944b8efa" title="Write variable data types." alt="" coords="1107,257,1307,284"/>
-<area shape="rect" href="namespacegenericutilitiesmodule.html#a79d1b03a42785a805abc5ed2a7499b36" title="Write messages." alt="" coords="1123,308,1291,350"/>
-<area shape="rect" href="namespacempiruncontrolmodule.html#a6d8a073726de2a1d3720128a81cbc779" title=" " alt="" coords="531,179,713,220"/>
-<area shape="rect" href="namespaceruncontrolmodule.html#a9e3a72e529acb32393e1158650fa9fe4" title=" " alt="" coords="529,244,715,286"/>
-<area shape="rect" href="namespacesimmodule.html#a3d864cdd9b024655fbc89f6caea11822" title="Print the header and initializes messaging." alt="" coords="552,98,692,139"/>
-<area shape="rect" href="namespacetimermodule.html#afa9c5fc2a06d8e7cdf691b2a70a60937" title=" " alt="" coords="550,24,694,66"/>
-<area shape="rect" href="namespacespatialmodelconnectionmodule.html#a2b761db429763a32bde62e7d67119574" title="Get the connection from a list." alt="" coords="1094,592,1321,634"/>
-<area shape="rect" href="namespacebaseexchangemodule.html#ad92f8ec5d783349adc5a61e4e3d31f4b" title=" " alt="" coords="1109,723,1305,764"/>
-<area shape="rect" href="namespacebasemodelmodule.html#a79adefc92f4f7d0d032babb551c571f8" title=" " alt="" coords="1060,789,1355,816"/>
-<area shape="rect" href="namespacebasesolutionmodule.html#ad00fcf57eca44c1f8995e3904b1593de" title=" " alt="" coords="1115,658,1300,699"/>
-<area shape="rect" href="namespacespatialmodelconnectionmodule.html#aa5f44b372452361a6a7fd66bc0890d62" title="Cast to SpatialModelConnectionType." alt="" coords="1439,592,1665,634"/>
-<area shape="rect" href="namespacebaseexchangemodule.html#a471891cf69ccccc8dcca6ee6ee3e6993" title=" " alt="" coords="1453,723,1651,764"/>
-<area shape="rect" href="namespacebasemodelmodule.html#a6612a181104601a56b8227e88e5dc8f5" title=" " alt="" coords="1403,789,1701,816"/>
-<area shape="rect" href="namespacebasesolutionmodule.html#afef773355b6646b420b266d7387099d7" title=" " alt="" coords="1458,658,1646,699"/>
-<area shape="rect" href="namespacesimulationcreatemodule.html#a812a26909f2491fa8fe05d1585bd1728" title="Source the simulation name file." alt="" coords="529,1063,715,1104"/>
-<area shape="rect" href="namespacesimulationcreatemodule.html#adf3e84522c23244a50903a4214a97395" title="Assign exchanges to solutions." alt="" coords="806,716,987,758"/>
-<area shape="rect" href="namespacesimulationcreatemodule.html#a5248c082acee396032a2c0123cfc01d3" title="Check for dangling models, and break with error when found." alt="" coords="797,834,996,875"/>
-<area shape="rect" href="namespacesimulationcreatemodule.html#abb116763d0b57efd5d804f40a52321ee" title="Set the exchanges to be used for the simulation." alt="" coords="806,1226,987,1267"/>
-<area shape="rect" href="namespacesimulationcreatemodule.html#a0043d2fa8d8b96e41e5e0fdfecaadae7" title="Set the models to be used for the simulation." alt="" coords="806,1291,987,1332"/>
-<area shape="rect" href="namespacesimulationcreatemodule.html#a73d2884da5c5babce56618e5b3f8211e" title="Set the simulation options." alt="" coords="806,1095,987,1136"/>
-<area shape="rect" href="namespacesimulationcreatemodule.html#aa6d30418b28eb07e46b20c32e8805806" title="Set the solution_groups to be used for the simulation." alt="" coords="806,1030,987,1071"/>
-<area shape="rect" href="namespacesimulationcreatemodule.html#aad107ec5cfffd2e81af220f8227c926f" title="Set the timing module to be used for the simulation." alt="" coords="806,1160,987,1202"/>
-<area shape="rect" href="namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d" title="returns the path to the memory object" alt="" coords="1124,1283,1291,1324"/>
-<area shape="rect" href="namespacememoryhelpermodule.html#a5405f58247a0962e5449ebc1e4dcff0f" title="Generic routine to check the length of (parts of) the memory address." alt="" coords="1469,1283,1635,1324"/>
-<area shape="rect" href="namespacemf6coremodule.html#ad980c6690b8c6ad6d488c35d2730144d" title="Create the model connections from the exchanges." alt="" coords="781,412,1012,438"/>
-<area shape="rect" href="namespaceidmsimulationmodule.html#a66c92e5155c1bcb9fff0b2952473aa7c" title="source indenpendent model load entry point" alt="" coords="539,1591,705,1632"/>
-<area shape="rect" href="namespaceidmsimulationmodule.html#a7f1922da3afd870b788436b6333d5c87" title="MODFLOW 6 mfsim.nam input load routine." alt="" coords="539,1356,705,1398"/>
-<area shape="rect" href="namespaceidmmf6filemodule.html#a9f4e954ccbd4d29f91516e9594014eaf" title="input load model namfiles and model package files" alt="" coords="807,1591,986,1632"/>
-<area shape="rect" href="namespaceidmmf6filemodule.html#a5cb178360e0c7090d915b5ebc079d395" title="input load for traditional mf6 simulation input file" alt="" coords="787,1422,1006,1449"/>
-<area shape="rect" href="namespaceidmsimulationmodule.html#ad948ba1e7b6058b45cde044e6d8abeb5" title="MODFLOW 6 mfsim.nam input context parameter allocation." alt="" coords="814,1474,979,1515"/>
-<area shape="rect" href="namespaceidmsimulationmodule.html#a46fed8443593dbebd1aba93fd38f6b48" title="load simulation summary info to input context" alt="" coords="814,1356,979,1398"/>
+<area shape="rect" title="Initialize a simulation." alt="" coords="5,1173,220,1199"/>
+<area shape="rect" href="namespacemf6coremodule.html#ab9b814efeb5552876e817dadd5cf2e01" title="Set up mfsim list file output logging." alt="" coords="535,784,709,825"/>
+<area shape="rect" href="namespaceruncontrolfactorymodule.html#a28cda210ae6cf0b1e03904b4306dd3df" title=" " alt="" coords="274,1344,457,1385"/>
+<area shape="rect" href="namespacemf6coremodule.html#aea0af0a2f63d249a347392eef7ed8141" title="print initial message" alt="" coords="268,1173,463,1199"/>
+<area shape="rect" href="namespacemf6coremodule.html#a622ba9fa9473eb16b9f17553d6483ae9" title="Simulation allocate and read." alt="" coords="785,1490,1008,1517"/>
+<area shape="rect" href="namespacesimulationcreatemodule.html#afcbe0fd3c140a3ba4f0a5409e5dc8781" title="Read the simulation name file and initialize the models, exchanges." alt="" coords="275,1008,456,1049"/>
+<area shape="rect" href="namespacemf6coremodule.html#a55d3318977ea83a1389aec5f42d5a77f" title="Define the simulation." alt="" coords="511,1573,733,1599"/>
+<area shape="rect" href="namespacemf6coremodule.html#a3a6232615cb313d2887d936bc2edcd0a" title="Create simulation input context." alt="" coords="537,325,707,367"/>
+<area shape="rect" href="namespaceinputoutputmodule.html#a535bdfca3d31ebc3a8e4bd5af6890d55" title="Get a free unit number." alt="" coords="1130,12,1285,53"/>
+<area shape="rect" href="namespaceinputoutputmodule.html#ae97851e3edae8d9809e384058a1a4d52" title="Open a file." alt="" coords="1130,129,1285,171"/>
+<area shape="rect" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="1468,908,1636,949"/>
+<area shape="rect" href="namespaceversionmodule.html#a0eedbf1f3bd80a688acb3f014addc767" title="@ brief Write program header" alt="" coords="817,995,977,1036"/>
+<area shape="rect" href="namespaceinputoutputmodule.html#ac5134655c31ac9beeb4688f504efd801" title="Assign a free unopened unit number." alt="" coords="1475,43,1629,84"/>
+<area shape="rect" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="1964,518,2139,545"/>
+<area shape="rect" href="namespaceinputoutputmodule.html#a8290bae8ca0756e38ce13459dfebe985" title="Convert to upper case." alt="" coords="1475,193,1629,235"/>
+<area shape="rect" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="2187,518,2325,545"/>
+<area shape="rect" href="namespacecompilerversion.html#a85cc70f8c5b07f026dd10963d0b24944" title="@ brief Get compilation options" alt="" coords="1129,1091,1285,1132"/>
+<area shape="rect" href="namespacecompilerversion.html#a340e9d1856b5f223fa830a94697e6608" title="@ brief Get compiler information" alt="" coords="1129,908,1285,949"/>
+<area shape="rect" href="namespacegenericutilitiesmodule.html#aa9380deee7f1629af2bda7df7f589714" title="Write centered text." alt="" coords="1123,973,1291,1015"/>
+<area shape="rect" href="namespacekindmodule.html#a1385ae78c6dcc5b120d6f263944b8efa" title="Write variable data types." alt="" coords="1107,1039,1307,1066"/>
+<area shape="rect" href="namespacegenericutilitiesmodule.html#a79d1b03a42785a805abc5ed2a7499b36" title="Write messages." alt="" coords="1123,843,1291,884"/>
+<area shape="rect" href="namespacempiruncontrolmodule.html#a6d8a073726de2a1d3720128a81cbc779" title=" " alt="" coords="531,1439,713,1480"/>
+<area shape="rect" href="namespaceruncontrolmodule.html#a9e3a72e529acb32393e1158650fa9fe4" title=" " alt="" coords="529,1373,715,1415"/>
+<area shape="rect" href="namespacesimmodule.html#a3d864cdd9b024655fbc89f6caea11822" title="Print the header and initializes messaging." alt="" coords="552,1132,692,1173"/>
+<area shape="rect" href="namespacetimermodule.html#afa9c5fc2a06d8e7cdf691b2a70a60937" title=" " alt="" coords="550,1197,694,1239"/>
+<area shape="rect" href="namespacespatialmodelconnectionmodule.html#a2b761db429763a32bde62e7d67119574" title="Get the connection from a list." alt="" coords="1094,1667,1321,1708"/>
+<area shape="rect" href="namespacebaseexchangemodule.html#ad92f8ec5d783349adc5a61e4e3d31f4b" title=" " alt="" coords="1109,1483,1305,1524"/>
+<area shape="rect" href="namespacebasemodelmodule.html#a79adefc92f4f7d0d032babb551c571f8" title=" " alt="" coords="1060,1402,1355,1429"/>
+<area shape="rect" href="namespacebasesolutionmodule.html#ad00fcf57eca44c1f8995e3904b1593de" title=" " alt="" coords="1115,1565,1300,1607"/>
+<area shape="rect" href="namespacespatialmodelconnectionmodule.html#aa5f44b372452361a6a7fd66bc0890d62" title="Cast to SpatialModelConnectionType." alt="" coords="1439,1667,1665,1708"/>
+<area shape="rect" href="namespacebaseexchangemodule.html#a471891cf69ccccc8dcca6ee6ee3e6993" title=" " alt="" coords="1453,1483,1651,1524"/>
+<area shape="rect" href="namespacebasemodelmodule.html#a6612a181104601a56b8227e88e5dc8f5" title=" " alt="" coords="1403,1402,1701,1429"/>
+<area shape="rect" href="namespacebasesolutionmodule.html#afef773355b6646b420b266d7387099d7" title=" " alt="" coords="1458,1565,1646,1607"/>
+<area shape="rect" href="namespacesimulationcreatemodule.html#a812a26909f2491fa8fe05d1585bd1728" title="Source the simulation name file." alt="" coords="529,911,715,952"/>
+<area shape="rect" href="namespacesimulationcreatemodule.html#adf3e84522c23244a50903a4214a97395" title="Assign exchanges to solutions." alt="" coords="806,1424,987,1465"/>
+<area shape="rect" href="namespacesimulationcreatemodule.html#a5248c082acee396032a2c0123cfc01d3" title="Check for dangling models, and break with error when found." alt="" coords="797,1256,996,1297"/>
+<area shape="rect" href="namespacesimulationcreatemodule.html#abb116763d0b57efd5d804f40a52321ee" title="Set the exchanges to be used for the simulation." alt="" coords="1117,675,1298,716"/>
+<area shape="rect" href="namespacesimulationcreatemodule.html#a0043d2fa8d8b96e41e5e0fdfecaadae7" title="Set the models to be used for the simulation." alt="" coords="806,464,987,505"/>
+<area shape="rect" href="namespacesimulationcreatemodule.html#a73d2884da5c5babce56618e5b3f8211e" title="Set the simulation options." alt="" coords="1117,544,1298,585"/>
+<area shape="rect" href="namespacesimulationcreatemodule.html#aa6d30418b28eb07e46b20c32e8805806" title="Set the solution_groups to be used for the simulation." alt="" coords="1117,195,1298,236"/>
+<area shape="rect" href="namespacesimulationcreatemodule.html#aad107ec5cfffd2e81af220f8227c926f" title="Set the timing module to be used for the simulation." alt="" coords="1117,609,1298,651"/>
+<area shape="rect" href="namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d" title="returns the path to the memory object" alt="" coords="1469,427,1635,468"/>
+<area shape="rect" href="namespacememoryhelpermodule.html#a5405f58247a0962e5449ebc1e4dcff0f" title="Generic routine to check the length of (parts of) the memory address." alt="" coords="1749,427,1916,468"/>
+<area shape="rect" href="namespacesimulationcreatemodule.html#a64526df00721ad90611eccb81cf8d2ec" title="Distribute the models over the available processes in a parallel run. Expects an array sized." alt="" coords="1117,260,1298,301"/>
+<area shape="rect" href="namespacemf6coremodule.html#ad980c6690b8c6ad6d488c35d2730144d" title="Create the model connections from the exchanges." alt="" coords="781,1642,1012,1669"/>
+<area shape="rect" href="namespacesimulationcreatemodule.html#acb42261fa09ca76e64c2e04c08ca696b" title="Create a load mask to determine which models should be loaded by idm on this process...." alt="" coords="806,157,987,199"/>
+<area shape="rect" href="namespaceidmsimulationmodule.html#a66c92e5155c1bcb9fff0b2952473aa7c" title="source indenpendent model load entry point" alt="" coords="814,325,979,367"/>
+<area shape="rect" href="namespaceidmsimulationmodule.html#a7f1922da3afd870b788436b6333d5c87" title="MODFLOW 6 mfsim.nam input load routine." alt="" coords="814,92,979,133"/>
+<area shape="rect" href="namespaceidmmf6filemodule.html#a9f4e954ccbd4d29f91516e9594014eaf" title="input load model namfiles and model package files" alt="" coords="1118,325,1297,367"/>
+<area shape="rect" href="namespaceidmmf6filemodule.html#a5cb178360e0c7090d915b5ebc079d395" title="input load for traditional mf6 simulation input file" alt="" coords="1098,78,1317,105"/>
 </map>
 </div>
 <div class="dynheader">
@@ -840,97 +840,97 @@ Here is the caller graph for this function:</div>
 <li>set time discretization timestep using smallest maximum timestep </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="mf6core_8f90_source.html#l00467">467</a> of file <a class="el" href="mf6core_8f90_source.html">mf6core.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;    <span class="comment">! -- modules</span></div>
-<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacekindmodule.html">kindmodule</a>, <span class="keywordtype">only</span>: i4b</div>
-<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceconstantsmodule.html">constantsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceconstantsmodule.html#a060d310ded5535ce2dc85bd1ca1afd3d">linelength</a>, <a class="code" href="namespaceconstantsmodule.html#a8f91ce3a7d9214a7dd504a557c9302cbad1cabe51afa7f9201930acec652dc51f">mnormal</a>, <a class="code" href="namespaceconstantsmodule.html#a8f91ce3a7d9214a7dd504a557c9302cba1bac4f31bb8e9d2c8da14300c920f483">mvalidate</a></div>
-<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacetdismodule.html">tdismodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacetdismodule.html#abd45660eec3b564280930a654ab2f71d">tdis_set_counters</a>, <a class="code" href="namespacetdismodule.html#aab649a48eda520fa2cda5ecc6ad1c5b0">tdis_set_timestep</a>, &amp;</div>
-<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;                          <a class="code" href="namespacetdismodule.html#ad3443c7d7da2a67a75174c39c6d40c84">kstp</a>, <a class="code" href="namespacetdismodule.html#ae84d6ee69d7bba12d20a6255a398935b">kper</a></div>
-<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacelistsmodule.html">listsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacelistsmodule.html#a3b242f17eecc25a4acea6ab6e3c5ae7b">basemodellist</a>, <a class="code" href="namespacelistsmodule.html#a3e857b53bd777fd84ebcc75f2d7fe273">baseexchangelist</a></div>
-<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacebasemodelmodule.html">basemodelmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structbasemodelmodule_1_1basemodeltype.html">basemodeltype</a>, <a class="code" href="namespacebasemodelmodule.html#a79adefc92f4f7d0d032babb551c571f8">getbasemodelfromlist</a></div>
-<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacebaseexchangemodule.html">baseexchangemodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structbaseexchangemodule_1_1baseexchangetype.html">baseexchangetype</a>, <a class="code" href="namespacebaseexchangemodule.html#ad92f8ec5d783349adc5a61e4e3d31f4b">getbaseexchangefromlist</a></div>
-<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacebasesolutionmodule.html">basesolutionmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structbasesolutionmodule_1_1basesolutiontype.html">basesolutiontype</a>, <a class="code" href="namespacebasesolutionmodule.html#ad00fcf57eca44c1f8995e3904b1593de">getbasesolutionfromlist</a></div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacesimmodule.html">simmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacesimmodule.html#a38f8eef6986861e5b90802678e34879c">converge_reset</a></div>
-<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacesimvariablesmodule.html">simvariablesmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacesimvariablesmodule.html#aed164026d7ee76a480c460834765a2b8">isim_mode</a></div>
-<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;    <span class="comment">! -- local variables</span></div>
-<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;    <span class="keywordtype">class</span>(BaseModelType), <span class="keywordtype">pointer</span> :: mp =&gt; null()</div>
-<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;    <span class="keywordtype">class</span>(BaseExchangeType), <span class="keywordtype">pointer</span> :: ep =&gt; null()</div>
-<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;    <span class="keywordtype">class</span>(SpatialModelConnectionType), <span class="keywordtype">pointer</span> :: mc =&gt; null()</div>
-<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;    <span class="keywordtype">class</span>(BaseSolutionType), <span class="keywordtype">pointer</span> :: sp =&gt; null()</div>
-<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;    <span class="keywordtype">character(len=LINELENGTH)</span> :: line</div>
-<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;    <span class="keywordtype">character(len=LINELENGTH)</span> :: fmt</div>
-<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: im</div>
-<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: ie</div>
-<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: ic</div>
-<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: is</div>
-<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;    <span class="comment">! -- initialize fmt</span></div>
-<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;    fmt = <span class="stringliteral">&quot;(/,a,/)&quot;</span></div>
-<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;    <span class="comment">! -- period update</span></div>
-<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;    <span class="keyword">call </span><a class="code" href="namespacetdismodule.html#abd45660eec3b564280930a654ab2f71d">tdis_set_counters</a>()</div>
-<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;    <span class="comment">! -- set base line</span></div>
-<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;    <span class="keyword">write</span> (line, <span class="stringliteral">&#39;(a,i0,a,i0,a)&#39;</span>) &amp;</div>
-<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;      <span class="stringliteral">&#39;start timestep kper=&quot;&#39;</span>, <a class="code" href="namespacetdismodule.html#ae84d6ee69d7bba12d20a6255a398935b">kper</a>, <span class="stringliteral">&#39;&quot; kstp=&quot;&#39;</span>, <a class="code" href="namespacetdismodule.html#ad3443c7d7da2a67a75174c39c6d40c84">kstp</a>, <span class="stringliteral">&#39;&quot; mode=&quot;&#39;</span></div>
-<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;    <span class="comment">! -- evaluate simulation mode</span></div>
-<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;    <span class="keywordflow">select case</span> (<a class="code" href="namespacesimvariablesmodule.html#aed164026d7ee76a480c460834765a2b8">isim_mode</a>)</div>
-<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;    <span class="keywordflow">case</span> (<a class="code" href="namespaceconstantsmodule.html#a8f91ce3a7d9214a7dd504a557c9302cba1bac4f31bb8e9d2c8da14300c920f483">mvalidate</a>)</div>
-<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;      line = trim(line)//<span class="stringliteral">&#39;validate&quot;&#39;</span></div>
-<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;    <span class="keywordflow">case</span> (<a class="code" href="namespaceconstantsmodule.html#a8f91ce3a7d9214a7dd504a557c9302cbad1cabe51afa7f9201930acec652dc51f">mnormal</a>)</div>
-<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;      line = trim(line)//<span class="stringliteral">&#39;normal&quot;&#39;</span></div>
-<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;<span class="keywordflow">    end select</span></div>
-<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160; </div>
-<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;    <span class="comment">! -- Read and prepare each model</span></div>
-<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;    <span class="keywordflow">do</span> im = 1, <a class="code" href="namespacelistsmodule.html#a3b242f17eecc25a4acea6ab6e3c5ae7b">basemodellist</a>%Count()</div>
-<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;      mp =&gt; <a class="code" href="namespacebasemodelmodule.html#a79adefc92f4f7d0d032babb551c571f8">getbasemodelfromlist</a>(<a class="code" href="namespacelistsmodule.html#a3b242f17eecc25a4acea6ab6e3c5ae7b">basemodellist</a>, im)</div>
-<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;      <span class="keyword">call </span>mp%model_message(line, fmt=fmt)</div>
-<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;      <span class="keyword">call </span>mp%model_rp()</div>
-<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;    <span class="comment">! -- Read and prepare each exchange</span></div>
-<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;    <span class="keywordflow">do</span> ie = 1, <a class="code" href="namespacelistsmodule.html#a3e857b53bd777fd84ebcc75f2d7fe273">baseexchangelist</a>%Count()</div>
-<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;      ep =&gt; <a class="code" href="namespacebaseexchangemodule.html#ad92f8ec5d783349adc5a61e4e3d31f4b">getbaseexchangefromlist</a>(<a class="code" href="namespacelistsmodule.html#a3e857b53bd777fd84ebcc75f2d7fe273">baseexchangelist</a>, ie)</div>
-<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;      <span class="keyword">call </span>ep%exg_rp()</div>
-<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;    <span class="comment">! -- Read and prepare each connection</span></div>
-<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;    <span class="keywordflow">do</span> ic = 1, baseconnectionlist%Count()</div>
-<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;      mc =&gt; get_smc_from_list(baseconnectionlist, ic)</div>
-<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;      <span class="keyword">call </span>mc%exg_rp()</div>
-<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;    <span class="comment">! -- reset simulation convergence flag</span></div>
-<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;    <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a38f8eef6986861e5b90802678e34879c">converge_reset</a>()</div>
-<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;    <span class="comment">! -- time update for each model</span></div>
-<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;    <span class="keywordflow">do</span> im = 1, <a class="code" href="namespacelistsmodule.html#a3b242f17eecc25a4acea6ab6e3c5ae7b">basemodellist</a>%Count()</div>
-<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;      mp =&gt; <a class="code" href="namespacebasemodelmodule.html#a79adefc92f4f7d0d032babb551c571f8">getbasemodelfromlist</a>(<a class="code" href="namespacelistsmodule.html#a3b242f17eecc25a4acea6ab6e3c5ae7b">basemodellist</a>, im)</div>
-<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;      <span class="keyword">call </span>mp%model_calculate_delt()</div>
-<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;    <span class="comment">! -- time update for each exchange</span></div>
-<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;    <span class="keywordflow">do</span> ie = 1, <a class="code" href="namespacelistsmodule.html#a3e857b53bd777fd84ebcc75f2d7fe273">baseexchangelist</a>%Count()</div>
-<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;      ep =&gt; <a class="code" href="namespacebaseexchangemodule.html#ad92f8ec5d783349adc5a61e4e3d31f4b">getbaseexchangefromlist</a>(<a class="code" href="namespacelistsmodule.html#a3e857b53bd777fd84ebcc75f2d7fe273">baseexchangelist</a>, ie)</div>
-<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;      <span class="keyword">call </span>ep%exg_calculate_delt()</div>
-<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;    <span class="comment">! -- time update for each connection</span></div>
-<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;    <span class="keywordflow">do</span> ic = 1, baseconnectionlist%Count()</div>
-<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;      mc =&gt; get_smc_from_list(baseconnectionlist, ic)</div>
-<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;      <span class="keyword">call </span>mc%exg_calculate_delt()</div>
-<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;    <span class="comment">! -- time update for each solution</span></div>
-<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;    <span class="keywordflow">do</span> is = 1, basesolutionlist%Count()</div>
-<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;      sp =&gt; <a class="code" href="namespacebasesolutionmodule.html#ad00fcf57eca44c1f8995e3904b1593de">getbasesolutionfromlist</a>(basesolutionlist, is)</div>
-<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;      <span class="keyword">call </span>sp%sln_calculate_delt()</div>
-<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;    <span class="comment">! -- set time step</span></div>
-<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;    <span class="keyword">call </span><a class="code" href="namespacetdismodule.html#aab649a48eda520fa2cda5ecc6ad1c5b0">tdis_set_timestep</a>()</div>
-<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="mf6core_8f90_source.html#l00459">459</a> of file <a class="el" href="mf6core_8f90_source.html">mf6core.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;    <span class="comment">! -- modules</span></div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacekindmodule.html">kindmodule</a>, <span class="keywordtype">only</span>: i4b</div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceconstantsmodule.html">constantsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceconstantsmodule.html#a060d310ded5535ce2dc85bd1ca1afd3d">linelength</a>, <a class="code" href="namespaceconstantsmodule.html#a8f91ce3a7d9214a7dd504a557c9302cbad1cabe51afa7f9201930acec652dc51f">mnormal</a>, <a class="code" href="namespaceconstantsmodule.html#a8f91ce3a7d9214a7dd504a557c9302cba1bac4f31bb8e9d2c8da14300c920f483">mvalidate</a></div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacetdismodule.html">tdismodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacetdismodule.html#abd45660eec3b564280930a654ab2f71d">tdis_set_counters</a>, <a class="code" href="namespacetdismodule.html#aab649a48eda520fa2cda5ecc6ad1c5b0">tdis_set_timestep</a>, &amp;</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;                          <a class="code" href="namespacetdismodule.html#ad3443c7d7da2a67a75174c39c6d40c84">kstp</a>, <a class="code" href="namespacetdismodule.html#ae84d6ee69d7bba12d20a6255a398935b">kper</a></div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacelistsmodule.html">listsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacelistsmodule.html#a3b242f17eecc25a4acea6ab6e3c5ae7b">basemodellist</a>, <a class="code" href="namespacelistsmodule.html#a3e857b53bd777fd84ebcc75f2d7fe273">baseexchangelist</a></div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacebasemodelmodule.html">basemodelmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structbasemodelmodule_1_1basemodeltype.html">basemodeltype</a>, <a class="code" href="namespacebasemodelmodule.html#a79adefc92f4f7d0d032babb551c571f8">getbasemodelfromlist</a></div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacebaseexchangemodule.html">baseexchangemodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structbaseexchangemodule_1_1baseexchangetype.html">baseexchangetype</a>, <a class="code" href="namespacebaseexchangemodule.html#ad92f8ec5d783349adc5a61e4e3d31f4b">getbaseexchangefromlist</a></div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacebasesolutionmodule.html">basesolutionmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structbasesolutionmodule_1_1basesolutiontype.html">basesolutiontype</a>, <a class="code" href="namespacebasesolutionmodule.html#ad00fcf57eca44c1f8995e3904b1593de">getbasesolutionfromlist</a></div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacesimmodule.html">simmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacesimmodule.html#a38f8eef6986861e5b90802678e34879c">converge_reset</a></div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacesimvariablesmodule.html">simvariablesmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacesimvariablesmodule.html#aed164026d7ee76a480c460834765a2b8">isim_mode</a></div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;    <span class="comment">! -- local variables</span></div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;    <span class="keywordtype">class</span>(BaseModelType), <span class="keywordtype">pointer</span> :: mp =&gt; null()</div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;    <span class="keywordtype">class</span>(BaseExchangeType), <span class="keywordtype">pointer</span> :: ep =&gt; null()</div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;    <span class="keywordtype">class</span>(SpatialModelConnectionType), <span class="keywordtype">pointer</span> :: mc =&gt; null()</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;    <span class="keywordtype">class</span>(BaseSolutionType), <span class="keywordtype">pointer</span> :: sp =&gt; null()</div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;    <span class="keywordtype">character(len=LINELENGTH)</span> :: line</div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;    <span class="keywordtype">character(len=LINELENGTH)</span> :: fmt</div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: im</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: ie</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: ic</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: is</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;    <span class="comment">! -- initialize fmt</span></div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;    fmt = <span class="stringliteral">&quot;(/,a,/)&quot;</span></div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;    <span class="comment">! -- period update</span></div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;    <span class="keyword">call </span><a class="code" href="namespacetdismodule.html#abd45660eec3b564280930a654ab2f71d">tdis_set_counters</a>()</div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;    <span class="comment">! -- set base line</span></div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;    <span class="keyword">write</span> (line, <span class="stringliteral">&#39;(a,i0,a,i0,a)&#39;</span>) &amp;</div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;      <span class="stringliteral">&#39;start timestep kper=&quot;&#39;</span>, <a class="code" href="namespacetdismodule.html#ae84d6ee69d7bba12d20a6255a398935b">kper</a>, <span class="stringliteral">&#39;&quot; kstp=&quot;&#39;</span>, <a class="code" href="namespacetdismodule.html#ad3443c7d7da2a67a75174c39c6d40c84">kstp</a>, <span class="stringliteral">&#39;&quot; mode=&quot;&#39;</span></div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;    <span class="comment">! -- evaluate simulation mode</span></div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;    <span class="keywordflow">select case</span> (<a class="code" href="namespacesimvariablesmodule.html#aed164026d7ee76a480c460834765a2b8">isim_mode</a>)</div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;    <span class="keywordflow">case</span> (<a class="code" href="namespaceconstantsmodule.html#a8f91ce3a7d9214a7dd504a557c9302cba1bac4f31bb8e9d2c8da14300c920f483">mvalidate</a>)</div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;      line = trim(line)//<span class="stringliteral">&#39;validate&quot;&#39;</span></div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;    <span class="keywordflow">case</span> (<a class="code" href="namespaceconstantsmodule.html#a8f91ce3a7d9214a7dd504a557c9302cbad1cabe51afa7f9201930acec652dc51f">mnormal</a>)</div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;      line = trim(line)//<span class="stringliteral">&#39;normal&quot;&#39;</span></div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;<span class="keywordflow">    end select</span></div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160; </div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;    <span class="comment">! -- Read and prepare each model</span></div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;    <span class="keywordflow">do</span> im = 1, <a class="code" href="namespacelistsmodule.html#a3b242f17eecc25a4acea6ab6e3c5ae7b">basemodellist</a>%Count()</div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;      mp =&gt; <a class="code" href="namespacebasemodelmodule.html#a79adefc92f4f7d0d032babb551c571f8">getbasemodelfromlist</a>(<a class="code" href="namespacelistsmodule.html#a3b242f17eecc25a4acea6ab6e3c5ae7b">basemodellist</a>, im)</div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;      <span class="keyword">call </span>mp%model_message(line, fmt=fmt)</div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;      <span class="keyword">call </span>mp%model_rp()</div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;    <span class="comment">! -- Read and prepare each exchange</span></div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;    <span class="keywordflow">do</span> ie = 1, <a class="code" href="namespacelistsmodule.html#a3e857b53bd777fd84ebcc75f2d7fe273">baseexchangelist</a>%Count()</div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;      ep =&gt; <a class="code" href="namespacebaseexchangemodule.html#ad92f8ec5d783349adc5a61e4e3d31f4b">getbaseexchangefromlist</a>(<a class="code" href="namespacelistsmodule.html#a3e857b53bd777fd84ebcc75f2d7fe273">baseexchangelist</a>, ie)</div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;      <span class="keyword">call </span>ep%exg_rp()</div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;    <span class="comment">! -- Read and prepare each connection</span></div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;    <span class="keywordflow">do</span> ic = 1, baseconnectionlist%Count()</div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;      mc =&gt; get_smc_from_list(baseconnectionlist, ic)</div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;      <span class="keyword">call </span>mc%exg_rp()</div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;    <span class="comment">! -- reset simulation convergence flag</span></div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;    <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a38f8eef6986861e5b90802678e34879c">converge_reset</a>()</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;    <span class="comment">! -- time update for each model</span></div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;    <span class="keywordflow">do</span> im = 1, <a class="code" href="namespacelistsmodule.html#a3b242f17eecc25a4acea6ab6e3c5ae7b">basemodellist</a>%Count()</div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;      mp =&gt; <a class="code" href="namespacebasemodelmodule.html#a79adefc92f4f7d0d032babb551c571f8">getbasemodelfromlist</a>(<a class="code" href="namespacelistsmodule.html#a3b242f17eecc25a4acea6ab6e3c5ae7b">basemodellist</a>, im)</div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;      <span class="keyword">call </span>mp%model_calculate_delt()</div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;    <span class="comment">! -- time update for each exchange</span></div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;    <span class="keywordflow">do</span> ie = 1, <a class="code" href="namespacelistsmodule.html#a3e857b53bd777fd84ebcc75f2d7fe273">baseexchangelist</a>%Count()</div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;      ep =&gt; <a class="code" href="namespacebaseexchangemodule.html#ad92f8ec5d783349adc5a61e4e3d31f4b">getbaseexchangefromlist</a>(<a class="code" href="namespacelistsmodule.html#a3e857b53bd777fd84ebcc75f2d7fe273">baseexchangelist</a>, ie)</div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;      <span class="keyword">call </span>ep%exg_calculate_delt()</div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;    <span class="comment">! -- time update for each connection</span></div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;    <span class="keywordflow">do</span> ic = 1, baseconnectionlist%Count()</div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;      mc =&gt; get_smc_from_list(baseconnectionlist, ic)</div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;      <span class="keyword">call </span>mc%exg_calculate_delt()</div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;    <span class="comment">! -- time update for each solution</span></div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;    <span class="keywordflow">do</span> is = 1, basesolutionlist%Count()</div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;      sp =&gt; <a class="code" href="namespacebasesolutionmodule.html#ad00fcf57eca44c1f8995e3904b1593de">getbasesolutionfromlist</a>(basesolutionlist, is)</div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;      <span class="keyword">call </span>sp%sln_calculate_delt()</div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;    <span class="comment">! -- set time step</span></div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;    <span class="keyword">call </span><a class="code" href="namespacetdismodule.html#aab649a48eda520fa2cda5ecc6ad1c5b0">tdis_set_timestep</a>()</div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160; </div>
 <div class="ttc" id="anamespacesimmodule_html_a38f8eef6986861e5b90802678e34879c"><div class="ttname"><a href="namespacesimmodule.html#a38f8eef6986861e5b90802678e34879c">simmodule::converge_reset</a></div><div class="ttdeci">subroutine, public converge_reset()</div><div class="ttdoc">Reset the simulation convergence flag.</div><div class="ttdef"><b>Definition:</b> <a href="_sim_8f90_source.html#l00437">Sim.f90:438</a></div></div>
 <div class="ttc" id="anamespacetdismodule_html_aab649a48eda520fa2cda5ecc6ad1c5b0"><div class="ttname"><a href="namespacetdismodule.html#aab649a48eda520fa2cda5ecc6ad1c5b0">tdismodule::tdis_set_timestep</a></div><div class="ttdeci">subroutine, public tdis_set_timestep()</div><div class="ttdef"><b>Definition:</b> <a href="tdis_8f90_source.html#l00174">tdis.f90:175</a></div></div>
 <div class="ttc" id="anamespacetdismodule_html_abd45660eec3b564280930a654ab2f71d"><div class="ttname"><a href="namespacetdismodule.html#abd45660eec3b564280930a654ab2f71d">tdismodule::tdis_set_counters</a></div><div class="ttdeci">subroutine, public tdis_set_counters()</div><div class="ttdef"><b>Definition:</b> <a href="tdis_8f90_source.html#l00105">tdis.f90:106</a></div></div>
@@ -1243,37 +1243,37 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="mf6core_8f90_source.html#l00606">606</a> of file <a class="el" href="mf6core_8f90_source.html">mf6core.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;    <span class="comment">! -- modules</span></div>
-<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacekindmodule.html">kindmodule</a>, <span class="keywordtype">only</span>: dp</div>
-<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacesimvariablesmodule.html">simvariablesmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacesimvariablesmodule.html#a60aca8a96874ad92369d2d692c97da85">laststepfailed</a></div>
-<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacesimmodule.html">simmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacesimmodule.html#a38f8eef6986861e5b90802678e34879c">converge_reset</a></div>
-<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacetdismodule.html">tdismodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacetdismodule.html#ad3443c7d7da2a67a75174c39c6d40c84">kstp</a>, <a class="code" href="namespacetdismodule.html#ae84d6ee69d7bba12d20a6255a398935b">kper</a>, <a class="code" href="namespacetdismodule.html#ae9a8dbe15bd2bcb8a85d53d570407ae6">delt</a>, <a class="code" href="namespacetdismodule.html#ae74144fd4dafbd8f5ec90936c9c349cc">tdis_delt_reset</a></div>
-<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceadaptivetimestepmodule.html">adaptivetimestepmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceadaptivetimestepmodule.html#ac42ef52366c6713c5f75da5329f87cad">ats_reset_delt</a></div>
-<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;    <span class="comment">! -- dummy variables</span></div>
-<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;    <span class="keywordtype">logical</span>, <span class="keywordtype">intent(out)</span> :: finishedTrying<span class="comment"> !&lt; boolean that indicates if no</span></div>
-<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;    <span class="comment">! additional reruns of the time step are required</span></div>
-<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;    <span class="comment">! -- Check with ats to reset delt and keep trying</span></div>
-<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;    finishedtrying = .true.</div>
-<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;    <span class="keyword">call </span><a class="code" href="namespaceadaptivetimestepmodule.html#ac42ef52366c6713c5f75da5329f87cad">ats_reset_delt</a>(<a class="code" href="namespacetdismodule.html#ad3443c7d7da2a67a75174c39c6d40c84">kstp</a>, <a class="code" href="namespacetdismodule.html#ae84d6ee69d7bba12d20a6255a398935b">kper</a>, <a class="code" href="namespacesimvariablesmodule.html#a60aca8a96874ad92369d2d692c97da85">laststepfailed</a>, <a class="code" href="namespacetdismodule.html#ae9a8dbe15bd2bcb8a85d53d570407ae6">delt</a>, finishedtrying)</div>
-<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;    <span class="keywordflow">if</span> (.not. finishedtrying) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;      <span class="comment">!</span></div>
-<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;      <span class="comment">! -- Reset delt, which requires updating pertim, totim</span></div>
-<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;      <span class="comment">!    and end of period and simulation indicators</span></div>
-<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacetdismodule.html#ae74144fd4dafbd8f5ec90936c9c349cc">tdis_delt_reset</a>(<a class="code" href="namespacetdismodule.html#ae9a8dbe15bd2bcb8a85d53d570407ae6">delt</a>)</div>
-<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;      <span class="comment">!</span></div>
-<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;      <span class="comment">! -- Reset state of the simulation convergence flag</span></div>
-<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a38f8eef6986861e5b90802678e34879c">converge_reset</a>()</div>
-<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160; </div>
-<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;    <span class="comment">! -- return</span></div>
-<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;    <span class="keywordflow">return</span></div>
+<p class="definition">Definition at line <a class="el" href="mf6core_8f90_source.html#l00598">598</a> of file <a class="el" href="mf6core_8f90_source.html">mf6core.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;    <span class="comment">! -- modules</span></div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacekindmodule.html">kindmodule</a>, <span class="keywordtype">only</span>: dp</div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacesimvariablesmodule.html">simvariablesmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacesimvariablesmodule.html#a60aca8a96874ad92369d2d692c97da85">laststepfailed</a></div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacesimmodule.html">simmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacesimmodule.html#a38f8eef6986861e5b90802678e34879c">converge_reset</a></div>
+<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacetdismodule.html">tdismodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacetdismodule.html#ad3443c7d7da2a67a75174c39c6d40c84">kstp</a>, <a class="code" href="namespacetdismodule.html#ae84d6ee69d7bba12d20a6255a398935b">kper</a>, <a class="code" href="namespacetdismodule.html#ae9a8dbe15bd2bcb8a85d53d570407ae6">delt</a>, <a class="code" href="namespacetdismodule.html#ae74144fd4dafbd8f5ec90936c9c349cc">tdis_delt_reset</a></div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceadaptivetimestepmodule.html">adaptivetimestepmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceadaptivetimestepmodule.html#ac42ef52366c6713c5f75da5329f87cad">ats_reset_delt</a></div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;    <span class="comment">! -- dummy variables</span></div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;    <span class="keywordtype">logical</span>, <span class="keywordtype">intent(out)</span> :: finishedTrying<span class="comment"> !&lt; boolean that indicates if no</span></div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;    <span class="comment">! additional reruns of the time step are required</span></div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;    <span class="comment">! -- Check with ats to reset delt and keep trying</span></div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;    finishedtrying = .true.</div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;    <span class="keyword">call </span><a class="code" href="namespaceadaptivetimestepmodule.html#ac42ef52366c6713c5f75da5329f87cad">ats_reset_delt</a>(<a class="code" href="namespacetdismodule.html#ad3443c7d7da2a67a75174c39c6d40c84">kstp</a>, <a class="code" href="namespacetdismodule.html#ae84d6ee69d7bba12d20a6255a398935b">kper</a>, <a class="code" href="namespacesimvariablesmodule.html#a60aca8a96874ad92369d2d692c97da85">laststepfailed</a>, <a class="code" href="namespacetdismodule.html#ae9a8dbe15bd2bcb8a85d53d570407ae6">delt</a>, finishedtrying)</div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;    <span class="keywordflow">if</span> (.not. finishedtrying) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;      <span class="comment">!</span></div>
+<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;      <span class="comment">! -- Reset delt, which requires updating pertim, totim</span></div>
+<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;      <span class="comment">!    and end of period and simulation indicators</span></div>
+<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacetdismodule.html#ae74144fd4dafbd8f5ec90936c9c349cc">tdis_delt_reset</a>(<a class="code" href="namespacetdismodule.html#ae9a8dbe15bd2bcb8a85d53d570407ae6">delt</a>)</div>
+<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;      <span class="comment">!</span></div>
+<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;      <span class="comment">! -- Reset state of the simulation convergence flag</span></div>
+<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;      <span class="keyword">call </span><a class="code" href="namespacesimmodule.html#a38f8eef6986861e5b90802678e34879c">converge_reset</a>()</div>
+<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160; </div>
+<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;    <span class="comment">! -- return</span></div>
+<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;    <span class="keywordflow">return</span></div>
 <div class="ttc" id="anamespaceadaptivetimestepmodule_html"><div class="ttname"><a href="namespaceadaptivetimestepmodule.html">adaptivetimestepmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="ats_8f90_source.html#l00005">ats.f90:5</a></div></div>
 <div class="ttc" id="anamespaceadaptivetimestepmodule_html_ac42ef52366c6713c5f75da5329f87cad"><div class="ttname"><a href="namespaceadaptivetimestepmodule.html#ac42ef52366c6713c5f75da5329f87cad">adaptivetimestepmodule::ats_reset_delt</a></div><div class="ttdeci">subroutine, public ats_reset_delt(kstp, kper, lastStepFailed, delt, finishedTrying)</div><div class="ttdoc">@ brief Reset time step because failure has occurred</div><div class="ttdef"><b>Definition:</b> <a href="ats_8f90_source.html#l00633">ats.f90:634</a></div></div>
-<div class="ttc" id="anamespacesimvariablesmodule_html_a60aca8a96874ad92369d2d692c97da85"><div class="ttname"><a href="namespacesimvariablesmodule.html#a60aca8a96874ad92369d2d692c97da85">simvariablesmodule::laststepfailed</a></div><div class="ttdeci">integer(i4b) laststepfailed</div><div class="ttdoc">flag indicating if the last step failed (1) if last step failed; (0) otherwise (set in converge_check...</div><div class="ttdef"><b>Definition:</b> <a href="_sim_variables_8f90_source.html#l00040">SimVariables.f90:40</a></div></div>
+<div class="ttc" id="anamespacesimvariablesmodule_html_a60aca8a96874ad92369d2d692c97da85"><div class="ttname"><a href="namespacesimvariablesmodule.html#a60aca8a96874ad92369d2d692c97da85">simvariablesmodule::laststepfailed</a></div><div class="ttdeci">integer(i4b) laststepfailed</div><div class="ttdoc">flag indicating if the last step failed (1) if last step failed; (0) otherwise (set in converge_check...</div><div class="ttdef"><b>Definition:</b> <a href="_sim_variables_8f90_source.html#l00041">SimVariables.f90:41</a></div></div>
 <div class="ttc" id="anamespacetdismodule_html_ae74144fd4dafbd8f5ec90936c9c349cc"><div class="ttname"><a href="namespacetdismodule.html#ae74144fd4dafbd8f5ec90936c9c349cc">tdismodule::tdis_delt_reset</a></div><div class="ttdeci">subroutine, public tdis_delt_reset(deltnew)</div><div class="ttdef"><b>Definition:</b> <a href="tdis_8f90_source.html#l00239">tdis.f90:240</a></div></div>
 <div class="ttc" id="anamespacetdismodule_html_ae9a8dbe15bd2bcb8a85d53d570407ae6"><div class="ttname"><a href="namespacetdismodule.html#ae9a8dbe15bd2bcb8a85d53d570407ae6">tdismodule::delt</a></div><div class="ttdeci">real(dp), pointer, public delt</div><div class="ttdoc">length of the current time step</div><div class="ttdef"><b>Definition:</b> <a href="tdis_8f90_source.html#l00030">tdis.f90:30</a></div></div>
 </div><!-- fragment --><div class="dynheader">
@@ -1324,47 +1324,47 @@ Here is the caller graph for this function:</div>
 <li>allocate and read for each solution </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="mf6core_8f90_source.html#l00379">379</a> of file <a class="el" href="mf6core_8f90_source.html">mf6core.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacedistvariablemodule.html">distvariablemodule</a></div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    <span class="comment">! -- local variables</span></div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: im</div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: ic</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: is</div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;    <span class="keywordtype">class</span>(BaseSolutionType), <span class="keywordtype">pointer</span> :: sp =&gt; null()</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;    <span class="keywordtype">class</span>(BaseModelType), <span class="keywordtype">pointer</span> :: mp =&gt; null()</div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;    <span class="keywordtype">class</span>(BaseExchangeType), <span class="keywordtype">pointer</span> :: ep =&gt; null()</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;    <span class="keywordtype">class</span>(SpatialModelConnectionType), <span class="keywordtype">pointer</span> :: mc =&gt; null()</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160; </div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;    <span class="comment">! -- Allocate and read each model</span></div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;    <span class="keywordflow">do</span> im = 1, basemodellist%Count()</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;      mp =&gt; getbasemodelfromlist(basemodellist, im)</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;      <span class="keyword">call </span>mp%model_ar()</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;    <span class="comment">! -- Allocate and read each exchange</span></div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;    <span class="keywordflow">do</span> ic = 1, baseexchangelist%Count()</div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;      ep =&gt; getbaseexchangefromlist(baseexchangelist, ic)</div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;      <span class="keyword">call </span>ep%exg_ar()</div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;    <span class="comment">! -- Synchronize</span></div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    <span class="keyword">call </span>run_ctrl%at_stage(stg_before_ar)</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    <span class="comment">! -- Allocate and read all model connections</span></div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;    <span class="keywordflow">do</span> ic = 1, baseconnectionlist%Count()</div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;      mc =&gt; get_smc_from_list(baseconnectionlist, ic)</div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;      <span class="keyword">call </span>mc%exg_ar()</div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    <span class="comment">! -- Synchronize</span></div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;    <span class="keyword">call </span>run_ctrl%at_stage(stg_after_ar)</div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;    <span class="comment">! -- Allocate and read each solution</span></div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;    <span class="keywordflow">do</span> is = 1, basesolutionlist%Count()</div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;      sp =&gt; getbasesolutionfromlist(basesolutionlist, is)</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;      <span class="keyword">call </span>sp%sln_ar()</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;    <span class="comment">!</span></div>
+<p class="definition">Definition at line <a class="el" href="mf6core_8f90_source.html#l00371">371</a> of file <a class="el" href="mf6core_8f90_source.html">mf6core.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacedistvariablemodule.html">distvariablemodule</a></div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    <span class="comment">! -- local variables</span></div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: im</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: ic</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: is</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;    <span class="keywordtype">class</span>(BaseSolutionType), <span class="keywordtype">pointer</span> :: sp =&gt; null()</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;    <span class="keywordtype">class</span>(BaseModelType), <span class="keywordtype">pointer</span> :: mp =&gt; null()</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    <span class="keywordtype">class</span>(BaseExchangeType), <span class="keywordtype">pointer</span> :: ep =&gt; null()</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    <span class="keywordtype">class</span>(SpatialModelConnectionType), <span class="keywordtype">pointer</span> :: mc =&gt; null()</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160; </div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;    <span class="comment">! -- Allocate and read each model</span></div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;    <span class="keywordflow">do</span> im = 1, basemodellist%Count()</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;      mp =&gt; getbasemodelfromlist(basemodellist, im)</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;      <span class="keyword">call </span>mp%model_ar()</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;    <span class="comment">! -- Allocate and read each exchange</span></div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;    <span class="keywordflow">do</span> ic = 1, baseexchangelist%Count()</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;      ep =&gt; getbaseexchangefromlist(baseexchangelist, ic)</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;      <span class="keyword">call </span>ep%exg_ar()</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    <span class="comment">! -- Synchronize</span></div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;    <span class="keyword">call </span>run_ctrl%at_stage(stg_bfr_con_ar)</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;    <span class="comment">! -- Allocate and read all model connections</span></div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;    <span class="keywordflow">do</span> ic = 1, baseconnectionlist%Count()</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;      mc =&gt; get_smc_from_list(baseconnectionlist, ic)</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;      <span class="keyword">call </span>mc%exg_ar()</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    <span class="comment">! -- Synchronize</span></div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;    <span class="keyword">call </span>run_ctrl%at_stage(stg_aft_con_ar)</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;    <span class="comment">! -- Allocate and read each solution</span></div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;    <span class="keywordflow">do</span> is = 1, basesolutionlist%Count()</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;      sp =&gt; getbasesolutionfromlist(basesolutionlist, is)</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;      <span class="keyword">call </span>sp%sln_ar()</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    <span class="comment">!</span></div>
 <div class="ttc" id="anamespacedistvariablemodule_html"><div class="ttname"><a href="namespacedistvariablemodule.html">distvariablemodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_distributed_variable_8f90_source.html#l00001">DistributedVariable.f90:1</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1413,62 +1413,62 @@ Here is the caller graph for this function:</div>
 <li>define each solution </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="mf6core_8f90_source.html#l00312">312</a> of file <a class="el" href="mf6core_8f90_source.html">mf6core.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    <span class="comment">! -- local variables</span></div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: im</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: ic</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: is</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="keywordtype">class</span>(BaseSolutionType), <span class="keywordtype">pointer</span> :: sp =&gt; null()</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    <span class="keywordtype">class</span>(BaseModelType), <span class="keywordtype">pointer</span> :: mp =&gt; null()</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    <span class="keywordtype">class</span>(BaseExchangeType), <span class="keywordtype">pointer</span> :: ep =&gt; null()</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    <span class="keywordtype">class</span>(SpatialModelConnectionType), <span class="keywordtype">pointer</span> :: mc =&gt; null()</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160; </div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <span class="comment">! -- init virtual data environment</span></div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    <span class="keyword">call </span>run_ctrl%at_stage(stg_init)</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160; </div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    <span class="comment">! -- Define each model</span></div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    <span class="keywordflow">do</span> im = 1, basemodellist%Count()</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;      mp =&gt; getbasemodelfromlist(basemodellist, im)</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;      <span class="keyword">call </span>mp%model_df()</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <span class="comment">! -- synchronize</span></div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    <span class="keyword">call </span>run_ctrl%at_stage(stg_after_mdl_df)</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    <span class="comment">! -- Define each exchange</span></div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    <span class="keywordflow">do</span> ic = 1, baseexchangelist%Count()</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;      ep =&gt; getbaseexchangefromlist(baseexchangelist, ic)</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;      <span class="keyword">call </span>ep%exg_df()</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <span class="comment">! -- synchronize</span></div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    <span class="keyword">call </span>run_ctrl%at_stage(stg_after_exg_df)</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    <span class="comment">! -- when needed, this is were the interface models are</span></div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;    <span class="comment">! created and added to the numerical solutions</span></div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    <span class="keyword">call </span>connections_cr()</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    <span class="comment">! -- synchronize</span></div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    <span class="keyword">call </span>run_ctrl%at_stage(stg_after_con_cr)</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    <span class="comment">! -- synchronize TODO_MJR: this could be merged with the above, in general</span></div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    <span class="keyword">call </span>run_ctrl%at_stage(stg_before_con_df)</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    <span class="comment">! -- Define each connection</span></div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    <span class="keywordflow">do</span> ic = 1, baseconnectionlist%Count()</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;      mc =&gt; get_smc_from_list(baseconnectionlist, ic)</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;      <span class="keyword">call </span>mc%exg_df()</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    <span class="comment">! -- synchronize</span></div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    <span class="keyword">call </span>run_ctrl%at_stage(stg_after_con_df)</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    <span class="comment">! -- Define each solution</span></div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;    <span class="keywordflow">do</span> is = 1, basesolutionlist%Count()</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;      sp =&gt; getbasesolutionfromlist(basesolutionlist, is)</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;      <span class="keyword">call </span>sp%sln_df()</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="mf6core_8f90_source.html#l00304">304</a> of file <a class="el" href="mf6core_8f90_source.html">mf6core.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    <span class="comment">! -- local variables</span></div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: im</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: ic</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: is</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <span class="keywordtype">class</span>(BaseSolutionType), <span class="keywordtype">pointer</span> :: sp =&gt; null()</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    <span class="keywordtype">class</span>(BaseModelType), <span class="keywordtype">pointer</span> :: mp =&gt; null()</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    <span class="keywordtype">class</span>(BaseExchangeType), <span class="keywordtype">pointer</span> :: ep =&gt; null()</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    <span class="keywordtype">class</span>(SpatialModelConnectionType), <span class="keywordtype">pointer</span> :: mc =&gt; null()</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160; </div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    <span class="comment">! -- init virtual data environment</span></div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    <span class="keyword">call </span>run_ctrl%at_stage(stg_bfr_mdl_df)</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160; </div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="comment">! -- Define each model</span></div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    <span class="keywordflow">do</span> im = 1, basemodellist%Count()</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;      mp =&gt; getbasemodelfromlist(basemodellist, im)</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;      <span class="keyword">call </span>mp%model_df()</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    <span class="comment">! -- synchronize</span></div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    <span class="keyword">call </span>run_ctrl%at_stage(stg_aft_mdl_df)</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    <span class="comment">! -- Define each exchange</span></div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    <span class="keywordflow">do</span> ic = 1, baseexchangelist%Count()</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;      ep =&gt; getbaseexchangefromlist(baseexchangelist, ic)</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;      <span class="keyword">call </span>ep%exg_df()</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    <span class="comment">! -- synchronize</span></div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    <span class="keyword">call </span>run_ctrl%at_stage(stg_aft_exg_df)</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    <span class="comment">! -- when needed, this is were the interface models are</span></div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    <span class="comment">! created and added to the numerical solutions</span></div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <span class="keyword">call </span>connections_cr()</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    <span class="comment">! -- synchronize</span></div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <span class="keyword">call </span>run_ctrl%at_stage(stg_aft_con_cr)</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    <span class="comment">! -- synchronize TODO_MJR: this could be merged with the above, in general</span></div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    <span class="keyword">call </span>run_ctrl%at_stage(stg_bfr_con_df)</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    <span class="comment">! -- Define each connection</span></div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    <span class="keywordflow">do</span> ic = 1, baseconnectionlist%Count()</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;      mc =&gt; get_smc_from_list(baseconnectionlist, ic)</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;      <span class="keyword">call </span>mc%exg_df()</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    <span class="comment">! -- synchronize</span></div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    <span class="keyword">call </span>run_ctrl%at_stage(stg_aft_con_df)</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    <span class="comment">! -- Define each solution</span></div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    <span class="keywordflow">do</span> is = 1, basesolutionlist%Count()</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;      sp =&gt; getbasesolutionfromlist(basesolutionlist, is)</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;      <span class="keyword">call </span>sp%sln_df()</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160; </div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1517,44 +1517,37 @@ Here is the caller graph for this function:</div>
 <p class="definition">Definition at line <a class="el" href="mf6core_8f90_source.html#l00262">262</a> of file <a class="el" href="mf6core_8f90_source.html">mf6core.f90</a>.</p>
 <div class="fragment"><div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <span class="comment">! -- modules</span></div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceconstantsmodule.html">constantsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceconstantsmodule.html#ae1ec6380bd0e8e6c89a40d3b97306586">lenmempath</a></div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacesimvariablesmodule.html">simvariablesmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacesimvariablesmodule.html#a2a5dd67b64f4a510aa7ae87ec50cdff7">simulation_mode</a>, <a class="code" href="namespacesimvariablesmodule.html#ad80329d14dcb3210a5eb9e94c589b8c1">proc_id</a>, <a class="code" href="namespacesimvariablesmodule.html#a70ea2f76b35a03119367efdd0dd88ccc">iout</a>, <a class="code" href="namespacesimvariablesmodule.html#a2ccf60ba751a1ae92064b3b87324eefa">nr_procs</a></div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacesimvariablesmodule.html">simvariablesmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacesimvariablesmodule.html#a70ea2f76b35a03119367efdd0dd88ccc">iout</a></div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceidmsimulationmodule.html">idmsimulationmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceidmsimulationmodule.html#a7f1922da3afd870b788436b6333d5c87">simnam_load</a>, <a class="code" href="namespaceidmsimulationmodule.html#a66c92e5155c1bcb9fff0b2952473aa7c">load_models</a></div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacememoryhelpermodule.html">memoryhelpermodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d">create_mem_path</a></div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacememorymanagermodule.html">memorymanagermodule</a>, <span class="keywordtype">only</span>: <a class="code" href="interfacememorymanagermodule_1_1mem__setptr.html">mem_setptr</a></div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacememorymanagermodule.html">memorymanagermodule</a>, <span class="keywordtype">only</span>: <a class="code" href="interfacememorymanagermodule_1_1mem__setptr.html">mem_setptr</a>, <a class="code" href="interfacememorymanagermodule_1_1mem__allocate.html">mem_allocate</a></div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacesimvariablesmodule.html">simvariablesmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacesimvariablesmodule.html#a0e55ae4b9ba5c5e221b5601ead6e7db1">idm_context</a></div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    <span class="comment">! -- locals</span></div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="keywordtype">character(len=LENMEMPATH)</span> :: input_mempath</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">allocatable</span> :: model_loadmask</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: nummodels =&gt; null()</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <span class="comment">! -- load simnam input context</span></div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="keyword">call </span><a class="code" href="namespaceidmsimulationmodule.html#a7f1922da3afd870b788436b6333d5c87">simnam_load</a>()</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="comment">! -- allocate model load mask</span></div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    input_mempath = <a class="code" href="namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d">create_mem_path</a>(component=<span class="stringliteral">&#39;SIM&#39;</span>, context=<a class="code" href="namespacesimvariablesmodule.html#a0e55ae4b9ba5c5e221b5601ead6e7db1">idm_context</a>)</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__setptr.html">mem_setptr</a>(nummodels, <span class="stringliteral">&#39;NUMMODELS&#39;</span>, input_mempath)</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <span class="keyword">allocate</span> (model_loadmask(nummodels))</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    <span class="comment">! -- initialize mask</span></div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    model_loadmask = 0</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    <span class="comment">! -- set mask</span></div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="keywordflow">if</span> (simulation_mode == <span class="stringliteral">&#39;PARALLEL&#39;</span> .and. nr_procs &gt; 1) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;      <span class="comment">! TODO under development</span></div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;      model_loadmask(proc_id + 1) = 1</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;      model_loadmask = 1</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    <span class="comment">! -- load selected models</span></div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    <span class="keyword">call </span><a class="code" href="namespaceidmsimulationmodule.html#a66c92e5155c1bcb9fff0b2952473aa7c">load_models</a>(model_loadmask, iout)</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    <span class="comment">! -- deallocate mask</span></div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <span class="keyword">deallocate</span> (model_loadmask)</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    <span class="comment">! -- return</span></div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacesimulationcreatemodule.html">simulationcreatemodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespacesimulationcreatemodule.html#acb42261fa09ca76e64c2e04c08ca696b">create_load_mask</a></div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    <span class="comment">! -- dummy</span></div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="comment">! -- locals</span></div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <span class="keywordtype">character(len=LENMEMPATH)</span> :: input_mempath</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: model_loadmask</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">pointer</span> :: nummodels =&gt; null()</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="comment">! -- load simnam input context</span></div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <span class="keyword">call </span><a class="code" href="namespaceidmsimulationmodule.html#a7f1922da3afd870b788436b6333d5c87">simnam_load</a>()</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    <span class="comment">! -- allocate model load mask</span></div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    input_mempath = <a class="code" href="namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d">create_mem_path</a>(component=<span class="stringliteral">&#39;SIM&#39;</span>, context=<a class="code" href="namespacesimvariablesmodule.html#a0e55ae4b9ba5c5e221b5601ead6e7db1">idm_context</a>)</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__setptr.html">mem_setptr</a>(nummodels, <span class="stringliteral">&#39;NUMMODELS&#39;</span>, input_mempath)</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keyword">allocate</span> (model_loadmask(nummodels))</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="comment">! -- initialize mask</span></div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    <span class="keyword">call </span><a class="code" href="namespacesimulationcreatemodule.html#acb42261fa09ca76e64c2e04c08ca696b">create_load_mask</a>(model_loadmask)</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="comment">! -- load selected models</span></div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="keyword">call </span><a class="code" href="namespaceidmsimulationmodule.html#a66c92e5155c1bcb9fff0b2952473aa7c">load_models</a>(model_loadmask, iout)</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    <span class="keyword">deallocate</span> (model_loadmask)</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    <span class="comment">! -- return</span></div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    <span class="keywordflow">return</span></div>
+<div class="ttc" id="ainterfacememorymanagermodule_1_1mem__allocate_html"><div class="ttname"><a href="interfacememorymanagermodule_1_1mem__allocate.html">memorymanagermodule::mem_allocate</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00051">MemoryManager.f90:51</a></div></div>
 <div class="ttc" id="ainterfacememorymanagermodule_1_1mem__setptr_html"><div class="ttname"><a href="interfacememorymanagermodule_1_1mem__setptr.html">memorymanagermodule::mem_setptr</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00084">MemoryManager.f90:84</a></div></div>
 <div class="ttc" id="anamespaceconstantsmodule_html_ae1ec6380bd0e8e6c89a40d3b97306586"><div class="ttname"><a href="namespaceconstantsmodule.html#ae1ec6380bd0e8e6c89a40d3b97306586">constantsmodule::lenmempath</a></div><div class="ttdeci">integer(i4b), parameter lenmempath</div><div class="ttdoc">maximum length of the memory path</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00026">Constants.f90:26</a></div></div>
 <div class="ttc" id="anamespaceidmsimulationmodule_html"><div class="ttname"><a href="namespaceidmsimulationmodule.html">idmsimulationmodule</a></div><div class="ttdoc">This module contains the IdmSimulationModule.</div><div class="ttdef"><b>Definition:</b> <a href="_idm_simulation_8f90_source.html#l00007">IdmSimulation.f90:7</a></div></div>
@@ -1563,63 +1556,63 @@ Here is the caller graph for this function:</div>
 <div class="ttc" id="anamespacememoryhelpermodule_html"><div class="ttname"><a href="namespacememoryhelpermodule.html">memoryhelpermodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_helper_8f90_source.html#l00001">MemoryHelper.f90:1</a></div></div>
 <div class="ttc" id="anamespacememoryhelpermodule_html_abe77d18fe02d108d80f414f9fafa592d"><div class="ttname"><a href="namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d">memoryhelpermodule::create_mem_path</a></div><div class="ttdeci">character(len=lenmempath) function create_mem_path(component, subcomponent, context)</div><div class="ttdoc">returns the path to the memory object</div><div class="ttdef"><b>Definition:</b> <a href="_memory_helper_8f90_source.html#l00021">MemoryHelper.f90:22</a></div></div>
 <div class="ttc" id="anamespacememorymanagermodule_html"><div class="ttname"><a href="namespacememorymanagermodule.html">memorymanagermodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00001">MemoryManager.f90:1</a></div></div>
+<div class="ttc" id="anamespacesimulationcreatemodule_html_acb42261fa09ca76e64c2e04c08ca696b"><div class="ttname"><a href="namespacesimulationcreatemodule.html#acb42261fa09ca76e64c2e04c08ca696b">simulationcreatemodule::create_load_mask</a></div><div class="ttdeci">subroutine, public create_load_mask(mask_array)</div><div class="ttdoc">Create a load mask to determine which models should be loaded by idm on this process....</div><div class="ttdef"><b>Definition:</b> <a href="_simulation_create_8f90_source.html#l00775">SimulationCreate.f90:776</a></div></div>
 <div class="ttc" id="anamespacesimvariablesmodule_html_a0e55ae4b9ba5c5e221b5601ead6e7db1"><div class="ttname"><a href="namespacesimvariablesmodule.html#a0e55ae4b9ba5c5e221b5601ead6e7db1">simvariablesmodule::idm_context</a></div><div class="ttdeci">character(len=linelength) idm_context</div><div class="ttdef"><b>Definition:</b> <a href="_sim_variables_8f90_source.html#l00018">SimVariables.f90:18</a></div></div>
-<div class="ttc" id="anamespacesimvariablesmodule_html_a2a5dd67b64f4a510aa7ae87ec50cdff7"><div class="ttname"><a href="namespacesimvariablesmodule.html#a2a5dd67b64f4a510aa7ae87ec50cdff7">simvariablesmodule::simulation_mode</a></div><div class="ttdeci">character(len=linelength) simulation_mode</div><div class="ttdef"><b>Definition:</b> <a href="_sim_variables_8f90_source.html#l00021">SimVariables.f90:21</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacemf6coremodule_a3a6232615cb313d2887d936bc2edcd0a_cgraph.png" border="0" usemap="#anamespacemf6coremodule_a3a6232615cb313d2887d936bc2edcd0a_cgraph" alt=""/></div>
 <map name="anamespacemf6coremodule_a3a6232615cb313d2887d936bc2edcd0a_cgraph" id="anamespacemf6coremodule_a3a6232615cb313d2887d936bc2edcd0a_cgraph">
-<area shape="rect" title="Create simulation input context." alt="" coords="5,376,175,417"/>
-<area shape="rect" href="namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d" title="returns the path to the memory object" alt="" coords="2445,427,2611,468"/>
-<area shape="rect" href="namespaceidmsimulationmodule.html#a66c92e5155c1bcb9fff0b2952473aa7c" title="source indenpendent model load entry point" alt="" coords="223,376,388,417"/>
-<area shape="rect" href="namespaceidmsimulationmodule.html#a7f1922da3afd870b788436b6333d5c87" title="MODFLOW 6 mfsim.nam input load routine." alt="" coords="1251,639,1417,680"/>
-<area shape="rect" href="namespacememoryhelpermodule.html#a5405f58247a0962e5449ebc1e4dcff0f" title="Generic routine to check the length of (parts of) the memory address." alt="" coords="2686,255,2853,296"/>
-<area shape="rect" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="2919,693,3093,719"/>
-<area shape="rect" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="3141,693,3280,719"/>
-<area shape="rect" href="namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="3328,685,3496,727"/>
-<area shape="rect" href="namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="3328,751,3496,792"/>
-<area shape="rect" href="namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="3544,693,3739,719"/>
-<area shape="rect" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="3557,965,3725,1007"/>
-<area shape="rect" href="namespaceidmmf6filemodule.html#a9f4e954ccbd4d29f91516e9594014eaf" title="input load model namfiles and model package files" alt="" coords="436,376,615,417"/>
-<area shape="rect" href="namespaceidmmf6filemodule.html#a4630a9092fe7e6d4a06646788e993e14" title="input load a single model namfile and model package files" alt="" coords="663,354,889,381"/>
-<area shape="rect" href="namespaceinputoutputmodule.html#a535bdfca3d31ebc3a8e4bd5af6890d55" title="Get a free unit number." alt="" coords="1505,281,1660,323"/>
-<area shape="rect" href="namespaceidmmf6filemodule.html#a5cb178360e0c7090d915b5ebc079d395" title="input load for traditional mf6 simulation input file" alt="" coords="1473,595,1692,622"/>
-<area shape="rect" href="namespaceidmmf6filemodule.html#ad277175cd90d4213ab9f2bb06735f5e3" title="load and make pkg info available to models" alt="" coords="937,230,1195,257"/>
-<area shape="rect" href="namespaceinputoutputmodule.html#ae97851e3edae8d9809e384058a1a4d52" title="Open a file." alt="" coords="1505,347,1660,388"/>
-<area shape="rect" href="namespacesimmodule.html#a82b12515d9862bb8976671f47ddb667c" title="Store the erroring file name." alt="" coords="1495,48,1670,89"/>
-<area shape="rect" href="namespaceinputoutputmodule.html#ac5134655c31ac9beeb4688f504efd801" title="Assign a free unopened unit number." alt="" coords="1762,216,1917,257"/>
-<area shape="rect" href="namespaceidmmf6filemodule.html#ac5a311164315339c52a402257ba2e750" title="generic procedure to MODFLOW 6 load routine" alt="" coords="1740,609,1939,651"/>
-<area shape="rect" href="namespacemodflowinputmodule.html#a3e33a9d3121d016a43b66788a5713e29" title="function to return ModflowInputType" alt="" coords="2216,748,2376,789"/>
-<area shape="rect" href="namespaceloadmf6filemodule.html#a7c2308e2233e7623bf512430577b17c8" title="procedure to load a file" alt="" coords="1995,631,2148,672"/>
-<area shape="rect" href="namespaceidmloggermodule.html#a3ae23224a91eb891281be25f0dfb4ed9" title="@ brief log the closing message" alt="" coords="2211,565,2381,607"/>
-<area shape="rect" href="namespaceidmloggermodule.html#aa48192a1f714a8aa43d94c4af8b89e77" title="@ brief log a header message" alt="" coords="2211,631,2381,672"/>
-<area shape="rect" href="namespaceloadmf6filemodule.html#aea4ef47eb6e12da03bf1fe59fe23ecc1" title="procedure to load a block" alt="" coords="2219,904,2373,945"/>
-<area shape="rect" href="namespaceloadmf6filemodule.html#afa0d929705a0a6b2146c986b6f8325ac" title="routine for setting the model shape" alt="" coords="2219,969,2373,1011"/>
-<area shape="rect" href="namespaceidmdfnselectormodule.html#ae266cbd3ce4f1b9e255d7908510937bb" title=" " alt="" coords="2443,839,2613,880"/>
-<area shape="rect" href="namespaceidmdfnselectormodule.html#a3a92c1bf1eb613aa881e1661c3c75f10" title=" " alt="" coords="2443,492,2613,533"/>
-<area shape="rect" href="namespaceidmdfnselectormodule.html#a6fe12c735f09a92b355be5aa60493888" title=" " alt="" coords="2443,685,2613,727"/>
-<area shape="rect" href="namespaceidmgwfdfnselectormodule.html#a89d37ae2e84a521316999d1a136d53ae" title=" " alt="" coords="2668,933,2871,975"/>
-<area shape="rect" href="namespaceidmgwtdfnselectormodule.html#a81ea6d1816de80e39a772812623131e2" title=" " alt="" coords="2668,999,2871,1040"/>
-<area shape="rect" href="namespaceidmsimdfnselectormodule.html#a43f59a95c0859821ac5df4e3a8e3443c" title=" " alt="" coords="2668,868,2871,909"/>
-<area shape="rect" href="namespaceidmgwfdfnselectormodule.html#a76da87fd551b1917032ddfa145f89ce6" title=" " alt="" coords="2673,437,2866,479"/>
-<area shape="rect" href="namespaceidmgwtdfnselectormodule.html#aacc9f64151926a4532b9e4768673d250" title=" " alt="" coords="2673,503,2866,544"/>
-<area shape="rect" href="namespaceidmsimdfnselectormodule.html#a0ed84de566f4fd4413a60897609a4f9e" title=" " alt="" coords="2673,372,2866,413"/>
-<area shape="rect" href="namespaceidmgwfdfnselectormodule.html#a9decc649ff91664c826b720f8f182dbc" title=" " alt="" coords="2673,685,2866,727"/>
-<area shape="rect" href="namespaceidmgwtdfnselectormodule.html#a9dc41230cbc60b6871b9d5a2ff764f32" title=" " alt="" coords="2673,751,2866,792"/>
-<area shape="rect" href="namespaceidmsimdfnselectormodule.html#ab7f496ef3b0855160c5b8875ea4c008a" title=" " alt="" coords="2673,620,2866,661"/>
-<area shape="rect" href="namespacememorymanagermodule.html#a8e6f199b7218d6ec1ab68f383cb6e20f" title="@ brief Get a memory type entry from the memory list" alt="" coords="2436,1035,2620,1076"/>
-<area shape="rect" href="namespaceloadmf6filemodule.html#a7433cc5cb9b9e8f516b933c6d0879b53" title="parse a structured array record into memory manager" alt="" coords="2439,969,2617,1011"/>
-<area shape="rect" href="namespaceloadmf6filemodule.html#a60c230d116e0f6eacccea1fc6a91d76f" title="load an individual input record into memory" alt="" coords="2451,904,2605,945"/>
-<area shape="rect" href="namespaceidmmf6filemodule.html#ab190d0cf37122b235816f83288a7e84b" title="input load model idm supported package files" alt="" coords="1245,223,1423,264"/>
-<area shape="rect" href="namespaceidmmf6filemodule.html#ab316152fa86c476576fb2622adcb1f7e" title="open all model package files" alt="" coords="1243,157,1425,199"/>
-<area shape="rect" href="namespaceidmdfnselectormodule.html#a5b550a5ff154a9db8676380cecdeb433" title=" " alt="" coords="1498,216,1667,257"/>
-<area shape="rect" href="namespaceidmdfnselectormodule.html#ab93814c65c16a54299c53a2d7f4ab650" title=" " alt="" coords="1987,165,2156,207"/>
-<area shape="rect" href="namespaceinputoutputmodule.html#a8290bae8ca0756e38ce13459dfebe985" title="Convert to upper case." alt="" coords="1762,347,1917,388"/>
-<area shape="rect" href="namespaceidmsimulationmodule.html#ad948ba1e7b6058b45cde044e6d8abeb5" title="MODFLOW 6 mfsim.nam input context parameter allocation." alt="" coords="1989,777,2154,819"/>
-<area shape="rect" href="namespaceidmsimulationmodule.html#a46fed8443593dbebd1aba93fd38f6b48" title="load simulation summary info to input context" alt="" coords="1757,515,1922,556"/>
-<area shape="rect" href="namespacememorymanagermodule.html#ad0c684aa838f08c32710dbd0da08a520" title="@ brief Get the number of elements for this variable" alt="" coords="2204,1035,2388,1076"/>
-<area shape="rect" href="namespaceidmsimulationmodule.html#a2e3af981ea938759c10504804fc4f455" title="MODFLOW 6 mfsim.nam parameter set default value." alt="" coords="2213,1201,2379,1243"/>
+<area shape="rect" title="Create simulation input context." alt="" coords="5,1067,175,1108"/>
+<area shape="rect" href="namespacesimulationcreatemodule.html#acb42261fa09ca76e64c2e04c08ca696b" title="Create a load mask to determine which models should be loaded by idm on this process...." alt="" coords="223,1256,404,1298"/>
+<area shape="rect" href="namespacememoryhelpermodule.html#abe77d18fe02d108d80f414f9fafa592d" title="returns the path to the memory object" alt="" coords="2457,1004,2623,1046"/>
+<area shape="rect" href="namespaceidmsimulationmodule.html#a66c92e5155c1bcb9fff0b2952473aa7c" title="source indenpendent model load entry point" alt="" coords="231,922,396,963"/>
+<area shape="rect" href="namespaceidmsimulationmodule.html#a7f1922da3afd870b788436b6333d5c87" title="MODFLOW 6 mfsim.nam input load routine." alt="" coords="1267,954,1433,995"/>
+<area shape="rect" href="namespacesimulationcreatemodule.html#a64526df00721ad90611eccb81cf8d2ec" title="Distribute the models over the available processes in a parallel run. Expects an array sized." alt="" coords="2217,1235,2399,1276"/>
+<area shape="rect" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="2931,444,3105,470"/>
+<area shape="rect" href="namespacememoryhelpermodule.html#a5405f58247a0962e5449ebc1e4dcff0f" title="Generic routine to check the length of (parts of) the memory address." alt="" coords="2698,1083,2865,1124"/>
+<area shape="rect" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="3153,444,3292,470"/>
+<area shape="rect" href="namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="3340,711,3508,752"/>
+<area shape="rect" href="namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="3340,436,3508,478"/>
+<area shape="rect" href="namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="3556,718,3751,745"/>
+<area shape="rect" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="3569,1188,3737,1230"/>
+<area shape="rect" href="namespaceidmmf6filemodule.html#a9f4e954ccbd4d29f91516e9594014eaf" title="input load model namfiles and model package files" alt="" coords="452,895,631,936"/>
+<area shape="rect" href="namespaceidmmf6filemodule.html#a4630a9092fe7e6d4a06646788e993e14" title="input load a single model namfile and model package files" alt="" coords="679,302,905,329"/>
+<area shape="rect" href="namespaceinputoutputmodule.html#a535bdfca3d31ebc3a8e4bd5af6890d55" title="Get a free unit number." alt="" coords="1521,310,1676,351"/>
+<area shape="rect" href="namespaceidmmf6filemodule.html#a5cb178360e0c7090d915b5ebc079d395" title="input load for traditional mf6 simulation input file" alt="" coords="1489,605,1708,632"/>
+<area shape="rect" href="namespaceidmmf6filemodule.html#ad277175cd90d4213ab9f2bb06735f5e3" title="load and make pkg info available to models" alt="" coords="953,302,1211,329"/>
+<area shape="rect" href="namespaceinputoutputmodule.html#ae97851e3edae8d9809e384058a1a4d52" title="Open a file." alt="" coords="1521,244,1676,286"/>
+<area shape="rect" href="namespacesimmodule.html#a82b12515d9862bb8976671f47ddb667c" title="Store the erroring file name." alt="" coords="1511,20,1686,62"/>
+<area shape="rect" href="namespaceinputoutputmodule.html#ac5134655c31ac9beeb4688f504efd801" title="Assign a free unopened unit number." alt="" coords="1778,308,1933,350"/>
+<area shape="rect" href="namespaceidmmf6filemodule.html#ac5a311164315339c52a402257ba2e750" title="generic procedure to MODFLOW 6 load routine" alt="" coords="1756,598,1955,639"/>
+<area shape="rect" href="namespacemodflowinputmodule.html#a3e33a9d3121d016a43b66788a5713e29" title="function to return ModflowInputType" alt="" coords="2228,760,2388,802"/>
+<area shape="rect" href="namespaceloadmf6filemodule.html#a7c2308e2233e7623bf512430577b17c8" title="procedure to load a file" alt="" coords="2009,598,2162,639"/>
+<area shape="rect" href="namespaceidmloggermodule.html#a3ae23224a91eb891281be25f0dfb4ed9" title="@ brief log the closing message" alt="" coords="2223,564,2393,606"/>
+<area shape="rect" href="namespaceidmloggermodule.html#aa48192a1f714a8aa43d94c4af8b89e77" title="@ brief log a header message" alt="" coords="2223,630,2393,671"/>
+<area shape="rect" href="namespaceloadmf6filemodule.html#aea4ef47eb6e12da03bf1fe59fe23ecc1" title="procedure to load a block" alt="" coords="2231,499,2385,540"/>
+<area shape="rect" href="namespaceloadmf6filemodule.html#afa0d929705a0a6b2146c986b6f8325ac" title="routine for setting the model shape" alt="" coords="2231,434,2385,475"/>
+<area shape="rect" href="namespaceidmdfnselectormodule.html#ae266cbd3ce4f1b9e255d7908510937bb" title=" " alt="" coords="2455,887,2625,928"/>
+<area shape="rect" href="namespaceidmdfnselectormodule.html#a3a92c1bf1eb613aa881e1661c3c75f10" title=" " alt="" coords="2455,499,2625,540"/>
+<area shape="rect" href="namespaceidmdfnselectormodule.html#a6fe12c735f09a92b355be5aa60493888" title=" " alt="" coords="2455,704,2625,746"/>
+<area shape="rect" href="namespaceidmgwfdfnselectormodule.html#a89d37ae2e84a521316999d1a136d53ae" title=" " alt="" coords="2680,887,2883,928"/>
+<area shape="rect" href="namespaceidmgwtdfnselectormodule.html#a81ea6d1816de80e39a772812623131e2" title=" " alt="" coords="2680,952,2883,994"/>
+<area shape="rect" href="namespaceidmsimdfnselectormodule.html#a43f59a95c0859821ac5df4e3a8e3443c" title=" " alt="" coords="2680,1018,2883,1059"/>
+<area shape="rect" href="namespaceidmgwfdfnselectormodule.html#a76da87fd551b1917032ddfa145f89ce6" title=" " alt="" coords="2685,391,2878,432"/>
+<area shape="rect" href="namespaceidmgwtdfnselectormodule.html#aacc9f64151926a4532b9e4768673d250" title=" " alt="" coords="2685,456,2878,498"/>
+<area shape="rect" href="namespaceidmsimdfnselectormodule.html#a0ed84de566f4fd4413a60897609a4f9e" title=" " alt="" coords="2685,522,2878,563"/>
+<area shape="rect" href="namespaceidmgwfdfnselectormodule.html#a9decc649ff91664c826b720f8f182dbc" title=" " alt="" coords="2685,639,2878,680"/>
+<area shape="rect" href="namespaceidmgwtdfnselectormodule.html#a9dc41230cbc60b6871b9d5a2ff764f32" title=" " alt="" coords="2685,704,2878,746"/>
+<area shape="rect" href="namespaceidmsimdfnselectormodule.html#ab7f496ef3b0855160c5b8875ea4c008a" title=" " alt="" coords="2685,770,2878,811"/>
+<area shape="rect" href="namespacememorymanagermodule.html#a8e6f199b7218d6ec1ab68f383cb6e20f" title="@ brief Get a memory type entry from the memory list" alt="" coords="2448,434,2632,475"/>
+<area shape="rect" href="namespaceidmmf6filemodule.html#ab190d0cf37122b235816f83288a7e84b" title="input load model idm supported package files" alt="" coords="1261,419,1439,460"/>
+<area shape="rect" href="namespaceidmmf6filemodule.html#ab316152fa86c476576fb2622adcb1f7e" title="open all model package files" alt="" coords="1259,186,1441,227"/>
+<area shape="rect" href="namespaceidmdfnselectormodule.html#a5b550a5ff154a9db8676380cecdeb433" title=" " alt="" coords="1514,375,1683,416"/>
+<area shape="rect" href="namespaceidmdfnselectormodule.html#ab93814c65c16a54299c53a2d7f4ab650" title=" " alt="" coords="1771,403,1940,444"/>
+<area shape="rect" href="namespaceinputoutputmodule.html#a8290bae8ca0756e38ce13459dfebe985" title="Convert to upper case." alt="" coords="1778,188,1933,230"/>
+<area shape="rect" href="namespaceidmsimulationmodule.html#ad948ba1e7b6058b45cde044e6d8abeb5" title="MODFLOW 6 mfsim.nam input context parameter allocation." alt="" coords="2003,1019,2168,1060"/>
+<area shape="rect" href="namespaceidmsimulationmodule.html#a46fed8443593dbebd1aba93fd38f6b48" title="load simulation summary info to input context" alt="" coords="2003,954,2168,995"/>
+<area shape="rect" href="namespacememorymanagermodule.html#ad0c684aa838f08c32710dbd0da08a520" title="@ brief Get the number of elements for this variable" alt="" coords="2216,695,2400,736"/>
+<area shape="rect" href="namespaceidmsimulationmodule.html#a2e3af981ea938759c10504804fc4f455" title="MODFLOW 6 mfsim.nam parameter set default value." alt="" coords="2457,1168,2623,1210"/>
 </map>
 </div>
 <div class="dynheader">
@@ -1661,7 +1654,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemf6coremodule.html">mf6coremodule</a></li>
-    <li class="footer">Generated on Mon Apr 3 2023 15:30:34 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Apr 12 2023 08:01:19 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
