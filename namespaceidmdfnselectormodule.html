@@ -156,44 +156,33 @@ Functions/Subroutines</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_idm_dfn_selector_8f90_source.html#l00055">55</a> of file <a class="el" href="_idm_dfn_selector_8f90_source.html">IdmDfnSelector.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: component</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: subcomponent</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">type</span>(InputParamDefinitionType), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: input_definition</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">nullify</span> (input_definition)</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">select case</span> (component)</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">case</span> (<span class="stringliteral">&#39;GWF&#39;</span>)</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      input_definition =&gt; gwf_aggregate_definitions(subcomponent)</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordflow">case</span> (<span class="stringliteral">&#39;GWT&#39;</span>)</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;      input_definition =&gt; gwt_aggregate_definitions(subcomponent)</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">case</span> (<span class="stringliteral">&#39;SIM&#39;</span>)</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;      input_definition =&gt; sim_aggregate_definitions(subcomponent)</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keywordflow">    case default</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keywordflow">    end select</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">if</span> (.not. <span class="keyword">associated</span>(input_definition)) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      <span class="keyword">call </span>store_error(<span class="stringliteral">&#39;Idm aggregate input definition list not found; &#39;</span>//&amp;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                       &amp;<span class="stringliteral">&#39;component=&quot;&#39;</span>//trim(component)//&amp;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                       &amp;<span class="stringliteral">&#39;&quot;, subcomponent=&quot;&#39;</span>//trim(subcomponent)//<span class="stringliteral">&#39;&quot;.&#39;</span>, .true.)</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">return</span></div>
+<p class="definition">Definition at line <a class="el" href="_idm_dfn_selector_8f90_source.html#l00050">50</a> of file <a class="el" href="_idm_dfn_selector_8f90_source.html">IdmDfnSelector.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: component</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: subcomponent</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">type</span>(InputParamDefinitionType), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: input_definition</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">nullify</span> (input_definition)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">select case</span> (component)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">case</span> (<span class="stringliteral">&#39;GWF&#39;</span>)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      input_definition =&gt; gwf_aggregate_definitions(subcomponent)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">case</span> (<span class="stringliteral">&#39;GWT&#39;</span>)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      input_definition =&gt; gwt_aggregate_definitions(subcomponent)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">case</span> (<span class="stringliteral">&#39;SIM&#39;</span>)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      input_definition =&gt; sim_aggregate_definitions(subcomponent)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keywordflow">    case default</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keywordflow">    end select</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">return</span></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespaceidmdfnselectormodule_ae266cbd3ce4f1b9e255d7908510937bb_cgraph.png" border="0" usemap="#anamespaceidmdfnselectormodule_ae266cbd3ce4f1b9e255d7908510937bb_cgraph" alt=""/></div>
 <map name="anamespaceidmdfnselectormodule_ae266cbd3ce4f1b9e255d7908510937bb_cgraph" id="anamespaceidmdfnselectormodule_ae266cbd3ce4f1b9e255d7908510937bb_cgraph">
-<area shape="rect" title=" " alt="" coords="5,104,176,145"/>
+<area shape="rect" title=" " alt="" coords="5,71,176,112"/>
 <area shape="rect" href="namespaceidmgwfdfnselectormodule.html#a89d37ae2e84a521316999d1a136d53ae" title=" " alt="" coords="224,5,427,47"/>
 <area shape="rect" href="namespaceidmgwtdfnselectormodule.html#a81ea6d1816de80e39a772812623131e2" title=" " alt="" coords="224,71,427,112"/>
 <area shape="rect" href="namespaceidmsimdfnselectormodule.html#a43f59a95c0859821ac5df4e3a8e3443c" title=" " alt="" coords="224,136,427,177"/>
-<area shape="rect" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="238,202,413,229"/>
 <area shape="rect" href="namespaceidmgwfdfnselectormodule.html#a401f35417721e0fd5ad14f09c78b9a07" title=" " alt="" coords="475,5,668,47"/>
 <area shape="rect" href="namespaceidmgwtdfnselectormodule.html#a7cf561bcbbeebd6698715d3c26f4bc48" title=" " alt="" coords="475,71,668,112"/>
 <area shape="rect" href="namespaceidmsimdfnselectormodule.html#a38f4d3ed7bdd75b32f63cd94a358e0a2" title=" " alt="" coords="475,136,668,177"/>
-<area shape="rect" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="502,202,641,229"/>
-<area shape="rect" href="namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="716,161,884,203"/>
-<area shape="rect" href="namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="716,227,884,268"/>
-<area shape="rect" href="namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="932,139,1127,166"/>
-<area shape="rect" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="945,191,1113,232"/>
 </map>
 </div>
 <div class="dynheader">
@@ -249,44 +238,33 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_idm_dfn_selector_8f90_source.html#l00077">77</a> of file <a class="el" href="_idm_dfn_selector_8f90_source.html">IdmDfnSelector.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: component</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: subcomponent</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">type</span>(InputBlockDefinitionType), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: input_definition</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keyword">nullify</span> (input_definition)</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">select case</span> (component)</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">case</span> (<span class="stringliteral">&#39;GWF&#39;</span>)</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      input_definition =&gt; gwf_block_definitions(subcomponent)</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">case</span> (<span class="stringliteral">&#39;GWT&#39;</span>)</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      input_definition =&gt; gwt_block_definitions(subcomponent)</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">case</span> (<span class="stringliteral">&#39;SIM&#39;</span>)</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;      input_definition =&gt; sim_block_definitions(subcomponent)</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keywordflow">    case default</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keywordflow">    end select</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">if</span> (.not. <span class="keyword">associated</span>(input_definition)) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;      <span class="keyword">call </span>store_error(<span class="stringliteral">&#39;Idm block input definition list not found; &#39;</span>//&amp;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                       &amp;<span class="stringliteral">&#39;component=&quot;&#39;</span>//trim(component)//&amp;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                       &amp;<span class="stringliteral">&#39;&quot;, subcomponent=&quot;&#39;</span>//trim(subcomponent)//<span class="stringliteral">&#39;&quot;.&#39;</span>, .true.)</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">return</span></div>
+<p class="definition">Definition at line <a class="el" href="_idm_dfn_selector_8f90_source.html#l00067">67</a> of file <a class="el" href="_idm_dfn_selector_8f90_source.html">IdmDfnSelector.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: component</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: subcomponent</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">type</span>(InputBlockDefinitionType), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span> :: input_definition</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">nullify</span> (input_definition)</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">select case</span> (component)</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">case</span> (<span class="stringliteral">&#39;GWF&#39;</span>)</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;      input_definition =&gt; gwf_block_definitions(subcomponent)</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">case</span> (<span class="stringliteral">&#39;GWT&#39;</span>)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      input_definition =&gt; gwt_block_definitions(subcomponent)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">case</span> (<span class="stringliteral">&#39;SIM&#39;</span>)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      input_definition =&gt; sim_block_definitions(subcomponent)</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keywordflow">    case default</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keywordflow">    end select</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">return</span></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespaceidmdfnselectormodule_a3a92c1bf1eb613aa881e1661c3c75f10_cgraph.png" border="0" usemap="#anamespaceidmdfnselectormodule_a3a92c1bf1eb613aa881e1661c3c75f10_cgraph" alt=""/></div>
 <map name="anamespaceidmdfnselectormodule_a3a92c1bf1eb613aa881e1661c3c75f10_cgraph" id="anamespaceidmdfnselectormodule_a3a92c1bf1eb613aa881e1661c3c75f10_cgraph">
-<area shape="rect" title=" " alt="" coords="5,104,175,145"/>
+<area shape="rect" title=" " alt="" coords="5,71,175,112"/>
 <area shape="rect" href="namespaceidmgwfdfnselectormodule.html#a76da87fd551b1917032ddfa145f89ce6" title=" " alt="" coords="223,5,416,47"/>
 <area shape="rect" href="namespaceidmgwtdfnselectormodule.html#aacc9f64151926a4532b9e4768673d250" title=" " alt="" coords="223,71,416,112"/>
 <area shape="rect" href="namespaceidmsimdfnselectormodule.html#a0ed84de566f4fd4413a60897609a4f9e" title=" " alt="" coords="223,136,416,177"/>
-<area shape="rect" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="232,202,407,229"/>
 <area shape="rect" href="namespaceidmgwfdfnselectormodule.html#afe8ad2d745ef81c4657ffb0d81fcad7c" title=" " alt="" coords="464,5,657,47"/>
 <area shape="rect" href="namespaceidmgwtdfnselectormodule.html#a29294be202345a8dc616a1fe5e784c83" title=" " alt="" coords="464,71,657,112"/>
 <area shape="rect" href="namespaceidmsimdfnselectormodule.html#aa6d560de7450b2ae75d97e829d876b28" title=" " alt="" coords="464,136,657,177"/>
-<area shape="rect" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="491,202,630,229"/>
-<area shape="rect" href="namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="705,161,873,203"/>
-<area shape="rect" href="namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="705,227,873,268"/>
-<area shape="rect" href="namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="921,139,1116,166"/>
-<area shape="rect" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="935,191,1103,232"/>
 </map>
 </div>
 <div class="dynheader">
@@ -342,21 +320,21 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_idm_dfn_selector_8f90_source.html#l00118">118</a> of file <a class="el" href="_idm_dfn_selector_8f90_source.html">IdmDfnSelector.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: component</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: subcomponent</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">logical</span> :: integrated</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    integrated = .false.</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordflow">select case</span> (component)</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordflow">case</span> (<span class="stringliteral">&#39;GWF&#39;</span>)</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;      integrated = gwf_idm_integrated(subcomponent)</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">case</span> (<span class="stringliteral">&#39;GWT&#39;</span>)</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;      integrated = gwt_idm_integrated(subcomponent)</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordflow">case</span> (<span class="stringliteral">&#39;SIM&#39;</span>)</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;      integrated = sim_idm_integrated(subcomponent)</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="keywordflow">    case default</span></div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="keywordflow">    end select</span></div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordflow">return</span></div>
+<p class="definition">Definition at line <a class="el" href="_idm_dfn_selector_8f90_source.html#l00103">103</a> of file <a class="el" href="_idm_dfn_selector_8f90_source.html">IdmDfnSelector.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: component</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: subcomponent</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">logical</span> :: integrated</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    integrated = .false.</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">select case</span> (component)</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordflow">case</span> (<span class="stringliteral">&#39;GWF&#39;</span>)</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;      integrated = gwf_idm_integrated(subcomponent)</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordflow">case</span> (<span class="stringliteral">&#39;GWT&#39;</span>)</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;      integrated = gwt_idm_integrated(subcomponent)</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordflow">case</span> (<span class="stringliteral">&#39;SIM&#39;</span>)</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;      integrated = sim_idm_integrated(subcomponent)</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="keywordflow">    case default</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="keywordflow">    end select</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordflow">return</span></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -418,23 +396,23 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_idm_dfn_selector_8f90_source.html#l00099">99</a> of file <a class="el" href="_idm_dfn_selector_8f90_source.html">IdmDfnSelector.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: component</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: subcomponent</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordtype">logical</span> :: multi_package</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordflow">select case</span> (component)</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordflow">case</span> (<span class="stringliteral">&#39;GWF&#39;</span>)</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;      multi_package = gwf_idm_multi_package(subcomponent)</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordflow">case</span> (<span class="stringliteral">&#39;GWT&#39;</span>)</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;      multi_package = gwt_idm_multi_package(subcomponent)</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">case</span> (<span class="stringliteral">&#39;SIM&#39;</span>)</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;      multi_package = sim_idm_multi_package(subcomponent)</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keywordflow">    case default</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;      <span class="keyword">call </span>store_error(<span class="stringliteral">&#39;Idm selector component not found; &#39;</span>//&amp;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                       &amp;<span class="stringliteral">&#39;component=&quot;&#39;</span>//trim(component)//&amp;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                       &amp;<span class="stringliteral">&#39;&quot;, subcomponent=&quot;&#39;</span>//trim(subcomponent)//<span class="stringliteral">&#39;&quot;.&#39;</span>, .true.)</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="keywordflow">    end select</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordflow">return</span></div>
+<p class="definition">Definition at line <a class="el" href="_idm_dfn_selector_8f90_source.html#l00084">84</a> of file <a class="el" href="_idm_dfn_selector_8f90_source.html">IdmDfnSelector.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: component</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: subcomponent</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">logical</span> :: multi_package</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">select case</span> (component)</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordflow">case</span> (<span class="stringliteral">&#39;GWF&#39;</span>)</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;      multi_package = gwf_idm_multi_package(subcomponent)</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">case</span> (<span class="stringliteral">&#39;GWT&#39;</span>)</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;      multi_package = gwt_idm_multi_package(subcomponent)</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">case</span> (<span class="stringliteral">&#39;SIM&#39;</span>)</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      multi_package = sim_idm_multi_package(subcomponent)</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keywordflow">    case default</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;      <span class="keyword">call </span>store_error(<span class="stringliteral">&#39;Idm selector component not found; &#39;</span>//&amp;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                       &amp;<span class="stringliteral">&#39;component=&quot;&#39;</span>//trim(component)//&amp;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                       &amp;<span class="stringliteral">&#39;&quot;, subcomponent=&quot;&#39;</span>//trim(subcomponent)//<span class="stringliteral">&#39;&quot;.&#39;</span>, .true.)</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keywordflow">    end select</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">return</span></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -516,30 +494,19 @@ Here is the caller graph for this function:</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      input_definition =&gt; sim_param_definitions(subcomponent)</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keywordflow">    case default</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keywordflow">    end select</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">if</span> (.not. <span class="keyword">associated</span>(input_definition)) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      <span class="keyword">call </span>store_error(<span class="stringliteral">&#39;Idm param input definition list not found; &#39;</span>//&amp;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                       &amp;<span class="stringliteral">&#39;component=&quot;&#39;</span>//trim(component)//&amp;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                       &amp;<span class="stringliteral">&#39;&quot;, subcomponent=&quot;&#39;</span>//trim(subcomponent)//<span class="stringliteral">&#39;&quot;.&#39;</span>, .true.)</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">return</span></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespaceidmdfnselectormodule_a6fe12c735f09a92b355be5aa60493888_cgraph.png" border="0" usemap="#anamespaceidmdfnselectormodule_a6fe12c735f09a92b355be5aa60493888_cgraph" alt=""/></div>
 <map name="anamespaceidmdfnselectormodule_a6fe12c735f09a92b355be5aa60493888_cgraph" id="anamespaceidmdfnselectormodule_a6fe12c735f09a92b355be5aa60493888_cgraph">
-<area shape="rect" title=" " alt="" coords="5,104,175,145"/>
+<area shape="rect" title=" " alt="" coords="5,71,175,112"/>
 <area shape="rect" href="namespaceidmgwfdfnselectormodule.html#a9decc649ff91664c826b720f8f182dbc" title=" " alt="" coords="223,5,416,47"/>
 <area shape="rect" href="namespaceidmgwtdfnselectormodule.html#a9dc41230cbc60b6871b9d5a2ff764f32" title=" " alt="" coords="223,71,416,112"/>
 <area shape="rect" href="namespaceidmsimdfnselectormodule.html#ab7f496ef3b0855160c5b8875ea4c008a" title=" " alt="" coords="223,136,416,177"/>
-<area shape="rect" href="namespacesimmodule.html#a21870712a1166225fdcd5b60bffb353e" title="Store error message." alt="" coords="232,202,407,229"/>
 <area shape="rect" href="namespaceidmgwfdfnselectormodule.html#a401f35417721e0fd5ad14f09c78b9a07" title=" " alt="" coords="464,5,657,47"/>
 <area shape="rect" href="namespaceidmgwtdfnselectormodule.html#a7cf561bcbbeebd6698715d3c26f4bc48" title=" " alt="" coords="464,71,657,112"/>
 <area shape="rect" href="namespaceidmsimdfnselectormodule.html#a38f4d3ed7bdd75b32f63cd94a358e0a2" title=" " alt="" coords="464,136,657,177"/>
-<area shape="rect" href="namespacesimmodule.html#a0be97214c1d4fcf42bc4ddc27b111b61" title="Stop the simulation." alt="" coords="491,202,630,229"/>
-<area shape="rect" href="namespacesimmodule.html#aa04e734eebf95836b2f37839b65bcae9" title="Print the final messages." alt="" coords="705,161,873,203"/>
-<area shape="rect" href="namespacegenericutilitiesmodule.html#a3af5fcf48dcd06255d9bc07f6a25db59" title="Subroutine to stop the program." alt="" coords="705,227,873,268"/>
-<area shape="rect" href="namespacesimmodule.html#a5feb4a39fb3f3dc66c03cc13b11e2297" title="Close all open files." alt="" coords="921,139,1116,166"/>
-<area shape="rect" href="namespacegenericutilitiesmodule.html#a34492cca79f70174fd015808be8b7ebf" title="Write simulation message." alt="" coords="935,191,1103,232"/>
 </map>
 </div>
 <div class="dynheader">
@@ -575,7 +542,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceidmdfnselectormodule.html">idmdfnselectormodule</a></li>
-    <li class="footer">Generated on Thu Apr 13 2023 06:57:08 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Apr 17 2023 13:16:52 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

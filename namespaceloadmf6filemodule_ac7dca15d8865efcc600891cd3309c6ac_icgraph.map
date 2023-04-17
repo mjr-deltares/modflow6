@@ -1,7 +1,7 @@
 <map id="loadmf6filemodule::load_double2d_type" name="loadmf6filemodule::load_double2d_type">
 <area shape="rect" id="node1" title="load type 2d double" alt="" coords="3173,64,3327,105"/>
-<area shape="rect" id="node2" href="$namespaceloadmf6filemodule.html#a60c230d116e0f6eacccea1fc6a91d76f" title="load an individual input record into memory" alt="" coords="2972,64,3125,105"/>
-<area shape="rect" id="node3" href="$namespaceloadmf6filemodule.html#aea4ef47eb6e12da03bf1fe59fe23ecc1" title="procedure to load a block" alt="" coords="2771,64,2924,105"/>
+<area shape="rect" id="node2" href="$namespaceloadmf6filemodule.html#acfad33eeb1c96fa24b4b004944cdbc9f" title="load an individual input record into memory" alt="" coords="2972,64,3125,105"/>
+<area shape="rect" id="node3" href="$namespaceloadmf6filemodule.html#ad7f908b57400cf838b9f202cfcb03ec5" title="procedure to load a block" alt="" coords="2771,64,2924,105"/>
 <area shape="rect" id="node4" href="$namespaceloadmf6filemodule.html#a7c2308e2233e7623bf512430577b17c8" title="procedure to load a file" alt="" coords="2569,64,2723,105"/>
 <area shape="rect" id="node5" href="$namespaceidmmf6filemodule.html#ac5a311164315339c52a402257ba2e750" title="generic procedure to MODFLOW 6 load routine" alt="" coords="2323,64,2521,105"/>
 <area shape="rect" id="node6" href="$namespaceidmmf6filemodule.html#a5cb178360e0c7090d915b5ebc079d395" title="input load for traditional mf6 simulation input file" alt="" coords="2056,71,2275,98"/>

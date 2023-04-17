@@ -98,8 +98,6 @@ var structnumericalsolutionmodule_1_1numericalsolutiontype =
     [ "ptcdel", "structnumericalsolutionmodule_1_1numericalsolutiontype.html#a88adbf22f6cff604c0000beb1f28cbab", null ],
     [ "ptcdel0", "structnumericalsolutionmodule_1_1numericalsolutiontype.html#a10b5ccca1eeb0732859e829d505a4aae", null ],
     [ "ptcexp", "structnumericalsolutionmodule_1_1numericalsolutiontype.html#a4cca5c09d94c7f256614b0b96af7b58a", null ],
-    [ "ptcrat", "structnumericalsolutionmodule_1_1numericalsolutiontype.html#a58506a30ea05b6f0884baa8655c0cb30", null ],
-    [ "ptcthresh", "structnumericalsolutionmodule_1_1numericalsolutiontype.html#a9bcc6addeb1571765e717b66322a4578", null ],
     [ "relaxold", "structnumericalsolutionmodule_1_1numericalsolutiontype.html#acaca9e2be617df4b4139b80d7f370f3c", null ],
     [ "res_lim", "structnumericalsolutionmodule_1_1numericalsolutiontype.html#a13f01119363597bea489de405588105e", null ],
     [ "res_new", "structnumericalsolutionmodule_1_1numericalsolutiontype.html#a3097d2fc4095f4b4907d710f1d3cc4b2", null ],

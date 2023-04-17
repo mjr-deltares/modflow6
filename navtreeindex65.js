@@ -1,9 +1,5 @@
 var NAVTREEINDEX65 =
 {
-"structuzfmodule_1_1uzftype.html#a96f0f05034a797231eff5413b4d22795":[2,0,176,0,42],
-"structuzfmodule_1_1uzftype.html#a983556a059935e8818790deeff8da4c6":[2,0,176,0,52],
-"structuzfmodule_1_1uzftype.html#a9848873c2a913a0da4f9bcaf52d3e41b":[2,0,176,0,116],
-"structuzfmodule_1_1uzftype.html#a9a6beb4a0a27fecfdbd57181c75ed432":[2,0,176,0,78],
 "structuzfmodule_1_1uzftype.html#a9b7e42ddcaf5562e513fe6234e8050ed":[2,0,176,0,130],
 "structuzfmodule_1_1uzftype.html#a9ffbe44184cd7d0ced4795558a171fe9":[2,0,176,0,101],
 "structuzfmodule_1_1uzftype.html#aa03f5bdfc8678676910e14303a6127d0":[2,0,176,0,21],
@@ -249,5 +245,9 @@ var NAVTREEINDEX65 =
 "structvirtualdatamanagermodule_1_1virtualdatamanagertype.html#a6feb31b7d880bf5dd088d1c43cb9f20c":[2,0,180,0,15],
 "structvirtualdatamanagermodule_1_1virtualdatamanagertype.html#a7461a22b705d30de051b27f6b0cedfaf":[2,0,180,0,12],
 "structvirtualdatamanagermodule_1_1virtualdatamanagertype.html#a95485754b242275e9b9f81190fb1fed0":[2,0,180,0,14],
-"structvirtualdatamanagermodule_1_1virtualdatamanagertype.html#a984e348519c2da72ae7a31e217002045":[2,0,180,0,11]
+"structvirtualdatamanagermodule_1_1virtualdatamanagertype.html#a984e348519c2da72ae7a31e217002045":[2,0,180,0,11],
+"structvirtualdatamanagermodule_1_1virtualdatamanagertype.html#aa67d8f7a4cdc58cf91db89352187393d":[2,0,180,0,8],
+"structvirtualdatamanagermodule_1_1virtualdatamanagertype.html#abb3a18c35a7addf484405d255b0f3e56":[2,0,180,0,16],
+"structvirtualdatamanagermodule_1_1virtualdatamanagertype.html#abd15b5ea0907cfc7f6041a9c1896b66b":[2,0,180,0,5],
+"structvirtualdatamanagermodule_1_1virtualdatamanagertype.html#ac740f2676aa601aae4124657086004b3":[2,0,180,0,17]
 };
