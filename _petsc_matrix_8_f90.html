@@ -149,8 +149,10 @@ Functions/Subroutines</h2></td></tr>
 <tr class="separator:a89c2c207dd492acb9dbe4d823ae69ccf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a635574d7ef963b2e4a2908d92cead287"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepetscmatrixmodule.html#a635574d7ef963b2e4a2908d92cead287">petscmatrixmodule::pm_destroy</a> (this)</td></tr>
 <tr class="separator:a635574d7ef963b2e4a2908d92cead287"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c70824877384959d804a05e75cd2cd1"><td class="memItemLeft" align="right" valign="top">class(vectorbasetype) function, pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepetscmatrixmodule.html#a0c70824877384959d804a05e75cd2cd1">petscmatrixmodule::pm_create_vector</a> (this, n, name, mem_path)</td></tr>
-<tr class="separator:a0c70824877384959d804a05e75cd2cd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadc6eef1ec605db66f70a0d86ab5c08f"><td class="memItemLeft" align="right" valign="top">class(vectorbasetype) function, pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepetscmatrixmodule.html#aadc6eef1ec605db66f70a0d86ab5c08f">petscmatrixmodule::pm_create_vec_mm</a> (this, n, name, mem_path)</td></tr>
+<tr class="separator:aadc6eef1ec605db66f70a0d86ab5c08f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f339c535dd5b7ae4ff8eb24fe34d47c"><td class="memItemLeft" align="right" valign="top">class(vectorbasetype) function, pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepetscmatrixmodule.html#a1f339c535dd5b7ae4ff8eb24fe34d47c">petscmatrixmodule::pm_create_vec</a> (this, n)</td></tr>
+<tr class="separator:a1f339c535dd5b7ae4ff8eb24fe34d47c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e6e27ce69e1996ef41f7d31247e6741"><td class="memItemLeft" align="right" valign="top">real(dp) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepetscmatrixmodule.html#a4e6e27ce69e1996ef41f7d31247e6741">petscmatrixmodule::pm_get_value_pos</a> (this, ipos)</td></tr>
 <tr class="separator:a4e6e27ce69e1996ef41f7d31247e6741"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b50e2ceb372fe830f546069fe6fea10"><td class="memItemLeft" align="right" valign="top">real(dp) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepetscmatrixmodule.html#a1b50e2ceb372fe830f546069fe6fea10">petscmatrixmodule::pm_get_diag_value</a> (this, irow)</td></tr>
@@ -184,6 +186,9 @@ Functions/Subroutines</h2></td></tr>
 <tr class="separator:a90ed6fcd4877d8d2fae0eaf39f32b616"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa80a64c5ab28cca7683869af0a2df1f1"><td class="memItemLeft" align="right" valign="top">integer(i4b) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepetscmatrixmodule.html#aa80a64c5ab28cca7683869af0a2df1f1">petscmatrixmodule::pm_get_row_offset</a> (this)</td></tr>
 <tr class="separator:aa80a64c5ab28cca7683869af0a2df1f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59ed5210b0619bca785172f19c49b191"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepetscmatrixmodule.html#a59ed5210b0619bca785172f19c49b191">petscmatrixmodule::pm_multiply</a> (this, vec_x, vec_y)</td></tr>
+<tr class="memdesc:a59ed5210b0619bca785172f19c49b191"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates global matrix vector product: y = A * x.  <a href="namespacepetscmatrixmodule.html#a59ed5210b0619bca785172f19c49b191">More...</a><br /></td></tr>
+<tr class="separator:a59ed5210b0619bca785172f19c49b191"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -191,7 +196,7 @@ Functions/Subroutines</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ff383ddf1aa4eab0c4ce7910366d05a5.html">Utilities</a></li><li class="navelem"><a class="el" href="dir_236036d72f98c7998e99e2ec4927d9c8.html">Matrix</a></li><li class="navelem"><a class="el" href="_petsc_matrix_8_f90.html">PetscMatrix.F90</a></li>
-    <li class="footer">Generated on Mon Apr 17 2023 13:16:50 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Apr 20 2023 07:33:46 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

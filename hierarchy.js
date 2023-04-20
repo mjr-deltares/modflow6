@@ -10,6 +10,7 @@ var hierarchy =
       [ "integer2dreadermodule::integer2dreadertype", "structinteger2dreadermodule_1_1integer2dreadertype.html", null ]
     ] ],
     [ "basesolutionmodule::assignConnectionsIFace", "interfacebasesolutionmodule_1_1assign_connections_i_face.html", null ],
+    [ "vectorbasemodule::axpy_if", "interfacevectorbasemodule_1_1axpy__if.html", null ],
     [ "baseexchangemodule::baseexchangetype", "structbaseexchangemodule_1_1baseexchangetype.html", [
       [ "gwfgwtexchangemodule::gwfgwtexchangetype", "structgwfgwtexchangemodule_1_1gwfgwtexchangetype.html", null ],
       [ "numericalexchangemodule::numericalexchangetype", "structnumericalexchangemodule_1_1numericalexchangetype.html", [
@@ -104,9 +105,10 @@ var hierarchy =
     [ "gwfvscmodule::concentrationpointer", "structgwfvscmodule_1_1concentrationpointer.html", null ],
     [ "connectionbuildermodule::connectionbuildertype", "structconnectionbuildermodule_1_1connectionbuildertype.html", null ],
     [ "connectionsmodule::connectionstype", "structconnectionsmodule_1_1connectionstype.html", null ],
-    [ "vectorbasemodule::create_if", "interfacevectorbasemodule_1_1create__if.html", null ],
     [ "linearsolverbasemodule::create_matrix_if", "interfacelinearsolverbasemodule_1_1create__matrix__if.html", null ],
-    [ "matrixbasemodule::create_vector_if", "interfacematrixbasemodule_1_1create__vector__if.html", null ],
+    [ "vectorbasemodule::create_mm_if", "interfacevectorbasemodule_1_1create__mm__if.html", null ],
+    [ "matrixbasemodule::create_vec_if", "interfacematrixbasemodule_1_1create__vec__if.html", null ],
+    [ "matrixbasemodule::create_vec_mm_if", "interfacematrixbasemodule_1_1create__vec__mm__if.html", null ],
     [ "dag_module::dag", "structdag__module_1_1dag.html", null ],
     [ "gwtfmimodule::dataadvancedpackagetype", "structgwtfmimodule_1_1dataadvancedpackagetype.html", null ],
     [ "linearsolverbasemodule::destroy_if", "interfacelinearsolverbasemodule_1_1destroy__if.html", null ],
@@ -131,7 +133,6 @@ var hierarchy =
     [ "matrixbasemodule::get_column_if", "interfacematrixbasemodule_1_1get__column__if.html", null ],
     [ "matrixbasemodule::get_diag_value_if", "interfacematrixbasemodule_1_1get__diag__value__if.html", null ],
     [ "matrixbasemodule::get_first_col_pos_if", "interfacematrixbasemodule_1_1get__first__col__pos__if.html", null ],
-    [ "linearsolverbasemodule::get_l2_norm_if", "interfacelinearsolverbasemodule_1_1get__l2__norm__if.html", null ],
     [ "matrixbasemodule::get_last_col_pos_if", "interfacematrixbasemodule_1_1get__last__col__pos__if.html", null ],
     [ "vectorbasemodule::get_ownership_range_if", "interfacevectorbasemodule_1_1get__ownership__range__if.html", null ],
     [ "tvbasemodule::get_pointer_to_value", "interfacetvbasemodule_1_1get__pointer__to__value.html", null ],
@@ -140,6 +141,7 @@ var hierarchy =
     [ "linearsolverbasemodule::get_result_if", "interfacelinearsolverbasemodule_1_1get__result__if.html", null ],
     [ "matrixbasemodule::get_row_offset_if", "interfacematrixbasemodule_1_1get__row__offset__if.html", null ],
     [ "vectorbasemodule::get_size_if", "interfacevectorbasemodule_1_1get__size__if.html", null ],
+    [ "vectorbasemodule::get_value_local_if", "interfacevectorbasemodule_1_1get__value__local__if.html", null ],
     [ "matrixbasemodule::get_value_pos_if", "interfacematrixbasemodule_1_1get__value__pos__if.html", null ],
     [ "cellwithnbrsmodule::globalcelltype", "structcellwithnbrsmodule_1_1globalcelltype.html", null ],
     [ "gridconnectionmodule::gridconnectiontype", "structgridconnectionmodule_1_1gridconnectiontype.html", null ],
@@ -180,7 +182,8 @@ var hierarchy =
     [ "iunitmodule::iunittype", "structiunitmodule_1_1iunittype.html", null ],
     [ "lakmodule::laktabtype", "structlakmodule_1_1laktabtype.html", null ],
     [ "linearsolverbasemodule::linearsolverbasetype", "structlinearsolverbasemodule_1_1linearsolverbasetype.html", [
-      [ "imslinearsolvermodule::imslinearsolvertype", "structimslinearsolvermodule_1_1imslinearsolvertype.html", null ]
+      [ "imslinearsolvermodule::imslinearsolvertype", "structimslinearsolvermodule_1_1imslinearsolvertype.html", null ],
+      [ "petscsolvermodule::petscsolvertype", "structpetscsolvermodule_1_1petscsolvertype.html", null ]
     ] ],
     [ "hashtablemodule::listdatatype", "structhashtablemodule_1_1listdatatype.html", null ],
     [ "listmodule::listnodetype", "structlistmodule_1_1listnodetype.html", null ],
@@ -209,7 +212,9 @@ var hierarchy =
     [ "modflowinputmodule::modflowinputtype", "structmodflowinputmodule_1_1modflowinputtype.html", null ],
     [ "mpimessagebuildermodule::mpimessagebuildertype", "structmpimessagebuildermodule_1_1mpimessagebuildertype.html", null ],
     [ "mpiworldmodule::mpiworldtype", "structmpiworldmodule_1_1mpiworldtype.html", null ],
+    [ "matrixbasemodule::multiply_if", "interfacematrixbasemodule_1_1multiply__if.html", null ],
     [ "mvrmodule::mvrtype", "structmvrmodule_1_1mvrtype.html", null ],
+    [ "vectorbasemodule::norm2_if", "interfacevectorbasemodule_1_1norm2__if.html", null ],
     [ "numericalpackagemodule::numericalpackagetype", "structnumericalpackagemodule_1_1numericalpackagetype.html", [
       [ "bndmodule::bndtype", "structbndmodule_1_1bndtype.html", [
         [ "apimodule::apitype", "structapimodule_1_1apitype.html", null ],
@@ -294,6 +299,7 @@ var hierarchy =
     [ "tvbasemodule::set_changed_at", "interfacetvbasemodule_1_1set__changed__at.html", null ],
     [ "matrixbasemodule::set_diag_value_if", "interfacematrixbasemodule_1_1set__diag__value__if.html", null ],
     [ "memorysethandlermodule::set_handler_iface", "interfacememorysethandlermodule_1_1set__handler__iface.html", null ],
+    [ "vectorbasemodule::set_value_local_if", "interfacevectorbasemodule_1_1set__value__local__if.html", null ],
     [ "matrixbasemodule::set_value_pos_if", "interfacematrixbasemodule_1_1set__value__pos__if.html", null ],
     [ "sfrcrosssectionmanager::sfrcrosssection", "structsfrcrosssectionmanager_1_1sfrcrosssection.html", null ],
     [ "sfrcrosssectionmanager::sfrcrosssectiontype", "structsfrcrosssectionmanager_1_1sfrcrosssectiontype.html", null ],

@@ -2,7 +2,8 @@ var structpetscmatrixmodule_1_1petscmatrixtype =
 [
     [ "add_diag_value", "structpetscmatrixmodule_1_1petscmatrixtype.html#a04ba8eb9bec5c8200d2cabd4829620ea", null ],
     [ "add_value_pos", "structpetscmatrixmodule_1_1petscmatrixtype.html#ab5803f39a16cf80b5233979fc4d0b6be", null ],
-    [ "create_vector", "structpetscmatrixmodule_1_1petscmatrixtype.html#adfaaa7318decc9267f69017c7b6e4254", null ],
+    [ "create_vec", "structpetscmatrixmodule_1_1petscmatrixtype.html#a2e4d31af87e3aa0f55f87ecd37b90eff", null ],
+    [ "create_vec_mm", "structpetscmatrixmodule_1_1petscmatrixtype.html#a3360d325c22aa5f4a4408eb2b7b4c310", null ],
     [ "destroy", "structpetscmatrixmodule_1_1petscmatrixtype.html#abec4fd7d4a18bd8ecbdace9c5ae06352", null ],
     [ "get_aij", "structpetscmatrixmodule_1_1petscmatrixtype.html#ab7bdf17c1e61fa42f6879e53d30e08c4", null ],
     [ "get_column", "structpetscmatrixmodule_1_1petscmatrixtype.html#a95321ec075e95453bdf4eb07d7d2f139", null ],
@@ -14,6 +15,7 @@ var structpetscmatrixmodule_1_1petscmatrixtype =
     [ "get_row_offset", "structpetscmatrixmodule_1_1petscmatrixtype.html#a3ff7989f092a86c5d6fade85dc1e2837", null ],
     [ "get_value_pos", "structpetscmatrixmodule_1_1petscmatrixtype.html#a8952610168d01df33bcc8c1dbda7b1c6", null ],
     [ "init", "structpetscmatrixmodule_1_1petscmatrixtype.html#ae6960eb9e6bf54c5757985be076cb26d", null ],
+    [ "multiply", "structpetscmatrixmodule_1_1petscmatrixtype.html#a816c927fc4b1250dd37125023c3096fd", null ],
     [ "pm_get_position", "structpetscmatrixmodule_1_1petscmatrixtype.html#a480150f3a1ab95cc7ca9887c14e614a5", null ],
     [ "set_diag_value", "structpetscmatrixmodule_1_1petscmatrixtype.html#a0050c03d233e041ce7751559fc8faa56", null ],
     [ "set_value_pos", "structpetscmatrixmodule_1_1petscmatrixtype.html#accff37991c0468888abb2112d9d5ef50", null ],

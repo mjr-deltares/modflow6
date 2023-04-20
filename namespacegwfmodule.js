@@ -28,7 +28,7 @@ var namespacegwfmodule =
     [ "gwf_ot_dv", "namespacegwfmodule.html#a680aaaaf86652f887b20d554aa1a3bf8", null ],
     [ "gwf_ot_flow", "namespacegwfmodule.html#a38c03c5234cad1a1bbe7a872f8bec4e5", null ],
     [ "gwf_ot_obs", "namespacegwfmodule.html#a875fdbb70e5fc8c812a043f2ea636531", null ],
-    [ "gwf_ptc", "namespacegwfmodule.html#a3b130863c46131ef6a0da765c5fa4cf6", null ],
+    [ "gwf_ptc", "namespacegwfmodule.html#a37210491ada979aeb831fab7bc5b0367", null ],
     [ "gwf_ptcchk", "namespacegwfmodule.html#a2b53afd0fae7c1d60aec0c78ecece374", null ],
     [ "gwf_rp", "namespacegwfmodule.html#a4c351679d9b4c6afe8374090981ebc55", null ],
     [ "log_namfile_options", "namespacegwfmodule.html#a2c929ef93e958691c875fec9807e1aa0", null ],

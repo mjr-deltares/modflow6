@@ -4,7 +4,8 @@ var dir_236036d72f98c7998e99e2ec4927d9c8 =
       [ "matrixbasetype", "structmatrixbasemodule_1_1matrixbasetype.html", "structmatrixbasemodule_1_1matrixbasetype" ],
       [ "init_if", "interfacematrixbasemodule_1_1init__if.html", "interfacematrixbasemodule_1_1init__if" ],
       [ "destroy_if", "interfacematrixbasemodule_1_1destroy__if.html", "interfacematrixbasemodule_1_1destroy__if" ],
-      [ "create_vector_if", "interfacematrixbasemodule_1_1create__vector__if.html", "interfacematrixbasemodule_1_1create__vector__if" ],
+      [ "create_vec_mm_if", "interfacematrixbasemodule_1_1create__vec__mm__if.html", "interfacematrixbasemodule_1_1create__vec__mm__if" ],
+      [ "create_vec_if", "interfacematrixbasemodule_1_1create__vec__if.html", "interfacematrixbasemodule_1_1create__vec__if" ],
       [ "get_value_pos_if", "interfacematrixbasemodule_1_1get__value__pos__if.html", "interfacematrixbasemodule_1_1get__value__pos__if" ],
       [ "get_diag_value_if", "interfacematrixbasemodule_1_1get__diag__value__if.html", "interfacematrixbasemodule_1_1get__diag__value__if" ],
       [ "set_diag_value_if", "interfacematrixbasemodule_1_1set__diag__value__if.html", "interfacematrixbasemodule_1_1set__diag__value__if" ],
@@ -19,7 +20,8 @@ var dir_236036d72f98c7998e99e2ec4927d9c8 =
       [ "get_position_if", "interfacematrixbasemodule_1_1get__position__if.html", "interfacematrixbasemodule_1_1get__position__if" ],
       [ "get_position_diag_if", "interfacematrixbasemodule_1_1get__position__diag__if.html", "interfacematrixbasemodule_1_1get__position__diag__if" ],
       [ "get_aij_if", "interfacematrixbasemodule_1_1get__aij__if.html", "interfacematrixbasemodule_1_1get__aij__if" ],
-      [ "get_row_offset_if", "interfacematrixbasemodule_1_1get__row__offset__if.html", "interfacematrixbasemodule_1_1get__row__offset__if" ]
+      [ "get_row_offset_if", "interfacematrixbasemodule_1_1get__row__offset__if.html", "interfacematrixbasemodule_1_1get__row__offset__if" ],
+      [ "multiply_if", "interfacematrixbasemodule_1_1multiply__if.html", "interfacematrixbasemodule_1_1multiply__if" ]
     ] ],
     [ "PetscMatrix.F90", "_petsc_matrix_8_f90.html", "_petsc_matrix_8_f90" ],
     [ "SparseMatrix.f90", "_sparse_matrix_8f90.html", "_sparse_matrix_8f90" ]

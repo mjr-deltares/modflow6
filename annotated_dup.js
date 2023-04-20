@@ -396,7 +396,6 @@ var annotated_dup =
       [ "initialize_if", "interfacelinearsolverbasemodule_1_1initialize__if.html", "interfacelinearsolverbasemodule_1_1initialize__if" ],
       [ "solve_if", "interfacelinearsolverbasemodule_1_1solve__if.html", "interfacelinearsolverbasemodule_1_1solve__if" ],
       [ "get_result_if", "interfacelinearsolverbasemodule_1_1get__result__if.html", "interfacelinearsolverbasemodule_1_1get__result__if" ],
-      [ "get_l2_norm_if", "interfacelinearsolverbasemodule_1_1get__l2__norm__if.html", "interfacelinearsolverbasemodule_1_1get__l2__norm__if" ],
       [ "destroy_if", "interfacelinearsolverbasemodule_1_1destroy__if.html", "interfacelinearsolverbasemodule_1_1destroy__if" ],
       [ "create_matrix_if", "interfacelinearsolverbasemodule_1_1create__matrix__if.html", "interfacelinearsolverbasemodule_1_1create__matrix__if" ]
     ] ],
@@ -418,7 +417,8 @@ var annotated_dup =
       [ "matrixbasetype", "structmatrixbasemodule_1_1matrixbasetype.html", "structmatrixbasemodule_1_1matrixbasetype" ],
       [ "init_if", "interfacematrixbasemodule_1_1init__if.html", "interfacematrixbasemodule_1_1init__if" ],
       [ "destroy_if", "interfacematrixbasemodule_1_1destroy__if.html", "interfacematrixbasemodule_1_1destroy__if" ],
-      [ "create_vector_if", "interfacematrixbasemodule_1_1create__vector__if.html", "interfacematrixbasemodule_1_1create__vector__if" ],
+      [ "create_vec_mm_if", "interfacematrixbasemodule_1_1create__vec__mm__if.html", "interfacematrixbasemodule_1_1create__vec__mm__if" ],
+      [ "create_vec_if", "interfacematrixbasemodule_1_1create__vec__if.html", "interfacematrixbasemodule_1_1create__vec__if" ],
       [ "get_value_pos_if", "interfacematrixbasemodule_1_1get__value__pos__if.html", "interfacematrixbasemodule_1_1get__value__pos__if" ],
       [ "get_diag_value_if", "interfacematrixbasemodule_1_1get__diag__value__if.html", "interfacematrixbasemodule_1_1get__diag__value__if" ],
       [ "set_diag_value_if", "interfacematrixbasemodule_1_1set__diag__value__if.html", "interfacematrixbasemodule_1_1set__diag__value__if" ],
@@ -433,7 +433,8 @@ var annotated_dup =
       [ "get_position_if", "interfacematrixbasemodule_1_1get__position__if.html", "interfacematrixbasemodule_1_1get__position__if" ],
       [ "get_position_diag_if", "interfacematrixbasemodule_1_1get__position__diag__if.html", "interfacematrixbasemodule_1_1get__position__diag__if" ],
       [ "get_aij_if", "interfacematrixbasemodule_1_1get__aij__if.html", "interfacematrixbasemodule_1_1get__aij__if" ],
-      [ "get_row_offset_if", "interfacematrixbasemodule_1_1get__row__offset__if.html", "interfacematrixbasemodule_1_1get__row__offset__if" ]
+      [ "get_row_offset_if", "interfacematrixbasemodule_1_1get__row__offset__if.html", "interfacematrixbasemodule_1_1get__row__offset__if" ],
+      [ "multiply_if", "interfacematrixbasemodule_1_1multiply__if.html", "interfacematrixbasemodule_1_1multiply__if" ]
     ] ],
     [ "mawmodule", "namespacemawmodule.html", [
       [ "mawtype", "structmawmodule_1_1mawtype.html", "structmawmodule_1_1mawtype" ]
@@ -537,6 +538,9 @@ var annotated_dup =
     ] ],
     [ "petscmatrixmodule", "namespacepetscmatrixmodule.html", [
       [ "petscmatrixtype", "structpetscmatrixmodule_1_1petscmatrixtype.html", "structpetscmatrixmodule_1_1petscmatrixtype" ]
+    ] ],
+    [ "petscsolvermodule", "namespacepetscsolvermodule.html", [
+      [ "petscsolvertype", "structpetscsolvermodule_1_1petscsolvertype.html", "structpetscsolvermodule_1_1petscsolvertype" ]
     ] ],
     [ "petscvectormodule", "namespacepetscvectormodule.html", [
       [ "petscvectortype", "structpetscvectormodule_1_1petscvectortype.html", "structpetscvectormodule_1_1petscvectortype" ]
@@ -666,12 +670,16 @@ var annotated_dup =
     ] ],
     [ "vectorbasemodule", "namespacevectorbasemodule.html", [
       [ "vectorbasetype", "structvectorbasemodule_1_1vectorbasetype.html", "structvectorbasemodule_1_1vectorbasetype" ],
-      [ "create_if", "interfacevectorbasemodule_1_1create__if.html", "interfacevectorbasemodule_1_1create__if" ],
+      [ "create_mm_if", "interfacevectorbasemodule_1_1create__mm__if.html", "interfacevectorbasemodule_1_1create__mm__if" ],
       [ "destroy_if", "interfacevectorbasemodule_1_1destroy__if.html", "interfacevectorbasemodule_1_1destroy__if" ],
       [ "get_array_if", "interfacevectorbasemodule_1_1get__array__if.html", "interfacevectorbasemodule_1_1get__array__if" ],
       [ "get_ownership_range_if", "interfacevectorbasemodule_1_1get__ownership__range__if.html", "interfacevectorbasemodule_1_1get__ownership__range__if" ],
       [ "get_size_if", "interfacevectorbasemodule_1_1get__size__if.html", "interfacevectorbasemodule_1_1get__size__if" ],
+      [ "get_value_local_if", "interfacevectorbasemodule_1_1get__value__local__if.html", "interfacevectorbasemodule_1_1get__value__local__if" ],
       [ "zero_entries_if", "interfacevectorbasemodule_1_1zero__entries__if.html", "interfacevectorbasemodule_1_1zero__entries__if" ],
+      [ "set_value_local_if", "interfacevectorbasemodule_1_1set__value__local__if.html", "interfacevectorbasemodule_1_1set__value__local__if" ],
+      [ "axpy_if", "interfacevectorbasemodule_1_1axpy__if.html", "interfacevectorbasemodule_1_1axpy__if" ],
+      [ "norm2_if", "interfacevectorbasemodule_1_1norm2__if.html", "interfacevectorbasemodule_1_1norm2__if" ],
       [ "print_if", "interfacevectorbasemodule_1_1print__if.html", "interfacevectorbasemodule_1_1print__if" ]
     ] ],
     [ "virtualbasemodule", "namespacevirtualbasemodule.html", [

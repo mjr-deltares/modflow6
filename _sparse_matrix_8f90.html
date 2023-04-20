@@ -136,8 +136,10 @@ Functions/Subroutines</h2></td></tr>
 <tr class="separator:ab09a123c690944611aa775f8a0d550b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab95afdd7db14736f8bbf68e81baccc88"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesparsematrixmodule.html#ab95afdd7db14736f8bbf68e81baccc88">sparsematrixmodule::spm_destroy</a> (this)</td></tr>
 <tr class="separator:ab95afdd7db14736f8bbf68e81baccc88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a086fa316c4250a92fbb5e35895d4c4d1"><td class="memItemLeft" align="right" valign="top">class(vectorbasetype) function, pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesparsematrixmodule.html#a086fa316c4250a92fbb5e35895d4c4d1">sparsematrixmodule::spm_create_vector</a> (this, n, name, mem_path)</td></tr>
-<tr class="separator:a086fa316c4250a92fbb5e35895d4c4d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab25998b89499032a43d337ea9d9f9f5b"><td class="memItemLeft" align="right" valign="top">class(vectorbasetype) function, pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesparsematrixmodule.html#ab25998b89499032a43d337ea9d9f9f5b">sparsematrixmodule::spm_create_vec_mm</a> (this, n, name, mem_path)</td></tr>
+<tr class="separator:ab25998b89499032a43d337ea9d9f9f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c4f34d445e992cd6c665dd574783c02"><td class="memItemLeft" align="right" valign="top">class(vectorbasetype) function, pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesparsematrixmodule.html#a7c4f34d445e992cd6c665dd574783c02">sparsematrixmodule::spm_create_vec</a> (this, n)</td></tr>
+<tr class="separator:a7c4f34d445e992cd6c665dd574783c02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a621fbf606ad9651db5b3806ff44a85f8"><td class="memItemLeft" align="right" valign="top">real(dp) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesparsematrixmodule.html#a621fbf606ad9651db5b3806ff44a85f8">sparsematrixmodule::spm_get_value_pos</a> (this, ipos)</td></tr>
 <tr class="separator:a621fbf606ad9651db5b3806ff44a85f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abcd2ba90959a93d2fcacc11f087964a4"><td class="memItemLeft" align="right" valign="top">real(dp) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesparsematrixmodule.html#abcd2ba90959a93d2fcacc11f087964a4">sparsematrixmodule::spm_get_diag_value</a> (this, irow)</td></tr>
@@ -175,6 +177,9 @@ Functions/Subroutines</h2></td></tr>
 <tr class="separator:aeb7e0fca4dd56aa013eceb73c8a57742"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad75a24af52dda2e163d5f722ab4c9958"><td class="memItemLeft" align="right" valign="top">integer(i4b) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesparsematrixmodule.html#ad75a24af52dda2e163d5f722ab4c9958">sparsematrixmodule::spm_get_row_offset</a> (this)</td></tr>
 <tr class="separator:ad75a24af52dda2e163d5f722ab4c9958"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72a4b1fe1cded1fed9a2a01ae406acae"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesparsematrixmodule.html#a72a4b1fe1cded1fed9a2a01ae406acae">sparsematrixmodule::spm_multiply</a> (this, vec_x, vec_y)</td></tr>
+<tr class="memdesc:a72a4b1fe1cded1fed9a2a01ae406acae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the matrix vector product y = A*x.  <a href="namespacesparsematrixmodule.html#a72a4b1fe1cded1fed9a2a01ae406acae">More...</a><br /></td></tr>
+<tr class="separator:a72a4b1fe1cded1fed9a2a01ae406acae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -182,7 +187,7 @@ Functions/Subroutines</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ff383ddf1aa4eab0c4ce7910366d05a5.html">Utilities</a></li><li class="navelem"><a class="el" href="dir_236036d72f98c7998e99e2ec4927d9c8.html">Matrix</a></li><li class="navelem"><a class="el" href="_sparse_matrix_8f90.html">SparseMatrix.f90</a></li>
-    <li class="footer">Generated on Mon Apr 17 2023 13:16:50 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Apr 20 2023 07:33:46 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

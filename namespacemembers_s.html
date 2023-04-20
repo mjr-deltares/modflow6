@@ -849,6 +849,12 @@ $(document).ready(function(){initNavTree('namespacemembers_s.html',''); initResi
 : <a class="el" href="namespaceexplicitsolutionmodule.html#a186f7b7830ab38bddbcdd3c1acee6ba2">explicitsolutionmodule</a>
 , <a class="el" href="namespacenumericalsolutionmodule.html#ac1c7daf42e56a62cccf6625801a30dcb">numericalsolutionmodule</a>
 </li>
+<li>sln_calc_ptc()
+: <a class="el" href="namespacenumericalsolutionmodule.html#a712b9c1e7e4b02e7cbab829643c10729">numericalsolutionmodule</a>
+</li>
+<li>sln_calc_residual()
+: <a class="el" href="namespacenumericalsolutionmodule.html#a56088776cd92a4e76e74a6dca495f9b9">numericalsolutionmodule</a>
+</li>
 <li>sln_calcdx()
 : <a class="el" href="namespacenumericalsolutionmodule.html#aa9b69ce721f9271042d955ac6d21c35f">numericalsolutionmodule</a>
 </li>
@@ -1012,8 +1018,11 @@ $(document).ready(function(){initNavTree('namespacemembers_s.html',''); initResi
 <li>spm_add_value_pos()
 : <a class="el" href="namespacesparsematrixmodule.html#ada8919b26c8ab2a7a68101d9bea28b65">sparsematrixmodule</a>
 </li>
-<li>spm_create_vector()
-: <a class="el" href="namespacesparsematrixmodule.html#a086fa316c4250a92fbb5e35895d4c4d1">sparsematrixmodule</a>
+<li>spm_create_vec()
+: <a class="el" href="namespacesparsematrixmodule.html#a7c4f34d445e992cd6c665dd574783c02">sparsematrixmodule</a>
+</li>
+<li>spm_create_vec_mm()
+: <a class="el" href="namespacesparsematrixmodule.html#ab25998b89499032a43d337ea9d9f9f5b">sparsematrixmodule</a>
 </li>
 <li>spm_destroy()
 : <a class="el" href="namespacesparsematrixmodule.html#ab95afdd7db14736f8bbf68e81baccc88">sparsematrixmodule</a>
@@ -1047,6 +1056,9 @@ $(document).ready(function(){initNavTree('namespacemembers_s.html',''); initResi
 </li>
 <li>spm_init()
 : <a class="el" href="namespacesparsematrixmodule.html#ab09a123c690944611aa775f8a0d550b0">sparsematrixmodule</a>
+</li>
+<li>spm_multiply()
+: <a class="el" href="namespacesparsematrixmodule.html#a72a4b1fe1cded1fed9a2a01ae406acae">sparsematrixmodule</a>
 </li>
 <li>spm_set_diag_value()
 : <a class="el" href="namespacesparsematrixmodule.html#ac3067592ce03f563e3102beaf06e1a2b">sparsematrixmodule</a>
@@ -1087,8 +1099,14 @@ $(document).ready(function(){initNavTree('namespacemembers_s.html',''); initResi
 <li>squadraticslopederivative()
 : <a class="el" href="namespacesmoothingmodule.html#a44858eb34e1b1d575b093996ef68dca2">smoothingmodule</a>
 </li>
+<li>sqv_axpy()
+: <a class="el" href="namespaceseqvectormodule.html#ae9dd4ed9ccdf7eba38dda7b948bd56cf">seqvectormodule</a>
+</li>
 <li>sqv_create()
-: <a class="el" href="namespaceseqvectormodule.html#ada73b271344b92b65f8fe81d8c5c6a96">seqvectormodule</a>
+: <a class="el" href="namespaceseqvectormodule.html#ac57d2d37130f76c3a7f9d0ac2309e3ae">seqvectormodule</a>
+</li>
+<li>sqv_create_mm()
+: <a class="el" href="namespaceseqvectormodule.html#a2f8d3dbca102b1e059f6e7cfff9a00c9">seqvectormodule</a>
 </li>
 <li>sqv_destroy()
 : <a class="el" href="namespaceseqvectormodule.html#a1742b854f1d226c1959e9747bb6631fa">seqvectormodule</a>
@@ -1102,8 +1120,17 @@ $(document).ready(function(){initNavTree('namespacemembers_s.html',''); initResi
 <li>sqv_get_size()
 : <a class="el" href="namespaceseqvectormodule.html#a0d65df55a03e625a256313ef87a688f6">seqvectormodule</a>
 </li>
+<li>sqv_get_value_local()
+: <a class="el" href="namespaceseqvectormodule.html#a83c000cace96eaae96b23740f60b6f0b">seqvectormodule</a>
+</li>
+<li>sqv_norm2()
+: <a class="el" href="namespaceseqvectormodule.html#af9818bbb91acdfaa260660eadb8f971d">seqvectormodule</a>
+</li>
 <li>sqv_print()
 : <a class="el" href="namespaceseqvectormodule.html#adae51457001fa5804a8ca82683a268ad">seqvectormodule</a>
+</li>
+<li>sqv_set_value_local()
+: <a class="el" href="namespaceseqvectormodule.html#a17e54f63042c7d8a5cc8c97befa5152b">seqvectormodule</a>
 </li>
 <li>sqv_zero_entries()
 : <a class="el" href="namespaceseqvectormodule.html#ab4bf24fe2bebbf9123331ef1bf3cb9bc">seqvectormodule</a>
@@ -1355,7 +1382,7 @@ $(document).ready(function(){initNavTree('namespacemembers_s.html',''); initResi
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon Apr 17 2023 13:16:54 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Apr 20 2023 07:33:51 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

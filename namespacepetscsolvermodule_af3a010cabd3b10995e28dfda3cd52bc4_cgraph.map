@@ -1,0 +1,5 @@
+<map id="petscsolvermodule::create_convergence_check" name="petscsolvermodule::create_convergence_check">
+<area shape="rect" id="node1" title="Create and assign a custom convergence." alt="" coords="5,39,204,80"/>
+<area shape="rect" id="node2" href="$namespacepetscconvergencemodule.html#a4134f12ac9513ffcaa0f099b0ef8a636" title="Add a context to the static list. The generated idx can then be used as a handle when calling &#39;KSPSet..." alt="" coords="257,5,447,47"/>
+<area shape="rect" id="node3" href="$namespacepetscconvergencemodule.html#aedcc1aa8d353b15ae924bfb3f9cbd7ef" title="Routine to check the convergence. This is called." alt="" coords="252,71,452,112"/>
+</map>

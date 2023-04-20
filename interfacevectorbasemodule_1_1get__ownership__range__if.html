@@ -134,7 +134,7 @@ Private Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_vector_base_8f90_source.html#l00034">34</a> of file <a class="el" href="_vector_base_8f90_source.html">VectorBase.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vector_base_8f90_source.html#l00039">39</a> of file <a class="el" href="_vector_base_8f90_source.html">VectorBase.f90</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a41e998a5d33169ee402f0e664e6f49a9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a41e998a5d33169ee402f0e664e6f49a9">&#9670;&nbsp;</a></span>get_ownership_range_if()</h2>
@@ -177,15 +177,16 @@ Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">this</td><td>this vector </td></tr>
+    <tr><td class="paramname">this</td><td>this vector</td></tr>
+    <tr><td class="paramname">end</td><td>local range in global numbering </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_vector_base_8f90_source.html#l00034">34</a> of file <a class="el" href="_vector_base_8f90_source.html">VectorBase.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      <span class="keywordtype">import </span>vectorbasetype, i4b</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      <span class="keywordtype">class</span>(VectorBaseType) :: this<span class="comment"> !&lt; this vector</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      <span class="keywordtype">integer(I4B)</span> :: start, end</div>
+<p class="definition">Definition at line <a class="el" href="_vector_base_8f90_source.html#l00039">39</a> of file <a class="el" href="_vector_base_8f90_source.html">VectorBase.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      <span class="keywordtype">import </span>vectorbasetype, i4b</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      <span class="keywordtype">class</span>(VectorBaseType) :: this<span class="comment"> !&lt; this vector</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      <span class="keywordtype">integer(I4B)</span> :: start, end<span class="comment"> !&lt; local range in global numbering</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -198,7 +199,7 @@ Private Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacevectorbasemodule.html">vectorbasemodule</a></li><li class="navelem"><a class="el" href="interfacevectorbasemodule_1_1get__ownership__range__if.html">get_ownership_range_if</a></li>
-    <li class="footer">Generated on Mon Apr 17 2023 13:16:54 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Apr 20 2023 07:33:51 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

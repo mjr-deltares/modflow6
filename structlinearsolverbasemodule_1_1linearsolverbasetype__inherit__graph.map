@@ -1,4 +1,5 @@
 <map id="linearsolverbasemodule::linearsolverbasetype" name="linearsolverbasemodule::linearsolverbasetype">
-<area shape="rect" id="node1" title="Abstract type for linear solver." alt="" coords="5,5,184,200"/>
-<area shape="rect" id="node2" href="$structimslinearsolvermodule_1_1imslinearsolvertype.html" title=" " alt="" coords="9,248,181,413"/>
+<area shape="rect" id="node1" title="Abstract type for linear solver." alt="" coords="98,5,277,185"/>
+<area shape="rect" id="node2" href="$structimslinearsolvermodule_1_1imslinearsolvertype.html" title=" " alt="" coords="5,299,177,450"/>
+<area shape="rect" id="node3" href="$structpetscsolvermodule_1_1petscsolvertype.html" title=" " alt="" coords="202,233,365,516"/>
 </map>

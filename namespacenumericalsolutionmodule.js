@@ -22,6 +22,8 @@ var namespacenumericalsolutionmodule =
     [ "sln_backtracking_xupdate", "namespacenumericalsolutionmodule.html#acbd46eaed7689801fb0a957d25939225", null ],
     [ "sln_buildsystem", "namespacenumericalsolutionmodule.html#a46eed3012776928555270aaecc977684", null ],
     [ "sln_ca", "namespacenumericalsolutionmodule.html#ac1c7daf42e56a62cccf6625801a30dcb", null ],
+    [ "sln_calc_ptc", "namespacenumericalsolutionmodule.html#a712b9c1e7e4b02e7cbab829643c10729", null ],
+    [ "sln_calc_residual", "namespacenumericalsolutionmodule.html#a56088776cd92a4e76e74a6dca495f9b9", null ],
     [ "sln_calcdx", "namespacenumericalsolutionmodule.html#aa9b69ce721f9271042d955ac6d21c35f", null ],
     [ "sln_calculate_delt", "namespacenumericalsolutionmodule.html#a0532bb986b3da12da5b753fc999bbe0e", null ],
     [ "sln_connect", "namespacenumericalsolutionmodule.html#a3af64aed80e4521475b814733555b327", null ],

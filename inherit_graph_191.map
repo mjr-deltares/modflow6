@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$structpackagebudgetmodule_1_1packagebudgettype.html" title="Derived type for storing flows." alt="" coords="5,5,176,47"/>
+<area shape="rect" id="node1" href="$structoutputcontrolmodule_1_1outputcontroltype.html" title="@ brief OutputControlType" alt="" coords="5,23,164,65"/>
+<area shape="rect" id="node2" href="$structgwfocmodule_1_1gwfoctype.html" title="@ brief Output control for GWF" alt="" coords="212,5,399,32"/>
+<area shape="rect" id="node3" href="$structgwtocmodule_1_1gwtoctype.html" title="@ brief Output control for GWT" alt="" coords="212,56,399,83"/>
 </map>

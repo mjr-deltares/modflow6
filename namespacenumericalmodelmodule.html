@@ -142,8 +142,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="separator:adb20c41dd91b3cbc2f33be2665616078"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a998c6edfb646c5a1de2314c3f38a7cd7"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenumericalmodelmodule.html#a998c6edfb646c5a1de2314c3f38a7cd7">model_ptcchk</a> (this, iptc)</td></tr>
 <tr class="separator:a998c6edfb646c5a1de2314c3f38a7cd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1aba4ae10eabcd5bb57f0ae4f695c544"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenumericalmodelmodule.html#a1aba4ae10eabcd5bb57f0ae4f695c544">model_ptc</a> (this, matrix, vec_x, vec_rhs, iptc, ptcf)</td></tr>
-<tr class="separator:a1aba4ae10eabcd5bb57f0ae4f695c544"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a953add1c3cf12680e0323eaca0fb9460"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenumericalmodelmodule.html#a953add1c3cf12680e0323eaca0fb9460">model_ptc</a> (this, vec_residual, iptc, ptcf)</td></tr>
+<tr class="separator:a953add1c3cf12680e0323eaca0fb9460"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6af90f260871926c13684c01280b72e1"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenumericalmodelmodule.html#a6af90f260871926c13684c01280b72e1">model_nr</a> (this, kiter, matrix, inwtflag)</td></tr>
 <tr class="separator:a6af90f260871926c13684c01280b72e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d1595843be9b1349c6d9742dbe14396"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenumericalmodelmodule.html#a1d1595843be9b1349c6d9742dbe14396">model_cc</a> (this, innertot, kiter, iend, icnvgmod, cpak, ipak, dpak)</td></tr>
@@ -222,18 +222,18 @@ Functions/Subroutines</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00421">421</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;    <span class="keywordtype">implicit none</span></div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;    <span class="keywordtype">type</span>(ListType), <span class="keywordtype">intent(inout)</span> :: list</div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(inout)</span> :: model</div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;    <span class="comment">! -- local</span></div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span> :: obj</div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;    obj =&gt; model</div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;    <span class="keyword">call </span>list%Add(obj)</div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;    <span class="keywordflow">return</span></div>
+<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00419">419</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;    <span class="keywordtype">implicit none</span></div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;    <span class="comment">! -- dummy</span></div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;    <span class="keywordtype">type</span>(ListType), <span class="keywordtype">intent(inout)</span> :: list</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(inout)</span> :: model</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;    <span class="comment">! -- local</span></div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span> :: obj</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;    obj =&gt; model</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;    <span class="keyword">call </span>list%Add(obj)</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;    <span class="keywordflow">return</span></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -262,23 +262,23 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00282">282</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceconstantsmodule.html">constantsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacememorymanagermodule.html">memorymanagermodule</a>, <span class="keywordtype">only</span>: <a class="code" href="interfacememorymanagermodule_1_1mem__allocate.html">mem_allocate</a></div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__allocate.html">mem_allocate</a>(this%xold, this%neq, <span class="stringliteral">&#39;XOLD&#39;</span>, this%memoryPath)</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__allocate.html">mem_allocate</a>(this%flowja, this%nja, <span class="stringliteral">&#39;FLOWJA&#39;</span>, this%memoryPath)</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__allocate.html">mem_allocate</a>(this%idxglo, this%nja, <span class="stringliteral">&#39;IDXGLO&#39;</span>, this%memoryPath)</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    <span class="comment">! -- initialize</span></div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    <span class="keywordflow">do</span> i = 1, <span class="keyword">size</span>(this%flowja)</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;      this%flowja(i) = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;<span class="keywordflow">    end do</span></div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    <span class="comment">! -- return</span></div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    <span class="keywordflow">return</span></div>
+<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00280">280</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespaceconstantsmodule.html">constantsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacememorymanagermodule.html">memorymanagermodule</a>, <span class="keywordtype">only</span>: <a class="code" href="interfacememorymanagermodule_1_1mem__allocate.html">mem_allocate</a></div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: i</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__allocate.html">mem_allocate</a>(this%xold, this%neq, <span class="stringliteral">&#39;XOLD&#39;</span>, this%memoryPath)</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__allocate.html">mem_allocate</a>(this%flowja, this%nja, <span class="stringliteral">&#39;FLOWJA&#39;</span>, this%memoryPath)</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__allocate.html">mem_allocate</a>(this%idxglo, this%nja, <span class="stringliteral">&#39;IDXGLO&#39;</span>, this%memoryPath)</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    <span class="comment">! -- initialize</span></div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    <span class="keywordflow">do</span> i = 1, <span class="keyword">size</span>(this%flowja)</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;      this%flowja(i) = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;<span class="keywordflow">    end do</span></div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    <span class="comment">! -- return</span></div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    <span class="keywordflow">return</span></div>
 <div class="ttc" id="ainterfacememorymanagermodule_1_1mem__allocate_html"><div class="ttname"><a href="interfacememorymanagermodule_1_1mem__allocate.html">memorymanagermodule::mem_allocate</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00051">MemoryManager.f90:51</a></div></div>
 <div class="ttc" id="anamespaceconstantsmodule_html"><div class="ttname"><a href="namespaceconstantsmodule.html">constantsmodule</a></div><div class="ttdoc">This module contains simulation constants.</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00009">Constants.f90:9</a></div></div>
 <div class="ttc" id="anamespaceconstantsmodule_html_abab5757666b9ddd2726c20ce48dd0050"><div class="ttname"><a href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">constantsmodule::dzero</a></div><div class="ttdeci">real(dp), parameter dzero</div><div class="ttdoc">real constant zero</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00064">Constants.f90:64</a></div></div>
@@ -320,30 +320,30 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00256">256</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacememorymanagermodule.html">memorymanagermodule</a>, <span class="keywordtype">only</span>: <a class="code" href="interfacememorymanagermodule_1_1mem__allocate.html">mem_allocate</a></div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: modelname</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="comment">! -- allocate basetype members</span></div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    <span class="keyword">call </span>this%BaseModelType%allocate_scalars(modelname)</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    <span class="comment">! -- allocate members from this type</span></div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__allocate.html">mem_allocate</a>(this%neq, <span class="stringliteral">&#39;NEQ&#39;</span>, this%memoryPath)</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__allocate.html">mem_allocate</a>(this%nja, <span class="stringliteral">&#39;NJA&#39;</span>, this%memoryPath)</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__allocate.html">mem_allocate</a>(this%icnvg, <span class="stringliteral">&#39;ICNVG&#39;</span>, this%memoryPath)</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__allocate.html">mem_allocate</a>(this%moffset, <span class="stringliteral">&#39;MOFFSET&#39;</span>, this%memoryPath)</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="keyword">allocate</span> (this%filename)</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <span class="keyword">allocate</span> (this%bndlist)</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    this%filename = <span class="stringliteral">&#39;&#39;</span></div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    this%neq = 0</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    this%nja = 0</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    this%icnvg = 0</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    this%moffset = 0</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <span class="comment">! -- return</span></div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="keywordflow">return</span></div>
+<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00254">254</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacememorymanagermodule.html">memorymanagermodule</a>, <span class="keywordtype">only</span>: <a class="code" href="interfacememorymanagermodule_1_1mem__allocate.html">mem_allocate</a></div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: modelname</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <span class="comment">! -- allocate basetype members</span></div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <span class="keyword">call </span>this%BaseModelType%allocate_scalars(modelname)</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    <span class="comment">! -- allocate members from this type</span></div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__allocate.html">mem_allocate</a>(this%neq, <span class="stringliteral">&#39;NEQ&#39;</span>, this%memoryPath)</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__allocate.html">mem_allocate</a>(this%nja, <span class="stringliteral">&#39;NJA&#39;</span>, this%memoryPath)</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__allocate.html">mem_allocate</a>(this%icnvg, <span class="stringliteral">&#39;ICNVG&#39;</span>, this%memoryPath)</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__allocate.html">mem_allocate</a>(this%moffset, <span class="stringliteral">&#39;MOFFSET&#39;</span>, this%memoryPath)</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="keyword">allocate</span> (this%filename)</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="keyword">allocate</span> (this%bndlist)</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    this%filename = <span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    this%neq = 0</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    this%nja = 0</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    this%icnvg = 0</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    this%moffset = 0</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <span class="comment">! -- return</span></div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="keywordflow">return</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -371,26 +371,26 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00406">406</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;    <span class="keywordtype">implicit none</span></div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(inout)</span> :: obj</div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType), <span class="keywordtype">pointer</span> :: res</div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    res =&gt; null()</div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;    <span class="keywordflow">if</span> (.not. <span class="keyword">associated</span>(obj)) <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;    <span class="keywordflow">select type</span> (obj)</div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;<span class="keywordflow">    class is</span> (numericalmodeltype)</div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;      res =&gt; obj</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;<span class="keywordflow">    end select</span></div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;    <span class="keywordflow">return</span></div>
+<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00404">404</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    <span class="keywordtype">implicit none</span></div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span>, <span class="keywordtype">intent(inout)</span> :: obj</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType), <span class="keywordtype">pointer</span> :: res</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;    res =&gt; null()</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;    <span class="keywordflow">if</span> (.not. <span class="keyword">associated</span>(obj)) <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;    <span class="keywordflow">select type</span> (obj)</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;<span class="keywordflow">    class is</span> (numericalmodeltype)</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;      res =&gt; obj</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;<span class="keywordflow">    end select</span></div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;    <span class="keywordflow">return</span></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacenumericalmodelmodule_a8bf90d83eebb9a967b5ad13d395d4c85_icgraph.png" border="0" usemap="#anamespacenumericalmodelmodule_a8bf90d83eebb9a967b5ad13d395d4c85_icgraph" alt=""/></div>
 <map name="anamespacenumericalmodelmodule_a8bf90d83eebb9a967b5ad13d395d4c85_icgraph" id="anamespacenumericalmodelmodule_a8bf90d83eebb9a967b5ad13d395d4c85_icgraph">
-<area shape="rect" title=" " alt="" coords="1581,515,1792,556"/>
-<area shape="rect" href="namespacenumericalmodelmodule.html#a4d031f0a98348529066eef37676f018d" title=" " alt="" coords="1325,515,1533,556"/>
+<area shape="rect" title=" " alt="" coords="1581,548,1792,589"/>
+<area shape="rect" href="namespacenumericalmodelmodule.html#a4d031f0a98348529066eef37676f018d" title=" " alt="" coords="1325,548,1533,589"/>
 <area shape="rect" href="namespacenumericalsolutionmodule.html#ad2518d004a3f094cc01c98f915b3c225" title="@ brief Allocate arrays" alt="" coords="1083,5,1271,47"/>
 <area shape="rect" href="namespacenumericalsolutionmodule.html#a7fcf392bb98599ca511fdf62749e9447" title="@ brief finalize a solution" alt="" coords="1083,71,1271,112"/>
 <area shape="rect" href="namespacemf6bmigrid.html#a3c96cac8f7941e22fa690cb7647b244d" title=" " alt="" coords="610,37,769,79"/>
@@ -400,14 +400,15 @@ Here is the caller graph for this function:</div>
 <area shape="rect" href="namespacenumericalsolutionmodule.html#abe804dcafea9bef2ef528e68475ac3ec" title="@ brief Allocate and read data" alt="" coords="1083,384,1271,425"/>
 <area shape="rect" href="namespacenumericalsolutionmodule.html#a46eed3012776928555270aaecc977684" title=" " alt="" coords="1083,449,1271,491"/>
 <area shape="rect" href="namespacenumericalsolutionmodule.html#ac1c7daf42e56a62cccf6625801a30dcb" title="@ brief Solve solution" alt="" coords="1083,515,1271,556"/>
-<area shape="rect" href="namespacenumericalsolutionmodule.html#a3af64aed80e4521475b814733555b327" title="@ brief Assign solution connections" alt="" coords="1083,580,1271,621"/>
-<area shape="rect" href="namespacenumericalsolutionmodule.html#a4b3255995926f4887838220f0ea12c40" title="@ brief Define the solution" alt="" coords="1083,645,1271,687"/>
-<area shape="rect" href="namespacenumericalsolutionmodule.html#a3e536e8da68c7f8a12f3731f27b409c0" title="@ brief Get cell location string" alt="" coords="1083,711,1271,752"/>
-<area shape="rect" href="namespacenumericalsolutionmodule.html#a0673b47847b9b33923ecc11dbc2d8359" title="@ brief Get user node number" alt="" coords="1083,776,1271,817"/>
-<area shape="rect" href="namespacenumericalsolutionmodule.html#a964262851ef62c07577f4b3bbf384e15" title="@ brief Build and solve the simulation" alt="" coords="1083,841,1271,883"/>
-<area shape="rect" href="namespacevirtualdatamanagermodule.html#ac33ea4d249e2305f3109405dab3c9b8f" title="Add the models and exchanges from the passed solution to the virtual data structure...." alt="" coords="1077,907,1277,948"/>
-<area shape="rect" href="namespacenumericalsolutionmodule.html#a45a269ecfdf5d4ba92cb06b49f83c93e" title="@ brief CSV header" alt="" coords="1083,972,1271,1013"/>
-<area shape="rect" href="namespacenumericalsolutionmodule.html#ae96796cf48dfa4040e98467780719861" title="@ brief PTC header" alt="" coords="1083,1037,1271,1079"/>
+<area shape="rect" href="namespacenumericalsolutionmodule.html#a712b9c1e7e4b02e7cbab829643c10729" title="Calculate pseudo&#45;transient continuation factor." alt="" coords="1083,580,1271,621"/>
+<area shape="rect" href="namespacenumericalsolutionmodule.html#a3af64aed80e4521475b814733555b327" title="@ brief Assign solution connections" alt="" coords="1083,645,1271,687"/>
+<area shape="rect" href="namespacenumericalsolutionmodule.html#a4b3255995926f4887838220f0ea12c40" title="@ brief Define the solution" alt="" coords="1083,711,1271,752"/>
+<area shape="rect" href="namespacenumericalsolutionmodule.html#a3e536e8da68c7f8a12f3731f27b409c0" title="@ brief Get cell location string" alt="" coords="1083,776,1271,817"/>
+<area shape="rect" href="namespacenumericalsolutionmodule.html#a0673b47847b9b33923ecc11dbc2d8359" title="@ brief Get user node number" alt="" coords="1083,841,1271,883"/>
+<area shape="rect" href="namespacenumericalsolutionmodule.html#a964262851ef62c07577f4b3bbf384e15" title="@ brief Build and solve the simulation" alt="" coords="1083,907,1271,948"/>
+<area shape="rect" href="namespacevirtualdatamanagermodule.html#ac33ea4d249e2305f3109405dab3c9b8f" title="Add the models and exchanges from the passed solution to the virtual data structure...." alt="" coords="1077,972,1277,1013"/>
+<area shape="rect" href="namespacenumericalsolutionmodule.html#a45a269ecfdf5d4ba92cb06b49f83c93e" title="@ brief CSV header" alt="" coords="1083,1037,1271,1079"/>
+<area shape="rect" href="namespacenumericalsolutionmodule.html#ae96796cf48dfa4040e98467780719861" title="@ brief PTC header" alt="" coords="1083,1103,1271,1144"/>
 <area shape="rect" href="namespacemf6bmigrid.html#a576ebe2e6fe82ce03bc4651345629873" title=" " alt="" coords="357,96,516,137"/>
 <area shape="rect" href="namespacemf6bmiutil.html#a8d588c1efe402b6494a19948bdb67a85" title="Confirm that grid is of an expected type." alt="" coords="857,188,1007,229"/>
 <area shape="rect" href="namespacemf6bmigrid.html#a5e0d6dfe9c6e1601a0a7a8b165407f56" title=" " alt="" coords="835,395,1029,422"/>
@@ -445,10 +446,10 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00400">400</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: iasym</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    iasym = 0</div>
+<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00398">398</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: iasym</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;    iasym = 0</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -484,40 +485,40 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00350">350</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacebndmodule.html">bndmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structbndmodule_1_1bndtype.html">bndtype</a>, <a class="code" href="namespacebndmodule.html#a7ac2e1c143722a28d1f0ecb4c67a4a0a">getbndfromlist</a></div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: node</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(inout)</span> :: mcellid</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    <span class="comment">! -- local</span></div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    <span class="keywordtype">character(len=20)</span> :: cellid</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: ip, ipaknode, istart, istop</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    <span class="keywordtype">class</span>(BndType), <span class="keywordtype">pointer</span> :: packobj</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160; </div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    <span class="keywordflow">if</span> (node &lt; 1) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;      cellid = <span class="stringliteral">&#39;&#39;</span></div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (node &lt;= this%dis%nodes) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;      <span class="keyword">call </span>this%dis%noder_to_string(node, cellid)</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;      cellid = <span class="stringliteral">&#39;***ERROR***&#39;</span></div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;      ipaknode = node - this%dis%nodes</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;      istart = 1</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;      <span class="keywordflow">do</span> ip = 1, this%bndlist%Count()</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;        packobj =&gt; <a class="code" href="namespacebndmodule.html#a7ac2e1c143722a28d1f0ecb4c67a4a0a">getbndfromlist</a>(this%bndlist, ip)</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;        <span class="keywordflow">if</span> (packobj%npakeq == 0) cycle</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;        istop = istart + packobj%npakeq - 1</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;        <span class="keywordflow">if</span> (istart &lt;= ipaknode .and. ipaknode &lt;= istop) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;          <span class="keyword">write</span> (cellid, <span class="stringliteral">&#39;(a, a, a, i0, a, i0, a)&#39;</span>) <span class="stringliteral">&#39;(&#39;</span>, &amp;</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;            trim(packobj%filtyp), <span class="stringliteral">&#39;_&#39;</span>, &amp;</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;            packobj%ibcnum, <span class="stringliteral">&#39;-&#39;</span>, ipaknode - packobj%ioffset, <span class="stringliteral">&#39;)&#39;</span></div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;          <span class="keywordflow">exit</span></div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;<span class="keywordflow">        end if</span></div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;        istart = istop + 1</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;<span class="keywordflow">      end do</span></div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    <span class="keyword">write</span> (mcellid, <span class="stringliteral">&#39;(i0, a, a, a, a)&#39;</span>) this%id, <span class="stringliteral">&#39;_&#39;</span>, this%macronym, <span class="stringliteral">&#39;-&#39;</span>, &amp;</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;      trim(adjustl(cellid))</div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;    <span class="keywordflow">return</span></div>
+<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00348">348</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacebndmodule.html">bndmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structbndmodule_1_1bndtype.html">bndtype</a>, <a class="code" href="namespacebndmodule.html#a7ac2e1c143722a28d1f0ecb4c67a4a0a">getbndfromlist</a></div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: node</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(inout)</span> :: mcellid</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    <span class="comment">! -- local</span></div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    <span class="keywordtype">character(len=20)</span> :: cellid</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: ip, ipaknode, istart, istop</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    <span class="keywordtype">class</span>(BndType), <span class="keywordtype">pointer</span> :: packobj</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160; </div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    <span class="keywordflow">if</span> (node &lt; 1) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;      cellid = <span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (node &lt;= this%dis%nodes) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;      <span class="keyword">call </span>this%dis%noder_to_string(node, cellid)</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;      cellid = <span class="stringliteral">&#39;***ERROR***&#39;</span></div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;      ipaknode = node - this%dis%nodes</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;      istart = 1</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;      <span class="keywordflow">do</span> ip = 1, this%bndlist%Count()</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;        packobj =&gt; <a class="code" href="namespacebndmodule.html#a7ac2e1c143722a28d1f0ecb4c67a4a0a">getbndfromlist</a>(this%bndlist, ip)</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;        <span class="keywordflow">if</span> (packobj%npakeq == 0) cycle</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;        istop = istart + packobj%npakeq - 1</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;        <span class="keywordflow">if</span> (istart &lt;= ipaknode .and. ipaknode &lt;= istop) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;          <span class="keyword">write</span> (cellid, <span class="stringliteral">&#39;(a, a, a, i0, a, i0, a)&#39;</span>) <span class="stringliteral">&#39;(&#39;</span>, &amp;</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;            trim(packobj%filtyp), <span class="stringliteral">&#39;_&#39;</span>, &amp;</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;            packobj%ibcnum, <span class="stringliteral">&#39;-&#39;</span>, ipaknode - packobj%ioffset, <span class="stringliteral">&#39;)&#39;</span></div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;          <span class="keywordflow">exit</span></div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;<span class="keywordflow">        end if</span></div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;        istart = istop + 1</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;<span class="keywordflow">      end do</span></div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    <span class="keyword">write</span> (mcellid, <span class="stringliteral">&#39;(i0, a, a, a, a)&#39;</span>) this%id, <span class="stringliteral">&#39;_&#39;</span>, this%macronym, <span class="stringliteral">&#39;-&#39;</span>, &amp;</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;      trim(adjustl(cellid))</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    <span class="keywordflow">return</span></div>
 <div class="ttc" id="anamespacebndmodule_html"><div class="ttname"><a href="namespacebndmodule.html">bndmodule</a></div><div class="ttdoc">This module contains the base boundary package.</div><div class="ttdef"><b>Definition:</b> <a href="_boundary_package_8f90_source.html#l00008">BoundaryPackage.f90:8</a></div></div>
 <div class="ttc" id="anamespacebndmodule_html_a7ac2e1c143722a28d1f0ecb4c67a4a0a"><div class="ttname"><a href="namespacebndmodule.html#a7ac2e1c143722a28d1f0ecb4c67a4a0a">bndmodule::getbndfromlist</a></div><div class="ttdeci">class(bndtype) function, pointer, public getbndfromlist(list, idx)</div><div class="ttdoc">Get boundary from package list.</div><div class="ttdef"><b>Definition:</b> <a href="_boundary_package_8f90_source.html#l01888">BoundaryPackage.f90:1889</a></div></div>
 <div class="ttc" id="astructbndmodule_1_1bndtype_html"><div class="ttname"><a href="structbndmodule_1_1bndtype.html">bndmodule::bndtype</a></div><div class="ttdoc">@ brief BndType</div><div class="ttdef"><b>Definition:</b> <a href="_boundary_package_8f90_source.html#l00048">BoundaryPackage.f90:48</a></div></div>
@@ -566,18 +567,18 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00386">386</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacebndmodule.html">bndmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structbndmodule_1_1bndtype.html">bndtype</a>, <a class="code" href="namespacebndmodule.html#a7ac2e1c143722a28d1f0ecb4c67a4a0a">getbndfromlist</a></div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: node</div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(inout)</span> :: nodeu</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;    <span class="comment">! -- local</span></div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;    <span class="keywordflow">if</span> (node &lt;= this%dis%nodes) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;      nodeu = this%dis%get_nodeuser(node)</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;      nodeu = -(node - this%dis%nodes)</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;    <span class="keywordflow">return</span></div>
+<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00384">384</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacebndmodule.html">bndmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structbndmodule_1_1bndtype.html">bndtype</a>, <a class="code" href="namespacebndmodule.html#a7ac2e1c143722a28d1f0ecb4c67a4a0a">getbndfromlist</a></div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: node</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(inout)</span> :: nodeu</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;    <span class="comment">! -- local</span></div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;    <span class="keywordflow">if</span> (node &lt;= this%dis%nodes) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;      nodeu = this%dis%get_nodeuser(node)</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;      nodeu = -(node - this%dis%nodes)</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;    <span class="keywordflow">return</span></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -631,12 +632,12 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00242">242</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(inout)</span> :: mstart</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(inout)</span> :: mend</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    mstart = this%moffset + 1</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    mend = mstart + this%neq - 1</div>
+<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00240">240</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(inout)</span> :: mstart</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(inout)</span> :: mend</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    mstart = this%moffset + 1</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    mend = mstart + this%neq - 1</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -666,19 +667,19 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00435">435</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;    <span class="keywordtype">implicit none</span></div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;    <span class="keywordtype">type</span>(ListType), <span class="keywordtype">intent(inout)</span> :: list</div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: idx</div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType), <span class="keywordtype">pointer</span> :: res</div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;    <span class="comment">! -- local</span></div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span> :: obj</div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;    obj =&gt; list%GetItem(idx)</div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;    res =&gt; castasnumericalmodelclass(obj)</div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;    <span class="keywordflow">return</span></div>
+<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00433">433</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;    <span class="keywordtype">implicit none</span></div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;    <span class="comment">! -- dummy</span></div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;    <span class="keywordtype">type</span>(ListType), <span class="keywordtype">intent(inout)</span> :: list</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: idx</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType), <span class="keywordtype">pointer</span> :: res</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;    <span class="comment">! -- local</span></div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;    <span class="keywordtype">class</span>(*), <span class="keywordtype">pointer</span> :: obj</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;    obj =&gt; list%GetItem(idx)</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;    res =&gt; castasnumericalmodelclass(obj)</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;    <span class="keywordflow">return</span></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -693,7 +694,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacenumericalmodelmodule_a4d031f0a98348529066eef37676f018d_icgraph.png" border="0" usemap="#anamespacenumericalmodelmodule_a4d031f0a98348529066eef37676f018d_icgraph" alt=""/></div>
 <map name="anamespacenumericalmodelmodule_a4d031f0a98348529066eef37676f018d_icgraph" id="anamespacenumericalmodelmodule_a4d031f0a98348529066eef37676f018d_icgraph">
-<area shape="rect" title=" " alt="" coords="1325,515,1533,556"/>
+<area shape="rect" title=" " alt="" coords="1325,548,1533,589"/>
 <area shape="rect" href="namespacenumericalsolutionmodule.html#ad2518d004a3f094cc01c98f915b3c225" title="@ brief Allocate arrays" alt="" coords="1083,5,1271,47"/>
 <area shape="rect" href="namespacenumericalsolutionmodule.html#a7fcf392bb98599ca511fdf62749e9447" title="@ brief finalize a solution" alt="" coords="1083,71,1271,112"/>
 <area shape="rect" href="namespacemf6bmigrid.html#a3c96cac8f7941e22fa690cb7647b244d" title=" " alt="" coords="610,37,769,79"/>
@@ -703,14 +704,15 @@ Here is the caller graph for this function:</div>
 <area shape="rect" href="namespacenumericalsolutionmodule.html#abe804dcafea9bef2ef528e68475ac3ec" title="@ brief Allocate and read data" alt="" coords="1083,384,1271,425"/>
 <area shape="rect" href="namespacenumericalsolutionmodule.html#a46eed3012776928555270aaecc977684" title=" " alt="" coords="1083,449,1271,491"/>
 <area shape="rect" href="namespacenumericalsolutionmodule.html#ac1c7daf42e56a62cccf6625801a30dcb" title="@ brief Solve solution" alt="" coords="1083,515,1271,556"/>
-<area shape="rect" href="namespacenumericalsolutionmodule.html#a3af64aed80e4521475b814733555b327" title="@ brief Assign solution connections" alt="" coords="1083,580,1271,621"/>
-<area shape="rect" href="namespacenumericalsolutionmodule.html#a4b3255995926f4887838220f0ea12c40" title="@ brief Define the solution" alt="" coords="1083,645,1271,687"/>
-<area shape="rect" href="namespacenumericalsolutionmodule.html#a3e536e8da68c7f8a12f3731f27b409c0" title="@ brief Get cell location string" alt="" coords="1083,711,1271,752"/>
-<area shape="rect" href="namespacenumericalsolutionmodule.html#a0673b47847b9b33923ecc11dbc2d8359" title="@ brief Get user node number" alt="" coords="1083,776,1271,817"/>
-<area shape="rect" href="namespacenumericalsolutionmodule.html#a964262851ef62c07577f4b3bbf384e15" title="@ brief Build and solve the simulation" alt="" coords="1083,841,1271,883"/>
-<area shape="rect" href="namespacevirtualdatamanagermodule.html#ac33ea4d249e2305f3109405dab3c9b8f" title="Add the models and exchanges from the passed solution to the virtual data structure...." alt="" coords="1077,907,1277,948"/>
-<area shape="rect" href="namespacenumericalsolutionmodule.html#a45a269ecfdf5d4ba92cb06b49f83c93e" title="@ brief CSV header" alt="" coords="1083,972,1271,1013"/>
-<area shape="rect" href="namespacenumericalsolutionmodule.html#ae96796cf48dfa4040e98467780719861" title="@ brief PTC header" alt="" coords="1083,1037,1271,1079"/>
+<area shape="rect" href="namespacenumericalsolutionmodule.html#a712b9c1e7e4b02e7cbab829643c10729" title="Calculate pseudo&#45;transient continuation factor." alt="" coords="1083,580,1271,621"/>
+<area shape="rect" href="namespacenumericalsolutionmodule.html#a3af64aed80e4521475b814733555b327" title="@ brief Assign solution connections" alt="" coords="1083,645,1271,687"/>
+<area shape="rect" href="namespacenumericalsolutionmodule.html#a4b3255995926f4887838220f0ea12c40" title="@ brief Define the solution" alt="" coords="1083,711,1271,752"/>
+<area shape="rect" href="namespacenumericalsolutionmodule.html#a3e536e8da68c7f8a12f3731f27b409c0" title="@ brief Get cell location string" alt="" coords="1083,776,1271,817"/>
+<area shape="rect" href="namespacenumericalsolutionmodule.html#a0673b47847b9b33923ecc11dbc2d8359" title="@ brief Get user node number" alt="" coords="1083,841,1271,883"/>
+<area shape="rect" href="namespacenumericalsolutionmodule.html#a964262851ef62c07577f4b3bbf384e15" title="@ brief Build and solve the simulation" alt="" coords="1083,907,1271,948"/>
+<area shape="rect" href="namespacevirtualdatamanagermodule.html#ac33ea4d249e2305f3109405dab3c9b8f" title="Add the models and exchanges from the passed solution to the virtual data structure...." alt="" coords="1077,972,1277,1013"/>
+<area shape="rect" href="namespacenumericalsolutionmodule.html#a45a269ecfdf5d4ba92cb06b49f83c93e" title="@ brief CSV header" alt="" coords="1083,1037,1271,1079"/>
+<area shape="rect" href="namespacenumericalsolutionmodule.html#ae96796cf48dfa4040e98467780719861" title="@ brief PTC header" alt="" coords="1083,1103,1271,1144"/>
 <area shape="rect" href="namespacemf6bmigrid.html#a576ebe2e6fe82ce03bc4651345629873" title=" " alt="" coords="357,96,516,137"/>
 <area shape="rect" href="namespacemf6bmiutil.html#a8d588c1efe402b6494a19948bdb67a85" title="Confirm that grid is of an expected type." alt="" coords="857,188,1007,229"/>
 <area shape="rect" href="namespacemf6bmigrid.html#a5e0d6dfe9c6e1601a0a7a8b165407f56" title=" " alt="" coords="835,395,1029,422"/>
@@ -870,10 +872,10 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00171">171</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: icnvg</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: isuppress_output</div>
+<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00169">169</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: icnvg</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: isuppress_output</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -911,9 +913,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00177">177</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: icnvg</div>
+<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00175">175</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: icnvg</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -963,11 +965,11 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00191">191</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:, :)</span>, <span class="keywordtype">intent(in)</span> :: budterm</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="keywordtype">character(len=LENBUDTXT)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">intent(in)</span> :: budtxt</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: rowlabel</div>
+<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00189">189</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:, :)</span>, <span class="keywordtype">intent(in)</span> :: budterm</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keywordtype">character(len=LENBUDTXT)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">intent(in)</span> :: budtxt</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: rowlabel</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1005,9 +1007,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00182">182</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: icnvg</div>
+<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00180">180</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: icnvg</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1081,15 +1083,15 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00143">143</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: innertot</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: kiter</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: iend</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: icnvgmod</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keywordtype">character(len=LENPAKLOC)</span>, <span class="keywordtype">intent(inout)</span> :: cpak</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(inout)</span> :: ipak</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">intent(inout)</span> :: dpak</div>
+<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00141">141</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: innertot</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: kiter</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: iend</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: icnvgmod</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keywordtype">character(len=LENPAKLOC)</span>, <span class="keywordtype">intent(inout)</span> :: cpak</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(inout)</span> :: ipak</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">intent(inout)</span> :: dpak</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1173,10 +1175,10 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00165">165</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: icnvg</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: isuppress_output</div>
+<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00163">163</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: icnvg</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: isuppress_output</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1204,38 +1206,38 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00202">202</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <span class="comment">! -- modules</span></div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacememorymanagermodule.html">memorymanagermodule</a>, <span class="keywordtype">only</span>: <a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a></div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="comment">! -- Scalars</span></div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%neq)</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%nja)</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%icnvg)</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%moffset)</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="keyword">deallocate</span> (this%filename)</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="comment">! -- Arrays</span></div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%xold)</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%flowja)</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%idxglo)</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="comment">! -- derived types</span></div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keyword">call </span>this%bndlist%Clear()</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="keyword">deallocate</span> (this%bndlist)</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="comment">! -- nullify pointers</span></div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%x, <span class="stringliteral">&#39;X&#39;</span>, this%memoryPath)</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%rhs, <span class="stringliteral">&#39;RHS&#39;</span>, this%memoryPath)</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%ibound, <span class="stringliteral">&#39;IBOUND&#39;</span>, this%memoryPath)</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="comment">! -- BaseModelType</span></div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keyword">call </span>this%BaseModelType%model_da()</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <span class="comment">!</span></div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="comment">! -- Return</span></div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <span class="keywordflow">return</span></div>
+<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00200">200</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <span class="comment">! -- modules</span></div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacememorymanagermodule.html">memorymanagermodule</a>, <span class="keywordtype">only</span>: <a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; </div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <span class="comment">! -- Scalars</span></div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%neq)</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%nja)</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%icnvg)</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%moffset)</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keyword">deallocate</span> (this%filename)</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="comment">! -- Arrays</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%xold)</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%flowja)</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%idxglo)</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="comment">! -- derived types</span></div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keyword">call </span>this%bndlist%Clear()</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="keyword">deallocate</span> (this%bndlist)</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="comment">! -- nullify pointers</span></div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%x, <span class="stringliteral">&#39;X&#39;</span>, this%memoryPath)</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%rhs, <span class="stringliteral">&#39;RHS&#39;</span>, this%memoryPath)</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__deallocate.html">mem_deallocate</a>(this%ibound, <span class="stringliteral">&#39;IBOUND&#39;</span>, this%memoryPath)</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <span class="comment">! -- BaseModelType</span></div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <span class="keyword">call </span>this%BaseModelType%model_da()</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="comment">!</span></div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="comment">! -- Return</span></div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <span class="keywordflow">return</span></div>
 <div class="ttc" id="ainterfacememorymanagermodule_1_1mem__deallocate_html"><div class="ttname"><a href="interfacememorymanagermodule_1_1mem__deallocate.html">memorymanagermodule::mem_deallocate</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00117">MemoryManager.f90:117</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -1347,8 +1349,8 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00198">198</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
+<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00196">196</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1438,11 +1440,11 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00136">136</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: kiter</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keywordtype">class</span>(MatrixBaseType), <span class="keywordtype">pointer</span> :: matrix</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: inwtflag</div>
+<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00134">134</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: kiter</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keywordtype">class</span>(MatrixBaseType), <span class="keywordtype">pointer</span> :: matrix</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: inwtflag</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1516,15 +1518,15 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00154">154</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: neqmod</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(neqmod)</span>, <span class="keywordtype">intent(inout)</span> :: x</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(neqmod)</span>, <span class="keywordtype">intent(in)</span> :: xtemp</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(neqmod)</span>, <span class="keywordtype">intent(inout)</span> :: dx</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(inout)</span> :: inewtonur</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">intent(inout)</span> :: dxmax</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(inout)</span> :: locmax</div>
+<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00152">152</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: neqmod</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(neqmod)</span>, <span class="keywordtype">intent(inout)</span> :: x</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(neqmod)</span>, <span class="keywordtype">intent(in)</span> :: xtemp</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(neqmod)</span>, <span class="keywordtype">intent(inout)</span> :: dx</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(inout)</span> :: inewtonur</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">intent(inout)</span> :: dxmax</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(inout)</span> :: locmax</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1552,13 +1554,13 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00187">187</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
+<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00185">185</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a1aba4ae10eabcd5bb57f0ae4f695c544"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1aba4ae10eabcd5bb57f0ae4f695c544">&#9670;&nbsp;</a></span>model_ptc()</h2>
+<a id="a953add1c3cf12680e0323eaca0fb9460"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a953add1c3cf12680e0323eaca0fb9460">&#9670;&nbsp;</a></span>model_ptc()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1575,20 +1577,8 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">class(<a class="el" href="structmatrixbasemodule_1_1matrixbasetype.html">matrixbasetype</a>), pointer&#160;</td>
-          <td class="paramname"><em>matrix</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">class(<a class="el" href="structvectorbasemodule_1_1vectorbasetype.html">vectorbasetype</a>), pointer&#160;</td>
-          <td class="paramname"><em>vec_x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">class(<a class="el" href="structvectorbasemodule_1_1vectorbasetype.html">vectorbasetype</a>), pointer&#160;</td>
-          <td class="paramname"><em>vec_rhs</em>, </td>
+          <td class="paramname"><em>vec_residual</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1617,11 +1607,9 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00127">127</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
 <div class="fragment"><div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordtype">class</span>(MatrixBaseType), <span class="keywordtype">pointer</span> :: matrix</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordtype">class</span>(VectorBaseType), <span class="keywordtype">pointer</span> :: vec_x</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordtype">class</span>(VectorBaseType), <span class="keywordtype">pointer</span> :: vec_rhs</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(inout)</span> :: iptc</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">intent(inout)</span> :: ptcf</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordtype">class</span>(VectorBaseType), <span class="keywordtype">pointer</span> :: vec_residual</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(inout)</span> :: iptc</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">intent(inout)</span> :: ptcf</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1739,21 +1727,21 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00333">333</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacememorymanagermodule.html">memorymanagermodule</a>, <span class="keywordtype">only</span>: <a class="code" href="interfacememorymanagermodule_1_1mem__checkin.html">mem_checkin</a></div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>, <span class="keywordtype">intent(in)</span> :: iboundsln</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: sln_offset</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: varNameTgt</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: memPathTgt</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    <span class="comment">! -- local</span></div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: offset</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    <span class="comment">! -- code</span></div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;    offset = this%moffset - sln_offset</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    this%ibound =&gt; iboundsln(offset + 1:offset + this%neq)</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__checkin.html">mem_checkin</a>(this%ibound, <span class="stringliteral">&#39;IBOUND&#39;</span>, this%memoryPath, varnametgt, &amp;</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;                     mempathtgt)</div>
+<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00331">331</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacememorymanagermodule.html">memorymanagermodule</a>, <span class="keywordtype">only</span>: <a class="code" href="interfacememorymanagermodule_1_1mem__checkin.html">mem_checkin</a></div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    <span class="comment">! -- dummy</span></div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>, <span class="keywordtype">intent(in)</span> :: iboundsln</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: sln_offset</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: varNameTgt</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: memPathTgt</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    <span class="comment">! -- local</span></div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: offset</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    <span class="comment">! -- code</span></div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    offset = this%moffset - sln_offset</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    this%ibound =&gt; iboundsln(offset + 1:offset + this%neq)</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__checkin.html">mem_checkin</a>(this%ibound, <span class="stringliteral">&#39;IBOUND&#39;</span>, this%memoryPath, varnametgt, &amp;</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;                     mempathtgt)</div>
 <div class="ttc" id="ainterfacememorymanagermodule_1_1mem__checkin_html"><div class="ttname"><a href="interfacememorymanagermodule_1_1mem__checkin.html">memorymanagermodule::mem_checkin</a></div><div class="ttdef"><b>Definition:</b> <a href="_memory_manager_8f90_source.html#l00067">MemoryManager.f90:67</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -1792,10 +1780,10 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00250">250</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: id</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    this%idsoln = id</div>
+<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00248">248</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: id</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    this%idsoln = id</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1825,10 +1813,10 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00236">236</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: moffset</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    this%moffset = moffset</div>
+<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00234">234</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="keywordtype">integer(I4B)</span>, <span class="keywordtype">intent(in)</span> :: moffset</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    this%moffset = moffset</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1876,20 +1864,20 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00317">317</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacememorymanagermodule.html">memorymanagermodule</a>, <span class="keywordtype">only</span>: <a class="code" href="interfacememorymanagermodule_1_1mem__checkin.html">mem_checkin</a></div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>, <span class="keywordtype">intent(in)</span> :: rhssln</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: sln_offset</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: varNameTgt</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: memPathTgt</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    <span class="comment">! -- local</span></div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: offset</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    <span class="comment">! -- code</span></div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    offset = this%moffset - sln_offset</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    this%rhs =&gt; rhssln(offset + 1:offset + this%neq)</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__checkin.html">mem_checkin</a>(this%rhs, <span class="stringliteral">&#39;RHS&#39;</span>, this%memoryPath, varnametgt, mempathtgt)</div>
+<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00315">315</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacememorymanagermodule.html">memorymanagermodule</a>, <span class="keywordtype">only</span>: <a class="code" href="interfacememorymanagermodule_1_1mem__checkin.html">mem_checkin</a></div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="comment">! -- dummy</span></div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>, <span class="keywordtype">intent(in)</span> :: rhssln</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: sln_offset</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: varNameTgt</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: memPathTgt</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    <span class="comment">! -- local</span></div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: offset</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    <span class="comment">! -- code</span></div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    offset = this%moffset - sln_offset</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    this%rhs =&gt; rhssln(offset + 1:offset + this%neq)</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__checkin.html">mem_checkin</a>(this%rhs, <span class="stringliteral">&#39;RHS&#39;</span>, this%memoryPath, varnametgt, mempathtgt)</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1937,20 +1925,20 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00301">301</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacememorymanagermodule.html">memorymanagermodule</a>, <span class="keywordtype">only</span>: <a class="code" href="interfacememorymanagermodule_1_1mem__checkin.html">mem_checkin</a></div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    <span class="comment">! -- dummy</span></div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>, <span class="keywordtype">intent(in)</span> :: xsln</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: sln_offset</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: varNameTgt</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: memPathTgt</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <span class="comment">! -- local</span></div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: offset</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    <span class="comment">! -- code</span></div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    offset = this%moffset - sln_offset</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    this%x =&gt; xsln(offset + 1:offset + this%neq)</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__checkin.html">mem_checkin</a>(this%x, <span class="stringliteral">&#39;X&#39;</span>, this%memoryPath, varnametgt, mempathtgt)</div>
+<p class="definition">Definition at line <a class="el" href="_numerical_model_8f90_source.html#l00299">299</a> of file <a class="el" href="_numerical_model_8f90_source.html">NumericalModel.f90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    <span class="keywordtype">use </span><a class="code" href="namespacememorymanagermodule.html">memorymanagermodule</a>, <span class="keywordtype">only</span>: <a class="code" href="interfacememorymanagermodule_1_1mem__checkin.html">mem_checkin</a></div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    <span class="comment">! -- dummy</span></div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    <span class="keywordtype">class</span>(NumericalModelType) :: this</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span>, <span class="keywordtype">intent(in)</span> :: xsln</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: sln_offset</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: varNameTgt</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    <span class="keywordtype">character(len=*)</span>, <span class="keywordtype">intent(in)</span> :: memPathTgt</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <span class="comment">! -- local</span></div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: offset</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <span class="comment">! -- code</span></div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    offset = this%moffset - sln_offset</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    this%x =&gt; xsln(offset + 1:offset + this%neq)</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    <span class="keyword">call </span><a class="code" href="interfacememorymanagermodule_1_1mem__checkin.html">mem_checkin</a>(this%x, <span class="stringliteral">&#39;X&#39;</span>, this%memoryPath, varnametgt, mempathtgt)</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1960,7 +1948,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacenumericalmodelmodule.html">numericalmodelmodule</a></li>
-    <li class="footer">Generated on Mon Apr 17 2023 13:16:53 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Apr 20 2023 07:33:50 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

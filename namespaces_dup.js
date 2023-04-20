@@ -587,6 +587,7 @@ var namespaces_dup =
     [ "parallelsolutionmodule", "namespaceparallelsolutionmodule.html", "namespaceparallelsolutionmodule" ],
     [ "petscconvergencemodule", "namespacepetscconvergencemodule.html", "namespacepetscconvergencemodule" ],
     [ "petscmatrixmodule", "namespacepetscmatrixmodule.html", "namespacepetscmatrixmodule" ],
+    [ "petscsolvermodule", "namespacepetscsolvermodule.html", "namespacepetscsolvermodule" ],
     [ "petscvectormodule", "namespacepetscvectormodule.html", "namespacepetscvectormodule" ],
     [ "printsavemanagermodule", "namespaceprintsavemanagermodule.html", "namespaceprintsavemanagermodule" ],
     [ "rchmodule", "namespacerchmodule.html", "namespacerchmodule" ],

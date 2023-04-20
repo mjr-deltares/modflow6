@@ -124,9 +124,12 @@ Data Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
-<tr class="memitem:af5f4cbf37b2710fc1dcaaa6b961e7a91"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepetscvectormodule.html#af5f4cbf37b2710fc1dcaaa6b961e7a91">petsc_vec_create</a> (this, n, name, mem_path)</td></tr>
-<tr class="memdesc:af5f4cbf37b2710fc1dcaaa6b961e7a91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a PETSc vector.  <a href="namespacepetscvectormodule.html#af5f4cbf37b2710fc1dcaaa6b961e7a91">More...</a><br /></td></tr>
-<tr class="separator:af5f4cbf37b2710fc1dcaaa6b961e7a91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d5ad485567afd1e4ffef6b198515dec"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepetscvectormodule.html#a6d5ad485567afd1e4ffef6b198515dec">petsc_vec_create_mm</a> (this, n, name, mem_path)</td></tr>
+<tr class="memdesc:a6d5ad485567afd1e4ffef6b198515dec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a PETSc vector, with memory.  <a href="namespacepetscvectormodule.html#a6d5ad485567afd1e4ffef6b198515dec">More...</a><br /></td></tr>
+<tr class="separator:a6d5ad485567afd1e4ffef6b198515dec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6910345e31ffa7567b67ea5c863d53a2"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepetscvectormodule.html#a6910345e31ffa7567b67ea5c863d53a2">petsc_vec_create</a> (this, n)</td></tr>
+<tr class="memdesc:a6910345e31ffa7567b67ea5c863d53a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a PETSc vector, with memory.  <a href="namespacepetscvectormodule.html#a6910345e31ffa7567b67ea5c863d53a2">More...</a><br /></td></tr>
+<tr class="separator:a6910345e31ffa7567b67ea5c863d53a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c3773d7127b062fa420fd5b70a1eb70"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepetscvectormodule.html#a5c3773d7127b062fa420fd5b70a1eb70">petsc_vec_destroy</a> (this)</td></tr>
 <tr class="memdesc:a5c3773d7127b062fa420fd5b70a1eb70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clean up.  <a href="namespacepetscvectormodule.html#a5c3773d7127b062fa420fd5b70a1eb70">More...</a><br /></td></tr>
 <tr class="separator:a5c3773d7127b062fa420fd5b70a1eb70"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -137,21 +140,164 @@ Functions/Subroutines</h2></td></tr>
 <tr class="separator:a30bab5efdc5149a9a66638eb00d34343"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d1a11233ea4afe1bf7074e5328c93fc"><td class="memItemLeft" align="right" valign="top">integer(i4b) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepetscvectormodule.html#a8d1a11233ea4afe1bf7074e5328c93fc">petsc_vec_get_size</a> (this)</td></tr>
 <tr class="separator:a8d1a11233ea4afe1bf7074e5328c93fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2df4466202bf01374b0c1b5010314b5d"><td class="memItemLeft" align="right" valign="top">real(dp) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepetscvectormodule.html#a2df4466202bf01374b0c1b5010314b5d">petsc_vec_get_value_local</a> (this, idx)</td></tr>
+<tr class="memdesc:a2df4466202bf01374b0c1b5010314b5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a value from the vector at the local index.  <a href="namespacepetscvectormodule.html#a2df4466202bf01374b0c1b5010314b5d">More...</a><br /></td></tr>
+<tr class="separator:a2df4466202bf01374b0c1b5010314b5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abbb031b6a48e462befc691d00364a22d"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepetscvectormodule.html#abbb031b6a48e462befc691d00364a22d">petsc_vec_zero_entries</a> (this)</td></tr>
 <tr class="memdesc:abbb031b6a48e462befc691d00364a22d"><td class="mdescLeft">&#160;</td><td class="mdescRight">set all elements to zero  <a href="namespacepetscvectormodule.html#abbb031b6a48e462befc691d00364a22d">More...</a><br /></td></tr>
 <tr class="separator:abbb031b6a48e462befc691d00364a22d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7a2ff4a80e63034bc6860a345ef8724"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepetscvectormodule.html#af7a2ff4a80e63034bc6860a345ef8724">petsc_vec_set_value_local</a> (this, idx, val)</td></tr>
+<tr class="memdesc:af7a2ff4a80e63034bc6860a345ef8724"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set vector value at local index.  <a href="namespacepetscvectormodule.html#af7a2ff4a80e63034bc6860a345ef8724">More...</a><br /></td></tr>
+<tr class="separator:af7a2ff4a80e63034bc6860a345ef8724"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f9cb729fd73e356513214f71eedc2ca"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepetscvectormodule.html#a7f9cb729fd73e356513214f71eedc2ca">petsc_vec_axpy</a> (this, alpha, vec_x)</td></tr>
+<tr class="memdesc:a7f9cb729fd73e356513214f71eedc2ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate AXPY: y = a*x + y.  <a href="namespacepetscvectormodule.html#a7f9cb729fd73e356513214f71eedc2ca">More...</a><br /></td></tr>
+<tr class="separator:a7f9cb729fd73e356513214f71eedc2ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1acfc8dc2aafe539dbe736ce02983fcc"><td class="memItemLeft" align="right" valign="top">real(dp) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepetscvectormodule.html#a1acfc8dc2aafe539dbe736ce02983fcc">petsc_vec_norm2</a> (this)</td></tr>
+<tr class="memdesc:a1acfc8dc2aafe539dbe736ce02983fcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate this vector's (global) 2-norm.  <a href="namespacepetscvectormodule.html#a1acfc8dc2aafe539dbe736ce02983fcc">More...</a><br /></td></tr>
+<tr class="separator:a1acfc8dc2aafe539dbe736ce02983fcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18dead544e740c30360b7fae3133770e"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepetscvectormodule.html#a18dead544e740c30360b7fae3133770e">petsc_vec_print</a> (this)</td></tr>
 <tr class="separator:a18dead544e740c30360b7fae3133770e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function/Subroutine Documentation</h2>
-<a id="af5f4cbf37b2710fc1dcaaa6b961e7a91"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af5f4cbf37b2710fc1dcaaa6b961e7a91">&#9670;&nbsp;</a></span>petsc_vec_create()</h2>
+<a id="a7f9cb729fd73e356513214f71eedc2ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f9cb729fd73e356513214f71eedc2ca">&#9670;&nbsp;</a></span>petsc_vec_axpy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine petscvectormodule::petsc_vec_axpy </td>
+          <td>(</td>
+          <td class="paramtype">class(<a class="el" href="structpetscvectormodule_1_1petscvectortype.html">petscvectortype</a>)&#160;</td>
+          <td class="paramname"><em>this</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(dp)&#160;</td>
+          <td class="paramname"><em>alpha</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class(<a class="el" href="structvectorbasemodule_1_1vectorbasetype.html">vectorbasetype</a>), pointer&#160;</td>
+          <td class="paramname"><em>vec_x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">this</td><td>this vector </td></tr>
+    <tr><td class="paramname">alpha</td><td>the factor </td></tr>
+    <tr><td class="paramname">vec_x</td><td>the vector to add </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_petsc_vector_8_f90_source.html#l00178">178</a> of file <a class="el" href="_petsc_vector_8_f90_source.html">PetscVector.F90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keywordtype">class</span>(PetscVectorType) :: this<span class="comment"> !&lt; this vector</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="keywordtype">    real</span>(DP) :: alpha<span class="comment"> !&lt; the factor</span></div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="keywordtype">class</span>(VectorBaseType), <span class="keywordtype">pointer</span> :: vec_x<span class="comment"> !&lt; the vector to add</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    petscerrorcode :: ierr</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keywordtype">class</span>(PetscVectorType), <span class="keywordtype">pointer</span> :: x</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    x =&gt; null()</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="keywordflow">select type</span> (vec_x)</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="keywordflow">    class is</span> (petscvectortype)</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;      x =&gt; vec_x</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="keywordflow">    end select</span></div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="keyword">call </span>vecaxpy(this%vec_impl, alpha, x%vec_impl, ierr)</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    chkerrq(ierr)</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a6910345e31ffa7567b67ea5c863d53a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6910345e31ffa7567b67ea5c863d53a2">&#9670;&nbsp;</a></span>petsc_vec_create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine petscvectormodule::petsc_vec_create </td>
+          <td>(</td>
+          <td class="paramtype">class(<a class="el" href="structpetscvectormodule_1_1petscvectortype.html">petscvectortype</a>)&#160;</td>
+          <td class="paramname"><em>this</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer(i4b)&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">this</td><td>this vector </td></tr>
+    <tr><td class="paramname">n</td><td>the nr. of elements in the vector </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_petsc_vector_8_f90_source.html#l00061">61</a> of file <a class="el" href="_petsc_vector_8_f90_source.html">PetscVector.F90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">class</span>(PetscVectorType) :: this<span class="comment"> !&lt; this vector</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: n<span class="comment"> !&lt; the nr. of elements in the vector</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    petscerrorcode :: ierr</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    this%is_mem_managed = .false.</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">allocate</span> (this%array(n))</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">if</span> (simulation_mode == <span class="stringliteral">&#39;PARALLEL&#39;</span> .and. nr_procs &gt; 1) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;      <span class="keyword">call </span>veccreatempiwitharray(petsc_comm_world, 1, n, petsc_decide, &amp;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                                 this%array, this%vec_impl, ierr)</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;      <span class="keyword">call </span>veccreateseqwitharray(petsc_comm_world, 1, n, this%array, &amp;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                                 this%vec_impl, ierr)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    chkerrq(ierr)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keyword">call </span>this%zero_entries()</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a6d5ad485567afd1e4ffef6b198515dec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d5ad485567afd1e4ffef6b198515dec">&#9670;&nbsp;</a></span>petsc_vec_create_mm()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">subroutine petscvectormodule::petsc_vec_create </td>
+          <td class="memname">subroutine petscvectormodule::petsc_vec_create_mm </td>
           <td>(</td>
           <td class="paramtype">class(<a class="el" href="structpetscvectormodule_1_1petscvectortype.html">petscvectortype</a>)&#160;</td>
           <td class="paramname"><em>this</em>, </td>
@@ -191,26 +337,28 @@ Functions/Subroutines</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_petsc_vector_8_f90_source.html#l00030">30</a> of file <a class="el" href="_petsc_vector_8_f90_source.html">PetscVector.F90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">class</span>(PetscVectorType) :: this<span class="comment"> !&lt; this vector</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: n<span class="comment"> !&lt; the nr. of elements in the vector</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">character(len=*)</span> :: name<span class="comment"> !&lt; the variable name (for access through memory manager)</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">character(len=*)</span> :: mem_path<span class="comment"> !&lt; memory path for storing the underlying memory items</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    petscerrorcode :: ierr</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">call </span>mem_allocate(this%array, n, name, mem_path)</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">if</span> (simulation_mode == <span class="stringliteral">&#39;PARALLEL&#39;</span> .and. nr_procs &gt; 1) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      <span class="keyword">call </span>veccreatempiwitharray(petsc_comm_world, 1, n, petsc_decide, &amp;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                                 this%array, this%vec_impl, ierr)</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      <span class="keyword">call </span>veccreateseqwitharray(petsc_comm_world, 1, n, this%array, &amp;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                                 this%vec_impl, ierr)</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    chkerrq(ierr)</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">call </span>this%zero_entries()</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="_petsc_vector_8_f90_source.html#l00035">35</a> of file <a class="el" href="_petsc_vector_8_f90_source.html">PetscVector.F90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">class</span>(PetscVectorType) :: this<span class="comment"> !&lt; this vector</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: n<span class="comment"> !&lt; the nr. of elements in the vector</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">character(len=*)</span> :: name<span class="comment"> !&lt; the variable name (for access through memory manager)</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">character(len=*)</span> :: mem_path<span class="comment"> !&lt; memory path for storing the underlying memory items</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    petscerrorcode :: ierr</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    this%is_mem_managed = .true.</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">call </span>mem_allocate(this%array, n, name, mem_path)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">if</span> (simulation_mode == <span class="stringliteral">&#39;PARALLEL&#39;</span> .and. nr_procs &gt; 1) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      <span class="keyword">call </span>veccreatempiwitharray(petsc_comm_world, 1, n, petsc_decide, &amp;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                                 this%array, this%vec_impl, ierr)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      <span class="keyword">call </span>veccreateseqwitharray(petsc_comm_world, 1, n, this%array, &amp;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                                 this%vec_impl, ierr)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    chkerrq(ierr)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">call </span>this%zero_entries()</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -244,15 +392,19 @@ Functions/Subroutines</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_petsc_vector_8_f90_source.html#l00054">54</a> of file <a class="el" href="_petsc_vector_8_f90_source.html">PetscVector.F90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">class</span>(PetscVectorType) :: this<span class="comment"> !&lt; this vector</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    petscerrorcode :: ierr</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">call </span>vecdestroy(this%vec_impl, ierr)</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    chkerrq(ierr)</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">call </span>mem_deallocate(this%array)</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="_petsc_vector_8_f90_source.html#l00085">85</a> of file <a class="el" href="_petsc_vector_8_f90_source.html">PetscVector.F90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">class</span>(PetscVectorType) :: this<span class="comment"> !&lt; this vector</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    petscerrorcode :: ierr</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keyword">call </span>vecdestroy(this%vec_impl, ierr)</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    chkerrq(ierr)</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">if</span> (this%is_mem_managed) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      <span class="keyword">call </span>mem_deallocate(this%array)</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;      <span class="keyword">deallocate</span> (this%array)</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -287,12 +439,12 @@ Functions/Subroutines</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the underlying data array for this vector </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_petsc_vector_8_f90_source.html#l00067">67</a> of file <a class="el" href="_petsc_vector_8_f90_source.html">PetscVector.F90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">class</span>(PetscVectorType) :: this<span class="comment"> !&lt; this vector</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: array<span class="comment"> !&lt; the underlying data array for this vector</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    array =&gt; this%array</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="_petsc_vector_8_f90_source.html#l00102">102</a> of file <a class="el" href="_petsc_vector_8_f90_source.html">PetscVector.F90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordtype">class</span>(PetscVectorType) :: this<span class="comment"> !&lt; this vector</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: array<span class="comment"> !&lt; the underlying data array for this vector</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    array =&gt; this%array</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -344,21 +496,21 @@ Functions/Subroutines</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_petsc_vector_8_f90_source.html#l00075">75</a> of file <a class="el" href="_petsc_vector_8_f90_source.html">PetscVector.F90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">class</span>(PetscVectorType) :: this<span class="comment"> !&lt; this vector</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: start<span class="comment"> !&lt; the index of the first element (owned by this process) in the global vector</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: end<span class="comment"> !&lt; the index of the last element (owned by this process) in the global vector</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    petscerrorcode :: ierr</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="comment">! gets the range as [start, end) but 0-based</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keyword">call </span>vecgetownershiprange(this%vec_impl, start, <span class="keyword">end</span>, ierr)</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="comment">! now we make it [start, end] and 1-based</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    start = start + 1</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    chkerrq(ierr)</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="_petsc_vector_8_f90_source.html#l00110">110</a> of file <a class="el" href="_petsc_vector_8_f90_source.html">PetscVector.F90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordtype">class</span>(PetscVectorType) :: this<span class="comment"> !&lt; this vector</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: start<span class="comment"> !&lt; the index of the first element (owned by this process) in the global vector</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: end<span class="comment"> !&lt; the index of the last element (owned by this process) in the global vector</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    petscerrorcode :: ierr</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="comment">! gets the range as [start, end) but 0-based</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keyword">call </span>vecgetownershiprange(this%vec_impl, start, <span class="keyword">end</span>, ierr)</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="comment">! now we make it [start, end] and 1-based</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    start = start + 1</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    chkerrq(ierr)</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -393,15 +545,110 @@ Functions/Subroutines</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the (global) vector size </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_petsc_vector_8_f90_source.html#l00092">92</a> of file <a class="el" href="_petsc_vector_8_f90_source.html">PetscVector.F90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">class</span>(PetscVectorType) :: this<span class="comment"> !&lt; this vector</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: size<span class="comment"> !&lt; the (global) vector size</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    petscerrorcode :: ierr</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keyword">call </span>vecgetsize(this%vec_impl, <span class="keyword">size</span>, ierr)</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    chkerrq(ierr)</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="_petsc_vector_8_f90_source.html#l00127">127</a> of file <a class="el" href="_petsc_vector_8_f90_source.html">PetscVector.F90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordtype">class</span>(PetscVectorType) :: this<span class="comment"> !&lt; this vector</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: size<span class="comment"> !&lt; the (global) vector size</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    petscerrorcode :: ierr</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keyword">call </span>vecgetsize(this%vec_impl, <span class="keyword">size</span>, ierr)</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    chkerrq(ierr)</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a2df4466202bf01374b0c1b5010314b5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2df4466202bf01374b0c1b5010314b5d">&#9670;&nbsp;</a></span>petsc_vec_get_value_local()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(dp) function petscvectormodule::petsc_vec_get_value_local </td>
+          <td>(</td>
+          <td class="paramtype">class(<a class="el" href="structpetscvectormodule_1_1petscvectortype.html">petscvectortype</a>)&#160;</td>
+          <td class="paramname"><em>this</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer(i4b)&#160;</td>
+          <td class="paramname"><em>idx</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">this</td><td>this vector </td></tr>
+    <tr><td class="paramname">idx</td><td>the index in local numbering </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the value </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_petsc_vector_8_f90_source.html#l00140">140</a> of file <a class="el" href="_petsc_vector_8_f90_source.html">PetscVector.F90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="keywordtype">class</span>(PetscVectorType) :: this<span class="comment"> !&lt; this vector</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: idx<span class="comment"> !&lt; the index in local numbering</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="keywordtype">    real</span>(DP) :: val<span class="comment"> !&lt; the value</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    val = this%array(idx)</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a1acfc8dc2aafe539dbe736ce02983fcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1acfc8dc2aafe539dbe736ce02983fcc">&#9670;&nbsp;</a></span>petsc_vec_norm2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(dp) function petscvectormodule::petsc_vec_norm2 </td>
+          <td>(</td>
+          <td class="paramtype">class(<a class="el" href="structpetscvectormodule_1_1petscvectortype.html">petscvectortype</a>)&#160;</td>
+          <td class="paramname"><em>this</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">this</td><td>this vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the calculated 2-norm </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_petsc_vector_8_f90_source.html#l00198">198</a> of file <a class="el" href="_petsc_vector_8_f90_source.html">PetscVector.F90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="keywordtype">class</span>(PetscVectorType) :: this<span class="comment"> !&lt; this vector</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="keywordtype">    real</span>(DP) :: n2<span class="comment"> !&lt; the calculated 2-norm</span></div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    petscerrorcode :: ierr</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keyword">call </span>vecnorm(this%vec_impl, norm_2, n2, ierr)</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    chkerrq(ierr)</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -435,14 +682,72 @@ Functions/Subroutines</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_petsc_vector_8_f90_source.html#l00119">119</a> of file <a class="el" href="_petsc_vector_8_f90_source.html">PetscVector.F90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordtype">class</span>(PetscVectorType) :: this<span class="comment"> !&lt; this vector</span></div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    petscerrorcode :: ierr</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keyword">call </span>vecview(this%vec_impl, petsc_viewer_stdout_world, ierr)</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    chkerrq(ierr)</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="_petsc_vector_8_f90_source.html#l00209">209</a> of file <a class="el" href="_petsc_vector_8_f90_source.html">PetscVector.F90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keywordtype">class</span>(PetscVectorType) :: this<span class="comment"> !&lt; this vector</span></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    petscerrorcode :: ierr</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; </div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="keyword">call </span>vecview(this%vec_impl, petsc_viewer_stdout_world, ierr)</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    chkerrq(ierr)</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160; </div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="af7a2ff4a80e63034bc6860a345ef8724"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7a2ff4a80e63034bc6860a345ef8724">&#9670;&nbsp;</a></span>petsc_vec_set_value_local()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine petscvectormodule::petsc_vec_set_value_local </td>
+          <td>(</td>
+          <td class="paramtype">class(<a class="el" href="structpetscvectormodule_1_1petscvectortype.html">petscvectortype</a>)&#160;</td>
+          <td class="paramname"><em>this</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer(i4b)&#160;</td>
+          <td class="paramname"><em>idx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(dp)&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">this</td><td>this vector </td></tr>
+    <tr><td class="paramname">idx</td><td>the index in local numbering </td></tr>
+    <tr><td class="paramname">val</td><td>the value to set </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_petsc_vector_8_f90_source.html#l00167">167</a> of file <a class="el" href="_petsc_vector_8_f90_source.html">PetscVector.F90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordtype">class</span>(PetscVectorType) :: this<span class="comment"> !&lt; this vector</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: idx<span class="comment"> !&lt; the index in local numbering</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="keywordtype">    real</span>(DP) :: val<span class="comment"> !&lt; the value to set</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    this%array(idx) = val</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -476,18 +781,18 @@ Functions/Subroutines</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_petsc_vector_8_f90_source.html#l00105">105</a> of file <a class="el" href="_petsc_vector_8_f90_source.html">PetscVector.F90</a>.</p>
-<div class="fragment"><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">class</span>(PetscVectorType) :: this<span class="comment"> !&lt; this vector</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    petscerrorcode :: ierr</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keyword">call </span>veczeroentries(this%vec_impl, ierr)</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    chkerrq(ierr)</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keyword">call </span>vecassemblybegin(this%vec_impl, ierr)</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    chkerrq(ierr)</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keyword">call </span>vecassemblyend(this%vec_impl, ierr)</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    chkerrq(ierr)</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="_petsc_vector_8_f90_source.html#l00151">151</a> of file <a class="el" href="_petsc_vector_8_f90_source.html">PetscVector.F90</a>.</p>
+<div class="fragment"><div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keywordtype">class</span>(PetscVectorType) :: this<span class="comment"> !&lt; this vector</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    petscerrorcode :: ierr</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keyword">call </span>veczeroentries(this%vec_impl, ierr)</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    chkerrq(ierr)</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keyword">call </span>vecassemblybegin(this%vec_impl, ierr)</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    chkerrq(ierr)</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keyword">call </span>vecassemblyend(this%vec_impl, ierr)</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    chkerrq(ierr)</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -497,7 +802,7 @@ Functions/Subroutines</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacepetscvectormodule.html">petscvectormodule</a></li>
-    <li class="footer">Generated on Mon Apr 17 2023 13:16:53 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Apr 20 2023 07:33:50 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

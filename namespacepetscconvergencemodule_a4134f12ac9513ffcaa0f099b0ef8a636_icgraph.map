@@ -1,0 +1,4 @@
+<map id="petscconvergencemodule::petsc_add_context" name="petscconvergencemodule::petsc_add_context">
+<area shape="rect" id="node1" title="Add a context to the static list. The generated idx can then be used as a handle when calling &#39;KSPSet..." alt="" coords="252,5,441,47"/>
+<area shape="rect" id="node2" href="$namespacepetscsolvermodule.html#af3a010cabd3b10995e28dfda3cd52bc4" title="Create and assign a custom convergence." alt="" coords="5,5,204,47"/>
+</map>

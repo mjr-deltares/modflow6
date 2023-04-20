@@ -16,6 +16,8 @@ var structnumericalsolutionmodule_1_1numericalsolutiontype =
     [ "sln_backtracking_xupdate", "structnumericalsolutionmodule_1_1numericalsolutiontype.html#a896c5ea41117a2eb5b8516edaaa3f88d", null ],
     [ "sln_buildsystem", "structnumericalsolutionmodule_1_1numericalsolutiontype.html#a37d24d62d70fe44c55f6db18246840b0", null ],
     [ "sln_ca", "structnumericalsolutionmodule_1_1numericalsolutiontype.html#a08868738728965870369faac0fda02ea", null ],
+    [ "sln_calc_ptc", "structnumericalsolutionmodule_1_1numericalsolutiontype.html#a46035f5788b4d0a672719a55b08a1c98", null ],
+    [ "sln_calc_residual", "structnumericalsolutionmodule_1_1numericalsolutiontype.html#a5fe93be58e995d114e6f25645c367cc3", null ],
     [ "sln_calcdx", "structnumericalsolutionmodule_1_1numericalsolutiontype.html#a47309edad197cb0cffe308612340d050", null ],
     [ "sln_calculate_delt", "structnumericalsolutionmodule_1_1numericalsolutiontype.html#a389f47e173908b1fd1c149e69a008aae", null ],
     [ "sln_connect", "structnumericalsolutionmodule_1_1numericalsolutiontype.html#a634090db0635cd62c980f57250b61676", null ],

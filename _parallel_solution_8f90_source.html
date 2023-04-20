@@ -114,77 +114,101 @@ $(document).ready(function(){initNavTree('_parallel_solution_8f90_source.html','
 </div><!--header-->
 <div class="contents">
 <a href="_parallel_solution_8f90.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="namespaceparallelsolutionmodule.html">    1</a></span>&#160;<span class="keyword">module</span> <a class="code" href="namespaceparallelsolutionmodule.html">parallelsolutionmodule</a></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacekindmodule.html">kindmodule</a>, <span class="keywordtype">only</span>: dp, lgp</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacenumericalsolutionmodule.html">numericalsolutionmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structnumericalsolutionmodule_1_1numericalsolutiontype.html">numericalsolutiontype</a></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;  <span class="keywordtype">use </span>mpi</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacempiworldmodule.html">mpiworldmodule</a></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;  <span class="keywordtype">implicit none</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;  <span class="keywordtype">private</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  <span class="keywordtype">public</span> :: <a class="code" href="structparallelsolutionmodule_1_1parallelsolutiontype.html">parallelsolutiontype</a></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="structparallelsolutionmodule_1_1parallelsolutiontype.html">   11</a></span>&#160;  <span class="keyword">type</span>, <span class="keyword">extends</span>(<a class="code" href="structnumericalsolutionmodule_1_1numericalsolutiontype.html">numericalsolutiontype</a>) :: <a class="code" href="structparallelsolutionmodule_1_1parallelsolutiontype.html">parallelsolutiontype</a></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  <span class="keyword">contains</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="comment">! override</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="structparallelsolutionmodule_1_1parallelsolutiontype.html#ab45446e65673537fe2139420ebb2987e">   14</a></span>&#160;    <span class="keywordtype">procedure</span> :: sln_has_converged =&gt; <a class="code" href="namespaceparallelsolutionmodule.html#a00a3167f242f49acdac4990bf8b5cd11">par_has_converged</a></div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structparallelsolutionmodule_1_1parallelsolutiontype.html#ae3790067bd09dca4242ccdc6fa7bfa75">   15</a></span>&#160;    <span class="keywordtype">procedure</span> :: sln_l2norm =&gt; <a class="code" href="namespaceparallelsolutionmodule.html#aeb7fc7cfecd185846fb47a5dc0c651b6">par_l2norm</a></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="keyword">end type </span><a class="code" href="structparallelsolutionmodule_1_1parallelsolutiontype.html">parallelsolutiontype</a></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">contains</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">  !&gt; @brief Check global convergence. The local maximum dependent</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">  !! variable change is reduced over MPI with all other processes</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">  !&lt; that are running this parallel numerical solution.</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="namespaceparallelsolutionmodule.html#a00a3167f242f49acdac4990bf8b5cd11">   23</a></span>&#160;  <span class="keyword">function </span><a class="code" href="namespaceparallelsolutionmodule.html#a00a3167f242f49acdac4990bf8b5cd11">par_has_converged</a>(this, max_dvc) <span class="keyword">result</span>(has_converged)</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structparallelsolutionmodule_1_1parallelsolutiontype.html">parallelsolutiontype</a>) :: this<span class="comment"> !&lt; parallel solution</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">    real</span>(dp) :: max_dvc<span class="comment"> !&lt; the LOCAL maximum dependent variable change</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: has_converged<span class="comment"> !&lt; True, when GLOBALLY converged</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="comment">! local</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">    real</span>(dp) :: global_max_dvc</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keywordtype">    real</span>(dp) :: abs_max_dvc</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">integer</span> :: ierr</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structmpiworldmodule_1_1mpiworldtype.html">mpiworldtype</a>), <span class="keywordtype">pointer</span> :: mpi_world</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    mpi_world =&gt; <a class="code" href="namespacempiworldmodule.html#a1d244ae42dc7e37c90705dfafedf8da3">get_mpi_world</a>()</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    has_converged = .false.</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    global_max_dvc = huge(0.0)</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    abs_max_dvc = abs(max_dvc)</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">call </span>mpi_allreduce(abs_max_dvc, global_max_dvc, 1, mpi_double_precision, &amp;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                       mpi_max, mpi_world%comm, ierr)</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">if</span> (global_max_dvc &lt;= this%dvclose) <span class="keywordflow">then</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      has_converged = .true.</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordflow">    end if</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keyword">end function </span><a class="code" href="namespaceparallelsolutionmodule.html#a00a3167f242f49acdac4990bf8b5cd11">par_has_converged</a></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="namespaceparallelsolutionmodule.html#aeb7fc7cfecd185846fb47a5dc0c651b6">   46</a></span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespaceparallelsolutionmodule.html#aeb7fc7cfecd185846fb47a5dc0c651b6">par_l2norm</a>(this, l2norm)</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structparallelsolutionmodule_1_1parallelsolutiontype.html">parallelsolutiontype</a>), <span class="keywordtype">intent(inout)</span> :: this<span class="comment"> !&lt; parallel solution</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">intent(inout)</span> :: l2norm<span class="comment"> !&lt; calculated L-2 norm</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    l2norm = this%linear_solver%get_l2_norm(this%vec_x, this%vec_rhs, &amp;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                                            this%active)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespaceparallelsolutionmodule.html#aeb7fc7cfecd185846fb47a5dc0c651b6">par_l2norm</a></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">end module </span><a class="code" href="namespaceparallelsolutionmodule.html">parallelsolutionmodule</a></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacekindmodule.html">kindmodule</a>, <span class="keywordtype">only</span>: dp, lgp, i4b</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespaceconstantsmodule.html">constantsmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="namespaceconstantsmodule.html#af918ac22cd0b232deea67660bfbc9ce1">done</a>, <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacenumericalsolutionmodule.html">numericalsolutionmodule</a>, <span class="keywordtype">only</span>: <a class="code" href="structnumericalsolutionmodule_1_1numericalsolutiontype.html">numericalsolutiontype</a></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;  <span class="keywordtype">use </span>mpi</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;  <span class="keywordtype">use </span><a class="code" href="namespacempiworldmodule.html">mpiworldmodule</a></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;  <span class="keywordtype">implicit none</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;  <span class="keywordtype">private</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  <span class="keywordtype">public</span> :: <a class="code" href="structparallelsolutionmodule_1_1parallelsolutiontype.html">parallelsolutiontype</a></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="structparallelsolutionmodule_1_1parallelsolutiontype.html">   12</a></span>&#160;  <span class="keyword">type</span>, <span class="keyword">extends</span>(<a class="code" href="structnumericalsolutionmodule_1_1numericalsolutiontype.html">numericalsolutiontype</a>) :: <a class="code" href="structparallelsolutionmodule_1_1parallelsolutiontype.html">parallelsolutiontype</a></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  <span class="keyword">contains</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="comment">! override</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structparallelsolutionmodule_1_1parallelsolutiontype.html#ab45446e65673537fe2139420ebb2987e">   15</a></span>&#160;    <span class="keywordtype">procedure</span> :: sln_has_converged =&gt; <a class="code" href="namespaceparallelsolutionmodule.html#a00a3167f242f49acdac4990bf8b5cd11">par_has_converged</a></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structparallelsolutionmodule_1_1parallelsolutiontype.html#aa0d6bd39adfab83b2aa592486cb07620">   16</a></span>&#160;    <span class="keywordtype">procedure</span> :: sln_calc_ptc =&gt; <a class="code" href="namespaceparallelsolutionmodule.html#ac837b84a725a81dfcc3012bf4120b67d">par_calc_ptc</a></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <span class="keyword">end type </span><a class="code" href="structparallelsolutionmodule_1_1parallelsolutiontype.html">parallelsolutiontype</a></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">contains</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">  !&gt; @brief Check global convergence. The local maximum dependent</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">  !! variable change is reduced over MPI with all other processes</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">  !&lt; that are running this parallel numerical solution.</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="namespaceparallelsolutionmodule.html#a00a3167f242f49acdac4990bf8b5cd11">   24</a></span>&#160;  <span class="keyword">function </span><a class="code" href="namespaceparallelsolutionmodule.html#a00a3167f242f49acdac4990bf8b5cd11">par_has_converged</a>(this, max_dvc) <span class="keyword">result</span>(has_converged)</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structparallelsolutionmodule_1_1parallelsolutiontype.html">parallelsolutiontype</a>) :: this<span class="comment"> !&lt; parallel solution</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">    real</span>(dp) :: max_dvc<span class="comment"> !&lt; the LOCAL maximum dependent variable change</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">logical(LGP)</span> :: has_converged<span class="comment"> !&lt; True, when GLOBALLY converged</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keywordtype">    real</span>(dp) :: global_max_dvc</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">    real</span>(dp) :: abs_max_dvc</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">integer</span> :: ierr</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structmpiworldmodule_1_1mpiworldtype.html">mpiworldtype</a>), <span class="keywordtype">pointer</span> :: mpi_world</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    mpi_world =&gt; <a class="code" href="namespacempiworldmodule.html#a1d244ae42dc7e37c90705dfafedf8da3">get_mpi_world</a>()</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    has_converged = .false.</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    global_max_dvc = huge(0.0)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    abs_max_dvc = abs(max_dvc)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">call </span>mpi_allreduce(abs_max_dvc, global_max_dvc, 1, mpi_double_precision, &amp;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                       mpi_max, mpi_world%comm, ierr)</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">if</span> (global_max_dvc &lt;= this%dvclose) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      has_converged = .true.</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keyword">end function </span><a class="code" href="namespaceparallelsolutionmodule.html#a00a3167f242f49acdac4990bf8b5cd11">par_has_converged</a></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">  !&gt; @brief Calculate pseudo-transient continuation factor</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">  !&lt; for the parallel case</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="namespaceparallelsolutionmodule.html#ac837b84a725a81dfcc3012bf4120b67d">   49</a></span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespaceparallelsolutionmodule.html#ac837b84a725a81dfcc3012bf4120b67d">par_calc_ptc</a>(this, iptc, ptcf)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structparallelsolutionmodule_1_1parallelsolutiontype.html">parallelsolutiontype</a>) :: this<span class="comment"> !&lt; parallel solution</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: iptc<span class="comment"> !&lt; PTC (1) or not (0)</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keywordtype">    real</span>(DP) :: ptcf<span class="comment"> !&lt; the (global) PTC factor calculated</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment">! local</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: iptc_loc</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keywordtype">    real</span>(DP) :: ptcf_loc, ptcf_glo_max</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">integer</span> :: ierr</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">type</span>(<a class="code" href="structmpiworldmodule_1_1mpiworldtype.html">mpiworldtype</a>), <span class="keywordtype">pointer</span> :: mpi_world</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    mpi_world =&gt; <a class="code" href="namespacempiworldmodule.html#a1d244ae42dc7e37c90705dfafedf8da3">get_mpi_world</a>()</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">call </span>this%NumericalSolutionType%sln_calc_ptc(iptc_loc, ptcf_loc)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">if</span> (iptc_loc == 0) ptcf_loc = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="comment">! now reduce</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">call </span>mpi_allreduce(ptcf_loc, ptcf_glo_max, 1, mpi_double_precision, &amp;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                       mpi_max, mpi_world%comm, ierr)</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    iptc = 0</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    ptcf = <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">if</span> (ptcf_glo_max &gt; <a class="code" href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">dzero</a>) <span class="keywordflow">then</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      iptc = 1</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;      ptcf = ptcf_glo_max</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keywordflow">    end if</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <span class="keyword">end subroutine </span><a class="code" href="namespaceparallelsolutionmodule.html#ac837b84a725a81dfcc3012bf4120b67d">par_calc_ptc</a></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">end module </span><a class="code" href="namespaceparallelsolutionmodule.html">parallelsolutionmodule</a></div>
+<div class="ttc" id="anamespaceconstantsmodule_html"><div class="ttname"><a href="namespaceconstantsmodule.html">constantsmodule</a></div><div class="ttdoc">This module contains simulation constants.</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00009">Constants.f90:9</a></div></div>
+<div class="ttc" id="anamespaceconstantsmodule_html_abab5757666b9ddd2726c20ce48dd0050"><div class="ttname"><a href="namespaceconstantsmodule.html#abab5757666b9ddd2726c20ce48dd0050">constantsmodule::dzero</a></div><div class="ttdeci">real(dp), parameter dzero</div><div class="ttdoc">real constant zero</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00064">Constants.f90:64</a></div></div>
+<div class="ttc" id="anamespaceconstantsmodule_html_af918ac22cd0b232deea67660bfbc9ce1"><div class="ttname"><a href="namespaceconstantsmodule.html#af918ac22cd0b232deea67660bfbc9ce1">constantsmodule::done</a></div><div class="ttdeci">real(dp), parameter done</div><div class="ttdoc">real constant 1</div><div class="ttdef"><b>Definition:</b> <a href="_constants_8f90_source.html#l00075">Constants.f90:75</a></div></div>
 <div class="ttc" id="anamespacekindmodule_html"><div class="ttname"><a href="namespacekindmodule.html">kindmodule</a></div><div class="ttdoc">This module defines variable data types.</div><div class="ttdef"><b>Definition:</b> <a href="kind_8f90_source.html#l00008">kind.f90:8</a></div></div>
 <div class="ttc" id="anamespacempiworldmodule_html"><div class="ttname"><a href="namespacempiworldmodule.html">mpiworldmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_mpi_world_8f90_source.html#l00001">MpiWorld.f90:1</a></div></div>
 <div class="ttc" id="anamespacempiworldmodule_html_a1d244ae42dc7e37c90705dfafedf8da3"><div class="ttname"><a href="namespacempiworldmodule.html#a1d244ae42dc7e37c90705dfafedf8da3">mpiworldmodule::get_mpi_world</a></div><div class="ttdeci">type(mpiworldtype) function, pointer, public get_mpi_world()</div><div class="ttdef"><b>Definition:</b> <a href="_mpi_world_8f90_source.html#l00029">MpiWorld.f90:30</a></div></div>
 <div class="ttc" id="anamespacenumericalsolutionmodule_html"><div class="ttname"><a href="namespacenumericalsolutionmodule.html">numericalsolutionmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_numerical_solution_8f90_source.html#l00003">NumericalSolution.f90:3</a></div></div>
 <div class="ttc" id="anamespaceparallelsolutionmodule_html"><div class="ttname"><a href="namespaceparallelsolutionmodule.html">parallelsolutionmodule</a></div><div class="ttdef"><b>Definition:</b> <a href="_parallel_solution_8f90_source.html#l00001">ParallelSolution.f90:1</a></div></div>
-<div class="ttc" id="anamespaceparallelsolutionmodule_html_a00a3167f242f49acdac4990bf8b5cd11"><div class="ttname"><a href="namespaceparallelsolutionmodule.html#a00a3167f242f49acdac4990bf8b5cd11">parallelsolutionmodule::par_has_converged</a></div><div class="ttdeci">logical(lgp) function par_has_converged(this, max_dvc)</div><div class="ttdoc">Check global convergence. The local maximum dependent variable change is reduced over MPI with all ot...</div><div class="ttdef"><b>Definition:</b> <a href="_parallel_solution_8f90_source.html#l00023">ParallelSolution.f90:24</a></div></div>
-<div class="ttc" id="anamespaceparallelsolutionmodule_html_aeb7fc7cfecd185846fb47a5dc0c651b6"><div class="ttname"><a href="namespaceparallelsolutionmodule.html#aeb7fc7cfecd185846fb47a5dc0c651b6">parallelsolutionmodule::par_l2norm</a></div><div class="ttdeci">subroutine par_l2norm(this, l2norm)</div><div class="ttdef"><b>Definition:</b> <a href="_parallel_solution_8f90_source.html#l00046">ParallelSolution.f90:47</a></div></div>
+<div class="ttc" id="anamespaceparallelsolutionmodule_html_a00a3167f242f49acdac4990bf8b5cd11"><div class="ttname"><a href="namespaceparallelsolutionmodule.html#a00a3167f242f49acdac4990bf8b5cd11">parallelsolutionmodule::par_has_converged</a></div><div class="ttdeci">logical(lgp) function par_has_converged(this, max_dvc)</div><div class="ttdoc">Check global convergence. The local maximum dependent variable change is reduced over MPI with all ot...</div><div class="ttdef"><b>Definition:</b> <a href="_parallel_solution_8f90_source.html#l00024">ParallelSolution.f90:25</a></div></div>
+<div class="ttc" id="anamespaceparallelsolutionmodule_html_ac837b84a725a81dfcc3012bf4120b67d"><div class="ttname"><a href="namespaceparallelsolutionmodule.html#ac837b84a725a81dfcc3012bf4120b67d">parallelsolutionmodule::par_calc_ptc</a></div><div class="ttdeci">subroutine par_calc_ptc(this, iptc, ptcf)</div><div class="ttdoc">Calculate pseudo-transient continuation factor.</div><div class="ttdef"><b>Definition:</b> <a href="_parallel_solution_8f90_source.html#l00049">ParallelSolution.f90:50</a></div></div>
 <div class="ttc" id="astructmpiworldmodule_1_1mpiworldtype_html"><div class="ttname"><a href="structmpiworldmodule_1_1mpiworldtype.html">mpiworldmodule::mpiworldtype</a></div><div class="ttdef"><b>Definition:</b> <a href="_mpi_world_8f90_source.html#l00010">MpiWorld.f90:10</a></div></div>
 <div class="ttc" id="astructnumericalsolutionmodule_1_1numericalsolutiontype_html"><div class="ttname"><a href="structnumericalsolutionmodule_1_1numericalsolutiontype.html">numericalsolutionmodule::numericalsolutiontype</a></div><div class="ttdef"><b>Definition:</b> <a href="_numerical_solution_8f90_source.html#l00048">NumericalSolution.f90:48</a></div></div>
-<div class="ttc" id="astructparallelsolutionmodule_1_1parallelsolutiontype_html"><div class="ttname"><a href="structparallelsolutionmodule_1_1parallelsolutiontype.html">parallelsolutionmodule::parallelsolutiontype</a></div><div class="ttdef"><b>Definition:</b> <a href="_parallel_solution_8f90_source.html#l00011">ParallelSolution.f90:11</a></div></div>
+<div class="ttc" id="astructparallelsolutionmodule_1_1parallelsolutiontype_html"><div class="ttname"><a href="structparallelsolutionmodule_1_1parallelsolutiontype.html">parallelsolutionmodule::parallelsolutiontype</a></div><div class="ttdef"><b>Definition:</b> <a href="_parallel_solution_8f90_source.html#l00012">ParallelSolution.f90:12</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_45e973df69963bbfe985a1f7e6db2b6f.html">Solution</a></li><li class="navelem"><a class="el" href="_parallel_solution_8f90.html">ParallelSolution.f90</a></li>
-    <li class="footer">Generated on Mon Apr 17 2023 13:16:50 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Apr 20 2023 07:33:46 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
