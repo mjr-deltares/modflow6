@@ -994,13 +994,13 @@ Functions/Subroutines</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">class(<a class="el" href="structvectorbasemodule_1_1vectorbasetype.html">vectorbasetype</a>)&#160;</td>
+          <td class="paramtype">class(<a class="el" href="structvectorbasemodule_1_1vectorbasetype.html">vectorbasetype</a>), pointer&#160;</td>
           <td class="paramname"><em>vec_x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">class(<a class="el" href="structvectorbasemodule_1_1vectorbasetype.html">vectorbasetype</a>)&#160;</td>
+          <td class="paramtype">class(<a class="el" href="structvectorbasemodule_1_1vectorbasetype.html">vectorbasetype</a>), pointer&#160;</td>
           <td class="paramname"><em>vec_y</em>&#160;</td>
         </tr>
         <tr>
@@ -1018,8 +1018,8 @@ Functions/Subroutines</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_sparse_matrix_8f90_source.html#l00296">296</a> of file <a class="el" href="_sparse_matrix_8f90_source.html">SparseMatrix.f90</a>.</p>
 <div class="fragment"><div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    <span class="keywordtype">class</span>(SparseMatrixType) :: this</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    <span class="keywordtype">class</span>(VectorBaseType) :: vec_x</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <span class="keywordtype">class</span>(VectorBaseType) :: vec_y</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    <span class="keywordtype">class</span>(VectorBaseType), <span class="keywordtype">pointer</span> :: vec_x</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <span class="keywordtype">class</span>(VectorBaseType), <span class="keywordtype">pointer</span> :: vec_y</div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    <span class="comment">! local</span></div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: irow, icol, ipos</div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: x, y</div>
@@ -1226,7 +1226,7 @@ Functions/Subroutines</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacesparsematrixmodule.html">sparsematrixmodule</a></li>
-    <li class="footer">Generated on Thu Apr 20 2023 07:33:50 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Apr 24 2023 06:29:29 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

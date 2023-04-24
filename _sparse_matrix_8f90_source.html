@@ -410,8 +410,8 @@ $(document).ready(function(){initNavTree('_sparse_matrix_8f90_source.html',''); 
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;<span class="comment">  !&lt;</span></div>
 <div class="line"><a name="l00296"></a><span class="lineno"><a class="line" href="namespacesparsematrixmodule.html#a72a4b1fe1cded1fed9a2a01ae406acae">  296</a></span>&#160;  <span class="keyword">subroutine </span><a class="code" href="namespacesparsematrixmodule.html#a72a4b1fe1cded1fed9a2a01ae406acae">spm_multiply</a>(this, vec_x, vec_y)</div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structsparsematrixmodule_1_1sparsematrixtype.html">sparsematrixtype</a>) :: this</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvectorbasemodule_1_1vectorbasetype.html">vectorbasetype</a>) :: vec_x</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvectorbasemodule_1_1vectorbasetype.html">vectorbasetype</a>) :: vec_y</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvectorbasemodule_1_1vectorbasetype.html">vectorbasetype</a>), <span class="keywordtype">pointer</span> :: vec_x</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <span class="keywordtype">class</span>(<a class="code" href="structvectorbasemodule_1_1vectorbasetype.html">vectorbasetype</a>), <span class="keywordtype">pointer</span> :: vec_y</div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    <span class="comment">! local</span></div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    <span class="keywordtype">integer(I4B)</span> :: irow, icol, ipos</div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span class="keywordtype">    real</span>(DP), <span class="keywordtype">dimension(:)</span>, <span class="keywordtype">pointer</span>, <span class="keywordtype">contiguous</span> :: x, y</div>
@@ -474,7 +474,7 @@ $(document).ready(function(){initNavTree('_sparse_matrix_8f90_source.html',''); 
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ff383ddf1aa4eab0c4ce7910366d05a5.html">Utilities</a></li><li class="navelem"><a class="el" href="dir_236036d72f98c7998e99e2ec4927d9c8.html">Matrix</a></li><li class="navelem"><a class="el" href="_sparse_matrix_8f90.html">SparseMatrix.f90</a></li>
-    <li class="footer">Generated on Thu Apr 20 2023 07:33:46 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Apr 24 2023 06:29:26 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -154,13 +154,13 @@ Private Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">class(<a class="el" href="structvectorbasemodule_1_1vectorbasetype.html">vectorbasetype</a>)&#160;</td>
+          <td class="paramtype">class(<a class="el" href="structvectorbasemodule_1_1vectorbasetype.html">vectorbasetype</a>), pointer&#160;</td>
           <td class="paramname"><em>vec_x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">class(<a class="el" href="structvectorbasemodule_1_1vectorbasetype.html">vectorbasetype</a>)&#160;</td>
+          <td class="paramtype">class(<a class="el" href="structvectorbasemodule_1_1vectorbasetype.html">vectorbasetype</a>), pointer&#160;</td>
           <td class="paramname"><em>vec_y</em>&#160;</td>
         </tr>
         <tr>
@@ -179,8 +179,8 @@ Private Member Functions</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="_matrix_base_8f90_source.html#l00155">155</a> of file <a class="el" href="_matrix_base_8f90_source.html">MatrixBase.f90</a>.</p>
 <div class="fragment"><div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;      <span class="keywordtype">import </span>matrixbasetype, vectorbasetype</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;      <span class="keywordtype">class</span>(MatrixBaseType) :: this</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;      <span class="keywordtype">class</span>(VectorBaseType) :: vec_x</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;      <span class="keywordtype">class</span>(VectorBaseType) :: vec_y</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;      <span class="keywordtype">class</span>(VectorBaseType), <span class="keywordtype">pointer</span> :: vec_x</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;      <span class="keywordtype">class</span>(VectorBaseType), <span class="keywordtype">pointer</span> :: vec_y</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -193,7 +193,7 @@ Private Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacematrixbasemodule.html">matrixbasemodule</a></li><li class="navelem"><a class="el" href="interfacematrixbasemodule_1_1multiply__if.html">multiply_if</a></li>
-    <li class="footer">Generated on Thu Apr 20 2023 07:33:49 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Apr 24 2023 06:29:29 for MODFLOW 6 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
