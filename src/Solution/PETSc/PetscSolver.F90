@@ -212,6 +212,10 @@ contains
 
     call KSPSetType(this%ksp_petsc, this%ksp_type, ierr)
     CHKERRQ(ierr)
+    
+    ! TODO_MJR: can we enable this generally?
+    ! call KSPSetNormType(this%ksp_petsc, KSP_NORM_UNPRECONDITIONED, ierr)
+    ! CHKERRQ(ierr)
 
     if (this%use_ims_pc) then
       call this%set_ims_pc()
