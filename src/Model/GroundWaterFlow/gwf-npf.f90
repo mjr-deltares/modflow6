@@ -24,6 +24,7 @@ module GwfNpfModule
   use GwfConductanceUtilsModule, only: hcond, vcond, &
                                        condmean, thksatnm, &
                                        CCOND_HMEAN
+  use GwfNpfExtModule, only: GwfNpfExtType
 
   implicit none
 
@@ -100,6 +101,7 @@ module GwfNpfModule
     integer(I4B), pointer :: kchangestp => null() ! last time step in which any node K (or K22, or K33) values were changed (0 if unchanged from start of simulation)
     integer(I4B), dimension(:), pointer, contiguous :: nodekchange => null() ! grid array of flags indicating for each node whether its K (or K22, or K33) value changed (1) at (kchangeper, kchangestp) or not (0)
 
+    class(GwfNpfExtType), pointer, private :: flow_extension => null() !< alternative flow calculation by extension
   contains
 
     procedure :: npf_df
@@ -116,11 +118,21 @@ module GwfNpfModule
     procedure :: npf_nur
     procedure :: npf_print_model_flows
     procedure :: npf_da
+    procedure :: allocate_scalars
+    procedure :: rewet_check
+    procedure :: hy_eff
+    procedure :: calc_spdis
+    procedure :: sav_spdis
+    procedure :: sav_sat
+    procedure :: increase_edge_count
+    procedure :: set_edge_properties
+    procedure :: calcSatThickness
+    procedure :: set_flow_extension
+    ! private
     procedure, private :: thksat => sgwf_npf_thksat
     procedure, private :: qcalc => sgwf_npf_qcalc
     procedure, private :: wd => sgwf_npf_wetdry
     procedure, private :: wdmsg => sgwf_npf_wdmsg
-    procedure :: allocate_scalars
     procedure, private :: store_original_k_arrays
     procedure, private :: allocate_arrays
     procedure, private :: source_options
@@ -131,16 +143,9 @@ module GwfNpfModule
     procedure, private :: check_options
     procedure, private :: prepcheck
     procedure, private :: preprocess_input
+    procedure, private :: fc_standard_conductance
     procedure, private :: calc_condsat
     procedure, private :: calc_initial_sat
-    procedure, public :: rewet_check
-    procedure, public :: hy_eff
-    procedure, public :: calc_spdis
-    procedure, public :: sav_spdis
-    procedure, public :: sav_sat
-    procedure, public :: increase_edge_count
-    procedure, public :: set_edge_properties
-    procedure, public :: calcSatThickness
 
   end type
 
@@ -478,101 +483,41 @@ contains
   !> @brief Formulate coefficients
   !<
   subroutine npf_fc(this, kiter, matrix_sln, idxglo, rhs, hnew)
-    ! -- modules
-    use ConstantsModule, only: DONE
-    ! -- dummy
-    class(GwfNpfType) :: this
-    integer(I4B) :: kiter
-    class(MatrixBaseType), pointer :: matrix_sln
-    integer(I4B), intent(in), dimension(:) :: idxglo
-    real(DP), intent(inout), dimension(:) :: rhs
-    real(DP), intent(inout), dimension(:) :: hnew
-    ! -- local
-    integer(I4B) :: n, m, ii, idiag, ihc
-    integer(I4B) :: isymcon, idiagm
-    real(DP) :: hyn, hym
-    real(DP) :: cond
-    !
-    ! -- Calculate conductance and put into amat
-    !
+    class(GwfNpfType) :: this !< this instance
+    integer(I4B) :: kiter !< outer iteration number
+    class(MatrixBaseType), pointer :: matrix_sln !< the system to be formulated
+    integer(I4B), intent(in), dimension(:) :: idxglo !< lookup table from local to global connection number
+    real(DP), intent(inout), dimension(:) :: rhs !< the righthandside vector
+    real(DP), intent(inout), dimension(:) :: hnew !< the new head values
+    ! local
+    integer(I4B) :: n, m, ipos
+
     if (this%ixt3d /= 0) then
       call this%xt3d%xt3d_fc(kiter, matrix_sln, idxglo, rhs, hnew)
     else
       do n = 1, this%dis%nodes
-        do ii = this%dis%con%ia(n) + 1, this%dis%con%ia(n + 1) - 1
-          if (this%dis%con%mask(ii) == 0) cycle
+        do ipos = this%dis%con%ia(n) + 1, this%dis%con%ia(n + 1) - 1
+          if (this%dis%con%mask(ipos) == 0) cycle
 
-          m = this%dis%con%ja(ii)
-          !
-          ! -- Calculate conductance only for upper triangle but insert into
-          !    upper and lower parts of amat.
+          m = this%dis%con%ja(ipos)
+          
+          ! Calculate upper triangle only, but insert into
+          ! upper and lower parts of matrix
           if (m < n) cycle
-          ihc = this%dis%con%ihc(this%dis%con%jas(ii))
-          hyn = this%hy_eff(n, m, ihc, ipos=ii)
-          hym = this%hy_eff(m, n, ihc, ipos=ii)
-          !
-          ! -- Vertical connection
-          if (ihc == C3D_VERTICAL) then
-            !
-            ! -- Calculate vertical conductance
-            cond = vcond(this%ibound(n), this%ibound(m), &
-                         this%icelltype(n), this%icelltype(m), this%inewton, &
-                         this%ivarcv, this%idewatcv, &
-                         this%condsat(this%dis%con%jas(ii)), hnew(n), hnew(m), &
-                         hyn, hym, &
-                         this%sat(n), this%sat(m), &
-                         this%dis%top(n), this%dis%top(m), &
-                         this%dis%bot(n), this%dis%bot(m), &
-                         this%dis%con%hwva(this%dis%con%jas(ii)))
-            !
-            ! -- Vertical flow for perched conditions
-            if (this%iperched /= 0) then
-              if (this%icelltype(m) /= 0) then
-                if (hnew(m) < this%dis%top(m)) then
-                  !
-                  ! -- Fill row n
-                  idiag = this%dis%con%ia(n)
-                  rhs(n) = rhs(n) - cond * this%dis%bot(n)
-                  call matrix_sln%add_value_pos(idxglo(idiag), -cond)
-                  !
-                  ! -- Fill row m
-                  isymcon = this%dis%con%isym(ii)
-                  call matrix_sln%add_value_pos(idxglo(isymcon), cond)
-                  rhs(m) = rhs(m) + cond * this%dis%bot(n)
-                  !
-                  ! -- cycle the connection loop
-                  cycle
-                end if
-              end if
+
+          ! external flow calculation
+          if (associated(this%flow_extension)) then
+            if (this%flow_extension%is_active(n, m)) then
+              call this%flow_extension%fc(n, m, ipos, matrix_sln, &
+                                          rhs, idxglo, hnew)
+              cycle
             end if
-            !
-          else
-            !
-            ! -- Horizontal conductance
-            cond = hcond(this%ibound(n), this%ibound(m), &
-                         this%icelltype(n), this%icelltype(m), &
-                         this%inewton, &
-                         this%dis%con%ihc(this%dis%con%jas(ii)), &
-                         this%icellavg, &
-                         this%condsat(this%dis%con%jas(ii)), &
-                         hnew(n), hnew(m), this%sat(n), this%sat(m), hyn, hym, &
-                         this%dis%top(n), this%dis%top(m), &
-                         this%dis%bot(n), this%dis%bot(m), &
-                         this%dis%con%cl1(this%dis%con%jas(ii)), &
-                         this%dis%con%cl2(this%dis%con%jas(ii)), &
-                         this%dis%con%hwva(this%dis%con%jas(ii)))
           end if
-          !
-          ! -- Fill row n
-          idiag = this%dis%con%ia(n)
-          call matrix_sln%add_value_pos(idxglo(ii), cond)
-          call matrix_sln%add_value_pos(idxglo(idiag), -cond)
-          !
-          ! -- Fill row m
-          isymcon = this%dis%con%isym(ii)
-          idiagm = this%dis%con%ia(m)
-          call matrix_sln%add_value_pos(idxglo(isymcon), cond)
-          call matrix_sln%add_value_pos(idxglo(idiagm), -cond)
+
+          ! standard flow
+          call this%fc_standard_conductance(n, m, ipos, matrix_sln, &
+                                            rhs, idxglo, hnew)
+          cycle
         end do
       end do
       !
@@ -581,6 +526,88 @@ contains
     ! -- Return
     return
   end subroutine npf_fc
+
+  !> @brief Calculate and add coefficients using the 
+  !< standard conductance formulation
+  subroutine fc_standard_conductance(this, n, m, ipos, matrix_sln, rhs, idxglo, hnew)
+    class(GwfNpfType) :: this !< this instance
+    integer(I4B) :: n !< node number n
+    integer(I4B) :: m !< node number m
+    integer(I4B) :: ipos !< connection number
+    class(MatrixBaseType), pointer :: matrix_sln !< system matrix
+    real(DP), intent(inout), dimension(:) :: rhs !< rhs vector
+    integer(I4B), intent(in), dimension(:) :: idxglo !< lookup table from local ipos to global system 
+    real(DP), intent(inout), dimension(:) :: hnew !< new head values
+    ! local
+    integer(I4B) :: idiag, ihc
+    integer(I4B) :: isymcon, idiagm
+    real(DP) :: hyn, hym
+    real(DP) :: cond
+
+    ihc = this%dis%con%ihc(this%dis%con%jas(ipos))
+    hyn = this%hy_eff(n, m, ihc, ipos=ipos)
+    hym = this%hy_eff(m, n, ihc, ipos=ipos)
+
+    if (ihc == C3D_VERTICAL) then
+      ! Horizontal conductance
+      cond = vcond(this%ibound(n), this%ibound(m), &
+                    this%icelltype(n), this%icelltype(m), this%inewton, &
+                    this%ivarcv, this%idewatcv, &
+                    this%condsat(this%dis%con%jas(ipos)), hnew(n), hnew(m), &
+                    hyn, hym, &
+                    this%sat(n), this%sat(m), &
+                    this%dis%top(n), this%dis%top(m), &
+                    this%dis%bot(n), this%dis%bot(m), &
+                    this%dis%con%hwva(this%dis%con%jas(ipos)))
+
+      ! Vertical flow for perched conditions
+      if (this%iperched /= 0) then
+        if (this%icelltype(m) /= 0) then
+          if (hnew(m) < this%dis%top(m)) then
+            
+            ! Fill diagonal for n, and add to RHS
+            idiag = this%dis%con%ia(n)
+            rhs(n) = rhs(n) - cond * this%dis%bot(n)
+            call matrix_sln%add_value_pos(idxglo(idiag), -cond)
+
+            ! Fill diagonal for m, and add to RHS
+            isymcon = this%dis%con%isym(ipos)
+            call matrix_sln%add_value_pos(idxglo(isymcon), cond)
+            rhs(m) = rhs(m) + cond * this%dis%bot(n)
+
+            ! go to next connection
+            return            
+          end if
+        end if
+      end if
+    else
+      ! Horizontal conductance
+      cond = hcond(this%ibound(n), this%ibound(m), &
+                    this%icelltype(n), this%icelltype(m), &
+                    this%inewton, &
+                    this%dis%con%ihc(this%dis%con%jas(ipos)), &
+                    this%icellavg, &
+                    this%condsat(this%dis%con%jas(ipos)), &
+                    hnew(n), hnew(m), this%sat(n), this%sat(m), hyn, hym, &
+                    this%dis%top(n), this%dis%top(m), &
+                    this%dis%bot(n), this%dis%bot(m), &
+                    this%dis%con%cl1(this%dis%con%jas(ipos)), &
+                    this%dis%con%cl2(this%dis%con%jas(ipos)), &
+                    this%dis%con%hwva(this%dis%con%jas(ipos)))
+    end if
+    
+    ! Fill row n
+    idiag = this%dis%con%ia(n)
+    call matrix_sln%add_value_pos(idxglo(ipos), cond)
+    call matrix_sln%add_value_pos(idxglo(idiag), -cond)
+
+    ! Fill row m
+    isymcon = this%dis%con%isym(ipos)
+    idiagm = this%dis%con%ia(m)
+    call matrix_sln%add_value_pos(idxglo(isymcon), cond)
+    call matrix_sln%add_value_pos(idxglo(idiagm), -cond)
+
+  end subroutine fc_standard_conductance
 
   !> @brief Fill newton terms
   !<
@@ -2865,5 +2892,13 @@ contains
     ! -- Return
     return
   end function calcSatThickness
+
+  subroutine set_flow_extension(this, npf_ext)
+    class(GwfNpfType), intent(inout) :: this !< this NPF instance
+    class(GwfNpfExtType), pointer :: npf_ext !< the extended flow calculator
+
+    this%flow_extension => npf_ext
+
+  end subroutine set_flow_extension
 
 end module GwfNpfModule

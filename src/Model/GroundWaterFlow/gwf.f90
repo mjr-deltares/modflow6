@@ -10,6 +10,7 @@ module GwfModule
   use BndModule, only: BndType, AddBndToList, GetBndFromList
   use GwfIcModule, only: GwfIcType
   use GwfNpfModule, only: GwfNpfType
+  use GwfUzrModule, only: GwfUzrType
   use Xt3dModule, only: Xt3dType
   use GwfBuyModule, only: GwfBuyType
   use GwfVscModule, only: GwfVscType
@@ -37,6 +38,7 @@ module GwfModule
 
     type(GwfIcType), pointer :: ic => null() ! initial conditions package
     type(GwfNpfType), pointer :: npf => null() ! node property flow package
+    type(GwfUzrType), pointer :: uzr => null() ! Richards flow package
     type(Xt3dType), pointer :: xt3d => null() ! xt3d option for npf
     type(GwfBuyType), pointer :: buy => null() ! buoyancy package
     type(GwfVscType), pointer :: vsc => null() ! viscosity package
@@ -51,6 +53,7 @@ module GwfModule
     integer(I4B), pointer :: inic => null() ! IC enabled flag
     integer(I4B), pointer :: inoc => null() ! unit number OC
     integer(I4B), pointer :: innpf => null() ! NPF enabled flag
+    integer(I4B), pointer :: inuzr => null() ! UZR enabled flag
     integer(I4B), pointer :: inbuy => null() ! unit number BUY
     integer(I4B), pointer :: invsc => null() ! unit number VSC
     integer(I4B), pointer :: insto => null() ! STO enabled flag
@@ -106,7 +109,7 @@ module GwfModule
   integer(I4B), parameter :: GWF_NBASEPKG = 50
   character(len=LENPACKAGETYPE), dimension(GWF_NBASEPKG) :: GWF_BASEPKG
   data GWF_BASEPKG/'DIS6 ', 'DISV6', 'DISU6', '     ', '     ', & !  5
-                  &'NPF6 ', 'BUY6 ', 'VSC6 ', 'GNC6 ', '     ', & ! 10
+                  &'NPF6 ', 'UZR6 ', 'BUY6 ', 'VSC6 ', 'GNC6 ', & ! 10
                   &'HFB6 ', 'STO6 ', 'IC6  ', '     ', '     ', & ! 15
                   &'MVR6 ', 'OC6  ', 'OBS6 ', '     ', '     ', & ! 20
                   &30*'     '/ ! 50
@@ -227,6 +230,7 @@ contains
     ! -- Define packages and utility objects
     call this%dis%dis_df()
     call this%npf%npf_df(this%dis, this%xt3d, this%ingnc, this%invsc)
+    if (this%inuzr > 0) call this%uzr%uzr_df(this%dis, this%npf, this%sto)
     call this%oc%oc_df()
     call this%budget%budget_df(NIUNIT_GWF, 'VOLUME', 'L**3')
     if (this%inbuy > 0) call this%buy%buy_df(this%dis)
@@ -336,6 +340,7 @@ contains
     if (this%inic > 0) call this%ic%ic_ar(this%x)
     if (this%innpf > 0) call this%npf%npf_ar(this%ic, this%vsc, this%ibound, &
                                              this%x)
+    if (this%inuzr > 0) call this%uzr%uzr_ar()                                         
     if (this%invsc > 0) call this%vsc%vsc_ar(this%ibound)
     if (this%inbuy > 0) call this%buy%buy_ar(this%npf, this%ibound)
     if (this%inhfb > 0) call this%hfb%hfb_ar(this%ibound, this%xt3d, this%dis, &
@@ -1111,6 +1116,7 @@ contains
     call this%dis%dis_da()
     call this%ic%ic_da()
     call this%npf%npf_da()
+    call this%uzr%uzr_da()
     call this%xt3d%xt3d_da()
     call this%buy%buy_da()
     call this%vsc%vsc_da()
@@ -1127,6 +1133,7 @@ contains
     deallocate (this%dis)
     deallocate (this%ic)
     deallocate (this%npf)
+    deallocate (this%uzr)
     deallocate (this%xt3d)
     deallocate (this%buy)
     deallocate (this%vsc)
@@ -1151,6 +1158,7 @@ contains
     call mem_deallocate(this%inoc)
     call mem_deallocate(this%inobs)
     call mem_deallocate(this%innpf)
+    call mem_deallocate(this%inuzr)
     call mem_deallocate(this%inbuy)
     call mem_deallocate(this%invsc)
     call mem_deallocate(this%insto)
@@ -1239,6 +1247,7 @@ contains
     call mem_allocate(this%inic, 'INIC', this%memoryPath)
     call mem_allocate(this%inoc, 'INOC', this%memoryPath)
     call mem_allocate(this%innpf, 'INNPF', this%memoryPath)
+    call mem_allocate(this%inuzr, 'INUZR', this%memoryPath)
     call mem_allocate(this%inbuy, 'INBUY', this%memoryPath)
     call mem_allocate(this%invsc, 'INVSC', this%memoryPath)
     call mem_allocate(this%insto, 'INSTO', this%memoryPath)
@@ -1485,6 +1494,7 @@ contains
     use DisvModule, only: disv_cr
     use DisuModule, only: disu_cr
     use GwfNpfModule, only: npf_cr
+    use GwfUzrModule, only: uzr_cr
     use Xt3dModule, only: xt3d_cr
     use GwfBuyModule, only: buy_cr
     use GwfVscModule, only: vsc_cr
@@ -1514,6 +1524,7 @@ contains
     integer(I4B) :: n
     integer(I4B) :: indis = 0 ! DIS enabled flag
     character(len=LENMEMPATH) :: mempathnpf = ''
+    character(len=LENMEMPATH) :: mempathuzr = ''
     character(len=LENMEMPATH) :: mempathic = ''
     character(len=LENMEMPATH) :: mempathsto = ''
     !
@@ -1548,6 +1559,9 @@ contains
       case ('NPF6')
         this%innpf = 1
         mempathnpf = mempath
+      case ('UZR6')
+        this%inuzr = 1
+        mempathuzr = mempath
       case ('BUY6')
         this%inbuy = inunit
       case ('VSC6')
@@ -1582,6 +1596,7 @@ contains
     !
     ! -- Create packages that are tied directly to model
     call npf_cr(this%npf, this%name, mempathnpf, this%innpf, this%iout)
+    call uzr_cr(this%uzr, this%name, mempathuzr, this%inuzr, this%iout)
     call xt3d_cr(this%xt3d, this%name, this%innpf, this%iout)
     call buy_cr(this%buy, this%name, this%inbuy, this%iout)
     call vsc_cr(this%vsc, this%name, this%invsc, this%iout)

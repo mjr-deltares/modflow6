@@ -1,0 +1,17 @@
+# --------------------- gwf uzr options ---------------------
+
+
+
+# --------------------- gwf uzr griddata ---------------------
+
+block griddata
+name iunsat
+type integer
+shape (nodes)
+valid
+reader readarray
+layered true
+optional false
+longname unsaturated zone indicator
+description this is the long description of iunsat.
+default_value 0
