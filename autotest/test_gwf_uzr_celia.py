@@ -8,6 +8,8 @@ import flopy
 import numpy as np
 import pytest
 from framework import TestFramework
+from modflow_devtools.misc import is_in_ci
+from gwf_test_utils import get_uzr_soil_data, PLOT_UZR_TESTS
 
 cases = ["dense", "dt10", "dt30", "dt120", "dt180", "dt360"]
 dt = [0.5, 10.0, 30.0, 120.0, 180.0, 360.0]
@@ -108,18 +110,19 @@ def build_models(idx, test):
     )
 
     # unsaturated zone Richards flow
+    soil_data = get_uzr_soil_data("Celia1990-eq10-Haverkamp")
     uzr = flopy.mf6.ModflowGwfuzr(
         gwf,
         iunsat=1,
         storage_scheme="chord-slope",
         kr_averaging="arithmetic",
-        porosity=0.287,
-        satres=0.26132,  # 0.075 / 0.287,
         soil_model="Haverkamp",
-        alphahvk=0.027074,  # = exp(ln(1./1.611e+06)/3.96) to convert to our alpha from Celia
-        nhvk=3.96,
-        betahvk=0.052408,  # = exp(ln(1./1.175e+06)/4.74) to convert to our beta from Celia
-        khvk=4.74,
+        porosity=soil_data["porosity"],
+        satres=soil_data["satres"],
+        alphahvk=soil_data["alpha"],
+        nhvk=soil_data["n"],
+        betahvk=soil_data["beta"],
+        khvk=soil_data["k"],
     )
 
     # constant head
@@ -164,7 +167,7 @@ def check_output(idx, test):
     pheads = [heads[ilay] - botm[ilay] - 0.5 * dz[ilay] for ilay in range(nlay)]
     depth = [-botm[ilay] - 0.5 * dz[ilay] for ilay in range(nlay)]
 
-    if not is_in_ci():
+    if PLOT_UZR_TESTS and not is_in_ci():
         plt.plot(depth, pheads)
         plt.xlim(0.0, 40.0)
         plt.ylim(-70.0, -10.0)
