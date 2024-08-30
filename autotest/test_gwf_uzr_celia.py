@@ -1,6 +1,5 @@
 """
 Test for the Richards based unsaturated zone package UZR.
-Test infiltration?? into a single homegeneous column.
 """
 
 import os
@@ -36,7 +35,7 @@ def build_models(idx, test):
     h_lower = hp_lower + botm[-1] + 0.5 * delz
     strt = np.zeros((nlay, nrow, ncol))
     hstart = [botm[i] + 0.5 * delz + hp_lower for i in range(nlay)]
-    strt[:, 0, 0] = hstart
+    strt[:, 0, 0] = hstart[:]
 
     nouter, ninner = 100, 300
     hclose, rclose, relax = 1e-6, 1e-6, 1.0
@@ -109,7 +108,19 @@ def build_models(idx, test):
     )
 
     # unsaturated zone Richards flow
-    uzr = flopy.mf6.ModflowGwfuzr(gwf, iunsat=1)
+    uzr = flopy.mf6.ModflowGwfuzr(
+        gwf,
+        iunsat=1,
+        storage_scheme="chord-slope",
+        kr_averaging="arithmetic",
+        porosity=0.287,
+        satres=0.26132,  # 0.075 / 0.287,
+        soil_model="Haverkamp",
+        alphahvk=0.027074,  # = exp(ln(1./1.611e+06)/3.96) to convert to our alpha from Celia
+        nhvk=3.96,
+        betahvk=0.052408,  # = exp(ln(1./1.175e+06)/4.74) to convert to our beta from Celia
+        khvk=4.74,
+    )
 
     # constant head
     c = {0: [[(0, 0, 0), h_upper], [(nlay - 1, 0, 0), h_lower]]}

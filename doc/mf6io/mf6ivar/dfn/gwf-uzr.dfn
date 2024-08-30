@@ -1,6 +1,40 @@
 # --------------------- gwf uzr options ---------------------
 
+block options
+name soil_model
+type string
+valid brooks-corey haverkamp vangenuchten
+reader urword
+optional true
+longname model used for the soil characteristic functions
+description is a text keyword to indicate which model for the soil characteristic functions (moisture retention, moisture capacity, and relative permeability) should be used.
 
+block options
+name dev_model_kr
+type string
+valid brooks-corey haverkamp vangenuchten
+reader urword
+optional true
+longname model used for the relative permeability
+description is the soil model type for the flux calculation which uses the relative permeability function. This overrides the global option for the soil model type. It is a development option, not available in official releases.
+
+block options
+name storage_scheme
+type string
+valid chord-slope modified-picard
+reader urword
+optional true
+longname discretization method for storage calculation
+description is a text keyword to indicate the discretization method that is used to calculate the unsaturated storage.
+
+block options
+name kr_averaging
+type string
+valid geometric arithmetic upstream
+reader urword
+optional true
+longname relative permeability averaging method
+description is a text keyword to indicate the averaging method used to calculate the intercell relative permeability.
 
 # --------------------- gwf uzr griddata ---------------------
 
@@ -15,3 +49,71 @@ optional false
 longname unsaturated zone indicator
 description this is the long description of iunsat.
 default_value 0
+
+block griddata
+name porosity
+type double precision
+shape (nodes)
+valid
+reader readarray
+layered true
+optional false
+longname porosity
+description is the volumetric fraction of the porous medium occupied by the pores.
+default_value 0.5
+
+block griddata
+name satres
+type double precision
+shape (nodes)
+valid
+reader readarray
+layered true
+optional false
+longname residual saturation
+description is the residual (also irreducible) water saturation of the medium.
+default_value 0.1
+
+block griddata
+name alphahvk
+type double precision
+shape (nodes)
+valid
+reader readarray
+layered true
+optional true
+longname alpha
+description is the alpha parameter in the Haverkamp soil characteristic model.
+
+block griddata
+name nhvk
+type double precision
+shape (nodes)
+valid
+reader readarray
+layered true
+optional true
+longname n
+description is the n exponent in the Haverkamp soil characteristic model.
+
+block griddata
+name betahvk
+type double precision
+shape (nodes)
+valid
+reader readarray
+layered true
+optional true
+longname beta
+description is the beta parameter in the Haverkamp soil characteristic model.
+
+block griddata
+name khvk
+type double precision
+shape (nodes)
+valid
+reader readarray
+layered true
+optional true
+longname k
+description is the k exponent in the Haverkamp soil characteristic model.
