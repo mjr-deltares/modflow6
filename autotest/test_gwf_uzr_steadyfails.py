@@ -169,10 +169,11 @@ def check_output(idx, test):
     pheads = [heads[ilay] - botm[ilay] - 0.5 * dz[ilay] for ilay in range(nlay)]
     depth = [-botm[ilay] - 0.5 * dz[ilay] for ilay in range(nlay)]
 
-    plt.plot(depth, pheads)
-    plt.xlim(0.0, 40.0)
-    plt.ylim(-70.0, -10.0)
-    plt.savefig(f"pressure_head-dt{cases[idx]}.png")
+    if not is_in_ci():
+        plt.plot(depth, pheads)
+        plt.xlim(0.0, 40.0)
+        plt.ylim(-70.0, -10.0)
+        plt.savefig(f"pressure_head-{cases[idx]}.png")
 
 
 @pytest.mark.parametrize("idx, name", enumerate(cases))

@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 import flopy
 import numpy as np
 import pytest
+from modflow_devtools.misc import is_in_ci
 from framework import TestFramework
 
 cases = ["chord-slope", "mod-picard"]
@@ -167,10 +168,11 @@ def check_output(idx, test):
     pheads = [heads[ilay] - botm[ilay] - 0.5 * dz[ilay] for ilay in range(nlay)]
     depth = [-botm[ilay] - 0.5 * dz[ilay] for ilay in range(nlay)]
 
-    plt.plot(depth, pheads)
-    plt.xlim(0.0, 40.0)
-    plt.ylim(-70.0, -10.0)
-    plt.savefig(f"pressure_head-{cases[idx]}.png")
+    if not is_in_ci():
+        plt.plot(depth, pheads)
+        plt.xlim(0.0, 40.0)
+        plt.ylim(-70.0, -10.0)
+        plt.savefig(f"pressure_head-{cases[idx]}.png")
 
 
 @pytest.mark.parametrize("idx, name", enumerate(cases))
