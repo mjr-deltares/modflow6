@@ -1,7 +1,5 @@
 """
-Test the storage formulations for the Richards based unsaturated 
-zone package UZR. Test flow in a single homegeneous column with
-upper and lower Dirichlet boundary.
+Test for the Richards based unsaturated zone package UZR.
 """
 
 import os
@@ -9,21 +7,20 @@ import matplotlib.pyplot as plt
 import flopy
 import numpy as np
 import pytest
+from framework import TestFramework
 from modflow_devtools.misc import is_in_ci
 from gwf_test_utils import get_uzr_soil_data, PLOT_UZR_TESTS
-from framework import TestFramework
 
-
-cases = ["chord-slope", "mod-picard"]
-scheme = ["chord-slope", "modified-picard"]
+cases = ["dense", "dt144", "dt720", "dt3600"]
+dt = [10.0, 144.0, 720.0, 3600.0]
 
 
 def build_models(idx, test):
-    column_height = 42.0
+    column_height = 105.0
     nlay, nrow, ncol = 42, 1, 1
     nper = 1
-    perlen = [360.0]  # s
-    nstp = [3]
+    perlen = [36 * 3600]  # s
+    nstp = [int(perlen[0] / dt[idx])]
     tsmult = [1.0]
     delr = 10.0  # cm
     delc = 10.0
@@ -31,11 +28,11 @@ def build_models(idx, test):
     top = delz
     laytyp = 0
     botm = [top - (ilay + 1) * delz for ilay in range(nlay)]
-    hk = 0.00944  # cm/s
+    hk = 0.00922  # cm/s
 
     # saturated lowest cell:
-    hp_upper = -20.7
-    hp_lower = -61.5
+    hp_upper = -75.0
+    hp_lower = -1000.0
     h_upper = hp_upper + botm[0] + 0.5 * delz
     h_lower = hp_lower + botm[-1] + 0.5 * delz
     strt = np.zeros((nlay, nrow, ncol))
@@ -44,8 +41,6 @@ def build_models(idx, test):
 
     nouter, ninner = 100, 300
     hclose, rclose, relax = 1e-6, 1e-6, 1.0
-
-    sto_scheme = "chord-slope"
 
     tdis_rc = []
     for i in range(nper):
@@ -115,19 +110,17 @@ def build_models(idx, test):
     )
 
     # unsaturated zone Richards flow
-    soil_data = get_uzr_soil_data("Celia1990-eq10-Haverkamp")
+    soil_data = get_uzr_soil_data("Celia1990-eq13-VanGenuchten")
     uzr = flopy.mf6.ModflowGwfuzr(
         gwf,
         iunsat=1,
-        storage_scheme=scheme[idx],
-        kr_averaging="geometric",
-        soil_model="Haverkamp",
+        storage_scheme="modified-picard",
+        kr_averaging="arithmetic",
+        soil_model="VanGenuchten",
         porosity=soil_data["porosity"],
         satres=soil_data["satres"],
-        alphahvk=soil_data["alpha"],
-        nhvk=soil_data["n"],
-        betahvk=soil_data["beta"],
-        khvk=soil_data["k"],
+        alphavgn=soil_data["alpha"],
+        nvgn=soil_data["n"],
     )
 
     # constant head
@@ -173,9 +166,8 @@ def check_output(idx, test):
     depth = [-botm[ilay] - 0.5 * dz[ilay] for ilay in range(nlay)]
 
     if PLOT_UZR_TESTS and not is_in_ci():
+        plt.figure()
         plt.plot(depth, pheads)
-        plt.xlim(0.0, 40.0)
-        plt.ylim(-70.0, -10.0)
         plt.savefig(f"pressure_head-{cases[idx]}.png")
 
 

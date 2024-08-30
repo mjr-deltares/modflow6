@@ -117,3 +117,25 @@ layered true
 optional true
 longname k
 description is the k exponent in the Haverkamp soil characteristic model.
+
+block griddata
+name alphavgn
+type double precision
+shape (nodes)
+valid
+reader readarray
+layered true
+optional true
+longname alpha
+description is the alpha parameter in the Van Genuchten soil characteristic model.
+
+block griddata
+name nvgn
+type double precision
+shape (nodes)
+valid
+reader readarray
+layered true
+optional true
+longname n
+description is the n exponent in the Van Genuchten soil characteristic model. There is another exponent derived from it: m = 1 - 1/n.

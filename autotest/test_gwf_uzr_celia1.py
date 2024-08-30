@@ -20,7 +20,7 @@ def build_models(idx, test):
     nlay, nrow, ncol = 42, 1, 1
     nper = 1
     perlen = [360.0]  # s
-    nstp = [int(360.0 / dt[idx])]
+    nstp = [int(perlen[0] / dt[idx])]
     tsmult = [1.0]
     delr = 10.0  # cm
     delc = 10.0
@@ -114,7 +114,7 @@ def build_models(idx, test):
     uzr = flopy.mf6.ModflowGwfuzr(
         gwf,
         iunsat=1,
-        storage_scheme="chord-slope",
+        storage_scheme="modified-picard",
         kr_averaging="arithmetic",
         soil_model="Haverkamp",
         porosity=soil_data["porosity"],

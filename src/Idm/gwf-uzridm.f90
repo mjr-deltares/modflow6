@@ -23,6 +23,8 @@ module GwfUzrInputModule
     logical :: nhvk = .false.
     logical :: betahvk = .false.
     logical :: khvk = .false.
+    logical :: alphavgn = .false.
+    logical :: nvgn = .false.
   end type GwfUzrParamFoundType
 
   logical :: gwf_uzr_multi_package = .false.
@@ -232,6 +234,42 @@ module GwfUzrInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
+    gwfuzr_alphavgn = InputParamDefinitionType &
+    ( &
+    'GWF', & ! component
+    'UZR', & ! subcomponent
+    'GRIDDATA', & ! block
+    'ALPHAVGN', & ! tag name
+    'ALPHAVGN', & ! fortran variable
+    'DOUBLE1D', & ! type
+    'NODES', & ! shape
+    'alpha', & ! longname
+    .false., & ! required
+    .false., & ! multi-record
+    .false., & ! preserve case
+    .true., & ! layered
+    .false. & ! timeseries
+    )
+
+  type(InputParamDefinitionType), parameter :: &
+    gwfuzr_nvgn = InputParamDefinitionType &
+    ( &
+    'GWF', & ! component
+    'UZR', & ! subcomponent
+    'GRIDDATA', & ! block
+    'NVGN', & ! tag name
+    'NVGN', & ! fortran variable
+    'DOUBLE1D', & ! type
+    'NODES', & ! shape
+    'n', & ! longname
+    .false., & ! required
+    .false., & ! multi-record
+    .false., & ! preserve case
+    .true., & ! layered
+    .false. & ! timeseries
+    )
+
+  type(InputParamDefinitionType), parameter :: &
     gwf_uzr_param_definitions(*) = &
     [ &
     gwfuzr_soil_model, &
@@ -244,7 +282,9 @@ module GwfUzrInputModule
     gwfuzr_alphahvk, &
     gwfuzr_nhvk, &
     gwfuzr_betahvk, &
-    gwfuzr_khvk &
+    gwfuzr_khvk, &
+    gwfuzr_alphavgn, &
+    gwfuzr_nvgn &
     ]
 
   type(InputParamDefinitionType), parameter :: &

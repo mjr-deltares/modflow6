@@ -101,7 +101,6 @@ contains
     ! set up the soil model(s)
     call init_soil_models(this%porosity, this%sat_res, this%dis, &
                           this%memoryPath, this%input_mempath)
-    write(*,*) "getting: ", this%soil_model_id
     this%soil_model => get_soil_model(this%soil_model_id)
     this%soil_model_kr => this%soil_model
     if (this%soil_model_kr_id /= this%soil_model_id) then

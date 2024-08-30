@@ -122,7 +122,8 @@ contains
                                       aterm, rhsterm)
     case (2)
       ! modified picard
-      call get_unsat_storage_terms_MP(s1, s0, h1, h0, Cm, phi, z, thk, &
+      call get_unsat_storage_terms_MP(s1, s0, h1, h0, Cm, &
+                                      phi, z, area, thk, &
                                       aterm, rhsterm)
     end select
 
@@ -184,7 +185,7 @@ contains
   end subroutine get_unsat_storage_terms_CS
 
   subroutine get_unsat_storage_terms_MP(s_new, s_old, h_new, h_old, Cm, phi, &
-                                        z_n, thk, aterm, rhsterm)
+                                        z_n, area, thk, aterm, rhsterm)
     use TdisModule, only: delt
     real(DP), intent(in) :: s_new
     real(DP), intent(in) :: s_old
@@ -193,6 +194,7 @@ contains
     real(DP), intent(in) :: Cm
     real(DP), intent(in) :: phi
     real(DP), intent(in) :: z_n
+    real(DP), intent(in) :: area
     real(DP), intent(in) :: thk
     real(DP), intent(inout) :: aterm
     real(DP), intent(inout) :: rhsterm
@@ -200,10 +202,10 @@ contains
     real(DP) :: rhs_ds, rhs_dh, a_dh
 
     ! part 1: change in s
-    rhs_ds = phi * thk * (s_new - s_old) / delt
+    rhs_ds = phi * area * thk * (s_new - s_old) / delt
 
     ! part 2: change in h
-    a_dh = thk * Cm / delt
+    a_dh = -area * thk * Cm / delt
     rhs_dh = a_dh * h_new
 
     aterm = a_dh

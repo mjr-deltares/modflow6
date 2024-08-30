@@ -5,6 +5,7 @@ module UzrSoilModelFactoryModule
   use STLVecIntModule
   use UzrSoilModelModule, only: SoilModelType
   use UzrHaverkampModule, only: HaverkampModelType
+  use UzrVanGenuchtenModule, only: VanGenuchtenModelType
   use BaseDisModule, only: DisBaseType
   implicit none
   private
@@ -101,7 +102,8 @@ contains
         allocate (HaverkampModelType :: soil_model)
         soil_model%id = HAVERKAMP
       case (VANGENUCHTEN)
-        !allocate (VanGenuchtenModelType :: soil_model)
+        allocate (VanGenuchtenModelType :: soil_model)
+        soil_model%id = VANGENUCHTEN
       case default
         write(*,*) "Internal error: invalid soil model id"
         call ustop()

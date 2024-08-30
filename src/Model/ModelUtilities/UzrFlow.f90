@@ -91,18 +91,13 @@ contains
     sat_cond = this%gwf_npf%condsat(this%gwf_dis%con%jas(ipos))
 
     ! calculate k_r
-    z_n = this%gwf_dis%bot(n) + &
-           DHALF * (this%gwf_dis%top(n) - this%gwf_dis%bot(n))
+    z_n = DHALF * (this%gwf_dis%bot(n) + this%gwf_dis%top(n))
     psi = hnew(n) - z_n
     kr_n = this%soil_model%krelative(psi, n)
-
-    ! kr_n = rel_permeability(hnew(n), z_n)
-    z_m = this%gwf_dis%bot(m) + &
-           DHALF * (this%gwf_dis%top(m) - this%gwf_dis%bot(m))
+    
+    z_m = DHALF * (this%gwf_dis%bot(m) + this%gwf_dis%top(m))
     psi = hnew(m) - z_m
     kr_m = this%soil_model%krelative(psi, m)
-    write(*,*) "kr: ", kr_n, rel_permeability(hnew(n), z_n)
-    ! kr_m = rel_permeability(hnew(m), z_m)
 
     ! averaging of k_r
     kr_avg = kr_averaging(kr_n, kr_m, hnew(n), hnew(m), this%kr_averaging)

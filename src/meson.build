@@ -228,6 +228,7 @@ modflow_sources = files(
     'Model' / 'ModelUtilities' / 'UzrSoilModel.f90',
     'Model' / 'ModelUtilities' / 'UzrSoilModelFactory.f90',
     'Model' / 'ModelUtilities' / 'UzrStorage.f90',
+    'Model' / 'ModelUtilities' / 'UzrVanGenuchten.f90',
     'Model' / 'ModelUtilities' / 'VectorInterpolation.f90',
     'Model' / 'ModelUtilities' / 'Xt3dAlgorithm.f90',
     'Model' / 'ModelUtilities' / 'Xt3dInterface.f90',
