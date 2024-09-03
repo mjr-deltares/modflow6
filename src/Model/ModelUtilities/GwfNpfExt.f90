@@ -9,6 +9,7 @@ module GwfNpfExtModule
     procedure(is_active_if), deferred :: is_active
     procedure(fc_if), deferred :: fc
     procedure(fn_if), deferred :: fn
+    procedure(cq_if), deferred :: cq
   end type GwfNpfExtType
 
   abstract interface
@@ -36,6 +37,15 @@ module GwfNpfExtModule
       integer(I4B), intent(in) :: n
       integer(I4B), intent(in) :: m
       integer(I4B), intent(in) :: ipos
+    end subroutine
+    subroutine cq_if(this, n, m, ipos, flowja, h_new)
+      import GwfNpfExtType, I4B, DP
+      class(GwfNpfExtType), intent(inout) :: this
+      integer(I4B), intent(in) :: n
+      integer(I4B), intent(in) :: m
+      integer(I4B), intent(in) :: ipos
+      real(DP), dimension(:), intent(inout) :: flowja
+      real(DP), dimension(:), intent(in) :: h_new
     end subroutine
   end interface
 

@@ -516,6 +516,14 @@ contains
       ! -- Calculate storage change
       do n = 1, this%dis%nodes
         if (this%ibound(n) <= 0) cycle
+
+        if (associated(this%storage_extension)) then
+          if (this%storage_extension%is_active(n)) then
+            call this%storage_extension%cq(n, flowja, hnew, hold)
+            cycle
+          end if
+        end if
+        !
         ! -- aquifer elevations and thickness
         tp = this%dis%top(n)
         bt = this%dis%bot(n)
@@ -618,8 +626,8 @@ contains
     call model_budget%addentry(rin, rout, delt, budtxt(1), &
                                isuppress_output, '         STORAGE')
     !
-    ! -- Add unconfined storage rates to model budget
-    if (this%iusesy == 1) then
+    ! -- Add unconfined storage rates to model budget (TODO_UZR: extension as a separate entry?)
+    if (this%iusesy == 1 .or. associated(this%storage_extension)) then
       call rate_accumulator(this%strgsy, rin, rout)
       call model_budget%addentry(rin, rout, delt, budtxt(2), &
                                  isuppress_output, '         STORAGE')
@@ -666,7 +674,7 @@ contains
                                  nwidthp, editdesc, dinact)
       !
       ! -- storage(sy)
-      if (this%iusesy == 1) then
+      if (this%iusesy == 1 .or. associated(this%storage_extension)) then
         call this%dis%record_array(this%strgsy, this%iout, iprint, -ibinun, &
                                    budtxt(2), cdatafmp, nvaluesp, &
                                    nwidthp, editdesc, dinact)

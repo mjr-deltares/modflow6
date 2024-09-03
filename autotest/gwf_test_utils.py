@@ -1,7 +1,10 @@
-PLOT_UZR_TESTS = True  # flag to control plotting of UZR results, when not CI
+PLOT_UZR_TESTS = False  # flag to control plotting of UZR results, when not CI
 
 
 def get_uzr_soil_data(record_name):
+    """
+    Returns a set of soil data for the specified record
+    """
 
     record = {}
     match record_name:
@@ -22,3 +25,14 @@ def get_uzr_soil_data(record_name):
             record["n"] = 2.0
 
     return record
+
+
+def get_balance_error(list_file):
+    """
+    Returns the cumulative balance error (%) from the model list file
+    """
+    for line in open(list_file):
+        if line.lstrip().startswith("PERCENT DISCREPANCY"):
+            cumul_balance_error = float(line.split()[3])
+
+    return cumul_balance_error

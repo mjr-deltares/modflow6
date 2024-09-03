@@ -9,7 +9,7 @@ import numpy as np
 import pytest
 from framework import TestFramework
 from modflow_devtools.misc import is_in_ci
-from gwf_test_utils import get_uzr_soil_data, PLOT_UZR_TESTS
+from gwf_test_utils import get_uzr_soil_data, get_balance_error, PLOT_UZR_TESTS
 
 cases = ["dense", "dt10", "dt30", "dt120", "dt180", "dt360"]
 dt = [0.5, 10.0, 30.0, 120.0, 180.0, 360.0]
@@ -152,8 +152,8 @@ def build_models(idx, test):
 def check_output(idx, test):
 
     model_name = "gwf_" + test.name
-
     fpth = os.path.join(test.workspace, f"{model_name}.dis.grb")
+
     grb = flopy.mf6.utils.MfGrdFile(fpth)
     mg = grb.modelgrid
     nlay = mg.nlay
@@ -172,6 +172,12 @@ def check_output(idx, test):
         plt.xlim(0.0, 40.0)
         plt.ylim(-70.0, -10.0)
         plt.savefig(f"pressure_head-{cases[idx]}.png")
+
+    list_pth = os.path.join(test.workspace, f"{model_name}.lst")
+    error = get_balance_error(list_pth)
+    assert (
+        abs(error) < 0.00001
+    ), f"Cumulative balance error = {error} for {model_name} too large"
 
 
 @pytest.mark.parametrize("idx, name", enumerate(cases))

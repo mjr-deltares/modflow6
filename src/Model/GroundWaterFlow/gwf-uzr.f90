@@ -234,9 +234,9 @@ contains
     call mem_deallocate(this%storage_scheme)
     call mem_deallocate(this%kr_averaging)
 
-    call destroy_soil_models()
-
     if (this%inunit > 0) then
+      call destroy_soil_models()
+
       call this%uzr_flow%destroy()
       deallocate (this%uzr_flow)
 

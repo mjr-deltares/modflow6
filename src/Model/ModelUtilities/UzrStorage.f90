@@ -14,16 +14,19 @@ module UzrStorageModule
   type, extends(GwfStoExtType) :: UzrStorageType
     class(SoilModelType), pointer :: soil_model => null()
 
-    integer(I4B), pointer :: storage_scheme => null() !< see UZR option
-    integer(I4B), pointer, dimension(:), contiguous :: uzr_iunsat => null()
-    class(DisBaseType), pointer :: gwf_dis => null()
-    type(GwfStoType), pointer :: gwf_sto => null()
+    integer(I4B), pointer :: storage_scheme => null() !< points to UZR data
+    integer(I4B), pointer, dimension(:), contiguous :: uzr_iunsat => null() !< points to UZR data
+    class(DisBaseType), pointer :: gwf_dis => null() !< points to UZR data
+    type(GwfStoType), pointer :: gwf_sto => null() !< points to UZR data
   contains
     procedure :: initialize
     procedure :: is_active => uft_is_active
     procedure :: fc => uft_fc
     procedure :: fn => uft_fn
+    procedure :: cq => uft_cq
     procedure :: destroy
+    ! private
+    procedure, private :: calculate_coeffs
   end type UzrStorageType
 
 contains
@@ -68,7 +71,29 @@ contains
     real(DP), dimension(:), intent(in) :: h_old
     real(DP), dimension(:), intent(in) :: h_new
     ! local
+    real(DP), dimension(4) :: coeffs !< the coefficients to add to the linear system
     integer(I4B) :: idiag !< the position of the diagonal element
+
+    call this%calculate_coeffs(n, h_old, h_new, coeffs)
+
+    idiag = this%gwf_dis%con%ia(n)
+    call matrix_sln%add_value_pos(idxglo(idiag), coeffs(1))
+    rhs(n) = rhs(n) + coeffs(2)
+    call matrix_sln%add_value_pos(idxglo(idiag), coeffs(3))
+    rhs(n) = rhs(n) + coeffs(4)
+
+  end subroutine uft_fc
+
+  !> @brief Calculate the matrix and RHS coefficients for formulation and cq
+  !<
+  subroutine calculate_coeffs(this, n, h_old, h_new, coeffs)
+    use GwfStorageUtilsModule, only: SsCapacity
+    class(UzrStorageType), intent(inout) :: this !< this instance
+    integer(I4B), intent(in) :: n !< the node number
+    real(DP), dimension(:), intent(in) :: h_old !< the old head
+    real(DP), dimension(:), intent(in) :: h_new !< the new head
+    real(DP), dimension(4), intent(inout) :: coeffs !< the coefficients: aterm_1, rhs_1, aterm_2, rhs_2
+    ! local
     real(DP) :: sc1 !< specific storage capacity
     real(DP) :: top !< the top of the cell
     real(DP) :: bot !< the bottom of the cell
@@ -84,10 +109,8 @@ contains
     real(DP) :: psi1 !< the current saturation
     real(DP) :: psi0 !< the saturation at the previous time level
     real(DP) :: phi !< the cell porosity
-    real(DP) :: aterm !< the matrix coefficient
-    real(DP) :: rhsterm !< the term for the RHS
 
-    idiag = this%gwf_dis%con%ia(n)
+    coeffs(:) = DZERO
 
     top = this%gwf_dis%top(n)
     bot = this%gwf_dis%bot(n)
@@ -105,37 +128,59 @@ contains
     s0 = this%soil_model%saturation(psi0, n)
     Cm = this%soil_model%capacity(psi1, n)
     dsdh_lim = Cm / phi
-    
 
     sc1 = SsCapacity(this%gwf_sto%istor_coef, top, bot, area, this%gwf_sto%ss(n))
 
     ! specific storage
-    call get_specific_storage_terms(s1, h0, sc1, aterm, rhsterm)
-    call matrix_sln%add_value_pos(idxglo(idiag), aterm)
-    rhs(n) = rhs(n) + rhsterm
+    call get_specific_storage_terms(s1, h0, sc1, coeffs(1), coeffs(2))
 
     select case(this%storage_scheme)
     case (0, 1)
       ! chord slope
       call get_unsat_storage_terms_CS(s1, s0, h1, h0, dsdh_lim, &
                                       phi, z, area, thk, &
-                                      aterm, rhsterm)
+                                      coeffs(3), coeffs(4))
     case (2)
       ! modified picard
       call get_unsat_storage_terms_MP(s1, s0, h1, h0, Cm, &
                                       phi, z, area, thk, &
-                                      aterm, rhsterm)
+                                      coeffs(3), coeffs(4))
     end select
 
-    call matrix_sln%add_value_pos(idxglo(idiag), aterm)
-    rhs(n) = rhs(n) + rhsterm
-
-  end subroutine uft_fc
+  end subroutine calculate_coeffs
 
   subroutine uft_fn(this, n)
     class(UzrStorageType), intent(inout) :: this
     integer(I4B), intent(in) :: n
   end subroutine uft_fn
+
+  subroutine uft_cq(this, n, flowja, h_new, h_old)
+    class(UzrStorageType), intent(inout) :: this
+    integer(I4B), intent(in) :: n
+    real(DP), dimension(:), intent(inout) :: flowja
+    real(DP), dimension(:), intent(in) :: h_new
+    real(DP), dimension(:), intent(in) :: h_old
+    ! local
+    real(DP), dimension(4) :: coeffs !< the linear system coefficients to calculate the flux from
+    integer(I4B) :: idiag !< the position of the diagonal element
+    real(DP) :: flow_ss !< the specific storage rate for node n
+    real(DP) :: flow_sy !< the (unsaturated) specific yield rate for node n
+
+    call this%calculate_coeffs(n, h_old, h_new, coeffs)
+
+    ! q_n = A_nn * h_n - rhs_n
+    flow_ss = coeffs(1) * h_new(n) - coeffs(2)
+    flow_sy = coeffs(3) * h_new(n) - coeffs(4)
+
+    ! update flowja
+    idiag = this%gwf_dis%con%ia(n)
+    flowja(idiag) = flowja(idiag) + flow_ss + flow_sy
+
+    ! store rate
+    this%gwf_sto%strgss(n) = flow_ss
+    this%gwf_sto%strgsy(n) = flow_sy
+
+  end subroutine uft_cq
 
   subroutine destroy(this)
     class(UzrStorageType) :: this

@@ -32,7 +32,10 @@ module UzrFlowModule
     procedure :: is_active => uft_is_active
     procedure :: fc => uft_fc
     procedure :: fn => uft_fn
+    procedure :: cq => uft_cq
     procedure :: destroy
+    ! private
+    procedure, private :: calculate_coeffs
   end type UzrFlowType
 
 contains
@@ -77,6 +80,33 @@ contains
     integer(I4B), dimension(:), intent(in) :: idxglo
     real(DP), dimension(:), intent(in) :: hnew
     ! local
+    integer(I4B) :: idiag !<  diagonal position
+    integer(I4B) :: isymcon !< position of reverse connection m-n
+    real(DP), dimension(2) :: coeffs !< the linear system coefficients for the flow
+
+    call this%calculate_coeffs(n, m, ipos, hnew, coeffs)
+
+    ! Fill row n
+    idiag = this%gwf_dis%con%ia(n)    
+    call matrix_sln%add_value_pos(idxglo(idiag), coeffs(1))
+    call matrix_sln%add_value_pos(idxglo(ipos), coeffs(2))
+
+    ! Fill row m
+    isymcon = this%gwf_dis%con%isym(ipos)
+    idiag = this%gwf_dis%con%ia(m)
+    call matrix_sln%add_value_pos(idxglo(idiag), coeffs(1))
+    call matrix_sln%add_value_pos(idxglo(isymcon), coeffs(2))
+
+  end subroutine uft_fc
+
+  subroutine calculate_coeffs(this, n, m, ipos, hnew, coeffs)
+    class(UzrFlowType), intent(inout) :: this !, this instance
+    integer(I4B), intent(in) :: n !< node n
+    integer(I4B), intent(in) :: m !< node m
+    integer(I4B), intent(in) :: ipos !< index in ja array for connection n-m
+    real(DP), dimension(:), intent(in) :: hnew !< the new head
+    real(DP), dimension(2), intent(inout) :: coeffs !< the coefficients for the linear system: A_nn, A_nm
+    ! local
     real(DP) :: sat_cond !< conductance at full saturation
     real(DP) :: cond !< conductance at current saturation
     real(DP) :: z_n !< the nodal elevation for n
@@ -85,8 +115,8 @@ contains
     real(DP) :: kr_n !< rel. permeability for node n
     real(DP) :: kr_m !< rel. permeability for node m
     real(DP) :: kr_avg !< weighted rel. permeability between nodes
-    integer(I4B) :: idiag !<  diagonal position
-    integer(I4B) :: isymcon !< position of reverse connection m-n
+
+    coeffs(:) = DZERO
 
     sat_cond = this%gwf_npf%condsat(this%gwf_dis%con%jas(ipos))
 
@@ -105,18 +135,11 @@ contains
     ! calculate unsaturated conductance
     cond = kr_avg * sat_cond
 
-    ! Fill row n
-    idiag = this%gwf_dis%con%ia(n)
-    call matrix_sln%add_value_pos(idxglo(ipos), cond)
-    call matrix_sln%add_value_pos(idxglo(idiag), -cond)
+    ! coefficients for row n
+    coeffs(1) = -cond ! nn
+    coeffs(2) = cond ! nm
 
-    ! Fill row m
-    isymcon = this%gwf_dis%con%isym(ipos)
-    idiag = this%gwf_dis%con%ia(m)
-    call matrix_sln%add_value_pos(idxglo(isymcon), cond)
-    call matrix_sln%add_value_pos(idxglo(idiag), -cond)
-
-  end subroutine uft_fc
+  end subroutine calculate_coeffs
 
   subroutine uft_fn(this, n, m, ipos)
     class(UzrFlowType), intent(inout) :: this
@@ -124,6 +147,26 @@ contains
     integer(I4B), intent(in) :: m
     integer(I4B), intent(in) :: ipos
   end subroutine uft_fn
+
+  subroutine uft_cq(this, n, m, ipos, flowja, h_new)
+    class(UzrFlowType), intent(inout) :: this
+    integer(I4B), intent(in) :: n
+    integer(I4B), intent(in) :: m
+    integer(I4B), intent(in) :: ipos
+    real(DP), dimension(:), intent(inout) :: flowja
+    real(DP), dimension(:), intent(in) :: h_new
+    ! local
+    real(DP), dimension(2) :: coeffs !< the linear system coefficients
+    real(DP) :: flow_nm !< the flow rate into node n from m
+
+    call this%calculate_coeffs(n, m, ipos, h_new, coeffs)
+
+    ! calculate flow positive into cell n
+    flow_nm = coeffs(2) * h_new(m) +  coeffs(1) * h_new(n)
+    flowja(ipos) = flow_nm
+    flowja(this%gwf_dis%con%isym(ipos)) = -flow_nm
+
+  end subroutine uft_cq
 
   subroutine destroy(this)
     class(UzrFlowType) :: this
@@ -158,26 +201,5 @@ contains
     end select
 
   end function kr_averaging
-
-  pure function rel_permeability(head, elevation) result(k_r)
-    real(DP), intent(in) :: head
-    real(DP), intent(in) :: elevation
-    real(DP) :: k_r
-    ! local
-    real(DP) :: hp !< pressure head
-    real(DP) :: A, gamma
-
-    hp = head - elevation
-
-    A = 1.175e+06_DP
-    gamma = 4.74
-
-    if (hp > DZERO) then
-      k_r = DONE
-    else
-      k_r = A / (A + abs(hp) ** gamma)
-    end if
-
-  end function rel_permeability
 
 end module UzrFlowModule

@@ -803,6 +803,14 @@ contains
         do ipos = this%dis%con%ia(n) + 1, this%dis%con%ia(n + 1) - 1
           m = this%dis%con%ja(ipos)
           if (m < n) cycle
+
+          if (associated(this%flow_extension)) then
+            if (this%flow_extension%is_active(n, m)) then
+              call this%flow_extension%cq(n, m, ipos, flowja, hnew)
+              cycle
+            end if
+          end if
+          
           call this%qcalc(n, m, hnew(n), hnew(m), ipos, qnm)
           flowja(ipos) = qnm
           flowja(this%dis%con%isym(ipos)) = -qnm

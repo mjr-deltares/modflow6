@@ -1262,6 +1262,7 @@ contains
     this%inic = 0
     this%inoc = 0
     this%innpf = 0
+    this%inuzr = 0
     this%inbuy = 0
     this%invsc = 0
     this%insto = 0
