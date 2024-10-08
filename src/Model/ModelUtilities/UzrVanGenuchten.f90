@@ -71,7 +71,7 @@ contains
     if (psi > DZERO) then
       s = DONE
     else
-      s_eff = DONE / ((DONE +  ((-this%alpha(i) * psi)**this%n(i))) ** m)
+      s_eff = DONE / ((DONE + ((-this%alpha(i) * psi)**this%n(i)))**m)
       s = (DONE - this%sat_res(i)) * s_eff + this%sat_res(i)
     end if
 
@@ -87,13 +87,13 @@ contains
     real(DP) :: m
 
     m = DONE - DONE / this%n(i)
-    
+
     if (psi > DZERO) then
       Cm = DZERO
     else
       num = m * this%n(i) * this%alpha(i) * &
-            ((-this%alpha(i) * psi) ** (this%n(i) - DONE))
-      denom = (DONE + (-this%alpha(i) * psi) ** this%n(i)) ** (m + DONE)
+            ((-this%alpha(i) * psi)**(this%n(i) - DONE))
+      denom = (DONE + (-this%alpha(i) * psi)**this%n(i))**(m + DONE)
       Cm = this%porosity(i) * (DONE - this%sat_res(i)) * num / denom
     end if
 
@@ -113,9 +113,9 @@ contains
     if (psi > DZERO) then
       kr = DONE
     else
-      s_eff = (this%saturation(psi, i) - this%sat_res(i)) / (DONE - this%sat_res(i))
-      term = DONE - s_eff ** (DONE/m)
-      kr = sqrt(s_eff) * ((DONE -  term ** m) ** DTWO)
+    s_eff = (this%saturation(psi, i) - this%sat_res(i)) / (DONE - this%sat_res(i))
+      term = DONE - s_eff**(DONE / m)
+      kr = sqrt(s_eff) * ((DONE - term**m)**DTWO)
 
       ! TODO_UZR: figure out the error here:
       ! term1 = DONE - ((-this%alpha(i)*psi) ** (this%n(i) - DONE))

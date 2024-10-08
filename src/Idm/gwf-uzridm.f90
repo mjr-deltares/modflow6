@@ -13,7 +13,8 @@ module GwfUzrInputModule
 
   type GwfUzrParamFoundType
     logical :: soil_model = .false.
-    logical :: dev_model_kr = .false.
+    logical :: dev_soil_param = .false.
+    logical :: model_kr = .false.
     logical :: storage_scheme = .false.
     logical :: kr_averaging = .false.
     logical :: iunsat = .false.
@@ -54,13 +55,31 @@ module GwfUzrInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfuzr_dev_model_kr = InputParamDefinitionType &
+    gwfuzr_dev_soil_param = InputParamDefinitionType &
     ( &
     'GWF', & ! component
     'UZR', & ! subcomponent
     'OPTIONS', & ! block
-    'DEV_MODEL_KR', & ! tag name
-    'DEV_MODEL_KR', & ! fortran variable
+    'DEV_SOIL_PARAM', & ! tag name
+    'DEV_SOIL_PARAM', & ! fortran variable
+    'STRING', & ! type
+    '', & ! shape
+'set a soil parameterization from a labeled parameter set and custom functions', & ! longname
+    .false., & ! required
+    .false., & ! multi-record
+    .false., & ! preserve case
+    .false., & ! layered
+    .false. & ! timeseries
+    )
+
+  type(InputParamDefinitionType), parameter :: &
+    gwfuzr_model_kr = InputParamDefinitionType &
+    ( &
+    'GWF', & ! component
+    'UZR', & ! subcomponent
+    'OPTIONS', & ! block
+    'MODEL_KR', & ! tag name
+    'MODEL_KR', & ! fortran variable
     'STRING', & ! type
     '', & ! shape
     'model used for the relative permeability', & ! longname
@@ -273,7 +292,8 @@ module GwfUzrInputModule
     gwf_uzr_param_definitions(*) = &
     [ &
     gwfuzr_soil_model, &
-    gwfuzr_dev_model_kr, &
+    gwfuzr_dev_soil_param, &
+    gwfuzr_model_kr, &
     gwfuzr_storage_scheme, &
     gwfuzr_kr_averaging, &
     gwfuzr_iunsat, &

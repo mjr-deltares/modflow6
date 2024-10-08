@@ -500,7 +500,7 @@ contains
           if (this%dis%con%mask(ipos) == 0) cycle
 
           m = this%dis%con%ja(ipos)
-          
+
           ! Calculate upper triangle only, but insert into
           ! upper and lower parts of matrix
           if (m < n) cycle
@@ -527,7 +527,7 @@ contains
     return
   end subroutine npf_fc
 
-  !> @brief Calculate and add coefficients using the 
+  !> @brief Calculate and add coefficients using the
   !< standard conductance formulation
   subroutine fc_standard_conductance(this, n, m, ipos, matrix_sln, rhs, idxglo, hnew)
     class(GwfNpfType) :: this !< this instance
@@ -536,7 +536,7 @@ contains
     integer(I4B) :: ipos !< connection number
     class(MatrixBaseType), pointer :: matrix_sln !< system matrix
     real(DP), intent(inout), dimension(:) :: rhs !< rhs vector
-    integer(I4B), intent(in), dimension(:) :: idxglo !< lookup table from local ipos to global system 
+    integer(I4B), intent(in), dimension(:) :: idxglo !< lookup table from local ipos to global system
     real(DP), intent(inout), dimension(:) :: hnew !< new head values
     ! local
     integer(I4B) :: idiag, ihc
@@ -551,20 +551,20 @@ contains
     if (ihc == C3D_VERTICAL) then
       ! Horizontal conductance
       cond = vcond(this%ibound(n), this%ibound(m), &
-                    this%icelltype(n), this%icelltype(m), this%inewton, &
-                    this%ivarcv, this%idewatcv, &
-                    this%condsat(this%dis%con%jas(ipos)), hnew(n), hnew(m), &
-                    hyn, hym, &
-                    this%sat(n), this%sat(m), &
-                    this%dis%top(n), this%dis%top(m), &
-                    this%dis%bot(n), this%dis%bot(m), &
-                    this%dis%con%hwva(this%dis%con%jas(ipos)))
+                   this%icelltype(n), this%icelltype(m), this%inewton, &
+                   this%ivarcv, this%idewatcv, &
+                   this%condsat(this%dis%con%jas(ipos)), hnew(n), hnew(m), &
+                   hyn, hym, &
+                   this%sat(n), this%sat(m), &
+                   this%dis%top(n), this%dis%top(m), &
+                   this%dis%bot(n), this%dis%bot(m), &
+                   this%dis%con%hwva(this%dis%con%jas(ipos)))
 
       ! Vertical flow for perched conditions
       if (this%iperched /= 0) then
         if (this%icelltype(m) /= 0) then
           if (hnew(m) < this%dis%top(m)) then
-            
+
             ! Fill diagonal for n, and add to RHS
             idiag = this%dis%con%ia(n)
             rhs(n) = rhs(n) - cond * this%dis%bot(n)
@@ -576,26 +576,26 @@ contains
             rhs(m) = rhs(m) + cond * this%dis%bot(n)
 
             ! go to next connection
-            return            
+            return
           end if
         end if
       end if
     else
       ! Horizontal conductance
       cond = hcond(this%ibound(n), this%ibound(m), &
-                    this%icelltype(n), this%icelltype(m), &
-                    this%inewton, &
-                    this%dis%con%ihc(this%dis%con%jas(ipos)), &
-                    this%icellavg, &
-                    this%condsat(this%dis%con%jas(ipos)), &
-                    hnew(n), hnew(m), this%sat(n), this%sat(m), hyn, hym, &
-                    this%dis%top(n), this%dis%top(m), &
-                    this%dis%bot(n), this%dis%bot(m), &
-                    this%dis%con%cl1(this%dis%con%jas(ipos)), &
-                    this%dis%con%cl2(this%dis%con%jas(ipos)), &
-                    this%dis%con%hwva(this%dis%con%jas(ipos)))
+                   this%icelltype(n), this%icelltype(m), &
+                   this%inewton, &
+                   this%dis%con%ihc(this%dis%con%jas(ipos)), &
+                   this%icellavg, &
+                   this%condsat(this%dis%con%jas(ipos)), &
+                   hnew(n), hnew(m), this%sat(n), this%sat(m), hyn, hym, &
+                   this%dis%top(n), this%dis%top(m), &
+                   this%dis%bot(n), this%dis%bot(m), &
+                   this%dis%con%cl1(this%dis%con%jas(ipos)), &
+                   this%dis%con%cl2(this%dis%con%jas(ipos)), &
+                   this%dis%con%hwva(this%dis%con%jas(ipos)))
     end if
-    
+
     ! Fill row n
     idiag = this%dis%con%ia(n)
     call matrix_sln%add_value_pos(idxglo(ipos), cond)
@@ -810,7 +810,7 @@ contains
               cycle
             end if
           end if
-          
+
           call this%qcalc(n, m, hnew(n), hnew(m), ipos, qnm)
           flowja(ipos) = qnm
           flowja(this%dis%con%isym(ipos)) = -qnm

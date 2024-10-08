@@ -135,12 +135,12 @@ contains
     call this%npf%npf_da()
     call this%xt3d%xt3d_da()
     call this%buy%buy_da()
-    
+
     ! Internal package objects
     deallocate (this%dis)
     deallocate (this%npf)
     deallocate (this%xt3d)
-    
+
     ! Scalars, TODO_UZR: put in base
     call mem_deallocate(this%inic)
     call mem_deallocate(this%inoc)

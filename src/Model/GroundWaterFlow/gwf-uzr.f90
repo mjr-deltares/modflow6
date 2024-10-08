@@ -5,7 +5,7 @@ module GwfUzrModule
   use MemoryManagerExtModule, only: mem_set_value
   use NumericalPackageModule, only: NumericalPackageType
   use BaseDisModule, only: DisBaseType
-  use GwfNpfModule, only: GwfNpfType  
+  use GwfNpfModule, only: GwfNpfType
   use GwfNpfExtModule, only: GwfNpfExtType
   use GwfStoModule, only: GwfStoType
   use GwfStoExtModule, only: GwfStoExtType
@@ -27,14 +27,14 @@ module GwfUzrModule
     integer(I4B), pointer :: storage_scheme => null() !< 0 = default, 1 = chord slope, 2 = mod. Picard
     integer(I4B), pointer :: soil_model_id => null() !< 0 = default, 1 = Brooks-Corey, 2 = Haverkamp, 3 = Van Genuchten
     class(SoilModelType), pointer :: soil_model => null() !< the soil model
-    integer(I4B), pointer :: soil_model_kr_id => null() !< separate soil model used for relative permeability (development option)
-    class(SoilModelType), pointer :: soil_model_kr => null() !< separate soil model used for relative permeability
+    integer(I4B), pointer :: soil_model_kr_id => null() !< separate soil model id for relative permeability (development)
+    class(SoilModelType), pointer :: soil_model_kr => null() !< alternative soil model for relative permeability (development)
     integer(I4B), pointer :: kr_averaging => null() !< 0 = default, 1 = geometric, 2 = arithm. mean, 3 = upstream
     integer(I4B), dimension(:), pointer, contiguous :: iunsat => null() !< 0 = standard node, 1 = unsaturated (Richards) node
     real(DP), dimension(:), pointer, contiguous :: porosity => null() !< the volumetric fraction of the pore space
     real(DP), dimension(:), pointer, contiguous :: sat_res => null() !< residual (also irreducible) saturation
     class(UzrFlowType), pointer :: uzr_flow => null() !< the NPF flow extension
-    class(UzrStorageType), pointer :: uzr_sto => null() !< the STO storage calculation extension
+    class(UzrStorageType), pointer :: uzr_sto => null() !< the STO storage extension
   contains
     procedure :: uzr_df
     procedure :: uzr_ar
@@ -70,7 +70,7 @@ contains
     uzr_obj%soil_model_id = -1
     uzr_obj%soil_model_kr_id = -1
     uzr_obj%kr_averaging = -1
-    
+
     ! print a message when enabled
     if (inunit > 0) then
       write (iout, fmtheader) input_mempath
@@ -159,12 +159,12 @@ contains
       this%soil_model_id = BROOKS_COREY ! default
     end if
     this%soil_model_kr_id = 0
-    call mem_set_value(this%soil_model_kr_id, 'DEV_MODEL_KR', this%input_mempath, &
-                       soil_model_name, found%dev_model_kr)
+    call mem_set_value(this%soil_model_kr_id, 'MODEL_KR', this%input_mempath, &
+                       soil_model_name, found%model_kr)
     if (this%soil_model_kr_id > 0) then
-      call dev_feature('DEV_MODEL_KR is a development feature, install the &
+      call dev_feature('MODEL_KR is a development feature, install the &
             &nightly build or compile from source with IDEVELOPMODE = 1.')
-      write (this%iout, '(4x,2a)') 'Soil model for relative permeability set to ', &
+    write (this%iout, '(4x,2a)') 'Soil model for relative permeability set to ', &
         trim(soil_model_name(this%soil_model_kr_id))
     else
       this%soil_model_kr_id = this%soil_model_id
@@ -173,8 +173,8 @@ contains
     this%storage_scheme = 0
     if (this%inewton == 0) then
       ! chord-slope and mod. picard only make sense when not newton
-      call mem_set_value(this%storage_scheme, 'STORAGE_SCHEME', this%input_mempath, &
-                        scheme_name, found%storage_scheme)
+   call mem_set_value(this%storage_scheme, 'STORAGE_SCHEME', this%input_mempath, &
+                         scheme_name, found%storage_scheme)
     end if
     if (this%storage_scheme > 0) then
       write (this%iout, '(4x,2a)') 'Storage scheme set to ', &
@@ -213,7 +213,7 @@ contains
 
   end subroutine source_griddata
 
-  subroutine check_griddata(this, found)    
+  subroutine check_griddata(this, found)
     class(GwfUzrType), intent(inout) :: this
     type(GwfUzrParamFoundType) :: found
 
@@ -221,7 +221,7 @@ contains
 
   subroutine uzr_ar(this)
     class(GwfUzrType), intent(inout) :: this
-    
+
   end subroutine uzr_ar
 
   subroutine uzr_da(this)
@@ -242,7 +242,7 @@ contains
 
       call this%uzr_sto%destroy()
       deallocate (this%uzr_sto)
-      
+
       call mem_deallocate(this%iunsat)
       call mem_deallocate(this%porosity)
       call mem_deallocate(this%sat_res)

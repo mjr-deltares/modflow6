@@ -223,6 +223,7 @@ modflow_sources = files(
     'Model' / 'ModelUtilities' / 'TrackData.f90',
     'Model' / 'ModelUtilities' / 'UzfCellGroup.f90',
     'Model' / 'ModelUtilities' / 'UzfEtUtil.f90',
+    'Model' / 'ModelUtilities' / 'UzrDevSoil.f90',
     'Model' / 'ModelUtilities' / 'UzrFlow.f90',
     'Model' / 'ModelUtilities' / 'UzrHaverkamp.f90',
     'Model' / 'ModelUtilities' / 'UzrSoilModel.f90',

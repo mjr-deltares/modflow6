@@ -1,4 +1,4 @@
-module UzrFlowModule 
+module UzrFlowModule
   use KindModule, only: I4B, LGP, DP
   use ConstantsModule, only: DONE, DTWO, DHALF, DZERO, LENVARNAME
   use MatrixBaseModule, only: MatrixBaseType
@@ -87,7 +87,7 @@ contains
     call this%calculate_coeffs(n, m, ipos, hnew, coeffs)
 
     ! Fill row n
-    idiag = this%gwf_dis%con%ia(n)    
+    idiag = this%gwf_dis%con%ia(n)
     call matrix_sln%add_value_pos(idxglo(idiag), coeffs(1))
     call matrix_sln%add_value_pos(idxglo(ipos), coeffs(2))
 
@@ -124,7 +124,7 @@ contains
     z_n = DHALF * (this%gwf_dis%bot(n) + this%gwf_dis%top(n))
     psi = hnew(n) - z_n
     kr_n = this%soil_model%krelative(psi, n)
-    
+
     z_m = DHALF * (this%gwf_dis%bot(m) + this%gwf_dis%top(m))
     psi = hnew(m) - z_m
     kr_m = this%soil_model%krelative(psi, m)
@@ -162,7 +162,7 @@ contains
     call this%calculate_coeffs(n, m, ipos, h_new, coeffs)
 
     ! calculate flow positive into cell n
-    flow_nm = coeffs(2) * h_new(m) +  coeffs(1) * h_new(n)
+    flow_nm = coeffs(2) * h_new(m) + coeffs(1) * h_new(n)
     flowja(ipos) = flow_nm
     flowja(this%gwf_dis%con%isym(ipos)) = -flow_nm
 

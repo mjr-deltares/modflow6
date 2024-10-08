@@ -71,7 +71,6 @@ contains
     end if
     if (count_errors() > 0) call ustop()
 
-
   end subroutine load_haverkamp
 
   function saturation_haverkamp(this, psi, i) result(s)
@@ -85,7 +84,7 @@ contains
     if (psi > DZERO) then
       s = DONE
     else
-      s_eff = DONE / (DONE +  (-this%alpha(i) * psi)**this%n(i))
+      s_eff = DONE / (DONE + (-this%alpha(i) * psi)**this%n(i))
       s = (1 - this%sat_res(i)) * s_eff + this%sat_res(i)
     end if
 
@@ -98,13 +97,13 @@ contains
     real(DP) :: Cm !< the saturation
     ! local
     real(DP) :: num, denom
-    
+
     if (psi > DZERO) then
       Cm = DZERO
     else
       num = this%n(i) * this%alpha(i) * &
-            ((-this%alpha(i) * psi) ** (this%n(i) - DONE))
-      denom = (DONE + (-this%alpha(i)*psi) ** this%n(i)) ** 2
+            ((-this%alpha(i) * psi)**(this%n(i) - DONE))
+      denom = (DONE + (-this%alpha(i) * psi)**this%n(i))**2
       Cm = this%porosity(i) * (DONE - this%sat_res(i)) * num / denom
     end if
 
@@ -143,35 +142,5 @@ contains
     call this%destroy_base()
 
   end subroutine destroy_haverkamp
-
-  ! type, extends(SoilModelType) :: HaverkampModelType
-  !   real(DP), dimension(:), pointer, contiguous :: porosity => null()
-  !   real(DP), dimension(:), pointer, contiguous :: sat_res => null()
-  !   real(DP), dimension(:), pointer, contiguous :: alpha => null()
-  !   real(DP), dimension(:), pointer, contiguous:: n => null()
-  ! contains
-  !   procedure :: saturation => s_Haverkamp
-  ! end type
-
-  ! function s_Haverkamp(this, head, elevation, i) result(s)
-  !   class(HaverkampModelType), intent(inout) :: this
-  !   real(DP), intent(in) :: head
-  !   real(DP), intent(in) :: elevation
-  !   integer(I4B), intent(in) :: i
-  !   real(DP) :: s
-  !   ! local
-  !   real(DP) :: psi !< pressure head
-  !   real(DP) :: s_eff !< effective saturation
-
-  !   psi = head - elevation
-
-  !   if (psi > DZERO) then
-  !     s = DONE
-  !   else
-  !     s_eff = DONE / (DONE +  (-this%alpha(i) * psi)**this%n(i))
-  !     s = (1 - this%sat_res(i)) * s_eff + this%sat_res(i)
-  !   end if
-
-  ! end function s_Haverkamp
 
 end module UzrHaverkampModule

@@ -49,7 +49,7 @@ module GwfStoModule
     real(DP), dimension(:), pointer, contiguous, private :: oldsy => null() !< previous time step specific yield
     integer(I4B), pointer :: iper => null() !< input context loaded period
     character(len=:), pointer :: storage !< input context storage string
-    
+
     class(GwfStoExtType), pointer, private :: storage_extension => null() !< alternative storage calculation by extension
   contains
     procedure :: sto_ar

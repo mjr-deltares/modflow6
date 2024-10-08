@@ -63,34 +63,34 @@ module UzrSoilModelModule
 
 contains
 
-    subroutine create(this, input_mem_path, mem_path, nodes, nodemap)
-      class(SoilModelType), intent(inout) :: this
-      character(len=*) :: input_mem_path
-      character(len=*) :: mem_path
-      integer(I4B) :: nodes
-      integer(I4B), dimension(:), pointer, contiguous :: nodemap
+  subroutine create(this, input_mem_path, mem_path, nodes, nodemap)
+    class(SoilModelType), intent(inout) :: this
+    character(len=*) :: input_mem_path
+    character(len=*) :: mem_path
+    integer(I4B) :: nodes
+    integer(I4B), dimension(:), pointer, contiguous :: nodemap
 
-      this%input_mem_path = input_mem_path
-      this%mem_path = mem_path
-      this%nodes = nodes
-      this%map => nodemap
+    this%input_mem_path = input_mem_path
+    this%mem_path = mem_path
+    this%nodes = nodes
+    this%map => nodemap
 
-    end subroutine create
+  end subroutine create
 
-    subroutine destroy(this)
-      class(SoilModelType), intent(inout) :: this
+  subroutine destroy(this)
+    class(SoilModelType), intent(inout) :: this
 
-      call this%destroy_base()
+    call this%destroy_base()
 
-    end subroutine destroy
+  end subroutine destroy
 
-    subroutine destroy_base(this)
-      class(SoilModelType), intent(inout) :: this
+  subroutine destroy_base(this)
+    class(SoilModelType), intent(inout) :: this
 
-      this%map => null()
-      this%porosity => null()
-      this%sat_res => null()
+    this%map => null()
+    this%porosity => null()
+    this%sat_res => null()
 
-    end subroutine destroy_base
+  end subroutine destroy_base
 
 end module UzrSoilModelModule

@@ -1,4 +1,4 @@
-module UzrStorageModule 
+module UzrStorageModule
   use KindModule, only: I4B, LGP, DP
   use ConstantsModule, only: DONE, DTWO, DHALF, DZERO, DPREC, LENVARNAME
   use MatrixBaseModule, only: MatrixBaseType
@@ -134,7 +134,7 @@ contains
     ! specific storage
     call get_specific_storage_terms(s1, h0, sc1, coeffs(1), coeffs(2))
 
-    select case(this%storage_scheme)
+    select case (this%storage_scheme)
     case (0, 1)
       ! chord slope
       call get_unsat_storage_terms_CS(s1, s0, h1, h0, dsdh_lim, &
@@ -200,7 +200,7 @@ contains
 
   end subroutine get_specific_storage_terms
 
-  subroutine get_unsat_storage_terms_CS(s_new, s_old, h_new, h_old, dsdh_lim, phi, &
+subroutine get_unsat_storage_terms_CS(s_new, s_old, h_new, h_old, dsdh_lim, phi, &
                                         z, area, thk, aterm, rhsterm)
     use TdisModule, only: delt
     real(DP), intent(in) :: s_new

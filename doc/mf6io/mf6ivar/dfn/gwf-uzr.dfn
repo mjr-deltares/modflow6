@@ -3,14 +3,23 @@
 block options
 name soil_model
 type string
-valid brooks-corey haverkamp vangenuchten
+valid brooks-corey haverkamp vangenuchten devsoilmodel
 reader urword
 optional true
 longname model used for the soil characteristic functions
 description is a text keyword to indicate which model for the soil characteristic functions (moisture retention, moisture capacity, and relative permeability) should be used.
 
 block options
-name dev_model_kr
+name dev_soil_param
+type string
+valid hvk_yolo_1977 hvk_sand_1977
+reader urword
+optional true
+longname set a soil parameterization from a labeled parameter set and custom functions
+description is a text keyword to specify the soil parameterization from a parameter set and custom functions for the soil characteristics. This is a development option so the program can be validated using various reference results.
+
+block options
+name model_kr
 type string
 valid brooks-corey haverkamp vangenuchten
 reader urword

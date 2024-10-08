@@ -2,10 +2,12 @@ module UzrSoilModelFactoryModule
   use KindModule, only: I4B, DP
   use ConstantsModule, only: LENMEMPATH, LENVARNAME
   use SimModule, only: ustop
+  use DevFeatureModule, only: dev_feature
   use STLVecIntModule
   use UzrSoilModelModule, only: SoilModelType
   use UzrHaverkampModule, only: HaverkampModelType
   use UzrVanGenuchtenModule, only: VanGenuchtenModelType
+  use UzrDevSoilModule, only: UzrDevSoilType
   use BaseDisModule, only: DisBaseType
   implicit none
   private
@@ -16,15 +18,17 @@ module UzrSoilModelFactoryModule
   public :: BROOKS_COREY, HAVERKAMP, VANGENUCHTEN
 
   ! the available models
-  integer(I4B), parameter :: NR_SOIL_MODELS = 3  
+  integer(I4B), parameter :: NR_SOIL_MODELS = 4
   character(len=LENVARNAME), parameter, dimension(NR_SOIL_MODELS) &
-     :: soil_model_name = [character(len=LENVARNAME) :: 'BROOKS-COREY', &
-                                                        'HAVERKAMP', &
-                                                        'VANGENUCHTEN']
+    :: soil_model_name = [character(len=LENVARNAME) :: 'BROOKS-COREY', &
+                                                                    'HAVERKAMP', &
+                                                                 'VANGENUCHTEN', &
+                                                                   'DEVSOILMODEL']
   enum, bind(C)
     enumerator :: BROOKS_COREY = 1 !< Brooks-Corey soil model
     enumerator :: HAVERKAMP = 2 !< Haverkamp soil model
     enumerator :: VANGENUCHTEN = 3 !< Van Genuchten model
+    enumerator :: DEVSOILMODEL = 4 !< for development
   end enum
 
   ! Wrapper to make it possible to store array of pointers
@@ -45,7 +49,7 @@ module UzrSoilModelFactoryModule
   end type SoilModelFactoryType
 
   type(SoilModelFactoryType), pointer, private :: soil_model_factory => null() !< the private factory instance for creating soil models
-  
+
 contains
 
   !> @brief Prepare the factory for creation of soil models
@@ -96,17 +100,23 @@ contains
 
     soil_model => null()
     select case (id)
-      case (BROOKS_COREY)
-        !allocate (BrooksCoreyModelType :: soil_model)
-      case (HAVERKAMP)
-        allocate (HaverkampModelType :: soil_model)
-        soil_model%id = HAVERKAMP
-      case (VANGENUCHTEN)
-        allocate (VanGenuchtenModelType :: soil_model)
-        soil_model%id = VANGENUCHTEN
-      case default
-        write(*,*) "Internal error: invalid soil model id"
-        call ustop()
+    case (BROOKS_COREY)
+      !allocate (BrooksCoreyModelType :: soil_model)
+    case (HAVERKAMP)
+      allocate (HaverkampModelType :: soil_model)
+      soil_model%id = HAVERKAMP
+    case (VANGENUCHTEN)
+      allocate (VanGenuchtenModelType :: soil_model)
+      soil_model%id = VANGENUCHTEN
+    case (DEVSOILMODEL)
+      call dev_feature('Setting the soil model to DEVELOPMENT is a development &
+        &feature, install the nightly build or compile from source with &
+        &IDEVELOPMODE = 1.')
+      allocate (UzrDevSoilType :: soil_model)
+      soil_model%id = DEVSOILMODEL
+    case default
+      write (*, *) "Internal error: invalid soil model id"
+      call ustop()
     end select
 
     call soil_model%create(this%input_mem_path, this%mem_path, &
