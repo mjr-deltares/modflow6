@@ -1,6 +1,6 @@
 module GwfUzrModule
   use KindModule, only: I4B, DP
-  use ConstantsModule, only: LENVARNAME
+  use ConstantsModule, only: LENVARNAME, DHALF, DHNOFLO, LINELENGTH
   use MemoryManagerModule, only: mem_allocate, mem_deallocate
   use MemoryManagerExtModule, only: mem_set_value
   use NumericalPackageModule, only: NumericalPackageType
@@ -24,6 +24,8 @@ module GwfUzrModule
   public :: GwfUzrType, uzr_cr
 
   type, extends(NumericalPackageType) :: GwfUzrType
+    integer(I4B), pointer :: ioutsat => null() !< output unit for writing saturation to binary file (0 when inactive)
+    integer(I4B), pointer :: ioutphead => null() !< output unit for writing pressure head to binary file (0 when inactive)
     integer(I4B), pointer :: storage_scheme => null() !< 0 = default, 1 = chord slope, 2 = mod. Picard
     integer(I4B), pointer :: soil_model_id => null() !< 0 = default, 1 = Brooks-Corey, 2 = Haverkamp, 3 = Van Genuchten
     class(SoilModelType), pointer :: soil_model => null() !< the soil model
@@ -33,11 +35,15 @@ module GwfUzrModule
     integer(I4B), dimension(:), pointer, contiguous :: iunsat => null() !< 0 = standard node, 1 = unsaturated (Richards) node
     real(DP), dimension(:), pointer, contiguous :: porosity => null() !< the volumetric fraction of the pore space
     real(DP), dimension(:), pointer, contiguous :: sat_res => null() !< residual (also irreducible) saturation
+    real(DP), dimension(:), pointer, contiguous :: pressure_head => null() !< pressure head
+    real(DP), dimension(:), pointer, contiguous :: saturation => null() !< water saturation
     class(UzrFlowType), pointer :: uzr_flow => null() !< the NPF flow extension
     class(UzrStorageType), pointer :: uzr_sto => null() !< the STO storage extension
   contains
     procedure :: uzr_df
     procedure :: uzr_ar
+    procedure :: uzr_cq
+    procedure :: uzr_ot_dv
     procedure :: uzr_da
     procedure :: allocate_scalars
     ! private
@@ -48,12 +54,14 @@ module GwfUzrModule
 
 contains
 
+  !> @brief Create the UZR package object
+  !<
   subroutine uzr_cr(uzr_obj, name_model, input_mempath, inunit, iout)
-    type(GwfUzrType), pointer, intent(inout) :: uzr_obj
-    character(len=*), intent(in) :: name_model
-    character(len=*), intent(in) :: input_mempath
-    integer(I4B), intent(in) :: inunit
-    integer(I4B), intent(in) :: iout
+    type(GwfUzrType), pointer, intent(inout) :: uzr_obj !< the newly created UZR package
+    character(len=*), intent(in) :: name_model !< the model name
+    character(len=*), intent(in) :: input_mempath !< the memory path of IDM
+    integer(I4B), intent(in) :: inunit !< the input file unit for UZR
+    integer(I4B), intent(in) :: iout !< the output file unit for the model
     ! local
     character(len=*), parameter :: fmtheader = &
       "(1x, /1x, 'UZR -- RICHARDS FLOW PACKAGE, VERSION 1, 3/30/2015', &
@@ -66,6 +74,8 @@ contains
 
     uzr_obj%inunit = inunit
     uzr_obj%iout = iout
+    uzr_obj%ioutsat = 0
+    uzr_obj%ioutphead = 0
     uzr_obj%storage_scheme = -1
     uzr_obj%soil_model_id = -1
     uzr_obj%soil_model_kr_id = -1
@@ -78,14 +88,17 @@ contains
 
   end subroutine uzr_cr
 
+  !> @brief Allocates, sources from input, and initializes uzr
+  !<
   subroutine uzr_df(this, dis, npf, sto)
-    class(GwfUzrType), intent(inout) :: this
-    class(DisBaseType), pointer, intent(inout) :: dis
-    type(GwfNpfType), pointer, intent(inout) :: npf
-    type(GwfStoType), pointer, intent(inout) :: sto
+    class(GwfUzrType), intent(inout) :: this !< this instance
+    class(DisBaseType), pointer, intent(inout) :: dis !< the model discretization
+    type(GwfNpfType), pointer, intent(inout) :: npf !< the NPF package to interact with
+    type(GwfStoType), pointer, intent(inout) :: sto !< the STO package to interact with
     ! local
     class(GwfNpfExtType), pointer :: npf_ext
     class(GwfStoExtType), pointer :: sto_ext
+    integer(I4B) :: i
 
     this%dis => dis
 
@@ -93,6 +106,14 @@ contains
     call mem_allocate(this%iunsat, dis%nodes, "IUNSAT", this%memoryPath)
     call mem_allocate(this%porosity, dis%nodes, 'POROSITY', this%memoryPath)
     call mem_allocate(this%sat_res, dis%nodes, 'SATRES', this%memoryPath)
+    call mem_allocate(this%pressure_head, dis%nodes, 'PHEAD', this%memoryPath)
+    call mem_allocate(this%saturation, dis%nodes, 'SATURATION', this%memoryPath)
+
+    ! init
+    do i = 1, dis%nodes
+      this%pressure_head(i) = DHNOFLO
+      this%saturation(i) = DHNOFLO
+    end do
 
     ! load from idm
     call this%source_options()
@@ -131,6 +152,8 @@ contains
 
     call this%NumericalPackageType%allocate_scalars()
 
+    call mem_allocate(this%ioutsat, 'IOUTSAT', this%memoryPath)
+    call mem_allocate(this%ioutphead, 'IOUTPHEAD', this%memoryPath)
     call mem_allocate(this%soil_model_id, "SOIL_MODEL", this%memoryPath)
     call mem_allocate(this%soil_model_kr_id, "SOIL_MODEL_KR", this%memoryPath)
     call mem_allocate(this%storage_scheme, "STORAGE_SCHEME", this%memoryPath)
@@ -141,11 +164,14 @@ contains
   subroutine source_options(this)
     use UzrFlowModule, only: kr_averaging_name
     use DevFeatureModule, only: dev_feature
+    use InputOutputModule, only: getunit, openfile
+    use OpenSpecModule, only: access, form
     class(GwfUzrType), intent(inout) :: this
     ! local
     type(GwfUzrParamFoundType) :: found
     character(len=LENVARNAME), dimension(2) :: scheme_name = &
       &[character(len=LENVARNAME) :: 'CHORD-SLOPE', 'MODIFIED-PICARD']
+    character(len=LINELENGTH) :: sat_fname, phead_fname
 
     write (this%iout, '(1x,a)') 'Setting UZR options'
 
@@ -164,7 +190,7 @@ contains
     if (this%soil_model_kr_id > 0) then
       call dev_feature('MODEL_KR is a development feature, install the &
             &nightly build or compile from source with IDEVELOPMODE = 1.')
-    write (this%iout, '(4x,2a)') 'Soil model for relative permeability set to ', &
+      write (this%iout, '(4x,2a)') 'Soil model for relative permeability set to ', &
         trim(soil_model_name(this%soil_model_kr_id))
     else
       this%soil_model_kr_id = this%soil_model_id
@@ -173,8 +199,8 @@ contains
     this%storage_scheme = 0
     if (this%inewton == 0) then
       ! chord-slope and mod. picard only make sense when not newton
-   call mem_set_value(this%storage_scheme, 'STORAGE_SCHEME', this%input_mempath, &
-                         scheme_name, found%storage_scheme)
+      call mem_set_value(this%storage_scheme, 'STORAGE_SCHEME', &
+                         this%input_mempath, scheme_name, found%storage_scheme)
     end if
     if (this%storage_scheme > 0) then
       write (this%iout, '(4x,2a)') 'Storage scheme set to ', &
@@ -187,6 +213,24 @@ contains
     if (this%kr_averaging > 0) then
       write (this%iout, '(4x,2a)') 'Kr weighting set to ', &
         trim(kr_averaging_name(this%kr_averaging))
+    end if
+
+    ! set fileout for saturation
+    call mem_set_value(sat_fname, 'SATURATIONFILE', this%input_mempath, &
+                       found%saturationfile)
+    if (found%saturationfile) then
+      this%ioutsat = getunit()
+      call openfile(this%ioutsat, this%iout, trim(sat_fname), &
+                    'DATA(BINARY)', form, access, 'REPLACE')
+    end if
+
+    ! set fileout for pressure head
+    call mem_set_value(phead_fname, 'PHEADFILE', this%input_mempath, &
+                       found%pheadfile)
+    if (found%pheadfile) then
+      this%ioutphead = getunit()
+      call openfile(this%ioutphead, this%iout, trim(phead_fname), &
+                    'DATA(BINARY)', form, access, 'REPLACE')
     end if
 
     write (this%iout, '(1x,a)') 'End setting UZR options'
@@ -224,11 +268,65 @@ contains
 
   end subroutine uzr_ar
 
+  !< @brief Calculate derived variables
+  !>
+  subroutine uzr_cq(this, hnew)
+    class(GwfUzrType), intent(inout) :: this ! this instance
+    real(DP), intent(inout), dimension(:) :: hnew !< the updated head
+    ! local
+    integer(I4B) :: n
+    real(DP) :: z, psi
+
+    do n = 1, this%dis%nodes
+      if (this%iunsat(n) == 0) cycle
+        
+      ! calculate psi
+      z = DHALF * (this%dis%bot(n) + this%dis%top(n))
+      psi = hnew(n) - z
+      ! calculate saturation
+      this%pressure_head(n) = psi
+      this%saturation(n) = this%soil_model%saturation(psi, n)
+    end do
+
+  end subroutine uzr_cq
+
+  !> @brief Save data to binary file
+  !<
+  subroutine uzr_ot_dv(this, idvfl)
+    class(GwfUzrType) :: this !, this instance
+    integer(I4B), intent(in) :: idvfl !< when > 0, dep. var. is written
+    ! local
+    character(len=1) :: cdatafmp = ' ', editdesc = ' '
+    integer(I4B) :: ibinun
+    integer(I4B) :: nvaluesp
+    integer(I4B) :: nwidthp
+
+    if (idvfl > 0) then
+      if (this%ioutsat /= 0) then
+        ibinun = this%ioutsat
+        call this%dis%record_array(this%saturation, this%iout, 0, ibinun, &
+                                   '      SATURATION', cdatafmp, nvaluesp, &
+                                   nwidthp, editdesc, DHNOFLO)
+      end if
+      if (this%ioutphead /= 0) then
+        ibinun = this%ioutphead
+        call this%dis%record_array(this%pressure_head, this%iout, 0, ibinun, &
+                                   '       PRESSHEAD', cdatafmp, nvaluesp, &
+                                   nwidthp, editdesc, DHNOFLO)
+      end if
+    end if
+    
+  end subroutine uzr_ot_dv
+
+  !< @brief Clean up
+  !<
   subroutine uzr_da(this)
     use MemoryManagerExtModule, only: memorystore_remove
     use SimVariablesModule, only: idm_context
-    class(GwfUzrType), intent(inout) :: this
+    class(GwfUzrType), intent(inout) :: this !< this instance
 
+    call mem_deallocate(this%ioutsat)
+    call mem_deallocate(this%ioutphead)
     call mem_deallocate(this%soil_model_id)
     call mem_deallocate(this%soil_model_kr_id)
     call mem_deallocate(this%storage_scheme)
@@ -246,6 +344,8 @@ contains
       call mem_deallocate(this%iunsat)
       call mem_deallocate(this%porosity)
       call mem_deallocate(this%sat_res)
+      call mem_deallocate(this%pressure_head)
+      call mem_deallocate(this%saturation)
     end if
 
     call memorystore_remove(this%name_model, 'UZR', idm_context)

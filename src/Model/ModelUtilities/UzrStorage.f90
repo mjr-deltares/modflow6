@@ -119,7 +119,7 @@ contains
 
     h1 = h_new(n)
     h0 = h_old(n)
-    z = this%gwf_dis%bot(n) + DHALF * (top - bot)
+    z = DHALF * (top + bot)
     psi1 = h1 - z
     psi0 = h0 - z
 

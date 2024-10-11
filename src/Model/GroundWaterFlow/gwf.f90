@@ -802,6 +802,7 @@ contains
       this%flowja(i) = DZERO
     end do
     if (this%innpf > 0) call this%npf%npf_cq(this%x, this%flowja)
+    if (this%inuzr > 0) call this%uzr%uzr_cq(this%x)
     if (this%inbuy > 0) call this%buy%buy_cq(this%x, this%flowja)
     if (this%inhfb > 0) call this%hfb%hfb_cq(this%x, this%flowja)
     if (this%ingnc > 0) call this%gnc%gnc_cq(this%flowja)
@@ -1019,21 +1020,28 @@ contains
     integer(I4B), intent(inout) :: ipflag
     class(BndType), pointer :: packobj
     integer(I4B) :: ip
-    !
-    ! -- Save compaction to binary file
-    if (this%incsub > 0) call this%csub%csub_ot_dv(idvsave, idvprint)
-    !
-    ! -- save density to binary file
+
+    ! Save saturation and pressure head to binary file
+    if (this%inuzr > 0) then
+      call this%uzr%uzr_ot_dv(idvsave)
+    end if
+    
+    ! Save compaction to binary file
+    if (this%incsub > 0) then
+      call this%csub%csub_ot_dv(idvsave, idvprint)
+    end if
+    
+    ! save density to binary file
     if (this%inbuy > 0) then
       call this%buy%buy_ot_dv(idvsave)
     end if
-    !
-    ! -- save viscosity to binary file
+    
+    ! save viscosity to binary file
     if (this%invsc > 0) then
       call this%vsc%vsc_ot_dv(idvsave)
     end if
-    !
-    ! -- Print advanced package dependent variables
+    
+    ! Print advanced package dependent variables
     do ip = 1, this%bndlist%Count()
       packobj => GetBndFromList(this%bndlist, ip)
       call packobj%bnd_ot_dv(idvsave, idvprint)

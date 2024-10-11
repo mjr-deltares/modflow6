@@ -17,6 +17,13 @@ module GwfUzrInputModule
     logical :: model_kr = .false.
     logical :: storage_scheme = .false.
     logical :: kr_averaging = .false.
+    logical :: sat_filerecord = .false.
+    logical :: saturation = .false.
+    logical :: fileout = .false.
+    logical :: saturationfile = .false.
+    logical :: phead_filerecord = .false.
+    logical :: pressurehead = .false.
+    logical :: pheadfile = .false.
     logical :: iunsat = .false.
     logical :: porosity = .false.
     logical :: satres = .false.
@@ -64,7 +71,7 @@ module GwfUzrInputModule
     'DEV_SOIL_PARAM', & ! fortran variable
     'STRING', & ! type
     '', & ! shape
-'set a soil parameterization from a labeled parameter set and custom functions', & ! longname
+    'set a soil parameterization from a labeled parameter set and custom functions', & ! longname
     .false., & ! required
     .false., & ! multi-record
     .false., & ! preserve case
@@ -122,6 +129,132 @@ module GwfUzrInputModule
     .false., & ! required
     .false., & ! multi-record
     .false., & ! preserve case
+    .false., & ! layered
+    .false. & ! timeseries
+    )
+
+  type(InputParamDefinitionType), parameter :: &
+    gwfuzr_sat_filerecord = InputParamDefinitionType &
+    ( &
+    'GWF', & ! component
+    'UZR', & ! subcomponent
+    'OPTIONS', & ! block
+    'SAT_FILERECORD', & ! tag name
+    'SAT_FILERECORD', & ! fortran variable
+    'RECORD SATURATION FILEOUT SATURATIONFILE', & ! type
+    '', & ! shape
+    '', & ! longname
+    .false., & ! required
+    .false., & ! multi-record
+    .false., & ! preserve case
+    .false., & ! layered
+    .false. & ! timeseries
+    )
+
+  type(InputParamDefinitionType), parameter :: &
+    gwfuzr_saturation = InputParamDefinitionType &
+    ( &
+    'GWF', & ! component
+    'UZR', & ! subcomponent
+    'OPTIONS', & ! block
+    'SATURATION', & ! tag name
+    'SATURATION', & ! fortran variable
+    'KEYWORD', & ! type
+    '', & ! shape
+    'saturation keyword', & ! longname
+    .true., & ! required
+    .true., & ! multi-record
+    .false., & ! preserve case
+    .false., & ! layered
+    .false. & ! timeseries
+    )
+
+  type(InputParamDefinitionType), parameter :: &
+    gwfuzr_fileout = InputParamDefinitionType &
+    ( &
+    'GWF', & ! component
+    'UZR', & ! subcomponent
+    'OPTIONS', & ! block
+    'FILEOUT', & ! tag name
+    'FILEOUT', & ! fortran variable
+    'KEYWORD', & ! type
+    '', & ! shape
+    'fileout keyword', & ! longname
+    .true., & ! required
+    .true., & ! multi-record
+    .false., & ! preserve case
+    .false., & ! layered
+    .false. & ! timeseries
+    )
+
+  type(InputParamDefinitionType), parameter :: &
+    gwfuzr_saturationfile = InputParamDefinitionType &
+    ( &
+    'GWF', & ! component
+    'UZR', & ! subcomponent
+    'OPTIONS', & ! block
+    'SATURATIONFILE', & ! tag name
+    'SATURATIONFILE', & ! fortran variable
+    'STRING', & ! type
+    '', & ! shape
+    'saturation file keyword', & ! longname
+    .true., & ! required
+    .true., & ! multi-record
+    .true., & ! preserve case
+    .false., & ! layered
+    .false. & ! timeseries
+    )
+
+  type(InputParamDefinitionType), parameter :: &
+    gwfuzr_phead_filerecord = InputParamDefinitionType &
+    ( &
+    'GWF', & ! component
+    'UZR', & ! subcomponent
+    'OPTIONS', & ! block
+    'PHEAD_FILERECORD', & ! tag name
+    'PHEAD_FILERECORD', & ! fortran variable
+    'RECORD PRESSUREHEAD FILEOUT PHEADFILE', & ! type
+    '', & ! shape
+    '', & ! longname
+    .false., & ! required
+    .false., & ! multi-record
+    .false., & ! preserve case
+    .false., & ! layered
+    .false. & ! timeseries
+    )
+
+  type(InputParamDefinitionType), parameter :: &
+    gwfuzr_pressurehead = InputParamDefinitionType &
+    ( &
+    'GWF', & ! component
+    'UZR', & ! subcomponent
+    'OPTIONS', & ! block
+    'PRESSUREHEAD', & ! tag name
+    'PRESSUREHEAD', & ! fortran variable
+    'KEYWORD', & ! type
+    '', & ! shape
+    'pressure head keyword', & ! longname
+    .true., & ! required
+    .true., & ! multi-record
+    .false., & ! preserve case
+    .false., & ! layered
+    .false. & ! timeseries
+    )
+
+  type(InputParamDefinitionType), parameter :: &
+    gwfuzr_pheadfile = InputParamDefinitionType &
+    ( &
+    'GWF', & ! component
+    'UZR', & ! subcomponent
+    'OPTIONS', & ! block
+    'PHEADFILE', & ! tag name
+    'PHEADFILE', & ! fortran variable
+    'STRING', & ! type
+    '', & ! shape
+    'pressure head file keyword', & ! longname
+    .true., & ! required
+    .true., & ! multi-record
+    .true., & ! preserve case
     .false., & ! layered
     .false. & ! timeseries
     )
@@ -296,6 +429,13 @@ module GwfUzrInputModule
     gwfuzr_model_kr, &
     gwfuzr_storage_scheme, &
     gwfuzr_kr_averaging, &
+    gwfuzr_sat_filerecord, &
+    gwfuzr_saturation, &
+    gwfuzr_fileout, &
+    gwfuzr_saturationfile, &
+    gwfuzr_phead_filerecord, &
+    gwfuzr_pressurehead, &
+    gwfuzr_pheadfile, &
     gwfuzr_iunsat, &
     gwfuzr_porosity, &
     gwfuzr_satres, &

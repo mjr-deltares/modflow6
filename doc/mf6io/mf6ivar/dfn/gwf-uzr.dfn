@@ -45,6 +45,94 @@ optional true
 longname relative permeability averaging method
 description is a text keyword to indicate the averaging method used to calculate the intercell relative permeability.
 
+block options
+name sat_filerecord
+type record saturation fileout saturationfile
+shape
+reader urword
+tagged true
+optional true
+longname
+description
+
+block options
+name saturation
+type keyword
+shape
+in_record true
+reader urword
+tagged true
+optional false
+longname saturation keyword
+description keyword to specify that record corresponds to saturation.
+
+block options
+name fileout
+type keyword
+shape
+in_record true
+reader urword
+tagged true
+optional false
+longname fileout keyword
+description keyword to specify that an output filename is expected next.
+
+block options
+name saturationfile
+type string
+preserve_case true
+shape
+in_record true
+reader urword
+tagged false
+optional false
+longname saturation file keyword
+description name of the binary output file to write saturation data.  The saturation file has the same format as the head file.  Saturation values will be written to the saturation file whenever heads are written to the binary head file.  The settings for controlling head output are contained in the Output Control option.
+
+block options
+name phead_filerecord
+type record pressurehead fileout pheadfile
+shape
+reader urword
+tagged true
+optional true
+longname
+description
+
+block options
+name pressurehead
+type keyword
+shape
+in_record true
+reader urword
+tagged true
+optional false
+longname pressure head keyword
+description keyword to specify that record corresponds to pressure head.
+
+block options
+name fileout
+type keyword
+shape
+in_record true
+reader urword
+tagged true
+optional false
+longname fileout keyword
+description keyword to specify that an output filename is expected next.
+
+block options
+name pheadfile
+type string
+preserve_case true
+shape
+in_record true
+reader urword
+tagged false
+optional false
+longname pressure head file keyword
+description name of the binary output file to write pressure head data.  The pressure head file has the same format as the head file.  Pressure head values will be written to file whenever (hydraulic) heads are written to the binary head file.  The settings for controlling head output are contained in the Output Control option.
+
 # --------------------- gwf uzr griddata ---------------------
 
 block griddata

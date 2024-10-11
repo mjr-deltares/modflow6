@@ -1,5 +1,6 @@
 """
 Test for the Richards based unsaturated zone package UZR.
+TODO_UZR: add reading from binary file to the tests
 """
 
 import os
