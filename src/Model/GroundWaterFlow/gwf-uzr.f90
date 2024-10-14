@@ -3,6 +3,7 @@ module GwfUzrModule
   use ConstantsModule, only: LENVARNAME, DHALF, DHNOFLO, LINELENGTH
   use MemoryManagerModule, only: mem_allocate, mem_deallocate
   use MemoryManagerExtModule, only: mem_set_value
+  use SimModule, only: store_error
   use NumericalPackageModule, only: NumericalPackageType
   use BaseDisModule, only: DisBaseType
   use GwfNpfModule, only: GwfNpfType
@@ -99,6 +100,7 @@ contains
     class(GwfNpfExtType), pointer :: npf_ext
     class(GwfStoExtType), pointer :: sto_ext
     integer(I4B) :: i
+    character(len=LINELENGTH) :: errmsg
 
     this%dis => dis
 
@@ -118,6 +120,17 @@ contains
     ! load from idm
     call this%source_options()
     call this%source_griddata()
+
+    ! validate
+    do i = 1, dis%nodes
+      if (this%iunsat(i) == 0) then
+        write (errmsg, '(a,a)') &
+          'Activating Richards flow in part of the model domain is not yet&
+          & supported. Modify IUNSAT in UZR package for model ', &
+          trim(this%name_model)
+        call store_error(errmsg, .true.)
+      end if
+    end do
 
     ! set up the soil model(s)
     call init_soil_models(this%porosity, this%sat_res, this%dis, &
