@@ -297,7 +297,7 @@ contains
   !! Runs over all cells and fills the standard STO terms, skipping cells
   !! claimed by an exclusive formulation.
   !<
-  subroutine default_storage_fc(this, kiter, matrix_sln, rhs, idxglo, h_old, h_new)
+ subroutine default_storage_fc(this, kiter, matrix_sln, rhs, idxglo, h_old, h_new)
     class(DefaultStorageFormulationType), intent(inout) :: this !< default formulation
     integer(I4B), intent(in) :: kiter !< outer iteration number
     class(MatrixBaseType), pointer, intent(inout) :: matrix_sln !< A matrix
@@ -449,7 +449,7 @@ contains
   !! Runs over all cells and fills the standard STO newton terms, skipping
   !! cells claimed by an exclusive formulation.
   !<
-  subroutine default_storage_fn(this, kiter, matrix_sln, rhs, idxglo, h_old, h_new)
+ subroutine default_storage_fn(this, kiter, matrix_sln, rhs, idxglo, h_old, h_new)
     class(DefaultStorageFormulationType), intent(inout) :: this !< default formulation
     integer(I4B), intent(in) :: kiter !< outer iteration number
     class(MatrixBaseType), pointer, intent(inout) :: matrix_sln !< A matrix
