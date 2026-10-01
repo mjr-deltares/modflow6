@@ -402,6 +402,12 @@ contains
       is_advanced = gwf_sto_is_advanced
     case ('VSC')
       is_advanced = gwf_vsc_is_advanced
+    case ('SFB')
+      is_advanced = gwf_sfb_is_advanced
+    case ('SPF')
+      is_advanced = gwf_spf_is_advanced
+    case ('UZR')
+      is_advanced = gwf_uzr_is_advanced
     case ('WEL')
       is_advanced = gwf_wel_is_advanced
     case ('WELG')

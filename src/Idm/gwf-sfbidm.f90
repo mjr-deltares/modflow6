@@ -9,6 +9,7 @@ module GwfSfbInputModule
   public gwf_sfb_block_definitions
   public GwfSfbParamFoundType
   public gwf_sfb_multi_package
+  public gwf_sfb_is_advanced
   public gwf_sfb_subpackages
 
   type GwfSfbParamFoundType
@@ -23,6 +24,7 @@ module GwfSfbInputModule
   end type GwfSfbParamFoundType
 
   logical :: gwf_sfb_multi_package = .true.
+  logical :: gwf_sfb_is_advanced = .false.
 
   character(len=16), parameter :: &
     gwf_sfb_subpackages(*) = &

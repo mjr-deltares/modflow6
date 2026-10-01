@@ -9,6 +9,7 @@ module GwfUzrInputModule
   public gwf_uzr_block_definitions
   public GwfUzrParamFoundType
   public gwf_uzr_multi_package
+  public gwf_uzr_is_advanced
   public gwf_uzr_subpackages
 
   type GwfUzrParamFoundType
@@ -36,6 +37,7 @@ module GwfUzrInputModule
   end type GwfUzrParamFoundType
 
   logical :: gwf_uzr_multi_package = .false.
+  logical :: gwf_uzr_is_advanced = .false.
 
   character(len=16), parameter :: &
     gwf_uzr_subpackages(*) = &

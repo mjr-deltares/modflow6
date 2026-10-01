@@ -9,6 +9,7 @@ module GwfSpfInputModule
   public gwf_spf_block_definitions
   public GwfSpfParamFoundType
   public gwf_spf_multi_package
+  public gwf_spf_is_advanced
   public gwf_spf_subpackages
 
   type GwfSpfParamFoundType
@@ -27,6 +28,7 @@ module GwfSpfInputModule
   end type GwfSpfParamFoundType
 
   logical :: gwf_spf_multi_package = .true.
+  logical :: gwf_spf_is_advanced = .false.
 
   character(len=16), parameter :: &
     gwf_spf_subpackages(*) = &
