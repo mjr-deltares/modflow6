@@ -112,6 +112,7 @@ module GwfNpfModule
     integer(I4B), dimension(:), pointer, contiguous :: iformulation => null() !< active formulation for the connection (size: nja)
     type(GwfNpfFormContainerType), dimension(MAX_EXT_FLOW_FORMS), private :: &
       flow_formulations !< alternative flow calculations by extension
+    class(GwfNpfFormulationType), pointer :: default_form => null() !< default conductance formulation
   contains
     procedure :: npf_df
     procedure :: npf_ac
@@ -162,6 +163,21 @@ module GwfNpfModule
     procedure, private :: prepare_edge_lookup
     procedure, private :: highest_cell_saturation
   end type
+
+  !> @brief Default conductance flow formulation
+  !!
+  !! Wraps the standard NPF conductance fill so it participates in the
+  !! additive list of flow formulations. Faces claimed by an exclusive
+  !! formulation are skipped.
+  !<
+  type, extends(GwfNpfFormulationType) :: DefaultFlowFormulationType
+    class(GwfNpfType), pointer :: npf => null() !< owning NPF package
+  contains
+    procedure :: cf => default_flow_cf
+    procedure :: fc => default_flow_fc
+    procedure :: fn => default_flow_fn
+    procedure :: cq => default_flow_cq
+  end type DefaultFlowFormulationType
 
 contains
 
@@ -461,7 +477,6 @@ contains
     integer(I4B), intent(in) :: nodes
     real(DP), intent(inout), dimension(nodes) :: hnew
     ! local
-    integer(I4B) :: n, idiag
     integer(I4B) :: iform
 
     ! Perform wetting and drying
@@ -469,18 +484,36 @@ contains
       call this%wd(kiter, hnew)
     end if
 
-    do n = 1, this%dis%nodes
-      ! get the active formulation for this node and call CF
-      idiag = this%dis%con%ia(n)
-      iform = this%iformulation(idiag)
-      if (iform == DEFAULT_FLOW) then
-        call this%cf_default_flow(kiter, n)
-      else
-        call this%flow_formulations(iform)%form%cf(kiter, n)
+    ! Each active formulation runs over all cells and adds its
+    ! terms; the default conductance formulation is always active.
+    call this%default_form%cf(kiter)
+    do iform = 1, MAX_EXT_FLOW_FORMS
+      if (associated(this%flow_formulations(iform)%form)) then
+        call this%flow_formulations(iform)%form%cf(kiter)
       end if
     end do
 
   end subroutine npf_cf
+
+  !> @brief Calculate coefficients for the default conductance formulation
+  !!
+  !! Runs over all cells and computes the saturated fraction for
+  !! convertible cells, skipping cells claimed by an exclusive formulation.
+  !<
+  subroutine default_flow_cf(this, kiter)
+    class(DefaultFlowFormulationType), intent(inout) :: this !< default formulation
+    integer(I4B), intent(in) :: kiter !< outer iteration number
+    ! local
+    integer(I4B) :: n, idiag
+
+    do n = 1, this%npf%dis%nodes
+      ! skip cells claimed by an exclusive formulation
+      idiag = this%npf%dis%con%ia(n)
+      if (this%npf%iformulation(idiag) /= DEFAULT_FLOW) cycle
+      call this%npf%cf_default_flow(kiter, n)
+    end do
+
+  end subroutine default_flow_cf
 
   !> @brief Calculate coefficients using the
   !< standard conductance formulation
@@ -513,38 +546,22 @@ contains
     real(DP), intent(inout), dimension(:) :: rhs !< the righthandside vector
     real(DP), intent(inout), dimension(:) :: hnew !< the new head values
     ! local
-    integer(I4B) :: n, m, ipos, iform
+    integer(I4B) :: iform
 
     if (this%ixt3d /= 0) then
       call this%xt3d%xt3d_fc(kiter, matrix_sln, idxglo, rhs, hnew)
     else
-      do n = 1, this%dis%nodes
-        do ipos = this%dis%con%ia(n) + 1, this%dis%con%ia(n + 1) - 1
-          if (this%dis%con%mask(ipos) == 0) cycle
-
-          m = this%dis%con%ja(ipos)
-
-          ! Calculate upper triangle only, but insert into
-          ! upper and lower parts of matrix
-          if (m < n) cycle
-
-          ! flow calculation
-          iform = this%iformulation(ipos)
-          if (iform == DEFAULT_FLOW) then
-            call this%fc_default_flow(n, m, ipos, matrix_sln, &
-                                      rhs, idxglo, hnew)
-          else
-            call this%flow_formulations(iform)%form%fc(n, m, ipos, matrix_sln, &
-                                                       rhs, idxglo, hnew)
-          end if
-
-        end do
+      ! Each active formulation runs over all connections and adds its
+      ! terms; the default conductance formulation is always active.
+      call this%default_form%fc(kiter, matrix_sln, idxglo, rhs, hnew)
+      do iform = 1, MAX_EXT_FLOW_FORMS
+        if (associated(this%flow_formulations(iform)%form)) then
+          call this%flow_formulations(iform)%form%fc(kiter, matrix_sln, &
+                                                     idxglo, rhs, hnew)
+        end if
       end do
-      !
     end if
-    !
-    ! -- Return
-    return
+
   end subroutine npf_fc
 
   !> @brief Calculate and add coefficients using the
@@ -638,6 +655,41 @@ contains
 
   end subroutine fc_default_flow
 
+  !> @brief Fill coefficients for the default conductance formulation
+  !!
+  !! Runs over all connections and fills the standard NPF conductance
+  !! terms, skipping faces claimed by an exclusive formulation.
+  !<
+  subroutine default_flow_fc(this, kiter, matrix_sln, idxglo, rhs, hnew)
+    class(DefaultFlowFormulationType), intent(inout) :: this !< default formulation
+    integer(I4B), intent(in) :: kiter !< outer iteration number
+    class(MatrixBaseType), pointer, intent(inout) :: matrix_sln !< system matrix
+    integer(I4B), dimension(:), intent(in) :: idxglo !< local to global connection map
+    real(DP), dimension(:), intent(inout) :: rhs !< right-hand side vector
+    real(DP), dimension(:), intent(inout) :: hnew !< new head values
+    ! local
+    integer(I4B) :: n, m, ipos
+
+    do n = 1, this%npf%dis%nodes
+      do ipos = this%npf%dis%con%ia(n) + 1, this%npf%dis%con%ia(n + 1) - 1
+        if (this%npf%dis%con%mask(ipos) == 0) cycle
+
+        m = this%npf%dis%con%ja(ipos)
+
+        ! Calculate upper triangle only, but insert into
+        ! upper and lower parts of matrix
+        if (m < n) cycle
+
+        ! skip faces claimed by an exclusive formulation
+        if (this%npf%iformulation(ipos) /= DEFAULT_FLOW) cycle
+
+        call this%npf%fc_default_flow(n, m, ipos, matrix_sln, &
+                                      rhs, idxglo, hnew)
+      end do
+    end do
+
+  end subroutine default_flow_fc
+
   !> @brief Calculate dry cell saturation
   !!
   !! Calculate the saturation based on the maximum cell bottom for
@@ -682,7 +734,6 @@ contains
     real(DP), intent(inout), dimension(:) :: hnew
     ! -- local
     integer(I4B) :: nodes, nja
-    integer(I4B) :: n, m, ipos
     integer(I4B) :: iform
     !
     ! -- add newton terms to solution matrix
@@ -691,29 +742,51 @@ contains
     if (this%ixt3d /= 0) then
       call this%xt3d%xt3d_fn(kiter, nodes, nja, matrix_sln, idxglo, rhs, hnew)
     else
-      !
-      do n = 1, nodes
-        do ipos = this%dis%con%ia(n) + 1, this%dis%con%ia(n + 1) - 1
-          if (this%dis%con%mask(ipos) == 0) cycle
-
-          m = this%dis%con%ja(ipos)
-
-          ! work on upper triangle
-          if (m < n) cycle
-
-          iform = this%iformulation(ipos)
-          if (iform == DEFAULT_FLOW) then
-            call this%fn_default_flow(n, m, ipos, matrix_sln, &
-                                      rhs, idxglo, hnew)
-          else
-            call this%flow_formulations(iform)%form%fn(n, m, ipos, matrix_sln, &
-                                                       rhs, idxglo, hnew)
-          end if
-        end do
+      ! Each active formulation runs over all connections and adds its
+      ! newton terms; the default conductance formulation is always active.
+      call this%default_form%fn(kiter, matrix_sln, idxglo, rhs, hnew)
+      do iform = 1, MAX_EXT_FLOW_FORMS
+        if (associated(this%flow_formulations(iform)%form)) then
+          call this%flow_formulations(iform)%form%fn(kiter, matrix_sln, &
+                                                     idxglo, rhs, hnew)
+        end if
       end do
-      !
     end if
   end subroutine npf_fn
+
+  !> @brief Fill newton terms for the default conductance formulation
+  !!
+  !! Runs over all connections and fills the standard NPF newton terms,
+  !! skipping faces claimed by an exclusive formulation.
+  !<
+  subroutine default_flow_fn(this, kiter, matrix_sln, idxglo, rhs, hnew)
+    class(DefaultFlowFormulationType), intent(inout) :: this !< default formulation
+    integer(I4B), intent(in) :: kiter !< outer iteration number
+    class(MatrixBaseType), pointer, intent(inout) :: matrix_sln !< system matrix
+    integer(I4B), dimension(:), intent(in) :: idxglo !< local to global connection map
+    real(DP), dimension(:), intent(inout) :: rhs !< right-hand side vector
+    real(DP), dimension(:), intent(inout) :: hnew !< new head values
+    ! local
+    integer(I4B) :: n, m, ipos
+
+    do n = 1, this%npf%dis%nodes
+      do ipos = this%npf%dis%con%ia(n) + 1, this%npf%dis%con%ia(n + 1) - 1
+        if (this%npf%dis%con%mask(ipos) == 0) cycle
+
+        m = this%npf%dis%con%ja(ipos)
+
+        ! work on upper triangle
+        if (m < n) cycle
+
+        ! skip faces claimed by an exclusive formulation
+        if (this%npf%iformulation(ipos) /= DEFAULT_FLOW) cycle
+
+        call this%npf%fn_default_flow(n, m, ipos, matrix_sln, &
+                                      rhs, idxglo, hnew)
+      end do
+    end do
+
+  end subroutine default_flow_fn
 
   subroutine fn_default_flow(this, n, m, ipos, matrix_sln, rhs, idxglo, hnew)
     class(GwfNpfType) :: this
@@ -874,7 +947,6 @@ contains
     real(DP), intent(inout), dimension(:) :: hnew
     real(DP), intent(inout), dimension(:) :: flowja
     ! -- local
-    integer(I4B) :: n, ipos, m
     integer(I4B) :: iform
     !
     ! -- Calculate the flow across each cell face and store in flowja
@@ -882,24 +954,43 @@ contains
     if (this%ixt3d /= 0) then
       call this%xt3d%xt3d_flowja(hnew, flowja)
     else
-      !
-      do n = 1, this%dis%nodes
-        do ipos = this%dis%con%ia(n) + 1, this%dis%con%ia(n + 1) - 1
-          m = this%dis%con%ja(ipos)
-          if (m < n) cycle
-          !TODO_MJR: why don't we exclude masked connections here?
-
-          iform = this%iformulation(ipos)
-          if (iform == DEFAULT_FLOW) then
-            call this%cq_default_flow(n, m, ipos, flowja, hnew)
-          else
-            call this%flow_formulations(iform)%form%cq(n, m, ipos, flowja, hnew)
-          end if
-        end do
+      ! Each active formulation runs over all connections and adds its
+      ! flows; the default conductance formulation is always active.
+      call this%default_form%cq(hnew, flowja)
+      do iform = 1, MAX_EXT_FLOW_FORMS
+        if (associated(this%flow_formulations(iform)%form)) then
+          call this%flow_formulations(iform)%form%cq(hnew, flowja)
+        end if
       end do
-      !
     end if
   end subroutine npf_cq
+
+  !> @brief Calculate flows for the default conductance formulation
+  !!
+  !! Runs over all connections and stores the standard NPF face flows,
+  !! skipping faces claimed by an exclusive formulation.
+  !<
+  subroutine default_flow_cq(this, hnew, flowja)
+    class(DefaultFlowFormulationType), intent(inout) :: this !< default formulation
+    real(DP), dimension(:), intent(inout) :: hnew !< new head values
+    real(DP), dimension(:), intent(inout) :: flowja !< flow between cells
+    ! local
+    integer(I4B) :: n, m, ipos
+
+    do n = 1, this%npf%dis%nodes
+      do ipos = this%npf%dis%con%ia(n) + 1, this%npf%dis%con%ia(n + 1) - 1
+        m = this%npf%dis%con%ja(ipos)
+        if (m < n) cycle
+        !TODO_MJR: why don't we exclude masked connections here?
+
+        ! skip faces claimed by an exclusive formulation
+        if (this%npf%iformulation(ipos) /= DEFAULT_FLOW) cycle
+
+        call this%npf%cq_default_flow(n, m, ipos, flowja, hnew)
+      end do
+    end do
+
+  end subroutine default_flow_cq
 
   subroutine cq_default_flow(this, n, m, ipos, flowja, hnew)
     class(GwfNpfType) :: this
@@ -1185,6 +1276,12 @@ contains
     call mem_deallocate(this%nodekchange)
     call mem_deallocate(this%iformulation)
     !
+    ! -- deallocate the default conductance formulation
+    if (associated(this%default_form)) then
+      deallocate (this%default_form)
+      this%default_form => null()
+    end if
+    !
     ! -- deallocate parent
     call this%NumericalPackageType%da()
 
@@ -1319,7 +1416,7 @@ contains
   !<
   subroutine allocate_arrays(this, ncells, njas)
     ! -- dummy
-    class(GwfNpftype) :: this
+    class(GwfNpftype), target :: this
     integer(I4B), intent(in) :: ncells
     integer(I4B), intent(in) :: njas
     ! -- local
@@ -1367,6 +1464,13 @@ contains
     do n = 1, size(this%iformulation)
       this%iformulation(n) = DEFAULT_FLOW
     end do
+    !
+    ! -- create the default conductance formulation and point it at this package
+    allocate (DefaultFlowFormulationType :: this%default_form)
+    select type (form => this%default_form)
+    type is (DefaultFlowFormulationType)
+      form%npf => this
+    end select
     !
     ! -- initialize iangle1, iangle2, iangle3, and wetdry
     do n = 1, ncells
