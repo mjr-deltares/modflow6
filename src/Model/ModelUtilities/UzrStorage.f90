@@ -6,7 +6,7 @@ module UzrStorageModule
   use BaseDisModule, only: DisBaseType
   use MemoryManagerModule, only: mem_allocate, mem_deallocate
   use GwfStoModule, only: GwfStoType
-  use GwfStoExtModule, only: GwfStoFormulationType
+  use GwfStoExtModule, only: GwfStoFormulationType, UZR_STORAGE
   use UzrSoilModelModule, only: SoilModelType
   implicit none
   private
@@ -76,30 +76,37 @@ contains
 
   end function uft_is_active
 
-  subroutine uft_fc(this, n, matrix_sln, rhs, idxglo, h_old, h_new)
+  subroutine uft_fc(this, kiter, matrix_sln, rhs, idxglo, h_old, h_new)
     use GwfStorageUtilsModule, only: SsCapacity
     class(UzrStorageType), intent(inout) :: this
-    integer(I4B), intent(in) :: n
+    integer(I4B), intent(in) :: kiter
     class(MatrixBaseType), pointer, intent(inout) :: matrix_sln
     real(DP), dimension(:), intent(inout) :: rhs
     integer(I4B), dimension(:), intent(in) :: idxglo
     real(DP), dimension(:), intent(in) :: h_old
     real(DP), dimension(:), intent(in) :: h_new
     ! local
+    integer(I4B) :: n !< the node number
     real(DP), dimension(4) :: coeffs !< the coefficients to add to the linear system
     integer(I4B) :: idiag !< the position of the diagonal element
 
-    if (this%gwf_sto%inewton == 0) then
-      call this%calculate_coeffs(n, h_old, h_new, coeffs)
-    else
-      call this%calculate_coeffs_nwt(n, h_old, h_new, coeffs)
-    end if
+    do n = 1, this%gwf_dis%nodes
+      if (this%gwf_sto%ibound(n) < 1) cycle
+      ! only cells claimed by this formulation
+      if (this%gwf_sto%iformulation(n) /= UZR_STORAGE) cycle
 
-    idiag = this%gwf_dis%con%ia(n)
-    call matrix_sln%add_value_pos(idxglo(idiag), coeffs(1))
-    rhs(n) = rhs(n) + coeffs(2)
-    call matrix_sln%add_value_pos(idxglo(idiag), coeffs(3))
-    rhs(n) = rhs(n) + coeffs(4)
+      if (this%gwf_sto%inewton == 0) then
+        call this%calculate_coeffs(n, h_old, h_new, coeffs)
+      else
+        call this%calculate_coeffs_nwt(n, h_old, h_new, coeffs)
+      end if
+
+      idiag = this%gwf_dis%con%ia(n)
+      call matrix_sln%add_value_pos(idxglo(idiag), coeffs(1))
+      rhs(n) = rhs(n) + coeffs(2)
+      call matrix_sln%add_value_pos(idxglo(idiag), coeffs(3))
+      rhs(n) = rhs(n) + coeffs(4)
+    end do
 
   end subroutine uft_fc
 
@@ -230,10 +237,9 @@ contains
 
   end subroutine calculate_coeffs_nwt
 
-  subroutine uft_fn(this, n, matrix_sln, rhs, idxglo, h_old, h_new)
-    use GwfStorageUtilsModule, only: SsCapacity
+  subroutine uft_fn(this, kiter, matrix_sln, rhs, idxglo, h_old, h_new)
     class(UzrStorageType), intent(inout) :: this
-    integer(I4B), intent(in) :: n
+    integer(I4B), intent(in) :: kiter
     class(MatrixBaseType), pointer, intent(inout) :: matrix_sln
     real(DP), dimension(:), intent(inout) :: rhs
     integer(I4B), dimension(:), intent(in) :: idxglo
@@ -244,38 +250,46 @@ contains
 
   end subroutine uft_fn
 
-  subroutine uft_cq(this, n, flowja, h_new, h_old)
+  subroutine uft_cq(this, flowja, h_new, h_old)
     class(UzrStorageType), intent(inout) :: this
-    integer(I4B), intent(in) :: n
     real(DP), dimension(:), intent(inout) :: flowja
     real(DP), dimension(:), intent(in) :: h_new
     real(DP), dimension(:), intent(in) :: h_old
     ! local
+    integer(I4B) :: n !< the node number
     real(DP), dimension(4) :: coeffs !< the linear system coefficients to calculate the flux from
     integer(I4B) :: idiag !< the position of the diagonal element
     real(DP) :: flow_ss !< the specific storage rate for node n
     real(DP) :: flow_sy !< the (unsaturated) specific yield rate for node n
 
-    ! reset UZR storage rate
-    this%strguz(n) = DZERO
+    ! reset UZR storage rates
+    do n = 1, this%gwf_dis%nodes
+      this%strguz(n) = DZERO
+    end do
 
-    if (this%gwf_sto%inewton == 0) then
-      call this%calculate_coeffs(n, h_old, h_new, coeffs)
-    else
-      call this%calculate_coeffs_nwt(n, h_old, h_new, coeffs)
-    end if
+    do n = 1, this%gwf_dis%nodes
+      if (this%gwf_sto%ibound(n) <= 0) cycle
+      ! only cells claimed by this formulation
+      if (this%gwf_sto%iformulation(n) /= UZR_STORAGE) cycle
 
-    ! q_n = A_nn * h_n - rhs_n
-    flow_ss = coeffs(1) * h_new(n) - coeffs(2)
-    flow_sy = coeffs(3) * h_new(n) - coeffs(4)
+      if (this%gwf_sto%inewton == 0) then
+        call this%calculate_coeffs(n, h_old, h_new, coeffs)
+      else
+        call this%calculate_coeffs_nwt(n, h_old, h_new, coeffs)
+      end if
 
-    ! update flowja
-    idiag = this%gwf_dis%con%ia(n)
-    flowja(idiag) = flowja(idiag) + flow_ss + flow_sy
+      ! q_n = A_nn * h_n - rhs_n
+      flow_ss = coeffs(1) * h_new(n) - coeffs(2)
+      flow_sy = coeffs(3) * h_new(n) - coeffs(4)
 
-    ! store rate (NB: specific rate is set to the STO array)
-    this%gwf_sto%strgss(n) = flow_ss
-    this%strguz(n) = flow_sy
+      ! update flowja
+      idiag = this%gwf_dis%con%ia(n)
+      flowja(idiag) = flowja(idiag) + flow_ss + flow_sy
+
+      ! store rate (NB: specific rate is set to the STO array)
+      this%gwf_sto%strgss(n) = flow_ss
+      this%strguz(n) = flow_sy
+    end do
 
   end subroutine uft_cq
 

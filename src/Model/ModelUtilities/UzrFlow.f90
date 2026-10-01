@@ -4,7 +4,7 @@ module UzrFlowModule
   use MatrixBaseModule, only: MatrixBaseType
   use BaseDisModule, only: DisBaseType
   use GwfNpfModule, only: GwfNpfType
-  use GwfNpfFormulationModule, only: GwfNpfFormulationType
+  use GwfNpfFormulationModule, only: GwfNpfFormulationType, UZR_FLOW
   use UzrSoilModelModule, only: SoilModelType
   implicit none
   private
@@ -32,7 +32,6 @@ module UzrFlowModule
     procedure :: initialize
     procedure :: cf => uft_cf
     procedure :: fc => uft_fc
-    procedure :: fn => uft_fn
     procedure :: cq => uft_cq
     procedure :: destroy
     ! private
@@ -61,72 +60,88 @@ contains
 
   end subroutine initialize
 
-  subroutine uft_cf(this, kiter, n)
+  subroutine uft_cf(this, kiter)
     class(UzrFlowType), intent(inout) :: this
     integer(I4B), intent(in) :: kiter
-    integer(I4B), intent(in) :: n
     ! local
+    integer(I4B) :: n, idiag
     real(DP) :: z_n, psi
 
-    ! calculate k_r for node n
-    z_n = DHALF * (this%gwf_dis%bot(n) + this%gwf_dis%top(n))
-    psi = this%gwf_npf%hnew(n) - z_n
-    this%krel(n) = this%soil_model%krelative(psi, n)
+    do n = 1, this%gwf_dis%nodes
+      idiag = this%gwf_dis%con%ia(n)
+      if (this%gwf_npf%iformulation(idiag) /= UZR_FLOW) cycle
+      ! calculate k_r for node n
+      z_n = DHALF * (this%gwf_dis%bot(n) + this%gwf_dis%top(n))
+      psi = this%gwf_npf%hnew(n) - z_n
+      this%krel(n) = this%soil_model%krelative(psi, n)
+    end do
 
   end subroutine uft_cf
 
-  subroutine uft_fc(this, n, m, ipos, matrix_sln, rhs, idxglo, hnew)
+  subroutine uft_fc(this, kiter, matrix_sln, idxglo, rhs, hnew)
     class(UzrFlowType), intent(inout) :: this
-    integer(I4B), intent(in) :: n
-    integer(I4B), intent(in) :: m
-    integer(I4B), intent(in) :: ipos
+    integer(I4B), intent(in) :: kiter
     class(MatrixBaseType), pointer, intent(inout) :: matrix_sln
-    real(DP), dimension(:), intent(inout) :: rhs
     integer(I4B), dimension(:), intent(in) :: idxglo
-    real(DP), dimension(:), intent(in) :: hnew
+    real(DP), dimension(:), intent(inout) :: rhs
+    real(DP), dimension(:), intent(inout) :: hnew
     ! local
+    integer(I4B) :: n !< node number n
+    integer(I4B) :: m !< node number m
+    integer(I4B) :: ipos !< connection number
     integer(I4B) :: idiag !< diagonal position
     integer(I4B) :: isym !< transposed connection
     integer(I4B) :: isymcon !< position of reverse connection m-n
     real(DP), dimension(3) :: coeffs !< the linear system coefficients for the flow
 
-    if (this%gwf_npf%inewton == 0) then
+    do n = 1, this%gwf_dis%nodes
+      do ipos = this%gwf_dis%con%ia(n) + 1, this%gwf_dis%con%ia(n + 1) - 1
+        if (this%gwf_dis%con%mask(ipos) == 0) cycle
+        m = this%gwf_dis%con%ja(ipos)
+        ! upper triangle only, insert into upper and lower parts
+        if (m < n) cycle
+        ! only faces claimed by this formulation
+        if (this%gwf_npf%iformulation(ipos) /= UZR_FLOW) cycle
 
-      ! calculate system coefficients
-      call this%calculate_coeffs(n, m, ipos, hnew, coeffs)
+        if (this%gwf_npf%inewton == 0) then
 
-      ! Fill row n
-      idiag = this%gwf_dis%con%ia(n)
-      call matrix_sln%add_value_pos(idxglo(idiag), coeffs(1))
-      call matrix_sln%add_value_pos(idxglo(ipos), coeffs(2))
+          ! calculate system coefficients
+          call this%calculate_coeffs(n, m, ipos, hnew, coeffs)
 
-      ! Fill row m
-      isymcon = this%gwf_dis%con%isym(ipos)
-      idiag = this%gwf_dis%con%ia(m)
-      call matrix_sln%add_value_pos(idxglo(idiag), coeffs(1))
-      call matrix_sln%add_value_pos(idxglo(isymcon), coeffs(2))
-    else
+          ! Fill row n
+          idiag = this%gwf_dis%con%ia(n)
+          call matrix_sln%add_value_pos(idxglo(idiag), coeffs(1))
+          call matrix_sln%add_value_pos(idxglo(ipos), coeffs(2))
 
-      ! calculate system coefficients for newton formulation for n
-      call this%calculate_coeffs_nwt(n, m, ipos, hnew, coeffs)
+          ! Fill row m
+          isymcon = this%gwf_dis%con%isym(ipos)
+          idiag = this%gwf_dis%con%ia(m)
+          call matrix_sln%add_value_pos(idxglo(idiag), coeffs(1))
+          call matrix_sln%add_value_pos(idxglo(isymcon), coeffs(2))
+        else
 
-      ! Fill row n and add to RHS
-      idiag = this%gwf_dis%con%ia(n)
-      call matrix_sln%add_value_pos(idxglo(idiag), coeffs(1))
-      call matrix_sln%add_value_pos(idxglo(ipos), coeffs(2))
-      rhs(n) = rhs(n) + coeffs(3)
+          ! calculate system coefficients for newton formulation for n
+          call this%calculate_coeffs_nwt(n, m, ipos, hnew, coeffs)
 
-      ! calculate system coefficients for newton formulation for transposed: m
-      isym = this%gwf_dis%con%isym(ipos)
-      call this%calculate_coeffs_nwt(m, n, isym, hnew, coeffs)
+          ! Fill row n and add to RHS
+          idiag = this%gwf_dis%con%ia(n)
+          call matrix_sln%add_value_pos(idxglo(idiag), coeffs(1))
+          call matrix_sln%add_value_pos(idxglo(ipos), coeffs(2))
+          rhs(n) = rhs(n) + coeffs(3)
 
-      ! Fill row m and add to RHS
-      idiag = this%gwf_dis%con%ia(m)
-      call matrix_sln%add_value_pos(idxglo(idiag), coeffs(1))
-      call matrix_sln%add_value_pos(idxglo(isym), coeffs(2))
-      rhs(m) = rhs(m) + coeffs(3)
+          ! calculate system coefficients for newton formulation for transposed: m
+          isym = this%gwf_dis%con%isym(ipos)
+          call this%calculate_coeffs_nwt(m, n, isym, hnew, coeffs)
 
-    end if
+          ! Fill row m and add to RHS
+          idiag = this%gwf_dis%con%ia(m)
+          call matrix_sln%add_value_pos(idxglo(idiag), coeffs(1))
+          call matrix_sln%add_value_pos(idxglo(isym), coeffs(2))
+          rhs(m) = rhs(m) + coeffs(3)
+
+        end if
+      end do
+    end do
 
   end subroutine uft_fc
 
@@ -219,40 +234,35 @@ contains
 
   end subroutine calculate_coeffs_nwt
 
-  subroutine uft_fn(this, n, m, ipos, matrix_sln, rhs, idxglo, hnew)
+  subroutine uft_cq(this, hnew, flowja)
     class(UzrFlowType), intent(inout) :: this
-    integer(I4B), intent(in) :: n
-    integer(I4B), intent(in) :: m
-    integer(I4B), intent(in) :: ipos
-    class(MatrixBaseType), pointer, intent(inout) :: matrix_sln
-    real(DP), dimension(:), intent(inout) :: rhs
-    integer(I4B), dimension(:), intent(in) :: idxglo
-    real(DP), dimension(:), intent(in) :: hnew
-
-    ! TODO_UZR
-
-  end subroutine uft_fn
-
-  subroutine uft_cq(this, n, m, ipos, flowja, h_new)
-    class(UzrFlowType), intent(inout) :: this
-    integer(I4B), intent(in) :: n
-    integer(I4B), intent(in) :: m
-    integer(I4B), intent(in) :: ipos
+    real(DP), dimension(:), intent(inout) :: hnew
     real(DP), dimension(:), intent(inout) :: flowja
-    real(DP), dimension(:), intent(in) :: h_new
     ! local
+    integer(I4B) :: n !< node number n
+    integer(I4B) :: m !< node number m
+    integer(I4B) :: ipos !< connection number
     real(DP), dimension(3) :: coeffs !< the linear system coefficients: A_nn, A_nm, rhs_n
     real(DP) :: flow_nm !< the flow rate into node n from m
 
-    if (this%gwf_npf%inewton == 0) then
-      call this%calculate_coeffs(n, m, ipos, h_new, coeffs)
-    else
-      call this%calculate_coeffs_nwt(n, m, ipos, h_new, coeffs)
-    end if
+    do n = 1, this%gwf_dis%nodes
+      do ipos = this%gwf_dis%con%ia(n) + 1, this%gwf_dis%con%ia(n + 1) - 1
+        m = this%gwf_dis%con%ja(ipos)
+        if (m < n) cycle
+        ! only faces claimed by this formulation
+        if (this%gwf_npf%iformulation(ipos) /= UZR_FLOW) cycle
 
-    flow_nm = coeffs(2) * h_new(m) + coeffs(1) * h_new(n) - coeffs(3)
-    flowja(ipos) = flow_nm
-    flowja(this%gwf_dis%con%isym(ipos)) = -flow_nm
+        if (this%gwf_npf%inewton == 0) then
+          call this%calculate_coeffs(n, m, ipos, hnew, coeffs)
+        else
+          call this%calculate_coeffs_nwt(n, m, ipos, hnew, coeffs)
+        end if
+
+        flow_nm = coeffs(2) * hnew(m) + coeffs(1) * hnew(n) - coeffs(3)
+        flowja(ipos) = flow_nm
+        flowja(this%gwf_dis%con%isym(ipos)) = -flow_nm
+      end do
+    end do
 
   end subroutine uft_cq
 
