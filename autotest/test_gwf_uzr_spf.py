@@ -173,7 +173,8 @@ def build_models(idx, test):
         if z < h_right:
             chd_data.append([(ilay, 0, ncol - 1), h_right])
         else:
-            spf_data.append([(ilay, 0, ncol - 1), 0.5 * delr, delc * delz])
+            # vertical seepage face (horizontal connection) on the +x boundary
+            spf_data.append([(ilay, 0, ncol - 1), 1, 0.5 * delr, delc * delz, 0.0])
 
             dcond = hk * delc * delz / (0.5 * delr)
             drn_data.append([(ilay, 0, ncol - 1), z, dcond])

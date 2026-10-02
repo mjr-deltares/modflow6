@@ -1,11 +1,13 @@
 module SpfModule
   use KindModule, only: DP, I4B, LGP
-  use ConstantsModule, only: DZERO, DHALF, DEM6, LENFTYPE, LENPACKAGENAME
+  use ConstantsModule, only: DZERO, DHALF, DONE, DEM6, DPIO180, &
+                             LENFTYPE, LENPACKAGENAME
   use SimVariablesModule, only: errmsg
   use SimModule, only: count_errors, store_error, store_error_filename
   use MemoryManagerModule, only: mem_allocate, mem_deallocate, &
                                  mem_setptr, mem_checkin
   use MemoryHelperModule, only: create_mem_path
+  use HGeoUtilModule, only: hyeff
   use BndModule, only: BndType
   use BndExtModule, only: BndExtType
   use MatrixBaseModule
@@ -20,8 +22,22 @@ module SpfModule
   character(len=LENPACKAGENAME) :: text = '             SPF'
   !
   type, extends(BndExtType) :: SpfType
-    real(DP), dimension(:), pointer, contiguous :: distance => null() !< SPF distance to face
-    real(DP), dimension(:), pointer, contiguous :: area => null() !< SPF face area
+    integer(I4B), dimension(:), pointer, contiguous :: ihc => null() !< connection type (0 vertical face, 1 horizontal)
+    real(DP), dimension(:), pointer, contiguous :: cl1 => null() !< distance from cell center to seepage face
+    real(DP), dimension(:), pointer, contiguous :: hwva => null() !< seepage face area
+    real(DP), dimension(:), pointer, contiguous :: angldegx => null() !< face-normal angle with x axis (degrees)
+    ! -- pointers into the NPF package (set once NPF is allocated and read)
+    real(DP), dimension(:), pointer, contiguous :: k11 => null() !< NPF k11
+    real(DP), dimension(:), pointer, contiguous :: k22 => null() !< NPF k22
+    real(DP), dimension(:), pointer, contiguous :: k33 => null() !< NPF k33
+    real(DP), dimension(:), pointer, contiguous :: angle1 => null() !< NPF angle1 (radians)
+    real(DP), dimension(:), pointer, contiguous :: angle2 => null() !< NPF angle2 (radians)
+    real(DP), dimension(:), pointer, contiguous :: angle3 => null() !< NPF angle3 (radians)
+    integer(I4B), pointer :: ik22 => null() !< NPF k22 flag
+    integer(I4B), pointer :: iangle1 => null() !< NPF angle1 flag
+    integer(I4B), pointer :: iangle2 => null() !< NPF angle2 flag
+    integer(I4B), pointer :: iangle3 => null() !< NPF angle3 flag
+    integer(I4B), pointer :: iavgkeff => null() !< NPF effective-K averaging method
     logical(LGP), private, pointer :: some_option => null() !< some option
   contains
     procedure :: allocate_scalars => spf_allocate_scalars
@@ -31,6 +47,8 @@ module SpfModule
     procedure :: bnd_fc => spf_fc
     procedure :: bnd_da => spf_da
     procedure :: define_listlabel
+    procedure, private :: set_npf_pointers
+    procedure, private :: effective_k
   end type SpfType
 
 contains
@@ -68,8 +86,7 @@ contains
     packobj%iout = iout
     packobj%id = id
     packobj%ibcnum = ibcnum
-    packobj%ictMemPath = create_mem_path(namemodel, 'NPF') ! TOD_UZR: why do we have this?
-
+    packobj%ictMemPath = create_mem_path(namemodel, 'NPF')
     spfobj%some_option = .false.
 
   end subroutine spf_create
@@ -112,16 +129,98 @@ contains
     call this%BndExtType%allocate_arrays(nodelist, auxvar)
 
     ! set spf input context pointers
-    call mem_setptr(this%distance, 'DIST', this%input_mempath)
-    call mem_setptr(this%area, 'AREA', this%input_mempath)
+    call mem_setptr(this%ihc, 'IHC', this%input_mempath)
+    call mem_setptr(this%cl1, 'CL1', this%input_mempath)
+    call mem_setptr(this%hwva, 'HWVA', this%input_mempath)
+    call mem_setptr(this%angldegx, 'ANGLDEGX', this%input_mempath)
 
     ! checkin spf input context pointers
-    call mem_checkin(this%distance, 'FACEDIST', this%memoryPath, &
-                     'DIST', this%input_mempath)
-    call mem_checkin(this%area, 'FACEAREA', this%memoryPath, &
-                     'AREA', this%input_mempath)
+    call mem_checkin(this%ihc, 'IHC', this%memoryPath, &
+                     'IHC', this%input_mempath)
+    call mem_checkin(this%cl1, 'CL1', this%memoryPath, &
+                     'CL1', this%input_mempath)
+    call mem_checkin(this%hwva, 'HWVA', this%memoryPath, &
+                     'HWVA', this%input_mempath)
+    call mem_checkin(this%angldegx, 'ANGLDEGX', this%memoryPath, &
+                     'ANGLDEGX', this%input_mempath)
 
   end subroutine spf_allocate_arrays
+
+  !> @brief Set pointers into the NPF package (which is allocated and read
+  !< before any package cf call).
+  subroutine set_npf_pointers(this)
+    class(SpfType) :: this
+
+    if (associated(this%k11)) return
+
+    call mem_setptr(this%k11, 'K11', this%ictMemPath)
+    call mem_setptr(this%k22, 'K22', this%ictMemPath)
+    call mem_setptr(this%k33, 'K33', this%ictMemPath)
+    call mem_setptr(this%angle1, 'ANGLE1', this%ictMemPath)
+    call mem_setptr(this%angle2, 'ANGLE2', this%ictMemPath)
+    call mem_setptr(this%angle3, 'ANGLE3', this%ictMemPath)
+    call mem_setptr(this%ik22, 'IK22', this%ictMemPath)
+    call mem_setptr(this%iangle1, 'IANGLE1', this%ictMemPath)
+    call mem_setptr(this%iangle2, 'IANGLE2', this%ictMemPath)
+    call mem_setptr(this%iangle3, 'IANGLE3', this%ictMemPath)
+    call mem_setptr(this%iavgkeff, 'IAVGKEFF', this%ictMemPath)
+
+  end subroutine set_npf_pointers
+
+  !> @brief Effective hydraulic conductivity of cell n in the direction of the
+  !! seepage-face normal, resolving anisotropy. Mirrors GwfNpfType%hy_eff but
+  !< uses the user-supplied face orientation (ihc, angldegx) instead of a
+  !< connection normal.
+  function effective_k(this, n, ihc, angldegx) result(hy)
+    class(SpfType) :: this
+    integer(I4B), intent(in) :: n !< reduced node number
+    integer(I4B), intent(in) :: ihc !< connection type
+    real(DP), intent(in) :: angldegx !< face-normal angle with x axis (degrees)
+    real(DP) :: hy
+    ! local
+    real(DP) :: vg1, vg2, vg3
+    real(DP) :: ang1, ang2, ang3
+
+    ! outward unit normal of the seepage face
+    if (ihc == 0) then
+      vg1 = DZERO
+      vg2 = DZERO
+      vg3 = DONE
+    else
+      vg1 = cos(angldegx * DPIO180)
+      vg2 = sin(angldegx * DPIO180)
+      vg3 = DZERO
+    end if
+
+    if (ihc == 0) then
+      hy = this%k33(n)
+      if (this%iangle2 > 0) then
+        ang1 = this%angle1(n)
+        ang2 = this%angle2(n)
+        ang3 = DZERO
+        if (this%iangle3 > 0) ang3 = this%angle3(n)
+        hy = hyeff(this%k11(n), this%k22(n), this%k33(n), ang1, ang2, ang3, &
+                   vg1, vg2, vg3, this%iavgkeff)
+      end if
+    else
+      hy = this%k11(n)
+      if (this%ik22 > 0) then
+        ang1 = DZERO
+        ang2 = DZERO
+        ang3 = DZERO
+        if (this%iangle1 > 0) then
+          ang1 = this%angle1(n)
+          if (this%iangle2 > 0) then
+            ang2 = this%angle2(n)
+            if (this%iangle3 > 0) ang3 = this%angle3(n)
+          end if
+        end if
+        hy = hyeff(this%k11(n), this%k22(n), this%k33(n), ang1, ang2, ang3, &
+                   vg1, vg2, vg3, this%iavgkeff)
+      end if
+    end if
+
+  end function effective_k
 
   !> @brief Formulate the HCOF and RHS terms
   !<
@@ -129,12 +228,11 @@ contains
     class(SpfType) :: this
     ! local
     integer(I4B) :: i, node
-    real(DP) :: z, head
-    real(DP), dimension(:), contiguous, pointer :: condsat
+    real(DP) :: z, head, cond
 
     if (this%nbound .eq. 0) return
 
-    call mem_setptr(condsat, 'CONDSAT', this%ictMemPath) ! TODO_UZR: remove this HACK
+    call this%set_npf_pointers()
 
     ! Calculate hcof and rhs for each seepage face
     do i = 1, this%nbound
@@ -145,11 +243,16 @@ contains
         cycle
       end if
 
+      ! seepage-face elevation datum (face centroid) used for the
+      ! pressure-head switch psi = head - z
       z = DHALF * (this%dis%bot(node) + this%dis%top(node))
       head = this%xnew(node)
       if (head > z) then
-        this%hcof(i) = -this%area(i) * condsat(node) / this%distance(i)
-        this%rhs(i) = -this%area(i) * condsat(node) * z / this%distance(i)
+        ! saturated at the face: directional conductance resolves anisotropy
+        cond = this%effective_k(node, this%ihc(i), this%angldegx(i)) * &
+               this%hwva(i) / this%cl1(i)
+        this%hcof(i) = -cond
+        this%rhs(i) = -cond * z
       else
         this%hcof(i) = DZERO
         this%rhs(i) = DZERO
@@ -211,8 +314,10 @@ contains
     else
       write (this%listlabel, '(a, a7)') trim(this%listlabel), 'NODE'
     end if
-    write (this%listlabel, '(a, a16)') trim(this%listlabel), 'FACE DISTANCE'
+    write (this%listlabel, '(a, a16)') trim(this%listlabel), 'IHC'
+    write (this%listlabel, '(a, a16)') trim(this%listlabel), 'CL1'
     write (this%listlabel, '(a, a16)') trim(this%listlabel), 'FACE AREA'
+    write (this%listlabel, '(a, a16)') trim(this%listlabel), 'ANGLDEGX'
     if (this%inamedbound == 1) then
       write (this%listlabel, '(a, a16)') trim(this%listlabel), 'BOUNDARY NAME'
     end if
@@ -226,8 +331,23 @@ contains
 
     call this%BndExtType%bnd_da()
 
-    call mem_deallocate(this%distance, 'FACEDIST', this%memoryPath)
-    call mem_deallocate(this%area, 'FACEAREA', this%memoryPath)
+    call mem_deallocate(this%ihc, 'IHC', this%memoryPath)
+    call mem_deallocate(this%cl1, 'CL1', this%memoryPath)
+    call mem_deallocate(this%hwva, 'HWVA', this%memoryPath)
+    call mem_deallocate(this%angldegx, 'ANGLDEGX', this%memoryPath)
+
+    ! NPF pointers are owned by the NPF package; just disassociate
+    nullify (this%k11)
+    nullify (this%k22)
+    nullify (this%k33)
+    nullify (this%angle1)
+    nullify (this%angle2)
+    nullify (this%angle3)
+    nullify (this%ik22)
+    nullify (this%iangle1)
+    nullify (this%iangle2)
+    nullify (this%iangle3)
+    nullify (this%iavgkeff)
 
     call mem_deallocate(this%some_option)
 

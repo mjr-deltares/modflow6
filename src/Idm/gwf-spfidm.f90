@@ -21,8 +21,10 @@ module GwfSpfInputModule
     logical :: some_option = .false.
     logical :: maxbound = .false.
     logical :: cellid = .false.
-    logical :: dist = .false.
-    logical :: area = .false.
+    logical :: ihc = .false.
+    logical :: cl1 = .false.
+    logical :: hwva = .false.
+    logical :: angldegx = .false.
     logical :: auxvar = .false.
     logical :: boundname = .false.
   end type GwfSpfParamFoundType
@@ -189,16 +191,16 @@ module GwfSpfInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfspf_dist = InputParamDefinitionType &
+    gwfspf_ihc = InputParamDefinitionType &
     ( &
     'GWF', & ! component
     'SPF', & ! subcomponent
     'PERIOD', & ! block
-    'DIST', & ! tag name
-    'DIST', & ! fortran variable
-    'DOUBLE', & ! type
+    'IHC', & ! tag name
+    'IHC', & ! fortran variable
+    'INTEGER', & ! type
     '', & ! shape
-    'distance', & ! longname
+    'horizontal connection flag', & ! longname
     .true., & ! required
     .false., & ! developmode
     .true., & ! multi-record
@@ -208,16 +210,54 @@ module GwfSpfInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfspf_area = InputParamDefinitionType &
+    gwfspf_cl1 = InputParamDefinitionType &
     ( &
     'GWF', & ! component
     'SPF', & ! subcomponent
     'PERIOD', & ! block
-    'AREA', & ! tag name
-    'AREA', & ! fortran variable
+    'CL1', & ! tag name
+    'CL1', & ! fortran variable
     'DOUBLE', & ! type
     '', & ! shape
-    'area', & ! longname
+    'distance to seepage face', & ! longname
+    .true., & ! required
+    .false., & ! developmode
+    .true., & ! multi-record
+    .false., & ! preserve case
+    .false., & ! layered
+    .false. & ! timeseries
+    )
+
+  type(InputParamDefinitionType), parameter :: &
+    gwfspf_hwva = InputParamDefinitionType &
+    ( &
+    'GWF', & ! component
+    'SPF', & ! subcomponent
+    'PERIOD', & ! block
+    'HWVA', & ! tag name
+    'HWVA', & ! fortran variable
+    'DOUBLE', & ! type
+    '', & ! shape
+    'seepage face area', & ! longname
+    .true., & ! required
+    .false., & ! developmode
+    .true., & ! multi-record
+    .false., & ! preserve case
+    .false., & ! layered
+    .false. & ! timeseries
+    )
+
+  type(InputParamDefinitionType), parameter :: &
+    gwfspf_angldegx = InputParamDefinitionType &
+    ( &
+    'GWF', & ! component
+    'SPF', & ! subcomponent
+    'PERIOD', & ! block
+    'ANGLDEGX', & ! tag name
+    'ANGLDEGX', & ! fortran variable
+    'DOUBLE', & ! type
+    '', & ! shape
+    'face normal angle with x axis', & ! longname
     .true., & ! required
     .false., & ! developmode
     .true., & ! multi-record
@@ -275,8 +315,10 @@ module GwfSpfInputModule
     gwfspf_some_option, &
     gwfspf_maxbound, &
     gwfspf_cellid, &
-    gwfspf_dist, &
-    gwfspf_area, &
+    gwfspf_ihc, &
+    gwfspf_cl1, &
+    gwfspf_hwva, &
+    gwfspf_angldegx, &
     gwfspf_auxvar, &
     gwfspf_boundname &
     ]
@@ -289,7 +331,7 @@ module GwfSpfInputModule
     'PERIOD', & ! block
     'STRESS_PERIOD_DATA', & ! tag name
     'SPD', & ! fortran variable
-    'RECARRAY CELLID DIST AREA AUX BOUNDNAME', & ! type
+    'RECARRAY CELLID IHC CL1 HWVA ANGLDEGX AUX BOUNDNAME', & ! type
     'MAXBOUND', & ! shape
     '', & ! longname
     .true., & ! required

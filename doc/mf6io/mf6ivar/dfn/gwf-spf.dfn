@@ -84,7 +84,7 @@ description REPLACE iper {}
 
 block period
 name stress_period_data
-type recarray cellid dist area aux boundname
+type recarray cellid ihc cl1 hwva angldegx aux boundname
 shape (maxbound)
 reader urword
 longname
@@ -102,24 +102,44 @@ longname cell identifier
 description REPLACE cellid {}
 
 block period
-name dist
-type double precision
+name ihc
+type integer
 shape
 tagged false
 in_record true
 reader urword
-longname distance
-description is the distance to the seepage face
+longname horizontal connection flag
+description is the connection type for the seepage face.  A value of 0 indicates a vertical connection (horizontal face, normal aligned with the z axis).  A value of 1 indicates a horizontal connection (vertical face, normal in the x-y plane as given by ANGLDEGX).
 
 block period
-name area
+name cl1
 type double precision
 shape
 tagged false
 in_record true
 reader urword
-longname area
-description is the area of the seepage face
+longname distance to seepage face
+description is the distance from the cell center to the seepage face.
+
+block period
+name hwva
+type double precision
+shape
+tagged false
+in_record true
+reader urword
+longname seepage face area
+description is the area of the seepage face.
+
+block period
+name angldegx
+type double precision
+shape
+tagged false
+in_record true
+reader urword
+longname face normal angle with x axis
+description is the angle (in degrees) between the outward normal of the seepage face and the x axis of the grid.  This value is only used when IHC is 1 and the hydraulic conductivity is anisotropic in the horizontal plane.
 
 block period
 name aux
