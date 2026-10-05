@@ -131,6 +131,7 @@ module GwfNpfModule
     procedure :: allocate_scalars
     procedure :: rewet_check
     procedure :: hy_eff
+    procedure :: calc_eff_hy
     procedure :: calc_spdis
     procedure :: sav_spdis
     procedure :: sav_sat
@@ -159,15 +160,6 @@ module GwfNpfModule
     procedure, private :: cq_default_flow
     procedure, private :: calc_condsat
     procedure, private :: calc_initial_sat
-    procedure, public :: rewet_check
-    procedure, public :: hy_eff
-    procedure, public :: calc_eff_hy
-    procedure, public :: calc_spdis
-    procedure, public :: sav_spdis
-    procedure, public :: sav_sat
-    procedure, public :: increase_edge_count
-    procedure, public :: set_edge_properties
-    procedure, public :: calcSatThickness
     procedure, private :: calc_max_conns
     procedure, private :: prepare_edge_lookup
     procedure, private :: highest_cell_saturation
