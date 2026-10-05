@@ -17,12 +17,14 @@ gwf-ghb.dfn
 gwf-ghbg.dfn
 gwf-hfb.dfn
 gwf-ic.dfn
+gwf-maw.dfn
 gwf-npf.dfn
 gwf-oc.dfn
 gwf-rch.dfn
 gwf-rcha.dfn
 gwf-riv.dfn
 gwf-rivg.dfn
+gwf-sfr.dfn
 gwf-sto.dfn
 gwf-vsc.dfn
 gwf-wel.dfn
@@ -98,6 +100,7 @@ exg-gwfprt.dfn
 exg-olfgwf.dfn
 utl-hpc.dfn
 utl-ncf.dfn
+utl-sfrtab.dfn
 utl-tvk.dfn
 utl-tvs.dfn
 utl-spc.dfn

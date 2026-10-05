@@ -3,6 +3,8 @@ if test_drive.found() and not fc_id.contains('intel')
   tests = [
     'ArrayHandlers',
     'ConductanceProvider',
+    'BinaryFileReader',
+    'Budget',
     'FeatureFlags',
     'GeomUtil',
     'HashTable',
@@ -24,6 +26,7 @@ if test_drive.found() and not fc_id.contains('intel')
     'SwfUtils',
     'TimeSelect',
     'TimeStepSelect',
+    'UzfCellGroup',
     'UzfEtUtil'
   ]
 
