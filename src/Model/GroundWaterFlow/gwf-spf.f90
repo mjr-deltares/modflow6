@@ -7,7 +7,7 @@ module SpfModule
   use MemoryManagerModule, only: mem_allocate, mem_deallocate, &
                                  mem_setptr, mem_checkin
   use MemoryHelperModule, only: create_mem_path
-  use HGeoUtilModule, only: hyeff
+  use ConductanceProviderModule, only: ConductanceProviderType
   use BndModule, only: BndType
   use BndExtModule, only: BndExtType
   use MatrixBaseModule
@@ -26,18 +26,7 @@ module SpfModule
     real(DP), dimension(:), pointer, contiguous :: cl1 => null() !< distance from cell center to seepage face
     real(DP), dimension(:), pointer, contiguous :: hwva => null() !< seepage face area
     real(DP), dimension(:), pointer, contiguous :: angldegx => null() !< face-normal angle with x axis (degrees)
-    ! -- pointers into the NPF package (set once NPF is allocated and read)
-    real(DP), dimension(:), pointer, contiguous :: k11 => null() !< NPF k11
-    real(DP), dimension(:), pointer, contiguous :: k22 => null() !< NPF k22
-    real(DP), dimension(:), pointer, contiguous :: k33 => null() !< NPF k33
-    real(DP), dimension(:), pointer, contiguous :: angle1 => null() !< NPF angle1 (radians)
-    real(DP), dimension(:), pointer, contiguous :: angle2 => null() !< NPF angle2 (radians)
-    real(DP), dimension(:), pointer, contiguous :: angle3 => null() !< NPF angle3 (radians)
-    integer(I4B), pointer :: ik22 => null() !< NPF k22 flag
-    integer(I4B), pointer :: iangle1 => null() !< NPF angle1 flag
-    integer(I4B), pointer :: iangle2 => null() !< NPF angle2 flag
-    integer(I4B), pointer :: iangle3 => null() !< NPF angle3 flag
-    integer(I4B), pointer :: iavgkeff => null() !< NPF effective-K averaging method
+    class(ConductanceProviderType), pointer :: cond_provider => null() !< directional effective-K provider (injected by the model)
     logical(LGP), private, pointer :: some_option => null() !< some option
   contains
     procedure :: allocate_scalars => spf_allocate_scalars
@@ -47,7 +36,6 @@ module SpfModule
     procedure :: bnd_fc => spf_fc
     procedure :: bnd_da => spf_da
     procedure :: define_listlabel
-    procedure, private :: set_npf_pointers
     procedure, private :: effective_k
   end type SpfType
 
@@ -146,31 +134,9 @@ contains
 
   end subroutine spf_allocate_arrays
 
-  !> @brief Set pointers into the NPF package (which is allocated and read
-  !< before any package cf call).
-  subroutine set_npf_pointers(this)
-    class(SpfType) :: this
-
-    if (associated(this%k11)) return
-
-    call mem_setptr(this%k11, 'K11', this%ictMemPath)
-    call mem_setptr(this%k22, 'K22', this%ictMemPath)
-    call mem_setptr(this%k33, 'K33', this%ictMemPath)
-    call mem_setptr(this%angle1, 'ANGLE1', this%ictMemPath)
-    call mem_setptr(this%angle2, 'ANGLE2', this%ictMemPath)
-    call mem_setptr(this%angle3, 'ANGLE3', this%ictMemPath)
-    call mem_setptr(this%ik22, 'IK22', this%ictMemPath)
-    call mem_setptr(this%iangle1, 'IANGLE1', this%ictMemPath)
-    call mem_setptr(this%iangle2, 'IANGLE2', this%ictMemPath)
-    call mem_setptr(this%iangle3, 'IANGLE3', this%ictMemPath)
-    call mem_setptr(this%iavgkeff, 'IAVGKEFF', this%ictMemPath)
-
-  end subroutine set_npf_pointers
-
   !> @brief Effective hydraulic conductivity of cell n in the direction of the
-  !! seepage-face normal, resolving anisotropy. Mirrors GwfNpfType%hy_eff but
-  !< uses the user-supplied face orientation (ihc, angldegx) instead of a
-  !< connection normal.
+  !! seepage-face normal (built from ihc and angldegx), resolving anisotropy
+  !< through the model's conductance provider.
   function effective_k(this, n, ihc, angldegx) result(hy)
     class(SpfType) :: this
     integer(I4B), intent(in) :: n !< reduced node number
@@ -178,48 +144,16 @@ contains
     real(DP), intent(in) :: angldegx !< face-normal angle with x axis (degrees)
     real(DP) :: hy
     ! local
-    real(DP) :: vg1, vg2, vg3
-    real(DP) :: ang1, ang2, ang3
+    real(DP), dimension(3) :: vg
 
     ! outward unit normal of the seepage face
     if (ihc == 0) then
-      vg1 = DZERO
-      vg2 = DZERO
-      vg3 = DONE
+      vg = [DZERO, DZERO, DONE]
     else
-      vg1 = cos(angldegx * DPIO180)
-      vg2 = sin(angldegx * DPIO180)
-      vg3 = DZERO
+      vg = [cos(angldegx * DPIO180), sin(angldegx * DPIO180), DZERO]
     end if
 
-    if (ihc == 0) then
-      hy = this%k33(n)
-      if (this%iangle2 > 0) then
-        ang1 = this%angle1(n)
-        ang2 = this%angle2(n)
-        ang3 = DZERO
-        if (this%iangle3 > 0) ang3 = this%angle3(n)
-        hy = hyeff(this%k11(n), this%k22(n), this%k33(n), ang1, ang2, ang3, &
-                   vg1, vg2, vg3, this%iavgkeff)
-      end if
-    else
-      hy = this%k11(n)
-      if (this%ik22 > 0) then
-        ang1 = DZERO
-        ang2 = DZERO
-        ang3 = DZERO
-        if (this%iangle1 > 0) then
-          ang1 = this%angle1(n)
-          if (this%iangle2 > 0) then
-            ang2 = this%angle2(n)
-            if (this%iangle3 > 0) ang3 = this%angle3(n)
-          end if
-        end if
-        hy = hyeff(this%k11(n), this%k22(n), this%k33(n), ang1, ang2, ang3, &
-                   vg1, vg2, vg3, this%iavgkeff)
-      end if
-    end if
-
+    hy = this%cond_provider%eff_hy(n, ihc, vg)
   end function effective_k
 
   !> @brief Formulate the HCOF and RHS terms
@@ -231,8 +165,6 @@ contains
     real(DP) :: z, head, cond
 
     if (this%nbound .eq. 0) return
-
-    call this%set_npf_pointers()
 
     ! Calculate hcof and rhs for each seepage face
     do i = 1, this%nbound
@@ -336,18 +268,8 @@ contains
     call mem_deallocate(this%hwva, 'HWVA', this%memoryPath)
     call mem_deallocate(this%angldegx, 'ANGLDEGX', this%memoryPath)
 
-    ! NPF pointers are owned by the NPF package; just disassociate
-    nullify (this%k11)
-    nullify (this%k22)
-    nullify (this%k33)
-    nullify (this%angle1)
-    nullify (this%angle2)
-    nullify (this%angle3)
-    nullify (this%ik22)
-    nullify (this%iangle1)
-    nullify (this%iangle2)
-    nullify (this%iangle3)
-    nullify (this%iavgkeff)
+    ! provider is owned by the model; just disassociate
+    nullify (this%cond_provider)
 
     call mem_deallocate(this%some_option)
 

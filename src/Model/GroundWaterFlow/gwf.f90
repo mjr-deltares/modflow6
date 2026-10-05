@@ -323,6 +323,7 @@ contains
   subroutine gwf_ar(this)
     ! -- modules
     use NpfConductanceProviderModule, only: create_npf_conductance_provider
+    use SpfModule, only: SpfType
     ! -- dummy
     class(GwfModelType) :: this
     ! -- locals
@@ -364,6 +365,13 @@ contains
       call packobj%bnd_ar()
       if (this%inbuy > 0) call this%buy%buy_ar_bnd(packobj, this%x)
       if (this%invsc > 0) call this%vsc%vsc_ar_bnd(packobj)
+      ! -- hand the directional effective-K provider to packages that need it
+      if (associated(this%cond_provider)) then
+        select type (packobj)
+        type is (SpfType)
+          packobj%cond_provider => this%cond_provider
+        end select
+      end if
     end do
   end subroutine gwf_ar
 
