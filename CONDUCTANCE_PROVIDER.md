@@ -19,7 +19,7 @@ centralizes the capability and is injected by the model.
 - `GwfNpfType%calc_eff_hy(n, ihc, vg)` (`gwf-npf.f90`)
   - connection-agnostic public wrapper over the existing `hy_eff` (which already
     accepts an explicit direction and ignores the neighbor/ipos args).
-- `NpfConductanceProviderType` (`src/Model/GroundWaterFlow/NpfConductanceProvider.f90`)
+- `NpfConductanceProviderType` (`src/Model/ModelUtilities/NpfConductanceProvider.f90`)
   - concrete adapter holding a `GwfNpfType` pointer, delegating `eff_hy` to
     `calc_eff_hy`. Needed because `GwfNpfType` already extends
     `NumericalPackageType` and Fortran is single-inheritance, so NPF cannot also
