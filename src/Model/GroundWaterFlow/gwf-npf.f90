@@ -159,6 +159,15 @@ module GwfNpfModule
     procedure, private :: cq_default_flow
     procedure, private :: calc_condsat
     procedure, private :: calc_initial_sat
+    procedure, public :: rewet_check
+    procedure, public :: hy_eff
+    procedure, public :: calc_eff_hy
+    procedure, public :: calc_spdis
+    procedure, public :: sav_spdis
+    procedure, public :: sav_sat
+    procedure, public :: increase_edge_count
+    procedure, public :: set_edge_properties
+    procedure, public :: calcSatThickness
     procedure, private :: calc_max_conns
     procedure, private :: prepare_edge_lookup
     procedure, private :: highest_cell_saturation
@@ -2660,6 +2669,20 @@ contains
       !
     end if
   end function hy_eff
+
+  !> @brief Effective hydraulic conductivity of cell n along the unit
+  !! direction vg, resolving anisotropy. Connection-agnostic wrapper over
+  !! hy_eff for external callers (e.g. a boundary package with a known face
+  !< normal); hy_eff ignores the neighbor/ipos arguments when vg is supplied.
+  function calc_eff_hy(this, n, ihc, vg) result(hy)
+    class(GwfNpfType) :: this
+    integer(I4B), intent(in) :: n !< reduced node number
+    integer(I4B), intent(in) :: ihc !< horizontal connection flag
+    real(DP), dimension(3), intent(in) :: vg !< unit direction vector
+    real(DP) :: hy
+
+    hy = this%hy_eff(n, n, ihc, vg=vg)
+  end function calc_eff_hy
 
   !> @brief Calculate the 3 components of specific discharge at the cell center
   !<
