@@ -1,4 +1,4 @@
-# --------------------- gwf spf options ---------------------
+# --------------------- gwf spg options ---------------------
 # flopy multi-package
 # package-type stress-package
 
@@ -48,15 +48,24 @@ description REPLACE save_flows {'{#1}': 'seepage'}
 mf6internal ipakcb
 
 block options
-name some_option
+name ibound_toggle
 type keyword
 reader urword
 optional true
-longname some option
-description description of some option
+longname use constant-head ibound toggle method
+description keyword to activate the constant-head ibound toggle method for enforcing the active seepage state.  When this keyword is specified, each active seepage cell is temporarily converted to a true constant-head cell (held at the seepage elevation) while it is discharging, and released back to an ordinary active cell (no-flow seepage boundary) when the flow would reverse into the simulated domain.  When this keyword is not specified, the active seepage state is instead enforced with a large penalty conductance that holds the cell head near the seepage elevation.
+
+block options
+name penalty_conductance
+type double precision
+reader urword
+optional true
+longname penalty conductance for the active seepage state
+description value of the conductance used to hold the cell head near the seepage elevation when the penalty method is active (that is, when IBOUND_TOGGLE is not specified).  This value should be large relative to the conductances of the connections to the seepage cell.  If PENALTY_CONDUCTANCE is not specified, a default value of 1.0e9 is used.
+mf6internal penalty_cond
 
 
-# --------------------- gwf spf dimensions ---------------------
+# --------------------- gwf spg dimensions ---------------------
 
 block dimensions
 name maxbound
@@ -67,7 +76,7 @@ longname maximum number of seepage cells
 description REPLACE maxbound {'{#1}': 'seepage cells'}
 
 
-# --------------------- gwf rch period ---------------------
+# --------------------- gwf spg period ---------------------
 
 block period
 name iper
@@ -84,7 +93,7 @@ description REPLACE iper {}
 
 block period
 name stress_period_data
-type recarray cellid ihc cl1 hwva angldegx aux boundname
+type recarray cellid aux boundname
 shape (maxbound)
 reader urword
 longname
@@ -100,46 +109,6 @@ in_record true
 reader urword
 longname cell identifier
 description REPLACE cellid {}
-
-block period
-name ihc
-type integer
-shape
-tagged false
-in_record true
-reader urword
-longname horizontal connection flag
-description is the connection type for the seepage face.  A value of 0 indicates a vertical connection (horizontal face, normal aligned with the z axis).  A value of 1 indicates a horizontal connection (vertical face, normal in the x-y plane as given by ANGLDEGX).
-
-block period
-name cl1
-type double precision
-shape
-tagged false
-in_record true
-reader urword
-longname distance to seepage face
-description is the distance from the cell center to the seepage face.
-
-block period
-name hwva
-type double precision
-shape
-tagged false
-in_record true
-reader urword
-longname seepage face area
-description is the area of the seepage face.
-
-block period
-name angldegx
-type double precision
-shape
-tagged false
-in_record true
-reader urword
-longname face normal angle with x axis
-description is the angle (in degrees) between the outward normal of the seepage face and the x axis of the grid.  This value is only used when IHC is 1 and the hydraulic conductivity is anisotropic in the horizontal plane.
 
 block period
 name aux

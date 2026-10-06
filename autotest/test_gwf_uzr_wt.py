@@ -14,9 +14,10 @@ from framework import TestFramework
 from gwf_test_utils import PLOT_UZR_TESTS, get_uzr_soil_data
 from modflow_devtools.misc import is_in_ci
 
-cases = ["wt-npf", "wt-npf-drn", "wt-uzr", "wt-uzr-drn"]
-use_uzr = [False, False, True, True]
-use_drain = [False, True, False, True]
+cases = ["wt-npf", "wt-npf-drn", "wt-uzr", "wt-uzr-drn", "wt-uzr-spg"]
+use_uzr = [False, False, True, True, True]
+use_drain = [False, True, False, True, False]
+use_seepage = [False, False, False, False, True]
 
 refinement = 1
 height = 200.0
@@ -159,6 +160,7 @@ def build_models(idx, test):
     # boundary data
     chd_data = []
     drn_data = []
+    spg_data = []
 
     # left boundary
     for ilay in range(nlay):
@@ -173,6 +175,8 @@ def build_models(idx, test):
         else:
             dcond = hk * delc * delz / (0.5 * delr)
             drn_data.append([(ilay, 0, ncol - 1), z, dcond])
+            # seepage face (SPG) on the +x boundary above the right head
+            spg_data.append([(ilay, 0, ncol - 1)])
 
     chd_spd = {0: chd_data}
     chd = flopy.mf6.ModflowGwfchd(
@@ -190,6 +194,17 @@ def build_models(idx, test):
             gwf,
             stress_period_data=drn_spd,
             print_input=True,
+        )
+
+    if use_seepage[idx]:
+        spg_spd = {0: spg_data}
+        spg = flopy.mf6.ModflowGwfspg(
+            gwf,
+            maxbound=len(spg_data),
+            stress_period_data=spg_spd,
+            save_flows=True,
+            print_flows=True,
+            pname="SPG-1",
         )
 
     # output control
@@ -280,6 +295,8 @@ def check_output(idx, test):
     cbb = flopy.utils.CellBudgetFile(cbcpth, precision="double")
     flow_ja_face = cbb.get_data(text="FLOW-JA-FACE")
     ia = grb._datadict["IA"] - 1
+    # the seepage (SPG) on/off nonlinearity converges slightly looser
+    res_atol = 1.0e-5 if use_seepage[idx] else 1.0e-6
     for fjf in flow_ja_face:
         fjf = fjf.flatten()
         res = fjf[ia[:-1]]
@@ -287,7 +304,7 @@ def check_output(idx, test):
             f"min or max residual too large {res.min()} at {res.argmin()} "
             f"and {res.max()} at {res.argmax()}"
         )
-        assert np.allclose(res, 0.0, atol=1.0e-6), errmsg
+        assert np.allclose(res, 0.0, atol=res_atol), errmsg
 
 
 @pytest.mark.parametrize("idx, name", enumerate(cases))

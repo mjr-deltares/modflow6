@@ -124,8 +124,8 @@ module GwfModule
   !<
   integer(I4B), parameter :: GWF_NMULTIPKG = 50
   character(len=LENPACKAGETYPE), dimension(GWF_NMULTIPKG) :: GWF_MULTIPKG
-  data GWF_MULTIPKG/'WEL6 ', 'DRN6 ', 'RIV6 ', 'GHB6 ', 'SPF6 ', & !  5
-                   &'SGD6 ', 'RCH6 ', 'EVT6 ', 'CHD6 ', '     ', & ! 10
+  data GWF_MULTIPKG/'WEL6 ', 'DRN6 ', 'RIV6 ', 'GHB6 ', '     ', & !  5
+                   &'SGD6 ', 'RCH6 ', 'EVT6 ', 'CHD6 ', 'SPG6 ', & ! 10
                    &'MAW6 ', 'SFR6 ', 'LAK6 ', 'UZF6 ', 'API6 ', & ! 15
                    &35*'     '/ ! 50
 
@@ -323,7 +323,6 @@ contains
   subroutine gwf_ar(this)
     ! -- modules
     use NpfConductanceProviderModule, only: create_npf_conductance_provider
-    use SpfModule, only: SpfType
     use SgdModule, only: SgdType
     ! -- dummy
     class(GwfModelType) :: this
@@ -369,8 +368,6 @@ contains
       ! -- hand the directional effective-K provider to packages that need it
       if (associated(this%cond_provider)) then
         select type (packobj)
-        type is (SpfType)
-          packobj%cond_provider => this%cond_provider
         type is (SgdType)
           packobj%cond_provider => this%cond_provider
         end select
@@ -1283,7 +1280,7 @@ contains
     use RivModule, only: riv_create
     use GhbModule, only: ghb_create
     use SgdModule, only: sgd_create
-    use SpfModule, only: spf_create
+    use SpgModule, only: spg_create
     use RchModule, only: rch_create
     use EvtModule, only: evt_create
     use MawModule, only: maw_create
@@ -1325,8 +1322,8 @@ contains
     case ('SGD6')
       call sgd_create(packobj, ipakid, ipaknum, inunit, iout, this%name, &
                       pakname, mempath)
-    case ('SPF6')
-      call spf_create(packobj, ipakid, ipaknum, inunit, iout, this%name, &
+    case ('SPG6')
+      call spg_create(packobj, ipakid, ipaknum, inunit, iout, this%name, &
                       pakname, mempath)
     case ('RCH6')
       call rch_create(packobj, ipakid, ipaknum, inunit, iout, this%name, &
@@ -1583,7 +1580,7 @@ contains
         this%inobs = inunit
       case ('WEL6', 'DRN6', 'RIV6', 'GHB6', 'RCH6', &
             'EVT6', 'API6', 'CHD6', 'MAW6', 'SFR6', &
-            'LAK6', 'UZF6', 'SPF6', 'SGD6')
+            'LAK6', 'UZF6', 'SGD6', 'SPG6')
         call expandarray(bndpkgs)
         bndpkgs(size(bndpkgs)) = n
       case default

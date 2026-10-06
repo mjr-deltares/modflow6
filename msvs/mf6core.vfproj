@@ -233,7 +233,6 @@
 				<File RelativePath="..\src\Idm\gwf-rivgidm.f90"/>
 				<File RelativePath="..\src\Idm\gwf-rividm.f90"/>
 				<File RelativePath="..\src\Idm\gwf-sfbidm.f90"/>
-				<File RelativePath="..\src\Idm\gwf-spfidm.f90"/>
 				<File RelativePath="..\src\Idm\gwf-stoidm.f90"/>
 				<File RelativePath="..\src\Idm\gwf-uzridm.f90"/>
 				<File RelativePath="..\src\Idm\gwf-vscidm.f90"/>
@@ -363,7 +362,6 @@
 					<File RelativePath="..\src\Model\GroundWaterFlow\gwf-riv.f90"/>
 					<File RelativePath="..\src\Model\GroundWaterFlow\gwf-sfb.f90"/>
 					<File RelativePath="..\src\Model\GroundWaterFlow\gwf-sfr.f90"/>
-					<File RelativePath="..\src\Model\GroundWaterFlow\gwf-spf.f90"/>
 					<File RelativePath="..\src\Model\GroundWaterFlow\gwf-sto.f90"/>
 					<File RelativePath="..\src\Model\GroundWaterFlow\gwf-tvk.f90"/>
 					<File RelativePath="..\src\Model\GroundWaterFlow\gwf-tvs.f90"/>

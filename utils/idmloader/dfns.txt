@@ -26,7 +26,7 @@ gwf-rivg.dfn
 gwf-sto.dfn
 gwf-vsc.dfn
 gwf-sgd.dfn
-gwf-spf.dfn
+gwf-spg.dfn
 gwf-uzr.dfn
 gwf-wel.dfn
 gwf-welg.dfn

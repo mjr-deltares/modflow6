@@ -19,6 +19,11 @@ module SgdModule
   character(len=LENFTYPE) :: ftype = 'SGD'
   character(len=LENPACKAGENAME) :: text = '             SGD'
   !
+  !> @brief Specified Gradient (SGD) boundary package.
+  !!
+  !! Imposes a user-specified hydraulic gradient across boundary faces,
+  !! using a directional effective-K provider to compute the resulting flows.
+  !<
   type, extends(BndExtType) :: SgdType
     real(DP), dimension(:), pointer, contiguous :: gradx => null() !< specified gradient x component (flow direction)
     real(DP), dimension(:), pointer, contiguous :: grady => null() !< specified gradient y component (flow direction)
