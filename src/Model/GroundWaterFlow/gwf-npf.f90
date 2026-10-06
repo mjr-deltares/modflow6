@@ -71,6 +71,7 @@ module GwfNpfModule
     real(DP), dimension(:), pointer, contiguous :: k22 => null() !< hydraulic conductivity; if specified then this is Ky prior to rotation
     real(DP), dimension(:), pointer, contiguous :: k33 => null() !< hydraulic conductivity; if specified then this is Kz prior to rotation
     real(DP), dimension(:), pointer, contiguous :: krel => null() !< relative permeability; unless UZR flow is active in a cell, this is 1
+    real(DP), dimension(:), pointer, contiguous :: dkrdh => null() !< head derivative of relative permeability; 0 unless an unsaturated flow formulation populates it
     real(DP), dimension(:), pointer, contiguous :: k11input => null() !< hydraulic conductivity originally specified by user prior to TVK or VSC modification
     real(DP), dimension(:), pointer, contiguous :: k22input => null() !< hydraulic conductivity originally specified by user prior to TVK or VSC modification
     real(DP), dimension(:), pointer, contiguous :: k33input => null() !< hydraulic conductivity originally specified by user prior to TVK or VSC modification
@@ -1259,6 +1260,7 @@ contains
     call mem_deallocate(this%k22)
     call mem_deallocate(this%k33)
     call mem_deallocate(this%krel)
+    call mem_deallocate(this%dkrdh)
     call mem_deallocate(this%k11input)
     call mem_deallocate(this%k22input)
     call mem_deallocate(this%k33input)
@@ -1428,6 +1430,7 @@ contains
     call mem_allocate(this%icelltype, ncells, 'ICELLTYPE', this%memoryPath)
     call mem_allocate(this%k11, ncells, 'K11', this%memoryPath)
     call mem_allocate(this%krel, ncells, 'KREL', this%memoryPath)
+    call mem_allocate(this%dkrdh, ncells, 'DKRDH', this%memoryPath)
     call mem_allocate(this%sat, ncells, 'SAT', this%memoryPath)
     call mem_allocate(this%condsat, njas, 'CONDSAT', this%memoryPath)
     !
@@ -1481,6 +1484,7 @@ contains
       this%wetdry(n) = DZERO
       this%nodekchange(n) = DZERO
       this%krel(n) = DONE
+      this%dkrdh(n) = DZERO
     end do
     !
     ! -- allocate variable names

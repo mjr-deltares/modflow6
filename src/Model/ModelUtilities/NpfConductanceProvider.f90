@@ -18,6 +18,8 @@ module NpfConductanceProviderModule
     type(GwfNpfType), pointer :: npf => null() !< flow package supplying the conductivity
   contains
     procedure :: eff_hy => npf_eff_hy
+    procedure :: krel => npf_krel
+    procedure :: dkrel_dh => npf_dkrel_dh
   end type NpfConductanceProviderType
 
 contains
@@ -43,5 +45,25 @@ contains
 
     hy = this%npf%calc_eff_hy(n, ihc, vg)
   end function npf_eff_hy
+
+  !> @brief Current relative permeability of cell n (1 unless an unsaturated
+  !< flow formulation such as UZR has reduced it).
+  function npf_krel(this, n) result(kr)
+    class(NpfConductanceProviderType), intent(in) :: this
+    integer(I4B), intent(in) :: n
+    real(DP) :: kr
+
+    kr = this%npf%krel(n)
+  end function npf_krel
+
+  !> @brief Head derivative of the relative permeability of cell n (0 unless an
+  !< unsaturated flow formulation such as UZR populates it).
+  function npf_dkrel_dh(this, n) result(dkrdh)
+    class(NpfConductanceProviderType), intent(in) :: this
+    integer(I4B), intent(in) :: n
+    real(DP) :: dkrdh
+
+    dkrdh = this%npf%dkrdh(n)
+  end function npf_dkrel_dh
 
 end module NpfConductanceProviderModule

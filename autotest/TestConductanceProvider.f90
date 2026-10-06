@@ -14,6 +14,8 @@ module TestConductanceProvider
   type, extends(ConductanceProviderType) :: MockProvider
   contains
     procedure :: eff_hy => mock_eff_hy
+    procedure :: krel => mock_krel
+    procedure :: dkrel_dh => mock_dkrel_dh
   end type MockProvider
 
 contains
@@ -35,6 +37,20 @@ contains
     real(DP) :: hy
     hy = real(n, DP) + real(ihc, DP) + vg(1)
   end function mock_eff_hy
+
+  function mock_krel(this, n) result(kr)
+    class(MockProvider), intent(in) :: this
+    integer(I4B), intent(in) :: n
+    real(DP) :: kr
+    kr = DONE
+  end function mock_krel
+
+  function mock_dkrel_dh(this, n) result(dkrdh)
+    class(MockProvider), intent(in) :: this
+    integer(I4B), intent(in) :: n
+    real(DP) :: dkrdh
+    dkrdh = DZERO
+  end function mock_dkrel_dh
 
   !> The abstract type is callable through a base-class pointer and forwards
   !> n, ihc, and vg to the concrete implementation.

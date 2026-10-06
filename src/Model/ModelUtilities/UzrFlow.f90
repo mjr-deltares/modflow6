@@ -25,6 +25,7 @@ module UzrFlowModule
     integer(I4B), pointer, dimension(:), contiguous :: iunsat => null() !< see UZR
     integer(I4B), pointer :: kr_averaging => null() !< see UZR
     real(DP), pointer, dimension(:), contiguous :: krel => null() !< pointer to NPF k_r
+    real(DP), pointer, dimension(:), contiguous :: dkrdh => null() !< pointer to NPF head derivative of k_r
     class(SoilModelType), pointer :: soil_model => null() !< soil model used to get relative permeability
     class(DisBaseType), pointer :: gwf_dis => null()
     type(GwfNpfType), pointer :: gwf_npf => null()
@@ -57,6 +58,7 @@ contains
     this%gwf_npf => npf
 
     this%krel => this%gwf_npf%krel
+    this%dkrdh => this%gwf_npf%dkrdh
 
   end subroutine initialize
 
@@ -66,7 +68,9 @@ contains
     ! local
     integer(I4B) :: n, idiag
     real(DP) :: z_n, psi
+    real(DP) :: shift
 
+    shift = 1.0e-6_DP
     do n = 1, this%gwf_dis%nodes
       idiag = this%gwf_dis%con%ia(n)
       if (this%gwf_npf%iformulation(idiag) /= UZR_FLOW) cycle
@@ -74,6 +78,9 @@ contains
       z_n = DHALF * (this%gwf_dis%bot(n) + this%gwf_dis%top(n))
       psi = this%gwf_npf%hnew(n) - z_n
       this%krel(n) = this%soil_model%krelative(psi, n)
+      ! head derivative of k_r, exposed for Newton terms in boundary packages
+      this%dkrdh(n) = (this%soil_model%krelative(psi + shift, n) - &
+                       this%soil_model%krelative(psi - shift, n)) / (DTWO * shift)
     end do
 
   end subroutine uft_cf
@@ -272,6 +279,8 @@ contains
     this%gwf_dis => null()
     this%gwf_npf => null()
     this%iunsat => null()
+    this%krel => null()
+    this%dkrdh => null()
 
   end subroutine destroy
 
