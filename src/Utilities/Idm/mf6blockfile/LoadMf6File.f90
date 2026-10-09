@@ -27,7 +27,7 @@ module LoadMf6FileModule
   use DefinitionSelectModule, only: get_param_definition_type, &
                                     get_aggregate_definition_type
   use ModflowInputModule, only: ModflowInputType
-  use MemoryManagerModule, only: mem_allocate, mem_setptr
+  use MemoryManagerModule, only: mem_allocate, mem_setptr, get_isize, get_mem_rank
   use StructArrayModule, only: StructArrayType
   use StructVectorModule, only: StructVectorType
   use NCFileVarsModule, only: NCPackageVarsType
@@ -94,7 +94,6 @@ contains
   !!
   !<
   subroutine load(this, parser, mf6_input, nc_vars, filename, iout)
-    use MemoryManagerModule, only: get_isize
     class(LoadMf6FileType) :: this
     type(BlockParserType), target, intent(inout) :: parser
     type(ModflowInputType), intent(in) :: mf6_input
@@ -127,7 +126,6 @@ contains
   !!
   !<
   subroutine init(this, parser, mf6_input, filename, iout)
-    use MemoryManagerModule, only: get_isize
     class(LoadMf6FileType) :: this
     type(BlockParserType), target, intent(inout) :: parser
     type(ModflowInputType), intent(in) :: mf6_input
@@ -565,25 +563,36 @@ contains
   !<
   subroutine parse_structarray_block(this, iblk)
     use StructArrayModule, only: StructArrayType, constructStructArray
-    use LoadContextModule, only: LoadContextType
+    use LoadContextModule, only: LoadContextType, is_feature_keystring
     class(LoadMf6FileType) :: this
     integer(I4B), intent(in) :: iblk
     type(LoadContextType) :: ctx
     character(len=LINELENGTH), dimension(:), allocatable :: param_names
     type(InputParamDefinitionType), pointer :: idt !< input data type object describing this record
+    type(InputParamDefinitionType), pointer :: shape_idt
     type(InputParamDefinitionType), target :: blockvar_idt
     integer(I4B) :: blocknum
     integer(I4B), pointer :: nrow
+    integer(I4B), dimension(:), pointer, contiguous :: int1d
     integer(I4B) :: nrows, nrowsread
+    integer(I4B) :: mem_rank, isize
     integer(I4B) :: ibinary, oc_inunit
     integer(I4B) :: icol, iparam
     integer(I4B) :: ncol, nparam
+    logical(LGP) :: shape_found
+    logical(LGP) :: is_sum_shape
+    character(len=LINELENGTH) :: shape_name
+    integer(I4B), pointer :: pkgdata_maxbound
+
+    nrows = -1
 
     ! initialize load context
     call ctx%init(this%mf6_input, blockname= &
                   this%mf6_input%block_dfns(iblk)%blockname)
-    ! set in scope params for load
-    call ctx%tags(param_names, nparam, this%filename)
+    ! set in-scope params directly from context
+    param_names = ctx%params
+    nparam = size(ctx%params)
+    call ctx%check_developmode(this%filename)
     ! set input definition for this block
     idt => &
       get_aggregate_definition_type(this%mf6_input%aggregate_dfns, &
@@ -603,16 +612,78 @@ contains
     if (blocknum > 0) ncol = ncol + 1
     ! use shape to set the max num of rows
     if (idt%shape /= '') then
-      call mem_setptr(nrow, idt%shape, this%mf6_input%mempath)
-      nrows = nrow
-    else
-      nrows = -1
+      ! "SUM(name)" means total rows = sum of a per-feature array (e.g.
+      ! LAK's CONNECTIONDATA: NLAKECONN summed across all lakes); this
+      ! notation is declared explicitly in the dfn, not inferred
+      is_sum_shape = .false.
+      shape_name = idt%shape
+      if (idt%shape(1:4) == 'SUM(') then
+        is_sum_shape = .true.
+        shape_name = idt%shape(5:len_trim(idt%shape) - 1)
+      end if
+      shape_idt => &
+        get_param_definition_type(this%mf6_input%param_dfns, &
+                                  this%mf6_input%component_type, &
+                                  this%mf6_input%subcomponent_type, &
+                                  'DIMENSIONS', shape_name, this%filename, &
+                                  found=shape_found)
+      if (.not. shape_found) then
+        ! also allow a per-row PACKAGEDATA field (e.g. LAK's NLAKECONN)
+        shape_idt => &
+          get_param_definition_type(this%mf6_input%param_dfns, &
+                                    this%mf6_input%component_type, &
+                                    this%mf6_input%subcomponent_type, &
+                                    'PACKAGEDATA', shape_name, this%filename, &
+                                    found=shape_found)
+      end if
+      if (shape_found) then
+        call get_isize(shape_idt%mf6varname, this%mf6_input%mempath, isize)
+        if (isize < 0) then
+          if (shape_idt%required) then
+            write (errmsg, '(3a)') 'Required dimension "', &
+              trim(shape_name), '" not found.'
+            call store_error(errmsg)
+            call this%parser%StoreErrorUnit()
+          end if
+        else
+          ! cross-check the dfn's declared SUM(...)/plain shape against the
+          ! variable's actual rank, so a mismatch errors instead of
+          ! silently mis-using a scalar/array pointer
+          call get_mem_rank(shape_idt%mf6varname, this%mf6_input%mempath, &
+                            mem_rank)
+          if (is_sum_shape .and. mem_rank == 1) then
+            call mem_setptr(int1d, shape_idt%mf6varname, this%mf6_input%mempath)
+            nrows = sum(int1d)
+            nullify (int1d)
+          else if (.not. is_sum_shape .and. mem_rank == 0) then
+            ! scalar shape variable (e.g. NLAKES, MAXBOUND) — use value directly
+            call mem_setptr(nrow, shape_idt%mf6varname, this%mf6_input%mempath)
+            nrows = nrow
+          else
+            write (errmsg, '(5a)') 'Shape variable "', trim(shape_name), &
+              '" rank does not match its declared shape "', &
+              trim(idt%shape), '".'
+            call store_error(errmsg)
+            call this%parser%StoreErrorUnit()
+          end if
+        end if
+      end if
+      ! -- else: shape variable not found; nrows stays at its initial -1, so
+      !    the block falls back to deferred sizing
     end if
 
-    ! create a structured array
-    this%structarray => constructStructArray(this%mf6_input, ncol, nrows, &
-                                             blocknum, this%mf6_input%mempath, &
-                                             this%mf6_input%component_mempath)
+    ! create a structured array; use a larger deferred init for blocks with no
+    ! explicit shape, which include APT based advanced packages.
+    if (nrows < 0) then
+      this%structarray => constructStructArray(this%mf6_input, ncol, nrows, &
+                                               blocknum, this%mf6_input%mempath, &
+                                               this%mf6_input%component_mempath, &
+                                               size_init=64)
+    else
+      this%structarray => constructStructArray(this%mf6_input, ncol, nrows, &
+                                               blocknum, this%mf6_input%mempath, &
+                                               this%mf6_input%component_mempath)
+    end if
     ! create structarray vectors for each column
     do icol = 1, ncol
       ! if block is reloadable, block number is first column
@@ -658,6 +729,17 @@ contains
                                                     this%iout, this%filename)
       ! save structarray for deferred TS linking in df() if any strlocs were stored
       if (this%ts_active) call this%save_ts_sa()
+    end if
+
+    ! an advanced package's PACKAGEDATA row count is published as
+    ! MAXBOUND, the feature count the PERIOD block's load context needs
+    if (this%mf6_input%block_dfns(iblk)%blockname == 'PACKAGEDATA' .and. &
+        is_feature_keystring(this%mf6_input) .and. ctx%is_advanced) then
+      call get_isize('MAXBOUND', this%mf6_input%mempath, isize)
+      if (isize < 0) then
+        call mem_allocate(pkgdata_maxbound, 'MAXBOUND', this%mf6_input%mempath)
+        pkgdata_maxbound = nrowsread
+      end if
     end if
 
     ! clean up
@@ -722,8 +804,7 @@ contains
   !> @brief load io tag
   !<
   subroutine load_io_tag(parser, idt, memoryPath, which, iout)
-    use MemoryManagerModule, only: mem_allocate, mem_reallocate, &
-                                   mem_setptr, get_isize
+    use MemoryManagerModule, only: mem_allocate, mem_reallocate
     use CharacterStringModule, only: CharacterStringType
     type(BlockParserType), intent(inout) :: parser !< block parser
     type(InputParamDefinitionType), intent(in) :: idt !< input data type object describing this record

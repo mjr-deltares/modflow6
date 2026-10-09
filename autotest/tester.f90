@@ -3,8 +3,11 @@ program tester
   use testdrive, only: run_testsuite, new_testsuite, testsuite_type, &
     & select_suite, run_selected, get_argument
   use TestArrayHandlers, only: collect_arrayhandlers
+  use TestBinaryFileReader, only: collect_binaryfilereader
+  use TestBudget, only: collect_budget
   use TestFeatureFlags, only: collect_feature_flags
   use TestGeomUtil, only: collect_geomutil
+  use TestGridFileReader, only: collect_gridfilereader
   use TestHashTable, only: collect_hashtable
   use TestInputOutput, only: collect_inputoutput
   use TestKeyValueList, only: collect_keyvaluelist
@@ -24,6 +27,7 @@ program tester
   use TestSwfUtils, only: collect_swfutils
   use TestTimeSelect, only: collect_timeselect
   use TestTimeStepSelect, only: collect_timestepselect
+  use TestUzfCellGroup, only: collect_uzfcellgroup
   use TestUzfEtUtil, only: collect_uzfetutil
 
   implicit none
@@ -35,8 +39,11 @@ program tester
   stat = 0
   testsuites = [ &
                new_testsuite("ArrayHandlers", collect_arrayhandlers), &
+               new_testsuite("BinaryFileReader", collect_binaryfilereader), &
+               new_testsuite("Budget", collect_budget), &
                new_testsuite("FeatureFlags", collect_feature_flags), &
                new_testsuite("GeomUtil", collect_geomutil), &
+               new_testsuite("GridFileReader", collect_gridfilereader), &
                new_testsuite("HashTable", collect_hashtable), &
                new_testsuite("InputOutput", collect_inputoutput), &
                new_testsuite("KeyValueList", collect_keyvaluelist), &
@@ -57,6 +64,7 @@ program tester
                new_testsuite("SwfUtils", collect_swfutils), &
                new_testsuite("TimeSelect", collect_timeselect), &
                new_testsuite("TimeStepSelect", collect_timestepselect), &
+               new_testsuite("UzfCellGroup", collect_uzfcellgroup), &
                new_testsuite("UzfEtUtil", collect_uzfetutil) &
                ]
 

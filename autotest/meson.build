@@ -2,8 +2,11 @@ test_drive = dependency('test-drive', required : false)
 if test_drive.found() and not fc_id.contains('intel')
   tests = [
     'ArrayHandlers',
+    'BinaryFileReader',
+    'Budget',
     'FeatureFlags',
     'GeomUtil',
+    'GridFileReader',
     'HashTable',
     'InputOutput',
     'KeyValueList',
@@ -23,6 +26,7 @@ if test_drive.found() and not fc_id.contains('intel')
     'SwfUtils',
     'TimeSelect',
     'TimeStepSelect',
+    'UzfCellGroup',
     'UzfEtUtil'
   ]
 
