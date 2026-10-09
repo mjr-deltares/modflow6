@@ -3,7 +3,7 @@ module GwfUzrModule
   use ConstantsModule, only: LENVARNAME, DHALF, DHNOFLO, LINELENGTH
   use MemoryManagerModule, only: mem_allocate, mem_deallocate
   use MemoryManagerExtModule, only: mem_set_value
-  use SimModule, only: store_error
+  use SimModule, only: store_error, count_errors, store_error_filename
   use NumericalPackageModule, only: NumericalPackageType
   use BaseDisModule, only: DisBaseType
   use GwfNpfModule, only: GwfNpfType
@@ -38,6 +38,7 @@ module GwfUzrModule
     real(DP), dimension(:), pointer, contiguous :: sat_res => null() !< residual (also irreducible) saturation
     real(DP), dimension(:), pointer, contiguous :: pressure_head => null() !< pressure head
     real(DP), dimension(:), pointer, contiguous :: saturation => null() !< water saturation
+    type(GwfNpfType), pointer :: npf => null() !< NPF package, to publish saturation to NPF 'SAT'
     class(UzrFlowType), pointer :: uzr_flow => null() !< the NPF flow extension
     class(UzrStorageType), pointer :: uzr_sto => null() !< the STO storage extension
   contains
@@ -103,6 +104,7 @@ contains
     character(len=LINELENGTH) :: errmsg
 
     this%dis => dis
+    this%npf => npf
 
     ! allocate arrays
     call mem_allocate(this%iunsat, dis%nodes, "IUNSAT", this%memoryPath)
@@ -281,16 +283,40 @@ contains
     type(GwfNpfType) :: npf
     ! local
     integer(I4B) :: n
+    integer(I4B) :: nbad
+    character(len=LINELENGTH) :: errmsg
+    integer(I4B), parameter :: max_reported = 20
 
-    ! iunsat should have non-convertible cells
+    ! unsaturated (Richards) nodes require non-convertible NPF cells
+    nbad = 0
     do n = 1, this%dis%nodes
       if (this%iunsat(n) > 0) then
         if (npf%icelltype(n) /= 0) then
-          ! TODO_UZR: aggregate errors here
-          write (*, *) "UZR convertible cell error: ", n
+          nbad = nbad + 1
+          ! only report the first max_reported nodes individually
+          if (nbad <= max_reported) then
+            write (errmsg, '(a,1x,i0,1x,a)') &
+              'UZR node', n, 'is flagged as unsaturated (IUNSAT > 0) but &
+              &is configured as convertible (ICELLTYPE /= 0) in NPF. &
+              &Unsaturated nodes must have a non-convertible cell type.'
+            call store_error(errmsg)
+          end if
         end if
       end if
     end do
+
+    ! add a summary if more nodes failed than were reported individually
+    if (nbad > max_reported) then
+      write (errmsg, '(i0,1x,a,1x,i0,1x,a)') &
+        nbad, 'UZR nodes are convertible in NPF; only the first', &
+        max_reported, 'are listed above.'
+      call store_error(errmsg)
+    end if
+
+    ! terminate if errors were encountered
+    if (count_errors() > 0) then
+      call store_error_filename(this%input_fname)
+    end if
 
   end subroutine check_griddata
 
@@ -330,6 +356,8 @@ contains
       ! calculate saturation
       this%pressure_head(n) = psi
       this%saturation(n) = this%soil_model%saturation(psi, n)
+      ! publish to NPF so FMI consumers see the variably saturated value
+      this%npf%sat(n) = this%saturation(n)
     end do
 
   end subroutine uzr_cq
@@ -391,6 +419,8 @@ contains
       call mem_deallocate(this%pressure_head)
       call mem_deallocate(this%saturation)
     end if
+
+    this%npf => null()
 
     call memorystore_remove(this%name_model, 'UZR', idm_context)
 

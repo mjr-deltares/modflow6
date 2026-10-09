@@ -18,6 +18,12 @@ module SpgModule
   character(len=LENFTYPE) :: ftype = 'SPG'
   character(len=LENPACKAGENAME) :: text = '             SPG'
 
+  ! Relaxation parameter for the ibound-toggle method.
+  ! Holding a cell as constant head is made "sticky": a held cell is released
+  ! only after the outflow (release) condition persists for NRELAX consecutive
+  ! outer iterations.
+  integer(I4B), parameter :: NRELAX = 3
+
   !> @brief Specified-gradient-free seepage boundary package.
   !!
   !! Each listed cell behaves as a seepage face held at atmospheric pressure
@@ -32,6 +38,7 @@ module SpgModule
     integer(I4B), pointer :: itoggle => null() !< 0 = penalty method, 1 = ibound-toggle method
     real(DP), pointer :: penalty_cond => null() !< penalty conductance for the active state
     integer(I4B), dimension(:), pointer, contiguous :: iseepstate => null() !< per-cell toggle state (1 held as constant head, 0 free/no-flow)
+    integer(I4B), dimension(:), pointer, contiguous :: nrelcount => null() !< per-cell count of consecutive iterations the release condition has held
   contains
     procedure :: allocate_scalars => spg_allocate_scalars
     procedure :: allocate_arrays => spg_allocate_arrays
@@ -99,9 +106,10 @@ contains
 
     call mem_set_value(this%penalty_cond, 'PENALTY_COND', &
                        this%input_mempath, found%penalty_cond)
-    if (found%ibound_toggle) this%itoggle = 1
+    call mem_set_value(this%itoggle, 'IBOUND_TOGGLE', &
+                       this%input_mempath, found%ibound_toggle)
 
-    if (found%ibound_toggle) then
+    if (this%itoggle == 1) then
       write (this%iout, '(4x,a)') &
         'SEEPAGE ACTIVE STATE ENFORCED WITH CONSTANT-HEAD IBOUND TOGGLE.'
     else
@@ -140,11 +148,14 @@ contains
     ! call base type allocate arrays
     call this%BndExtType%allocate_arrays(nodelist, auxvar)
 
-    ! per-cell seepage toggle state
+    ! per-cell seepage toggle state and release-hysteresis counter
     call mem_allocate(this%iseepstate, this%maxbound, 'ISEEPSTATE', &
+                      this%memoryPath)
+    call mem_allocate(this%nrelcount, this%maxbound, 'NRELCOUNT', &
                       this%memoryPath)
     do i = 1, this%maxbound
       this%iseepstate(i) = 0
+      this%nrelcount(i) = 0
     end do
 
   end subroutine spg_allocate_arrays
@@ -174,6 +185,7 @@ contains
     if (this%itoggle == 1 .and. this%iper == kper) then
       do i = 1, this%nbound
         this%iseepstate(i) = 0
+        this%nrelcount(i) = 0
       end do
     end if
 
@@ -210,23 +222,31 @@ contains
           end if
         end if
       else
-        ! ibound-toggle method: switch between true constant head and no-flow
+        ! ibound-toggle method: switch between true constant head and no-flow.
         if (this%iseepstate(i) == 1) then
-          ! currently held: release when flow reverses out of the seepage cell
+          ! Currently held, release when flow is into the system
           rate = this%seepage_rate(node)
-          if (rate < DZERO) then
+          if (rate > DZERO) then
+            this%nrelcount(i) = this%nrelcount(i) + 1
+          else
+            this%nrelcount(i) = 0
+          end if
+          ! sticky: only toggle after NRELAX times
+          if (this%nrelcount(i) >= NRELAX) then
             this%iseepstate(i) = 0
             this%ibound(node) = 1
+            this%nrelcount(i) = 0
           else
             this%xnew(node) = z
           end if
         else
-          ! currently free (no-flow): hold when head rises above z
+          ! currently free (no-flow): hold immediately when head rises above z
           head = this%xnew(node)
           if (head > z) then
             this%iseepstate(i) = 1
             this%ibound(node) = -this%ibcnum
             this%xnew(node) = z
+            this%nrelcount(i) = 0
           end if
         end if
       end if
@@ -284,7 +304,7 @@ contains
     end if
 
     ! ibound-toggle method: held cells are constant head, so accumulate their
-    ! rate from the surrounding intercell flows (as the CHD package does)
+    ! rate from the surrounding intercell flows exactly as the CHD package does
     if (this%nbound == 0) return
     do i = 1, this%nbound
       node = this%nodelist(i)
@@ -292,11 +312,10 @@ contains
       if (node > 0) then
         if (this%iseepstate(i) == 1 .and. this%ibound(node) < 0) then
           idiag = this%dis%con%ia(node)
+          ! CHD-style rate: negative while the cell discharges (a sink, water
+          ! leaving the model).  Balance the held cell's flowja row with it.
           rrate = this%seepage_rate(node)
-          ! rrate is the inflow to the held constant-head cell; balance its
-          ! flowja row, then report it as a sink (negative = out of the model)
           flowja(idiag) = flowja(idiag) + rrate
-          rrate = -rrate
         end if
       end if
       this%simvals(i) = rrate
@@ -314,10 +333,11 @@ contains
     z = DHALF * (this%dis%bot(node) + this%dis%top(node))
   end function seep_elevation
 
-  !> @brief Net groundwater flow into cell node from its connections.
+  !> @brief CHD-style flow rate for seepage cell node.
   !!
-  !! A positive value is discharge into the seepage cell (out of the simulated
-  !< domain); a negative value indicates flow out of the seepage cell.
+  !! Returns -sum(off-diagonal flowja), matching the convention used by the CHD
+  !! package: a negative value is discharge into the cell (water leaving the
+  !< model, a sink); a positive value is flow out of the cell into the domain.
   function seepage_rate(this, node) result(rate)
     class(SpgType) :: this
     integer(I4B), intent(in) :: node
@@ -325,9 +345,12 @@ contains
     ! local
     integer(I4B) :: ipos
 
+    ! TODO_UZR: the seepage rate is currently determined from summing
+    ! the face flows, what if there is another source or it's at the
+    ! model exchange?
     rate = DZERO
     do ipos = this%dis%con%ia(node) + 1, this%dis%con%ia(node + 1) - 1
-      rate = rate - this%flowja(ipos) ! = -(outflow) = inflow
+      rate = rate - this%flowja(ipos)
     end do
   end function seepage_rate
 
@@ -363,6 +386,7 @@ contains
     call mem_deallocate(this%itoggle)
     call mem_deallocate(this%penalty_cond)
     call mem_deallocate(this%iseepstate, 'ISEEPSTATE', this%memoryPath)
+    call mem_deallocate(this%nrelcount, 'NRELCOUNT', this%memoryPath)
 
   end subroutine spg_da
 
