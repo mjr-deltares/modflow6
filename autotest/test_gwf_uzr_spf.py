@@ -40,7 +40,7 @@ def build_models(idx, test):
     tdis_rc = [(perlen, nstp, tsmult)]
 
     top = height
-    icelltype = 1
+    icelltype = 0
     iconvert = 1
     newtonopts = "newton"
 
