@@ -287,6 +287,10 @@ contains
     character(len=LINELENGTH) :: errmsg
     integer(I4B), parameter :: max_reported = 20
 
+    ! TODO_UZR: the iconvert in STO has the same interpretation and
+    ! should also be checked. Maybe setting them both back silently is
+    ! a satisfactory option?
+
     ! unsaturated (Richards) nodes require non-convertible NPF cells
     nbad = 0
     do n = 1, this%dis%nodes
