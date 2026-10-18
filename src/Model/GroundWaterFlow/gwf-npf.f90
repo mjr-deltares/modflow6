@@ -2468,17 +2468,26 @@ contains
   end function hy_eff
 
   !> @brief Effective hydraulic conductivity of cell n along the unit
-  !! direction vg, resolving anisotropy. Connection-agnostic wrapper over
-  !! hy_eff for external callers (e.g. a boundary package with a known face
-  !< normal); hy_eff ignores the neighbor/ipos arguments when vg is supplied.
-  function calc_eff_hy(this, n, ihc, vg) result(hy)
+  !! direction vg, resolving anisotropy. Connection-agnostic entry point for
+  !! external callers (e.g. a boundary package with a known face normal). The
+  !! full conductivity ellipsoid is projected onto vg, so no connection or
+  !< orientation flag is needed.
+  function calc_eff_hy(this, n, vg) result(hy)
     class(GwfNpfType) :: this
     integer(I4B), intent(in) :: n !< reduced node number
-    integer(I4B), intent(in) :: ihc !< horizontal connection flag
     real(DP), dimension(3), intent(in) :: vg !< unit direction vector
     real(DP) :: hy
+    ! -- local
+    real(DP) :: ang1, ang2, ang3
 
-    hy = this%hy_eff(n, n, ihc, vg=vg)
+    ang1 = DZERO
+    ang2 = DZERO
+    ang3 = DZERO
+    if (this%iangle1 > 0) ang1 = this%angle1(n)
+    if (this%iangle2 > 0) ang2 = this%angle2(n)
+    if (this%iangle3 > 0) ang3 = this%angle3(n)
+    hy = hyeff(this%k11(n), this%k22(n), this%k33(n), ang1, ang2, ang3, &
+               vg(1), vg(2), vg(3), this%iavgkeff)
   end function calc_eff_hy
 
   !> @brief Calculate the 3 components of specific discharge at the cell center

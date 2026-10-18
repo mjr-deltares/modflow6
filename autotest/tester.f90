@@ -5,7 +5,7 @@ program tester
   use TestArrayHandlers, only: collect_arrayhandlers
   use TestBinaryFileReader, only: collect_binaryfilereader
   use TestBudget, only: collect_budget
-  use TestConductanceProvider, only: collect_conductanceprovider
+  use TestKeffProvider, only: collect_keffprovider
   use TestFeatureFlags, only: collect_feature_flags
   use TestGeomUtil, only: collect_geomutil
   use TestHashTable, only: collect_hashtable
@@ -41,8 +41,8 @@ program tester
                new_testsuite("ArrayHandlers", collect_arrayhandlers), &
                new_testsuite("BinaryFileReader", collect_binaryfilereader), &
                new_testsuite("Budget", collect_budget), &
-               new_testsuite("ConductanceProvider", &
-                             collect_conductanceprovider), &
+               new_testsuite("KeffProvider", &
+                             collect_keffprovider), &
                new_testsuite("FeatureFlags", collect_feature_flags), &
                new_testsuite("GeomUtil", collect_geomutil), &
                new_testsuite("HashTable", collect_hashtable), &
