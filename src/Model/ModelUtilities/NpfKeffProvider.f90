@@ -18,6 +18,8 @@ module NpfKeffProviderModule
     type(GwfNpfType), pointer :: npf => null() !< flow package supplying the conductivity
   contains
     procedure :: eff_hy => npf_eff_hy
+    procedure :: krel => npf_krel
+    procedure :: dkrel_dh => npf_dkrel_dh
   end type NpfKeffProviderType
 
 contains
@@ -42,5 +44,21 @@ contains
 
     hy = this%npf%calc_eff_hy(n, vg)
   end function npf_eff_hy
+
+  function npf_krel(this, n) result(kr)
+    class(NpfKeffProviderType), intent(in) :: this
+    integer(I4B), intent(in) :: n
+    real(DP) :: kr
+
+    kr = this%npf%krel(n)
+  end function npf_krel
+
+  function npf_dkrel_dh(this, n) result(dkrdh)
+    class(NpfKeffProviderType), intent(in) :: this
+    integer(I4B), intent(in) :: n
+    real(DP) :: dkrdh
+
+    dkrdh = this%npf%dkrdh(n)
+  end function npf_dkrel_dh
 
 end module NpfKeffProviderModule

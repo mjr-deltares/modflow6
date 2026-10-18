@@ -9,11 +9,13 @@ module TestKeffProvider
   private
   public :: collect_keffprovider
 
-  !> Minimal provider used to exercise the abstract contract. eff_hy encodes
-  !> its inputs into the result so the test can confirm they pass through.
+  !> Minimal provider used to exercise the abstract contract. Each procedure
+  !> encodes its inputs into the result so the test can confirm they pass through.
   type, extends(KeffProviderType) :: MockProvider
   contains
     procedure :: eff_hy => mock_eff_hy
+    procedure :: krel => mock_krel
+    procedure :: dkrel_dh => mock_dkrel_dh
   end type MockProvider
 
 contains
@@ -35,8 +37,22 @@ contains
     hy = real(n, DP) + vg(1)
   end function mock_eff_hy
 
+  function mock_krel(this, n) result(kr)
+    class(MockProvider), intent(in) :: this
+    integer(I4B), intent(in) :: n
+    real(DP) :: kr
+    kr = DHALF * real(n, DP)
+  end function mock_krel
+
+  function mock_dkrel_dh(this, n) result(dkrdh)
+    class(MockProvider), intent(in) :: this
+    integer(I4B), intent(in) :: n
+    real(DP) :: dkrdh
+    dkrdh = DTWO * real(n, DP)
+  end function mock_dkrel_dh
+
   !> The abstract type is callable through a base-class pointer and forwards
-  !> n and vg to the concrete implementation.
+  !> its arguments to the concrete implementation of each deferred procedure.
   subroutine test_provider_dispatch(error)
     type(error_type), allocatable, intent(out) :: error
     type(MockProvider), target :: mock
@@ -46,6 +62,10 @@ contains
     provider => mock
     hy = provider%eff_hy(7, [DHALF, DZERO, DZERO])
     call check(error, is_close(hy, 7.0_DP + 0.5_DP))
+    if (allocated(error)) return
+    call check(error, is_close(provider%krel(4), DTWO))
+    if (allocated(error)) return
+    call check(error, is_close(provider%dkrel_dh(3), 6.0_DP))
   end subroutine test_provider_dispatch
 
   !> Along a principal axis (no rotation) the effective K is that axis' K.
