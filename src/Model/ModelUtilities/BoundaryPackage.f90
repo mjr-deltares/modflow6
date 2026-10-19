@@ -17,7 +17,7 @@ module BndModule
   use SimModule, only: count_errors, store_error, &
                        store_error_unit
   use NumericalPackageModule, only: NumericalPackageType
-  use KeffProviderModule, only: KeffProviderType
+  use ConductivityProviderModule, only: ConductivityProviderType
   use ObsModule, only: ObsType, obs_cr
   use TdisModule, only: delt, totimc
   use ObserveModule, only: ObserveType
@@ -107,8 +107,8 @@ module BndModule
     integer(I4B), dimension(:), pointer, contiguous :: icelltype => null() !< pointer to icelltype array in NPF
     character(len=LENMEMPATH) :: ictMemPath = '' !< memory path to the icelltype data (for GWF this is in NPF)
     !
-    ! -- directional effective-K provider (injected by the model; may be null)
-    class(KeffProviderType), pointer :: keff_provider => null() !< supplies anisotropy-resolved effective K along a direction
+    ! -- hydraulic conductivity provider (injected by the model; may be null)
+    class(ConductivityProviderType), pointer :: conductivity_provider => null() !< supplies the cell hydraulic conductivity tensor
     !
     ! -- table objects
     type(TableType), pointer :: inputtab => null() !< input table object
@@ -149,7 +149,7 @@ module BndModule
     procedure :: bnd_cq_simrate
     procedure :: bnd_cq_simtomvr
     procedure :: set_pointers
-    procedure :: set_keff_provider
+    procedure :: set_conductivity_provider
     procedure :: define_listlabel
     procedure :: copy_boundname
     procedure, private :: pak_setup_outputtab
@@ -1156,20 +1156,20 @@ contains
     this%flowja => flowja
   end subroutine set_pointers
 
-  !> @brief Inject the directional effective-K provider owned by the model.
+  !> @brief Inject the hydraulic conductivity provider owned by the model.
   !!
   !! The base implementation simply stores the (possibly null) provider so
-  !! consuming packages can query anisotropy-resolved effective K without
-  !! depending on the flow package internals. Packages that do not need it
-  !! can ignore the stored pointer.
+  !! consuming packages can query the cell conductivity tensor without depending
+  !! on the flow package internals. Packages that do not need it can ignore the
+  !! stored pointer.
   !<
-  subroutine set_keff_provider(this, keff_provider)
+  subroutine set_conductivity_provider(this, conductivity_provider)
     ! -- dummy
     class(BndType) :: this !< BndType object
-    class(KeffProviderType), pointer, intent(in) :: keff_provider !< provider (may be null)
+    class(ConductivityProviderType), pointer, intent(in) :: conductivity_provider !< provider (may be null)
     !
-    this%keff_provider => keff_provider
-  end subroutine set_keff_provider
+    this%conductivity_provider => conductivity_provider
+  end subroutine set_conductivity_provider
 
   !> @ brief Read additional options for package
   !!

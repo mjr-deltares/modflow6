@@ -133,7 +133,7 @@ module GwfNpfModule
     procedure :: allocate_scalars
     procedure :: rewet_check
     procedure :: hy_eff
-    procedure :: calc_eff_hy
+    procedure :: calc_conductivity
     procedure :: calc_spdis
     procedure :: sav_spdis
     procedure :: sav_sat
@@ -2686,28 +2686,54 @@ contains
     end if
   end function hy_eff
 
-  !> @brief Effective hydraulic conductivity of cell n along the unit
-  !! direction vg, resolving anisotropy. Connection-agnostic entry point for
-  !! external callers (e.g. a boundary package with a known face normal). The
-  !! full conductivity ellipsoid is projected onto vg, so no connection or
-  !< orientation flag is needed.
-  function calc_eff_hy(this, n, vg) result(hy)
+  !> @brief Hydraulic conductivity tensor of cell n in model coordinates.
+  !!
+  !! Builds the saturated conductivity tensor K = R * diag(k11, k22, k33) * R^T,
+  !! where R is the rotation implied by angle1/2/3. Returns the full 3x3
+  !! symmetric tensor so external callers (e.g. a boundary package with a known
+  !! face normal and gradient) can perform their own projection or conductance
+  !< assembly. Multiply by krel for the current conductivity when unsaturated.
+  function calc_conductivity(this, n) result(k)
     class(GwfNpfType) :: this
     integer(I4B), intent(in) :: n !< reduced node number
-    real(DP), dimension(3), intent(in) :: vg !< unit direction vector
-    real(DP) :: hy
+    real(DP), dimension(3, 3) :: k !< conductivity tensor in model coordinates
     ! -- local
+    real(DP), dimension(3, 3) :: r
     real(DP) :: ang1, ang2, ang3
+    real(DP) :: s1, c1, s2, c2, s3, c3
 
+    ! -- principal conductivities on the diagonal (ellipse-aligned frame)
+    k = DZERO
+    k(1, 1) = this%k11(n)
+    k(2, 2) = this%k22(n)
+    k(3, 3) = this%k33(n)
+    !
+    ! -- rotation matrix from the ellipse frame to model coordinates
     ang1 = DZERO
     ang2 = DZERO
     ang3 = DZERO
     if (this%iangle1 > 0) ang1 = this%angle1(n)
     if (this%iangle2 > 0) ang2 = this%angle2(n)
     if (this%iangle3 > 0) ang3 = this%angle3(n)
-    hy = hyeff(this%k11(n), this%k22(n), this%k33(n), ang1, ang2, ang3, &
-               vg(1), vg(2), vg(3), this%iavgkeff)
-  end function calc_eff_hy
+    s1 = sin(ang1)
+    c1 = cos(ang1)
+    s2 = sin(ang2)
+    c2 = cos(ang2)
+    s3 = sin(ang3)
+    c3 = cos(ang3)
+    r(1, 1) = c1 * c2
+    r(1, 2) = c1 * s2 * s3 - s1 * c3
+    r(1, 3) = -c1 * s2 * c3 - s1 * s3
+    r(2, 1) = s1 * c2
+    r(2, 2) = s1 * s2 * s3 + c1 * c3
+    r(2, 3) = -s1 * s2 * c3 + c1 * s3
+    r(3, 1) = s2
+    r(3, 2) = -c2 * s3
+    r(3, 3) = c2 * c3
+    !
+    ! -- rotate the diagonal tensor into model coordinates: K = R * diag * R^T
+    k = matmul(r, matmul(k, transpose(r)))
+  end function calc_conductivity
 
   !> @brief Calculate the 3 components of specific discharge at the cell center
   !<

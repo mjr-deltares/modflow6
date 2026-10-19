@@ -1,41 +1,47 @@
-module TestKeffProvider
+module TestConductivityProvider
   use KindModule, only: I4B, DP
   use testdrive, only: check, error_type, new_unittest, unittest_type
   use ConstantsModule, only: DZERO, DONE, DTWO, DHALF
   use MathUtilModule, only: is_close
   use HGeoUtilModule, only: hyeff
-  use KeffProviderModule, only: KeffProviderType
+  use ConductivityProviderModule, only: ConductivityProviderType
   implicit none
   private
-  public :: collect_keffprovider
+  public :: collect_conductivityprovider
 
   !> Minimal provider used to exercise the abstract contract. Each procedure
   !> encodes its inputs into the result so the test can confirm they pass through.
-  type, extends(KeffProviderType) :: MockProvider
+  type, extends(ConductivityProviderType) :: MockProvider
   contains
-    procedure :: eff_hy => mock_eff_hy
+    procedure :: conductivity => mock_conductivity
     procedure :: krel => mock_krel
     procedure :: dkrel_dh => mock_dkrel_dh
   end type MockProvider
 
 contains
 
-  subroutine collect_keffprovider(testsuite)
+  subroutine collect_conductivityprovider(testsuite)
     type(unittest_type), allocatable, intent(out) :: testsuite(:)
     testsuite = [ &
                 new_unittest("provider_dispatch", test_provider_dispatch), &
                 new_unittest("hyeff_axis_aligned", test_hyeff_axis_aligned), &
                 new_unittest("hyeff_diagonal", test_hyeff_diagonal) &
                 ]
-  end subroutine collect_keffprovider
+  end subroutine collect_conductivityprovider
 
-  function mock_eff_hy(this, n, vg) result(hy)
+  !> Returns a symmetric tensor whose entries encode n and the indices so the
+  !> test can confirm the full 3x3 is passed through unchanged.
+  function mock_conductivity(this, n) result(k)
     class(MockProvider), intent(in) :: this
     integer(I4B), intent(in) :: n
-    real(DP), dimension(3), intent(in) :: vg
-    real(DP) :: hy
-    hy = real(n, DP) + vg(1)
-  end function mock_eff_hy
+    real(DP), dimension(3, 3) :: k
+    integer(I4B) :: i, j
+    do j = 1, 3
+      do i = 1, 3
+        k(i, j) = real(n, DP) + real(i + j, DP)
+      end do
+    end do
+  end function mock_conductivity
 
   function mock_krel(this, n) result(kr)
     class(MockProvider), intent(in) :: this
@@ -56,12 +62,16 @@ contains
   subroutine test_provider_dispatch(error)
     type(error_type), allocatable, intent(out) :: error
     type(MockProvider), target :: mock
-    class(KeffProviderType), pointer :: provider
-    real(DP) :: hy
+    class(ConductivityProviderType), pointer :: provider
+    real(DP), dimension(3, 3) :: k
 
     provider => mock
-    hy = provider%eff_hy(7, [DHALF, DZERO, DZERO])
-    call check(error, is_close(hy, 7.0_DP + 0.5_DP))
+    k = provider%conductivity(5)
+    call check(error, is_close(k(1, 1), 7.0_DP))
+    if (allocated(error)) return
+    call check(error, is_close(k(1, 3), 9.0_DP))
+    if (allocated(error)) return
+    call check(error, is_close(k(3, 1), k(1, 3)))
     if (allocated(error)) return
     call check(error, is_close(provider%krel(4), DTWO))
     if (allocated(error)) return
@@ -95,4 +105,4 @@ contains
     call check(error, is_close(hy, DHALF * (k11 + k22)))
   end subroutine test_hyeff_diagonal
 
-end module TestKeffProvider
+end module TestConductivityProvider
