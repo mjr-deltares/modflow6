@@ -1,39 +1,44 @@
 """
 Test the seepage (SPG) boundary package.
 
-A confined two-cell vertical column with a constant head on the top cell and an
-SPG seepage boundary on the bottom cell. The seepage cell is held at its
-cell-center elevation (atmospheric pressure, zero pressure head) while water
-discharges into it (out of the simulated domain), and becomes a no-flow
-boundary when the flow would reverse into the domain.
+The SPG package may only be applied to Richards (UZR) cells, so the model uses
+the UZR unsaturated-zone package (newton, non-convertible NPF cells).  The
+seepage conductance is approximated LAK-style from the NPF hydraulic
+conductivity (K11/K33) scaled by the UZR relative permeability (krel):
 
-Two enforcement methods are exercised:
+    cond = krel * K * HWVA / CL1
 
-* penalty: the active (constant-head) state is approximated with a large
-  penalty conductance.
-* toggle:  the active state is a true constant-head cell enforced through the
-  IBOUND array.
+A seepage cell discharges water (out of the simulated domain) while its head is
+above the cell-center elevation (zero pressure head datum), and becomes a
+no-flow boundary when the head drops below it.
 
-For each method two scenarios are checked:
+The model is a confined two-cell vertical column: a constant head on the top
+cell and an SPG seepage boundary (vertical face, IHC=0) on the bottom cell.
+Because the column stays fully saturated when discharging, krel = 1 and the
+steady state reduces to an analytic two-node Robin problem:
 
-* active:  the constant head on the top cell is above the seepage elevation, so
-  water discharges through the seepage cell. The seepage cell head equals the
-  seepage elevation and the discharge balances the constant-head inflow.
-* no-flow: the constant head on the top cell is below the seepage elevation, so
-  the seepage boundary is inactive and no water leaves through it.
+    C_col * (chd - h_bot) = C_spg * (h_bot - z_seep)
+
+with C_col = K33 * area / delz the cell-to-cell conductance and
+C_spg = K * HWVA / CL1 the seepage conductance.
+
+Two scenarios are checked:
+
+* active:  the top constant head is above the seepage elevation, so water
+  discharges through the seepage cell.
+* no-flow: the top constant head is below the seepage elevation, so the
+  seepage boundary is inactive and no water leaves through it.
 """
 
 import flopy
 import numpy as np
 import pytest
 from framework import TestFramework
+from gwf_test_utils import get_uzr_soil_data
 
-cases = ["spg-pen-act", "spg-pen-nof", "spg-tog-act", "spg-tog-nof"]
-toggle = [False, False, True, True]
-chd_head = [5.0, 0.2, 5.0, 0.2]
-
-# whether the seepage boundary discharges in each case
-active_scenario = [True, False, True, False]
+cases = ["spg-act", "spg-nof"]
+chd_head = [5.0, 0.2]
+active_scenario = [True, False]
 
 hk = 1.0
 delr = 1.0
@@ -42,10 +47,18 @@ delz = 1.0
 nlay, nrow, ncol = 2, 1, 1
 area = delr * delc
 
+# seepage face geometry (bottom cell, vertical face)
+spg_cl1 = 0.5  # distance from cell center (0.5) to the bottom face (0.0)
+spg_hwva = area  # seepage face area
+spg_ihc = 0  # vertical connection
+spg_angldegx = 0.0  # reserved, unused
+
 # bottom-cell center elevation (seepage elevation): top=1, bot=0 -> 0.5
 z_seep = 0.5
-# vertical conductance between the two confined cells
-cond = hk * area / delz
+
+# cell-to-cell and seepage conductances
+cond_col = hk * area / delz
+cond_spg = hk * spg_hwva / spg_cl1
 
 
 def build_models(idx, test):
@@ -59,14 +72,17 @@ def build_models(idx, test):
     flopy.mf6.ModflowIms(
         sim,
         print_option="SUMMARY",
+        linear_acceleration="BICGSTAB",
         inner_dvclose=1e-9,
         outer_dvclose=1e-9,
-        outer_maximum=100,
-        inner_maximum=100,
+        outer_maximum=200,
+        inner_maximum=200,
     )
 
     gwfname = "gwf_" + name
-    gwf = flopy.mf6.ModflowGwf(sim, modelname=gwfname, save_flows=True)
+    gwf = flopy.mf6.ModflowGwf(
+        sim, modelname=gwfname, save_flows=True, newtonoptions="newton"
+    )
 
     top = nlay * delz
     botm = [top - (ilay + 1) * delz for ilay in range(nlay)]
@@ -83,8 +99,28 @@ def build_models(idx, test):
 
     flopy.mf6.ModflowGwfic(gwf, strt=chd_head[idx])
 
-    # confined: icelltype=0 -> saturated everywhere, constant conductance
+    # confined: icelltype=0 (required by UZR), K drives the conductance
     flopy.mf6.ModflowGwfnpf(gwf, icelltype=0, k=hk, k33=hk)
+
+    flopy.mf6.ModflowGwfsto(
+        gwf, ss=0.0, sy=0.0, iconvert=0, steady_state=True
+    )
+
+    # unsaturated zone Richards flow: flags every cell as a Richards cell
+    soil_data = get_uzr_soil_data("Celia1990-eq10-Haverkamp")
+    flopy.mf6.ModflowGwfuzr(
+        gwf,
+        iunsat=1,
+        storage_scheme="chord-slope",
+        kr_averaging="harmonic",
+        soil_model="Haverkamp",
+        porosity=soil_data["porosity"],
+        satres=soil_data["satres"],
+        alphahvk=soil_data["alpha"],
+        nhvk=soil_data["n"],
+        betahvk=soil_data["beta"],
+        khvk=soil_data["k"],
+    )
 
     # constant head on the top cell
     flopy.mf6.ModflowGwfchd(
@@ -94,20 +130,16 @@ def build_models(idx, test):
         save_flows=True,
     )
 
-    # seepage boundary on the bottom cell
-    spg_kwargs = {}
-    if toggle[idx]:
-        spg_kwargs["ibound_toggle"] = True
-    else:
-        spg_kwargs["penalty_conductance"] = 1.0e9
+    # seepage boundary on the bottom (Richards) cell
     flopy.mf6.ModflowGwfspg(
         gwf,
         maxbound=1,
-        stress_period_data={0: [[(nlay - 1, 0, 0)]]},
+        stress_period_data={
+            0: [[(nlay - 1, 0, 0), spg_ihc, spg_cl1, spg_hwva, spg_angldegx]]
+        },
         pname="SPG-1",
         save_flows=True,
         print_flows=True,
-        **spg_kwargs,
     )
 
     flopy.mf6.ModflowGwfoc(
@@ -130,16 +162,19 @@ def check_output(idx, test):
     heads = hfile.get_data(idx=-1).flatten()
 
     cbb = flopy.utils.CellBudgetFile(ws / f"{gwfname}.cbc", precision="double")
-    spg = cbb.get_data(text="SPG")[-1]
-    q_spg = float(np.sum(spg["q"]))
-    chd = cbb.get_data(text="CHD")[-1]
-    q_chd = float(np.sum(chd["q"]))
+    q_spg = float(np.sum(cbb.get_data(text="SPG")[-1]["q"]))
+    q_chd = float(np.sum(cbb.get_data(text="CHD")[-1]["q"]))
 
     if active_scenario[idx]:
-        # discharging seepage cell held at the seepage elevation
-        q_expected = cond * (chd_head[idx] - z_seep)
-        assert np.isclose(heads[1], z_seep, atol=1e-5), (
-            f"bottom head {heads[1]} expected {z_seep}"
+        # saturated column (krel = 1): analytic two-node Robin solution
+        h_bot = (cond_col * chd_head[idx] + cond_spg * z_seep) / (
+            cond_col + cond_spg
+        )
+        q_expected = cond_spg * (h_bot - z_seep)
+        assert h_bot > z_seep, "test setup should discharge seepage"
+
+        assert np.isclose(heads[1], h_bot, atol=1e-5), (
+            f"bottom head {heads[1]} expected {h_bot}"
         )
         # seepage reported as outflow (negative), balancing the chd inflow
         assert np.isclose(q_spg, -q_expected, atol=1e-5), (
@@ -150,10 +185,8 @@ def check_output(idx, test):
         )
         assert np.isclose(q_chd + q_spg, 0.0, atol=1e-5)
     else:
-        # seepage boundary inactive: no discharge, head equals the chd head
-        assert np.isclose(heads[1], chd_head[idx], atol=1e-6), (
-            f"bottom head {heads[1]} expected {chd_head[idx]}"
-        )
+        # seepage boundary inactive (head below the seepage elevation)
+        assert heads[1] < z_seep, "test setup should keep seepage inactive"
         assert np.isclose(q_spg, 0.0, atol=1e-6), f"SPG flow {q_spg} expected 0"
         assert np.isclose(q_chd, 0.0, atol=1e-6), f"CHD flow {q_chd} expected 0"
 

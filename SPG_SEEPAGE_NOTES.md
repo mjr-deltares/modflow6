@@ -1,78 +1,75 @@
-# SPG Seepage Package — Notes and Findings
+# SPG (Seepage) Package — Status Handoff
 
-## Overview
+_Last updated: 2026-10-20_
 
-The SPG (seepage) boundary package (`gwf-spg.f90`, ftype `SPG`) models a list of
-seepage cells. Each cell is held at atmospheric pressure (zero pressure head, so
-total head equals the cell-center elevation `z = (top + bot) / 2`) while water
-discharges into it (out of the simulated domain), and reverts to a **no-flow**
-boundary when the flow would reverse back into the domain.
+## Where we are
+The **SPG seepage boundary package** has been reworked from the old prototype
+into a Richards-only seepage face that approximates conductance from NPF
+conductivity × relative permeability. It **builds cleanly** and its **autotest
+passes** (2 scenarios).
 
-The active ("constant head") state can be enforced with either of two methods,
-selectable through package options:
+## Current SPG behavior
+- **Applies only to Richards (UZR) cells.** Requires the UZR package active;
+  validated per-cell via UZR's `IUNSAT` array.
+- **Input** (`stress_period_data`): `cellid  ihc  cl1  hwva  angldegx`
+  - `ihc` — 0 = vertical face, 1 = horizontal face
+  - `cl1` — distance from cell center to the face
+  - `hwva` — seepage face area
+  - `angldegx` — **reserved/unused** for now (kept in the definition)
+- **Conductance:** `cond = krel(node) · K · hwva / cl1`, LAK-style:
+  - vertical face (`ihc=0`) → `K33` (falls back to `K11` if `IK33=0`)
+  - horizontal face (`ihc=1`) → `K11`
+  - `krel` = NPF relative permeability (`KREL`), hardwired via `mem_setptr`
+- **Seepage switch:** discharges (Robin term, `hcof=-cond`, `rhs=-cond·z`) while
+  `head > z` (cell-center elevation); no-flow otherwise.
+- The old penalty / ibound-toggle machinery and the ConductanceProvider
+  abstraction were **removed**.
 
-| Method | Option | Mechanism | Notes |
-| --- | --- | --- | --- |
-| Penalty (default) | `PENALTY_CONDUCTANCE <value>` | Large-conductance term pins the head near `z` while `head > z`. Cell stays active (`ibound > 0`). | Robust; stays inside the normal boundary-package matrix framework. Default conductance `1e9`. |
-| Toggle | `IBOUND_TOGGLE` | Cell is switched to a true constant-head cell (`ibound < 0`, like CHD) while discharging, and released to an ordinary active no-flow cell when flow reverses. | Exact per-cell balance, but interacts poorly with packages that claim the whole grid (see below). |
+## Key files
+- `src/Model/GroundWaterFlow/gwf-spg.f90` — package: `effective_k`, `spg_cf`,
+  `spg_ck` (Richards-cell check), pointer setup/teardown.
+- `doc/mf6io/mf6ivar/dfn/gwf-spg.dfn` — input definition.
+- `src/Idm/gwf-spgidm.f90` — generated IDM (via
+  `utils/idmloader/scripts/dfn2f90.py`).
+- `src/Model/GroundWaterFlow/gwf.f90` — model wiring.
+- `autotest/test_gwf_spg.py` — representative UZR+SPG test (active / no-flow),
+  asserts an analytic 2-node Robin solution.
 
-Period input is `cellid` plus optional aux/boundname. The seepage elevation is
-always the cell center.
+## Also removed this session (by request)
+- **SGD package** deleted entirely (source, IDM, dfn, test, build/registration).
+- **ConductanceProvider** + **NpfConductanceProvider** modules deleted; NPF's
+  now-unused `calc_eff_hy` removed too.
 
-## Budget sign convention
+## How to build & test
+```bash
+# build
+export PATH="$PWD/.pixi/envs/default/bin:$PATH"
+ninja -C builddir
 
-Both methods report seepage discharge as a **negative** package flow (water
-leaving the model / a sink), consistent with DRN and the generic boundary
-budget:
+# regenerate IDM after any dfn change
+cd utils/idmloader/scripts && python dfn2f90.py --outdir ../../../src/Idm
 
-- Penalty: uses the base `bnd_cq_simrate`, i.e. `simvals = hcof*h - rhs =
-  -C*(h - z) < 0` while discharging.
-- Toggle: the held cell is constant head, so the base routine skips it. A custom
-  `spg_cq` computes `rate = -sum(off-diagonal flowja)` (positive = inflow to the
-  held cell), adds it to `flowja(idiag)` to balance the cell's flow row (as CHD
-  does), then reports `simvals = -rate` so the sink sign matches the penalty
-  method.
+# refresh flopy classes after any dfn change (for the test)
+cd autotest && python update_flopy.py
 
-## Testing
+# run the test (binary staged at bin/mf6)
+cd autotest && python -m pytest test_gwf_spg.py -q
+```
+Note: `bin/mf6` is a gitignored staged copy of `builddir/src/mf6`.
 
-- `autotest/test_gwf_spg.py`: a confined two-cell column (CHD top, SPG bottom)
-  with four cases — `{penalty, toggle} x {discharging, no-flow}`. Checks the
-  held head equals the seepage elevation, the discharge balances the
-  constant-head inflow, and the no-flow state carries zero flow.
-- `autotest/test_gwf_uzr_wt.py`: the `wt-uzr-spg` case adds SPG seepage cells on
-  the `+x` boundary of a transient 2D Richards/UZR model and verifies per-cell
-  mass balance (FLOW-JA-FACE residuals).
+## Open items / next steps
+1. **`DKRDH` Jacobian term** — `krel` is currently lagged; adding `dkr/dh`
+   (NPF stores `DKRDH`) would make the Newton term consistent. _Pending._
+2. **`angldegx` decision** — still reserved; decide whether to use it
+   (horizontal anisotropy / full tensor) or drop it.
+3. **Convergence near the switch** — the `head > z` on/off combined with
+   head-dependent `krel` can chatter; watch in richer models.
+4. **Partial-domain Richards** — UZR today requires all cells `iunsat=1`, so the
+   per-cell SPG check mainly guards "UZR absent" until partial-domain support
+   exists.
 
-## Findings from the UZR integration
-
-1. **Toggle conflicts with UZR.** UZR claims the entire grid for its own flow and
-   storage formulation (`iformulation` is set for all cells). When SPG toggle
-   switches a cell to a true constant head (`ibound < 0`), UZR still tries to
-   apply its formulation to that cell. This produces repeated
-   `UZR convertible cell error` messages and a small residual imbalance. The
-   **penalty** method keeps the cell active (`ibound > 0`), so it composes
-   cleanly with UZR, and is the method used in the `wt-uzr-spg` test.
-
-2. **Seepage on/off is a discontinuous nonlinearity.** Switching a cell between
-   the held and no-flow states is discontinuous: a tiny head change can flip the
-   state and cause a jump in the boundary flow. As a result the model converges
-   to a slightly looser per-cell FLOW-JA-FACE residual near the seepage cells
-   (~`3.7e-6`) than the rest of the grid. Both the penalty and toggle methods
-   converge to the same residual level, confirming this comes from the seepage
-   switch itself rather than from the penalty conductance. The test therefore
-   uses `res_atol = 1e-5` for the seepage case and keeps the strict `1e-6`
-   tolerance for the non-seepage cases.
-
-## Future work
-
-- **Continue the investigation with the toggle method and how to avoid the
-  reported errors.** In particular, determine how to reconcile the toggle
-  (true constant-head) method with packages such as UZR that claim the whole
-  grid, so that toggling a cell to constant head does not trigger
-  `UZR convertible cell error` or introduce a residual imbalance. Candidate
-  directions to explore:
-  - Have SPG coordinate with UZR (and similar whole-grid packages) to release or
-    skip the toggled cell's formulation while it is held as constant head.
-  - Investigate whether the seepage on/off switch can be smoothed (continuous
-    transition) to improve convergence and tighten the residual.
-  - Evaluate Newton-Raphson handling of the state switch under UZR.
+## Known caveats (physics/numerics)
+- Grid-aligned `K11`/`K33` only — ignores rotated anisotropy (`ANGLE1/2/3`) and
+  XT3D.
+- Fixed user `hwva`/`cl1` — wetted area doesn't change as heads move.
+- Uses the seepage cell's own `krel` (no upstream weighting).

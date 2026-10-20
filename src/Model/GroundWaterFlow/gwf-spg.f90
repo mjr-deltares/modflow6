@@ -1,11 +1,11 @@
 module SpgModule
   use KindModule, only: DP, I4B, LGP
-  use ConstantsModule, only: DZERO, DHALF, DONE, &
+  use ConstantsModule, only: DZERO, DHALF, &
                              LENFTYPE, LENPACKAGENAME
   use SimVariablesModule, only: errmsg
   use SimModule, only: count_errors, store_error, store_error_filename
   use MemoryManagerModule, only: mem_allocate, mem_deallocate, &
-                                 mem_setptr, mem_checkin
+                                 mem_setptr, mem_checkin, get_isize
   use MemoryHelperModule, only: create_mem_path
   use BndModule, only: BndType
   use BndExtModule, only: BndExtType
@@ -25,12 +25,18 @@ module SpgModule
     real(DP), dimension(:), pointer, contiguous :: cl1 => null() !< distance from cell center to seepage face
     real(DP), dimension(:), pointer, contiguous :: hwva => null() !< seepage face area
     real(DP), dimension(:), pointer, contiguous :: angldegx => null() !< face-normal angle with x axis (degrees)
+    real(DP), dimension(:), pointer, contiguous :: gwfk11 => null() !< NPF horizontal hydraulic conductivity (K11), not owned
+    real(DP), dimension(:), pointer, contiguous :: gwfk33 => null() !< NPF vertical hydraulic conductivity (K33), not owned
+    integer(I4B), pointer :: gwfik33 => null() !< NPF flag indicating whether K33 was specified, not owned
+    real(DP), dimension(:), pointer, contiguous :: gwfkrel => null() !< NPF relative permeability (KREL), not owned
+    integer(I4B), dimension(:), pointer, contiguous :: uzriunsat => null() !< UZR flag, 1 for Richards (unsaturated) nodes, not owned
   contains
     procedure :: allocate_scalars => spg_allocate_scalars
     procedure :: allocate_arrays => spg_allocate_arrays
     procedure :: source_options => spg_source_options
     procedure :: bnd_cf => spg_cf
     procedure :: bnd_fc => spg_fc
+    procedure :: bnd_ck => spg_ck
     procedure :: bnd_da => spg_da
     procedure :: define_listlabel
     procedure, private :: effective_k
@@ -99,6 +105,8 @@ contains
     class(SpgType) :: this
     integer(I4B), dimension(:), pointer, contiguous, optional :: nodelist
     real(DP), dimension(:, :), pointer, contiguous, optional :: auxvar
+    ! local
+    integer(I4B) :: isize
 
     ! call base type allocate arrays
     call this%BndExtType%allocate_arrays(nodelist, auxvar)
@@ -119,24 +127,64 @@ contains
     call mem_checkin(this%angldegx, 'ANGLDEGX', this%memoryPath, &
                      'ANGLDEGX', this%input_mempath)
 
+    ! set pointers to the NPF hydraulic conductivity arrays (not owned).  The
+    ! LAK-style approximation reads K11/K33 directly rather than resolving the
+    ! full anisotropic tensor in the seepage-face-normal direction.
+    call mem_setptr(this%gwfk11, 'K11', &
+                    create_mem_path(this%name_model, 'NPF'))
+    call mem_setptr(this%gwfk33, 'K33', &
+                    create_mem_path(this%name_model, 'NPF'))
+    call mem_setptr(this%gwfik33, 'IK33', &
+                    create_mem_path(this%name_model, 'NPF'))
+
+    ! set pointer to the NPF relative permeability (not owned).  KREL is 1.0
+    ! for saturated cells and is reduced by the UZR unsaturated formulation.
+    call mem_setptr(this%gwfkrel, 'KREL', &
+                    create_mem_path(this%name_model, 'NPF'))
+
+    ! SPG may only be applied to Richards (UZR) cells, so the UZR package must
+    ! be active.  Point at its IUNSAT flag array when present; the per-cell
+    ! requirement is verified in spg_ck.
+    call get_isize('IUNSAT', create_mem_path(this%name_model, 'UZR'), isize)
+    if (isize < 0) then
+      write (errmsg, '(a)') &
+        'The SPG package can only be used with the UZR (Richards) package, &
+        &but no UZR package is active in this model.'
+      call store_error(errmsg)
+      call store_error_filename(this%input_fname)
+    else
+      call mem_setptr(this%uzriunsat, 'IUNSAT', &
+                      create_mem_path(this%name_model, 'UZR'))
+    end if
+
   end subroutine spg_allocate_arrays
 
-  !> @brief Effective hydraulic conductivity of cell n in the direction of the
-  !! seepage-face normal (defined by ihc and angldegx).
+  !> @brief Effective hydraulic conductivity of cell n for the seepage face.
   !!
-  !! TODO_UZR: currently returns a constant assumed conductivity (K = 1) so the
-  !! conductance plumbing can be exercised.  This is where the anisotropic,
-  !! direction-resolved effective K (built from ihc/angldegx) will be
-  !! implemented.
+  !! Approximates the conductivity the way the LAK package does: the NPF grid-
+  !! aligned principal conductivities are used directly, K33 (vertical) for a
+  !! vertical connection (IHC = 0) and K11 (horizontal) for a horizontal
+  !! connection (IHC = 1).  When K33 was not specified (IK33 = 0) the vertical
+  !! value falls back to K11.  ANGLDEGX and horizontal anisotropy (K22) are not
+  !! resolved by this approximation.
   !<
-  function effective_k(this, n, ihc, angldegx) result(hy)
+  function effective_k(this, n, ihc) result(hy)
     class(SpgType) :: this
     integer(I4B), intent(in) :: n !< reduced node number
     integer(I4B), intent(in) :: ihc !< connection type
-    real(DP), intent(in) :: angldegx !< face-normal angle with x axis (degrees)
     real(DP) :: hy
 
-    hy = DONE
+    if (ihc == 0) then
+      ! vertical seepage face: vertical hydraulic conductivity
+      if (this%gwfik33 == 0) then
+        hy = this%gwfk11(n)
+      else
+        hy = this%gwfk33(n)
+      end if
+    else
+      ! horizontal seepage face: horizontal hydraulic conductivity
+      hy = this%gwfk11(n)
+    end if
   end function effective_k
 
   !> @brief Formulate the HCOF and RHS terms
@@ -163,8 +211,9 @@ contains
       z = DHALF * (this%dis%bot(node) + this%dis%top(node))
       head = this%xnew(node)
       if (head > z) then
-        ! saturated at the face: directional conductance resolves anisotropy
-        cond = this%effective_k(node, this%ihc(i), this%angldegx(i)) * &
+        ! saturated at the face: LAK-style K11/K33 approximation scaled by the
+        ! NPF relative permeability (krel) of the Richards cell
+        cond = this%gwfkrel(node) * this%effective_k(node, this%ihc(i)) * &
                this%hwva(i) / this%cl1(i)
         this%hcof(i) = -cond
         this%rhs(i) = -cond * z
@@ -211,6 +260,40 @@ contains
 
   end subroutine spg_fc
 
+  !> @brief Verify that every seepage cell is a Richards (UZR) cell
+  !!
+  !! The SPG package may only be applied to unsaturated (Richards) cells, which
+  !! are flagged by the UZR package through its IUNSAT array (1 for a Richards
+  !! node).  A missing UZR package is reported in spg_allocate_arrays.
+  !<
+  subroutine spg_ck(this)
+    class(SpgType), intent(inout) :: this
+    ! local
+    character(len=30) :: nodestr
+    integer(I4B) :: i, node
+    ! formats
+    character(len=*), parameter :: fmtspgerr = &
+      "('SPG BOUNDARY ',i0,' IS APPLIED TO CELL ',a,', which is not a &
+      &Richards (UZR) cell.  Set IUNSAT for this cell in the UZR package.')"
+
+    if (.not. associated(this%uzriunsat)) return
+
+    do i = 1, this%nbound
+      node = this%nodelist(i)
+      if (node < 1) cycle
+      if (this%uzriunsat(node) /= 1) then
+        call this%dis%noder_to_string(node, nodestr)
+        write (errmsg, fmt=fmtspgerr) i, trim(nodestr)
+        call store_error(errmsg)
+      end if
+    end do
+
+    if (count_errors() > 0) then
+      call store_error_filename(this%input_fname)
+    end if
+
+  end subroutine spg_ck
+
   !> @brief Define the list heading that is written to iout when PRINT_INPUT
   !< option is used
   subroutine define_listlabel(this)
@@ -250,6 +333,15 @@ contains
     call mem_deallocate(this%cl1, 'CL1', this%memoryPath)
     call mem_deallocate(this%hwva, 'HWVA', this%memoryPath)
     call mem_deallocate(this%angldegx, 'ANGLDEGX', this%memoryPath)
+
+    ! NPF conductivity arrays are owned by NPF; just disassociate
+    nullify (this%gwfk11)
+    nullify (this%gwfk33)
+    nullify (this%gwfik33)
+    nullify (this%gwfkrel)
+
+    ! UZR IUNSAT flag array is owned by UZR; just disassociate
+    nullify (this%uzriunsat)
 
   end subroutine spg_da
 
