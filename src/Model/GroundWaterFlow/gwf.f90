@@ -10,7 +10,6 @@ module GwfModule
   use BndModule, only: BndType, AddBndToList, GetBndFromList
   use GwfIcModule, only: GwfIcType
   use GwfNpfModule, only: GwfNpfType
-  use ConductanceProviderModule, only: ConductanceProviderType
   use GwfUzrModule, only: GwfUzrType
   use Xt3dModule, only: Xt3dType
   use GwfBuyModule, only: GwfBuyType
@@ -39,7 +38,6 @@ module GwfModule
 
     type(GwfIcType), pointer :: ic => null() ! initial conditions package
     type(GwfNpfType), pointer :: npf => null() ! node property flow package
-    class(ConductanceProviderType), pointer :: cond_provider => null() ! directional effective-K provider (NPF-backed)
     type(GwfUzrType), pointer :: uzr => null() ! Richards flow package
     type(Xt3dType), pointer :: xt3d => null() ! xt3d option for npf
     type(GwfBuyType), pointer :: buy => null() ! buoyancy package
@@ -125,7 +123,7 @@ module GwfModule
   integer(I4B), parameter :: GWF_NMULTIPKG = 50
   character(len=LENPACKAGETYPE), dimension(GWF_NMULTIPKG) :: GWF_MULTIPKG
   data GWF_MULTIPKG/'WEL6 ', 'DRN6 ', 'RIV6 ', 'GHB6 ', '     ', & !  5
-                   &'SGD6 ', 'RCH6 ', 'EVT6 ', 'CHD6 ', 'SPG6 ', & ! 10
+                   &'     ', 'RCH6 ', 'EVT6 ', 'CHD6 ', 'SPG6 ', & ! 10
                    &'MAW6 ', 'SFR6 ', 'LAK6 ', 'UZF6 ', 'API6 ', & ! 15
                    &35*'     '/ ! 50
 
@@ -321,9 +319,6 @@ contains
   !!
   !<
   subroutine gwf_ar(this)
-    ! -- modules
-    use NpfConductanceProviderModule, only: create_npf_conductance_provider
-    use SgdModule, only: SgdType
     ! -- dummy
     class(GwfModelType) :: this
     ! -- locals
@@ -347,11 +342,6 @@ contains
     ! -- Call dis_ar to write binary grid file
     call this%dis%dis_ar(this%npf%icelltype)
     !
-    ! -- expose NPF directional effective-K through the abstract provider
-    if (this%innpf > 0) then
-      call create_npf_conductance_provider(this%cond_provider, this%npf)
-    end if
-    !
     ! -- set up output control
     call this%oc%oc_ar(this%x, this%dis, this%npf%hnoflo)
     call this%budget%set_ibudcsv(this%oc%ibudcsv)
@@ -365,13 +355,6 @@ contains
       call packobj%bnd_ar()
       if (this%inbuy > 0) call this%buy%buy_ar_bnd(packobj, this%x)
       if (this%invsc > 0) call this%vsc%vsc_ar_bnd(packobj)
-      ! -- hand the directional effective-K provider to packages that need it
-      if (associated(this%cond_provider)) then
-        select type (packobj)
-        type is (SgdType)
-          packobj%cond_provider => this%cond_provider
-        end select
-      end if
     end do
   end subroutine gwf_ar
 
@@ -1111,7 +1094,6 @@ contains
     ! -- Internal flow packages deallocate
     call this%dis%dis_da()
     call this%ic%ic_da()
-    if (associated(this%cond_provider)) deallocate (this%cond_provider)
     call this%npf%npf_da()
     call this%uzr%uzr_da()
     call this%xt3d%xt3d_da()
@@ -1279,7 +1261,6 @@ contains
     use DrnModule, only: drn_create
     use RivModule, only: riv_create
     use GhbModule, only: ghb_create
-    use SgdModule, only: sgd_create
     use SpgModule, only: spg_create
     use RchModule, only: rch_create
     use EvtModule, only: evt_create
@@ -1318,9 +1299,6 @@ contains
                       pakname, mempath)
     case ('GHB6')
       call ghb_create(packobj, ipakid, ipaknum, inunit, iout, this%name, &
-                      pakname, mempath)
-    case ('SGD6')
-      call sgd_create(packobj, ipakid, ipaknum, inunit, iout, this%name, &
                       pakname, mempath)
     case ('SPG6')
       call spg_create(packobj, ipakid, ipaknum, inunit, iout, this%name, &
@@ -1584,7 +1562,7 @@ contains
         this%inobs = inunit
       case ('WEL6', 'DRN6', 'RIV6', 'GHB6', 'RCH6', &
             'EVT6', 'API6', 'CHD6', 'MAW6', 'SFR6', &
-            'LAK6', 'UZF6', 'SGD6', 'SPG6')
+            'LAK6', 'UZF6', 'SPG6')
         call expandarray(bndpkgs)
         bndpkgs(size(bndpkgs)) = n
       case default

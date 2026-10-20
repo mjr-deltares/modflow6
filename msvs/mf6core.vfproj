@@ -239,7 +239,6 @@
 				<File RelativePath="..\src\Idm\gwf-rivgidm.f90"/>
 				<File RelativePath="..\src\Idm\gwf-rividm.f90"/>
 				<File RelativePath="..\src\Idm\gwf-sfridm.f90"/>
-				<File RelativePath="..\src\Idm\gwf-sgdidm.f90"/>
 				<File RelativePath="..\src\Idm\gwf-spgidm.f90"/>
 				<File RelativePath="..\src\Idm\gwf-stoidm.f90"/>
 				<File RelativePath="..\src\Idm\gwf-uzfidm.f90"/>
@@ -376,7 +375,6 @@
 					<File RelativePath="..\src\Model\GroundWaterFlow\gwf-rch.f90"/>
 					<File RelativePath="..\src\Model\GroundWaterFlow\gwf-riv.f90"/>
 					<File RelativePath="..\src\Model\GroundWaterFlow\gwf-sfr.f90"/>
-					<File RelativePath="..\src\Model\GroundWaterFlow\gwf-sgd.f90"/>					
 					<File RelativePath="..\src\Model\GroundWaterFlow\gwf-spg.f90"/>
 					<File RelativePath="..\src\Model\GroundWaterFlow\gwf-sto.f90"/>
 					<File RelativePath="..\src\Model\GroundWaterFlow\gwf-tvk.f90"/>
@@ -403,7 +401,6 @@
 				<Filter Name="ModelUtilities">
 					<File RelativePath="..\src\Model\ModelUtilities\BoundaryPackage.f90"/>
 					<File RelativePath="..\src\Model\ModelUtilities\BoundaryPackageExt.f90"/>
-					<File RelativePath="..\src\Model\ModelUtilities\ConductanceProvider.f90"/>
 					<File RelativePath="..\src\Model\ModelUtilities\Connections.f90"/>
 					<File RelativePath="..\src\Model\ModelUtilities\DiscretizationBase.f90"/>
 					<File RelativePath="..\src\Model\ModelUtilities\Disv1dGeom.f90"/>
@@ -423,7 +420,6 @@
 					<File RelativePath="..\src\Model\ModelUtilities\GwtDspOptions.f90"/>
 					<File RelativePath="..\src\Model\ModelUtilities\ModelPackageInput.f90"/>
 					<File RelativePath="..\src\Model\ModelUtilities\Mover.f90"/>
-					<File RelativePath="..\src\Model\ModelUtilities\NpfConductanceProvider.f90"/>
 					<File RelativePath="..\src\Model\ModelUtilities\PackageMover.f90"/>
 					<File RelativePath="..\src\Model\ModelUtilities\SfrCrossSectionManager.f90"/>
 					<File RelativePath="..\src\Model\ModelUtilities\SfrCrossSectionUtils.f90"/>

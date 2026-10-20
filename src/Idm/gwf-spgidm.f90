@@ -18,10 +18,12 @@ module GwfSpgInputModule
     logical :: iprpak = .false.
     logical :: iprflow = .false.
     logical :: ipakcb = .false.
-    logical :: ibound_toggle = .false.
-    logical :: penalty_cond = .false.
     logical :: maxbound = .false.
     logical :: cellid = .false.
+    logical :: ihc = .false.
+    logical :: cl1 = .false.
+    logical :: hwva = .false.
+    logical :: angldegx = .false.
     logical :: auxvar = .false.
     logical :: boundname = .false.
   end type GwfSpgParamFoundType
@@ -131,44 +133,6 @@ module GwfSpgInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfspg_ibound_toggle = InputParamDefinitionType &
-    ( &
-    'GWF', & ! component
-    'SPG', & ! subcomponent
-    'OPTIONS', & ! block
-    'IBOUND_TOGGLE', & ! tag name
-    'IBOUND_TOGGLE', & ! fortran variable
-    'KEYWORD', & ! type
-    '', & ! shape
-    'use constant-head ibound toggle method', & ! longname
-    .false., & ! required
-    .false., & ! developmode
-    .false., & ! multi-record
-    .false., & ! preserve case
-    .false., & ! layered
-    .false. & ! timeseries
-    )
-
-  type(InputParamDefinitionType), parameter :: &
-    gwfspg_penalty_cond = InputParamDefinitionType &
-    ( &
-    'GWF', & ! component
-    'SPG', & ! subcomponent
-    'OPTIONS', & ! block
-    'PENALTY_CONDUCTANCE', & ! tag name
-    'PENALTY_COND', & ! fortran variable
-    'DOUBLE', & ! type
-    '', & ! shape
-    'penalty conductance for the active seepage state', & ! longname
-    .false., & ! required
-    .false., & ! developmode
-    .false., & ! multi-record
-    .false., & ! preserve case
-    .false., & ! layered
-    .false. & ! timeseries
-    )
-
-  type(InputParamDefinitionType), parameter :: &
     gwfspg_maxbound = InputParamDefinitionType &
     ( &
     'GWF', & ! component
@@ -198,6 +162,82 @@ module GwfSpgInputModule
     'INTEGER1D', & ! type
     'NCELLDIM', & ! shape
     'cell identifier', & ! longname
+    .true., & ! required
+    .false., & ! developmode
+    .true., & ! multi-record
+    .false., & ! preserve case
+    .false., & ! layered
+    .false. & ! timeseries
+    )
+
+  type(InputParamDefinitionType), parameter :: &
+    gwfspg_ihc = InputParamDefinitionType &
+    ( &
+    'GWF', & ! component
+    'SPG', & ! subcomponent
+    'PERIOD', & ! block
+    'IHC', & ! tag name
+    'IHC', & ! fortran variable
+    'INTEGER', & ! type
+    '', & ! shape
+    'horizontal connection flag', & ! longname
+    .true., & ! required
+    .false., & ! developmode
+    .true., & ! multi-record
+    .false., & ! preserve case
+    .false., & ! layered
+    .false. & ! timeseries
+    )
+
+  type(InputParamDefinitionType), parameter :: &
+    gwfspg_cl1 = InputParamDefinitionType &
+    ( &
+    'GWF', & ! component
+    'SPG', & ! subcomponent
+    'PERIOD', & ! block
+    'CL1', & ! tag name
+    'CL1', & ! fortran variable
+    'DOUBLE', & ! type
+    '', & ! shape
+    'distance to seepage face', & ! longname
+    .true., & ! required
+    .false., & ! developmode
+    .true., & ! multi-record
+    .false., & ! preserve case
+    .false., & ! layered
+    .false. & ! timeseries
+    )
+
+  type(InputParamDefinitionType), parameter :: &
+    gwfspg_hwva = InputParamDefinitionType &
+    ( &
+    'GWF', & ! component
+    'SPG', & ! subcomponent
+    'PERIOD', & ! block
+    'HWVA', & ! tag name
+    'HWVA', & ! fortran variable
+    'DOUBLE', & ! type
+    '', & ! shape
+    'seepage face area', & ! longname
+    .true., & ! required
+    .false., & ! developmode
+    .true., & ! multi-record
+    .false., & ! preserve case
+    .false., & ! layered
+    .false. & ! timeseries
+    )
+
+  type(InputParamDefinitionType), parameter :: &
+    gwfspg_angldegx = InputParamDefinitionType &
+    ( &
+    'GWF', & ! component
+    'SPG', & ! subcomponent
+    'PERIOD', & ! block
+    'ANGLDEGX', & ! tag name
+    'ANGLDEGX', & ! fortran variable
+    'DOUBLE', & ! type
+    '', & ! shape
+    'face normal angle with x axis', & ! longname
     .true., & ! required
     .false., & ! developmode
     .true., & ! multi-record
@@ -252,10 +292,12 @@ module GwfSpgInputModule
     gwfspg_iprpak, &
     gwfspg_iprflow, &
     gwfspg_ipakcb, &
-    gwfspg_ibound_toggle, &
-    gwfspg_penalty_cond, &
     gwfspg_maxbound, &
     gwfspg_cellid, &
+    gwfspg_ihc, &
+    gwfspg_cl1, &
+    gwfspg_hwva, &
+    gwfspg_angldegx, &
     gwfspg_auxvar, &
     gwfspg_boundname &
     ]
@@ -268,7 +310,7 @@ module GwfSpgInputModule
     'PERIOD', & ! block
     'STRESS_PERIOD_DATA', & ! tag name
     'SPD', & ! fortran variable
-    'RECARRAY CELLID AUX BOUNDNAME', & ! type
+    'RECARRAY CELLID IHC CL1 HWVA ANGLDEGX AUX BOUNDNAME', & ! type
     'MAXBOUND', & ! shape
     '', & ! longname
     .true., & ! required

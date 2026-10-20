@@ -34,7 +34,6 @@ module IdmGwfDfnSelectorModule
   use GwfStoInputModule
   use GwfUzfInputModule
   use GwfVscInputModule
-  use GwfSgdInputModule
   use GwfSpgInputModule
   use GwfUzrInputModule
   use GwfWelInputModule
@@ -133,8 +132,6 @@ contains
       call set_param_pointer(input_definition, gwf_uzf_param_definitions)
     case ('VSC')
       call set_param_pointer(input_definition, gwf_vsc_param_definitions)
-    case ('SGD')
-      call set_param_pointer(input_definition, gwf_sgd_param_definitions)
     case ('SPG')
       call set_param_pointer(input_definition, gwf_spg_param_definitions)
     case ('UZR')
@@ -211,8 +208,6 @@ contains
       call set_param_pointer(input_definition, gwf_uzf_aggregate_definitions)
     case ('VSC')
       call set_param_pointer(input_definition, gwf_vsc_aggregate_definitions)
-    case ('SGD')
-      call set_param_pointer(input_definition, gwf_sgd_aggregate_definitions)
     case ('SPG')
       call set_param_pointer(input_definition, gwf_spg_aggregate_definitions)
     case ('UZR')
@@ -289,8 +284,6 @@ contains
       call set_block_pointer(input_definition, gwf_uzf_block_definitions)
     case ('VSC')
       call set_block_pointer(input_definition, gwf_vsc_block_definitions)
-    case ('SGD')
-      call set_block_pointer(input_definition, gwf_sgd_block_definitions)
     case ('SPG')
       call set_block_pointer(input_definition, gwf_spg_block_definitions)
     case ('UZR')
@@ -366,8 +359,6 @@ contains
       multi_package = gwf_uzf_multi_package
     case ('VSC')
       multi_package = gwf_vsc_multi_package
-    case ('SGD')
-      multi_package = gwf_sgd_multi_package
     case ('SPG')
       multi_package = gwf_spg_multi_package
     case ('UZR')
@@ -446,8 +437,6 @@ contains
       is_advanced = gwf_uzf_is_advanced
     case ('VSC')
       is_advanced = gwf_vsc_is_advanced
-    case ('SGD')
-      is_advanced = gwf_sgd_is_advanced
     case ('SPG')
       is_advanced = gwf_spg_is_advanced
     case ('UZR')
@@ -526,8 +515,6 @@ contains
       call set_subpkg_pointer(subpackages, gwf_uzf_subpackages)
     case ('VSC')
       call set_subpkg_pointer(subpackages, gwf_vsc_subpackages)
-    case ('SGD')
-      call set_subpkg_pointer(subpackages, gwf_sgd_subpackages)
     case ('SPG')
       call set_subpkg_pointer(subpackages, gwf_spg_subpackages)
     case ('UZR')
@@ -603,8 +590,6 @@ contains
     case ('UZF')
       integrated = .true.
     case ('VSC')
-      integrated = .true.
-    case ('SGD')
       integrated = .true.
     case ('SPG')
       integrated = .true.
