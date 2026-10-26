@@ -71,7 +71,7 @@ module GwfNpfModule
     real(DP), dimension(:), pointer, contiguous :: k11 => null() !< hydraulic conductivity; if anisotropic, then this is Kx prior to rotation
     real(DP), dimension(:), pointer, contiguous :: k22 => null() !< hydraulic conductivity; if specified then this is Ky prior to rotation
     real(DP), dimension(:), pointer, contiguous :: k33 => null() !< hydraulic conductivity; if specified then this is Kz prior to rotation
-    real(DP), dimension(:), pointer, contiguous :: krel => null() !< relative permeability; unless UZR flow is active in a cell, this is 1
+    real(DP), dimension(:), pointer, contiguous :: krel => null() !< relative permeability; unless VSF flow is active in a cell, this is 1
     real(DP), dimension(:), pointer, contiguous :: dkrdh => null() !< head derivative of relative permeability; 0 unless an unsaturated flow formulation populates it
     real(DP), dimension(:), pointer, contiguous :: k11input => null() !< hydraulic conductivity originally specified by user prior to TVK or VSC modification
     real(DP), dimension(:), pointer, contiguous :: k22input => null() !< hydraulic conductivity originally specified by user prior to TVK or VSC modification

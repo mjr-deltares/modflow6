@@ -1,4 +1,4 @@
-# --------------------- gwf uzr options ---------------------
+# --------------------- gwf vsf options ---------------------
 
 block options
 name soil_model
@@ -122,7 +122,7 @@ optional false
 longname pressure head file keyword
 description name of the binary output file to write pressure head data.  The pressure head file has the same format as the head file.  Pressure head values will be written to file whenever (hydraulic) heads are written to the binary head file.  The settings for controlling head output are contained in the Output Control option.
 
-# --------------------- gwf uzr griddata ---------------------
+# --------------------- gwf vsf griddata ---------------------
 
 block griddata
 name iunsat

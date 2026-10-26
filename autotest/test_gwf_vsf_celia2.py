@@ -1,6 +1,5 @@
 """
-Test for the Richards based unsaturated zone package UZR.
-TODO_UZR: add reading from binary file to the tests
+Test for the Richards based unsaturated zone package VSF.
 """
 
 import os
@@ -10,25 +9,20 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pytest
 from framework import TestFramework
-from gwf_test_utils import PLOT_UZR_TESTS, get_balance_error, get_uzr_soil_data
+from gwf_test_utils import PLOT_VSF_TESTS, get_balance_error, get_vsf_soil_data
 from modflow_devtools.misc import is_in_ci
 
-cases = [
-    "celia1-dense",
-    "celia1-dt10",
-    "celia1-dt30",
-    "celia1-dt120",
-    "celia1-dt180",
-    "celia1-dt360",
-]
-dt = [0.5, 10.0, 30.0, 120.0, 180.0, 360.0]
+cases = ["celia2-dense", "celia2-dt144", "celia2-dt720", "celia2-dt3600"]
+dt = [10.0, 144.0, 720.0, 3600.0]
+
+gwfname = "celia"
 
 
 def build_models(idx, test):
-    column_height = 42.0
+    column_height = 105.0
     nlay, nrow, ncol = 42, 1, 1
     nper = 1
-    perlen = [360.0]  # s
+    perlen = [36 * 3600]  # s
     nstp = [int(perlen[0] / dt[idx])]
     tsmult = [1.0]
     delr = 10.0  # cm
@@ -37,11 +31,11 @@ def build_models(idx, test):
     top = delz
     laytyp = 0
     botm = [top - (ilay + 1) * delz for ilay in range(nlay)]
-    hk = 0.00944  # cm/s
+    hk = 0.00922  # cm/s
 
     # saturated lowest cell:
-    hp_upper = -20.7
-    hp_lower = -61.5
+    hp_upper = -75.0
+    hp_lower = -1000.0
     h_upper = hp_upper + botm[0] + 0.5 * delz
     h_lower = hp_lower + botm[-1] + 0.5 * delz
     strt = np.zeros((nlay, nrow, ncol))
@@ -66,7 +60,6 @@ def build_models(idx, test):
     tdis = flopy.mf6.ModflowTdis(sim, time_units="DAYS", nper=nper, perioddata=tdis_rc)
 
     # create gwf model
-    gwfname = "gwf_" + name
     gwf = flopy.mf6.MFModel(
         sim,
         model_type="gwf6",
@@ -119,19 +112,17 @@ def build_models(idx, test):
     )
 
     # unsaturated zone Richards flow
-    soil_data = get_uzr_soil_data("Celia1990-eq10-Haverkamp")
-    uzr = flopy.mf6.ModflowGwfuzr(
+    soil_data = get_vsf_soil_data("Celia1990-eq13-VanGenuchten")
+    vsf = flopy.mf6.ModflowGwfvsf(
         gwf,
         iunsat=1,
         storage_scheme="modified-picard",
         kr_averaging="arithmetic",
-        soil_model="Haverkamp",
+        soil_model="VanGenuchten",
         porosity=soil_data["porosity"],
         satres=soil_data["satres"],
-        alphahvk=soil_data["alpha"],
-        nhvk=soil_data["n"],
-        betahvk=soil_data["beta"],
-        khvk=soil_data["k"],
+        alphavgn=soil_data["alpha"],
+        nvgn=soil_data["n"],
     )
 
     # constant head
@@ -159,32 +150,29 @@ def build_models(idx, test):
 
 
 def check_output(idx, test):
-    model_name = "gwf_" + test.name
-    fpth = os.path.join(test.workspace, f"{model_name}.dis.grb")
-
+    fpth = os.path.join(test.workspace, f"{gwfname}.dis.grb")
     grb = flopy.mf6.utils.MfGrdFile(fpth)
     mg = grb.modelgrid
     nlay = mg.nlay
     dz = mg.delz.flatten()
     botm = mg.botm.flatten()
 
-    fpth = os.path.join(test.workspace, f"{model_name}.hds")
+    fpth = os.path.join(test.workspace, f"{gwfname}.hds")
     hds = flopy.utils.HeadFile(fpth)
     heads = hds.get_data(idx=-1).flatten()
 
     pheads = [heads[ilay] - botm[ilay] - 0.5 * dz[ilay] for ilay in range(nlay)]
     depth = [-botm[ilay] - 0.5 * dz[ilay] for ilay in range(nlay)]
 
-    if PLOT_UZR_TESTS and not is_in_ci():
+    if PLOT_VSF_TESTS and not is_in_ci():
+        plt.figure()
         plt.plot(depth, pheads)
-        plt.xlim(0.0, 40.0)
-        plt.ylim(-70.0, -10.0)
         plt.savefig(f"pressure_head-{cases[idx]}.png")
 
-    list_pth = os.path.join(test.workspace, f"{model_name}.lst")
+    list_pth = os.path.join(test.workspace, f"{gwfname}.lst")
     error = get_balance_error(list_pth)
     assert abs(error) < 0.00001, (
-        f"Cumulative balance error = {error} for {model_name} too large"
+        f"Cumulative balance error = {error} for {gwfname} too large"
     )
 
 

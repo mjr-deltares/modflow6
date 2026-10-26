@@ -1,10 +1,10 @@
 """
 Test the seepage (SPG) boundary package.
 
-The SPG package may only be applied to Richards (UZR) cells, so the model uses
-the UZR unsaturated-zone package (newton, non-convertible NPF cells).  The
+The SPG package may only be applied to Richards (VSF) cells, so the model uses
+the VSF unsaturated-zone package (newton, non-convertible NPF cells).  The
 seepage conductance is approximated LAK-style from the NPF hydraulic
-conductivity (K11/K33) scaled by the UZR relative permeability (krel):
+conductivity (K11/K33) scaled by the VSF relative permeability (krel):
 
     cond = krel * K * HWVA / CL1
 
@@ -34,7 +34,7 @@ import flopy
 import numpy as np
 import pytest
 from framework import TestFramework
-from gwf_test_utils import get_uzr_soil_data
+from gwf_test_utils import get_vsf_soil_data
 
 cases = ["spg-act", "spg-nof"]
 chd_head = [5.0, 0.2]
@@ -99,7 +99,7 @@ def build_models(idx, test):
 
     flopy.mf6.ModflowGwfic(gwf, strt=chd_head[idx])
 
-    # confined: icelltype=0 (required by UZR), K drives the conductance
+    # confined: icelltype=0 (required by VSF), K drives the conductance
     flopy.mf6.ModflowGwfnpf(gwf, icelltype=0, k=hk, k33=hk)
 
     flopy.mf6.ModflowGwfsto(
@@ -107,8 +107,8 @@ def build_models(idx, test):
     )
 
     # unsaturated zone Richards flow: flags every cell as a Richards cell
-    soil_data = get_uzr_soil_data("Celia1990-eq10-Haverkamp")
-    flopy.mf6.ModflowGwfuzr(
+    soil_data = get_vsf_soil_data("Celia1990-eq10-Haverkamp")
+    flopy.mf6.ModflowGwfvsf(
         gwf,
         iunsat=1,
         storage_scheme="chord-slope",

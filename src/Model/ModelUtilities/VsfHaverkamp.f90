@@ -1,17 +1,17 @@
-module UzrHaverkampModule
+module VsfHaverkampModule
   use KindModule, only: I4B, DP
   use ConstantsModule, only: DZERO, DONE
   use SimModule, only: store_error, count_errors, ustop
   use MemoryManagerModule, only: mem_allocate, mem_deallocate
   use MemoryManagerExtModule, only: mem_set_value
-  use UzrSoilModelModule, only: SoilModelType
-  use GwfUzrInputModule, only: GwfUzrParamFoundType
+  use VsfSoilModelModule, only: SoilModelType
+  use GwfVsfInputModule, only: GwfVsfParamFoundType
   implicit none
   private
 
   public :: HaverkampModelType
 
-  ! TODO_UZR: document these parameters based on the tech ref
+  ! TODO_VSF: document these parameters based on the tech ref
   type, extends(SoilModelType) :: HaverkampModelType
     real(DP), dimension(:), pointer, contiguous :: alpha => null()
     real(DP), dimension(:), pointer, contiguous :: n => null()
@@ -34,7 +34,7 @@ contains
     real(DP), dimension(:), pointer, contiguous :: porosity !< porosity
     real(DP), dimension(:), pointer, contiguous :: sat_res !< residual saturation
     ! local
-    type(GwfUzrParamFoundType) :: found
+    type(GwfVsfParamFoundType) :: found
 
     this%porosity => porosity
     this%sat_res => sat_res
@@ -143,4 +143,4 @@ contains
 
   end subroutine destroy_haverkamp
 
-end module UzrHaverkampModule
+end module VsfHaverkampModule

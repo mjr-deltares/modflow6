@@ -1,7 +1,6 @@
 """
-Test the storage formulations for the Richards based unsaturated
-zone package UZR. Test flow in a single homogeneous column with
-upper and lower Dirichlet boundary.
+Test for the Richards based unsaturated zone package VSF.
+TODO_VSF: add reading from binary file to the tests
 """
 
 import os
@@ -11,11 +10,18 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pytest
 from framework import TestFramework
-from gwf_test_utils import PLOT_UZR_TESTS, get_balance_error, get_uzr_soil_data
+from gwf_test_utils import PLOT_VSF_TESTS, get_balance_error, get_vsf_soil_data
 from modflow_devtools.misc import is_in_ci
 
-cases = ["uzr-sto-cs", "uzr-sto-mp", "uzr-sto-nwt"]
-scheme = ["chord-slope", "modified-picard", "newton"]
+cases = [
+    "celia1-dense",
+    "celia1-dt10",
+    "celia1-dt30",
+    "celia1-dt120",
+    "celia1-dt180",
+    "celia1-dt360",
+]
+dt = [0.5, 10.0, 30.0, 120.0, 180.0, 360.0]
 
 
 def build_models(idx, test):
@@ -23,7 +29,7 @@ def build_models(idx, test):
     nlay, nrow, ncol = 42, 1, 1
     nper = 1
     perlen = [360.0]  # s
-    nstp = [3]
+    nstp = [int(perlen[0] / dt[idx])]
     tsmult = [1.0]
     delr = 10.0  # cm
     delc = 10.0
@@ -50,7 +56,6 @@ def build_models(idx, test):
         tdis_rc.append((perlen[i], nstp[i], tsmult[i]))
 
     name = cases[idx]
-    sto_scheme = scheme[idx]
 
     # build MODFLOW 6 files
     ws = test.workspace
@@ -62,19 +67,13 @@ def build_models(idx, test):
 
     # create gwf model
     gwfname = "gwf_" + name
-    newtonopts = ""
-    lin_acc = "CG"
-    if sto_scheme == "newton":
-        newtonopts = "newton"
-        lin_acc = "BICGSTAB"
-        sto_scheme = None
-    gwf = flopy.mf6.ModflowGwf(
+    gwf = flopy.mf6.MFModel(
         sim,
-        save_flows=True,
+        model_type="gwf6",
         modelname=gwfname,
         model_nam_file=f"{gwfname}.nam",
-        newtonoptions=newtonopts,
     )
+    gwf.name_file.save_flows = True
 
     # create iterative model solution and register the gwf model with it
     imsgwf = flopy.mf6.ModflowIms(
@@ -86,7 +85,7 @@ def build_models(idx, test):
         inner_maximum=ninner,
         inner_dvclose=hclose,
         rcloserecord=rclose,
-        linear_acceleration=lin_acc,
+        linear_acceleration="CG",
         scaling_method="NONE",
         reordering_method="NONE",
         relaxation_factor=relax,
@@ -116,16 +115,16 @@ def build_models(idx, test):
     )
 
     sto = flopy.mf6.ModflowGwfsto(
-        gwf, ss=0.0001, sy=0.3, iconvert=1, transient={0: True}
+        gwf, ss=0.0001, sy=0.3, iconvert=0, transient={0: True}
     )
 
     # unsaturated zone Richards flow
-    soil_data = get_uzr_soil_data("Celia1990-eq10-Haverkamp")
-    uzr = flopy.mf6.ModflowGwfuzr(
+    soil_data = get_vsf_soil_data("Celia1990-eq10-Haverkamp")
+    vsf = flopy.mf6.ModflowGwfvsf(
         gwf,
         iunsat=1,
-        storage_scheme=sto_scheme,
-        kr_averaging="geometric",
+        storage_scheme="modified-picard",
+        kr_averaging="arithmetic",
         soil_model="Haverkamp",
         porosity=soil_data["porosity"],
         satres=soil_data["satres"],
@@ -153,7 +152,7 @@ def build_models(idx, test):
         head_filerecord=f"{gwfname}.hds",
         headprintrecord=[("COLUMNS", 10, "WIDTH", 15, "DIGITS", 6, "GENERAL")],
         saverecord=[("HEAD", "LAST"), ("BUDGET", "LAST")],
-        printrecord=[("HEAD", "LAST"), ("BUDGET", "ALL")],
+        printrecord=[("HEAD", "LAST"), ("BUDGET", "LAST")],
     )
 
     return sim, None
@@ -161,8 +160,8 @@ def build_models(idx, test):
 
 def check_output(idx, test):
     model_name = "gwf_" + test.name
-
     fpth = os.path.join(test.workspace, f"{model_name}.dis.grb")
+
     grb = flopy.mf6.utils.MfGrdFile(fpth)
     mg = grb.modelgrid
     nlay = mg.nlay
@@ -176,7 +175,7 @@ def check_output(idx, test):
     pheads = [heads[ilay] - botm[ilay] - 0.5 * dz[ilay] for ilay in range(nlay)]
     depth = [-botm[ilay] - 0.5 * dz[ilay] for ilay in range(nlay)]
 
-    if PLOT_UZR_TESTS and not is_in_ci():
+    if PLOT_VSF_TESTS and not is_in_ci():
         plt.plot(depth, pheads)
         plt.xlim(0.0, 40.0)
         plt.ylim(-70.0, -10.0)

@@ -1,17 +1,17 @@
-module UzrVanGenuchtenModule
+module VsfVanGenuchtenModule
   use KindModule, only: I4B, DP
   use ConstantsModule, only: DZERO, DONE, DTWO, DHALF
   use SimModule, only: store_error, count_errors, ustop
   use MemoryManagerModule, only: mem_allocate, mem_deallocate
   use MemoryManagerExtModule, only: mem_set_value
-  use UzrSoilModelModule, only: SoilModelType
-  use GwfUzrInputModule, only: GwfUzrParamFoundType
+  use VsfSoilModelModule, only: SoilModelType
+  use GwfVsfInputModule, only: GwfVsfParamFoundType
   implicit none
   private
 
   public :: VanGenuchtenModelType
 
-  ! TODO_UZR: document these parameters based on the tech ref
+  ! TODO_VSF: document these parameters based on the tech ref
   type, extends(SoilModelType) :: VanGenuchtenModelType
     real(DP), dimension(:), pointer, contiguous :: alpha => null()
     real(DP), dimension(:), pointer, contiguous :: n => null()
@@ -32,7 +32,7 @@ contains
     real(DP), dimension(:), pointer, contiguous :: porosity !< porosity
     real(DP), dimension(:), pointer, contiguous :: sat_res !< residual saturation
     ! local
-    type(GwfUzrParamFoundType) :: found
+    type(GwfVsfParamFoundType) :: found
 
     this%porosity => porosity
     this%sat_res => sat_res
@@ -117,7 +117,7 @@ contains
       se = (this%saturation(psi, i) - this%sat_res(i)) / (DONE - this%sat_res(i))
       term = DONE - se**(DONE / m)
       kr = sqrt(se) * ((DONE - term**m)**DTWO)
-      ! TODO_UZR: formalize this:
+      ! TODO_VSF: formalize this:
       if (.false.) then
         kr = kr_smoothing(kr, se, 0.999_DP, 0.0001_DP)
       end if
@@ -156,4 +156,4 @@ contains
 
   end subroutine destroy_vangenuchten
 
-end module UzrVanGenuchtenModule
+end module VsfVanGenuchtenModule

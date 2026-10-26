@@ -1,18 +1,18 @@
 ! ** Do Not Modify! MODFLOW 6 system generated file. **
-module GwfUzrInputModule
+module GwfVsfInputModule
   use ConstantsModule, only: LENVARNAME
   use InputDefinitionModule, only: InputParamDefinitionType, &
                                    InputBlockDefinitionType
   private
-  public gwf_uzr_param_definitions
-  public gwf_uzr_aggregate_definitions
-  public gwf_uzr_block_definitions
-  public GwfUzrParamFoundType
-  public gwf_uzr_multi_package
-  public gwf_uzr_is_advanced
-  public gwf_uzr_subpackages
+  public gwf_vsf_param_definitions
+  public gwf_vsf_aggregate_definitions
+  public gwf_vsf_block_definitions
+  public GwfVsfParamFoundType
+  public gwf_vsf_multi_package
+  public gwf_vsf_is_advanced
+  public gwf_vsf_subpackages
 
-  type GwfUzrParamFoundType
+  type GwfVsfParamFoundType
     logical :: soil_model = .false.
     logical :: dev_soil_param = .false.
     logical :: model_kr = .false.
@@ -34,22 +34,22 @@ module GwfUzrInputModule
     logical :: khvk = .false.
     logical :: alphavgn = .false.
     logical :: nvgn = .false.
-  end type GwfUzrParamFoundType
+  end type GwfVsfParamFoundType
 
-  logical :: gwf_uzr_multi_package = .false.
-  logical :: gwf_uzr_is_advanced = .false.
+  logical :: gwf_vsf_multi_package = .false.
+  logical :: gwf_vsf_is_advanced = .false.
 
   character(len=16), parameter :: &
-    gwf_uzr_subpackages(*) = &
+    gwf_vsf_subpackages(*) = &
     [ &
     '                ' &
     ]
 
   type(InputParamDefinitionType), parameter :: &
-    gwfuzr_soil_model = InputParamDefinitionType &
+    gwfvsf_soil_model = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'UZR', & ! subcomponent
+    'VSF', & ! subcomponent
     'OPTIONS', & ! block
     'SOIL_MODEL', & ! tag name
     'SOIL_MODEL', & ! fortran variable
@@ -65,10 +65,10 @@ module GwfUzrInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfuzr_dev_soil_param = InputParamDefinitionType &
+    gwfvsf_dev_soil_param = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'UZR', & ! subcomponent
+    'VSF', & ! subcomponent
     'OPTIONS', & ! block
     'DEV_SOIL_PARAM', & ! tag name
     'DEV_SOIL_PARAM', & ! fortran variable
@@ -84,10 +84,10 @@ module GwfUzrInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfuzr_model_kr = InputParamDefinitionType &
+    gwfvsf_model_kr = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'UZR', & ! subcomponent
+    'VSF', & ! subcomponent
     'OPTIONS', & ! block
     'MODEL_KR', & ! tag name
     'MODEL_KR', & ! fortran variable
@@ -103,10 +103,10 @@ module GwfUzrInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfuzr_storage_scheme = InputParamDefinitionType &
+    gwfvsf_storage_scheme = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'UZR', & ! subcomponent
+    'VSF', & ! subcomponent
     'OPTIONS', & ! block
     'STORAGE_SCHEME', & ! tag name
     'STORAGE_SCHEME', & ! fortran variable
@@ -122,10 +122,10 @@ module GwfUzrInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfuzr_kr_averaging = InputParamDefinitionType &
+    gwfvsf_kr_averaging = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'UZR', & ! subcomponent
+    'VSF', & ! subcomponent
     'OPTIONS', & ! block
     'KR_AVERAGING', & ! tag name
     'KR_AVERAGING', & ! fortran variable
@@ -141,10 +141,10 @@ module GwfUzrInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfuzr_sat_filerecord = InputParamDefinitionType &
+    gwfvsf_sat_filerecord = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'UZR', & ! subcomponent
+    'VSF', & ! subcomponent
     'OPTIONS', & ! block
     'SAT_FILERECORD', & ! tag name
     'SAT_FILERECORD', & ! fortran variable
@@ -160,10 +160,10 @@ module GwfUzrInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfuzr_saturation = InputParamDefinitionType &
+    gwfvsf_saturation = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'UZR', & ! subcomponent
+    'VSF', & ! subcomponent
     'OPTIONS', & ! block
     'SATURATION', & ! tag name
     'SATURATION', & ! fortran variable
@@ -179,10 +179,10 @@ module GwfUzrInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfuzr_fileout = InputParamDefinitionType &
+    gwfvsf_fileout = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'UZR', & ! subcomponent
+    'VSF', & ! subcomponent
     'OPTIONS', & ! block
     'FILEOUT', & ! tag name
     'FILEOUT', & ! fortran variable
@@ -198,10 +198,10 @@ module GwfUzrInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfuzr_saturationfile = InputParamDefinitionType &
+    gwfvsf_saturationfile = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'UZR', & ! subcomponent
+    'VSF', & ! subcomponent
     'OPTIONS', & ! block
     'SATURATIONFILE', & ! tag name
     'SATURATIONFILE', & ! fortran variable
@@ -217,10 +217,10 @@ module GwfUzrInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfuzr_phead_filerecord = InputParamDefinitionType &
+    gwfvsf_phead_filerecord = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'UZR', & ! subcomponent
+    'VSF', & ! subcomponent
     'OPTIONS', & ! block
     'PHEAD_FILERECORD', & ! tag name
     'PHEAD_FILERECORD', & ! fortran variable
@@ -236,10 +236,10 @@ module GwfUzrInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfuzr_pressurehead = InputParamDefinitionType &
+    gwfvsf_pressurehead = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'UZR', & ! subcomponent
+    'VSF', & ! subcomponent
     'OPTIONS', & ! block
     'PRESSUREHEAD', & ! tag name
     'PRESSUREHEAD', & ! fortran variable
@@ -255,10 +255,10 @@ module GwfUzrInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfuzr_pheadfile = InputParamDefinitionType &
+    gwfvsf_pheadfile = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'UZR', & ! subcomponent
+    'VSF', & ! subcomponent
     'OPTIONS', & ! block
     'PHEADFILE', & ! tag name
     'PHEADFILE', & ! fortran variable
@@ -274,10 +274,10 @@ module GwfUzrInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfuzr_iunsat = InputParamDefinitionType &
+    gwfvsf_iunsat = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'UZR', & ! subcomponent
+    'VSF', & ! subcomponent
     'GRIDDATA', & ! block
     'IUNSAT', & ! tag name
     'IUNSAT', & ! fortran variable
@@ -293,10 +293,10 @@ module GwfUzrInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfuzr_porosity = InputParamDefinitionType &
+    gwfvsf_porosity = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'UZR', & ! subcomponent
+    'VSF', & ! subcomponent
     'GRIDDATA', & ! block
     'POROSITY', & ! tag name
     'POROSITY', & ! fortran variable
@@ -312,10 +312,10 @@ module GwfUzrInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfuzr_satres = InputParamDefinitionType &
+    gwfvsf_satres = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'UZR', & ! subcomponent
+    'VSF', & ! subcomponent
     'GRIDDATA', & ! block
     'SATRES', & ! tag name
     'SATRES', & ! fortran variable
@@ -331,10 +331,10 @@ module GwfUzrInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfuzr_alphahvk = InputParamDefinitionType &
+    gwfvsf_alphahvk = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'UZR', & ! subcomponent
+    'VSF', & ! subcomponent
     'GRIDDATA', & ! block
     'ALPHAHVK', & ! tag name
     'ALPHAHVK', & ! fortran variable
@@ -350,10 +350,10 @@ module GwfUzrInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfuzr_nhvk = InputParamDefinitionType &
+    gwfvsf_nhvk = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'UZR', & ! subcomponent
+    'VSF', & ! subcomponent
     'GRIDDATA', & ! block
     'NHVK', & ! tag name
     'NHVK', & ! fortran variable
@@ -369,10 +369,10 @@ module GwfUzrInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfuzr_betahvk = InputParamDefinitionType &
+    gwfvsf_betahvk = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'UZR', & ! subcomponent
+    'VSF', & ! subcomponent
     'GRIDDATA', & ! block
     'BETAHVK', & ! tag name
     'BETAHVK', & ! fortran variable
@@ -388,10 +388,10 @@ module GwfUzrInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfuzr_khvk = InputParamDefinitionType &
+    gwfvsf_khvk = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'UZR', & ! subcomponent
+    'VSF', & ! subcomponent
     'GRIDDATA', & ! block
     'KHVK', & ! tag name
     'KHVK', & ! fortran variable
@@ -407,10 +407,10 @@ module GwfUzrInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfuzr_alphavgn = InputParamDefinitionType &
+    gwfvsf_alphavgn = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'UZR', & ! subcomponent
+    'VSF', & ! subcomponent
     'GRIDDATA', & ! block
     'ALPHAVGN', & ! tag name
     'ALPHAVGN', & ! fortran variable
@@ -426,10 +426,10 @@ module GwfUzrInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfuzr_nvgn = InputParamDefinitionType &
+    gwfvsf_nvgn = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'UZR', & ! subcomponent
+    'VSF', & ! subcomponent
     'GRIDDATA', & ! block
     'NVGN', & ! tag name
     'NVGN', & ! fortran variable
@@ -445,33 +445,33 @@ module GwfUzrInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwf_uzr_param_definitions(*) = &
+    gwf_vsf_param_definitions(*) = &
     [ &
-    gwfuzr_soil_model, &
-    gwfuzr_dev_soil_param, &
-    gwfuzr_model_kr, &
-    gwfuzr_storage_scheme, &
-    gwfuzr_kr_averaging, &
-    gwfuzr_sat_filerecord, &
-    gwfuzr_saturation, &
-    gwfuzr_fileout, &
-    gwfuzr_saturationfile, &
-    gwfuzr_phead_filerecord, &
-    gwfuzr_pressurehead, &
-    gwfuzr_pheadfile, &
-    gwfuzr_iunsat, &
-    gwfuzr_porosity, &
-    gwfuzr_satres, &
-    gwfuzr_alphahvk, &
-    gwfuzr_nhvk, &
-    gwfuzr_betahvk, &
-    gwfuzr_khvk, &
-    gwfuzr_alphavgn, &
-    gwfuzr_nvgn &
+    gwfvsf_soil_model, &
+    gwfvsf_dev_soil_param, &
+    gwfvsf_model_kr, &
+    gwfvsf_storage_scheme, &
+    gwfvsf_kr_averaging, &
+    gwfvsf_sat_filerecord, &
+    gwfvsf_saturation, &
+    gwfvsf_fileout, &
+    gwfvsf_saturationfile, &
+    gwfvsf_phead_filerecord, &
+    gwfvsf_pressurehead, &
+    gwfvsf_pheadfile, &
+    gwfvsf_iunsat, &
+    gwfvsf_porosity, &
+    gwfvsf_satres, &
+    gwfvsf_alphahvk, &
+    gwfvsf_nhvk, &
+    gwfvsf_betahvk, &
+    gwfvsf_khvk, &
+    gwfvsf_alphavgn, &
+    gwfvsf_nvgn &
     ]
 
   type(InputParamDefinitionType), parameter :: &
-    gwf_uzr_aggregate_definitions(*) = &
+    gwf_vsf_aggregate_definitions(*) = &
     [ &
     InputParamDefinitionType &
     ( &
@@ -493,7 +493,7 @@ module GwfUzrInputModule
     ]
 
   type(InputBlockDefinitionType), parameter :: &
-    gwf_uzr_block_definitions(*) = &
+    gwf_vsf_block_definitions(*) = &
     [ &
     InputBlockDefinitionType( &
     'OPTIONS', & ! blockname
@@ -509,4 +509,4 @@ module GwfUzrInputModule
     ) &
     ]
 
-end module GwfUzrInputModule
+end module GwfVsfInputModule

@@ -1,6 +1,6 @@
 """
 Test the Kr averaging methods for the Richards based unsaturated zone
-package UZR. Test flow in a single homogeneous column with upper
+package VSF. Test flow in a single homogeneous column with upper
 and lower Dirichlet boundary.
 """
 
@@ -11,10 +11,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pytest
 from framework import TestFramework
-from gwf_test_utils import PLOT_UZR_TESTS, get_uzr_soil_data
+from gwf_test_utils import PLOT_VSF_TESTS, get_vsf_soil_data
 from modflow_devtools.misc import is_in_ci
 
-cases = ["uzr-kr-hrm", "uzr-kr-amt", "uzr-kr-ups"]
+cases = ["vsf-kr-hrm", "vsf-kr-amt", "vsf-kr-ups"]
 
 
 def build_models(idx, test):
@@ -114,8 +114,8 @@ def build_models(idx, test):
     )
 
     # unsaturated zone Richards flow
-    soil_data = get_uzr_soil_data("Celia1990-eq10-Haverkamp")
-    uzr = flopy.mf6.ModflowGwfuzr(
+    soil_data = get_vsf_soil_data("Celia1990-eq10-Haverkamp")
+    vsf = flopy.mf6.ModflowGwfvsf(
         gwf,
         iunsat=1,
         storage_scheme=sto_scheme,
@@ -170,7 +170,7 @@ def check_output(idx, test):
     pheads = [heads[ilay] - botm[ilay] - 0.5 * dz[ilay] for ilay in range(nlay)]
     depth = [-botm[ilay] - 0.5 * dz[ilay] for ilay in range(nlay)]
 
-    if PLOT_UZR_TESTS and not is_in_ci():
+    if PLOT_VSF_TESTS and not is_in_ci():
         plt.plot(depth, pheads)
         plt.xlim(0.0, 40.0)
         plt.ylim(-70.0, -10.0)

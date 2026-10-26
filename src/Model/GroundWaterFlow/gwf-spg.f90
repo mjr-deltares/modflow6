@@ -29,7 +29,7 @@ module SpgModule
     real(DP), dimension(:), pointer, contiguous :: gwfk33 => null() !< NPF vertical hydraulic conductivity (K33), not owned
     integer(I4B), pointer :: gwfik33 => null() !< NPF flag indicating whether K33 was specified, not owned
     real(DP), dimension(:), pointer, contiguous :: gwfkrel => null() !< NPF relative permeability (KREL), not owned
-    integer(I4B), dimension(:), pointer, contiguous :: uzriunsat => null() !< UZR flag, 1 for Richards (unsaturated) nodes, not owned
+    integer(I4B), dimension(:), pointer, contiguous :: vsfiunsat => null() !< VSF flag, 1 for Richards (unsaturated) nodes, not owned
   contains
     procedure :: allocate_scalars => spg_allocate_scalars
     procedure :: allocate_arrays => spg_allocate_arrays
@@ -138,23 +138,23 @@ contains
                     create_mem_path(this%name_model, 'NPF'))
 
     ! set pointer to the NPF relative permeability (not owned).  KREL is 1.0
-    ! for saturated cells and is reduced by the UZR unsaturated formulation.
+    ! for saturated cells and is reduced by the VSF unsaturated formulation.
     call mem_setptr(this%gwfkrel, 'KREL', &
                     create_mem_path(this%name_model, 'NPF'))
 
-    ! SPG may only be applied to Richards (UZR) cells, so the UZR package must
+    ! SPG may only be applied to Richards (VSF) cells, so the VSF package must
     ! be active.  Point at its IUNSAT flag array when present; the per-cell
     ! requirement is verified in spg_ck.
-    call get_isize('IUNSAT', create_mem_path(this%name_model, 'UZR'), isize)
+    call get_isize('IUNSAT', create_mem_path(this%name_model, 'VSF'), isize)
     if (isize < 0) then
       write (errmsg, '(a)') &
-        'The SPG package can only be used with the UZR (Richards) package, &
-        &but no UZR package is active in this model.'
+        'The SPG package can only be used with the VSF (Richards) package, &
+        &but no VSF package is active in this model.'
       call store_error(errmsg)
       call store_error_filename(this%input_fname)
     else
-      call mem_setptr(this%uzriunsat, 'IUNSAT', &
-                      create_mem_path(this%name_model, 'UZR'))
+      call mem_setptr(this%vsfiunsat, 'IUNSAT', &
+                      create_mem_path(this%name_model, 'VSF'))
     end if
 
   end subroutine spg_allocate_arrays
@@ -251,7 +251,7 @@ contains
 
       ! If mover is active and this boundary is discharging,
       ! store available water (as positive value).
-      ! TODO_UZR: implement mover
+      ! TODO_VSF: implement mover
       if (this%imover == 1) then
         write (errmsg, '(a,a)') "Seepage Mover not supported: ", this%packName
         call store_error(errmsg, terminate=.true.)
@@ -260,11 +260,11 @@ contains
 
   end subroutine spg_fc
 
-  !> @brief Verify that every seepage cell is a Richards (UZR) cell
+  !> @brief Verify that every seepage cell is a Richards (VSF) cell
   !!
   !! The SPG package may only be applied to unsaturated (Richards) cells, which
-  !! are flagged by the UZR package through its IUNSAT array (1 for a Richards
-  !! node).  A missing UZR package is reported in spg_allocate_arrays.
+  !! are flagged by the VSF package through its IUNSAT array (1 for a Richards
+  !! node).  A missing VSF package is reported in spg_allocate_arrays.
   !<
   subroutine spg_ck(this)
     class(SpgType), intent(inout) :: this
@@ -274,14 +274,14 @@ contains
     ! formats
     character(len=*), parameter :: fmtspgerr = &
       "('SPG BOUNDARY ',i0,' IS APPLIED TO CELL ',a,', which is not a &
-      &Richards (UZR) cell.  Set IUNSAT for this cell in the UZR package.')"
+      &Richards (VSF) cell.  Set IUNSAT for this cell in the VSF package.')"
 
-    if (.not. associated(this%uzriunsat)) return
+    if (.not. associated(this%vsfiunsat)) return
 
     do i = 1, this%nbound
       node = this%nodelist(i)
       if (node < 1) cycle
-      if (this%uzriunsat(node) /= 1) then
+      if (this%vsfiunsat(node) /= 1) then
         call this%dis%noder_to_string(node, nodestr)
         write (errmsg, fmt=fmtspgerr) i, trim(nodestr)
         call store_error(errmsg)
@@ -340,8 +340,8 @@ contains
     nullify (this%gwfik33)
     nullify (this%gwfkrel)
 
-    ! UZR IUNSAT flag array is owned by UZR; just disassociate
-    nullify (this%uzriunsat)
+    ! VSF IUNSAT flag array is owned by VSF; just disassociate
+    nullify (this%vsfiunsat)
 
   end subroutine spg_da
 

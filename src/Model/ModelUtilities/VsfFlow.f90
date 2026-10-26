@@ -1,15 +1,15 @@
-module UzrFlowModule
+module VsfFlowModule
   use KindModule, only: I4B, DP
   use ConstantsModule, only: DONE, DTWO, DHALF, DZERO, LENVARNAME
   use MatrixBaseModule, only: MatrixBaseType
   use BaseDisModule, only: DisBaseType
   use GwfNpfModule, only: GwfNpfType
-  use GwfNpfFormulationModule, only: GwfNpfFormulationType, UZR_FLOW
-  use UzrSoilModelModule, only: SoilModelType
+  use GwfNpfFormulationModule, only: GwfNpfFormulationType, VSF_FLOW
+  use VsfSoilModelModule, only: SoilModelType
   implicit none
   private
 
-  public :: UzrFlowType
+  public :: VsfFlowType
   public :: kr_averaging_name
 
   character(len=LENVARNAME), parameter, dimension(3) :: kr_averaging_name = &
@@ -21,9 +21,9 @@ module UzrFlowModule
     enumerator :: KR_UPSTREAM = 3 !< Upstream relative permeability
   end enum
 
-  type, extends(GwfNpfFormulationType) :: UzrFlowType
-    integer(I4B), pointer, dimension(:), contiguous :: iunsat => null() !< see UZR
-    integer(I4B), pointer :: kr_averaging => null() !< see UZR
+  type, extends(GwfNpfFormulationType) :: VsfFlowType
+    integer(I4B), pointer, dimension(:), contiguous :: iunsat => null() !< see VSF
+    integer(I4B), pointer :: kr_averaging => null() !< see VSF
     real(DP), pointer, dimension(:), contiguous :: krel => null() !< pointer to NPF k_r
     real(DP), pointer, dimension(:), contiguous :: dkrdh => null() !< pointer to NPF head derivative of k_r
     class(SoilModelType), pointer :: soil_model => null() !< soil model used to get relative permeability
@@ -38,12 +38,12 @@ module UzrFlowModule
     ! private
     procedure, private :: calculate_coeffs
     procedure, private :: calculate_coeffs_nwt
-  end type UzrFlowType
+  end type VsfFlowType
 
 contains
 
   subroutine initialize(this, iunsat, kr_avg, soil_model, dis, npf)
-    class(UzrFlowType), intent(inout) :: this
+    class(VsfFlowType), intent(inout) :: this
     integer(I4B), pointer, dimension(:), contiguous, intent(in) :: iunsat
     integer(I4B), pointer :: kr_avg
     class(SoilModelType), pointer :: soil_model
@@ -63,7 +63,7 @@ contains
   end subroutine initialize
 
   subroutine uft_cf(this, kiter)
-    class(UzrFlowType), intent(inout) :: this
+    class(VsfFlowType), intent(inout) :: this
     integer(I4B), intent(in) :: kiter
     ! local
     integer(I4B) :: n, idiag
@@ -73,7 +73,7 @@ contains
     shift = 1.0e-6_DP
     do n = 1, this%gwf_dis%nodes
       idiag = this%gwf_dis%con%ia(n)
-      if (this%gwf_npf%iformulation(idiag) /= UZR_FLOW) cycle
+      if (this%gwf_npf%iformulation(idiag) /= VSF_FLOW) cycle
       ! calculate k_r for node n
       z_n = DHALF * (this%gwf_dis%bot(n) + this%gwf_dis%top(n))
       psi = this%gwf_npf%hnew(n) - z_n
@@ -86,7 +86,7 @@ contains
   end subroutine uft_cf
 
   subroutine uft_fc(this, kiter, matrix_sln, idxglo, rhs, hnew)
-    class(UzrFlowType), intent(inout) :: this
+    class(VsfFlowType), intent(inout) :: this
     integer(I4B), intent(in) :: kiter
     class(MatrixBaseType), pointer, intent(inout) :: matrix_sln
     integer(I4B), dimension(:), intent(in) :: idxglo
@@ -108,7 +108,7 @@ contains
         ! upper triangle only, insert into upper and lower parts
         if (m < n) cycle
         ! only faces claimed by this formulation
-        if (this%gwf_npf%iformulation(ipos) /= UZR_FLOW) cycle
+        if (this%gwf_npf%iformulation(ipos) /= VSF_FLOW) cycle
 
         if (this%gwf_npf%inewton == 0) then
 
@@ -153,7 +153,7 @@ contains
   end subroutine uft_fc
 
   subroutine calculate_coeffs(this, n, m, ipos, hnew, coeffs)
-    class(UzrFlowType), intent(inout) :: this !, this instance
+    class(VsfFlowType), intent(inout) :: this !, this instance
     integer(I4B), intent(in) :: n !< node n
     integer(I4B), intent(in) :: m !< node m
     integer(I4B), intent(in) :: ipos !< index in ja array for connection n-m
@@ -182,7 +182,7 @@ contains
   end subroutine calculate_coeffs
 
   subroutine calculate_coeffs_nwt(this, n, m, ipos, hnew, coeffs)
-    class(UzrFlowType), intent(inout) :: this !, this instance
+    class(VsfFlowType), intent(inout) :: this !, this instance
     integer(I4B), intent(in) :: n !< node n
     integer(I4B), intent(in) :: m !< node m
     integer(I4B), intent(in) :: ipos !< index in ja array for connection n-m
@@ -242,7 +242,7 @@ contains
   end subroutine calculate_coeffs_nwt
 
   subroutine uft_cq(this, hnew, flowja)
-    class(UzrFlowType), intent(inout) :: this
+    class(VsfFlowType), intent(inout) :: this
     real(DP), dimension(:), intent(inout) :: hnew
     real(DP), dimension(:), intent(inout) :: flowja
     ! local
@@ -257,7 +257,7 @@ contains
         m = this%gwf_dis%con%ja(ipos)
         if (m < n) cycle
         ! only faces claimed by this formulation
-        if (this%gwf_npf%iformulation(ipos) /= UZR_FLOW) cycle
+        if (this%gwf_npf%iformulation(ipos) /= VSF_FLOW) cycle
 
         if (this%gwf_npf%inewton == 0) then
           call this%calculate_coeffs(n, m, ipos, hnew, coeffs)
@@ -274,7 +274,7 @@ contains
   end subroutine uft_cq
 
   subroutine destroy(this)
-    class(UzrFlowType) :: this
+    class(VsfFlowType) :: this
 
     this%gwf_dis => null()
     this%gwf_npf => null()
@@ -309,4 +309,4 @@ contains
 
   end function kr_averaging
 
-end module UzrFlowModule
+end module VsfFlowModule

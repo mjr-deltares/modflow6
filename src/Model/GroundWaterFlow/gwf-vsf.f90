@@ -1,4 +1,4 @@
-module GwfUzrModule
+module GwfVsfModule
   use KindModule, only: I4B, DP
   use ConstantsModule, only: LENVARNAME, DHALF, DHNOFLO, LINELENGTH
   use MemoryManagerModule, only: mem_allocate, mem_deallocate
@@ -7,14 +7,14 @@ module GwfUzrModule
   use NumericalPackageModule, only: NumericalPackageType
   use BaseDisModule, only: DisBaseType
   use GwfNpfModule, only: GwfNpfType
-  use GwfNpfFormulationModule, only: GwfNpfFormulationType, UZR_FLOW
+  use GwfNpfFormulationModule, only: GwfNpfFormulationType, VSF_FLOW
   use GwfStoModule, only: GwfStoType
-  use GwfStoExtModule, only: GwfStoFormulationType, UZR_STORAGE
-  use UzrFlowModule, only: UzrFlowType
-  use UzrStorageModule, only: UzrStorageType
-  use GwfUzrInputModule, only: GwfUzrParamFoundType
-  use UzrSoilModelModule, only: SoilModelType
-  use UzrSoilModelFactoryModule, only: init_soil_models, &
+  use GwfStoExtModule, only: GwfStoFormulationType, VSF_STORAGE
+  use VsfFlowModule, only: VsfFlowType
+  use VsfStorageModule, only: VsfStorageType
+  use GwfVsfInputModule, only: GwfVsfParamFoundType
+  use VsfSoilModelModule, only: SoilModelType
+  use VsfSoilModelFactoryModule, only: init_soil_models, &
                                        get_soil_model, &
                                        destroy_soil_models, &
                                        soil_model_name, &
@@ -22,9 +22,9 @@ module GwfUzrModule
   implicit none
   private
 
-  public :: GwfUzrType, uzr_cr
+  public :: GwfVsfType, vsf_cr
 
-  type, extends(NumericalPackageType) :: GwfUzrType
+  type, extends(NumericalPackageType) :: GwfVsfType
     integer(I4B), pointer :: ioutsat => null() !< output unit for writing saturation to binary file (0 when inactive)
     integer(I4B), pointer :: ioutphead => null() !< output unit for writing pressure head to binary file (0 when inactive)
     integer(I4B), pointer :: storage_scheme => null() !< 0 = default, 1 = chord slope, 2 = mod. Picard
@@ -39,61 +39,61 @@ module GwfUzrModule
     real(DP), dimension(:), pointer, contiguous :: pressure_head => null() !< pressure head
     real(DP), dimension(:), pointer, contiguous :: saturation => null() !< water saturation
     type(GwfNpfType), pointer :: npf => null() !< NPF package, to publish saturation to NPF 'SAT'
-    class(UzrFlowType), pointer :: uzr_flow => null() !< the NPF flow extension
-    class(UzrStorageType), pointer :: uzr_sto => null() !< the STO storage extension
+    class(VsfFlowType), pointer :: vsf_flow => null() !< the NPF flow extension
+    class(VsfStorageType), pointer :: vsf_sto => null() !< the STO storage extension
   contains
-    procedure :: uzr_df
-    procedure :: uzr_ar
-    procedure :: uzr_cq
-    procedure :: uzr_ot_dv
-    procedure :: uzr_da
+    procedure :: vsf_df
+    procedure :: vsf_ar
+    procedure :: vsf_cq
+    procedure :: vsf_ot_dv
+    procedure :: vsf_da
     procedure :: allocate_scalars
     ! private
     procedure, private :: source_options
     procedure, private :: source_griddata
     procedure, private :: check_griddata
-  end type GwfUzrType
+  end type GwfVsfType
 
 contains
 
-  !> @brief Create the UZR package object
+  !> @brief Create the VSF package object
   !<
-  subroutine uzr_cr(uzr_obj, name_model, input_mempath, inunit, iout)
-    type(GwfUzrType), pointer, intent(inout) :: uzr_obj !< the newly created UZR package
+  subroutine vsf_cr(vsf_obj, name_model, input_mempath, inunit, iout)
+    type(GwfVsfType), pointer, intent(inout) :: vsf_obj !< the newly created VSF package
     character(len=*), intent(in) :: name_model !< the model name
     character(len=*), intent(in) :: input_mempath !< the memory path of IDM
-    integer(I4B), intent(in) :: inunit !< the input file unit for UZR
+    integer(I4B), intent(in) :: inunit !< the input file unit for VSF
     integer(I4B), intent(in) :: iout !< the output file unit for the model
     ! local
     character(len=*), parameter :: fmtheader = &
-      "(1x, /1x, 'UZR -- RICHARDS FLOW PACKAGE, VERSION 1, 3/30/2015', &
+      "(1x, /1x, 'VSF -- RICHARDS FLOW PACKAGE, VERSION 1, 3/30/2015', &
        &' INPUT READ FROM MEMPATH: ', A, /)"
 
-    allocate (uzr_obj)
+    allocate (vsf_obj)
 
-    call uzr_obj%set_names(1, name_model, 'UZR', 'UZR', input_mempath)
-    call uzr_obj%allocate_scalars()
+    call vsf_obj%set_names(1, name_model, 'VSF', 'VSF', input_mempath)
+    call vsf_obj%allocate_scalars()
 
-    uzr_obj%inunit = inunit
-    uzr_obj%iout = iout
-    uzr_obj%ioutsat = 0
-    uzr_obj%ioutphead = 0
-    uzr_obj%storage_scheme = -1
-    uzr_obj%soil_model_id = -1
-    uzr_obj%soil_model_kr_id = -1
-    uzr_obj%kr_averaging = -1
+    vsf_obj%inunit = inunit
+    vsf_obj%iout = iout
+    vsf_obj%ioutsat = 0
+    vsf_obj%ioutphead = 0
+    vsf_obj%storage_scheme = -1
+    vsf_obj%soil_model_id = -1
+    vsf_obj%soil_model_kr_id = -1
+    vsf_obj%kr_averaging = -1
 
     ! print a message when enabled
     if (inunit > 0) then
       write (iout, fmtheader) input_mempath
     end if
 
-  end subroutine uzr_cr
+  end subroutine vsf_cr
 
-  !> @brief Allocates, sources from input, and initializes uzr
+  !> @brief Allocates, sources from input, and initializes vsf
   !<
-  subroutine uzr_df(this, dis, npf, sto)
-    class(GwfUzrType), intent(inout) :: this !< this instance
+  subroutine vsf_df(this, dis, npf, sto)
+    class(GwfVsfType), intent(inout) :: this !< this instance
     class(DisBaseType), pointer, intent(inout) :: dis !< the model discretization
     type(GwfNpfType), pointer, intent(inout) :: npf !< the NPF package to interact with
     type(GwfStoType), pointer, intent(inout) :: sto !< the STO package to interact with
@@ -129,7 +129,7 @@ contains
       if (this%iunsat(n) == 0) then
         write (errmsg, '(a,a)') &
           'Activating Richards flow in part of the model domain is not yet&
-          & supported. Modify IUNSAT in UZR package for model ', &
+          & supported. Modify IUNSAT in VSF package for model ', &
           trim(this%name_model)
         call store_error(errmsg, .true.)
       end if
@@ -146,25 +146,25 @@ contains
     end if
 
     ! inject Richards into NPF:
-    allocate (this%uzr_flow)
-    call this%uzr_flow%initialize(this%iunsat, this%kr_averaging, &
+    allocate (this%vsf_flow)
+    call this%vsf_flow%initialize(this%iunsat, this%kr_averaging, &
                                   this%soil_model_kr, dis, npf)
 
-    npf_formulation => this%uzr_flow
-    call npf%add_flow_formulation(npf_formulation, UZR_FLOW)
+    npf_formulation => this%vsf_flow
+    call npf%add_flow_formulation(npf_formulation, VSF_FLOW)
 
     ! inject storage calculation
-    allocate (this%uzr_sto)
-    call this%uzr_sto%initialize(this%iunsat, this%storage_scheme, &
+    allocate (this%vsf_sto)
+    call this%vsf_sto%initialize(this%iunsat, this%storage_scheme, &
                                  this%soil_model, dis, sto)
 
-    sto_ext => this%uzr_sto
-    call sto%add_sto_formulation(sto_ext, UZR_STORAGE)
+    sto_ext => this%vsf_sto
+    call sto%add_sto_formulation(sto_ext, VSF_STORAGE)
 
-  end subroutine uzr_df
+  end subroutine vsf_df
 
   subroutine allocate_scalars(this)
-    class(GwfUzrType) :: this
+    class(GwfVsfType) :: this
 
     call this%NumericalPackageType%allocate_scalars()
 
@@ -178,18 +178,18 @@ contains
   end subroutine allocate_scalars
 
   subroutine source_options(this)
-    use UzrFlowModule, only: kr_averaging_name
+    use VsfFlowModule, only: kr_averaging_name
     use FeatureFlagsModule, only: developmode
     use InputOutputModule, only: getunit, openfile
     use OpenSpecModule, only: access, form
-    class(GwfUzrType), intent(inout) :: this
+    class(GwfVsfType), intent(inout) :: this
     ! local
-    type(GwfUzrParamFoundType) :: found
+    type(GwfVsfParamFoundType) :: found
     character(len=LENVARNAME), dimension(2) :: scheme_name = &
       &[character(len=LENVARNAME) :: 'CHORD-SLOPE', 'MODIFIED-PICARD']
     character(len=LINELENGTH) :: sat_fname, phead_fname
 
-    write (this%iout, '(1x,a)') 'Setting UZR options'
+    write (this%iout, '(1x,a)') 'Setting VSF options'
 
     this%soil_model_id = 0
     call mem_set_value(this%soil_model_id, 'SOIL_MODEL', this%input_mempath, &
@@ -255,15 +255,15 @@ contains
                     'DATA(BINARY)', form, access, 'REPLACE')
     end if
 
-    write (this%iout, '(1x,a)') 'End setting UZR options'
+    write (this%iout, '(1x,a)') 'End setting VSF options'
 
   end subroutine source_options
 
   subroutine source_griddata(this)
     use MemoryManagerExtModule, only: mem_set_value
-    class(GwfUzrType), intent(inout) :: this
+    class(GwfVsfType), intent(inout) :: this
     ! local
-    type(GwfUzrParamFoundType) :: found
+    type(GwfVsfParamFoundType) :: found
     integer(I4B), dimension(:), pointer, contiguous :: map
 
     map => null()
@@ -279,7 +279,7 @@ contains
   end subroutine source_griddata
 
   subroutine check_griddata(this, npf)
-    class(GwfUzrType), intent(inout) :: this
+    class(GwfVsfType), intent(inout) :: this
     type(GwfNpfType) :: npf
     ! local
     integer(I4B) :: n
@@ -287,7 +287,7 @@ contains
     character(len=LINELENGTH) :: errmsg
     integer(I4B), parameter :: max_reported = 20
 
-    ! TODO_UZR: the iconvert in STO has the same interpretation and
+    ! TODO_VSF: the iconvert in STO has the same interpretation and
     ! should also be checked. Maybe setting them both back silently is
     ! a satisfactory option?
 
@@ -300,7 +300,7 @@ contains
           ! only report the first max_reported nodes individually
           if (nbad <= max_reported) then
             write (errmsg, '(a,1x,i0,1x,a)') &
-              'UZR node', n, 'is flagged as unsaturated (IUNSAT > 0) but &
+              'VSF node', n, 'is flagged as unsaturated (IUNSAT > 0) but &
               &is configured as convertible (ICELLTYPE /= 0) in NPF. &
               &Unsaturated nodes must have a non-convertible cell type.'
             call store_error(errmsg)
@@ -312,7 +312,7 @@ contains
     ! add a summary if more nodes failed than were reported individually
     if (nbad > max_reported) then
       write (errmsg, '(i0,1x,a,1x,i0,1x,a)') &
-        nbad, 'UZR nodes are convertible in NPF; only the first', &
+        nbad, 'VSF nodes are convertible in NPF; only the first', &
         max_reported, 'are listed above.'
       call store_error(errmsg)
     end if
@@ -324,8 +324,8 @@ contains
 
   end subroutine check_griddata
 
-  subroutine uzr_ar(this, dis, npf, sto)
-    class(GwfUzrType), intent(inout) :: this
+  subroutine vsf_ar(this, dis, npf, sto)
+    class(GwfVsfType), intent(inout) :: this
     class(DisBaseType), pointer, intent(inout) :: dis !< the model discretization
     type(GwfNpfType), pointer, intent(inout) :: npf !< the NPF package to interact with
     type(GwfStoType), pointer, intent(inout) :: sto !< the STO package to interact with
@@ -333,19 +333,19 @@ contains
     integer(I4B) :: ipos, n
 
     do ipos = 1, dis%nja
-      npf%iformulation(ipos) = UZR_FLOW
+      npf%iformulation(ipos) = VSF_FLOW
     end do
 
     do n = 1, dis%nodes
-      sto%iformulation(n) = UZR_STORAGE
+      sto%iformulation(n) = VSF_STORAGE
     end do
 
-  end subroutine uzr_ar
+  end subroutine vsf_ar
 
   !< @brief Calculate derived variables
   !>
-  subroutine uzr_cq(this, hnew)
-    class(GwfUzrType), intent(inout) :: this ! this instance
+  subroutine vsf_cq(this, hnew)
+    class(GwfVsfType), intent(inout) :: this ! this instance
     real(DP), intent(inout), dimension(:) :: hnew !< the updated head
     ! local
     integer(I4B) :: n
@@ -364,12 +364,12 @@ contains
       this%npf%sat(n) = this%saturation(n)
     end do
 
-  end subroutine uzr_cq
+  end subroutine vsf_cq
 
   !> @brief Save data to binary file
   !<
-  subroutine uzr_ot_dv(this, idvfl)
-    class(GwfUzrType) :: this !, this instance
+  subroutine vsf_ot_dv(this, idvfl)
+    class(GwfVsfType) :: this !, this instance
     integer(I4B), intent(in) :: idvfl !< when > 0, dep. var. is written
     ! local
     character(len=1) :: cdatafmp = ' ', editdesc = ' '
@@ -392,14 +392,14 @@ contains
       end if
     end if
 
-  end subroutine uzr_ot_dv
+  end subroutine vsf_ot_dv
 
   !< @brief Clean up
   !<
-  subroutine uzr_da(this)
+  subroutine vsf_da(this)
     use MemoryManagerExtModule, only: memorystore_remove
     use SimVariablesModule, only: idm_context
-    class(GwfUzrType), intent(inout) :: this !< this instance
+    class(GwfVsfType), intent(inout) :: this !< this instance
 
     call mem_deallocate(this%ioutsat)
     call mem_deallocate(this%ioutphead)
@@ -411,11 +411,11 @@ contains
     if (this%inunit > 0) then
       call destroy_soil_models()
 
-      call this%uzr_flow%destroy()
-      deallocate (this%uzr_flow)
+      call this%vsf_flow%destroy()
+      deallocate (this%vsf_flow)
 
-      call this%uzr_sto%destroy()
-      deallocate (this%uzr_sto)
+      call this%vsf_sto%destroy()
+      deallocate (this%vsf_sto)
 
       call mem_deallocate(this%iunsat)
       call mem_deallocate(this%porosity)
@@ -426,10 +426,10 @@ contains
 
     this%npf => null()
 
-    call memorystore_remove(this%name_model, 'UZR', idm_context)
+    call memorystore_remove(this%name_model, 'VSF', idm_context)
 
     call this%NumericalPackageType%da()
 
-  end subroutine uzr_da
+  end subroutine vsf_da
 
-end module GwfUzrModule
+end module GwfVsfModule

@@ -1,15 +1,15 @@
-module UzrSoilModelModule
+module VsfSoilModelModule
   use KindModule, only: I4B, DP
   use ConstantsModule, only: LENMEMPATH
   use SimModule, only: store_error, count_errors, ustop
   use MemoryManagerModule, only: mem_allocate, mem_deallocate
   use MemoryManagerExtModule, only: mem_set_value
-  use GwfUzrInputModule, only: GwfUzrParamFoundType
+  use GwfVsfInputModule, only: GwfVsfParamFoundType
 
   implicit none
   private
 
-  ! TODO_UZR: split this file in separate models
+  ! TODO_VSF: split this file in separate models
 
   public :: SoilModelType
 
@@ -93,4 +93,4 @@ contains
 
   end subroutine destroy_base
 
-end module UzrSoilModelModule
+end module VsfSoilModelModule

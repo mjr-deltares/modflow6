@@ -141,12 +141,12 @@ contains
     deallocate (this%npf)
     deallocate (this%xt3d)
 
-    ! Scalars, TODO_UZR: put in base
+    ! Scalars, TODO_VSF: put in base
     call mem_deallocate(this%inic)
     call mem_deallocate(this%inoc)
     call mem_deallocate(this%inobs)
     call mem_deallocate(this%innpf)
-    call mem_deallocate(this%inuzr)
+    call mem_deallocate(this%invsf)
     call mem_deallocate(this%inbuy)
     call mem_deallocate(this%invsc)
     call mem_deallocate(this%insto)

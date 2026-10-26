@@ -39,19 +39,19 @@ budget:
   with four cases — `{penalty, toggle} x {discharging, no-flow}`. Checks the
   held head equals the seepage elevation, the discharge balances the
   constant-head inflow, and the no-flow state carries zero flow.
-- `autotest/test_gwf_uzr_wt.py`: the `wt-uzr-spg` case adds SPG seepage cells on
-  the `+x` boundary of a transient 2D Richards/UZR model and verifies per-cell
+- `autotest/test_gwf_vsf_wt.py`: the `wt-vsf-spg` case adds SPG seepage cells on
+  the `+x` boundary of a transient 2D Richards/VSF model and verifies per-cell
   mass balance (FLOW-JA-FACE residuals).
 
-## Findings from the UZR integration
+## Findings from the VSF integration
 
-1. **Toggle conflicts with UZR.** UZR claims the entire grid for its own flow and
+1. **Toggle conflicts with VSF.** VSF claims the entire grid for its own flow and
    storage formulation (`iformulation` is set for all cells). When SPG toggle
-   switches a cell to a true constant head (`ibound < 0`), UZR still tries to
+   switches a cell to a true constant head (`ibound < 0`), VSF still tries to
    apply its formulation to that cell. This produces repeated
-   `UZR convertible cell error` messages and a small residual imbalance. The
+   `VSF convertible cell error` messages and a small residual imbalance. The
    **penalty** method keeps the cell active (`ibound > 0`), so it composes
-   cleanly with UZR, and is the method used in the `wt-uzr-spg` test.
+   cleanly with VSF, and is the method used in the `wt-vsf-spg` test.
 
 2. **Seepage on/off is a discontinuous nonlinearity.** Switching a cell between
    the held and no-flow states is discontinuous: a tiny head change can flip the
@@ -67,12 +67,12 @@ budget:
 
 - **Continue the investigation with the toggle method and how to avoid the
   reported errors.** In particular, determine how to reconcile the toggle
-  (true constant-head) method with packages such as UZR that claim the whole
+  (true constant-head) method with packages such as VSF that claim the whole
   grid, so that toggling a cell to constant head does not trigger
-  `UZR convertible cell error` or introduce a residual imbalance. Candidate
+  `VSF convertible cell error` or introduce a residual imbalance. Candidate
   directions to explore:
-  - Have SPG coordinate with UZR (and similar whole-grid packages) to release or
+  - Have SPG coordinate with VSF (and similar whole-grid packages) to release or
     skip the toggled cell's formulation while it is held as constant head.
   - Investigate whether the seepage on/off switch can be smoothed (continuous
     transition) to improve convergence and tighten the residual.
-  - Evaluate Newton-Raphson handling of the state switch under UZR.
+  - Evaluate Newton-Raphson handling of the state switch under VSF.

@@ -1,14 +1,14 @@
-module UzrDevSoilModule
-  use UzrSoilModelModule, only: SoilModelType
+module VsfDevSoilModule
+  use VsfSoilModelModule, only: SoilModelType
   use KindModule, only: I4B, DP
   use ConstantsModule, only: LINELENGTH, LENVARNAME, DONE, DZERO, DPREC
   use SimModule, only: store_error
   implicit none
   private
 
-  public :: UzrDevSoilType
+  public :: VsfDevSoilType
 
-  type, extends(SoilModelType) :: UzrDevSoilType
+  type, extends(SoilModelType) :: VsfDevSoilType
     character(len=LINELENGTH) :: dev_soil_param
   contains
     procedure :: load => load_custom
@@ -16,18 +16,18 @@ module UzrDevSoilModule
     procedure :: capacity => capacity_custom
     procedure :: krelative => krelative_custom
     procedure :: destroy => destroy_custom
-  end type UzrDevSoilType
+  end type VsfDevSoilType
 
 contains
 
   subroutine load_custom(this, porosity, sat_res)
     use MemoryManagerExtModule, only: mem_set_value
-    use GwfUzrInputModule, only: GwfUzrParamFoundType
-    class(UzrDevSoilType), intent(inout) :: this !< this instance
+    use GwfVsfInputModule, only: GwfVsfParamFoundType
+    class(VsfDevSoilType), intent(inout) :: this !< this instance
     real(DP), dimension(:), pointer, contiguous :: porosity !< porosity
     real(DP), dimension(:), pointer, contiguous :: sat_res !< residual saturation
     ! local
-    type(GwfUzrParamFoundType) :: found
+    type(GwfVsfParamFoundType) :: found
 
     this%porosity => porosity
     this%sat_res => sat_res
@@ -42,7 +42,7 @@ contains
   end subroutine load_custom
 
   function saturation_custom(this, psi, i) result(s)
-    class(UzrDevSoilType), intent(inout) :: this !< this instance
+    class(VsfDevSoilType), intent(inout) :: this !< this instance
     real(DP) :: psi !< the pressure head in cell
     integer(I4B) :: i !< the cell number
     real(DP) :: s !< the saturation
@@ -68,7 +68,7 @@ contains
   end function saturation_custom
 
   function capacity_custom(this, psi, i) result(Cm)
-    class(UzrDevSoilType), intent(inout) :: this !< this instance
+    class(VsfDevSoilType), intent(inout) :: this !< this instance
     real(DP) :: psi !< the pressure head in cell
     integer(I4B) :: i !< the cell number
     real(DP) :: Cm !< the saturation
@@ -98,7 +98,7 @@ contains
   end function capacity_custom
 
   function krelative_custom(this, psi, i) result(kr)
-    class(UzrDevSoilType), intent(inout) :: this !< this instance
+    class(VsfDevSoilType), intent(inout) :: this !< this instance
     real(DP) :: psi !< the pressure head in cell
     integer(I4B) :: i !< the cell number
     real(DP) :: kr !< the saturation
@@ -122,7 +122,7 @@ contains
 !> @brief clean up
 !<
   subroutine destroy_custom(this)
-    class(UzrDevSoilType), intent(inout) :: this !< this instance
+    class(VsfDevSoilType), intent(inout) :: this !< this instance
 
     this%porosity => null()
     this%sat_res => null()
@@ -131,4 +131,4 @@ contains
 
   end subroutine destroy_custom
 
-end module UzrDevSoilModule
+end module VsfDevSoilModule

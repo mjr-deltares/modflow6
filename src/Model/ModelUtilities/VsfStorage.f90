@@ -1,4 +1,4 @@
-module UzrStorageModule
+module VsfStorageModule
   use KindModule, only: I4B, LGP, DP
   use ConstantsModule, only: DONE, DTWO, DHALF, DZERO, &
                              DPREC, LENVARNAME, LENBUDTXT
@@ -6,19 +6,19 @@ module UzrStorageModule
   use BaseDisModule, only: DisBaseType
   use MemoryManagerModule, only: mem_allocate, mem_deallocate
   use GwfStoModule, only: GwfStoType
-  use GwfStoExtModule, only: GwfStoFormulationType, UZR_STORAGE
-  use UzrSoilModelModule, only: SoilModelType
+  use GwfStoExtModule, only: GwfStoFormulationType, VSF_STORAGE
+  use VsfSoilModelModule, only: SoilModelType
   implicit none
   private
 
-  public :: UzrStorageType
+  public :: VsfStorageType
 
   character(len=LENBUDTXT), parameter :: budtxt = '          STO-UZ'
 
-  type, extends(GwfStoFormulationType) :: UzrStorageType
+  type, extends(GwfStoFormulationType) :: VsfStorageType
     class(SoilModelType), pointer :: soil_model => null() !< points to external data
     integer(I4B), pointer :: storage_scheme => null() !< points to external data
-    integer(I4B), pointer, dimension(:), contiguous :: uzr_iunsat => null() !< points to external data
+    integer(I4B), pointer, dimension(:), contiguous :: vsf_iunsat => null() !< points to external data
     class(DisBaseType), pointer :: gwf_dis => null() !< points to external data
     type(GwfStoType), pointer :: gwf_sto => null() !< points to external data
 
@@ -35,12 +35,12 @@ module UzrStorageModule
     ! private
     procedure, private :: calculate_coeffs
     procedure, private :: calculate_coeffs_nwt
-  end type UzrStorageType
+  end type VsfStorageType
 
 contains
 
   subroutine initialize(this, iunsat, scheme, soil_model, dis, sto)
-    class(UzrStorageType), intent(inout) :: this
+    class(VsfStorageType), intent(inout) :: this
     integer(I4B), dimension(:), pointer, contiguous, intent(in) :: iunsat
     integer(I4B), pointer, intent(in) :: scheme
     class(SoilModelType), pointer, intent(in) :: soil_model
@@ -49,7 +49,7 @@ contains
     ! local
     integer(I4B) :: n
 
-    this%uzr_iunsat => iunsat
+    this%vsf_iunsat => iunsat
 
     this%storage_scheme => scheme
     this%soil_model => soil_model
@@ -65,12 +65,12 @@ contains
   end subroutine initialize
 
   function uft_is_active(this, n) result(is_active)
-    class(UzrStorageType), intent(inout) :: this
+    class(VsfStorageType), intent(inout) :: this
     integer(I4B), intent(in) :: n
     logical(LGP) :: is_active
 
     is_active = .false.
-    if (this%uzr_iunsat(n) == 1) then
+    if (this%vsf_iunsat(n) == 1) then
       is_active = .true.
     end if
 
@@ -78,7 +78,7 @@ contains
 
   subroutine uft_fc(this, kiter, matrix_sln, rhs, idxglo, h_old, h_new)
     use GwfStorageUtilsModule, only: SsCapacity
-    class(UzrStorageType), intent(inout) :: this
+    class(VsfStorageType), intent(inout) :: this
     integer(I4B), intent(in) :: kiter
     class(MatrixBaseType), pointer, intent(inout) :: matrix_sln
     real(DP), dimension(:), intent(inout) :: rhs
@@ -93,7 +93,7 @@ contains
     do n = 1, this%gwf_dis%nodes
       if (this%gwf_sto%ibound(n) < 1) cycle
       ! only cells claimed by this formulation
-      if (this%gwf_sto%iformulation(n) /= UZR_STORAGE) cycle
+      if (this%gwf_sto%iformulation(n) /= VSF_STORAGE) cycle
 
       if (this%gwf_sto%inewton == 0) then
         call this%calculate_coeffs(n, h_old, h_new, coeffs)
@@ -114,7 +114,7 @@ contains
   !<
   subroutine calculate_coeffs(this, n, h_old, h_new, coeffs)
     use GwfStorageUtilsModule, only: SsCapacity
-    class(UzrStorageType), intent(inout) :: this !< this instance
+    class(VsfStorageType), intent(inout) :: this !< this instance
     integer(I4B), intent(in) :: n !< the node number
     real(DP), dimension(:), intent(in) :: h_old !< the old head
     real(DP), dimension(:), intent(in) :: h_new !< the new head
@@ -180,7 +180,7 @@ contains
   subroutine calculate_coeffs_nwt(this, n, h_old, h_new, coeffs)
     use TdisModule, only: delt
     use GwfStorageUtilsModule, only: SsCapacity
-    class(UzrStorageType), intent(inout) :: this !< this instance
+    class(VsfStorageType), intent(inout) :: this !< this instance
     integer(I4B), intent(in) :: n !< the node number
     real(DP), dimension(:), intent(in) :: h_old !< the old head
     real(DP), dimension(:), intent(in) :: h_new !< the new head
@@ -238,7 +238,7 @@ contains
   end subroutine calculate_coeffs_nwt
 
   subroutine uft_fn(this, kiter, matrix_sln, rhs, idxglo, h_old, h_new)
-    class(UzrStorageType), intent(inout) :: this
+    class(VsfStorageType), intent(inout) :: this
     integer(I4B), intent(in) :: kiter
     class(MatrixBaseType), pointer, intent(inout) :: matrix_sln
     real(DP), dimension(:), intent(inout) :: rhs
@@ -246,12 +246,12 @@ contains
     real(DP), dimension(:), intent(in) :: h_old
     real(DP), dimension(:), intent(in) :: h_new
 
-    ! TODO_UZR
+    ! TODO_VSF
 
   end subroutine uft_fn
 
   subroutine uft_cq(this, flowja, h_new, h_old)
-    class(UzrStorageType), intent(inout) :: this
+    class(VsfStorageType), intent(inout) :: this
     real(DP), dimension(:), intent(inout) :: flowja
     real(DP), dimension(:), intent(in) :: h_new
     real(DP), dimension(:), intent(in) :: h_old
@@ -262,7 +262,7 @@ contains
     real(DP) :: flow_ss !< the specific storage rate for node n
     real(DP) :: flow_sy !< the (unsaturated) specific yield rate for node n
 
-    ! reset UZR storage rates
+    ! reset VSF storage rates
     do n = 1, this%gwf_dis%nodes
       this%strguz(n) = DZERO
     end do
@@ -270,7 +270,7 @@ contains
     do n = 1, this%gwf_dis%nodes
       if (this%gwf_sto%ibound(n) <= 0) cycle
       ! only cells claimed by this formulation
-      if (this%gwf_sto%iformulation(n) /= UZR_STORAGE) cycle
+      if (this%gwf_sto%iformulation(n) /= VSF_STORAGE) cycle
 
       if (this%gwf_sto%inewton == 0) then
         call this%calculate_coeffs(n, h_old, h_new, coeffs)
@@ -297,7 +297,7 @@ contains
     use ConstantsModule, only: LENBUDTXT
     use BudgetModule, only: BudgetType, rate_accumulator
     use TdisModule, only: delt
-    class(UzrStorageType), intent(inout) :: this
+    class(VsfStorageType), intent(inout) :: this
     integer(I4B), intent(in) :: isuppress_output !< flag to suppress model output
     type(BudgetType), intent(inout) :: model_budget !< model budget object
     ! local
@@ -310,7 +310,7 @@ contains
   end subroutine uft_bd
 
   subroutine uft_save_flows(this, iprint, ibinun)
-    class(UzrStorageType), intent(inout) :: this
+    class(VsfStorageType), intent(inout) :: this
     integer(I4B), intent(in) :: iprint
     integer(I4B), intent(in) :: ibinun
     ! local
@@ -326,7 +326,7 @@ contains
   end subroutine uft_save_flows
 
   subroutine destroy(this)
-    class(UzrStorageType) :: this
+    class(VsfStorageType) :: this
 
     call mem_deallocate(this%strguz)
 
@@ -404,4 +404,4 @@ contains
 
   end subroutine get_unsat_storage_terms_MP
 
-end module UzrStorageModule
+end module VsfStorageModule

@@ -1,13 +1,13 @@
-module UzrSoilModelFactoryModule
+module VsfSoilModelFactoryModule
   use KindModule, only: I4B, DP
   use FeatureFlagsModule, only: developmode
   use ConstantsModule, only: LENMEMPATH, LENVARNAME
   use SimModule, only: ustop
   use STLVecIntModule
-  use UzrSoilModelModule, only: SoilModelType
-  use UzrHaverkampModule, only: HaverkampModelType
-  use UzrVanGenuchtenModule, only: VanGenuchtenModelType
-  use UzrDevSoilModule, only: UzrDevSoilType
+  use VsfSoilModelModule, only: SoilModelType
+  use VsfHaverkampModule, only: HaverkampModelType
+  use VsfVanGenuchtenModule, only: VanGenuchtenModelType
+  use VsfDevSoilModule, only: VsfDevSoilType
   use BaseDisModule, only: DisBaseType
   implicit none
   private
@@ -111,7 +111,7 @@ contains
       call developmode('Setting the soil model to DEVELOPMENT is a development &
         &feature, install the nightly build or compile from source with &
         &IDEVELOPMODE = 1.')
-      allocate (UzrDevSoilType :: soil_model)
+      allocate (VsfDevSoilType :: soil_model)
       soil_model%id = DEVSOILMODEL
     case default
       write (*, *) "Internal error: invalid soil model id"
@@ -136,4 +136,4 @@ contains
 
   end subroutine destroy_soil_models
 
-end module UzrSoilModelFactoryModule
+end module VsfSoilModelFactoryModule
