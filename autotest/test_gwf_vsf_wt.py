@@ -175,8 +175,11 @@ def build_models(idx, test):
         else:
             dcond = hk * delc * delz / (0.5 * delr)
             drn_data.append([(ilay, 0, ncol - 1), z, dcond])
-            # seepage face (SPG) on the +x boundary above the right head
-            spg_data.append([(ilay, 0, ncol - 1)])
+            # seepage face (SPG) on the +x boundary above the right head:
+            # a vertical face (horizontal connection, ihc=1) with the outward
+            # normal along +x (angldegx=0), the cell-center-to-face distance
+            # (cl1) and the face area (hwva)
+            spg_data.append([(ilay, 0, ncol - 1), 1, 0.5 * delr, delc * delz, 0.0])
 
     chd_spd = {0: chd_data}
     chd = flopy.mf6.ModflowGwfchd(
