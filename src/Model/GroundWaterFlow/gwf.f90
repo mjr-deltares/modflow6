@@ -125,7 +125,8 @@ module GwfModule
   data GWF_MULTIPKG/'WEL6 ', 'DRN6 ', 'RIV6 ', 'GHB6 ', '     ', & !  5
                    &'     ', 'RCH6 ', 'EVT6 ', 'CHD6 ', 'SPG6 ', & ! 10
                    &'MAW6 ', 'SFR6 ', 'LAK6 ', 'UZF6 ', 'API6 ', & ! 15
-                   &35*'     '/ ! 50
+                   &'VSE6 ', & ! 16
+                   &34*'     '/ ! 50
 
   ! -- size of supported model package arrays
   integer(I4B), parameter :: NIUNIT_GWF = GWF_NBASEPKG + GWF_NMULTIPKG
@@ -1269,6 +1270,7 @@ contains
     use LakModule, only: lak_create
     use UzfModule, only: uzf_create
     use ApiModule, only: api_create
+    use GwfVseModule, only: vse_create
     ! -- dummy
     class(GwfModelType) :: this
     character(len=*), intent(in) :: filtyp
@@ -1320,6 +1322,9 @@ contains
                       pakname, mempath)
     case ('UZF6')
       call uzf_create(packobj, ipakid, ipaknum, inunit, iout, this%name, &
+                      pakname, mempath)
+    case ('VSE6')
+      call vse_create(packobj, ipakid, ipaknum, inunit, iout, this%name, &
                       pakname, mempath)
     case ('API6')
       call api_create(packobj, ipakid, ipaknum, inunit, iout, this%name, &
@@ -1562,7 +1567,7 @@ contains
         this%inobs = inunit
       case ('WEL6', 'DRN6', 'RIV6', 'GHB6', 'RCH6', &
             'EVT6', 'API6', 'CHD6', 'MAW6', 'SFR6', &
-            'LAK6', 'UZF6', 'SPG6')
+            'LAK6', 'UZF6', 'SPG6', 'VSE6')
         call expandarray(bndpkgs)
         bndpkgs(size(bndpkgs)) = n
       case default

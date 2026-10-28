@@ -36,6 +36,7 @@ module IdmGwfDfnSelectorModule
   use GwfVscInputModule
   use GwfSpgInputModule
   use GwfVsfInputModule
+  use GwfVseInputModule
   use GwfWelInputModule
   use GwfWelgInputModule
 
@@ -136,6 +137,8 @@ contains
       call set_param_pointer(input_definition, gwf_spg_param_definitions)
     case ('VSF')
       call set_param_pointer(input_definition, gwf_vsf_param_definitions)
+    case ('VSE')
+      call set_param_pointer(input_definition, gwf_vse_param_definitions)
     case ('WEL')
       call set_param_pointer(input_definition, gwf_wel_param_definitions)
     case ('WELG')
@@ -212,6 +215,8 @@ contains
       call set_param_pointer(input_definition, gwf_spg_aggregate_definitions)
     case ('VSF')
       call set_param_pointer(input_definition, gwf_vsf_aggregate_definitions)
+    case ('VSE')
+      call set_param_pointer(input_definition, gwf_vse_aggregate_definitions)
     case ('WEL')
       call set_param_pointer(input_definition, gwf_wel_aggregate_definitions)
     case ('WELG')
@@ -288,6 +293,8 @@ contains
       call set_block_pointer(input_definition, gwf_spg_block_definitions)
     case ('VSF')
       call set_block_pointer(input_definition, gwf_vsf_block_definitions)
+    case ('VSE')
+      call set_block_pointer(input_definition, gwf_vse_block_definitions)
     case ('WEL')
       call set_block_pointer(input_definition, gwf_wel_block_definitions)
     case ('WELG')
@@ -363,6 +370,8 @@ contains
       multi_package = gwf_spg_multi_package
     case ('VSF')
       multi_package = gwf_vsf_multi_package
+    case ('VSE')
+      multi_package = gwf_vse_multi_package
     case ('WEL')
       multi_package = gwf_wel_multi_package
     case ('WELG')
@@ -441,6 +450,8 @@ contains
       is_advanced = gwf_spg_is_advanced
     case ('VSF')
       is_advanced = gwf_vsf_is_advanced
+    case ('VSE')
+      is_advanced = gwf_vse_is_advanced
     case ('WEL')
       is_advanced = gwf_wel_is_advanced
     case ('WELG')
@@ -519,6 +530,8 @@ contains
       call set_subpkg_pointer(subpackages, gwf_spg_subpackages)
     case ('VSF')
       call set_subpkg_pointer(subpackages, gwf_vsf_subpackages)
+    case ('VSE')
+      call set_subpkg_pointer(subpackages, gwf_vse_subpackages)
     case ('WEL')
       call set_subpkg_pointer(subpackages, gwf_wel_subpackages)
     case ('WELG')
@@ -594,6 +607,8 @@ contains
     case ('SPG')
       integrated = .true.
     case ('VSF')
+      integrated = .true.
+    case ('VSE')
       integrated = .true.
     case ('WEL')
       integrated = .true.

@@ -31,6 +31,7 @@ gwf-uzf.dfn
 gwf-vsc.dfn
 gwf-spg.dfn
 gwf-vsf.dfn
+gwf-vse.dfn
 gwf-wel.dfn
 gwf-welg.dfn
 gwt-nam.dfn
