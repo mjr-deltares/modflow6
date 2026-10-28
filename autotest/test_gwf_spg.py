@@ -102,9 +102,7 @@ def build_models(idx, test):
     # confined: icelltype=0 (required by VSF), K drives the conductance
     flopy.mf6.ModflowGwfnpf(gwf, icelltype=0, k=hk, k33=hk)
 
-    flopy.mf6.ModflowGwfsto(
-        gwf, ss=0.0, sy=0.0, iconvert=0, steady_state=True
-    )
+    flopy.mf6.ModflowGwfsto(gwf, ss=0.0, sy=0.0, iconvert=0, steady_state=True)
 
     # unsaturated zone Richards flow: flags every cell as a Richards cell
     soil_data = get_vsf_soil_data("Celia1990-eq10-Haverkamp")
@@ -167,9 +165,7 @@ def check_output(idx, test):
 
     if active_scenario[idx]:
         # saturated column (krel = 1): analytic two-node Robin solution
-        h_bot = (cond_col * chd_head[idx] + cond_spg * z_seep) / (
-            cond_col + cond_spg
-        )
+        h_bot = (cond_col * chd_head[idx] + cond_spg * z_seep) / (cond_col + cond_spg)
         q_expected = cond_spg * (h_bot - z_seep)
         assert h_bot > z_seep, "test setup should discharge seepage"
 
