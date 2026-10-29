@@ -1,5 +1,5 @@
 ! ** Do Not Modify! MODFLOW 6 system generated file. **
-module OlfDis2DInputModule
+module OlfDis2dInputModule
   use ConstantsModule, only: LENVARNAME
   use InputDefinitionModule, only: InputParamDefinitionType, &
                                    InputBlockDefinitionType
@@ -9,6 +9,7 @@ module OlfDis2DInputModule
   public olf_dis2d_block_definitions
   public OlfDis2dParamFoundType
   public olf_dis2d_multi_package
+  public olf_dis2d_is_advanced
   public olf_dis2d_subpackages
 
   type OlfDis2dParamFoundType
@@ -32,6 +33,7 @@ module OlfDis2DInputModule
   end type OlfDis2dParamFoundType
 
   logical :: olf_dis2d_multi_package = .false.
+  logical :: olf_dis2d_is_advanced = .false.
 
   character(len=16), parameter :: &
     olf_dis2d_subpackages(*) = &
@@ -51,6 +53,7 @@ module OlfDis2DInputModule
     '', & ! shape
     'model length units', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -69,6 +72,7 @@ module OlfDis2DInputModule
     '', & ! shape
     'do not write binary grid file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -87,6 +91,7 @@ module OlfDis2DInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -105,6 +110,7 @@ module OlfDis2DInputModule
     '', & ! shape
     'grb keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -123,6 +129,7 @@ module OlfDis2DInputModule
     '', & ! shape
     'file keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -141,6 +148,7 @@ module OlfDis2DInputModule
     '', & ! shape
     'file name of GRB information', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -159,6 +167,7 @@ module OlfDis2DInputModule
     '', & ! shape
     'x-position of the model grid origin', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -177,6 +186,7 @@ module OlfDis2DInputModule
     '', & ! shape
     'y-position of the model grid origin', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -195,6 +205,7 @@ module OlfDis2DInputModule
     '', & ! shape
     'rotation angle', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -213,6 +224,7 @@ module OlfDis2DInputModule
     '', & ! shape
     'export array variables to layered ascii files.', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -231,6 +243,7 @@ module OlfDis2DInputModule
     'LENBIGLINE', & ! shape
     'CRS user input string', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -249,6 +262,7 @@ module OlfDis2DInputModule
     '', & ! shape
     'number of rows', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -267,6 +281,7 @@ module OlfDis2DInputModule
     '', & ! shape
     'number of columns', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -285,6 +300,7 @@ module OlfDis2DInputModule
     'NCOL', & ! shape
     'spacing along a row', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -303,6 +319,7 @@ module OlfDis2DInputModule
     'NROW', & ! shape
     'spacing along a column', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -321,6 +338,7 @@ module OlfDis2DInputModule
     'NCOL NROW', & ! shape
     'cell bottom elevation', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -339,6 +357,7 @@ module OlfDis2DInputModule
     'NCOL NROW', & ! shape
     'idomain existence array', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -381,6 +400,7 @@ module OlfDis2DInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -411,4 +431,4 @@ module OlfDis2DInputModule
     ) &
     ]
 
-end module OlfDis2DInputModule
+end module OlfDis2dInputModule

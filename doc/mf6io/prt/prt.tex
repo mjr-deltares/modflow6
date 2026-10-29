@@ -1,12 +1,14 @@
 The PRT Model calculates three-dimensional, advective particle trajectories in flowing groundwater. The PRT Model is designed to work with the Groundwater Flow (GWF) Model \citep{modflow6gwf} and uses the same spatial discretization, which may be represented using either a structured (DIS) or an unstructured (DISV) grid. The PRT Model replicates much of the functionality of MODPATH 7 \citep{pollock2016modpath7} and offers support for a much broader class of unstructured grids. The PRT Model can be run in the same simulation as the associated GWF Model or in a separate simulation that reads previously calculated flows from a binary budget file. The version of the PRT Model documented here does not support grids of DISU type, tracking of particles through advanced stress package features such as lakes or streams reaches, or exchange of particles between PRT models.
 
-This section describes the data files for a \mf Particle Tracking (PRT) Model.  A PRT Model is added to the simulation by including a PRT entry in the MODELS block of the simulation name file.  There are currently two types of spatial discretization approaches that can be used with the PRT Model: DIS and DISV.  The input instructions for these three packages are not described here in this section on PRT Model input; input instructions for these three packages are described in the section on GWF Model input.  Note that for a PRT Model, the maximum number of vertices for a cell in a DISV grid is limited to 8.
+This section describes the data files for a \mf Particle Tracking (PRT) Model.  A PRT Model is added to the simulation by including a PRT entry in the MODELS block of the simulation name file.  There are currently two types of spatial discretization approaches that can be used with the PRT Model: DIS and DISV.  The input instructions for these three packages are not described here in this section on PRT Model input; input instructions for these three packages are described in the section on GWF Model input.  Note that for a PRT Model, the maximum number of vertices for a cell in a DISV grid is limited to 30.
 
 The PRT Model is designed to permit input to be gathered, as it is needed, from many different files.  Likewise, results from the model calculations can be written to a number of output files. Details about the files used by each package are provided in this section on the PRT Model Instructions.
 
 The PRT Model reads a file called the Name File, which specifies most of the files that will be used in a simulation. Several files are always required whereas other files are optional depending on the simulation. The Output Control Package receives instructions from the user to control the amount and frequency of output.  Details about the Name File and the Output Control Package are described in this section.
 
 For the PRT Model, ``flows'' (unless stated otherwise) represent particle mass ``flow'' in mass per time, rather than groundwater flow.  Each particle is currently assigned unit mass, and the numerical value of the flow can be interpreted as particles per time.
+
+The PRT Model must be solved by an Explicit Model Solution (EMS) package.
 
 \subsection{Units of Length and Time}
 The PRT Model formulates the particle trajectory equations without using prescribed length and time units. Any consistent units of length and time can be used when specifying the input data for a simulation. This capability gives a certain amount of freedom to the user, but care must be exercised to avoid mixing units.  The program cannot detect the use of inconsistent units.
@@ -25,7 +27,7 @@ A summary of all inflow (sources) and outflow (sinks) of particle mass is called
 
 The motion of a particle is determined by the groundwater velocity field in which the particle is immersed. In a fully saturated cell, or the saturated portion of a partially saturated cell, the velocity field is calculated from the flows entering and exiting the cell. In a completely dry cell, or the dry portion of a partially saturated cell, the fate of a particle depends on whether the cell is an active part of the flow simulation, whether the particle is in a dry or wet part of the cell, and user-selected options.
 
-A cell can be inactive either because it has been removed from the active simulation using the IDOMAIN array or because it is completely dry, i.e., the head in the cell is below the bottom elevation of the cell. Deactivation of completely dry cells is the default behavior in MODFLOW 6. However, when the Newton-Raphson formulation is used to solve for groundwater flow, completely dry cells remain active. Particle tracking through inactive and dry-but-active cells is discussed in detail below.
+A cell can become inactive because it is completely dry, i.e., the head in the cell is below the bottom elevation of the cell. Deactivation of completely dry cells is the default behavior in MODFLOW 6. However, when the Newton-Raphson formulation is used to solve for groundwater flow, completely dry cells remain active. Particle tracking through inactive and dry-but-active cells is discussed in detail below.
 
 Release-time and tracking-time considerations are described (and implemented) separately.
 
@@ -37,6 +39,8 @@ If the cell into which the particle is being released is inactive, behavior is d
 
 If the cell into which the particle is being released is active, the particle will be released at the user-specified location, even if that location is in the dry portion of the cell or the cell is dry-but-active.
 
+A cell for which IDOMAIN <= 0 is considered not to exist in the simulation. A particle terminates without being released when the release point is in a cell for which IDOMAIN <= 0.
+
 Note that for a dry-but-active cell the DRAPE option has no effect. In that case, the particle is released into the cell, and its subsequent behavior can be configured using the DRY\_TRACKING\_METHOD option discussed below.
 
 \subsubsection{Tracking}
@@ -46,6 +50,10 @@ During tracking, the fate of a particle depends on the status of the cell that c
 A particle immersed in the groundwater flow field during a given time step can end up in an inactive cell, a dry-but-active cell, or the dry part of a partially saturated cell if the water table drops on the next time step.
 
 A particle that finds itself in an inactive cell will terminate with status code 7. This is consistent with the behavior of MODPATH 7.
+
+A cell for which IDOMAIN = 0 is considered not to exist in the simulation. When a particle encounters a cell face that is shared with a cell for which IDOMAIN = 0, that cell face is treated as an outer boundary of the model.
+
+A cell for which IDOMAIN = -1 is a vertical pass-through cell that is considered not to exist in the simulation. Such a cell effectively acts as a direct hydraulic connection that allows particles to pass from the cell above to the cell below.
 
 Dry-but-active cells can occur when the Newton-Raphson formulation is used to solve for groundwater flow. As discussed above, particles can be released into dry-but-active cells.
 
@@ -113,8 +121,9 @@ The ISTATUS field indicates the status of the particle:
 \item \texttt{5}: particle terminated in a cell with no exit face
 \item \texttt{6}: particle terminated in a stop zone
 \item \texttt{7}: particle terminated in an inactive cell
-\item \texttt{8}: particle terminated immediately upon release into a dry cell
+\item \texttt{8}: particle terminated immediately upon attempted release into an inactive cell
 \item \texttt{9}: particle terminated in a subcell with no exit face
+\item \texttt{10}: particle terminated at stop time or end of simulation
 \end{description}
 
 The IREASON field indicates the reason the particle track record was saved:
@@ -126,6 +135,7 @@ The IREASON field indicates the reason the particle track record was saved:
 \item \texttt{3}: particle terminated
 \item \texttt{4}: particle entered a weak sink cell
 \item \texttt{5}: user-specified tracking time
+\item \texttt{6}: particle dropped to water table
 \end{description}
 
 By default, the PRT Model reports all particle events. The user can optionally select which events are reported, as explained in the Output Control (OC) subsection. Because multiple tracking events may coincide (e.g. exiting a cell and exiting a weak sink cell), particle track records may be duplicates except for the ISTATUS and/or IREASON codes.

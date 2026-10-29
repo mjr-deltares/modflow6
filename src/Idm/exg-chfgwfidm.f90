@@ -9,6 +9,7 @@ module ExgChfgwfInputModule
   public exg_chfgwf_block_definitions
   public ExgChfgwfParamFoundType
   public exg_chfgwf_multi_package
+  public exg_chfgwf_is_advanced
   public exg_chfgwf_subpackages
 
   type ExgChfgwfParamFoundType
@@ -27,6 +28,7 @@ module ExgChfgwfInputModule
   end type ExgChfgwfParamFoundType
 
   logical :: exg_chfgwf_multi_package = .true.
+  logical :: exg_chfgwf_is_advanced = .false.
 
   character(len=16), parameter :: &
     exg_chfgwf_subpackages(*) = &
@@ -46,6 +48,7 @@ module ExgChfgwfInputModule
     '', & ! shape
     'keyword to print input to list file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -64,6 +67,7 @@ module ExgChfgwfInputModule
     '', & ! shape
     'keyword to print chfgwf flows to list file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -82,6 +86,7 @@ module ExgChfgwfInputModule
     '', & ! shape
     'keyword to indicate conductance is fixed', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -100,6 +105,7 @@ module ExgChfgwfInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -118,6 +124,7 @@ module ExgChfgwfInputModule
     '', & ! shape
     'obs keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -136,6 +143,7 @@ module ExgChfgwfInputModule
     '', & ! shape
     'file keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -154,6 +162,7 @@ module ExgChfgwfInputModule
     '', & ! shape
     'obs6 input filename', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -172,6 +181,7 @@ module ExgChfgwfInputModule
     '', & ! shape
     'number of exchanges', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -190,6 +200,7 @@ module ExgChfgwfInputModule
     'NCELLDIM', & ! shape
     'cellid of cell in surface water model', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -208,6 +219,7 @@ module ExgChfgwfInputModule
     'NCELLDIM', & ! shape
     'cellid of cell in groundwater model', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -226,6 +238,7 @@ module ExgChfgwfInputModule
     '', & ! shape
     'bed leakance', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -244,6 +257,7 @@ module ExgChfgwfInputModule
     '', & ! shape
     'factor used for conductance calculation', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -279,6 +293,7 @@ module ExgChfgwfInputModule
     'NEXG', & ! shape
     'exchange data', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered

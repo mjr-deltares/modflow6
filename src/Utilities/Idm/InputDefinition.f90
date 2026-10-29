@@ -1,7 +1,7 @@
-!> @brief This module contains the InputDefinitionModule
+!> @brief Input definition module.
 !!
-!! This module contains type definitions that represent
-!! descriptions of input from modflow 6 definition files.
+!! This module contains derived types that represent
+!! input parameters as described in definition files.
 !!
 !<
 module InputDefinitionModule
@@ -14,12 +14,7 @@ module InputDefinitionModule
   public :: InputParamDefinitionType, &
             InputBlockDefinitionType
 
-  !> @brief Input parameter definition type
-  !!
-  !! This type is used to store information for
-  !! each modflow input record
-  !!
-  !<
+  !> @brief Input parameter definition. Describes an input parameter.
   type InputParamDefinitionType
     character(len=LENCOMPONENTNAME) :: component_type = '' !< type of component, e.g. GWF
     character(len=LENCOMPONENTNAME) :: subcomponent_type = '' !< type of subcomponent, e.g. CHD
@@ -30,18 +25,14 @@ module InputDefinitionModule
     character(len=LINELENGTH) :: shape = '' !< shape of data type
     character(len=LINELENGTH) :: longname = '' !< description of variable
     logical(LGP) :: required = .false. !< is the parameter required
+    logical(LGP) :: developmode = .false. !< is the parameter developmode
     logical(LGP) :: in_record = .false. !< is the parameter within an input record
     logical(LGP) :: preserve_case = .false. !< should string case be preserved
     logical(LGP) :: layered = .false. !< does the parameter support a layered read
     logical(LGP) :: timeseries = .false. !< does the parameter support timeseries
   end type InputParamDefinitionType
 
-  !> @brief Input block definition type
-  !!
-  !! This type is used to store information for
-  !! how to read a modflow block
-  !!
-  !<
+  !> @brief Input block definition. Describes an input block.
   type InputBlockDefinitionType
     character(len=LINELENGTH) :: blockname = '' !< name of block, e.g. DIMENSIONS
     logical(LGP) :: required = .false. !< is the block required

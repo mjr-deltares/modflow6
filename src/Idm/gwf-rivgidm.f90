@@ -9,6 +9,7 @@ module GwfRivgInputModule
   public gwf_rivg_block_definitions
   public GwfRivgParamFoundType
   public gwf_rivg_multi_package
+  public gwf_rivg_is_advanced
   public gwf_rivg_subpackages
 
   type GwfRivgParamFoundType
@@ -32,6 +33,7 @@ module GwfRivgInputModule
   end type GwfRivgParamFoundType
 
   logical :: gwf_rivg_multi_package = .true.
+  logical :: gwf_rivg_is_advanced = .false.
 
   character(len=16), parameter :: &
     gwf_rivg_subpackages(*) = &
@@ -51,6 +53,7 @@ module GwfRivgInputModule
     '', & ! shape
     'use array-based grid input', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -69,6 +72,7 @@ module GwfRivgInputModule
     'NAUX', & ! shape
     'keyword to specify aux variables', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -87,6 +91,7 @@ module GwfRivgInputModule
     '', & ! shape
     'name of auxiliary variable for multiplier', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -105,6 +110,7 @@ module GwfRivgInputModule
     '', & ! shape
     'print input to listing file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -123,6 +129,7 @@ module GwfRivgInputModule
     '', & ! shape
     'print calculated flows to listing file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -141,6 +148,7 @@ module GwfRivgInputModule
     '', & ! shape
     'save RIV flows to budget file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -159,6 +167,7 @@ module GwfRivgInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -177,6 +186,7 @@ module GwfRivgInputModule
     '', & ! shape
     'obs keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -195,6 +205,7 @@ module GwfRivgInputModule
     '', & ! shape
     'file keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -213,6 +224,7 @@ module GwfRivgInputModule
     '', & ! shape
     'obs6 input filename', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -231,6 +243,7 @@ module GwfRivgInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -249,6 +262,7 @@ module GwfRivgInputModule
     '', & ! shape
     'export array variables to netcdf output files.', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -267,6 +281,7 @@ module GwfRivgInputModule
     '', & ! shape
     'maximum number of river cells in any stress period', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -285,6 +300,7 @@ module GwfRivgInputModule
     'NODES', & ! shape
     'river stage', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .true., & ! layered
@@ -301,8 +317,9 @@ module GwfRivgInputModule
     'COND', & ! fortran variable
     'DOUBLE1D', & ! type
     'NODES', & ! shape
-    'river conductnace', & ! longname
+    'river conductance', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .true., & ! layered
@@ -321,6 +338,7 @@ module GwfRivgInputModule
     'NODES', & ! shape
     'river bottom elevation', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .true., & ! layered
@@ -339,6 +357,7 @@ module GwfRivgInputModule
     'NAUX NODES', & ! shape
     'river auxiliary variable iaux', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .true., & ! layered
@@ -381,6 +400,7 @@ module GwfRivgInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered

@@ -9,6 +9,7 @@ module GwfWelInputModule
   public gwf_wel_block_definitions
   public GwfWelParamFoundType
   public gwf_wel_multi_package
+  public gwf_wel_is_advanced
   public gwf_wel_subpackages
 
   type GwfWelParamFoundType
@@ -23,6 +24,8 @@ module GwfWelInputModule
     logical :: afrcsv = .false.
     logical :: fileout = .false.
     logical :: afrcsvfile = .false.
+    logical :: iflowredlen = .false.
+    logical :: afrauxname = .false.
     logical :: ts_filerecord = .false.
     logical :: ts6 = .false.
     logical :: filein = .false.
@@ -39,6 +42,7 @@ module GwfWelInputModule
   end type GwfWelParamFoundType
 
   logical :: gwf_wel_multi_package = .true.
+  logical :: gwf_wel_is_advanced = .false.
 
   character(len=16), parameter :: &
     gwf_wel_subpackages(*) = &
@@ -58,6 +62,7 @@ module GwfWelInputModule
     'NAUX', & ! shape
     'keyword to specify aux variables', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -76,6 +81,7 @@ module GwfWelInputModule
     '', & ! shape
     'name of auxiliary variable for multiplier', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -94,6 +100,7 @@ module GwfWelInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -112,6 +119,7 @@ module GwfWelInputModule
     '', & ! shape
     'print input to listing file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -130,6 +138,7 @@ module GwfWelInputModule
     '', & ! shape
     'print calculated flows to listing file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -148,6 +157,7 @@ module GwfWelInputModule
     '', & ! shape
     'save well flows to budget file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -166,6 +176,7 @@ module GwfWelInputModule
     '', & ! shape
     'cell fractional thickness for reduced pumping', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -184,6 +195,7 @@ module GwfWelInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -202,6 +214,7 @@ module GwfWelInputModule
     '', & ! shape
     'budget keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -220,6 +233,7 @@ module GwfWelInputModule
     '', & ! shape
     'file keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -238,8 +252,48 @@ module GwfWelInputModule
     '', & ! shape
     'file keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
+    .false., & ! layered
+    .false. & ! timeseries
+    )
+
+  type(InputParamDefinitionType), parameter :: &
+    gwfwel_iflowredlen = InputParamDefinitionType &
+    ( &
+    'GWF', & ! component
+    'WEL', & ! subcomponent
+    'OPTIONS', & ! block
+    'FLOW_REDUCTION_LENGTH', & ! tag name
+    'IFLOWREDLEN', & ! fortran variable
+    'KEYWORD', & ! type
+    '', & ! shape
+    'flow reduction length keyword', & ! longname
+    .false., & ! required
+    .false., & ! developmode
+    .false., & ! multi-record
+    .false., & ! preserve case
+    .false., & ! layered
+    .false. & ! timeseries
+    )
+
+  type(InputParamDefinitionType), parameter :: &
+    gwfwel_afrauxname = InputParamDefinitionType &
+    ( &
+    'GWF', & ! component
+    'WEL', & ! subcomponent
+    'OPTIONS', & ! block
+    'AUTO_FLOW_REDUCE_AUXNAME', & ! tag name
+    'AFRAUXNAME', & ! fortran variable
+    'STRING', & ! type
+    '', & ! shape
+    'name of auxiliary variable for the per-well '// &
+    'AUTO\_FLOW\_REDUCE value', & ! longname
+    .false., & ! required
+    .false., & ! developmode
+    .false., & ! multi-record
+    .false., & ! preserve case
     .false., & ! layered
     .false. & ! timeseries
     )
@@ -256,6 +310,7 @@ module GwfWelInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -274,6 +329,7 @@ module GwfWelInputModule
     '', & ! shape
     'head keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -292,6 +348,7 @@ module GwfWelInputModule
     '', & ! shape
     'file keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -310,6 +367,7 @@ module GwfWelInputModule
     '', & ! shape
     'file name of time series information', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -328,6 +386,7 @@ module GwfWelInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -346,6 +405,7 @@ module GwfWelInputModule
     '', & ! shape
     'obs keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -364,6 +424,7 @@ module GwfWelInputModule
     '', & ! shape
     'obs6 input filename', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -382,6 +443,7 @@ module GwfWelInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -400,6 +462,7 @@ module GwfWelInputModule
     '', & ! shape
     'maximum number of wells', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -418,6 +481,7 @@ module GwfWelInputModule
     'NCELLDIM', & ! shape
     'cell identifier', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -436,6 +500,7 @@ module GwfWelInputModule
     '', & ! shape
     'well rate', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -454,6 +519,7 @@ module GwfWelInputModule
     'NAUX', & ! shape
     'auxiliary variables', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -472,6 +538,7 @@ module GwfWelInputModule
     '', & ! shape
     'well name', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -492,6 +559,8 @@ module GwfWelInputModule
     gwfwel_afrcsv, &
     gwfwel_fileout, &
     gwfwel_afrcsvfile, &
+    gwfwel_iflowredlen, &
+    gwfwel_afrauxname, &
     gwfwel_ts_filerecord, &
     gwfwel_ts6, &
     gwfwel_filein, &
@@ -519,6 +588,7 @@ module GwfWelInputModule
     'MAXBOUND', & ! shape
     '', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered

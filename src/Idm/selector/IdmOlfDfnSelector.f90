@@ -6,10 +6,11 @@ module IdmOlfDfnSelectorModule
   use InputDefinitionModule, only: InputParamDefinitionType, &
                                    InputBlockDefinitionType
   use OlfNamInputModule
-  use OlfDis2DInputModule
-  use OlfDisv2DInputModule
+  use OlfDis2dInputModule
+  use OlfDisv2dInputModule
   use OlfDfwInputModule
   use OlfIcInputModule
+  use OlfOcInputModule
   use OlfCdbInputModule
   use OlfChdInputModule
   use OlfFlwInputModule
@@ -24,6 +25,7 @@ module IdmOlfDfnSelectorModule
   public :: olf_aggregate_definitions
   public :: olf_block_definitions
   public :: olf_idm_multi_package
+  public :: olf_idm_is_advanced
   public :: olf_idm_subpackages
   public :: olf_idm_integrated
 
@@ -62,6 +64,8 @@ contains
       call set_param_pointer(input_definition, olf_dfw_param_definitions)
     case ('IC')
       call set_param_pointer(input_definition, olf_ic_param_definitions)
+    case ('OC')
+      call set_param_pointer(input_definition, olf_oc_param_definitions)
     case ('CDB')
       call set_param_pointer(input_definition, olf_cdb_param_definitions)
     case ('CHD')
@@ -96,6 +100,8 @@ contains
       call set_param_pointer(input_definition, olf_dfw_aggregate_definitions)
     case ('IC')
       call set_param_pointer(input_definition, olf_ic_aggregate_definitions)
+    case ('OC')
+      call set_param_pointer(input_definition, olf_oc_aggregate_definitions)
     case ('CDB')
       call set_param_pointer(input_definition, olf_cdb_aggregate_definitions)
     case ('CHD')
@@ -130,6 +136,8 @@ contains
       call set_block_pointer(input_definition, olf_dfw_block_definitions)
     case ('IC')
       call set_block_pointer(input_definition, olf_ic_block_definitions)
+    case ('OC')
+      call set_block_pointer(input_definition, olf_oc_block_definitions)
     case ('CDB')
       call set_block_pointer(input_definition, olf_cdb_block_definitions)
     case ('CHD')
@@ -163,6 +171,8 @@ contains
       multi_package = olf_dfw_multi_package
     case ('IC')
       multi_package = olf_ic_multi_package
+    case ('OC')
+      multi_package = olf_oc_multi_package
     case ('CDB')
       multi_package = olf_cdb_multi_package
     case ('CHD')
@@ -185,6 +195,44 @@ contains
     return
   end function olf_idm_multi_package
 
+  function olf_idm_is_advanced(subcomponent) result(is_advanced)
+    character(len=*), intent(in) :: subcomponent
+    logical :: is_advanced
+    select case (subcomponent)
+    case ('NAM')
+      is_advanced = olf_nam_is_advanced
+    case ('DIS2D')
+      is_advanced = olf_dis2d_is_advanced
+    case ('DISV2D')
+      is_advanced = olf_disv2d_is_advanced
+    case ('DFW')
+      is_advanced = olf_dfw_is_advanced
+    case ('IC')
+      is_advanced = olf_ic_is_advanced
+    case ('OC')
+      is_advanced = olf_oc_is_advanced
+    case ('CDB')
+      is_advanced = olf_cdb_is_advanced
+    case ('CHD')
+      is_advanced = olf_chd_is_advanced
+    case ('FLW')
+      is_advanced = olf_flw_is_advanced
+    case ('PCP')
+      is_advanced = olf_pcp_is_advanced
+    case ('EVP')
+      is_advanced = olf_evp_is_advanced
+    case ('STO')
+      is_advanced = olf_sto_is_advanced
+    case ('ZDG')
+      is_advanced = olf_zdg_is_advanced
+    case default
+      call store_error('Idm selector subcomponent not found; '//&
+                       &'component="OLF"'//&
+                       &', subcomponent="'//trim(subcomponent)//'".', .true.)
+    end select
+    return
+  end function olf_idm_is_advanced
+
   function olf_idm_subpackages(subcomponent) result(subpackages)
     character(len=*), intent(in) :: subcomponent
     character(len=16), dimension(:), pointer :: subpackages
@@ -199,6 +247,8 @@ contains
       call set_subpkg_pointer(subpackages, olf_dfw_subpackages)
     case ('IC')
       call set_subpkg_pointer(subpackages, olf_ic_subpackages)
+    case ('OC')
+      call set_subpkg_pointer(subpackages, olf_oc_subpackages)
     case ('CDB')
       call set_subpkg_pointer(subpackages, olf_cdb_subpackages)
     case ('CHD')
@@ -232,6 +282,8 @@ contains
     case ('DFW')
       integrated = .true.
     case ('IC')
+      integrated = .true.
+    case ('OC')
       integrated = .true.
     case ('CDB')
       integrated = .true.

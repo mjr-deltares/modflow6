@@ -9,6 +9,7 @@ module GwtIcInputModule
   public gwt_ic_block_definitions
   public GwtIcParamFoundType
   public gwt_ic_multi_package
+  public gwt_ic_is_advanced
   public gwt_ic_subpackages
 
   type GwtIcParamFoundType
@@ -18,6 +19,7 @@ module GwtIcInputModule
   end type GwtIcParamFoundType
 
   logical :: gwt_ic_multi_package = .false.
+  logical :: gwt_ic_is_advanced = .false.
 
   character(len=16), parameter :: &
     gwt_ic_subpackages(*) = &
@@ -37,6 +39,7 @@ module GwtIcInputModule
     '', & ! shape
     'export array variables to layered ascii files.', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -55,6 +58,7 @@ module GwtIcInputModule
     '', & ! shape
     'export array variables to netcdf output files.', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -73,6 +77,7 @@ module GwtIcInputModule
     'NODES', & ! shape
     'starting concentration', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .true., & ! layered
@@ -101,6 +106,7 @@ module GwtIcInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered

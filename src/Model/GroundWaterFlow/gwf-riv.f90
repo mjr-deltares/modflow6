@@ -78,6 +78,7 @@ contains
     packobj%iout = iout
     packobj%id = id
     packobj%ibcnum = ibcnum
+    packobj%ncolbnd = 3
     packobj%ictMemPath = create_mem_path(namemodel, 'NPF')
   end subroutine riv_create
 
@@ -126,7 +127,7 @@ contains
     ! -- modules
     use GwfRivInputModule, only: GwfRivParamFoundType
     ! -- dummy variables
-    class(RivType), intent(inout) :: this !< BndExtType object
+    class(RivType), intent(inout) :: this
     type(GwfRivParamFoundType), intent(in) :: found
     !
     ! -- log found options
@@ -185,11 +186,6 @@ contains
     ! -- store user cond
     if (this%ivsc == 1) then
       call this%riv_store_user_cond()
-    end if
-    !
-    ! -- Write the list to iout if requested
-    if (this%iprpak /= 0) then
-      call this%write_list()
     end if
   end subroutine riv_rp
 
@@ -309,7 +305,7 @@ contains
     class(MatrixBaseType), pointer :: matrix_sln
     ! -- local
     integer(I4B) :: i, n, ipos
-    real(DP) :: cond, stage, qriv !, rbot
+    real(DP) :: qriv
     !
     ! -- pakmvrobj fc
     if (this%imover == 1) then
@@ -324,12 +320,14 @@ contains
       call matrix_sln%add_value_pos(idxglo(ipos), this%hcof(i))
       !
       ! -- If mover is active and this river cell is discharging,
-      !    store available water (as positive value).
-      stage = this%stage(i)
-      if (this%imover == 1 .and. this%xnew(n) > stage) then
-        cond = this%cond_mult(i)
-        qriv = cond * (this%xnew(n) - stage)
-        call this%pakmvrobj%accumulate_qformvr(i, qriv)
+      !    store available water (as positive value). Use the assembled
+      !    coefficients so terms added to hcof and rhs after riv_cf, such
+      !    as the BUY density terms, are included.
+      if (this%imover == 1) then
+        qriv = this%rhs(i) - this%hcof(i) * this%xnew(n)
+        if (qriv > DZERO) then
+          call this%pakmvrobj%accumulate_qformvr(i, qriv)
+        end if
       end if
     end do
   end subroutine riv_fc
@@ -399,7 +397,7 @@ contains
   !<
   subroutine riv_store_user_cond(this)
     ! -- dummy
-    class(RivType), intent(inout) :: this !< BndExtType object
+    class(RivType), intent(inout) :: this
     ! -- local
     integer(I4B) :: n
     !
@@ -415,7 +413,7 @@ contains
     ! -- modules
     use ConstantsModule, only: DZERO
     ! -- dummy
-    class(RivType), intent(inout) :: this !< BndExtType object
+    class(RivType), intent(inout) :: this
     integer(I4B), intent(in) :: row
     ! -- result
     real(DP) :: cond
@@ -433,7 +431,7 @@ contains
     ! -- modules
     use ConstantsModule, only: DZERO
     ! -- dummy
-    class(RivType), intent(inout) :: this !< BndExtType object
+    class(RivType), intent(inout) :: this
     integer(I4B), intent(in) :: col
     integer(I4B), intent(in) :: row
     ! -- result

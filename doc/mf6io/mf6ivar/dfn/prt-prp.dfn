@@ -35,7 +35,7 @@ reader urword
 optional true
 mf6internal extol
 longname exit solve tolerance
-description the convergence tolerance for iterative solution of particle exit location and time in the generalized Pollock's method.  A value of 0.00001 works well for many problems, but the value that strikes the best balance between accuracy and runtime is problem-dependent.
+description the convergence tolerance for iterative solution of particle exit location and time in the generalized Pollock's method.  The variable being solved for varies from 0 to 1.  A tolerance of 0.00001 works well for many problems, but the value that strikes the best balance between accuracy and runtime is problem-dependent.
 default_value 1e-5
 
 block options
@@ -44,7 +44,7 @@ type keyword
 reader urword
 optional true
 longname whether to use local z coordinates
-description indicates that ``zrpt'' defines the local z coordinate of the release point within the cell, with value of 0 at the bottom and 1 at the top of the cell.  If the cell is partially saturated at release time, the top of the cell is considered to be the water table elevation (the head in the cell) rather than the top defined by the user.
+description indicates that ``zrpt'' defines the local z coordinate of the release point within the cell, with value of 0 at the bottom and 1 at the effective top of the cell. If the cell is convertible and partially saturated at release time, the effective top of the cell is considered to be the water table elevation (the head in the cell) rather than the top defined by the user, and is constrained to be no higher than the geometric top of the cell and no lower than the cell bottom. If the cell is confined, the effective top is the geometric top.
 mf6internal localz
 
 block options
@@ -173,7 +173,7 @@ type keyword
 reader urword
 optional true
 longname drape
-description is a text keyword to indicate that if a particle's release point is in a cell that happens to be inactive at release time, the particle is to be moved to the topmost active cell below it, if any. By default, a particle is not released into the simulation if its release point's cell is inactive at release time.
+description is a text keyword to indicate that if a particle's release point is in a cell that happens to be inactive at release time, the particle is to be moved to the topmost active cell below it, if any. By default, a particle is not released into the simulation if its release point's cell is inactive at release time. Note that DRAPE does not apply to attempted release into a cell for which IDOMAIN <= 0, which is considered not to exist in the simulation. Attempted release into a such a cell results in an error.
 
 block options
 name release_timesrecord
@@ -292,8 +292,8 @@ reader urword
 optional true
 mf6internal ichkmeth
 longname coordinate checking method
-description approach for verifying that release point coordinates are in the cell with the specified ID. By default, release point coordinates are checked at release time.
-default eager
+description approach for verifying that release point coordinates are in the cell with the specified ID. Possible values are NONE and EAGER. By default, release point coordinates are checked at release time, i.e. EAGER.
+default_value eager
 
 block options
 name dev_cycle_detection_window
@@ -446,7 +446,7 @@ tagged false
 in_record true
 reader urword
 longname
-description specifies time steps at which to release a particle. A particle is released at the beginning of each specified time step. For fine control over release timing, specify times explicitly using the RELEASETIMES block. If the beginning of a specified time step coincides with a release time specified in the RELEASETIMES block or configured via RELEASE\_TIME\_FREQUENCY, only one particle is released at that time. Coincidence is evaluated up to the tolerance specified in RELEASE\_TIME\_TOLERANCE, or $\epsilon \times 10^{11}$ by default, where $\epsilon$ is machine precision. If no release times are configured via this setting, the RELEASETIMES block, or the RELEASE\_TIME\_FREQUENCY option, a single release time is configured at the beginning of the first time step of the simulation's first stress period.
+description specifies time steps at which to release a particle. A particle is released at the beginning of each specified time step. For fine control over release timing, specify times explicitly using the RELEASETIMES block. If the beginning of a specified time step coincides with a release time specified in the RELEASETIMES block or configured via RELEASE\_TIME\_FREQUENCY, only one particle is released at that time. Coincidence is evaluated up to the tolerance specified in RELEASE\_TIME\_TOLERANCE, or $\epsilon \times 10^{11}$ by default, where $\epsilon$ is machine precision. When such a coincidence occurs, the release is reported under the earlier of the two time steps, i.e. whichever time step the coincident release time falls in per the usual convention that a time exactly on a time step boundary belongs to the earlier time step, not the later one. If no release times are configured via this setting, the RELEASETIMES block, or the RELEASE\_TIME\_FREQUENCY option, a single release time is configured at the beginning of the first time step of the simulation's first stress period.
 
 block period
 name all

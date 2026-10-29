@@ -1,5 +1,5 @@
 ! ** Do Not Modify! MODFLOW 6 system generated file. **
-module ChfDisv1DInputModule
+module ChfDisv1dInputModule
   use ConstantsModule, only: LENVARNAME
   use InputDefinitionModule, only: InputParamDefinitionType, &
                                    InputBlockDefinitionType
@@ -9,6 +9,7 @@ module ChfDisv1DInputModule
   public chf_disv1d_block_definitions
   public ChfDisv1dParamFoundType
   public chf_disv1d_multi_package
+  public chf_disv1d_is_advanced
   public chf_disv1d_subpackages
 
   type ChfDisv1dParamFoundType
@@ -38,6 +39,7 @@ module ChfDisv1DInputModule
   end type ChfDisv1dParamFoundType
 
   logical :: chf_disv1d_multi_package = .false.
+  logical :: chf_disv1d_is_advanced = .false.
 
   character(len=16), parameter :: &
     chf_disv1d_subpackages(*) = &
@@ -57,6 +59,7 @@ module ChfDisv1DInputModule
     '', & ! shape
     'model length units', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -75,6 +78,7 @@ module ChfDisv1DInputModule
     '', & ! shape
     'do not write binary grid file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -93,6 +97,7 @@ module ChfDisv1DInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -111,6 +116,7 @@ module ChfDisv1DInputModule
     '', & ! shape
     'grb keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -129,6 +135,7 @@ module ChfDisv1DInputModule
     '', & ! shape
     'file keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -147,6 +154,7 @@ module ChfDisv1DInputModule
     '', & ! shape
     'file name of GRB information', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -165,6 +173,7 @@ module ChfDisv1DInputModule
     '', & ! shape
     'x-position origin of the model grid coordinate system', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -183,6 +192,7 @@ module ChfDisv1DInputModule
     '', & ! shape
     'y-position origin of the model grid coordinate system', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -201,6 +211,7 @@ module ChfDisv1DInputModule
     '', & ! shape
     'rotation angle', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -219,6 +230,7 @@ module ChfDisv1DInputModule
     '', & ! shape
     'export array variables to layered ascii files.', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -237,6 +249,7 @@ module ChfDisv1DInputModule
     'LENBIGLINE', & ! shape
     'CRS user input string', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -255,6 +268,7 @@ module ChfDisv1DInputModule
     '', & ! shape
     'number of linear features', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -271,8 +285,9 @@ module ChfDisv1DInputModule
     'NVERT', & ! fortran variable
     'INTEGER', & ! type
     '', & ! shape
-    'number of columns', & ! longname
+    'number of vertices', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -291,6 +306,7 @@ module ChfDisv1DInputModule
     'NODES', & ! shape
     'width', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -309,6 +325,7 @@ module ChfDisv1DInputModule
     'NODES', & ! shape
     'bottom elevation for the one-dimensional cell', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -327,6 +344,7 @@ module ChfDisv1DInputModule
     'NODES', & ! shape
     'idomain existence array', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -345,6 +363,7 @@ module ChfDisv1DInputModule
     '', & ! shape
     'vertex number', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -363,6 +382,7 @@ module ChfDisv1DInputModule
     '', & ! shape
     'x-coordinate for vertex', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -381,6 +401,7 @@ module ChfDisv1DInputModule
     '', & ! shape
     'y-coordinate for vertex', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -399,6 +420,7 @@ module ChfDisv1DInputModule
     '', & ! shape
     'cell1d number', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -417,6 +439,7 @@ module ChfDisv1DInputModule
     '', & ! shape
     'fractional distance to the cell center', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -435,6 +458,7 @@ module ChfDisv1DInputModule
     '', & ! shape
     'number of cell vertices', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -453,6 +477,7 @@ module ChfDisv1DInputModule
     'NCVERT', & ! shape
     'number of cell vertices', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -499,6 +524,7 @@ module ChfDisv1DInputModule
     'NVERT', & ! shape
     'vertices data', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -517,6 +543,7 @@ module ChfDisv1DInputModule
     'NODES', & ! shape
     'cell1d data', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -565,4 +592,4 @@ module ChfDisv1DInputModule
     ) &
     ]
 
-end module ChfDisv1DInputModule
+end module ChfDisv1dInputModule

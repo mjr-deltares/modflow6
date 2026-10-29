@@ -8,15 +8,20 @@ import os
 import flopy
 import numpy as np
 import pytest
-from binary_util import write_budget, write_head
+from flopy.utils.binaryfile import CellBudgetFile, HeadFile
 from flopy.utils.gridutil import uniform_flow_field
 from framework import TestFramework
 
-cases = ["adv01a_fmi", "adv01b_fmi", "adv01c_fmi", "adv01d_fmi"]
+cases = [
+    pytest.param(0, "adv01a_fmi"),
+    pytest.param(1, "adv01b_fmi"),
+    pytest.param(2, "adv01c_fmi"),
+    pytest.param(3, "adv01d_fmi"),
+]
 scheme = ["upstream", "central", "tvd", "utvd"]
 
 
-def build_models(idx, test):
+def build_models(idx, name, test):
     nlay, nrow, ncol = 1, 1, 100
     nper = 1
     perlen = [5.0]
@@ -37,8 +42,6 @@ def build_models(idx, test):
     tdis_rc = []
     for i in range(nper):
         tdis_rc.append((perlen[i], nstp[i], tsmult[i]))
-
-    name = cases[idx]
 
     # build MODFLOW 6 files
     ws = test.workspace
@@ -106,9 +109,7 @@ def build_models(idx, test):
 
     # create a heads file with head equal top
     fname = os.path.join(ws, "myhead.hds")
-    with open(fname, "wb") as fbin:
-        for kstp in range(1):  # nstp[0]):
-            write_head(fbin, top * np.ones((nrow, ncol)), kstp=kstp + 1)
+    HeadFile.write(fname, {(1, 1): top * np.ones((nrow, ncol))}, precision="double")
 
     # create a budget file
     qx = 1.0
@@ -138,28 +139,30 @@ def build_models(idx, test):
     sat = np.array([(i, i, 0.0, 1.0) for i in range(nlay * nrow * ncol)], dtype=dt)
 
     fname = os.path.join(ws, "mybudget.bud")
-    with open(fname, "wb") as fbin:
-        for kstp in range(1):  # nstp[0]):
-            write_budget(fbin, flowja, kstp=kstp + 1)
-            write_budget(fbin, spdis, text="      DATA-SPDIS", imeth=6, kstp=kstp + 1)
-            write_budget(fbin, sat, text="        DATA-SAT", imeth=6, kstp=kstp + 1)
-            write_budget(
-                fbin,
-                wel,
-                text="             WEL",
-                imeth=6,
-                text2id2="           WEL-1",
-                kstp=kstp + 1,
-            )
-            write_budget(
-                fbin,
-                chd,
-                text="             CHD",
-                imeth=6,
-                text2id2="           CHD-1",
-                kstp=kstp + 1,
-            )
-    fbin.close()
+    budget_data = [
+        {"data": flowja, "text": "    FLOW-JA-FACE", "imeth": 1, "kstp": 1, "kper": 1},
+        {"data": spdis, "text": "      DATA-SPDIS", "imeth": 6, "kstp": 1, "kper": 1},
+        {"data": sat, "text": "        DATA-SAT", "imeth": 6, "kstp": 1, "kper": 1},
+        {
+            "data": wel,
+            "text": "             WEL",
+            "imeth": 6,
+            "paknam2": "           WEL-1",
+            "kstp": 1,
+            "kper": 1,
+        },
+        {
+            "data": chd,
+            "text": "             CHD",
+            "imeth": 6,
+            "paknam2": "           CHD-1",
+            "kstp": 1,
+            "kper": 1,
+        },
+    ]
+    CellBudgetFile.write(
+        fname, budget_data, nlay=nlay, nrow=nrow, ncol=ncol, precision="double"
+    )
 
     # flow model interface
     packagedata = [
@@ -202,8 +205,7 @@ def build_models(idx, test):
     return sim, None
 
 
-def check_output(idx, test):
-    name = cases[idx]
+def check_output(idx, name, test):
     gwtname = "gwt_" + name
 
     fpth = os.path.join(test.workspace, f"{gwtname}.ucn")
@@ -654,13 +656,13 @@ def check_output(idx, test):
     )
 
 
-@pytest.mark.parametrize("idx, name", enumerate(cases))
+@pytest.mark.parametrize(("idx", "name"), cases)
 def test_mf6model(idx, name, function_tmpdir, targets):
     test = TestFramework(
         name=name,
         workspace=function_tmpdir,
         targets=targets,
-        build=lambda t: build_models(idx, t),
-        check=lambda t: check_output(idx, t),
+        build=lambda t: build_models(idx, name, t),
+        check=lambda t: check_output(idx, name, t),
     )
     test.run()

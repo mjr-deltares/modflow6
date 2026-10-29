@@ -1,5 +1,6 @@
 # --------------------- chf cdb options ---------------------
 # flopy multi-package
+# package-type stress-package
 
 block options
 name auxiliary
@@ -87,7 +88,7 @@ tagged false
 reader urword
 optional false
 longname obs6 input filename
-description REPLACE obs6_filename {'{#1}': 'Zero-Depth-Gradient Boundary'}
+description REPLACE obs6_filename {'{#1}': 'CDB', '{#2}': '\\ref{table:gwf-obstypetable}'}
 
 
 # --------------------- chf cdb dimensions ---------------------

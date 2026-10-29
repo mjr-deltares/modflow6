@@ -36,6 +36,7 @@ reader urword
 optional true
 longname print input to listing file
 description REPLACE print_input {'{#1}': 'UZF'}
+mf6internal iprpak
 
 block options
 name print_flows
@@ -52,6 +53,7 @@ reader urword
 optional true
 longname save well flows to budget file
 description REPLACE save_flows {'{#1}': 'UZF'}
+mf6internal ipakcb
 
 block options
 name wc_filerecord
@@ -95,6 +97,7 @@ tagged true
 optional true
 longname
 description
+mf6internal budfilerec
 
 block options
 name budget
@@ -139,6 +142,7 @@ tagged true
 optional true
 longname
 description
+mf6internal budcsvfilerec
 
 block options
 name budgetcsv
@@ -172,6 +176,7 @@ tagged true
 optional true
 longname
 description
+mf6internal pkgconvfilerec
 
 block options
 name package_convergence
@@ -183,6 +188,7 @@ tagged true
 optional false
 longname package_convergence keyword
 description keyword to specify that record corresponds to the package convergence comma spaced values file.
+mf6internal pkgconv
 
 block options
 name package_convergence_filename
@@ -193,6 +199,7 @@ reader urword
 tagged false
 optional false
 longname file keyword
+mf6internal pkgconvfname
 description name of the comma spaced values output file to write package convergence information.
 
 block options
@@ -268,7 +275,7 @@ tagged false
 reader urword
 optional false
 longname obs6 input filename
-description REPLACE obs6_filename {'{#1}': 'UZF'}
+description REPLACE obs6_filename {'{#1}': 'UZF', '{#2}': '\\ref{table:gwf-obstypetable}'}
 
 block options
 name mover
@@ -278,6 +285,15 @@ reader urword
 optional true
 longname
 description REPLACE mover {'{#1}': 'UZF'}
+
+block options
+name dev_no_final_check
+mf6internal iconvchk
+type keyword
+reader urword
+optional true
+longname do not check final convergence
+description keyword that deactivates the final convergence check of the change in UZF recharge.  This development option is not supported.
 
 block options
 name simulate_et
@@ -334,7 +350,6 @@ optional true
 longname use root potential
 description keyword specifying that ET in the unsaturated zone will be simulated using a capillary pressure based formulation. Capillary pressure is calculated using the Brooks-Corey retention function.
 
-
 # --------------------- gwf uzf dimensions ---------------------
 
 block dimensions
@@ -342,6 +357,7 @@ name nuzfcells
 type integer
 reader urword
 optional false
+mf6internal maxbound
 longname number of UZF cells
 description is the number of UZF cells.  More than one UZF cell can be assigned to a GWF cell; however, only one GWF cell can be assigned to a single UZF cell. If more than one UZF cell is assigned to a GWF cell, then an auxiliary variable should be used to reduce the surface area of the UZF cell with the AUXMULTNAME option.
 
@@ -375,6 +391,7 @@ description
 
 block packagedata
 name ifno
+mf6internal packagedata_ifno
 type integer
 shape
 tagged false
@@ -523,7 +540,7 @@ numeric_index true
 
 block period
 name finf
-type string
+type double precision
 shape
 tagged false
 in_record true
@@ -534,7 +551,7 @@ description real or character value that defines the applied infiltration rate o
 
 block period
 name pet
-type string
+type double precision
 shape
 tagged false
 in_record true
@@ -545,7 +562,7 @@ description real or character value that defines the potential evapotranspiratio
 
 block period
 name extdp
-type string
+type double precision
 shape
 tagged false
 in_record true
@@ -556,7 +573,7 @@ description real or character value that defines the evapotranspiration extincti
 
 block period
 name extwc
-type string
+type double precision
 shape
 tagged false
 in_record true
@@ -567,7 +584,7 @@ description real or character value that defines the evapotranspiration extincti
 
 block period
 name ha
-type string
+type double precision
 shape
 tagged false
 in_record true
@@ -578,7 +595,7 @@ description real or character value that defines the air entry potential (head) 
 
 block period
 name hroot
-type string
+type double precision
 shape
 tagged false
 in_record true
@@ -589,7 +606,7 @@ description real or character value that defines the root potential (head) of th
 
 block period
 name rootact
-type string
+type double precision
 shape
 tagged false
 in_record true

@@ -9,15 +9,16 @@ module GwtCncInputModule
   public gwt_cnc_block_definitions
   public GwtCncParamFoundType
   public gwt_cnc_multi_package
+  public gwt_cnc_is_advanced
   public gwt_cnc_subpackages
 
   type GwtCncParamFoundType
     logical :: auxiliary = .false.
     logical :: auxmultname = .false.
     logical :: boundnames = .false.
+    logical :: iprpak = .false.
     logical :: iprflow = .false.
     logical :: ipakcb = .false.
-    logical :: iprpak = .false.
     logical :: ts_filerecord = .false.
     logical :: ts6 = .false.
     logical :: filein = .false.
@@ -33,6 +34,7 @@ module GwtCncInputModule
   end type GwtCncParamFoundType
 
   logical :: gwt_cnc_multi_package = .true.
+  logical :: gwt_cnc_is_advanced = .false.
 
   character(len=16), parameter :: &
     gwt_cnc_subpackages(*) = &
@@ -52,6 +54,7 @@ module GwtCncInputModule
     'NAUX', & ! shape
     'keyword to specify aux variables', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -70,6 +73,7 @@ module GwtCncInputModule
     '', & ! shape
     'name of auxiliary variable for multiplier', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -88,42 +92,7 @@ module GwtCncInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
-    .false., & ! multi-record
-    .false., & ! preserve case
-    .false., & ! layered
-    .false. & ! timeseries
-    )
-
-  type(InputParamDefinitionType), parameter :: &
-    gwtcnc_iprflow = InputParamDefinitionType &
-    ( &
-    'GWT', & ! component
-    'CNC', & ! subcomponent
-    'OPTIONS', & ! block
-    'PRINT_INPUT', & ! tag name
-    'IPRFLOW', & ! fortran variable
-    'KEYWORD', & ! type
-    '', & ! shape
-    'print input to listing file', & ! longname
-    .false., & ! required
-    .false., & ! multi-record
-    .false., & ! preserve case
-    .false., & ! layered
-    .false. & ! timeseries
-    )
-
-  type(InputParamDefinitionType), parameter :: &
-    gwtcnc_ipakcb = InputParamDefinitionType &
-    ( &
-    'GWT', & ! component
-    'CNC', & ! subcomponent
-    'OPTIONS', & ! block
-    'PRINT_FLOWS', & ! tag name
-    'IPAKCB', & ! fortran variable
-    'KEYWORD', & ! type
-    '', & ! shape
-    'print calculated flows to listing file', & ! longname
-    .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -136,12 +105,51 @@ module GwtCncInputModule
     'GWT', & ! component
     'CNC', & ! subcomponent
     'OPTIONS', & ! block
-    'SAVE_FLOWS', & ! tag name
+    'PRINT_INPUT', & ! tag name
     'IPRPAK', & ! fortran variable
+    'KEYWORD', & ! type
+    '', & ! shape
+    'print input to listing file', & ! longname
+    .false., & ! required
+    .false., & ! developmode
+    .false., & ! multi-record
+    .false., & ! preserve case
+    .false., & ! layered
+    .false. & ! timeseries
+    )
+
+  type(InputParamDefinitionType), parameter :: &
+    gwtcnc_iprflow = InputParamDefinitionType &
+    ( &
+    'GWT', & ! component
+    'CNC', & ! subcomponent
+    'OPTIONS', & ! block
+    'PRINT_FLOWS', & ! tag name
+    'IPRFLOW', & ! fortran variable
+    'KEYWORD', & ! type
+    '', & ! shape
+    'print calculated flows to listing file', & ! longname
+    .false., & ! required
+    .false., & ! developmode
+    .false., & ! multi-record
+    .false., & ! preserve case
+    .false., & ! layered
+    .false. & ! timeseries
+    )
+
+  type(InputParamDefinitionType), parameter :: &
+    gwtcnc_ipakcb = InputParamDefinitionType &
+    ( &
+    'GWT', & ! component
+    'CNC', & ! subcomponent
+    'OPTIONS', & ! block
+    'SAVE_FLOWS', & ! tag name
+    'IPAKCB', & ! fortran variable
     'KEYWORD', & ! type
     '', & ! shape
     'save constant concentration flows to budget file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -160,6 +168,7 @@ module GwtCncInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -178,6 +187,7 @@ module GwtCncInputModule
     '', & ! shape
     'time series keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -196,6 +206,7 @@ module GwtCncInputModule
     '', & ! shape
     'file keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -214,6 +225,7 @@ module GwtCncInputModule
     '', & ! shape
     'file name of time series information', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -232,6 +244,7 @@ module GwtCncInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -250,6 +263,7 @@ module GwtCncInputModule
     '', & ! shape
     'obs keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -268,6 +282,7 @@ module GwtCncInputModule
     '', & ! shape
     'obs6 input filename', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -286,6 +301,7 @@ module GwtCncInputModule
     '', & ! shape
     'maximum number of constant concentrations', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -304,6 +320,7 @@ module GwtCncInputModule
     'NCELLDIM', & ! shape
     'cell identifier', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -322,6 +339,7 @@ module GwtCncInputModule
     '', & ! shape
     'constant concentration value', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -340,6 +358,7 @@ module GwtCncInputModule
     'NAUX', & ! shape
     'auxiliary variables', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -358,6 +377,7 @@ module GwtCncInputModule
     '', & ! shape
     'constant concentration name', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -370,9 +390,9 @@ module GwtCncInputModule
     gwtcnc_auxiliary, &
     gwtcnc_auxmultname, &
     gwtcnc_boundnames, &
+    gwtcnc_iprpak, &
     gwtcnc_iprflow, &
     gwtcnc_ipakcb, &
-    gwtcnc_iprpak, &
     gwtcnc_ts_filerecord, &
     gwtcnc_ts6, &
     gwtcnc_filein, &
@@ -399,6 +419,7 @@ module GwtCncInputModule
     'MAXBOUND', & ! shape
     '', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered

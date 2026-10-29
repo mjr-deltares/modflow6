@@ -9,6 +9,7 @@ module UtlHpcInputModule
   public utl_hpc_block_definitions
   public UtlHpcParamFoundType
   public utl_hpc_multi_package
+  public utl_hpc_is_advanced
   public utl_hpc_subpackages
 
   type UtlHpcParamFoundType
@@ -19,6 +20,7 @@ module UtlHpcInputModule
   end type UtlHpcParamFoundType
 
   logical :: utl_hpc_multi_package = .false.
+  logical :: utl_hpc_is_advanced = .false.
 
   character(len=16), parameter :: &
     utl_hpc_subpackages(*) = &
@@ -38,6 +40,7 @@ module UtlHpcInputModule
     '', & ! shape
     'model print table to listing file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -56,6 +59,7 @@ module UtlHpcInputModule
     '', & ! shape
     'log mpi traffic', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -74,6 +78,7 @@ module UtlHpcInputModule
     '', & ! shape
     'model name', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -92,6 +97,7 @@ module UtlHpcInputModule
     '', & ! shape
     'model rank', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -119,6 +125,7 @@ module UtlHpcInputModule
     '', & ! shape
     'list of partition numbers', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered

@@ -9,6 +9,7 @@ module PrtPrpInputModule
   public prt_prp_block_definitions
   public PrtPrpParamFoundType
   public prt_prp_multi_package
+  public prt_prp_is_advanced
   public prt_prp_subpackages
 
   type PrtPrpParamFoundType
@@ -51,7 +52,6 @@ module PrtPrpInputModule
     logical :: zrpt = .false.
     logical :: boundname = .false.
     logical :: time = .false.
-    logical :: releasesetting = .false.
     logical :: all = .false.
     logical :: first = .false.
     logical :: last = .false.
@@ -61,6 +61,7 @@ module PrtPrpInputModule
   end type PrtPrpParamFoundType
 
   logical :: prt_prp_multi_package = .true.
+  logical :: prt_prp_is_advanced = .false.
 
   character(len=16), parameter :: &
     prt_prp_subpackages(*) = &
@@ -80,6 +81,7 @@ module PrtPrpInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -98,6 +100,7 @@ module PrtPrpInputModule
     '', & ! shape
     'print input to listing file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -116,6 +119,7 @@ module PrtPrpInputModule
     '', & ! shape
     'exit solve method', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -134,6 +138,7 @@ module PrtPrpInputModule
     '', & ! shape
     'exit solve tolerance', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -152,6 +157,7 @@ module PrtPrpInputModule
     '', & ! shape
     'whether to use local z coordinates', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -170,6 +176,7 @@ module PrtPrpInputModule
     '', & ! shape
     'whether to extend tracking beyond the end of the simulation', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -188,6 +195,7 @@ module PrtPrpInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -206,6 +214,7 @@ module PrtPrpInputModule
     '', & ! shape
     'track keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -224,6 +233,7 @@ module PrtPrpInputModule
     '', & ! shape
     'file keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -242,6 +252,7 @@ module PrtPrpInputModule
     '', & ! shape
     'file keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -260,6 +271,7 @@ module PrtPrpInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -278,6 +290,7 @@ module PrtPrpInputModule
     '', & ! shape
     'track keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -296,6 +309,7 @@ module PrtPrpInputModule
     '', & ! shape
     'file keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -314,6 +328,7 @@ module PrtPrpInputModule
     '', & ! shape
     'stop time', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -332,6 +347,7 @@ module PrtPrpInputModule
     '', & ! shape
     'stop travel time', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -350,6 +366,7 @@ module PrtPrpInputModule
     '', & ! shape
     'stop at weak sink', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -368,6 +385,7 @@ module PrtPrpInputModule
     '', & ! shape
     'stop zone number', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -386,6 +404,7 @@ module PrtPrpInputModule
     '', & ! shape
     'drape', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -404,6 +423,7 @@ module PrtPrpInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -422,6 +442,7 @@ module PrtPrpInputModule
     '', & ! shape
     '', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -440,6 +461,7 @@ module PrtPrpInputModule
     'ANY1D', & ! shape
     'release times', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -458,6 +480,7 @@ module PrtPrpInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -476,6 +499,7 @@ module PrtPrpInputModule
     '', & ! shape
     '', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -494,6 +518,7 @@ module PrtPrpInputModule
     '', & ! shape
     'file keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -512,6 +537,7 @@ module PrtPrpInputModule
     '', & ! shape
     'what to do in dry-but-active cells', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -530,6 +556,7 @@ module PrtPrpInputModule
     '', & ! shape
     'force ternary tracking method', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -548,6 +575,7 @@ module PrtPrpInputModule
     '', & ! shape
     'release time coincidence tolerance', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -566,6 +594,7 @@ module PrtPrpInputModule
     '', & ! shape
     'release time frequency', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -584,6 +613,7 @@ module PrtPrpInputModule
     '', & ! shape
     'coordinate checking method', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -602,6 +632,7 @@ module PrtPrpInputModule
     '', & ! shape
     'cycle detection window size', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -620,6 +651,7 @@ module PrtPrpInputModule
     '', & ! shape
     'number of particle release points', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -638,6 +670,7 @@ module PrtPrpInputModule
     '', & ! shape
     'number of particle release times', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -656,6 +689,7 @@ module PrtPrpInputModule
     '', & ! shape
     'PRP id number for release point', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -674,6 +708,7 @@ module PrtPrpInputModule
     'NCELLDIM', & ! shape
     'cell identifier', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -692,6 +727,7 @@ module PrtPrpInputModule
     '', & ! shape
     'x coordinate of release point', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -710,6 +746,7 @@ module PrtPrpInputModule
     '', & ! shape
     'y coordinate of release point', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -728,6 +765,7 @@ module PrtPrpInputModule
     '', & ! shape
     'z coordinate of release point', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -746,6 +784,7 @@ module PrtPrpInputModule
     '', & ! shape
     'release point name', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -764,24 +803,7 @@ module PrtPrpInputModule
     '', & ! shape
     'release time', & ! longname
     .true., & ! required
-    .true., & ! multi-record
-    .false., & ! preserve case
-    .false., & ! layered
-    .false. & ! timeseries
-    )
-
-  type(InputParamDefinitionType), parameter :: &
-    prtprp_releasesetting = InputParamDefinitionType &
-    ( &
-    'PRT', & ! component
-    'PRP', & ! subcomponent
-    'PERIOD', & ! block
-    'RELEASESETTING', & ! tag name
-    'RELEASESETTING', & ! fortran variable
-    'KEYSTRING ALL FIRST LAST FREQUENCY STEPS FRACTION', & ! type
-    '', & ! shape
-    '', & ! longname
-    .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -800,6 +822,7 @@ module PrtPrpInputModule
     '', & ! shape
     '', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -818,6 +841,7 @@ module PrtPrpInputModule
     '', & ! shape
     '', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -836,6 +860,7 @@ module PrtPrpInputModule
     '', & ! shape
     '', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -854,6 +879,7 @@ module PrtPrpInputModule
     '', & ! shape
     '', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -872,6 +898,7 @@ module PrtPrpInputModule
     '<NSTP', & ! shape
     '', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -890,6 +917,7 @@ module PrtPrpInputModule
     '<NSTP', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -938,7 +966,6 @@ module PrtPrpInputModule
     prtprp_zrpt, &
     prtprp_boundname, &
     prtprp_time, &
-    prtprp_releasesetting, &
     prtprp_all, &
     prtprp_first, &
     prtprp_last, &
@@ -959,6 +986,7 @@ module PrtPrpInputModule
     'NRELEASEPTS', & ! shape
     '', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -977,6 +1005,7 @@ module PrtPrpInputModule
     'NRELEASETIMES', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -995,7 +1024,27 @@ module PrtPrpInputModule
     '', & ! shape
     '', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
+    .false., & ! preserve case
+    .false., & ! layered
+    .false. & ! timeseries
+    )
+
+  type(InputParamDefinitionType), parameter :: &
+    prtprp_releasesetting = InputParamDefinitionType &
+    ( &
+    'PRT', & ! component
+    'PRP', & ! subcomponent
+    'PERIOD', & ! block
+    'RELEASESETTING', & ! tag name
+    'RELEASESETTING', & ! fortran variable
+    'KEYSTRING ALL FIRST LAST FREQUENCY STEPS FRACTION', & ! type
+    '', & ! shape
+    '', & ! longname
+    .true., & ! required
+    .false., & ! developmode
+    .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
     .false. & ! timeseries
@@ -1006,7 +1055,8 @@ module PrtPrpInputModule
     [ &
     prtprp_packagedata, &
     prtprp_releasetimes, &
-    prtprp_perioddata &
+    prtprp_perioddata, &
+    prtprp_releasesetting &
     ]
 
   type(InputBlockDefinitionType), parameter :: &

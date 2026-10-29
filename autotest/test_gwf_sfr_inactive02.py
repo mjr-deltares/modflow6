@@ -15,8 +15,8 @@ cases = ["sfr-inactive02"]
 def get_model(ws, name, array_input=False):
     # Base simulation and model name and workspace
 
-    length_units = "m"
-    time_units = "sec"
+    length_units = "meters"
+    time_units = "seconds"
 
     nrow = 1
     ncol = 1
@@ -246,7 +246,6 @@ def check_outputs(idx, test):
     check_output(ws, name)
 
 
-@pytest.mark.developmode
 @pytest.mark.parametrize("idx, name", enumerate(cases))
 def test_mf6model(idx, name, function_tmpdir, targets):
     test = TestFramework(

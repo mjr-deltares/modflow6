@@ -7,7 +7,8 @@ module MethodCellModule
   use ParticleModule, only: ParticleType, ACTIVE, TERM_NO_EXITS, TERM_BOUNDARY
   use ParticleEventModule, only: ParticleEventType
   use CellExitEventModule, only: CellExitEventType
-  use CellDefnModule, only: CellDefnType
+  use SubCellExitEventModule, only: SubCellExitEventType
+  use CellDefnModule, only: CellDefnType, SATURATION_DRY
   use IteratorModule, only: IteratorType
   implicit none
 
@@ -22,31 +23,49 @@ module MethodCellModule
     procedure, public :: store_event
     procedure, public :: get_level
     procedure, public :: try_pass
+    procedure :: iboundary_to_icellface
   end type MethodCellType
 
 contains
   !> @brief Try passing the particle to the next subdomain.
+  !! or to a boundary of this method's tracking domain.
+  !!
+  !! If the particle is not advancing, or if it's not at
+  !! a boundary, nothing happens. Otherwise, raise a cell
+  !! exit event. Then, if at a net outflow boundary face,
+  !! or top face of a partially saturated cell, terminate.
+  !<
   subroutine try_pass(this, particle, nextlevel, advancing)
     class(MethodCellType), intent(inout) :: this
     type(ParticleType), pointer, intent(inout) :: particle
-    integer(I4B) :: nextlevel
     logical(LGP) :: advancing
+    integer(I4B) :: nextlevel
+    ! local
+    integer(I4B) :: ic, iboundary, icellface
 
-    if (particle%advancing) then
-      ! if still advancing, pass to the next subdomain.
-      ! if that puts us on a boundary, then we're done.
-      ! raise a cell exit event.
-      call this%pass(particle)
-      if (particle%iboundary(nextlevel - 1) .ne. 0) then
-        advancing = .false.
-        call this%cellexit(particle)
-      end if
-    else
-      ! otherwise we're already done so
-      ! reset the domain boundary value.
+    if (.not. particle%advancing) then
       advancing = .false.
       particle%iboundary = 0
+      return
     end if
+
+    call this%pass(particle)
+
+    iboundary = particle%iboundary(LEVEL_FEATURE)
+    icellface = this%iboundary_to_icellface(iboundary)
+    if (icellface <= 0) return
+
+    ! on a cell face, done advancing. raise an exit event
+    advancing = .false.
+    call this%cellexit(particle)
+
+    ! assigned boundary face with net outflow? terminate
+    ic = particle%itrdomain(LEVEL_FEATURE)
+    if (this%fmi%is_net_out_boundary_face(ic, icellface)) then
+      call this%terminate(particle, status=TERM_BOUNDARY)
+      return
+    end if
+
   end subroutine try_pass
 
   !> @brief Check reporting/terminating conditions before tracking
@@ -72,7 +91,7 @@ contains
     integer(I4B) :: i
     real(DP) :: t, ttrackmax
 
-    dry_cell = this%fmi%ibdgwfsat0(cell_defn%icell) == 0
+    dry_cell = cell_defn%isatstat == SATURATION_DRY
     dry_particle = particle%z > cell_defn%top
     no_exit_face = cell_defn%inoexitface > 0
     stop_zone = cell_defn%izone > 0 .and. particle%istopzone == cell_defn%izone
@@ -131,7 +150,7 @@ contains
           do i = this%tracktimes%selection(1), this%tracktimes%selection(2)
             t = this%tracktimes%times(i)
             if (t < totimc) cycle
-            if (t >= tmax) exit
+            if (t > tmax) exit
             particle%ttrack = t
             call this%usertime(particle)
             if (t > ttrackmax) ttrackmax = t
@@ -149,6 +168,7 @@ contains
       if (particle%idrymeth == 0) then
         ! drop to water table
         particle%z = cell_defn%top
+        call this%dropped(particle)
       else if (particle%idrymeth == 1) then
         ! stop
         call this%terminate(particle, status=TERM_INACTIVE)
@@ -177,7 +197,7 @@ contains
           do i = this%tracktimes%selection(1), this%tracktimes%selection(2)
             t = this%tracktimes%times(i)
             if (t < totimc) cycle
-            if (t >= tmax) exit
+            if (t > tmax) exit
             particle%ttrack = t
             call this%usertime(particle)
             if (t > ttrackmax) ttrackmax = t
@@ -209,7 +229,7 @@ contains
     type is (CellExitEventType)
       event%exit_face = particle%iboundary(LEVEL_FEATURE)
     end select
-    call this%events%dispatch(particle, event)
+    call this%events%broadcast(particle, event)
     if (particle%icycwin == 0) then
       deallocate (event)
       return
@@ -260,6 +280,22 @@ contains
           end if
         end select
       end do
+    type is (SubCellExitEventType)
+      itr = particle%history%Iterator()
+      do while (itr%has_next())
+        call itr%next()
+        select type (prev => itr%value())
+        class is (SubCellExitEventType)
+          if (event%icu == prev%icu .and. &
+              event%ilay == prev%ilay .and. &
+              event%isc == prev%isc .and. &
+              event%exit_face == prev%exit_face .and. &
+              event%exit_face /= 0) then
+            found_cycle = .true.
+            exit
+          end if
+        end select
+      end do
     end select
   end function forms_cycle
 
@@ -280,6 +316,11 @@ contains
       call particle%history%Add(p)
       if (particle%history%Count() > particle%icycwin) &
         call particle%history%RemoveNode(1, .true.)
+    type is (SubCellExitEventType)
+      p => event
+      call particle%history%Add(p)
+      if (particle%history%Count() > particle%icycwin) &
+        call particle%history%RemoveNode(1, .true.)
     end select
   end subroutine store_event
 
@@ -289,5 +330,19 @@ contains
     integer(I4B) :: level
     level = LEVEL_FEATURE
   end function get_level
+
+  !> @brief Convert an iboundary number to an iface number
+  function iboundary_to_icellface(this, iboundary) result(iface)
+    class(MethodCellType), intent(inout) :: this
+    integer(I4B), intent(in) :: iboundary
+    integer(I4B) :: iface
+    integer(I4B) :: nfaces
+
+    iface = iboundary
+    nfaces = this%cell%defn%npolyverts + 2
+    if (iface >= nfaces) &
+      ! uncompress and drop wraparound index
+      iface = iface + (this%fmi%max_faces - nfaces) - 1
+  end function iboundary_to_icellface
 
 end module MethodCellModule

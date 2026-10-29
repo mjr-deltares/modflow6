@@ -9,6 +9,7 @@ module OlfPcpInputModule
   public olf_pcp_block_definitions
   public OlfPcpParamFoundType
   public olf_pcp_multi_package
+  public olf_pcp_is_advanced
   public olf_pcp_subpackages
 
   type OlfPcpParamFoundType
@@ -33,6 +34,7 @@ module OlfPcpInputModule
   end type OlfPcpParamFoundType
 
   logical :: olf_pcp_multi_package = .true.
+  logical :: olf_pcp_is_advanced = .false.
 
   character(len=16), parameter :: &
     olf_pcp_subpackages(*) = &
@@ -52,6 +54,7 @@ module OlfPcpInputModule
     'NAUX', & ! shape
     'keyword to specify aux variables', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -70,6 +73,7 @@ module OlfPcpInputModule
     '', & ! shape
     'name of auxiliary variable for multiplier', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -88,6 +92,7 @@ module OlfPcpInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -106,6 +111,7 @@ module OlfPcpInputModule
     '', & ! shape
     'print input to listing file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -124,6 +130,7 @@ module OlfPcpInputModule
     '', & ! shape
     'print precipitation rates to listing file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -142,6 +149,7 @@ module OlfPcpInputModule
     '', & ! shape
     'save precipitation to budget file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -160,6 +168,7 @@ module OlfPcpInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -178,6 +187,7 @@ module OlfPcpInputModule
     '', & ! shape
     'head keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -196,6 +206,7 @@ module OlfPcpInputModule
     '', & ! shape
     'file keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -214,6 +225,7 @@ module OlfPcpInputModule
     '', & ! shape
     'file name of time series information', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -232,6 +244,7 @@ module OlfPcpInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -250,6 +263,7 @@ module OlfPcpInputModule
     '', & ! shape
     'obs keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -268,6 +282,7 @@ module OlfPcpInputModule
     '', & ! shape
     'obs6 input filename', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -286,6 +301,7 @@ module OlfPcpInputModule
     '', & ! shape
     'maximum number of precipitation cells', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -304,6 +320,7 @@ module OlfPcpInputModule
     'NCELLDIM', & ! shape
     'cell identifier', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -322,6 +339,7 @@ module OlfPcpInputModule
     '', & ! shape
     'precipitation rate', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -340,6 +358,7 @@ module OlfPcpInputModule
     'NAUX', & ! shape
     'auxiliary variables', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -358,6 +377,7 @@ module OlfPcpInputModule
     '', & ! shape
     'precipitation name', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -399,6 +419,7 @@ module OlfPcpInputModule
     'MAXBOUND', & ! shape
     '', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered

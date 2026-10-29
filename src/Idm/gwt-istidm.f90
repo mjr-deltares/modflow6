@@ -9,6 +9,7 @@ module GwtIstInputModule
   public gwt_ist_block_definitions
   public GwtIstParamFoundType
   public gwt_ist_multi_package
+  public gwt_ist_is_advanced
   public gwt_ist_subpackages
 
   type GwtIstParamFoundType
@@ -50,6 +51,7 @@ module GwtIstInputModule
   end type GwtIstParamFoundType
 
   logical :: gwt_ist_multi_package = .true.
+  logical :: gwt_ist_is_advanced = .false.
 
   character(len=16), parameter :: &
     gwt_ist_subpackages(*) = &
@@ -69,6 +71,7 @@ module GwtIstInputModule
     '', & ! shape
     'save calculated flows to budget file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -87,6 +90,7 @@ module GwtIstInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -105,6 +109,7 @@ module GwtIstInputModule
     '', & ! shape
     'budget keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -123,6 +128,7 @@ module GwtIstInputModule
     '', & ! shape
     'file keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -141,6 +147,7 @@ module GwtIstInputModule
     '', & ! shape
     'file keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -159,6 +166,7 @@ module GwtIstInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -177,6 +185,7 @@ module GwtIstInputModule
     '', & ! shape
     'budget keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -195,6 +204,7 @@ module GwtIstInputModule
     '', & ! shape
     'file keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -213,6 +223,7 @@ module GwtIstInputModule
     '', & ! shape
     'activate sorption', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -231,6 +242,7 @@ module GwtIstInputModule
     '', & ! shape
     'activate first-order decay', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -249,6 +261,7 @@ module GwtIstInputModule
     '', & ! shape
     'activate zero-order decay', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -267,6 +280,7 @@ module GwtIstInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -285,6 +299,7 @@ module GwtIstInputModule
     '', & ! shape
     'cim keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -303,6 +318,7 @@ module GwtIstInputModule
     '', & ! shape
     'file keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -321,6 +337,7 @@ module GwtIstInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -339,6 +356,7 @@ module GwtIstInputModule
     '', & ! shape
     'keyword to indicate that a print format follows', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -357,6 +375,7 @@ module GwtIstInputModule
     '', & ! shape
     '', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -375,6 +394,7 @@ module GwtIstInputModule
     '', & ! shape
     'number of columns', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -393,6 +413,7 @@ module GwtIstInputModule
     '', & ! shape
     'width for each number', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -411,6 +432,7 @@ module GwtIstInputModule
     '', & ! shape
     'number of digits', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -429,6 +451,7 @@ module GwtIstInputModule
     '', & ! shape
     'write format', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -447,6 +470,7 @@ module GwtIstInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -465,6 +489,7 @@ module GwtIstInputModule
     '', & ! shape
     'sorbate keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -483,6 +508,7 @@ module GwtIstInputModule
     '', & ! shape
     'file keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -501,6 +527,7 @@ module GwtIstInputModule
     '', & ! shape
     'export array variables to layered ascii files.', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -519,6 +546,7 @@ module GwtIstInputModule
     '', & ! shape
     'export array variables to netcdf output files.', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -537,6 +565,7 @@ module GwtIstInputModule
     'NODES', & ! shape
     'porosity of the immobile domain', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .true., & ! layered
@@ -555,6 +584,7 @@ module GwtIstInputModule
     'NODES', & ! shape
     'volume fraction of this immobile domain', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .true., & ! layered
@@ -571,8 +601,10 @@ module GwtIstInputModule
     'ZETAIM', & ! fortran variable
     'DOUBLE1D', & ! type
     'NODES', & ! shape
-    'mass transfer rate coefficient between the mobile and immobile domains', & ! longname
+    'mass transfer rate coefficient between the mobile and '// &
+    'immobile domains', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .true., & ! layered
@@ -591,6 +623,7 @@ module GwtIstInputModule
     'NODES', & ! shape
     'initial concentration of the immobile domain', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .true., & ! layered
@@ -609,6 +642,7 @@ module GwtIstInputModule
     'NODES', & ! shape
     'first rate coefficient', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .true., & ! layered
@@ -627,6 +661,7 @@ module GwtIstInputModule
     'NODES', & ! shape
     'second rate coefficient', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .true., & ! layered
@@ -645,6 +680,7 @@ module GwtIstInputModule
     'NODES', & ! shape
     'bulk density', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .true., & ! layered
@@ -663,6 +699,7 @@ module GwtIstInputModule
     'NODES', & ! shape
     'distribution coefficient', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .true., & ! layered
@@ -681,6 +718,7 @@ module GwtIstInputModule
     'NODES', & ! shape
     'second sorption parameter', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .true., & ! layered
@@ -741,6 +779,7 @@ module GwtIstInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered

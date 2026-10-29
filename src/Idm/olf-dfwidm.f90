@@ -9,6 +9,7 @@ module OlfDfwInputModule
   public olf_dfw_block_definitions
   public OlfDfwParamFoundType
   public olf_dfw_multi_package
+  public olf_dfw_is_advanced
   public olf_dfw_subpackages
 
   type OlfDfwParamFoundType
@@ -29,6 +30,7 @@ module OlfDfwInputModule
   end type OlfDfwParamFoundType
 
   logical :: olf_dfw_multi_package = .false.
+  logical :: olf_dfw_is_advanced = .false.
 
   character(len=16), parameter :: &
     olf_dfw_subpackages(*) = &
@@ -48,6 +50,7 @@ module OlfDfwInputModule
     '', & ! shape
     'use central in space weighting', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -66,6 +69,7 @@ module OlfDfwInputModule
     '', & ! shape
     'length conversion factor', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -84,6 +88,7 @@ module OlfDfwInputModule
     '', & ! shape
     'time conversion factor', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -102,6 +107,7 @@ module OlfDfwInputModule
     '', & ! shape
     'keyword to save DFW flows', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -120,6 +126,7 @@ module OlfDfwInputModule
     '', & ! shape
     'keyword to print DFW flows to listing file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -138,6 +145,7 @@ module OlfDfwInputModule
     '', & ! shape
     'keyword to save velocity', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -156,6 +164,7 @@ module OlfDfwInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -174,6 +183,7 @@ module OlfDfwInputModule
     '', & ! shape
     'obs keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -192,6 +202,7 @@ module OlfDfwInputModule
     '', & ! shape
     'file keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -210,6 +221,7 @@ module OlfDfwInputModule
     '', & ! shape
     'obs6 input filename', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -228,6 +240,7 @@ module OlfDfwInputModule
     '', & ! shape
     'export array variables to layered ascii files.', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -246,6 +259,7 @@ module OlfDfwInputModule
     '', & ! shape
     'use SWR conductance formulation', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -264,6 +278,7 @@ module OlfDfwInputModule
     'NODES', & ! shape
     'mannings roughness coefficient', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -282,6 +297,7 @@ module OlfDfwInputModule
     'NODES', & ! shape
     'cross section number', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -321,6 +337,7 @@ module OlfDfwInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered

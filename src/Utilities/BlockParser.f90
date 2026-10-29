@@ -7,7 +7,7 @@
 module BlockParserModule
 
   use KindModule, only: DP, I4B, LGP
-  use DevFeatureModule, only: dev_feature
+  use FeatureFlagsModule, only: developmode
   use ConstantsModule, only: LENBIGLINE, LENHUGELINE, LINELENGTH, MAXCHARLEN
   use InputOutputModule, only: urword, upcase, openfile, &
                                io_getunit => GetUnit
@@ -41,6 +41,7 @@ module BlockParserModule
     procedure, public :: GetDouble
     procedure, public :: TryGetDouble
     procedure, public :: GetInteger
+    procedure, public :: TryGetInteger
     procedure, public :: GetLinesRead
     procedure, public :: GetNextLine
     procedure, public :: GetRemainingLine
@@ -319,6 +320,26 @@ contains
 
   end subroutine TryGetDouble
 
+  subroutine TryGetInteger(this, i, success)
+    ! -- dummy variables
+    class(BlockParserType), intent(inout) :: this !< BlockParserType object
+    integer(I4B), intent(inout) :: i !< integer variable
+    logical(LGP), intent(inout) :: success !< whether parsing was successful
+    ! -- local variables
+    integer(I4B) :: istart
+    integer(I4B) :: istop
+    real(DP) :: rval
+
+    call urword(this%line, this%lloc, istart, istop, 2, i, rval, &
+                this%iout, this%iuext)
+
+    success = .true.
+    if (istart == istop .and. istop == len(this%line)) then
+      success = .false.
+    end if
+
+  end subroutine TryGetInteger
+
   !> @ brief Issue a read error
   !!
   !! Method to issue an unable to read error.
@@ -552,7 +573,7 @@ contains
     !
     errmsg = "Invalid keyword '"//trim(this%laststring)// &
              "' detected in block '"//trim(this%blockname)//"'."
-    call dev_feature(errmsg, this%iuext)
+    call developmode(errmsg, this%iuext)
   end subroutine DevOpt
 
   ! -- static methods previously in InputOutput

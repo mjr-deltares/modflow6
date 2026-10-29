@@ -170,7 +170,6 @@ contains
 
     ! for now, assuming full homogeneity, so just take
     ! the options from the owning model's npf package
-    npfOptions%icellavg = this%owner%npf%icellavg
     npfOptions%ithickstrt = this%owner%npf%ithickstrt
     npfOptions%iperched = this%owner%npf%iperched
     npfOptions%ivarcv = this%owner%npf%ivarcv
@@ -179,6 +178,7 @@ contains
     npfOptions%wetfct = this%owner%npf%wetfct
     npfOptions%iwetit = this%owner%npf%iwetit
     npfOptions%ihdwet = this%owner%npf%ihdwet
+    npfOptions%ihighcellsat = this%owner%npf%ihighcellsat
 
   end subroutine setNpfOptions
 

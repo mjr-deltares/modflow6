@@ -2,9 +2,12 @@ module ParticleModule
 
   use KindModule, only: DP, I4B, LGP
   use ListModule, only: ListType
-  use ConstantsModule, only: DZERO, DONE, LENMEMPATH, LENBOUNDNAME
+  use SimVariablesModule, only: errmsg
+  use ConstantsModule, only: DZERO, DONE, LENMEMPATH, LENBOUNDNAME, &
+                             LINELENGTH
   use MemoryManagerModule, only: mem_allocate, mem_deallocate, &
                                  mem_reallocate
+  use ErrorUtilModule, only: pstop
   implicit none
   public
 
@@ -18,7 +21,7 @@ module ParticleModule
   !! A particle may terminate for several reasons, all mutually exclusive.
   !! A particle's final tracking status will always be greater than one.
   !!
-  !! Status codes 0-3 and 5-8 correspond directly to MODPATH 7 status codes.
+  !! Status codes 1-3 and 5-8 correspond directly to MODPATH 7 status codes.
   !! Code 4 does not apply to PRT because PRT does not distinguish forwards
   !! from backwards tracking. Status code 9 provides more specific, subcell-
   !! level information about a particle which terminates due to no outflow.
@@ -51,7 +54,12 @@ module ParticleModule
   !! Particles are identified by composite key, i.e.,
   !! combinations of properties imdl, iprp, irpt, and
   !! trelease. An optional label may be provided, but
-  !! need not be unique
+  !! need not be unique.
+  !!
+  !! Particles carry a coordinate transform along with
+  !! themselves, instead of just letting the tracking
+  !! methods handle transforms, because we may need to
+  !! report an event at any time in model coordinates.
   !<
   type ParticleType
     private
@@ -73,11 +81,9 @@ module ParticleModule
     ! state
     integer(I4B), public :: itrdomain(MAX_LEVEL) !< tracking domain indices
     integer(I4B), public :: iboundary(MAX_LEVEL) !< tracking domain boundary indices
-    integer(I4B), public :: icp !< previous cell number (reduced)
     integer(I4B), public :: icu !< user cell number
     integer(I4B), public :: ilay !< grid layer
     integer(I4B), public :: izone !< current zone number
-    integer(I4B), public :: izp !< previous zone number
     integer(I4B), public :: istatus !< tracking status
     real(DP), public :: x !< x coordinate
     real(DP), public :: y !< y coordinate
@@ -90,16 +96,15 @@ module ParticleModule
     real(DP), public :: zorigin !< z origin for coordinate transformation from model to local
     real(DP), public :: sinrot !< sine of rotation angle for coordinate transformation from model to local
     real(DP), public :: cosrot !< cosine of rotation angle for coordinate transformation from model to local
-
     logical(LGP), public :: transformed !< whether coordinates have been transformed from model to local
     logical(LGP), public :: advancing !< whether particle is still being tracked for current time step
-
     type(ListType), public, pointer :: history !< history of particle positions (for cycle detection)
   contains
     procedure, public :: destroy => destroy_particle
     procedure, public :: get_model_coords
     procedure, public :: transform => transform_coords
     procedure, public :: reset_transform
+    procedure, public :: get_id
   end type ParticleType
 
   !> @brief Structure of arrays to store particles.
@@ -125,7 +130,6 @@ module ParticleModule
     integer(I4B), dimension(:), pointer, public, contiguous :: icu !< cell number (user)
     integer(I4B), dimension(:), pointer, public, contiguous :: ilay !< layer
     integer(I4B), dimension(:), pointer, public, contiguous :: izone !< current zone number
-    integer(I4B), dimension(:), pointer, public, contiguous :: izp !< previous zone number
     integer(I4B), dimension(:), pointer, public, contiguous :: istatus !< particle status
     real(DP), dimension(:), pointer, public, contiguous :: x !< model x coord of particle
     real(DP), dimension(:), pointer, public, contiguous :: y !< model y coord of particle
@@ -139,6 +143,7 @@ module ParticleModule
     procedure, public :: resize
     procedure, public :: get
     procedure, public :: put
+    procedure, public :: copy_from
   end type ParticleStoreType
 
 contains
@@ -164,7 +169,6 @@ contains
     call mem_allocate(store%icu, np, 'PLICU', mempath)
     call mem_allocate(store%ilay, np, 'PLILAY', mempath)
     call mem_allocate(store%izone, np, 'PLIZONE', mempath)
-    call mem_allocate(store%izp, np, 'PLIZP', mempath)
     call mem_allocate(store%istatus, np, 'PLISTATUS', mempath)
     call mem_allocate(store%x, np, 'PLX', mempath)
     call mem_allocate(store%y, np, 'PLY', mempath)
@@ -196,7 +200,6 @@ contains
     call mem_deallocate(this%icu, 'PLICU', mempath)
     call mem_deallocate(this%ilay, 'PLILAY', mempath)
     call mem_deallocate(this%izone, 'PLIZONE', mempath)
-    call mem_deallocate(this%izp, 'PLIZP', mempath)
     call mem_deallocate(this%istatus, 'PLISTATUS', mempath)
     call mem_deallocate(this%x, 'PLX', mempath)
     call mem_deallocate(this%y, 'PLY', mempath)
@@ -229,7 +232,6 @@ contains
     integer(I4B), intent(in) :: np !< number of particles
     character(*), intent(in) :: mempath !< path to memory
 
-    ! resize arrays
     call mem_reallocate(this%imdl, np, 'PLIMDL', mempath)
     call mem_reallocate(this%iprp, np, 'PLIPRP', mempath)
     call mem_reallocate(this%irpt, np, 'PLIRPT', mempath)
@@ -237,7 +239,6 @@ contains
     call mem_reallocate(this%icu, np, 'PLICU', mempath)
     call mem_reallocate(this%ilay, np, 'PLILAY', mempath)
     call mem_reallocate(this%izone, np, 'PLIZONE', mempath)
-    call mem_reallocate(this%izp, np, 'PLIZP', mempath)
     call mem_reallocate(this%istatus, np, 'PLISTATUS', mempath)
     call mem_reallocate(this%x, np, 'PLX', mempath)
     call mem_reallocate(this%y, np, 'PLY', mempath)
@@ -279,11 +280,9 @@ contains
     particle%istopweaksink = this%istopweaksink(ip)
     particle%istopzone = this%istopzone(ip)
     particle%idrymeth = this%idrymeth(ip)
-    particle%icp = 0
     particle%icu = this%icu(ip)
     particle%ilay = this%ilay(ip)
     particle%izone = this%izone(ip)
-    particle%izp = this%izp(ip)
     particle%istatus = this%istatus(ip)
     particle%x = this%x(ip)
     particle%y = this%y(ip)
@@ -320,7 +319,6 @@ contains
     this%icu(ip) = particle%icu
     this%ilay(ip) = particle%ilay
     this%izone(ip) = particle%izone
-    this%izp(ip) = particle%izp
     this%istatus(ip) = particle%istatus
     this%x(ip) = particle%x
     this%y(ip) = particle%y
@@ -342,6 +340,50 @@ contains
     this%extend(ip) = particle%extend
     this%icycwin(ip) = particle%icycwin
   end subroutine put
+
+  !> @brief Copy all particle state from source to this store.
+  !! The two particle stores must already be of the same size.
+  subroutine copy_from(this, source)
+    ! dummy
+    class(ParticleStoreType), intent(inout) :: this
+    class(ParticleStoreType), intent(in) :: source
+    ! local
+    integer(I4B) :: np
+
+    np = source%num_stored()
+
+    if (this%num_stored() /= np) then
+      write (errmsg, '(a,i0,a,i0,a)') &
+        'Cannot copy particle store, size mismatch (source=', np, &
+        ', dest=', this%num_stored(), ')'
+      call pstop(1, errmsg)
+    end if
+
+    this%name(:) = source%name(:)
+    this%imdl(:) = source%imdl(:)
+    this%iprp(:) = source%iprp(:)
+    this%irpt(:) = source%irpt(:)
+    this%extend(:) = source%extend(:)
+    this%frctrn(:) = source%frctrn(:)
+    this%istopweaksink(:) = source%istopweaksink(:)
+    this%istopzone(:) = source%istopzone(:)
+    this%idrymeth(:) = source%idrymeth(:)
+    this%iexmeth(:) = source%iexmeth(:)
+    this%icycwin(:) = source%icycwin(:)
+    this%extol(:) = source%extol(:)
+    this%itrdomain(:, :) = source%itrdomain(:, :)
+    this%iboundary(:, :) = source%iboundary(:, :)
+    this%icu(:) = source%icu(:)
+    this%ilay(:) = source%ilay(:)
+    this%izone(:) = source%izone(:)
+    this%istatus(:) = source%istatus(:)
+    this%x(:) = source%x(:)
+    this%y(:) = source%y(:)
+    this%z(:) = source%z(:)
+    this%trelease(:) = source%trelease(:)
+    this%tstop(:) = source%tstop(:)
+    this%ttrack(:) = source%ttrack(:)
+  end subroutine copy_from
 
   !> @brief Transform particle coordinates.
   !!
@@ -365,6 +407,11 @@ contains
                    xorigin, yorigin, zorigin, &
                    sinrot, cosrot, invert)
 
+    ! Compose is needed only because we have to untransform
+    ! coordinates: we may need to report a particle event
+    ! at any point in the tracking method hierarchy, so we
+    ! need to know how to map the particle position back to
+    ! model coords from coords local to the current domain.
     call compose(this%xorigin, this%yorigin, this%zorigin, &
                  this%sinrot, this%cosrot, &
                  xorigin, yorigin, zorigin, &
@@ -412,5 +459,17 @@ contains
     class(ParticleStoreType) :: this
     n = size(this%imdl)
   end function num_stored
+
+  !> @brief Get a string identifier for the particle.
+  function get_id(this) result(str)
+    class(ParticleType), intent(in) :: this
+    character(len=:), allocatable :: str
+    ! local
+    character(len=LINELENGTH) :: temp
+
+    write (temp, '(I0,1a,I0,1a,I0,1a,G0)') &
+      this%imdl, this%iprp, this%irpt, this%trelease
+    str = trim(adjustl(temp))
+  end function get_id
 
 end module ParticleModule

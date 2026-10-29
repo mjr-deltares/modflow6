@@ -9,6 +9,7 @@ module GwtAdvInputModule
   public gwt_adv_block_definitions
   public GwtAdvParamFoundType
   public gwt_adv_multi_package
+  public gwt_adv_is_advanced
   public gwt_adv_subpackages
 
   type GwtAdvParamFoundType
@@ -17,6 +18,7 @@ module GwtAdvInputModule
   end type GwtAdvParamFoundType
 
   logical :: gwt_adv_multi_package = .false.
+  logical :: gwt_adv_is_advanced = .false.
 
   character(len=16), parameter :: &
     gwt_adv_subpackages(*) = &
@@ -36,6 +38,7 @@ module GwtAdvInputModule
     '', & ! shape
     'advective scheme', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -54,6 +57,7 @@ module GwtAdvInputModule
     '', & ! shape
     'fractional cell distance used for time step calculation', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -81,6 +85,7 @@ module GwtAdvInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered

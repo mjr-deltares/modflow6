@@ -2,7 +2,7 @@ module PrtPrpModule
   use KindModule, only: DP, I4B, LGP
   use ConstantsModule, only: DZERO, DEM1, DEM5, DONE, LENFTYPE, LINELENGTH, &
                              LENBOUNDNAME, LENPAKLOC, TABLEFT, TABCENTER, &
-                             MNORMAL, DSAME, DEP3, DEP9
+                             MNORMAL, DSAME, DEP3, DEP9, DEM2, DEM7
   use BndModule, only: BndType
   use BndExtModule, only: BndExtType
   use ObsModule, only: DefaultObsIdProcessor
@@ -28,11 +28,12 @@ module PrtPrpModule
   implicit none
 
   private
-  public :: PrtPrpType
+  public :: PrtPrpType, ExgPrtPrpType
   public :: prp_create
 
   character(len=LENFTYPE) :: ftype = 'PRP'
   character(len=16) :: text = '             PRP'
+  real(DP), parameter :: DEFAULT_EXIT_SOLVE_TOLERANCE = DEM5
 
   !> @brief Particle release point (PRP) package
   type, extends(BndExtType) :: PrtPrpType
@@ -57,9 +58,10 @@ module PrtPrpModule
     real(DP), pointer :: offset => null() !< release time offset
     real(DP), pointer :: stoptime => null() !< stop time for all release points
     real(DP), pointer :: stoptraveltime => null() !< stop travel time for all points
-    !
+    ! members
     type(PrtFmiType), pointer :: fmi => null() !< flow model interface
-    type(ParticleStoreType), pointer :: particles => null() !< particle store
+    type(ParticleStoreType), pointer :: particles => null() !< committed particle state (end of last successful time step)
+    type(ParticleStoreType), pointer :: particles_staging => null() !< staging particle state for the current solve attempt
     type(ParticleReleaseScheduleType), pointer :: schedule => null() !< particle release schedule
     integer(I4B), pointer :: nreleasepoints => null() !< number of release points
     integer(I4B), pointer :: nreleasetimes => null() !< number of user-specified particle release times
@@ -71,6 +73,8 @@ module PrtPrpModule
     real(DP), pointer, contiguous :: rptz(:) => null() !< release point z coordinates
     real(DP), pointer, contiguous :: rptm(:) => null() !< total mass released from point
     character(len=LENBOUNDNAME), pointer, contiguous :: rptname(:) => null() !< release point names
+    character(len=LINELENGTH), allocatable :: period_block_lines(:) !< last period block configuration for fill-forward
+    integer(I4B) :: applied_kper !< period for which configuration was last applied
   contains
     procedure :: prp_allocate_arrays
     procedure :: prp_allocate_scalars
@@ -79,6 +83,7 @@ module PrtPrpModule
     procedure :: bnd_rp => prp_rp
     procedure :: bnd_cq_simrate => prp_cq_simrate
     procedure :: bnd_da => prp_da
+    procedure :: prp_commit
     procedure :: define_listlabel
     procedure :: prp_set_pointers
     procedure :: source_options => prp_options
@@ -95,11 +100,32 @@ module PrtPrpModule
     procedure, public :: bnd_df_obs => prp_df_obs
   end type PrtPrpType
 
+  !> @brief Exchange PRP package. A variant of the normal PRP package
+  !! that doesn't read from input files but instead receives particle
+  !! transfers from coupled models while preserving the pattern where
+  !! PRP packages own particles. Call it "Particle Registry Package"?
+  type, extends(PrtPrpType) :: ExgPrtPrpType
+  contains
+    procedure :: prp_allocate_scalars => exg_prp_allocate_scalars
+    procedure :: prp_allocate_arrays => exg_prp_allocate_arrays
+    procedure :: source_dimensions => exg_prp_dimensions
+    procedure :: source_options => exg_prp_options
+    procedure :: bnd_ar => exg_prp_ar
+    procedure :: bnd_rp => exg_prp_rp
+    procedure :: bnd_ad => exg_prp_ad
+    procedure :: bnd_cq_simrate => exg_prp_cq_simrate
+    procedure :: bnd_bd => exg_prp_bd
+    procedure :: bnd_ot_model_flows => exg_prp_ot_model_flows
+  end type ExgPrtPrpType
 contains
 
-  !> @brief Create a new particle release point package
+  !> @brief Create a new particle release point package.
+  !!
+  !! Creates either a standard PRP (reads from input file) or an exchange
+  !! PRP (programmatically populated). The type is determined by whether
+  !! input_mempath is provided: if present, standard; if absent, exchange.
   subroutine prp_create(packobj, id, ibcnum, inunit, iout, namemodel, &
-                        pakname, input_mempath, fmi)
+                        pakname, fmi, input_mempath)
     ! dummy
     class(BndType), pointer :: packobj
     integer(I4B), intent(in) :: id
@@ -108,41 +134,60 @@ contains
     integer(I4B), intent(in) :: iout
     character(len=*), intent(in) :: namemodel
     character(len=*), intent(in) :: pakname
-    character(len=*), intent(in) :: input_mempath
+    character(len=*), intent(in), optional :: input_mempath
     type(PrtFmiType), pointer :: fmi
     ! local
     type(PrtPrpType), pointer :: prpobj
+    type(ExgPrtPrpType), pointer :: exgprpobj
     ! formats
     character(len=*), parameter :: fmtheader = &
       "(1x, /1x, 'PRP PARTICLE RELEASE POINT PACKAGE', &
        &' INPUT READ FROM MEMPATH: ', a, /)"
+    character(len=*), parameter :: fmtexgheader = &
+      "(1x, /1x, 'PRP-EXG EXCHANGE PARTICLE RELEASE POINT PACKAGE', &
+       &' (PROGRAMMATIC INPUT)', /)"
 
-    ! allocate the object and assign values to object variables
-    allocate (prpobj)
-    packobj => prpobj
+    if (present(input_mempath)) then
+      ! standard PRP
+      allocate (prpobj)
+      packobj => prpobj
 
-    ! create name and memory path
-    call packobj%set_names(ibcnum, namemodel, pakname, ftype, input_mempath)
-    prpobj%text = text
+      call packobj%set_names(ibcnum, namemodel, pakname, ftype, input_mempath)
+      prpobj%text = text
 
-    ! allocate scalars
-    call prpobj%prp_allocate_scalars()
+      call prpobj%prp_allocate_scalars()
+      call packobj%pack_initialize()
 
-    ! initialize package
-    call packobj%pack_initialize()
+      packobj%inunit = inunit
+      packobj%iout = iout
+      packobj%id = id
+      packobj%ibcnum = ibcnum
+      packobj%ncolbnd = 4
+      packobj%iscloc = 1
+      prpobj%fmi => fmi
 
-    packobj%inunit = inunit
-    packobj%iout = iout
-    packobj%id = id
-    packobj%ibcnum = ibcnum
-    packobj%ncolbnd = 4
-    packobj%iscloc = 1
+      if (inunit > 0) write (iout, fmtheader) input_mempath
+    else
+      ! exchange PRP
+      allocate (exgprpobj)
+      packobj => exgprpobj
 
-    ! store pointer to flow model interface
-    prpobj%fmi => fmi
+      call packobj%set_names(ibcnum, namemodel, pakname, ftype)
+      exgprpobj%text = text
 
-    ! if prp is enabled, print a message identifying it
-    if (inunit > 0) write (iout, fmtheader) input_mempath
+      call exgprpobj%prp_allocate_scalars()
+      call packobj%pack_initialize()
+
+      packobj%inunit = inunit
+      packobj%iout = iout
+      packobj%id = id
+      packobj%ibcnum = ibcnum
+      packobj%ncolbnd = 4
+      packobj%iscloc = 1
+      exgprpobj%fmi => fmi
+
+      if (iout > 0) write (iout, fmtexgheader)
+    end if
   end subroutine prp_create
 
   !> @brief Deallocate memory
@@ -185,10 +230,15 @@ contains
     call mem_deallocate(this%rptm)
     call mem_deallocate(this%rptname, 'RPTNAME', this%memoryPath)
 
+    ! Deallocate period block storage
+    if (allocated(this%period_block_lines)) deallocate (this%period_block_lines)
+
     ! Deallocate objects
     call this%particles%destroy(this%memoryPath)
+    call this%particles_staging%destroy(trim(this%memoryPath)//'-STAGING')
     call this%schedule%destroy()
     deallocate (this%particles)
+    deallocate (this%particles_staging)
     deallocate (this%schedule)
   end subroutine prp_da
 
@@ -213,12 +263,13 @@ contains
 
     call this%BndExtType%allocate_arrays()
 
-    ! Allocate particle store, starting with the number
-    ! of release points (arrays resized if/when needed)
+    ! Allocate particle stores
     call create_particle_store( &
-      this%particles, &
-      this%nreleasepoints, &
+      this%particles, 0, &
       this%memoryPath)
+    call create_particle_store( &
+      this%particles_staging, 0, &
+      trim(this%memoryPath)//'-STAGING')
 
     ! Allocate arrays
     call mem_allocate(this%rptx, this%nreleasepoints, 'RPTX', this%memoryPath)
@@ -290,17 +341,16 @@ contains
     this%iexmeth = 0
     this%ichkmeth = 1
     this%icycwin = 0
-    this%extol = DEM5
+    this%extol = DEFAULT_EXIT_SOLVE_TOLERANCE
     this%rttol = DSAME * DEP9
     this%rtfreq = DZERO
+    this%applied_kper = 0
 
   end subroutine prp_allocate_scalars
 
   !> @ brief Allocate and read period data
   subroutine prp_ar(this)
-    ! dummy variables
     class(PrtPrpType), intent(inout) :: this
-    ! local variables
     integer(I4B) :: n
 
     call this%obs%obs_ar()
@@ -315,9 +365,63 @@ contains
     end do
   end subroutine prp_ar
 
+  !> @brief Allocate scalars for exchange PRP.
+  !!
+  !! The exchange PRP is a headless package (no input file) but BndExtType
+  !! expects certain variables to exist in the input context (IPER, IONPER)
+  !! so we need to manually create them before calling the parent procedure.
+  subroutine exg_prp_allocate_scalars(this)
+    use MemoryManagerModule, only: mem_allocate
+    class(ExgPrtPrpType) :: this
+    integer(I4B), pointer :: iper, ionper
+
+    this%input_mempath = trim(this%memoryPath)//'-INPUT'
+
+    call mem_allocate(iper, 'IPER', this%input_mempath)
+    call mem_allocate(ionper, 'IONPER', this%input_mempath)
+
+    ! set iper = 0. this forces BndExtType%bnd_rp to
+    ! return early, since iper will never match kper.
+    iper = 0
+    ionper = 0
+
+    call this%PrtPrpType%prp_allocate_scalars()
+  end subroutine exg_prp_allocate_scalars
+
+  !> @brief Allocate arrays for exchange PRP.
+  !!
+  !! BndExtType expects certain array variables to exist in the input context
+  !! (CELLID, NODEULIST, BOUNDNAME, AUXVAR). This method manually creates
+  !! zero-sized arrays before calling the parent's allocate_arrays.
+  subroutine exg_prp_allocate_arrays(this, nodelist, auxvar)
+    use MemoryManagerModule, only: mem_allocate
+    use CharacterStringModule, only: CharacterStringType
+    class(ExgPrtPrpType) :: this
+    integer(I4B), dimension(:), pointer, contiguous, optional :: nodelist
+    real(DP), dimension(:, :), pointer, contiguous, optional :: auxvar
+    ! local
+    integer(I4B), dimension(:, :), pointer, contiguous :: cellid
+    integer(I4B), dimension(:), pointer, contiguous :: nodeulist
+    type(CharacterStringType), dimension(:), pointer, contiguous :: boundname
+    real(DP), dimension(:, :), pointer, contiguous :: auxvar_input
+
+    call mem_allocate(cellid, this%dis%ndim, 0, 'CELLID', this%input_mempath)
+    call mem_allocate(nodeulist, 0, 'NODEULIST', this%input_mempath)
+    call mem_allocate(boundname, LENBOUNDNAME, 0, 'BOUNDNAME', &
+                      this%input_mempath)
+    call mem_allocate(auxvar_input, 0, 0, 'AUXVAR', this%input_mempath)
+
+    call this%PrtPrpType%prp_allocate_arrays(nodelist, auxvar)
+  end subroutine exg_prp_allocate_arrays
+
+  !> @ brief No-op AR method override for exchange PRP.
+  subroutine exg_prp_ar(this)
+    class(ExgPrtPrpType), intent(inout) :: this
+  end subroutine exg_prp_ar
+
   !> @brief Advance a time step and release particles if scheduled.
   subroutine prp_ad(this)
-    use TdisModule, only: totalsimtime
+    use TdisModule, only: totalsimtime, kstp, kper
     class(PrtPrpType) :: this
     integer(I4B) :: ip, it
     real(DP) :: t
@@ -331,25 +435,46 @@ contains
     ! Coincident release times are merged to
     ! a single time by the release scheduler.
 
+    ! Reset staging from committed state for this solve attempt.
+    if (.not. this%fmi%flows_from_file) then
+      call this%particles_staging%resize( &
+        this%particles%num_stored(), &
+        trim(this%memoryPath)//'-STAGING')
+      call this%particles_staging%copy_from(this%particles)
+      this%nparticles = this%particles%num_stored()
+    end if
+
     ! Reset mass accumulators for this time step.
     do ip = 1, this%nreleasepoints
       this%rptm(ip) = DZERO
     end do
 
-    ! Advance the release schedule and check if
-    ! any releases will be made this time step.
-    call this%schedule%advance()
+    ! Advance the release schedule. At the start of each period (kstp==1),
+    ! apply period block configuration if available and not yet applied.
+    ! This handles both new configuration and fill-forward periods.
+    ! For subsequent time steps, just advance without arguments to
+    ! advance the time selection object to the current time step.
+    if (kstp == 1 .and. &
+        kper /= this%applied_kper .and. &
+        allocated(this%period_block_lines)) then
+      call this%schedule%advance(lines=this%period_block_lines)
+      this%applied_kper = kper
+    else
+      call this%schedule%advance()
+    end if
+
+    ! Check if any releases will be made this time step.
     if (.not. this%schedule%any()) return
 
     ! Log the schedule to the list file.
     call this%log_release()
 
-    ! Expand the particle store. We know from the
+    ! Expand the staging store. We know from the
     ! schedule how many particles will be released.
-    call this%particles%resize( &
-      this%particles%num_stored() + &
+    call this%particles_staging%resize( &
+      this%particles_staging%num_stored() + &
       (this%nreleasepoints * this%schedule%count()), &
-      this%memoryPath)
+      trim(this%memoryPath)//'-STAGING')
 
     ! Release a particle from each point for
     ! each release time in the current step.
@@ -376,6 +501,49 @@ contains
     end do
   end subroutine prp_ad
 
+  !> @brief Commit staged particle state to the "final" store.
+  subroutine prp_commit(this)
+    class(PrtPrpType) :: this
+    call this%particles%resize( &
+      this%particles_staging%num_stored(), &
+      this%memoryPath)
+    call this%particles%copy_from(this%particles_staging)
+  end subroutine prp_commit
+
+  !> @brief No-op AD method override for exchange PRP.
+  subroutine exg_prp_ad(this)
+    class(ExgPrtPrpType) :: this
+  end subroutine exg_prp_ad
+
+  !> @brief No-op flow calculation for exchange PRP.
+  !!
+  !! Exchange PRP particles are transferred from other models and already
+  !! active, so their mass is already accounted for in the STORAGE term.
+  subroutine exg_prp_cq_simrate(this, hnew, flowja, imover)
+    class(ExgPrtPrpType) :: this
+    real(DP), dimension(:), intent(in) :: hnew
+    real(DP), dimension(:), intent(inout) :: flowja
+    integer(I4B), intent(in) :: imover
+  end subroutine exg_prp_cq_simrate
+
+  !> @brief No-op budget method for exchange PRP.
+  !! Likewise about the STORAGE term accounting.
+  subroutine exg_prp_bd(this, model_budget)
+    use BudgetModule, only: BudgetType
+    class(ExgPrtPrpType) :: this
+    type(BudgetType), intent(inout) :: model_budget
+  end subroutine exg_prp_bd
+
+  !> @brief No-op flow output method for exchange PRP.
+  !! No contribution to budget, no need to write output.
+  subroutine exg_prp_ot_model_flows(this, icbcfl, ibudfl, icbcun, imap)
+    class(ExgPrtPrpType) :: this
+    integer(I4B), intent(in) :: icbcfl
+    integer(I4B), intent(in) :: ibudfl
+    integer(I4B), intent(in) :: icbcun
+    integer(I4B), dimension(:), optional, intent(in) :: imap
+  end subroutine exg_prp_ot_model_flows
+
   !> @brief Log the release scheduled for this time step.
   subroutine log_release(this)
     class(PrtPrpType), intent(inout) :: this !< prp
@@ -398,9 +566,19 @@ contains
     real(DP), intent(in) :: x, y, z !< release point
     ! local
     real(DP), allocatable :: polyverts(:, :)
+    real(DP) :: cellsize, tol
 
     call this%fmi%dis%get_polyverts(ic, polyverts)
-    if (.not. point_in_polygon(x, y, polyverts)) then
+    ! Check that the point is within the cell. The point-in-polygon
+    ! check is exact by default, which is unreliable when coords are
+    ! are rotated or very large relative to the cell's size: release
+    ! points on or very close to the cell edge could be rejected as
+    ! outside the cell. Give the check a tolerance scaled to the
+    ! cell extent to reduce sensitivity to coordinate inexactness.
+    cellsize = max(maxval(polyverts(1, :)) - minval(polyverts(1, :)), &
+                   maxval(polyverts(2, :)) - minval(polyverts(2, :)))
+    tol = cellsize * cellsize * DEM7
+    if (.not. point_in_polygon(x, y, polyverts, tol)) then
       write (errmsg, '(a,g0,a,g0,a,i0)') &
         'Error: release point (x=', x, ', y=', y, ') is not in cell ', &
         this%dis%get_nodeuser(ic)
@@ -447,7 +625,7 @@ contains
     call this%initialize_particle(particle, ip, trelease)
     np = this%nparticles + 1
     this%nparticles = np
-    call this%particles%put(particle, np)
+    call this%particles_staging%put(particle, np)
     deallocate (particle)
     this%rptm(ip) = this%rptm(ip) + DONE ! TODO configurable mass
 
@@ -460,13 +638,18 @@ contains
     integer(I4B), intent(in) :: ip !< particle index
     real(DP), intent(in) :: trelease !< release time
     ! local
+    logical(LGP) :: draped
     integer(I4B) :: irow, icol, ilay, icpl
     integer(I4B) :: ic, icu, ic_old
     real(DP) :: x, y, z
-    real(DP) :: top, bot, hds
+    ! formats
+    character(len=*), parameter :: fmticterr = &
+      "('Error in ',a,': Flow model interface does not contain ICELLTYPE. &
+      &ICELLTYPE is required for PRT to distinguish convertible cells &
+      &from confined cells if LOCAL_Z release coordinates are provided. &
+      &Make sure a GWFGRID entry is configured in the PRT FMI package.')"
 
     ic = this%rptnode(ip)
-    icu = this%dis%get_nodeuser(ic)
 
     call create_particle(particle)
 
@@ -480,25 +663,18 @@ contains
     particle%istopweaksink = this%istopweaksink
     particle%istopzone = this%istopzone
     particle%idrymeth = this%idrymeth
-    particle%icu = icu
-
-    select type (dis => this%dis)
-    type is (DisType)
-      call get_ijk(icu, dis%nrow, dis%ncol, dis%nlay, irow, icol, ilay)
-    type is (DisvType)
-      call get_jk(icu, dis%ncpl, dis%nlay, icpl, ilay)
-    end select
-    particle%ilay = ilay
-    particle%izone = this%rptzone(ic)
     particle%istatus = 0 ! status 0 until tracking starts
+
     ! If the cell is inactive, either drape the particle
     ! to the top-most active cell beneath it if drape is
     ! enabled, or else terminate permanently unreleased.
+    draped = .false.
     if (this%ibound(ic) == 0) then
       ic_old = ic
       if (this%drape) then
         call this%dis%highest_active(ic, this%ibound)
-        if (ic == ic_old .or. this%ibound(ic) == 0) then
+        draped = ic /= ic_old
+        if (.not. draped .and. this%ibound(ic) == 0) then
           ! negative unreleased status signals to the
           ! tracking method that we haven't yet saved
           ! a termination record, it needs to do so.
@@ -509,17 +685,35 @@ contains
       end if
     end if
 
-    ! Load coordinates and transform if needed
-    x = this%rptx(ip)
-    y = this%rpty(ip)
-    if (this%localz) then
-      top = this%fmi%dis%top(ic)
-      bot = this%fmi%dis%bot(ic)
-      hds = this%fmi%gwfhead(ic)
-      z = bot + this%rptz(ip) * (hds - bot)
+    icu = this%dis%get_nodeuser(ic)
+    particle%icu = icu
+    select type (dis => this%dis)
+    type is (DisType)
+      call get_ijk(icu, dis%nrow, dis%ncol, dis%nlay, irow, icol, ilay)
+    type is (DisvType)
+      call get_jk(icu, dis%ncpl, dis%nlay, icpl, ilay)
+    end select
+    particle%ilay = ilay
+    particle%izone = this%rptzone(ic)
+
+    ! if the particle was draped to this cell, set the z coord to
+    ! the effective top of the cell. if it was not draped, and is
+    ! a local z coord, calculate the corresponding model z coord.
+    if (draped) then
+      z = this%fmi%dis%bot(ic) + &
+          this%fmi%gwfsat(ic) * &
+          (this%fmi%dis%top(ic) - this%fmi%dis%bot(ic))
+    else if (this%localz) then
+      z = this%fmi%dis%bot(ic) + &
+          this%rptz(ip) * &
+          this%fmi%gwfsat(ic) * &
+          (this%fmi%dis%top(ic) - this%fmi%dis%bot(ic))
     else
       z = this%rptz(ip)
     end if
+
+    x = this%rptx(ip)
+    y = this%rpty(ip)
 
     if (this%ichkmeth > 0) &
       call this%validate_release_point(ic, x, y, z)
@@ -563,7 +757,6 @@ contains
     type(CharacterStringType), dimension(:), contiguous, &
       pointer :: settings
     integer(I4B), pointer :: iper, ionper, nlist
-    character(len=LINELENGTH), allocatable :: lines(:)
     integer(I4B) :: n
 
     ! set pointer to last and next period loaded
@@ -575,13 +768,12 @@ contains
         (ionper > nper) .and. &
         size(this%schedule%time_select%times) == 0) then
       ! If the user hasn't provided any release settings (neither
-      ! explicit release times, release time frequency, or period
+      ! explicit release times, release time frequency, nor period
       ! block release settings), default to a single release at the
-      ! start of the first period's first time step.
-      allocate (lines(1))
-      lines(1) = "FIRST"
-      call this%schedule%advance(lines=lines)
-      deallocate (lines)
+      ! start of the simulation (t=0). Add t=0 directly to the time
+      ! selection rather than time step selection because the latter
+      ! would fill forward, releasing at the start of every period.
+      call this%schedule%time_select%extend([DZERO])
       return
     else if (iper /= kper) then
       return
@@ -591,19 +783,18 @@ contains
     call mem_setptr(nlist, 'NBOUND', this%input_mempath)
     call mem_setptr(settings, 'SETTING', this%input_mempath)
 
-    ! allocate and set input
-    allocate (lines(nlist))
+    ! Store period block configuration for fill-forward.
+    if (allocated(this%period_block_lines)) deallocate (this%period_block_lines)
+    allocate (this%period_block_lines(nlist))
     do n = 1, nlist
-      lines(n) = settings(n)
+      this%period_block_lines(n) = settings(n)
     end do
-
-    ! update schedule
-    if (size(lines) > 0) &
-      call this%schedule%advance(lines=lines)
-
-    ! cleanup
-    deallocate (lines)
   end subroutine prp_rp
+
+  !> @ brief No-op RP method override for exchange PRP.
+  subroutine exg_prp_rp(this)
+    class(ExgPrtPrpType), intent(inout) :: this
+  end subroutine exg_prp_rp
 
   !> @ brief Calculate flow between package and model.
   subroutine prp_cq_simrate(this, hnew, flowja, imover)
@@ -683,11 +874,18 @@ contains
       &[character(len=LENVARNAME) :: 'NONE', 'EAGER']
     character(len=LINELENGTH) :: trackfile, trackcsvfile, fname
     type(PrtPrpParamFoundType) :: found
+    character(len=*), parameter :: fmtextolwrn = &
+      "('WARNING: EXIT_SOLVE_TOLERANCE is set to ',g10.3,' &
+      &which is much greater than the default value of ',g10.3,'. &
+      &The tolerance that strikes the best balance between accuracy &
+      &and runtime is problem-dependent. Since the variable being &
+      &solved varies from 0 to 1, tolerance values much less than 1 &
+      &typically give the best results.')"
 
-    ! -- source base class options
+    ! source base class options
     call this%BndExtType%source_options()
 
-    ! -- update defaults from input context
+    ! update defaults from input context
     call mem_set_value(this%stoptime, 'STOPTIME', this%input_mempath, &
                        found%stoptime)
     call mem_set_value(this%stoptraveltime, 'STOPTRAVELTIME', &
@@ -737,6 +935,11 @@ contains
     if (found%extol) then
       if (this%extol <= DZERO) &
         call store_error('EXIT_SOLVE_TOLERANCE MUST BE POSITIVE')
+      if (this%extol > DEM2) then
+        write (warnmsg, fmt=fmtextolwrn) &
+          this%extol, DEFAULT_EXIT_SOLVE_TOLERANCE
+        call store_warning(warnmsg)
+      end if
     end if
 
     if (found%rttol) then
@@ -805,6 +1008,13 @@ contains
     this%schedule => create_release_schedule(tolerance=this%rttol)
   end subroutine prp_options
 
+  !> @ brief No-op options method override for exchange PRP.
+  !! Just creates an empty release schedule.
+  subroutine exg_prp_options(this)
+    class(ExgPrtPrpType), intent(inout) :: this
+    this%schedule => create_release_schedule(tolerance=this%rttol)
+  end subroutine exg_prp_options
+
   !> @ brief Log options specific to PrtPrpType
   subroutine prp_log_options(this, found, trackfile, trackcsvfile)
     ! -- modules
@@ -843,12 +1053,12 @@ contains
 
   !> @ brief Set dimensions specific to PrtPrpType
   subroutine prp_dimensions(this)
-    ! -- modules
+    ! modules
     use MemoryManagerExtModule, only: mem_set_value
     use PrtPrpInputModule, only: PrtPrpParamFoundType
-    ! -- dummy variables
+    ! dummy variables
     class(PrtPrpType), intent(inout) :: this
-    ! -- local variables
+    ! local variables
     type(PrtPrpParamFoundType) :: found
 
     call mem_set_value(this%nreleasepoints, 'NRELEASEPTS', this%input_mempath, &
@@ -865,18 +1075,29 @@ contains
     this%maxbound = this%nreleasepoints
     this%nbound = this%nreleasepoints
 
-    ! allocate arrays for prp package
     call this%prp_allocate_arrays()
-
-    ! read packagedata and releasetimes blocks
     call this%prp_packagedata()
     call this%prp_releasetimes()
     call this%prp_load_releasetimefrequency()
   end subroutine prp_dimensions
 
+  !> @ brief Dimensions method override for exchange PRP.
+  !! Just set all dimensions to zero and allocate arrays.
+  subroutine exg_prp_dimensions(this)
+    class(ExgPrtPrpType), intent(inout) :: this
+
+    this%nreleasepoints = 0
+    this%nreleasetimes = 0
+    this%maxbound = 0
+    this%nbound = 0
+
+    call this%prp_allocate_arrays()
+  end subroutine exg_prp_dimensions
+
   !> @brief Load package data (release points).
   subroutine prp_packagedata(this)
     use MemoryManagerModule, only: mem_setptr
+    use MemoryManagerExtModule, only: memorystore_release
     use GeomUtilModule, only: get_node
     use CharacterStringModule, only: CharacterStringType
     ! dummy
@@ -889,6 +1110,7 @@ contains
       contiguous :: boundnames
     character(len=LENBOUNDNAME) :: bndName, bndNameTemp
     character(len=9) :: cno
+    character(len=20) :: cellidstr
     integer(I4B), dimension(:), allocatable :: nboundchk
     integer(I4B), dimension(:), pointer :: cellid
     integer(I4B) :: n, noder, nodeu, rptno
@@ -945,6 +1167,12 @@ contains
       ! set noder
       noder = this%dis%get_nodenumber(nodeu, 1)
       if (noder <= 0) then
+        call this%dis%nodeu_to_string(nodeu, cellidstr)
+        write (errmsg, '(a)') &
+          'Particle release point configured for nonexistent cell: '// &
+          trim(adjustl(cellidstr))//'. This cell has IDOMAIN <= 0 and '&
+          &'therefore does not exist in the model grid.'
+        call store_error(errmsg)
         cycle
       else
         this%rptnode(rptno) = noder
@@ -1000,6 +1228,13 @@ contains
 
     ! cleanup
     deallocate (nboundchk)
+
+    call memorystore_release('IRPTNO', this%input_mempath)
+    call memorystore_release('CELLID', this%input_mempath)
+    call memorystore_release('XRPT', this%input_mempath)
+    call memorystore_release('YRPT', this%input_mempath)
+    call memorystore_release('ZRPT', this%input_mempath)
+    call memorystore_release('BOUNDNAME', this%input_mempath)
   end subroutine prp_packagedata
 
   !> @brief Load explicitly specified release times.

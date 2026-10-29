@@ -1,7 +1,7 @@
 project(
   'mf5to6',
   'fortran',
-  version: '6.7.0.dev1',
+  version: '6.9.0.dev0',
   license: 'CC0',
   meson_version: '>= 1.7.1',
   default_options : [
@@ -10,6 +10,14 @@ project(
     'debug=false',
     'fortran_std=legacy',
 ])
+
+version_f90 = vcs_tag(                                                                                                           
+  command: ['python3', '../../distribution/vcs_tag_suffix.py'],
+  input:  '../../src/Utilities/version.f90.in',
+  output: 'version.f90',
+  replace_string: '@VCS_TAG@',
+  fallback: '',
+)
 
 if get_option('buildtype') == 'release'
   profile = 'release'

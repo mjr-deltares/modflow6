@@ -473,7 +473,7 @@ contains
     integer(I4B), intent(in) :: kiter
     ! -- local
     !
-    ! -- Call mvr fc routine
+    ! -- Call mvr cf routine
     if (this%inmvr > 0) call this%mvr%xmvr_cf()
     !
     ! -- Rewet cells across models using the wetdry parameters in each model's
@@ -1260,11 +1260,16 @@ contains
     call this%DisConnExchangeType%source_options(iout)
     !
     if (found%cell_averaging) then
-      ! -- count from 0
-      this%icellavg = this%icellavg - 1
-      write (iout, '(4x,a,a)') &
-        'CELL AVERAGING METHOD HAS BEEN SET TO: ', &
-        trim(cellavg_method(this%icellavg + 1))
+      if (this%icellavg == 0) then
+        call store_error('Unrecognized input value for CELL_AVERAGING option.')
+        call store_error_filename(this%filename)
+      else
+        ! -- count from 0
+        this%icellavg = this%icellavg - 1
+        write (iout, '(4x,a,a)') &
+          'CELL AVERAGING METHOD HAS BEEN SET TO: ', &
+          trim(cellavg_method(this%icellavg + 1))
+      end if
     end if
     !
     if (found%newton) then

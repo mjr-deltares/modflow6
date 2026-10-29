@@ -9,15 +9,16 @@ module OlfChdInputModule
   public olf_chd_block_definitions
   public OlfChdParamFoundType
   public olf_chd_multi_package
+  public olf_chd_is_advanced
   public olf_chd_subpackages
 
   type OlfChdParamFoundType
     logical :: auxiliary = .false.
     logical :: auxmultname = .false.
     logical :: boundnames = .false.
-    logical :: print_input = .false.
-    logical :: print_flows = .false.
-    logical :: save_flows = .false.
+    logical :: iprpak = .false.
+    logical :: iprflow = .false.
+    logical :: ipakcb = .false.
     logical :: ts_filerecord = .false.
     logical :: ts6 = .false.
     logical :: filein = .false.
@@ -28,11 +29,12 @@ module OlfChdInputModule
     logical :: maxbound = .false.
     logical :: cellid = .false.
     logical :: head = .false.
-    logical :: aux = .false.
+    logical :: auxvar = .false.
     logical :: boundname = .false.
   end type OlfChdParamFoundType
 
   logical :: olf_chd_multi_package = .true.
+  logical :: olf_chd_is_advanced = .false.
 
   character(len=16), parameter :: &
     olf_chd_subpackages(*) = &
@@ -52,6 +54,7 @@ module OlfChdInputModule
     'NAUX', & ! shape
     'keyword to specify aux variables', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -70,6 +73,7 @@ module OlfChdInputModule
     '', & ! shape
     'name of auxiliary variable for multiplier', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -88,6 +92,7 @@ module OlfChdInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -95,17 +100,18 @@ module OlfChdInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    olfchd_print_input = InputParamDefinitionType &
+    olfchd_iprpak = InputParamDefinitionType &
     ( &
     'OLF', & ! component
     'CHD', & ! subcomponent
     'OPTIONS', & ! block
     'PRINT_INPUT', & ! tag name
-    'PRINT_INPUT', & ! fortran variable
+    'IPRPAK', & ! fortran variable
     'KEYWORD', & ! type
     '', & ! shape
     'print input to listing file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -113,17 +119,18 @@ module OlfChdInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    olfchd_print_flows = InputParamDefinitionType &
+    olfchd_iprflow = InputParamDefinitionType &
     ( &
     'OLF', & ! component
     'CHD', & ! subcomponent
     'OPTIONS', & ! block
     'PRINT_FLOWS', & ! tag name
-    'PRINT_FLOWS', & ! fortran variable
+    'IPRFLOW', & ! fortran variable
     'KEYWORD', & ! type
     '', & ! shape
     'print CHD flows to listing file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -131,17 +138,18 @@ module OlfChdInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    olfchd_save_flows = InputParamDefinitionType &
+    olfchd_ipakcb = InputParamDefinitionType &
     ( &
     'OLF', & ! component
     'CHD', & ! subcomponent
     'OPTIONS', & ! block
     'SAVE_FLOWS', & ! tag name
-    'SAVE_FLOWS', & ! fortran variable
+    'IPAKCB', & ! fortran variable
     'KEYWORD', & ! type
     '', & ! shape
     'save CHD flows to budget file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -160,6 +168,7 @@ module OlfChdInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -178,6 +187,7 @@ module OlfChdInputModule
     '', & ! shape
     'head keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -196,6 +206,7 @@ module OlfChdInputModule
     '', & ! shape
     'file keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -214,6 +225,7 @@ module OlfChdInputModule
     '', & ! shape
     'file name of time series information', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -232,6 +244,7 @@ module OlfChdInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -250,6 +263,7 @@ module OlfChdInputModule
     '', & ! shape
     'obs keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -268,6 +282,7 @@ module OlfChdInputModule
     '', & ! shape
     'obs6 input filename', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -286,6 +301,7 @@ module OlfChdInputModule
     '', & ! shape
     'maximum number of constant heads', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -304,6 +320,7 @@ module OlfChdInputModule
     'NCELLDIM', & ! shape
     'cell identifier', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -322,6 +339,7 @@ module OlfChdInputModule
     '', & ! shape
     'head value assigned to constant head', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -329,17 +347,18 @@ module OlfChdInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    olfchd_aux = InputParamDefinitionType &
+    olfchd_auxvar = InputParamDefinitionType &
     ( &
     'OLF', & ! component
     'CHD', & ! subcomponent
     'PERIOD', & ! block
     'AUX', & ! tag name
-    'AUX', & ! fortran variable
+    'AUXVAR', & ! fortran variable
     'DOUBLE1D', & ! type
     'NAUX', & ! shape
     'auxiliary variables', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -358,6 +377,7 @@ module OlfChdInputModule
     '', & ! shape
     'constant head boundary name', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -370,9 +390,9 @@ module OlfChdInputModule
     olfchd_auxiliary, &
     olfchd_auxmultname, &
     olfchd_boundnames, &
-    olfchd_print_input, &
-    olfchd_print_flows, &
-    olfchd_save_flows, &
+    olfchd_iprpak, &
+    olfchd_iprflow, &
+    olfchd_ipakcb, &
     olfchd_ts_filerecord, &
     olfchd_ts6, &
     olfchd_filein, &
@@ -383,7 +403,7 @@ module OlfChdInputModule
     olfchd_maxbound, &
     olfchd_cellid, &
     olfchd_head, &
-    olfchd_aux, &
+    olfchd_auxvar, &
     olfchd_boundname &
     ]
 
@@ -399,6 +419,7 @@ module OlfChdInputModule
     'MAXBOUND', & ! shape
     '', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered

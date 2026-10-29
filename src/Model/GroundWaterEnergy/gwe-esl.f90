@@ -2,6 +2,8 @@ module GweEslModule
   !
   use KindModule, only: DP, I4B
   use ConstantsModule, only: DZERO, DEM1, DONE, LENFTYPE
+  use SimVariablesModule, only: warnmsg
+  use SimModule, only: store_warning
   use BndExtModule, only: BndExtType
   use ObsModule, only: DefaultObsIdProcessor
   use GweInputDataModule, only: GweInputDataType
@@ -25,10 +27,12 @@ module GweEslModule
     procedure :: allocate_scalars => esl_allocate_scalars
     procedure :: allocate_arrays => esl_allocate_arrays
     procedure :: bnd_cf => esl_cf
+    procedure :: bnd_ck => esl_ck
     procedure :: bnd_fc => esl_fc
     procedure :: bnd_da => esl_da
     procedure :: define_listlabel
     procedure :: bound_value => esl_bound_value
+    procedure :: ener_mult
     ! -- methods for observations
     procedure, public :: bnd_obs_supported => esl_obs_supported
     procedure, public :: bnd_df_obs => esl_df_obs
@@ -136,6 +140,36 @@ contains
                      'SENERRATE', this%input_mempath)
   end subroutine esl_allocate_arrays
 
+  !> @brief Check energy source loading boundary condition data
+  !<
+  subroutine esl_ck(this)
+    ! -- dummy
+    class(GweEslType), intent(inout) :: this
+    ! -- local
+    integer(I4B) :: i
+    integer(I4B) :: node
+    ! -- formats
+    character(len=*), parameter :: fmtenermulterr = &
+      "('ESL BOUNDARY (',i0,') ESL MULTIPLIER (',g10.3,') IS &
+      &LESS THAN ZERO THEREBY REVERSING THE ORIGINAL SIGN ON THE &
+      &AMOUNT OF ENERGY ENTERING OR EXITING THE MODEL.')"
+    !
+    ! -- check stress period data
+    do i = 1, this%nbound
+      node = this%nodelist(i)
+      !
+      ! -- accumulate warnings
+      if (this%iauxmultcol > 0) then
+        if (this%auxvar(this%iauxmultcol, i) < DZERO) then
+          write (warnmsg, fmt=fmtenermulterr) &
+            i, this%auxvar(this%iauxmultcol, i)
+          call store_warning(warnmsg)
+          write (this%iout, '(/1x,a)') 'WARNING: '//trim(warnmsg)
+        end if
+      end if
+    end do
+  end subroutine esl_ck
+
   !> @brief Formulate the HCOF and RHS terms
   !!
   !! This subroutine:
@@ -160,7 +194,10 @@ contains
         this%rhs(i) = DZERO
         cycle
       end if
-      q = this%bound_value(1, i)
+      !
+      ! -- set energy loading rate accounting for multiplier
+      q = this%ener_mult(i)
+      !
       this%rhs(i) = -q
     end do
   end subroutine esl_cf
@@ -285,5 +322,26 @@ contains
     case default
     end select
   end function esl_bound_value
+
+  !> @brief Return a value that applies a multiplier
+  !!
+  !! Apply multiplier to specified energy load depending on user-selected
+  !! option
+  !<
+  function ener_mult(this, row) result(ener)
+    ! -- modules
+    use ConstantsModule, only: DZERO
+    ! -- dummy variables
+    class(GweEslType), intent(inout) :: this
+    integer(I4B), intent(in) :: row
+    ! -- result
+    real(DP) :: ener
+    !
+    if (this%iauxmultcol > 0) then
+      ener = this%senerrate(row) * this%auxvar(this%iauxmultcol, row)
+    else
+      ener = this%senerrate(row)
+    end if
+  end function ener_mult
 
 end module GweEslModule

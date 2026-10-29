@@ -15,8 +15,8 @@ def build_models(idx, test):
     ws = test.workspace
     name = cases[idx]
 
-    length_units = "m"
-    time_units = "sec"
+    length_units = "meters"
+    time_units = "seconds"
 
     nrow = 1
     ncol = 1
@@ -30,7 +30,6 @@ def build_models(idx, test):
     flopy.mf6.ModflowIms(
         sim,
         inner_dvclose=1e-5,
-        inner_hclose=1e-6,
     )
 
     gwf = flopy.mf6.ModflowGwf(sim, modelname=name)

@@ -9,6 +9,7 @@ module ChfNamInputModule
   public chf_nam_block_definitions
   public ChfNamParamFoundType
   public chf_nam_multi_package
+  public chf_nam_is_advanced
   public chf_nam_subpackages
 
   type ChfNamParamFoundType
@@ -25,6 +26,7 @@ module ChfNamInputModule
   end type ChfNamParamFoundType
 
   logical :: chf_nam_multi_package = .false.
+  logical :: chf_nam_is_advanced = .false.
 
   character(len=16), parameter :: &
     chf_nam_subpackages(*) = &
@@ -44,6 +46,7 @@ module ChfNamInputModule
     '', & ! shape
     'name of listing file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -62,6 +65,7 @@ module ChfNamInputModule
     '', & ! shape
     'print input to listing file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -80,6 +84,7 @@ module ChfNamInputModule
     '', & ! shape
     'print calculated flows to listing file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -98,6 +103,7 @@ module ChfNamInputModule
     '', & ! shape
     'save flows for all packages to budget file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -116,6 +122,7 @@ module ChfNamInputModule
     '', & ! shape
     'newton keyword and options', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -134,6 +141,7 @@ module ChfNamInputModule
     '', & ! shape
     'keyword to activate Newton-Raphson formulation', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -152,6 +160,7 @@ module ChfNamInputModule
     '', & ! shape
     'keyword to activate Newton-Raphson UNDER_RELAXATION option', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -170,6 +179,7 @@ module ChfNamInputModule
     '', & ! shape
     'package type', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -188,6 +198,7 @@ module ChfNamInputModule
     '', & ! shape
     'file name', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -206,6 +217,7 @@ module ChfNamInputModule
     '', & ! shape
     'user name for package', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -239,6 +251,7 @@ module ChfNamInputModule
     '', & ! shape
     'package list', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered

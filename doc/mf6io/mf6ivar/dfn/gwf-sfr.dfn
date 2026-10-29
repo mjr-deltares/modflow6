@@ -1,6 +1,7 @@
 # --------------------- gwf sfr options ---------------------
 # flopy multi-package
 # package-type advanced-stress-package
+# mf6 subpackage utl-sfrtab
 
 block options
 name storage
@@ -9,6 +10,14 @@ reader urword
 optional true
 longname activate reach storage
 description keyword that activates storage contributions to the stream-flow routing package continuity equation.
+
+block options
+name ats_courant
+type double precision
+reader urword
+optional true
+longname target Courant number for adaptive time stepping
+description real number value that defines the target Courant number submitted by the SFR Package to the adaptive time stepping (ATS) package.  If ATS\_COURANT is specified and the ATS Package is active, the SFR Package will compute the time step that achieves the target Courant number for the most constraining reach (the reach with the highest wave celerity-to-length ratio) and submit that time step to the ATS Package.  The STORAGE option must be active when ATS\_COURANT is specified.  ATS\_COURANT must be greater than zero.  A recommended baseline value is 1.0, which targets unit Courant number; values between 0.5 and 2.0 are generally acceptable for kinematic wave routing.
 
 block options
 name auxiliary
@@ -35,6 +44,7 @@ reader urword
 optional true
 longname print input to listing file
 description REPLACE print_input {'{#1}': 'stream reach'}
+mf6internal iprpak
 
 block options
 name print_stage
@@ -51,6 +61,7 @@ reader urword
 optional true
 longname print calculated flows to listing file
 description REPLACE print_flows {'{#1}': 'stream reach'}
+mf6internal iprflow
 
 block options
 name save_flows
@@ -59,6 +70,7 @@ reader urword
 optional true
 longname save stream reach flows to budget file
 description REPLACE save_flows {'{#1}': 'stream reach'}
+mf6internal ipakcb
 
 block options
 name stage_filerecord
@@ -72,6 +84,7 @@ description
 
 block options
 name stage
+mf6internal options_stage
 type keyword
 shape
 in_record true
@@ -95,6 +108,7 @@ description name of the binary output file to write stage information.
 
 block options
 name budget_filerecord
+mf6internal budfilerec
 type record budget fileout budgetfile
 shape
 reader urword
@@ -139,6 +153,7 @@ description name of the binary output file to write budget information.
 
 block options
 name budgetcsv_filerecord
+mf6internal budcsvfilerec
 type record budgetcsv fileout budgetcsvfile
 shape
 reader urword
@@ -172,6 +187,7 @@ description name of the comma-separated value (CSV) output file to write budget 
 
 block options
 name package_convergence_filerecord
+mf6internal pkgconvfilerec
 type record package_convergence fileout package_convergence_filename
 shape
 reader urword
@@ -182,6 +198,7 @@ description
 
 block options
 name package_convergence
+mf6internal pkgconv
 type keyword
 shape
 in_record true
@@ -193,6 +210,7 @@ description keyword to specify that record corresponds to the package convergenc
 
 block options
 name package_convergence_filename
+mf6internal pkgconvfname
 type string
 shape
 in_record true
@@ -225,6 +243,7 @@ description keyword to specify that record corresponds to a time-series file.
 
 block options
 name filein
+mf6internal options_filein
 type keyword
 shape
 in_record true
@@ -275,7 +294,7 @@ tagged false
 reader urword
 optional false
 longname obs6 input filename
-description REPLACE obs6_filename {'{#1}': 'SFR'}
+description REPLACE obs6_filename {'{#1}': 'SFR', '{#2}': '\\ref{table:gwf-obstypetable}'}
 
 block options
 name mover
@@ -288,6 +307,7 @@ description REPLACE mover {'{#1}': 'SFR'}
 
 block options
 name maximum_picard_iterations
+mf6internal maxsfrpicard
 type integer
 reader urword
 optional true
@@ -296,6 +316,7 @@ description integer value that defines the maximum number of Streamflow Routing 
 
 block options
 name maximum_iterations
+mf6internal maxsfrit
 type integer
 reader urword
 optional true
@@ -304,6 +325,7 @@ description integer value that defines the maximum number of Streamflow Routing 
 
 block options
 name maximum_depth_change
+mf6internal dmaxchg
 type double precision
 reader urword
 optional true
@@ -321,6 +343,7 @@ description real value that is used to convert user-specified Manning's roughnes
 
 block options
 name length_conversion
+mf6internal lengthconv
 type double precision
 reader urword
 optional true
@@ -337,18 +360,38 @@ description real value that is used to convert user-specified Manning's roughnes
 
 block options
 name dev_storage_weight
+mf6internal storage_weight
 type double precision
 reader urword
 optional true
 longname reach storage time weighting
-description real number value that defines the time weighting factor used to calculate the change in channel storage. STORAGE\_WEIGHT must have a value between 0.5 and 1. Default STORAGE\_WEIGHT value is 1.
+description real number value that defines the time weighting factor used to calculate the change in channel storage. DEV\_STORAGE\_WEIGHT must have a value between 0.5 and 1. The default DEV\_STORAGE\_WEIGHT value is 1, which is fully implicit and is recommended for all practical applications.
 
+
+block options
+name dev_no_check
+mf6internal icheck
+type keyword
+reader urword
+optional true
+longname do not check reach geometry and parameters
+description keyword that deactivates the checks of reach geometry relative to the model grid and of reach parameters for reasonable values.  This development option is not supported.
+
+block options
+name dev_no_final_check
+mf6internal iconvchk
+type keyword
+reader urword
+optional true
+longname do not perform final convergence check
+description keyword that deactivates the final convergence check of the change in stream flow routing stages and flows.  This development option is not supported.
 
 # --------------------- gwf sfr dimensions ---------------------
 
 block dimensions
 name nreaches
 type integer
+mf6internal maxbound
 reader urword
 optional false
 longname maximum number reaches
@@ -360,13 +403,14 @@ description integer value specifying the number of stream reaches.  There must b
 block packagedata
 name packagedata
 type recarray ifno cellid rlen rwid rgrd rtp rbth rhk man ncon ustrf ndv aux boundname
-shape (maxbound)
+shape (nreaches)
 reader urword
 longname
 description
 
 block packagedata
 name ifno
+mf6internal packagedata_ifno
 type integer
 shape
 tagged false
@@ -449,7 +493,7 @@ description real or character value that defines the hydraulic conductivity of t
 
 block packagedata
 name man
-type string
+type double precision
 shape
 tagged false
 in_record true
@@ -519,13 +563,14 @@ name crosssections
 type recarray ifno tab6 filein tab6_filename
 shape
 valid
-optional false
+optional true
 reader urword
 longname
 description
 
 block crosssections
 name ifno
+mf6internal crosssect_ifno
 type integer
 shape
 tagged false
@@ -537,6 +582,7 @@ numeric_index true
 
 block crosssections
 name tab6
+mf6internal xs_tab6
 type keyword
 shape
 in_record true
@@ -548,6 +594,7 @@ description keyword to specify that record corresponds to a cross-section table 
 
 block crosssections
 name filein
+mf6internal xs_filein
 type keyword
 shape
 in_record true
@@ -559,6 +606,7 @@ description keyword to specify that an input filename is expected next.
 
 block crosssections
 name tab6_filename
+mf6internal sfrtab6_filename
 type string
 preserve_case true
 in_record true
@@ -573,13 +621,14 @@ description character string that defines the path and filename for the file con
 block connectiondata
 name connectiondata
 type recarray ifno ic
-shape (maxbound)
+shape (nreaches)
 reader urword
 longname
 description
 
 block connectiondata
 name ifno
+mf6internal conndata_ifno
 type integer
 shape
 tagged false
@@ -609,13 +658,15 @@ support_negative_index true
 block diversions
 name diversions
 type recarray ifno idv iconr cprior
-shape (maxbound)
+shape
+optional true
 reader urword
 longname
 description
 
 block diversions
 name ifno
+mf6internal diversions_ifno
 type integer
 shape
 tagged false
@@ -627,6 +678,7 @@ numeric_index true
 
 block diversions
 name idv
+mf6internal diversions_idv
 type integer
 shape
 tagged false
@@ -662,15 +714,16 @@ description character string value that defines the the prioritization system fo
 block initialstages
 name initialstages
 type recarray ifno initialstage
-shape (maxbound)
+shape (nreaches)
 valid
-optional false
+optional true
 reader urword
 longname
 description
 
 block initialstages
 name ifno
+mf6internal initstage_ifno
 type integer
 shape
 tagged false
@@ -749,7 +802,7 @@ description keyword option to define stream reach status.  STATUS can be ACTIVE,
 
 block period
 name bedk
-type string
+type double precision
 shape
 tagged true
 in_record true
@@ -760,7 +813,7 @@ description real or character value that defines the hydraulic conductivity of t
 
 block period
 name manning
-type string
+type double precision
 shape
 tagged true
 in_record true
@@ -771,7 +824,7 @@ description real or character value that defines the Manning's roughness coeffic
 
 block period
 name stage
-type string
+type double precision
 shape
 tagged true
 in_record true
@@ -782,7 +835,7 @@ description real or character value that defines the stage for the reach. The sp
 
 block period
 name inflow
-type string
+type double precision
 shape
 tagged true
 in_record true
@@ -793,7 +846,7 @@ description real or character value that defines the volumetric inflow rate for 
 
 block period
 name rainfall
-type string
+type double precision
 shape
 tagged true
 in_record true
@@ -804,7 +857,7 @@ description real or character value that defines the  volumetric rate per unit a
 
 block period
 name evaporation
-type string
+type double precision
 shape
 tagged true
 in_record true
@@ -815,7 +868,7 @@ description real or character value that defines the volumetric rate per unit ar
 
 block period
 name runoff
-type string
+type double precision
 shape
 tagged true
 in_record true
@@ -867,16 +920,19 @@ description real or character value that defines the volumetric diversion (DIVFL
 
 block period
 name upstream_fraction
+mf6internal upstream_frac
 type double precision
 shape
 tagged true
 in_record true
 reader urword
+time_series true
 longname fraction of upstream flow
 description real value that defines the fraction of upstream flow (USTRF) from each upstream reach that is applied as upstream inflow to the reach. The sum of all USTRF values for all reaches connected to the same upstream reach must be equal to one.
 
 block period
 name cross_sectionrecord
+mf6internal xsectionrecord
 type record cross_section tab6 filein tab6_filename
 shape
 tagged
@@ -941,6 +997,7 @@ description
 
 block period
 name auxiliary
+mf6internal period_auxiliary
 type keyword
 shape
 in_record true

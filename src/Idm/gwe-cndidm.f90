@@ -9,6 +9,7 @@ module GweCndInputModule
   public gwe_cnd_block_definitions
   public GweCndParamFoundType
   public gwe_cnd_multi_package
+  public gwe_cnd_is_advanced
   public gwe_cnd_subpackages
 
   type GweCndParamFoundType
@@ -26,6 +27,7 @@ module GweCndInputModule
   end type GweCndParamFoundType
 
   logical :: gwe_cnd_multi_package = .false.
+  logical :: gwe_cnd_is_advanced = .false.
 
   character(len=16), parameter :: &
     gwe_cnd_subpackages(*) = &
@@ -45,6 +47,7 @@ module GweCndInputModule
     '', & ! shape
     'deactivate xt3d', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -63,6 +66,7 @@ module GweCndInputModule
     '', & ! shape
     'xt3d on right-hand side', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -81,6 +85,7 @@ module GweCndInputModule
     '', & ! shape
     'export array variables to layered ascii files.', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -99,6 +104,7 @@ module GweCndInputModule
     '', & ! shape
     'export array variables to netcdf output files.', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -117,6 +123,7 @@ module GweCndInputModule
     'NODES', & ! shape
     'longitudinal dispersivity in horizontal direction', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .true., & ! layered
@@ -135,6 +142,7 @@ module GweCndInputModule
     'NODES', & ! shape
     'longitudinal dispersivity in vertical direction', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .true., & ! layered
@@ -153,6 +161,7 @@ module GweCndInputModule
     'NODES', & ! shape
     'transverse dispersivity in horizontal direction', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .true., & ! layered
@@ -171,6 +180,7 @@ module GweCndInputModule
     'NODES', & ! shape
     'transverse dispersivity in horizontal direction', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .true., & ! layered
@@ -189,6 +199,7 @@ module GweCndInputModule
     'NODES', & ! shape
     'transverse dispersivity when flow is in vertical direction', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .true., & ! layered
@@ -207,6 +218,7 @@ module GweCndInputModule
     'NODES', & ! shape
     'thermal conductivity of the simulated fluid', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .true., & ! layered
@@ -225,6 +237,7 @@ module GweCndInputModule
     'NODES', & ! shape
     'thermal conductivity of the aquifer material', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .true., & ! layered
@@ -261,6 +274,7 @@ module GweCndInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered

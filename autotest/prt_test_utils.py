@@ -262,6 +262,78 @@ def check_track_data(
     assert all(data_bin["istatus"] >= 0)
     assert all(data_bin["ireason"] >= 0)
 
+    # pathlines must be spatially continuous
+    check_track_continuity(data_bin)
+
+
+def check_track_continuity(track, atol=1e-4, rtol=1e-6):
+    """
+    Assert that particle pathlines are laterally continuous: a particle
+    may not occupy two different (x, y) positions at the same time.
+
+    Only x and y are checked: a particle can legitimately move in z at a
+    single instant (DRAPE / dry-tracking drop to the water table).
+
+    Parameters
+    ----------
+    track : path-like or pandas.DataFrame or numpy.ndarray
+        Track data as a CSV path, DataFrame, or structured array. Must
+        provide t, x, y and whatever of imdl, iprp, irpt, trelease is
+        available to group rows by particle.
+    atol, rtol : float
+        A lateral move counts as a discontinuity when it exceeds
+        ``atol + rtol * max|coordinate|`` (the relative term absorbs the
+        limited precision of the track file at large coordinates).
+    """
+
+    if isinstance(track, (str, os.PathLike)):
+        data = np.genfromtxt(
+            track, dtype=None, delimiter=",", names=True, encoding=None
+        )
+    elif hasattr(track, "to_records"):
+        data = track.to_records(index=False)
+    else:
+        data = track
+    data = np.atleast_1d(data)
+    if len(data) < 2:
+        return
+
+    names = data.dtype.names
+    key_cols = [c for c in ("imdl", "iprp", "irpt", "trelease") if c in names]
+
+    # sort by particle
+    order = (
+        np.lexsort([data[c] for c in reversed(key_cols)])
+        if key_cols
+        else np.arange(len(data))
+    )
+    d = data[order]
+
+    scale = max(np.abs(d["x"]).max(), np.abs(d["y"]).max(), 1.0)
+    tol = atol + rtol * scale
+
+    same_particle = np.ones(len(d), dtype=bool)
+    for c in key_cols:
+        same_particle[1:] &= d[c][1:] == d[c][:-1]
+    same_time = np.abs(np.diff(d["t"])) <= tol
+    moved = np.hypot(np.diff(d["x"]), np.diff(d["y"])) > tol
+
+    bad = np.zeros(len(d), dtype=bool)
+    bad[1:] = same_particle[1:] & same_time & moved
+    if not bad.any():
+        return
+
+    lines = ["Discontinuous pathline(s): particle in two places at one time"]
+    for j in np.where(bad)[0]:
+        prev, cur = d[j - 1], d[j]
+        key = ", ".join(f"{c}={cur[c]}" for c in key_cols)
+        lines.append(
+            f"  [{key}] t={cur['t']:.6g}: "
+            f"({prev['x']:.4f}, {prev['y']:.4f}) -> "
+            f"({cur['x']:.4f}, {cur['y']:.4f})"
+        )
+    raise AssertionError("\n".join(lines))
+
 
 def check_budget_data(lst: os.PathLike, perlen=1, nper=1, nstp=1):
     # load PRT model's list file
@@ -285,6 +357,14 @@ def check_budget_data(lst: os.PathLike, perlen=1, nper=1, nstp=1):
         "PRP_OUT",
     ]
     assert all(en in names for en in expected_entries)
+
+    # mass budget should balance at every time step: a nonzero
+    # PERCENT_DISCREPANCY means particle mass is being lost or
+    # double-counted somewhere
+    percent_discrepancy = inc["PERCENT_DISCREPANCY"]
+    assert np.allclose(percent_discrepancy, 0.0, atol=1e-6), (
+        f"Mass budget does not balance; PERCENT_DISCREPANCY={percent_discrepancy}"
+    )
 
 
 def get_model_name(name, mdl):
@@ -413,3 +493,138 @@ def plot_nodes_and_vertices(
         ],
         loc="upper left",
     )
+
+
+def compare_snapshots(name, actual_data, snapshot_dir, output_dir, idx=None):
+    """
+    Compare actual data with snapshot and show detailed differences.
+
+    Parameters
+    ----------
+    name : str
+        Test case name
+    actual_data : pd.DataFrame
+        Actual data to compare
+    snapshot_dir : Path
+        Directory containing snapshot files
+    output_dir : Path
+        Directory to save comparison outputs
+    idx : int, optional
+        Index for parametrized tests (e.g., when parametrized by idx and name)
+
+    Returns
+    -------
+    bool
+        True if snapshot matches, False otherwise
+    """
+
+    import pandas as pd
+
+    # Construct test identifier for display
+    test_id = f"{idx}-{name}" if idx is not None else name
+
+    print(f"\n{'=' * 80}")
+    print(f"Snapshot comparison for test case: {test_id}")
+    print(f"{'=' * 80}")
+
+    # Read the snapshot file directly (syrupy stores as .npy files)
+    # Format: test_mf6model[name].npy or test_mf6model[idx-name].npy
+    snapshot_filename = f"test_mf6model[{test_id}].npy"
+    snapshot_file = snapshot_dir / snapshot_filename
+
+    if not snapshot_file.exists():
+        print(f"Snapshot file not found: {snapshot_file}")
+        print("This appears to be a new test case.")
+        return False
+
+    try:
+        expected_records = np.load(snapshot_file, allow_pickle=True)
+        print(f"Loaded snapshot from: {snapshot_file}")
+    except Exception as e:
+        print(f"Error loading snapshot: {e}")
+        return False
+
+    # Convert to DataFrame for comparison
+    expected_data = pd.DataFrame(expected_records)
+
+    print("\nData dimensions:")
+    print(
+        f"  Expected: {len(expected_data)} rows, {len(expected_data.columns)} columns"
+    )
+    print(f"  Actual:   {len(actual_data)} rows, {len(actual_data.columns)} columns")
+
+    if len(expected_data) != len(actual_data):
+        # Different number of rows
+        print("\nDifferent number of records!")
+        print("\nExpected summary:")
+        if "kper" in expected_data.columns:
+            print(f"  Unique kper: {sorted(expected_data['kper'].unique())}")
+        if "kstp" in expected_data.columns:
+            print(f"  Unique kstp: {sorted(expected_data['kstp'].unique())}")
+        print("\nActual summary:")
+        if "kper" in actual_data.columns:
+            print(f"  Unique kper: {sorted(actual_data['kper'].unique())}")
+        if "kstp" in actual_data.columns:
+            print(f"  Unique kstp: {sorted(actual_data['kstp'].unique())}")
+
+        # Save both for manual inspection
+        expected_csv = output_dir / f"{test_id}_expected_pathlines.csv"
+        actual_csv = output_dir / f"{test_id}_actual_pathlines.csv"
+        expected_data.to_csv(expected_csv, index=False)
+        actual_data.to_csv(actual_csv, index=False)
+        print(f"\nExpected data saved to: {expected_csv}")
+        print(f"Actual data saved to: {actual_csv}")
+        print(f"{'=' * 80}\n")
+        return False
+
+    # Same number of rows - can do direct comparison
+    print(f"\n{'─' * 80}")
+    print("DIFFERENCES (showing only changed values):")
+    print(f"{'─' * 80}")
+
+    # Use pandas compare to show differences
+    # This will show 'self' (actual) vs 'other' (expected)
+    diff = actual_data.compare(expected_data, keep_equal=False)
+
+    if not diff.empty:
+        print(f"\nFound differences in {len(diff)} rows:\n")
+        # Show with better formatting
+        import pandas as pd
+
+        with pd.option_context(
+            "display.max_rows", None, "display.max_columns", None, "display.width", None
+        ):
+            print(diff.to_string())
+
+        # Also show which columns changed
+        changed_cols = set()
+        for col in diff.columns:
+            if isinstance(col, tuple):
+                changed_cols.add(col[0])
+            else:
+                changed_cols.add(col)
+        print(f"\nColumns with changes: {sorted(changed_cols)}")
+
+        # For key columns, show summary of changes
+        for key_col in ["kper", "kstp", "ireason"]:
+            if key_col in changed_cols:
+                if (key_col, "self") in diff.columns:
+                    old_vals = diff[(key_col, "other")].dropna()
+                    new_vals = diff[(key_col, "self")].dropna()
+                    print(f"\n{key_col} changes:")
+                    print(f"  Old values: {sorted(old_vals.unique())}")
+                    print(f"  New values: {sorted(new_vals.unique())}")
+
+        # Save comparison to CSV
+        diff_csv = output_dir / f"{test_id}_differences.csv"
+        diff.to_csv(diff_csv)
+        actual_csv = output_dir / f"{test_id}_actual_pathlines.csv"
+        actual_data.to_csv(actual_csv, index=False)
+        print(f"\nDifferences saved to: {diff_csv}")
+        print(f"Actual data saved to: {actual_csv}")
+        print(f"{'=' * 80}\n")
+        return False
+    else:
+        print("All values match!")
+        print(f"{'=' * 80}\n")
+        return True

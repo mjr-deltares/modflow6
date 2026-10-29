@@ -40,7 +40,7 @@ The PETSc library is a suite of data structures and routines for the scalable (p
 
 https://petsc.org/release/
 
-The PETSc library (version 3.16 or higher) is used by MODFLOW for its parallel linear solver capabilities and the distributed data formats (vectors and matrices) that go along with it. Parallel PETSc uses MPI internally as well, so setting up this library should typically be coordinated with the installation of the MPI library. A lot of obscure things can happen if the binaries are not compatible, so in general it is a good strategy to compile MPI, PETSc, and MODFLOW with the same compiler toolchain or install MPI and PETSc using a package manager and built with the same compiler being used to compile MODFLOW.
+The PETSc library (version 3.16 or higher and older than 3.23, which introduced breaking changes that are not yet supported) is used by MODFLOW for its parallel linear solver capabilities and the distributed data formats (vectors and matrices) that go along with it. Parallel PETSc uses MPI internally as well, so setting up this library should typically be coordinated with the installation of the MPI library. A lot of obscure things can happen if the binaries are not compatible, so in general it is a good strategy to compile MPI, PETSc, and MODFLOW with the same compiler toolchain or install MPI and PETSc using a package manager and built with the same compiler being used to compile MODFLOW.
 
 ## Compiling MPI and PETSC from source
 
@@ -55,19 +55,35 @@ in a terminal open in the root directory of your PETSc download
 
 ## Compiling NetCDF from source
 
-See, for example, https://docs.unidata.ucar.edu/netcdf-c/4.9.2/building\_netcdf\_fortran.html and https://docs.unidata.ucar.edu/nug/current/getting\_and\_building\_netcdf.html#building for information related to building NetCDF-Fortran and prerequisites in a Unix/Linux environment.
+See, for example, https://docs.unidata.ucar.edu/netcdf-c/4.9.2/building_netcdf_fortran.html and https://docs.unidata.ucar.edu/nug/current/getting_and_building_netcdf.html#building for information related to building NetCDF-Fortran and prerequisites in a Unix/Linux environment.
 
 ## Using a package manager to install MPI and PETSc
 
 Use of a package manager can simplify the process of building the extended version of MODFLOW 6.
 
+### Homebrew (macOS and Linux)
+
+The [MODFLOW-ORG Homebrew tap](https://github.com/MODFLOW-ORG/homebrew-recipe-modflow6) builds and installs the extended version of MODFLOW 6 on macOS (Apple Silicon) and Linux. The `modflow6-extended` formula uses gcc, Open MPI, and NetCDF Fortran from Homebrew and the `petsc@3.22` formula from the tap, because the PETSc formula in Homebrew core is newer than the PETSc versions MODFLOW 6 supports. PETSc is compiled from source the first time the formula is installed.
+
+```bash
+brew tap modflow-org/recipe-modflow6
+brew install modflow-org/recipe-modflow6/modflow6-extended
+mpiexec -n 2 mf6 -p
+```
+
+The tap also provides a `modflow6` formula for the serial program. Both formulae install `mf6`, so only one can be installed at a time.
+
 ### MacOS
 
-[OpenMPI](https://formulae.brew.sh/formula/open-mpi) and [PETSc](https://formulae.brew.sh/formula/petsc) are available on Homebrew for Intel and Apple Silicon (M1). Both of these depend on [gcc 13.1.0](https://formulae.brew.sh/formula/gcc). [NetCDF Fortran](https://formulae.brew.sh/formula/netcdf-fortran) and related dependencies are also available on Homebrew for Intel and Apple Silicon (M1). [pkg-config](https://formulae.brew.sh/formula/pkg-config) should also be installed from Homebrew, if not already installed, so that Meson will be able to resolve the installation location of MPI and PETSc.
+[OpenMPI](https://formulae.brew.sh/formula/open-mpi), [NetCDF Fortran](https://formulae.brew.sh/formula/netcdf-fortran), and related dependencies are available on Homebrew. The [PETSc](https://formulae.brew.sh/formula/petsc) formula in Homebrew core is newer than the PETSc versions MODFLOW 6 supports; use the `petsc@3.22` formula from the MODFLOW-ORG tap described above instead. [pkg-config](https://formulae.brew.sh/formula/pkg-config) should also be installed from Homebrew, if not already installed, so that Meson will be able to resolve the installation location of MPI and PETSc.
 
-### Ubuntu
+OpenMPI, PETSc, NetCDF, and pkg-config are also available for MacOS (Intel and Apple Silicon) from the [conda-forge package directory](https://conda-forge.org/packages/).
 
-OpenMPI, PETSc and NetCDF Fortran are available for a variety of Ubuntu versions using the Advanced Packaging Tool (apt).
+### Linux
+
+OpenMPI, PETSc and NetCDF Fortran are available for a variety of Ubuntu versions using the Advanced Packaging Tool (apt). 
+
+OpenMPI, PETSc, NetCDF, and pkg-config are also available for Linux from the [conda-forge package directory](https://conda-forge.org/packages/).
 
 ### Windows
 
@@ -95,7 +111,7 @@ To connect everything, both of these folder paths have to be added to the `PKG_C
 
 The primary build system for MODFLOW is Meson (https://mesonbuild.com/). The `meson.build` script takes an additional argument to activate an extended build of the software. E.g for building and installing an extended release version:
 
-```
+```bash
 meson setup builddir -Ddebug=false -Dextended=true \
                      --prefix=$(pwd) --libdir=bin
 meson install -C builddir
@@ -115,6 +131,42 @@ The other build systems in the MODFLOW project (MS Visual Studio, `pymake`, `Mak
 *Don't use MPI and PETSc directly in your code*
 
 Extended MODFLOW was designed to have all third party functionality (MPI, PETSc and the NetCDF Fortran API) made available through the framework. Developers of models and packages **should not** directly call these libraries and change the set of excluded files described above. If you feel you need to include MPI or PETSc functionality in your code (e.g. you want to `use mpi` in your source file), contact the MODFLOW development team on how to best proceed.
+
+
+## Using `pixi` to build the extended version of MODFLOW 6 on macOS and Linux
+
+`pixi` can be used to build and test the extended version of MODFLOW 6 on macOS and Linux operating system using the `gcc-extended-build` `pixi` environment. The `gcc-extended-build` `pixi` environment includes gfortran 13, the OpenMPI, PETSc, and NetCDF libraries needed to compile the extended version of MODFLOW 6, and the `test-drive` library used by the Fortran unit tests.
+
+Prior to building the extended version of MODFLOW 6 for the first time with `pixi` execute the following command:
+
+```bash
+pixi run -e gcc-extended-build gcc-extended-build-update 
+```
+
+This will update the `netcdf-fortran.pc` file with the correct include path.
+
+The MODFLOW 6 meson build process is essentially the same except that it relies on tasks defined in `pixi.toml` and require that the `gcc-extended-build` environment be specified. The commands for setup, build, and testing are:
+
+```bash
+pixi run -e gcc-extended-build setup builddir -Dextended=true
+pixi run -e gcc-extended-build build builddir
+pixi run -e gcc-extended-build test builddir
+```
+
+If the build is successful you will see something like:
+
+```bash
+ Normal termination of simulation.
+―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+26/26 MODFLOW_6:Parallel simulation test - 2 cores  OK              1.09s
+
+
+Ok:                26  
+Fail:              0   
+
+Full log written to /location/of/your/clone/of/the/modflow6/repo/builddir/meson-logs/testlog.txt
+```
+
 
 ---
 
@@ -200,6 +252,9 @@ Parallel MODFLOW (a pre-extended build without NetCDF) has been built successful
 | WSL2 (Ubuntu 20.04.5)               | gcc 9.4.0                 | OpenMPI 4.0.3     | 3.18.2              | NA              |
 | macOS 12.6.3                        | gcc 9.5.0                 | OpenMPI 4.1.4     | 3.18.5              | NA              |
 | macOS 12.6.6                        | gcc 13.1.0                | OpenMPI 4.1.5     | 3.19.1              | Homebrew        |
+| macOS 15.7.9 (Apple Silicon)        | gcc 16.2.0                | OpenMPI 5.0.10    | 3.22.2              | Homebrew        |
+| macOS 26.6.2 (Apple Silicon)        | gcc 16.2.0                | OpenMPI 5.0.10    | 3.22.2              | Homebrew        |
+| Linux x86_64 (Homebrew image)       | gcc 16.2.0                | OpenMPI 5.0.10    | 3.22.2              | Homebrew        |
 | Ubuntu 22.04                        | gcc 9.5.0                 | OpenMPI 4.1.4     | 3.18.5              | NA              |
 | Ubuntu 22.04 ARM64                  | gcc 11.4.0                | OpenMPI 4.1.5     | 3.19.3              | apt             |
 | Ubuntu 22.04 ARM64                  | gcc 9.5.0                 | MPICH 3.4.1       | 3.15.5              | NA              |

@@ -4,7 +4,8 @@ module MethodCellTernaryModule
   use ErrorUtilModule, only: pstop
   use MethodModule, only: MethodType, LEVEL_FEATURE, LEVEL_SUBFEATURE
   use MethodCellModule, only: MethodCellType
-  use MethodSubcellPoolModule
+  use MethodSubcellTernaryModule, only: MethodSubcellTernaryType, &
+                                        create_method_subcell_ternary
   use CellPolyModule
   use CellDefnModule
   use SubcellTriModule, only: SubcellTriType, create_subcell_tri
@@ -20,6 +21,7 @@ module MethodCellTernaryModule
 
   type, extends(MethodCellType) :: MethodCellTernaryType
     private
+    type(MethodSubcellTernaryType), pointer :: method_subcell_tern => null()
     integer(I4B) :: nverts !< number of vertices
     real(DP), allocatable, dimension(:) :: xvert
     real(DP), allocatable, dimension(:) :: yvert !< cell vertex coordinates
@@ -68,12 +70,19 @@ contains
     method%delegates = .true.
     call create_subcell_tri(subcell)
     method%subcell => subcell
+
+    ! Create subcell method this method can delegate to
+    call create_method_subcell_ternary(method%method_subcell_tern)
   end subroutine create_method_cell_ternary
 
   !> @brief Destroy the tracking method
   subroutine destroy_mct(this)
     class(MethodCellTernaryType), intent(inout) :: this
     deallocate (this%name)
+
+    ! Deallocate owned subcell method
+    call this%method_subcell_tern%deallocate()
+    deallocate (this%method_subcell_tern)
   end subroutine destroy_mct
 
   !> @brief Load subcell into tracking method
@@ -89,13 +98,13 @@ contains
       call this%load_subcell(particle, subcell)
     end select
 
-    call method_subcell_tern%init( &
+    call this%method_subcell_tern%init( &
       fmi=this%fmi, &
       cell=this%cell, &
       subcell=this%subcell, &
       events=this%events, &
       tracktimes=this%tracktimes)
-    submethod => method_subcell_tern
+    submethod => this%method_subcell_tern
   end subroutine load_mct
 
   !> @brief Pass particle to next subcell if there is one, or to the cell face
@@ -232,13 +241,11 @@ contains
       ! Calculate vertex velocities.
       call this%vertvelo()
 
-      ! Transform particle coordinates
+      ! Transform model coordinates to local cell coordinates
+      ! (translated/rotated but not scaled relative to model),
+      ! track the particle over the cell, then transform back.
       call particle%transform(xO, yO)
-
-      ! Track the particle across the cell.
       call this%track(particle, 2, tmax)
-
-      ! Transform particle coordinates back
       call particle%transform(xO, yO, invert=.true.)
       call particle%reset_transform()
     end select
@@ -251,28 +258,11 @@ contains
     type(ParticleType), pointer, intent(inout) :: particle
     class(SubcellTriType), intent(inout) :: subcell
     ! local
-    integer(I4B) :: ic
-    integer(I4B) :: isc
-    integer(I4B) :: iv0
-    real(DP) :: x0
-    real(DP) :: y0
-    real(DP) :: x1
-    real(DP) :: y1
-    real(DP) :: x2
-    real(DP) :: y2
-    real(DP) :: x1rel
-    real(DP) :: y1rel
-    real(DP) :: x2rel
-    real(DP) :: y2rel
-    real(DP) :: xi
-    real(DP) :: yi
-    real(DP) :: di2
-    real(DP) :: d02
-    real(DP) :: d12
-    real(DP) :: di1
-    real(DP) :: d01
-    real(DP) :: alphai
-    real(DP) :: betai
+    integer(I4B) :: ic, isc, iv0
+    real(DP) :: x0, y0, x1, y1, x2, y2, xi, yi
+    real(DP) :: x1rel, y1rel, x2rel, y2rel
+    real(DP) :: di2, d02, d12, di1, d01
+    real(DP) :: alphai, betai
 
     select type (cell => this%cell)
     type is (CellPolyType)

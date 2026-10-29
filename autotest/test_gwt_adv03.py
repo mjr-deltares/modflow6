@@ -13,7 +13,13 @@ import numpy as np
 import pytest
 from framework import TestFramework
 
-cases = ["adv03a", "adv03b", "adv03c", "adv03d"]
+cases = [
+    pytest.param(0, "adv03a"),
+    pytest.param(1, "adv03b"),
+    pytest.param(2, "adv03c"),
+    pytest.param(3, "adv03d"),
+]
+
 scheme = ["upstream", "central", "tvd", "utvd"]
 
 
@@ -62,7 +68,7 @@ def cvfd_to_cell2d(verts, iverts):
     return vertices, cell2d
 
 
-def build_models(idx, test):
+def build_models(idx, name, test):
     nlay, nrow, ncol = 5, 10, 20
     nper = 1
     delr = 1.0
@@ -89,8 +95,6 @@ def build_models(idx, test):
     tdis_rc = []
     for i in range(nper):
         tdis_rc.append((perlen[i], nstp[i], tsmult[i]))
-
-    name = cases[idx]
 
     # build MODFLOW 6 files
     ws = test.workspace
@@ -323,8 +327,7 @@ def build_models(idx, test):
     return sim, None
 
 
-def check_output(idx, test):
-    name = cases[idx]
+def check_output(idx, name, test):
     gwtname = "gwt_" + name
 
     fpth = os.path.join(test.workspace, f"{gwtname}.ucn")
@@ -381,44 +384,44 @@ def check_output(idx, test):
     cres1 = np.array(cres1)
 
     cres2 = [
-        9.91666434e-01,
-        9.86953589e-01,
-        9.80778200e-01,
-        9.56402197e-01,
-        8.95573236e-01,
-        7.94392952e-01,
-        6.64374858e-01,
-        5.24436564e-01,
-        3.92222699e-01,
-        2.79262303e-01,
-        1.90214211e-01,
-        1.24507826e-01,
-        7.86404693e-02,
-        4.81012219e-02,
-        2.85822809e-02,
-        1.65449352e-02,
-        9.35203645e-03,
-        5.17291859e-03,
-        2.80515816e-03,
-        1.49375662e-03,
-        7.82221788e-04,
-        4.03333373e-04,
-        2.05011749e-04,
-        1.02829466e-04,
-        5.09423767e-05,
-        2.49472500e-05,
-        1.20857205e-05,
-        5.79592865e-06,
-        2.75322526e-06,
-        1.29620095e-06,
-        6.05117190e-07,
-        2.80245975e-07,
-        1.28825482e-07,
-        5.87741819e-08,
-        2.66893805e-08,
-        1.19138575e-08,
-        5.57865554e-09,
-        1.01007992e-09,
+        1.00269530e00,
+        1.00341798e00,
+        9.95370793e-01,
+        9.59645458e-01,
+        8.83227099e-01,
+        7.68602842e-01,
+        6.30996063e-01,
+        4.89738909e-01,
+        3.60826434e-01,
+        2.53559311e-01,
+        1.70739771e-01,
+        1.10646634e-01,
+        6.92740399e-02,
+        4.20451041e-02,
+        2.48127250e-02,
+        1.42753537e-02,
+        8.02510228e-03,
+        4.41714288e-03,
+        2.38468264e-03,
+        1.26473385e-03,
+        6.59858717e-04,
+        3.39096522e-04,
+        1.71828850e-04,
+        8.59407616e-05,
+        4.24638480e-05,
+        2.07446150e-05,
+        1.00270462e-05,
+        4.79853695e-06,
+        2.27496010e-06,
+        1.06906928e-06,
+        4.98222854e-07,
+        2.30368848e-07,
+        1.05732197e-07,
+        4.81786623e-08,
+        2.18263925e-08,
+        9.78029834e-09,
+        4.46058979e-09,
+        1.11038263e-09,
     ]
     cres2 = np.array(cres2)
 
@@ -524,13 +527,13 @@ def check_output(idx, test):
     )
 
 
-@pytest.mark.parametrize("idx, name", enumerate(cases))
+@pytest.mark.parametrize("idx, name", cases)
 def test_mf6model(idx, name, function_tmpdir, targets):
     test = TestFramework(
         name=name,
         workspace=function_tmpdir,
         targets=targets,
-        build=lambda t: build_models(idx, t),
-        check=lambda t: check_output(idx, t),
+        build=lambda t: build_models(idx, name, t),
+        check=lambda t: check_output(idx, name, t),
     )
     test.run()

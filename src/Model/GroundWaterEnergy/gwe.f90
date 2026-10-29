@@ -313,6 +313,7 @@ contains
     do ip = 1, this%bndlist%Count()
       packobj => GetBndFromList(this%bndlist, ip)
       call packobj%bnd_rp()
+      call packobj%bnd_rp_log()
       call packobj%bnd_rp_obs()
     end do
   end subroutine gwe_rp
@@ -324,8 +325,7 @@ contains
   !! will be no larger than dtmax calculated here.
   !<
   subroutine gwe_dt(this)
-    use TdisModule, only: kstp, kper
-    use AdaptiveTimeStepModule, only: ats_submit_delt
+    use TdisModule, only: kstp, kper, ats
     ! dummy
     class(GweModelType) :: this
     ! local
@@ -336,7 +336,7 @@ contains
     ! advection package courant stability
     call this%adv%adv_dt(dtmax, msg, this%est%porosity)
     if (msg /= '') then
-      call ats_submit_delt(kstp, kper, dtmax, msg)
+      call ats%ats_submit_delt(kstp, kper, dtmax, msg)
     end if
   end subroutine gwe_dt
 
@@ -549,7 +549,7 @@ contains
     if (this%inest > 0) call this%est%est_bd(isuppress_output, this%budget)
     if (this%inssm > 0) call this%ssm%ssm_bd(isuppress_output, this%budget)
     if (this%infmi > 0) call this%fmi%fmi_bd(isuppress_output, this%budget)
-    if (this%inmvt > 0) call this%mvt%mvt_bd(this%x, this%x)
+    if (this%inmvt > 0) call this%mvt%mvt_bd()
     do ip = 1, this%bndlist%Count()
       packobj => GetBndFromList(this%bndlist, ip)
       call packobj%bnd_bd(this%budget)
@@ -752,20 +752,24 @@ contains
                       pakname, this%gwecommon, mempath)
     case ('LKE6')
       call lke_create(packobj, ipakid, ipaknum, inunit, iout, this%name, &
-                      pakname, this%fmi, this%eqnsclfac, this%gwecommon, &
-                      this%depvartype, this%depvarunit, this%depvarunitabbrev)
+                      pakname, mempath, this%fmi, this%eqnsclfac, &
+                      this%gwecommon, this%depvartype, this%depvarunit, &
+                      this%depvarunitabbrev)
     case ('SFE6')
       call sfe_create(packobj, ipakid, ipaknum, inunit, iout, this%name, &
-                      pakname, this%fmi, this%eqnsclfac, this%gwecommon, &
-                      this%depvartype, this%depvarunit, this%depvarunitabbrev)
+                      pakname, mempath, this%fmi, this%eqnsclfac, &
+                      this%gwecommon, this%depvartype, this%depvarunit, &
+                      this%depvarunitabbrev)
     case ('MWE6')
       call mwe_create(packobj, ipakid, ipaknum, inunit, iout, this%name, &
-                      pakname, this%fmi, this%eqnsclfac, this%gwecommon, &
-                      this%depvartype, this%depvarunit, this%depvarunitabbrev)
+                      pakname, mempath, this%fmi, this%eqnsclfac, &
+                      this%gwecommon, this%depvartype, this%depvarunit, &
+                      this%depvarunitabbrev)
     case ('UZE6')
       call uze_create(packobj, ipakid, ipaknum, inunit, iout, this%name, &
-                      pakname, this%fmi, this%eqnsclfac, this%gwecommon, &
-                      this%depvartype, this%depvarunit, this%depvarunitabbrev)
+                      pakname, mempath, this%fmi, this%eqnsclfac, &
+                      this%gwecommon, this%depvartype, this%depvarunit, &
+                      this%depvarunitabbrev)
       !case('API6')
       !  call api_create(packobj, ipakid, ipaknum, inunit, iout, this%name, &
       !                  pakname)

@@ -9,6 +9,7 @@ module PrtNamInputModule
   public prt_nam_block_definitions
   public PrtNamParamFoundType
   public prt_nam_multi_package
+  public prt_nam_is_advanced
   public prt_nam_subpackages
 
   type PrtNamParamFoundType
@@ -22,6 +23,7 @@ module PrtNamInputModule
   end type PrtNamParamFoundType
 
   logical :: prt_nam_multi_package = .false.
+  logical :: prt_nam_is_advanced = .false.
 
   character(len=16), parameter :: &
     prt_nam_subpackages(*) = &
@@ -41,6 +43,7 @@ module PrtNamInputModule
     '', & ! shape
     'name of listing file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -59,6 +62,7 @@ module PrtNamInputModule
     '', & ! shape
     'print input to listing file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -77,6 +81,7 @@ module PrtNamInputModule
     '', & ! shape
     'print calculated flows to listing file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -95,6 +100,7 @@ module PrtNamInputModule
     '', & ! shape
     'save flows for all packages to budget file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -113,6 +119,7 @@ module PrtNamInputModule
     '', & ! shape
     'package type', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -131,6 +138,7 @@ module PrtNamInputModule
     '', & ! shape
     'file name', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -149,6 +157,7 @@ module PrtNamInputModule
     '', & ! shape
     'user name for package', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -179,6 +188,7 @@ module PrtNamInputModule
     '', & ! shape
     'package list', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered

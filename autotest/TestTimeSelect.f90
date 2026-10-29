@@ -15,7 +15,8 @@ contains
                 new_unittest("is_increasing", test_is_increasing), &
                 new_unittest("select", test_select), &
                 new_unittest("extend_and_sort", &
-                             test_extend_and_sort) &
+                             test_extend_and_sort), &
+                new_unittest("contains_close", test_contains_close) &
                 ]
   end subroutine collect_timeselect
 
@@ -87,11 +88,11 @@ contains
       "2-item slice failed, got ["// &
       to_string(ts%selection(1))//","//to_string(ts%selection(2))//"]")
 
-    ! lower bound equal to a time value
+    ! lower bound equal to a time value (exclusive lower bound)
     call ts%select(0.0_DP, 2.5_DP)
     call check( &
       error, &
-      ts%selection(1) == 1 .and. ts%selection(2) == 3, &
+      ts%selection(1) == 2 .and. ts%selection(2) == 3, &
       "lb eq slice failed, got [" &
       //to_string(ts%selection(1))//","//to_string(ts%selection(2))//"]")
 
@@ -103,12 +104,30 @@ contains
       "ub eq slice failed, got [" &
       //to_string(ts%selection(1))//","//to_string(ts%selection(2))//"]")
 
-    ! both bounds equal to a time value
+    ! both bounds equal to a time value (lower exclusive, upper inclusive)
     call ts%select(0.0_DP, 2.0_DP)
     call check( &
       error, &
-      ts%selection(1) == 1 .and. ts%selection(2) == 3, &
+      ts%selection(1) == 2 .and. ts%selection(2) == 3, &
       "lb ub eq slice failed, got [" &
+      //to_string(ts%selection(1))//","//to_string(ts%selection(2))//"]")
+
+    ! Test explicit boundary behavior: interval (0.0, 1.0]
+    ! should include 1.0 but not 0.0
+    call ts%select(0.0_DP, 1.0_DP)
+    call check( &
+      error, &
+      ts%selection(1) == 2 .and. ts%selection(2) == 2, &
+      "boundary (0,1] slice failed, got [" &
+      //to_string(ts%selection(1))//","//to_string(ts%selection(2))//"]")
+
+    ! Test explicit boundary behavior: interval (1.0, 2.0]
+    ! should include 2.0 but not 1.0
+    call ts%select(1.0_DP, 2.0_DP)
+    call check( &
+      error, &
+      ts%selection(1) == 3 .and. ts%selection(2) == 3, &
+      "boundary (1,2] slice failed, got [" &
       //to_string(ts%selection(1))//","//to_string(ts%selection(2))//"]")
 
   end subroutine test_select
@@ -125,5 +144,31 @@ contains
     call check(error, ts%increasing())
 
   end subroutine test_extend_and_sort
+
+  subroutine test_contains_close(error)
+    type(error_type), allocatable, intent(out) :: error
+    type(TimeSelectType) :: ts
+
+    call ts%init()
+    call ts%extend((/0.0_DP, 1.0_DP, 2.0_DP/))
+
+    ! exact match
+    call check(error, ts%contains_close(1.0_DP, 1.0e-6_DP))
+
+    ! within tolerance
+    call check(error, ts%contains_close(1.0_DP + 1.0e-8_DP, 1.0e-6_DP))
+
+    ! outside tolerance
+    call check(error,.not. ts%contains_close(1.5_DP, 1.0e-6_DP))
+
+    ! outside tolerance, but close to the array's end (guards against
+    ! only checking the first/last entry instead of scanning fully)
+    call check(error,.not. ts%contains_close(2.5_DP, 1.0e-6_DP))
+
+    ! empty array
+    call ts%init()
+    call check(error,.not. ts%contains_close(0.0_DP, 1.0e-6_DP))
+
+  end subroutine test_contains_close
 
 end module TestTimeSelect

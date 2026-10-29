@@ -6,6 +6,7 @@ module TimeSelectModule
   use ArrayHandlersModule, only: ExpandArray
   use ErrorUtilModule, only: pstop
   use SortModule, only: qsort
+  use MathUtilModule, only: is_close
 
   implicit none
   public :: TimeSelectType
@@ -16,6 +17,10 @@ module TimeSelectModule
   !! the current period & time step. Slicing can be performed manually, with
   !! the select() routine, or automatically, with the advance() routine, for
   !! a convenient view onto the applicable subset of the complete time array.
+  !!
+  !! Time selection uses the interval convention (t0, t1] (exclusive lower
+  !! bound, inclusive upper bound). This ensures times at exact time step
+  !! boundaries are captured by the earlier time step without duplication.
   !!
   !! Array storage can be expanded manually. Note: array expansion must take
   !! place before selection; when expand() is called the selection is wiped.
@@ -42,6 +47,7 @@ module TimeSelectModule
     procedure :: count
     procedure :: sort
     procedure :: extend
+    procedure :: contains_close
   end type TimeSelectType
 
 contains
@@ -116,22 +122,24 @@ contains
     end if
   end subroutine log
 
-  !> @brief Select times between t0 and t1 (inclusive).
+  !> @brief Select times in the interval (t0, t1] (exclusive lower, inclusive upper).
   !!
-  !! Finds and stores the index of the first time at the same instant
-  !! as or following the start time, and of the last time at the same
-  !! instant as or preceding the end time. Allows filtering the times
-  !! for e.g. a particular stress period and time step. Array indices
-  !! are assumed to start at 1. If no times are found to fall within
-  !! the selection (i.e. it falls entirely between two consecutive
-  !! times or beyond the time range), indices are set to [-1, -1].
+  !! Finds and stores the index of the first time strictly after the start time,
+  !! and of the last time at or before the end time. This interval convention
+  !! ensures that times at exact time step boundaries are captured by the later
+  !! (earlier in simulation time) step without duplication.
   !!
-  !! The given start and end times are first checked against currently
-  !! stored indices to avoid recalculating them if possible, allowing
-  !! multiple consuming components (e.g., subdomain particle tracking
-  !! solutions) to share the object efficiently, provided all proceed
-  !! through stress periods and time steps in lockstep, i.e. they all
-  !! solve any given period/step before any will proceed to the next.
+  !! Allows filtering the times for e.g. a particular stress period and time step.
+  !! Array indices are assumed to start at 1. If no times are found to fall within
+  !! the selection (i.e. the interval falls entirely between two consecutive times
+  !! or beyond the time range), indices are set to [-1, -1].
+  !!
+  !! The given start and end times are first checked against currently stored
+  !! indices to avoid recalculating them if possible, allowing multiple consuming
+  !! components (e.g., subdomain particle tracking solutions) to share the object
+  !! efficiently, provided all proceed through stress periods and time steps in
+  !! lockstep, i.e. they all solve any given period/step before any will proceed
+  !! to the next.
   !<
   subroutine select(this, t0, t1, changed)
     ! dummy
@@ -156,14 +164,15 @@ contains
     up = this%selection(2)
 
     ! Check if we can reuse either the lower or upper bound.
-    ! The lower doesn't need to change if it indexes the 1st
-    ! time simultaneous with or later than the slice's start.
+    ! The lower doesn't need to change if it indexes the first
+    ! time strictly after the slice's start (i.e., the previous
+    ! time is at or before t0, and this time is after t0).
     ! The upper doesn't need to change if it indexes the last
-    ! time before or simultaneous with the slice's end.
+    ! time at or before the slice's end.
     if (lp > 0 .and. up > 0) then
       if (lp > 1) then
-        if (this%times(lp - 1) < t0 .and. &
-            this%times(lp) >= t0) then
+        if (this%times(lp - 1) <= t0 .and. &
+            this%times(lp) > t0) then
           l = lp
           i0 = l
         end if
@@ -185,7 +194,7 @@ contains
     ! recompute bounding indices if needed
     do i = i0, i1
       t = this%times(i)
-      if (l < 0 .and. t >= t0 .and. t <= t1) l = i
+      if (l < 0 .and. t > t0 .and. t <= t1) l = i
       if (l > 0 .and. t <= t1) u = i
     end do
     this%selection = (/l, u/)
@@ -202,10 +211,20 @@ contains
     ! local
     real(DP) :: l, u
 
-    l = minval(this%times)
-    u = maxval(this%times)
-    if (.not. (kper == 1 .and. kstp == 1)) l = totimc
-    if (.not. (kper == nper .and. kstp == nstp(kper))) u = totimc + delt
+    if (kper == 1 .and. kstp == 1) then
+      ! For first time step, use a small negative lower bound
+      ! capture times at t=0.0 despite exclusive lower bound
+      l = -epsilon(DZERO)
+    else
+      l = totimc
+    end if
+    if (kper == nper .and. kstp == nstp(kper)) then
+      ! For last time step, use a large upper bound to
+      ! capture times beyond the end of the simulation
+      u = huge(DONE)
+    else
+      u = totimc + delt
+    end if
     call this%select(l, u)
   end subroutine advance
 
@@ -271,5 +290,29 @@ contains
     this%times = [this%times, a]
     call this%sort()
   end subroutine extend
+
+  !> @brief Check whether any configured time is within tolerance of t.
+  !!
+  !! Unlike any()/select(), this checks the full array of times, not just
+  !! the current time step's slice. Useful for deduplicating: times may
+  !! come from multiple sources (e.g. period block configuration and an
+  !! explicitly specified set of release times).
+  !<
+  function contains_close(this, t, tolerance) result(found)
+    class(TimeSelectType) :: this
+    real(DP), intent(in) :: t
+    real(DP), intent(in) :: tolerance
+    logical(LGP) :: found
+    integer(I4B) :: i
+
+    found = .false.
+    if (.not. allocated(this%times)) return
+    do i = 1, size(this%times)
+      if (is_close(this%times(i), t, atol=tolerance)) then
+        found = .true.
+        return
+      end if
+    end do
+  end function contains_close
 
 end module TimeSelectModule

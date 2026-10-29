@@ -9,20 +9,23 @@ module ChfCxsInputModule
   public chf_cxs_block_definitions
   public ChfCxsParamFoundType
   public chf_cxs_multi_package
+  public chf_cxs_is_advanced
   public chf_cxs_subpackages
 
   type ChfCxsParamFoundType
     logical :: iprpak = .false.
     logical :: nsections = .false.
     logical :: npoints = .false.
-    logical :: idcxs = .false.
+    logical :: ifno_pkgdata = .false.
     logical :: nxspoints = .false.
+    logical :: ifno = .false.
     logical :: xfraction = .false.
     logical :: height = .false.
     logical :: manfraction = .false.
   end type ChfCxsParamFoundType
 
   logical :: chf_cxs_multi_package = .false.
+  logical :: chf_cxs_is_advanced = .false.
 
   character(len=16), parameter :: &
     chf_cxs_subpackages(*) = &
@@ -42,6 +45,7 @@ module ChfCxsInputModule
     '', & ! shape
     'print input to listing file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -60,6 +64,7 @@ module ChfCxsInputModule
     '', & ! shape
     'number of reaches', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -78,6 +83,7 @@ module ChfCxsInputModule
     '', & ! shape
     'total number of points defined for all reaches', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -85,17 +91,18 @@ module ChfCxsInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    chfcxs_idcxs = InputParamDefinitionType &
+    chfcxs_ifno_pkgdata = InputParamDefinitionType &
     ( &
     'CHF', & ! component
     'CXS', & ! subcomponent
     'PACKAGEDATA', & ! block
-    'IDCXS', & ! tag name
-    'IDCXS', & ! fortran variable
+    'IFNO', & ! tag name
+    'IFNO_PKGDATA', & ! fortran variable
     'INTEGER', & ! type
     '', & ! shape
-    'reach number for this entry', & ! longname
+    'cross section number for this entry', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -114,6 +121,26 @@ module ChfCxsInputModule
     '', & ! shape
     'number of points used to define cross section', & ! longname
     .true., & ! required
+    .false., & ! developmode
+    .true., & ! multi-record
+    .false., & ! preserve case
+    .false., & ! layered
+    .false. & ! timeseries
+    )
+
+  type(InputParamDefinitionType), parameter :: &
+    chfcxs_ifno = InputParamDefinitionType &
+    ( &
+    'CHF', & ! component
+    'CXS', & ! subcomponent
+    'CROSSSECTIONDATA', & ! block
+    'IFNO', & ! tag name
+    'IFNO', & ! fortran variable
+    'INTEGER', & ! type
+    '', & ! shape
+    'cross section number for this entry', & ! longname
+    .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -132,6 +159,7 @@ module ChfCxsInputModule
     '', & ! shape
     'fractional width', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -150,6 +178,7 @@ module ChfCxsInputModule
     '', & ! shape
     'depth', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -168,6 +197,7 @@ module ChfCxsInputModule
     '', & ! shape
     'Mannings roughness coefficient', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -180,8 +210,9 @@ module ChfCxsInputModule
     chfcxs_iprpak, &
     chfcxs_nsections, &
     chfcxs_npoints, &
-    chfcxs_idcxs, &
+    chfcxs_ifno_pkgdata, &
     chfcxs_nxspoints, &
+    chfcxs_ifno, &
     chfcxs_xfraction, &
     chfcxs_height, &
     chfcxs_manfraction &
@@ -195,10 +226,11 @@ module ChfCxsInputModule
     'PACKAGEDATA', & ! block
     'PACKAGEDATA', & ! tag name
     'PACKAGEDATA', & ! fortran variable
-    'RECARRAY IDCXS NXSPOINTS', & ! type
+    'RECARRAY IFNO NXSPOINTS', & ! type
     'NSECTIONS', & ! shape
     '', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -213,10 +245,11 @@ module ChfCxsInputModule
     'CROSSSECTIONDATA', & ! block
     'CROSSSECTIONDATA', & ! tag name
     'CROSSSECTIONDATA', & ! fortran variable
-    'RECARRAY XFRACTION HEIGHT MANFRACTION', & ! type
+    'RECARRAY IFNO XFRACTION HEIGHT MANFRACTION', & ! type
     'NPOINTS', & ! shape
     '', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered

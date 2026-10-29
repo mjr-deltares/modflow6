@@ -7,8 +7,8 @@
 module NCExportCreateModule
 
   use KindModule, only: DP, I4B, LGP
-  use SimVariablesModule, only: errmsg
-  use ConstantsModule, only: DIS, DISU, DISV
+  use SimVariablesModule, only: errmsg, isim_mode
+  use ConstantsModule, only: DIS, DISU, DISV, MVALIDATE
   use SimModule, only: store_error, store_error_filename
   use NumericalModelModule, only: NumericalModelType
   use BaseDisModule, only: DisBaseType
@@ -154,9 +154,16 @@ contains
     class(AsciiDynamicPkgLoadBaseType), pointer :: rp_loader
     type(ExportPackageType), pointer :: export_pkg
     integer(I4B), pointer :: export_arrays
+    integer(I4B), dimension(:), pointer, contiguous :: mshape
     class(*), pointer :: obj
     logical(LGP) :: found, readasarrays
     integer(I4B) :: n
+
+    if (isim_mode /= MVALIDATE) then
+      ! input array export configuration is documented
+      ! as ignored if not in validate mode
+      return
+    end if
 
     ! create list of in scope loaders
     allocate (export_arrays)
@@ -169,7 +176,8 @@ contains
 
       ! update export arrays option
       call mem_set_value(export_arrays, 'EXPORT_NC', &
-                         dynamic_pkg%mf6_input%mempath, found)
+                         dynamic_pkg%mf6_input%mempath, found, &
+                         release=.false.)
 
       readasarrays = (dynamic_pkg%readasarrays .or. dynamic_pkg%readarraygrid)
       if (export_arrays > 0 .and. readasarrays) then
@@ -179,18 +187,20 @@ contains
           select type (rp_loader)
           type is (LayerArrayLoadType)
             ! create the export object
+            mshape => rp_loader%ctx%mshape
             allocate (export_pkg)
             call export_pkg%init(rp_loader%mf6_input, &
-                                 rp_loader%ctx%mshape, &
+                                 mshape, &
                                  rp_loader%ctx%naux, &
                                  rp_loader%param_names, rp_loader%nparam)
             obj => export_pkg
             call pkglist%add(obj)
           type is (GridArrayLoadType)
             ! create the export object
+            mshape => rp_loader%ctx%mshape
             allocate (export_pkg)
             call export_pkg%init(rp_loader%mf6_input, &
-                                 rp_loader%ctx%mshape, &
+                                 mshape, &
                                  rp_loader%ctx%naux, &
                                  rp_loader%param_names, rp_loader%nparam)
             obj => export_pkg

@@ -9,6 +9,7 @@ module GwfStoInputModule
   public gwf_sto_block_definitions
   public GwfStoParamFoundType
   public gwf_sto_multi_package
+  public gwf_sto_is_advanced
   public gwf_sto_subpackages
 
   type GwfStoParamFoundType
@@ -31,11 +32,12 @@ module GwfStoInputModule
   end type GwfStoParamFoundType
 
   logical :: gwf_sto_multi_package = .false.
+  logical :: gwf_sto_is_advanced = .false.
 
   character(len=16), parameter :: &
     gwf_sto_subpackages(*) = &
     [ &
-    '                ' &
+    'UTL-TVS         ' &
     ]
 
   type(InputParamDefinitionType), parameter :: &
@@ -50,6 +52,7 @@ module GwfStoInputModule
     '', & ! shape
     'keyword to save NPF flows', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -68,6 +71,7 @@ module GwfStoInputModule
     '', & ! shape
     'keyword to indicate SS is read as storage coefficient', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -84,9 +88,10 @@ module GwfStoInputModule
     'SS_CONFINED_ONLY', & ! fortran variable
     'KEYWORD', & ! type
     '', & ! shape
-    'keyword to indicate specific storage only applied under confined&
-     & conditions', & ! longname
+    'keyword to indicate specific storage only applied under '// &
+    'confined conditions', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -105,6 +110,7 @@ module GwfStoInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -123,6 +129,7 @@ module GwfStoInputModule
     '', & ! shape
     'tvs keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -141,6 +148,7 @@ module GwfStoInputModule
     '', & ! shape
     'file keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -159,6 +167,7 @@ module GwfStoInputModule
     '', & ! shape
     'file name of TVS information', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -177,6 +186,7 @@ module GwfStoInputModule
     '', & ! shape
     'export array variables to layered ascii files.', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -195,6 +205,7 @@ module GwfStoInputModule
     '', & ! shape
     'export array variables to netcdf output files.', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -213,6 +224,7 @@ module GwfStoInputModule
     '', & ! shape
     'development option for original specific storage', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -231,6 +243,7 @@ module GwfStoInputModule
     '', & ! shape
     'development option flag for old storage formulation', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -249,6 +262,7 @@ module GwfStoInputModule
     'NODES', & ! shape
     'convertible indicator', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .true., & ! layered
@@ -267,6 +281,7 @@ module GwfStoInputModule
     'NODES', & ! shape
     'specific storage', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .true., & ! layered
@@ -285,6 +300,7 @@ module GwfStoInputModule
     'NODES', & ! shape
     'specific yield', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .true., & ! layered
@@ -303,6 +319,7 @@ module GwfStoInputModule
     '', & ! shape
     'steady state indicator', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -321,6 +338,7 @@ module GwfStoInputModule
     '', & ! shape
     'transient indicator', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -362,6 +380,7 @@ module GwfStoInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered

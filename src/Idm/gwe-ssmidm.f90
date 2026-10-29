@@ -9,6 +9,7 @@ module GweSsmInputModule
   public gwe_ssm_block_definitions
   public GweSsmParamFoundType
   public gwe_ssm_multi_package
+  public gwe_ssm_is_advanced
   public gwe_ssm_subpackages
 
   type GweSsmParamFoundType
@@ -25,11 +26,12 @@ module GweSsmInputModule
   end type GweSsmParamFoundType
 
   logical :: gwe_ssm_multi_package = .false.
+  logical :: gwe_ssm_is_advanced = .false.
 
   character(len=16), parameter :: &
     gwe_ssm_subpackages(*) = &
     [ &
-    '                ' &
+    'UTL-SPC         ' &
     ]
 
   type(InputParamDefinitionType), parameter :: &
@@ -44,6 +46,7 @@ module GweSsmInputModule
     '', & ! shape
     'print calculated flows to listing file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -62,6 +65,7 @@ module GweSsmInputModule
     '', & ! shape
     'save calculated flows to budget file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -80,6 +84,7 @@ module GweSsmInputModule
     '', & ! shape
     'package name', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -98,6 +103,7 @@ module GweSsmInputModule
     '', & ! shape
     'source type', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -116,6 +122,7 @@ module GweSsmInputModule
     '', & ! shape
     'auxiliary variable name', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -134,6 +141,7 @@ module GweSsmInputModule
     '', & ! shape
     'package name', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -152,6 +160,7 @@ module GweSsmInputModule
     '', & ! shape
     'head keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -170,6 +179,7 @@ module GweSsmInputModule
     '', & ! shape
     'file keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -188,6 +198,7 @@ module GweSsmInputModule
     '', & ! shape
     'spc file name', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -206,6 +217,7 @@ module GweSsmInputModule
     '', & ! shape
     'mixed keyword', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -239,6 +251,7 @@ module GweSsmInputModule
     '', & ! shape
     'package list', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -257,6 +270,7 @@ module GweSsmInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered

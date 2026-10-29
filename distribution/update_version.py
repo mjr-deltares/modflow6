@@ -7,10 +7,12 @@ This script is used to update several files in the modflow6 repository, includin
 
   ../version.txt
   ../meson.build
+  ../utils/mf5to6/meson.build
   ../doc/version.tex
   ../README.md
   ../DISCLAIMER.md
   ../code.json
+  ../src/Utilities/version.f90.in
   ../src/Utilities/version.f90
 
 Information in these files include version number (major.minor.patch[label]), build
@@ -23,23 +25,27 @@ version numbers, and an optional label. Version numbers are substituted into sou
 code, latex files, markdown files, etc. The version number can be provided explicitly
 using --version, short -v.
 
-If the --releasemode flag is provided, IDEVELOPMODE is set to 0 in
-src/Utilities/version.f90.  Otherwise, IDEVELOPMODE is set to 1.
+If --releasemode is provided, IDEVELOPMODE is set to 0 in src/Utilities/version.f90.in
+and src/Utilities/version.f90. Otherwise, IDEVELOPMODE is set to 1.
 
-if the --approved flag (short -a) is provided, the disclaimer in
-src/Utilities/version.f90 and the README/DISCLAIMER markdown files is modified to
-reflect review and approval. Otherwise the language reflects preliminary/provisional
-status, and version strings contain "(preliminary)".
+if --releasemode is provided, the disclaimer in src/Utilities/version.f90.in and the
+README/DISCLAIMER markdown files is modified to reflect review and approval.
+Otherwise the language reflects preliminary/provisional status.
+
+Timestamps use the current date, or --date if provided, so all steps of a release can
+agree on a date. Use ../doc/ReleaseNotes/release_history.py to add the release to the
+release history in the release notes. The date and DOI of a release in the release
+history are used in the software citation rendered with --citation.
 """
 
 import argparse
 import json
 import os
+import sys
 import textwrap
 from collections import OrderedDict
-from datetime import datetime
+from datetime import date, datetime
 from pathlib import Path
-from typing import Optional
 
 import pytest
 import yaml
@@ -55,15 +61,20 @@ version_file_path = project_root_path / "version.txt"
 touched_file_paths = [
     version_file_path,
     project_root_path / "meson.build",
+    project_root_path / "utils" / "mf5to6" / "meson.build",
     project_root_path / "doc" / "version.tex",
     project_root_path / "doc" / "version.py",
     project_root_path / "README.md",
     project_root_path / "DISCLAIMER.md",
     project_root_path / "CITATION.cff",
     project_root_path / "code.json",
+    project_root_path / "src" / "Utilities" / "version.f90.in",
     project_root_path / "src" / "Utilities" / "version.f90",
 ]
 
+# the release history is managed by a script alongside the release notes
+sys.path.insert(0, str(project_root_path / "doc" / "ReleaseNotes"))
+from release_history import find_release  # noqa: E402
 
 _approved_fmtdisclaimer = '''  character(len=*), parameter :: FMTDISCLAIMER = &
     "(/,&
@@ -121,22 +132,27 @@ resulting from the authorized or unauthorized use of the software.
 """
 
 
-def get_disclaimer(approved: bool = False, formatted: bool = False) -> str:
-    if approved:
-        return _approved_fmtdisclaimer if formatted else _approved_disclaimer
-    else:
+def get_disclaimer(developmode: bool = False, formatted: bool = False) -> str:
+    if developmode:
         return _preliminary_fmtdisclaimer if formatted else _preliminary_disclaimer
+    return _approved_fmtdisclaimer if formatted else _approved_disclaimer
+
+
+# Umbrella DOI for the "MODFLOW and Related Programs" software release page.
+# Used as the software citation DOI when a release-specific one isn't passed
+# via --doi.
+_default_doi = "https://doi.org/10.5066/F76Q1VQV"
 
 
 def get_software_citation(
-    timestamp: datetime, version: Version, approved: bool = False
+    timestamp: datetime,
+    version: Version,
+    doi: str = _default_doi,
+    developmode: bool = False,
 ) -> str:
     # get data Software/Code citation for FloPy
     citation = yaml.safe_load((project_root_path / "CITATION.cff").read_text())
 
-    sb = ""
-    if not approved:
-        sb = " (preliminary)"
     # format author names
     authors = []
     for author in citation["authors"]:
@@ -164,16 +180,16 @@ def get_software_citation(
     # add the rest of the citation
     line += (
         f", {timestamp.year}, "
-        f"MODFLOW 6 Modular Hydrologic Model version {version}{sb}: "
+        f"MODFLOW 6 Modular Hydrologic Model version {version}: "
         f"U.S. Geological Survey Software Release, {timestamp:%-d %B %Y}, "
-        "https://doi.org/10.5066/P9FL1JCC"
+        f"{doi}"
     )
 
     return line
 
 
 def log_update(path, version: Version):
-    print(f"Updated {path} with version {version}")
+    print(f"Updated {path} with version {version}", file=sys.stderr)
 
 
 def update_version_txt_and_py(version: Version, timestamp: datetime):
@@ -193,90 +209,99 @@ def update_version_txt_and_py(version: Version, timestamp: datetime):
 
 
 def update_meson_build(version: Version):
-    path = project_root_path / "meson.build"
-    lines = open(path, "r").read().splitlines()
-    with open(path, "w") as f:
-        for line in lines:
-            if "version:" in line and "meson_version:" not in line:
-                line = f"  version: '{version}',"
-            f.write(f"{line}\n")
-    log_update(path, version)
+    paths = [
+        project_root_path / "meson.build",
+        project_root_path / "utils" / "mf5to6" / "meson.build",
+    ]
+    for path in paths:
+        lines = open(path, "r").read().splitlines()
+        with open(path, "w") as f:
+            for line in lines:
+                if "version:" in line and "meson_version:" not in line:
+                    line = f"  version: '{version}',"
+                f.write(f"{line}\n")
+        log_update(path, version)
 
 
-def update_version_tex(version: Version, timestamp: datetime):
+def update_version_tex(version: Version, timestamp: datetime, developmode: bool = True):
     path = project_root_path / "doc" / "version.tex"
     with open(path, "w") as f:
-        line = "\\newcommand{\\modflowversion}{mf" + str(version) + "}"
-        f.write(f"{line}\n")
-        line = (
-            "\\newcommand{\\modflowdate}{" + f"{timestamp.strftime('%B %d, %Y')}" + "}"
-        )
-        f.write(f"{line}\n")
-        line = (
-            "\\newcommand{\\currentmodflowversion}"
-            + "{Version \\modflowversion---\\modflowdate}"
-        )
-        f.write(f"{line}\n")
+        lines = [
+            "\\newcommand{\\modflowversion}{mf" + str(version) + "}",
+            "\\newcommand{\\modflowdate}{" + f"{timestamp.strftime('%B %d, %Y')}" + "}",
+            (
+                "\\newcommand{\\currentmodflowversion} "
+                "{Version \\modflowversion---\\modflowdate}"
+            ),
+            "\\newif\\ifdevelopmode",
+            f"\\developmode{'true' if developmode else 'false'}",
+        ]
+        for line in lines:
+            f.write(f"{line}\n")
+
     log_update(path, version)
 
 
 def update_version_f90(
-    version: Optional[Version],
+    version: Version | None,
     timestamp: datetime,
-    approved: bool = False,
-    developmode: bool = True,
+    developmode: bool = False,
 ):
-    path = project_root_path / "src" / "Utilities" / "version.f90"
-    lines = open(path, "r").read().splitlines()
-    with open(path, "w") as f:
-        skip = False
-        version_spl = str(version).rpartition("-")
-        if version_spl[1]:
-            version_num = version_spl[0]
-            version_label = version_spl[2]
-        else:
-            version_num = str(version_spl[2])
-            version_label = ""
+    version_spl = str(version).rpartition("-")
+    version_num = version_spl[0] if version_spl[1] else str(version_spl[2])
+    new_title = "" if developmode else f" {timestamp.strftime('%m/%d/%Y')}"
 
-        for line in lines:
-            # skip all of the disclaimer text
-            if skip:
-                if ',/)"' in line:
-                    skip = False
-                continue
-            elif ":: IDEVELOPMODE =" in line:
-                line = (
-                    "  integer(I4B), parameter :: "
-                    + f"IDEVELOPMODE = {1 if developmode else 0}"
-                )
-            elif ":: VERSIONNUMBER =" in line:
-                line = line.rpartition("::")[0] + f":: VERSIONNUMBER = '{version_num}'"
-            elif ":: VERSIONTAG =" in line:
-                fmat_tstmp = timestamp.strftime("%m/%d/%Y")
-                label_clause = version_label if version_label else ""
-                label_clause += " (preliminary)" if not approved else ""
-                line = (
-                    line.rpartition("::")[0]
-                    + f":: VERSIONTAG = '{label_clause} {fmat_tstmp}'"
-                )
-            elif ":: FMTDISCLAIMER =" in line:
-                line = get_disclaimer(approved, formatted=True)
-                skip = True
+    template_path = project_root_path / "src" / "Utilities" / "version.f90.in"
+    static_path = project_root_path / "src" / "Utilities" / "version.f90"
+
+    lines = open(template_path, "r").read().splitlines()
+    updated_lines = []
+    skip = False
+    for line in lines:
+        if skip:
+            if ',/)"' in line:
+                skip = False
+            continue
+        elif ":: IDEVELOPMODE =" in line:
+            line = (
+                "  integer(I4B), parameter :: "
+                + f"IDEVELOPMODE = {1 if developmode else 0}"
+            )
+        elif ":: VERSIONNUMBER =" in line:
+            line = line.rpartition("::")[0] + f":: VERSIONNUMBER = '{version_num}'"
+        elif ":: VERSIONVCSTAG =" in line:
+            # release builds run before the release commit/tag exists,
+            # so set an empty tag here rather than rely on meson at build
+            # time. development builds need the placeholder for meson to
+            # substitute, so restore it in case a release removed it.
+            tag = "@VCS_TAG@" if developmode else ""
+            line = line.rpartition("::")[0] + f':: VERSIONVCSTAG = "{tag}"'
+        elif ":: VERSIONTITLE =" in line:
+            line = line.rpartition("::")[0] + f":: VERSIONTITLE = '{new_title}'"
+        elif ":: FMTDISCLAIMER =" in line:
+            line = get_disclaimer(developmode=developmode, formatted=True)
+            skip = True
+        updated_lines.append(line)
+
+    with open(template_path, "w") as f:
+        for line in updated_lines:
             f.write(f"{line}\n")
-    log_update(path, version)
+    log_update(template_path, version)
+
+    with open(static_path, "w") as f:
+        for line in updated_lines:
+            f.write(f"{line.replace('@VCS_TAG@', '')}\n")
+    log_update(static_path, version)
 
 
-def update_readme_and_disclaimer(version: Version, approved: bool = False):
-    disclaimer = get_disclaimer(approved, formatted=False)
+def update_readme_and_disclaimer(version: Version, developmode: bool = False):
+    disclaimer = get_disclaimer(developmode, formatted=False)
     readme_path = str(project_root_path / "README.md")
     readme_lines = open(readme_path, "r").read().splitlines()
     with open(readme_path, "w") as f:
         for line in readme_lines:
             if "## Version " in line:
-                version_line = f"### Version {version}"
-                if not approved:
-                    version_line += " (preliminary)"
-                f.write(f"{version_line}\n")
+                f.write(f"### Version {version}\n")
             elif "Disclaimer" in line:
                 f.write(f"{disclaimer}\n")
                 break
@@ -303,14 +328,14 @@ def update_citation_cff(version: Version, timestamp: datetime):
     log_update(path, version)
 
 
-def update_codejson(version: Version, timestamp: datetime, approved: bool = False):
+def update_codejson(version: Version, timestamp: datetime, developmode: bool = False):
     path = project_root_path / "code.json"
     with open(path, "r") as f:
         data = json.load(f, object_pairs_hook=OrderedDict)
 
     data[0]["date"]["metadataLastUpdated"] = timestamp.strftime("%Y-%m-%d")
     data[0]["version"] = str(version)
-    data[0]["status"] = "Release" if approved else "Preliminary"
+    data[0]["status"] = "Preliminary" if developmode else "Release"
     with open(path, "w") as f:
         json.dump(data, f, indent=4)
         f.write("\n")
@@ -343,8 +368,7 @@ def update_pixi(version: Version):
 def update_version(
     version: Version = None,
     timestamp: datetime = datetime.now(),
-    approved: bool = False,
-    developmode: bool = True,
+    developmode: bool = False,
 ):
     """
     Update version information stored in version.txt in the project root,
@@ -364,19 +388,31 @@ def update_version(
         with lock:
             update_version_txt_and_py(version, timestamp)
             update_meson_build(version)
-            update_version_tex(version, timestamp)
-            update_version_f90(version, timestamp, approved, developmode)
-            update_readme_and_disclaimer(version, approved)
+            update_version_tex(version, timestamp, developmode)
+            update_version_f90(version, timestamp, developmode)
+            update_readme_and_disclaimer(version, developmode)
             update_citation_cff(version, timestamp)
-            update_codejson(version, timestamp, approved)
+            update_codejson(version, timestamp, developmode)
             update_doxyfile(version)
             update_pixi(version)
+
     finally:
         lock_path.unlink(missing_ok=True)
 
 
 _initial_version = Version("0.0.1")
 _current_version = Version(version_file_path.read_text().strip())
+
+
+def release_version() -> Version:
+    """Current development version, any development segment (e.g. '.dev0') removed."""
+    return Version(_current_version.base_version)
+
+
+def post_release_version() -> Version:
+    """Development version for the next cycle: minor incremented, '.dev0' suffix."""
+    version = Version(_current_version.base_version)
+    return Version(f"{version.major}.{version.minor + 1}.0.dev0")
 
 
 @no_parallel
@@ -391,19 +427,13 @@ _current_version = Version(version_file_path.read_text().strip())
         ),
     ],
 )
-@pytest.mark.parametrize("approved", [True, False])
-@pytest.mark.parametrize("developmode", [True, False])
-def test_update_version(version, approved, developmode):
+@pytest.mark.parametrize("full", [True, False])
+def test_update_version(version, full):
     m_times = [get_modified_time(file) for file in touched_file_paths]
     timestamp = datetime.now()
 
     try:
-        update_version(
-            timestamp=timestamp,
-            version=version,
-            approved=approved,
-            developmode=developmode,
-        )
+        update_version(timestamp=timestamp, version=version, developmode=full)
         updated = Version(version_file_path.read_text().strip())
 
         # check files containing version info were modified
@@ -419,25 +449,41 @@ def test_update_version(version, approved, developmode):
             assert updated == _current_version
 
         # check IDEVELOPMODE was set correctly
-        version_f90_path = project_root_path / "src" / "Utilities" / "version.f90"
+        version_f90_path = project_root_path / "src" / "Utilities" / "version.f90.in"
         lines = version_f90_path.read_text().splitlines()
-        assert any(
-            f"IDEVELOPMODE = {1 if developmode else 0}" in line for line in lines
-        )
+        assert any(f"IDEVELOPMODE = {0 if full else 1}" in line for line in lines)
 
         # check disclaimer has appropriate language
         disclaimer_path = project_root_path / "DISCLAIMER.md"
-        disclaimer = disclaimer_path.read_text().splitlines()
-        assert any(("approved for release") in line for line in lines) == approved
-        assert any(("preliminary or provisional") in line for line in lines) != approved
+        lines = disclaimer_path.read_text().splitlines()
+        assert any(("approved for release") in line for line in lines) == full
+        assert any(("preliminary or provisional") in line for line in lines) != full
 
-        # check readme has appropriate language
-        readme_path = project_root_path / "README.md"
-        readme = readme_path.read_text().splitlines()
-        assert any(("(preliminary)") in line for line in lines) != approved
     finally:
         for p in touched_file_paths:
             os.system(f"git restore {p}")
+
+
+@pytest.mark.parametrize("developmode", [True, False])
+def test_update_version_f90_vcs_tag_round_trip(tmp_path, monkeypatch, developmode):
+    # switching to release mode and back must restore the
+    # @VCS_TAG@ placeholder meson substitutes in dev builds
+    utils_path = tmp_path / "src" / "Utilities"
+    utils_path.mkdir(parents=True)
+    for name in ["version.f90.in", "version.f90"]:
+        src_path = project_root_path / "src" / "Utilities" / name
+        (utils_path / name).write_text(src_path.read_text())
+    monkeypatch.setattr(sys.modules[__name__], "project_root_path", tmp_path)
+
+    timestamp = datetime.now()
+    update_version_f90(release_version(), timestamp, developmode=False)
+    update_version_f90(post_release_version(), timestamp, developmode=developmode)
+
+    template = (utils_path / "version.f90.in").read_text()
+    static = (utils_path / "version.f90").read_text()
+    assert ('VERSIONVCSTAG = "@VCS_TAG@"' in template) == developmode
+    assert ('VERSIONVCSTAG = ""' in template) != developmode
+    assert "@VCS_TAG@" not in static
 
 
 if __name__ == "__main__":
@@ -445,74 +491,165 @@ if __name__ == "__main__":
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=textwrap.dedent(
             """\
-            Update version information stored in version.txt in the project root,
-            as well as several other files in the repository. If --version is not
-            provided, the version number will not be changed. A file lock is held
-            to synchronize file access. To indicate a version is production-ready
-            use --approve. This will change the disclaimer and version tag label,
-            removing '(preliminary)' from the latter, and modifying the former to
-            reflect approval The --releasemode flag controls whether IDEVELOPMODE
-            is set to 0 instead of the default 1. The version tag must follow the
-            '<major>.<minor>.<patch>' format conventions for semantic versioning.
+Update version information stored in version.txt in the project root,
+as well as several other files in the repository:
+
+  ../version.txt
+  ../meson.build
+  ../utils/mf5to6/meson.build
+  ../doc/version.tex
+  ../README.md
+  ../DISCLAIMER.md
+  ../code.json
+  ../src/Utilities/version.f90.in
+  ../src/Utilities/version.f90
+
+These include a combination of version strings, build timestamps, disclaimer
+text, text indicating whether the release is provisional or approved, source
+code setting the variable IDEVELOPMODE to either 0 or 1, and other data.
+
+Provide a `--version` string following semantic versioning conventions.
+If none of --version, --release or --post-release is provided, the version
+number will not be changed, just timestamps.
+
+Use `--release` (`-r`) to use the current development version with any
+development segment (e.g. '.dev0') removed. Use `--post-release` (`-p`) to
+use the next development version, with the minor version incremented and a
+'.dev0' suffix re-added; this is the version the post-release reset sets on
+the develop branch.
+
+Use `--get` (`-g`) or `--dry-run` to print the resolved version without
+making changes. The resolved version is printed on the last line in every
+mode, so `--post-release` alone both updates the files and reports the new
+version.
+
+Use `--releasemode` to control whether IDEVELOPMODE is set to 0 instead
+of 1, and to alter mf6's output and disclaimer text reflecting approval.
+
+Use `--date` (`YYYY-MM-DD`) to give the date used in timestamps instead of
+the current date, so all steps of a release can use the same date.
+
+Use `--citation` (`-c`) to render the current software citation. The
+citation's date and DOI are those in the release history row for the version
+in ReleaseNotes.tex, see doc/ReleaseNotes/release_history.py. Without a row,
+the current date and the umbrella MODFLOW software DOI are used. Pass `--date`
+or the release DOI link via `--doi` (`-d`), e.g.
+`--doi https://doi.org/10.5066/P1PGE9XW`, to override them.
             """
         ),
-    )
-    parser.add_argument(
-        "-v",
-        "--version",
-        required=False,
-        help="Specify the release version",
-    )
-    parser.add_argument(
-        "-a",
-        "--approved",
-        required=False,
-        action="store_true",
-        help="Approve the release version "
-        "(defaults to false for preliminary/development distributions)",
-    )
-    parser.add_argument(
-        "-r",
-        "--releasemode",
-        required=False,
-        action="store_true",
-        help="Set IDEVELOPMODE to 0 for release mode "
-        "(defaults to false for development distributions)",
-    )
-    parser.add_argument(
-        "-g",
-        "--get",
-        required=False,
-        action="store_true",
-        help="Get the current version number, don't update anything "
-        "(defaults to false)",
     )
     parser.add_argument(
         "-c",
         "--citation",
         required=False,
         action="store_true",
-        help="Show the citation, don't update anything (defaults to False)",
+        help="Show the citation, don't update anything. Defaults to false.",
     )
+    parser.add_argument(
+        "-g",
+        "--get",
+        required=False,
+        action="store_true",
+        help="Show the version, don't update anything. Defaults to false",
+    )
+    parser.add_argument(
+        "-d",
+        "--doi",
+        required=False,
+        default=None,
+        help="DOI link (e.g. https://doi.org/10.5066/P1PGE9XW) to substitute "
+        "into the software citation rendered by --citation. Defaults to the "
+        "DOI in the release history row for the version, or if there is none "
+        f"the umbrella MODFLOW software DOI ({_default_doi}).",
+    )
+    parser.add_argument(
+        "--date",
+        required=False,
+        type=date.fromisoformat,
+        default=None,
+        help="Date (YYYY-MM-DD) to use in timestamps, and in the citation "
+        "rendered by --citation. Defaults to the date in the release history "
+        "row for the version if rendering the citation, otherwise today.",
+    )
+    parser.add_argument(
+        "-a",
+        "--releasemode",
+        required=False,
+        action="store_true",
+        help="Enable release mode for a full, standard release. Modifies "
+        "disclaimer language reflecting approval. Sets IDEVELOPMODE = 0. "
+        "Defaults to false for preliminary development distributions.",
+    )
+    parser.add_argument(
+        "-v",
+        "--version",
+        required=False,
+        help="Specify the release version. Value must follow PEP 440.",
+    )
+    parser.add_argument(
+        "-r",
+        "--release",
+        required=False,
+        action="store_true",
+        help="Use the current development version with any development segment "
+        "(e.g. '.dev0') removed. Defaults to false.",
+    )
+    parser.add_argument(
+        "-p",
+        "--post-release",
+        required=False,
+        action="store_true",
+        help="Use the next development version, with the minor version "
+        "incremented and a '.dev0' suffix re-added. Defaults to false.",
+    )
+    parser.add_argument(
+        "--dry-run",
+        required=False,
+        action="store_true",
+        help="Print the resolved version and exit without updating anything. "
+        "Defaults to false.",
+    )
+
     args = parser.parse_args()
-    approved = args.approved
-    releasemode = args.releasemode
-    version = Version(args.version) if args.version else _current_version
-    if args.get:
-        print(Version((project_root_path / "version.txt").read_text().strip()))
-    elif args.citation:
+    citation = args.citation
+    developmode = not args.releasemode
+
+    if args.post_release:
+        version = post_release_version()
+    elif args.release:
+        version = release_version()
+    elif args.version:
+        version = Version(args.version)
+    else:
+        version = _current_version
+
+    now = datetime.now()
+    timestamp = datetime.combine(args.date, now.time()) if args.date else now
+
+    if citation:
+        # a release's date and DOI are those in its release history row
+        release = find_release(version.base_version)
+        if release is None:
+            print(
+                f"No release history row for {version}, using the current date "
+                "and umbrella DOI unless --date and --doi are provided",
+                file=sys.stderr,
+            )
+        elif not args.date:
+            timestamp = datetime.combine(release[0], now.time())
+        doi = args.doi or (release[1] if release else _default_doi)
         print(
             get_software_citation(
-                timestamp=datetime.now(), version=version, approved=approved
+                timestamp=timestamp,
+                version=version,
+                doi=doi,
+                developmode=developmode,
             )
         )
+    elif args.get or args.dry_run:
+        print(version)
     else:
-        print(f"Updating to version {version} with options")
-        print(f"    approved: {approved}")
-        print(f"    releasemode: {releasemode}")
-        update_version(
-            version=version,
-            timestamp=datetime.now(),
-            approved=approved,
-            developmode=not releasemode,
-        )
+        mode = "develop" if developmode else "release"
+        print(f"Updating to version {version} in {mode} mode", file=sys.stderr)
+        update_version(version=version, timestamp=timestamp, developmode=developmode)
+        print(version)

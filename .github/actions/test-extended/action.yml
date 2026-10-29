@@ -19,16 +19,38 @@ runs:
       if: runner.os == 'macOS'
       shell: bash
       run: |
-        brew install netcdf-fortran
+        brew install netcdf-fortran libevent
         nc-config --all
         nf-config --all
 
     - name: Setup GNU Fortran
-      if: runner.os != 'macOS'
       uses: fortran-lang/setup-fortran@v1
       with:
         compiler: gcc
-        version: 13
+        version: ${{ runner.os == 'macOS' && '16' || '13' }}
+
+    - name: Prioritize pinned compiler on PATH (macOS)
+      if: runner.os == 'macOS'
+      shell: bash
+      run: echo "/usr/local/bin" >> "$GITHUB_PATH"
+
+    - name: Build OpenMPI (macOS)
+      if: runner.os == 'macOS'
+      shell: bash
+      run: |
+        wget https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.6.tar.gz
+        tar -xzf openmpi-4.1.6.tar.gz
+        cd openmpi-4.1.6
+        ./configure --prefix=$GITHUB_WORKSPACE/openmpi --with-libevent=$(brew --prefix libevent) --enable-mpi-fortran=usempi FC=gfortran CC=gcc CXX=g++
+        make -j$(sysctl -n hw.ncpu)
+        make install
+
+    - name: Patch OpenMPI wrapper for macOS ARM linker
+      if: runner.os == 'macOS'
+      shell: bash
+      run: |
+        # Add -Wl,-ld_classic to the linker_flags line
+        sed -i '' 's/^linker_flags=/linker_flags=-Wl,-ld_classic /' $GITHUB_WORKSPACE/openmpi/share/openmpi/mpifort-wrapper-data.txt
 
     - name: Checkout PETSc
       uses: actions/checkout@v4
@@ -40,23 +62,58 @@ runs:
     - name: Configure environment
       shell: bash
       run: |
-        echo "PKG_CONFIG_PATH=$GITHUB_WORKSPACE/petsc/arch-gcc-opt/lib/pkgconfig" >> $GITHUB_ENV
+        echo "PETSC_DIR=$GITHUB_WORKSPACE/petsc" >> $GITHUB_ENV
+        echo "PETSC_ARCH=arch-gcc-opt" >> $GITHUB_ENV
         echo "LD_LIBRARY_PATH=$GITHUB_WORKSPACE/petsc/arch-gcc-opt/lib:$LD_LIBRARY_PATH" >> $GITHUB_ENV
         echo "$GITHUB_WORKSPACE/petsc/arch-gcc-opt/bin" >> $GITHUB_PATH
+        if [ "$RUNNER_OS" == "macOS" ]; then
+          echo "PATH=$GITHUB_WORKSPACE/openmpi/bin:$PATH" >> $GITHUB_ENV
+          echo "LD_LIBRARY_PATH=$GITHUB_WORKSPACE/openmpi/lib:$LD_LIBRARY_PATH" >> $GITHUB_ENV
+        fi
 
     - name: Configure PETSc
       shell: bash
       working-directory: petsc
       run: |
-        sudo wget -P $GITHUB_WORKSPACE/petsc https://download.open-mpi.org/release/open-mpi/v5.0/openmpi-5.0.2.tar.gz
-        sudo ./configure PETSC_ARCH=arch-gcc-opt --download-fblaslapack --download-openmpi=$GITHUB_WORKSPACE/petsc/openmpi-5.0.2.tar.gz --with-debugging=0
-        sudo make all
+        if [ "$RUNNER_OS" == "macOS" ]; then
+          ./configure PETSC_ARCH=arch-gcc-opt --download-fblaslapack --with-mpi-dir=$GITHUB_WORKSPACE/openmpi --with-debugging=0
+        else
+          wget -P $GITHUB_WORKSPACE/petsc https://download.open-mpi.org/release/open-mpi/v5.0/openmpi-5.0.2.tar.gz
+          ./configure PETSC_ARCH=arch-gcc-opt --download-fblaslapack --download-openmpi=$GITHUB_WORKSPACE/petsc/openmpi-5.0.2.tar.gz --with-debugging=0
+        fi
+        make all
+
+    - name: Show PETSc configure log
+      if: failure()
+      shell: bash
+      working-directory: petsc
+      run: cat configure.log
+
+    - name: Rebuild test-drive against pinned compiler (macOS)
+      # pixi's test-drive package is prebuilt by conda-forge's own toolchain, which
+      # isn't ABI-compatible with the Homebrew gfortran pinned above -- mixing the two
+      # crashes every Fortran unit test on startup. Rebuild test-drive from source with
+      # the pinned compiler so it matches what actually builds/links the MF6 test binaries.
+      if: runner.os == 'macOS'
+      shell: bash
+      working-directory: modflow6
+      run: |
+        rm -rf .test-drive
+        git clone https://github.com/fortran-lang/test-drive.git .test-drive
+        pixi run bash -c '
+          set -e
+          cd .test-drive
+          meson setup _build --libdir=lib --warnlevel=0 --default-library=shared --prefix="$CONDA_PREFIX"
+          meson compile -C _build
+          meson install -C _build --no-rebuild
+        '
+        rm -rf .test-drive
 
     - name: Build modflow6
       shell: bash
       working-directory: modflow6
       run: |
-        pixi run setup -Dextended=true builddir
+        pixi run setup-extended builddir
         pixi run build builddir
         pixi run test builddir
 
@@ -76,7 +133,12 @@ runs:
     - name: Update flopy
       shell: bash
       working-directory: modflow6
-      run: pixi run update-flopy
+      run: |
+        cmd="pixi run update-flopy --dfnpath doc/mf6io/mf6ivar/dfn"
+        if [[ "${{ env.RELEASEMODE }}" == "true" ]]; then
+          cmd="$cmd --releasemode"
+        fi
+        eval "$cmd"
 
     - name: Get executables
       shell: bash
@@ -85,7 +147,7 @@ runs:
         GITHUB_TOKEN: ${{ github.token }}
       run: pixi run get-exes
 
-    - name: Test programs (macOS)
+    - name: Check lib dependencies (macOS)
       if: runner.os == 'macOS'
       shell: bash
       working-directory: modflow6
@@ -94,9 +156,8 @@ runs:
       run: |
         otool -L bin/libmf6.dylib
         echo $DYLD_LIBRARY_PATH 
-        pixi run autotest --parallel --netcdf -k "test_par or test_netcdf"
 
-    - name: Test programs (Linux)
+    - name: Check lib dependencies (Linux)
       if: runner.os != 'macOS'
       shell: bash
       working-directory: modflow6
@@ -105,4 +166,20 @@ runs:
       run: |
         ldd bin/libmf6.so
         echo $LD_LIBRARY_PATH
-        pixi run autotest --parallel --netcdf -k "test_par or test_netcdf"
+
+    - name: Test programs
+      working-directory: modflow6
+      shell: bash
+      env:
+        REPOS_PATH: ${{ github.workspace }}
+        MARKERS: ${{ env.MARKERS }}
+        FILTERS: ${{ env.FILTERS }}
+      run: |
+        cmd="pixi run autotest --parallel --netcdf"
+        if [[ "${{ env.MARKERS }}" != "" ]]; then
+          cmd="$cmd -m '$MARKERS'"
+        fi
+        if [[ "${{ env.FILTERS }}" != "" ]]; then
+          cmd="$cmd -k '$FILTERS'"
+        fi
+        eval "$cmd"

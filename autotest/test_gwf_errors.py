@@ -10,6 +10,7 @@ import flopy
 import numpy as np
 import pytest
 from flopy.utils.gridutil import get_disu_kwargs
+from framework import DNODATA
 
 
 def run_mf6(argv, ws):
@@ -32,7 +33,7 @@ def run_mf6_error(ws, exe, err_str_list):
     msg = "mf terminated with error"
     if returncode != 0:
         if not isinstance(err_str_list, list):
-            err_str_list = list(err_str_list)
+            err_str_list = [err_str_list]
         for err_str in err_str_list:
             err = any(err_str in s for s in buff)
             if err:
@@ -101,7 +102,10 @@ def get_minimal_gwf_simulation(
         disu = flopy.mf6.ModflowGwfdisu(gwf, **disukwargs)
     ic = flopy.mf6.ModflowGwfic(gwf, **ickwargs)
     npf = flopy.mf6.ModflowGwfnpf(gwf, **npfkwargs)
-    chd = flopy.mf6.modflow.mfgwfchd.ModflowGwfchd(gwf, **chdkwargs)
+    if "readarraygrid" in chdkwargs:
+        chd = flopy.mf6.modflow.mfgwfchdg.ModflowGwfchdg(gwf, **chdkwargs)
+    else:
+        chd = flopy.mf6.modflow.mfgwfchd.ModflowGwfchd(gwf, **chdkwargs)
     return sim
 
 
@@ -119,11 +123,36 @@ def test_simple_model_success(function_tmpdir, targets):
     assert final_message in buff[-1], failure_message
 
 
+def test_input_bound(function_tmpdir, targets):
+    mf6 = targets["mf6"]
+
+    # test a simple model to make sure it runs and terminates correctly
+    sim = get_minimal_gwf_simulation(str(function_tmpdir), mf6)
+    sim.write_simulation()
+
+    # update chd to underspecify maxbound
+    with open(function_tmpdir / "test.chd", "w") as f:
+        f.write("BEGIN options\n")
+        f.write("END options\n\n")
+        f.write("BEGIN dimensions\n")
+        f.write("  MAXBOUND  1\n")
+        f.write("END dimensions\n\n")
+        f.write("BEGIN period  1\n")
+        f.write("  1 1 1 0\n")
+        f.write("  1 5 5 1\n")
+        f.write("END period  1\n")
+
+    with pytest.raises(RuntimeError):
+        # make sure error is set when input dimension is too small
+        err_str = "Input error: line count exceeds input dimension. Expected rows=1."
+        run_mf6_error(str(function_tmpdir), mf6, err_str)
+
+
 def test_empty_folder(function_tmpdir, targets):
     mf6 = targets["mf6"]
     with pytest.raises(RuntimeError):
         # make sure mf6 fails when there is no simulation name file
-        err_str = "mf6: mfsim.nam is not present in working directory."
+        err_str = "mfsim.nam is not present in working directory."
         run_mf6_error(str(function_tmpdir), mf6, err_str)
 
 
@@ -137,6 +166,27 @@ def test_sim_errors(function_tmpdir, targets):
         sim = get_minimal_gwf_simulation(
             str(function_tmpdir), exe=mf6, chdkwargs=chdkwargs
         )
+        sim.write_simulation()
+        err_str = ["1. Cell is already a constant head ((1,1,1))."]
+        run_mf6_error(str(function_tmpdir), mf6, err_str)
+
+
+def test_sim_errors_grid(function_tmpdir, targets):
+    mf6 = targets["mf6"]
+
+    with pytest.raises(RuntimeError):
+        # verify that the correct number of errors are reported
+        chdkwargs = {}
+        head = np.full((5, 5, 5), DNODATA, dtype=float)
+        for i in range(5):
+            head[0, i, 0] = 2.0
+        chdkwargs["readarraygrid"] = True
+        chdkwargs["head"] = head
+        sim = get_minimal_gwf_simulation(
+            str(function_tmpdir), exe=mf6, chdkwargs=chdkwargs
+        )
+        test_model = sim.get_model("test")
+        chd2 = flopy.mf6.modflow.mfgwfchdg.ModflowGwfchdg(test_model, **chdkwargs)
         sim.write_simulation()
         err_str = ["1. Cell is already a constant head ((1,1,1))."]
         run_mf6_error(str(function_tmpdir), mf6, err_str)
@@ -192,6 +242,123 @@ def test_disu_errors(function_tmpdir, targets):
         run_mf6_error(str(function_tmpdir), mf6, err_str)
 
 
+def test_drn_options_error_file(function_tmpdir, targets):
+    """Errors in DRN options are reported for the DRN input file."""
+    mf6 = targets["mf6"]
+
+    sim = get_minimal_gwf_simulation(str(function_tmpdir), exe=mf6)
+    gwf = sim.get_model("test")
+    flopy.mf6.ModflowGwfdrn(
+        gwf,
+        auxiliary=["depth"],
+        auxdepthname="not_an_aux",
+        stress_period_data={0: [[(0, 1, 1), 0.0, 1.0, 0.0]]},
+    )
+    # sourced after DRN; its file name was reported before the fix
+    flopy.mf6.ModflowGwfghb(
+        gwf,
+        stress_period_data={0: [[(0, 2, 2), 0.0, 1.0]]},
+    )
+    sim.write_simulation()
+
+    returncode, buff = run_mf6([mf6], str(function_tmpdir))
+    assert returncode != 0, "mf6 should have failed on an unknown AUXDEPTHNAME"
+
+    output = "\n".join(buff)
+    assert "AUXDEPTHNAME was specified as" in output
+    assert "ERROR OCCURRED WHILE READING FILE 'test.drn'" in output
+    assert "test.ghb" not in output
+
+
+def test_wel_options_error_file(function_tmpdir, targets):
+    """Errors in WEL options are reported for the WEL input file."""
+    mf6 = targets["mf6"]
+
+    sim = get_minimal_gwf_simulation(str(function_tmpdir), exe=mf6)
+    gwf = sim.get_model("test")
+    flopy.mf6.ModflowGwfwel(
+        gwf,
+        auxiliary=["afrlen"],
+        auto_flow_reduce=0.1,
+        stress_period_data={0: [[(0, 1, 1), -1.0, 0.5]]},
+    )
+    # sourced after WEL; its file name was reported before the fix
+    flopy.mf6.ModflowGwfghb(
+        gwf,
+        stress_period_data={0: [[(0, 2, 2), 0.0, 1.0]]},
+    )
+    sim.write_simulation()
+
+    # written by hand, AUTO_FLOW_REDUCE_AUXNAME is not in released flopy
+    with open(function_tmpdir / "test.wel", "w") as f:
+        f.write("BEGIN options\n")
+        f.write("  AUXILIARY  afrlen\n")
+        f.write("  AUTO_FLOW_REDUCE  0.1\n")
+        f.write("  AUTO_FLOW_REDUCE_AUXNAME  not_an_aux\n")
+        f.write("END options\n\n")
+        f.write("BEGIN dimensions\n")
+        f.write("  MAXBOUND  1\n")
+        f.write("END dimensions\n\n")
+        f.write("BEGIN period  1\n")
+        f.write("  1 2 2 -1.0 0.5\n")
+        f.write("END period  1\n")
+
+    returncode, buff = run_mf6([mf6], str(function_tmpdir))
+    assert returncode != 0, (
+        "mf6 should have failed on an unknown AUTO_FLOW_REDUCE_AUXNAME"
+    )
+
+    output = "\n".join(buff)
+    assert "AUTO_FLOW_REDUCE_AUXNAME was specified as" in output
+    assert "ERROR OCCURRED WHILE READING FILE 'test.wel'" in output
+    assert "test.ghb" not in output
+
+
+def test_lak_packagedata_bad_aux_error_no_crash(function_tmpdir, targets):
+    """A LAK PACKAGEDATA aux value that is neither numeric nor a defined
+    time-series name is reported as an input error."""
+    mf6 = targets["mf6"]
+
+    sim = get_minimal_gwf_simulation(str(function_tmpdir), exe=mf6)
+    gwf = sim.get_model("test")
+    flopy.mf6.ModflowGwflak(
+        gwf,
+        auxiliary=["concentration"],
+        boundnames=True,
+        nlakes=1,
+        noutlets=0,
+        packagedata=[(0, -0.4, 1, 0.0, "mylake")],
+        connectiondata=[(0, 0, (0, 0, 1), "VERTICAL", 0.0, 10.0, 10.0, 0.5, 0.5)],
+    )
+    sim.write_simulation()
+
+    # rewrite the PACKAGEDATA row with aux and boundname swapped -- "mylake"
+    # (not numeric, not a TS6 name) ends up in the aux column.
+    lak_file = function_tmpdir / "test.lak"
+    lines = lak_file.read_text().splitlines(keepends=True)
+    in_packagedata = False
+    for i, line in enumerate(lines):
+        stripped = line.strip().lower()
+        if stripped.startswith("begin packagedata"):
+            in_packagedata = True
+            continue
+        if stripped.startswith("end packagedata"):
+            break
+        if in_packagedata and stripped:
+            lines[i] = "  1  -0.4  1  mylake  100.0\n"
+    lak_file.write_text("".join(lines))
+
+    returncode, buff = run_mf6([mf6], str(function_tmpdir))
+    output = "\n".join(buff)
+
+    assert returncode != 0, "mf6 should have failed on a non-numeric LAK aux value"
+    assert "SIGSEGV" not in output, (
+        f"mf6 crashed instead of reporting an error:\n{output}"
+    )
+    assert 'Error converting "mylake" to a real number' in output, output
+    assert "Error occurred while reading file 'test.lak'" in output
+
+
 def test_solver_fail(function_tmpdir, targets):
     mf6 = targets["mf6"]
 
@@ -233,3 +400,82 @@ def test_fail_continue_success(function_tmpdir, targets):
     final_message = "Normal termination of simulation."
     failure_message = f'mf6 did not terminate with "{final_message}"'
     assert final_message in buff[0], failure_message
+
+
+def test_hfb_duplicate_connection_error(function_tmpdir, targets):
+    """Two HFBs on one cell connection must be rejected, in either cell order.
+
+    check_data() resolves each barrier's connection to a position in the model
+    ja array and stores it in idxloc. Nothing checked that two barriers had
+    resolved to the same connection, and the rest of the package assumes one
+    barrier per connection: condsat_modify() saves condsat before overwriting
+    it, so a second barrier on the same connection saved the value the first
+    had already modified, and condsat_reset() then restored that instead of the
+    original -- leaving condsat permanently barrier-corrected and drifting
+    further every stress period. The non-Newton branch of hfb_fc() likewise
+    read the matrix value it was about to overwrite, so the second barrier
+    subtracted its correction from the diagonal a second time.
+    """
+    mf6 = targets["mf6"]
+
+    sim = get_minimal_gwf_simulation(str(function_tmpdir), exe=mf6)
+    gwf = sim.get_model("test")
+    # barrier 2 repeats barrier 1; barrier 3 repeats it with the cells
+    # reversed, which is the same symmetric connection
+    hfb_data = [
+        ((0, 2, 1), (0, 2, 2), 1.0e-3),
+        ((0, 2, 1), (0, 2, 2), 1.0e-3),
+        ((0, 2, 2), (0, 2, 1), 1.0e-3),
+    ]
+    flopy.mf6.ModflowGwfhfb(gwf, maxhfb=len(hfb_data), stress_period_data={0: hfb_data})
+    sim.write_simulation()
+
+    returncode, buff = run_mf6([mf6], str(function_tmpdir))
+    assert returncode != 0, "mf6 should have failed on duplicate HFBs"
+
+    output = "\n".join(buff)
+    assert "HFB no. 1 and HFB no. 2 are both between cells" in output, output
+    assert "HFB no. 1 and HFB no. 3 are both between cells" in output, output
+    assert "Only one HFB can be assigned to a cell connection." in output, output
+    assert "ERROR OCCURRED WHILE READING FILE 'test.hfb'" in output, output
+
+
+def test_hfb_duplicate_connection_error_inactive_cell(function_tmpdir, targets):
+    """The barrier numbers in the duplicate error count active barriers only.
+
+    source_data() drops a barrier attached to an inactive (IDOMAIN) cell with
+    a warning and numbers the remaining barriers consecutively, so the
+    "HFB no." reported by check_data() is the position among the active
+    barriers -- the same numbering the package prints with PRINT_INPUT -- not
+    the input row. With the inactive barrier in row 1 and duplicates in rows 2
+    and 3, the error must name HFB no. 1 and 2.
+    """
+    mf6 = targets["mf6"]
+
+    sim = get_minimal_gwf_simulation(str(function_tmpdir), exe=mf6)
+    gwf = sim.get_model("test")
+    # barrier 1 touches the inactive cell and is excluded with a warning;
+    # barriers 2 and 3 are duplicates and become active barriers 1 and 2
+    hfb_data = [
+        ((0, 1, 1), (0, 1, 2), 1.0e-3),
+        ((0, 2, 1), (0, 2, 2), 1.0e-3),
+        ((0, 2, 1), (0, 2, 2), 1.0e-3),
+    ]
+    flopy.mf6.ModflowGwfhfb(gwf, maxhfb=len(hfb_data), stress_period_data={0: hfb_data})
+    # deactivate the cell after the package is built: flopy rejects a cellid
+    # in an inactive cell, mf6 excludes the barrier with a warning
+    idomain = np.ones(
+        (gwf.dis.nlay.get_data(), gwf.dis.nrow.get_data(), gwf.dis.ncol.get_data()),
+        dtype=int,
+    )
+    idomain[0, 1, 1] = 0
+    gwf.dis.idomain.set_data(idomain)
+    sim.write_simulation()
+
+    returncode, buff = run_mf6([mf6], str(function_tmpdir))
+    assert returncode != 0, "mf6 should have failed on duplicate HFBs"
+
+    output = "\n".join(buff)
+    assert "HFB no. 1 and HFB no. 2 are both between cells" in output, output
+    assert "HFB no. 2 and HFB no. 3" not in output, output
+    assert "ERROR OCCURRED WHILE READING FILE 'test.hfb'" in output, output

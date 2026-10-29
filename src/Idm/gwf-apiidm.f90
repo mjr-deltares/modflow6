@@ -9,6 +9,7 @@ module GwfApiInputModule
   public gwf_api_block_definitions
   public GwfApiParamFoundType
   public gwf_api_multi_package
+  public gwf_api_is_advanced
   public gwf_api_subpackages
 
   type GwfApiParamFoundType
@@ -25,6 +26,7 @@ module GwfApiInputModule
   end type GwfApiParamFoundType
 
   logical :: gwf_api_multi_package = .true.
+  logical :: gwf_api_is_advanced = .false.
 
   character(len=16), parameter :: &
     gwf_api_subpackages(*) = &
@@ -44,6 +46,7 @@ module GwfApiInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -62,6 +65,7 @@ module GwfApiInputModule
     '', & ! shape
     'print input to listing file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -80,6 +84,7 @@ module GwfApiInputModule
     '', & ! shape
     'print calculated flows to listing file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -98,6 +103,7 @@ module GwfApiInputModule
     '', & ! shape
     'save api flows to budget file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -116,6 +122,7 @@ module GwfApiInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -134,6 +141,7 @@ module GwfApiInputModule
     '', & ! shape
     'obs keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -152,6 +160,7 @@ module GwfApiInputModule
     '', & ! shape
     'file keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -170,6 +179,7 @@ module GwfApiInputModule
     '', & ! shape
     'obs6 input filename', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -188,6 +198,7 @@ module GwfApiInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -206,6 +217,7 @@ module GwfApiInputModule
     '', & ! shape
     'maximum number of user-defined api boundaries', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -241,6 +253,7 @@ module GwfApiInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered

@@ -35,7 +35,6 @@ tagged true
 optional false
 longname grb keyword
 description keyword to specify that record corresponds to a binary grid file.
-extended true
 
 block options
 name fileout
@@ -57,7 +56,6 @@ optional false
 tagged false
 longname file name of GRB information
 description defines a binary grid output file. If this option is not provided, the output file will have the same name as the discretization input file, plus extension ``.grb''.
-extended true
 
 block options
 name xorigin
@@ -99,7 +97,7 @@ reader urword
 optional true
 mf6internal export_nc
 longname export array variables to netcdf output files.
-description keyword that specifies input griddata arrays should be written to the model output netcdf file.
+description keyword that specifies input gridded arrays should be written to the model output NetCDF file with attributes that support using the generated file as a MODFLOW 6 simulation input.  This option only has an effect when an output model NetCDF file is configured and the simulation is run in VALIDATE mode, otherwise it is ignored.
 extended true
 
 block options
@@ -129,7 +127,7 @@ reader urword
 tagged true
 optional false
 longname ncf keyword
-description keyword to specify that record corresponds to a netcdf configuration (NCF) file.
+description keyword to specify that record corresponds to a NetCDF configuration (NCF) file.
 extended true
 
 block options
@@ -151,7 +149,7 @@ reader urword
 optional false
 tagged false
 longname file name of NCF information
-description defines a netcdf configuration (NCF) input file.
+description defines a NetCDF configuration (NCF) input file.
 extended true
 
 # --------------------- gwt disv dimensions ---------------------
@@ -177,7 +175,7 @@ name nvert
 type integer
 reader urword
 optional false
-longname number of columns
+longname number of vertices
 description is the total number of (x, y) vertex pairs used to characterize the horizontal configuration of the model grid.
 
 # --------------------- gwt disv griddata ---------------------

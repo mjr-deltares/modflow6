@@ -1,7 +1,7 @@
 module SimulationCreateModule
 
   use KindModule, only: DP, I4B, LGP, write_kindinfo
-  use DevFeatureModule, only: dev_feature
+  use FeatureFlagsModule, only: developmode
   use ConstantsModule, only: LINELENGTH, LENMODELNAME, LENBIGLINE, &
                              DZERO, LENEXCHANGENAME, LENMEMPATH, LENPACKAGETYPE
   use CharacterStringModule, only: CharacterStringType
@@ -98,13 +98,12 @@ contains
     use MemoryManagerModule, only: mem_setptr
     use SimVariablesModule, only: idm_context
     use MemoryManagerModule, only: mem_set_print_option
-    use ProfilerModule, only: g_prof
     use SimVariablesModule, only: isimcontinue, isimcheck
     ! -- dummy
     ! -- locals
     character(len=LENMEMPATH) :: input_mempath
     integer(I4B), pointer :: simcontinue, nocheck, maxerror
-    character(len=:), pointer :: prmem, prprof
+    character(len=:), pointer :: prmem
     character(len=LINELENGTH) :: errmsg
     !
     ! -- set input memory path
@@ -114,7 +113,6 @@ contains
     call mem_setptr(simcontinue, 'CONTINUE', input_mempath)
     call mem_setptr(nocheck, 'NOCHECK', input_mempath)
     call mem_setptr(prmem, 'PRMEM', input_mempath)
-    call mem_setptr(prprof, 'PRPROF', input_mempath)
     call mem_setptr(maxerror, 'MAXERRORS', input_mempath)
     !
     ! -- update sim options
@@ -134,9 +132,6 @@ contains
         call store_error(errmsg, .true.)
       end if
     end if
-
-    ! set profiler print option
-    call g_prof%set_print_option(prprof)
 
     !
     ! -- log values to list file
@@ -215,6 +210,7 @@ contains
     use OlfModule, only: olf_cr
     use PrtModule, only: prt_cr
     use NumericalModelModule, only: NumericalModelType, GetNumericalModelFromList
+    use ExplicitModelModule, only: ExplicitModelType, GetExplicitModelFromList
     use VirtualGwfModelModule, only: add_virtual_gwf_model
     use VirtualGwtModelModule, only: add_virtual_gwt_model
     use VirtualGweModelModule, only: add_virtual_gwe_model
@@ -232,6 +228,7 @@ contains
       pointer :: mnames !< model names
     integer(I4B) :: im
     class(NumericalModelType), pointer :: num_model
+    class(ExplicitModelType), pointer :: exp_model
     character(len=LINELENGTH) :: model_type
     character(len=LINELENGTH) :: fname, model_name
     integer(I4B) :: n, nr_models_glob
@@ -267,12 +264,13 @@ contains
       fname = mfnames(n)
       model_name = mnames(n)
       !
-      call check_model_name(model_type, model_name)
+      call check_model_name(model_type, model_name, model_names(1:n - 1))
       !
       ! increment global model id
       model_names(n) = model_name(1:LENMODELNAME)
       model_loc_idx(n) = -1
       num_model => null()
+      exp_model => null()
       !
       ! -- add a new (local or global) model
       select case (model_type)
@@ -312,7 +310,7 @@ contains
           write (iout, '(4x,2a,i0,a)') trim(model_type), " model ", &
             n, " will be created"
           call chf_cr(fname, n, model_names(n))
-          call dev_feature('CHF is still under development, install the &
+          call developmode('CHF is still under development, install the &
             &nightly build or compile from source with IDEVELOPMODE = 1.')
           num_model => GetNumericalModelFromList(basemodellist, im)
           model_loc_idx(n) = im
@@ -323,18 +321,22 @@ contains
           write (iout, '(4x,2a,i0,a)') trim(model_type), " model ", &
             n, " will be created"
           call olf_cr(fname, n, model_names(n))
-          call dev_feature('OLF is still under development, install the &
+          call developmode('OLF is still under development, install the &
             &nightly build or compile from source with IDEVELOPMODE = 1.')
           num_model => GetNumericalModelFromList(basemodellist, im)
           model_loc_idx(n) = im
         end if
       case ('PRT6')
-        im = im + 1
-        write (iout, '(4x,2a,i0,a)') trim(model_type), ' model ', &
-          n, ' will be created'
-        call prt_cr(fname, n, model_names(n))
-        num_model => GetNumericalModelFromList(basemodellist, im)
-        model_loc_idx(n) = im
+        if (model_ranks(n) == proc_id) then
+          im = im + 1
+          write (iout, '(4x,2a,i0,a)') trim(model_type), ' model ', &
+            n, ' will be created'
+          call prt_cr(fname, n, model_names(n))
+          exp_model => GetExplicitModelFromList(basemodellist, im)
+          model_loc_idx(n) = im
+        end if
+        ! When virtual PRT is implemented, uncomment:
+        ! call add_virtual_prt_model(n, model_names(n), exp_model)
       case default
         write (errmsg, '(a,a)') &
           'Unknown simulation model type: ', trim(model_type)
@@ -369,8 +371,7 @@ contains
     use GweGweExchangeModule, only: gweexchange_create
     use OlfGwfExchangeModule, only: olfgwf_cr
     use VirtualGwfExchangeModule, only: add_virtual_gwf_exchange
-    use VirtualGwtExchangeModule, only: add_virtual_gwt_exchange
-    use VirtualGweExchangeModule, only: add_virtual_gwe_exchange
+    use VirtualTspExchangeModule, only: add_virtual_tsp_exchange
     ! use VirtualPrtExchangeModule, only: add_virtual_prt_exchange
     ! -- dummy
     ! -- locals
@@ -479,14 +480,16 @@ contains
           call gwtexchange_create(fname, exg_name, exg_id, m1_id, m2_id, &
                                   exg_mempath)
         end if
-        call add_virtual_gwt_exchange(exg_name, exg_id, m1_id, m2_id)
+        call add_virtual_tsp_exchange(exg_name, exg_id, m1_id, m2_id, &
+                                      "concentration")
       case ('GWE6-GWE6')
         write (exg_name, '(a,i0)') 'GWE-GWE_', exg_id
         if (.not. both_remote) then
           call gweexchange_create(fname, exg_name, exg_id, m1_id, m2_id, &
                                   exg_mempath)
         end if
-        call add_virtual_gwe_exchange(exg_name, exg_id, m1_id, m2_id)
+        call add_virtual_tsp_exchange(exg_name, exg_id, m1_id, m2_id, &
+                                      "temperature")
       case ('OLF6-GWF6')
         write (exg_name, '(a,i0)') 'OLF-GWF_', exg_id
         if (both_local) then
@@ -552,6 +555,8 @@ contains
     use BaseModelModule, only: BaseModelType
     use BaseExchangeModule, only: BaseExchangeType
     use InputOutputModule, only: parseline, upcase
+    use NumericalModelModule, only: NumericalModelType
+    use ExplicitModelModule, only: ExplicitModelType
     ! -- dummy
     ! -- local
     character(len=LENMEMPATH) :: input_mempath
@@ -673,10 +678,25 @@ contains
           !
           mp => GetBaseModelFromList(basemodellist, loc_idx)
           !
+          ! -- Check for solver-model type mismatch
+          select type (mp)
+          class is (ExplicitModelType)
+            write (errmsg, '(4a)') &
+              'Model "', trim(words(j)), &
+              '" is an explicit model and cannot be added to an IMS6 ', &
+              'solution. Explicit models require EMS6.'
+            call store_error(errmsg)
+          end select
+          !
           ! -- Add the model to the solution
           call sp%add_model(mp)
           mp%idsoln = isoln
         end do
+        !
+        ! -- Check for any errors
+        if (count_errors() > 0) then
+          call store_error_filename('mfsim.nam')
+        end if
       case ('EMS6')
         !
         ! -- increment solution counters
@@ -710,10 +730,25 @@ contains
           !
           mp => GetBaseModelFromList(basemodellist, loc_idx)
           !
+          ! -- Check for solver-model type mismatch
+          select type (mp)
+          class is (NumericalModelType)
+            write (errmsg, '(4a)') &
+              'Model "', trim(words(j)), &
+              '" is a numerical model and cannot be added to an EMS6 ', &
+              'solution. Numerical models require IMS6.'
+            call store_error(errmsg)
+          end select
+          !
           ! -- Add the model to the solution
           call sp%add_model(mp)
           mp%idsoln = isoln
         end do
+        !
+        ! -- Check for any errors
+        if (count_errors() > 0) then
+          call store_error_filename('mfsim.nam')
+        end if
       case default
       end select
       !
@@ -792,12 +827,14 @@ contains
     end do
   end subroutine assign_exchanges
 
-  !> @brief Check that the model name is valid
+  !> @brief Check that the model name is valid and unique
   !<
-  subroutine check_model_name(mtype, mname)
+  subroutine check_model_name(mtype, mname, existing_names)
     ! -- dummy
     character(len=*), intent(in) :: mtype
     character(len=*), intent(inout) :: mname
+    character(len=*), dimension(:), intent(in) :: existing_names !< names of
+      !! models already created earlier in the simulation nam file models block
     ! -- local
     integer :: ilen
     integer :: i
@@ -822,6 +859,13 @@ contains
         call store_error(errmsg, terminate)
       end if
     end do
+    if (ifind(existing_names, mname) > 0) then
+      write (errmsg, '(a,a)') 'Invalid model name: ', trim(mname)
+      call store_error(errmsg)
+      write (errmsg, '(a)') &
+        'Model names must be unique.'
+      call store_error(errmsg, terminate)
+    end if
   end subroutine check_model_name
 
 end module SimulationCreateModule

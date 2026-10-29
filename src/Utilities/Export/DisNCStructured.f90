@@ -9,14 +9,18 @@ module DisNCStructuredModule
 
   use KindModule, only: DP, I4B, LGP
   use ConstantsModule, only: LINELENGTH, LENBIGLINE, LENCOMPONENTNAME, &
-                             LENMEMPATH, DNODATA, DZERO
+                             LENMEMPATH, DNODATA, DZERO, DHALF
   use SimVariablesModule, only: errmsg, warnmsg
   use SimModule, only: store_error, store_warning, store_error_filename
   use MemoryManagerModule, only: mem_setptr
   use InputDefinitionModule, only: InputParamDefinitionType
   use CharacterStringModule, only: CharacterStringType
   use NCModelExportModule, only: NCBaseModelExportType, export_varname, &
-                                 export_longname
+                                 export_longname, wkt_to_cf_gridmapping, &
+                                 wrap_rotated_crs, &
+                                 wkt_transverse_mercator_params, &
+                                 wkt_lambert_conformal_conic_params, &
+                                 wkt_albers_conical_equal_area_params
   use DisModule, only: DisType
   use NetCDFCommonModule, only: nf_verify
   use netcdf
@@ -28,8 +32,7 @@ module DisNCStructuredModule
   type :: StructuredNCDimIdType
     integer(I4B) :: x !< number of columns
     integer(I4B) :: y !< number of rows
-    integer(I4B) :: z !< number of layers
-    integer(I4B) :: ncpl !< number of cells in layer
+    integer(I4B) :: layer !< number of layers
     integer(I4B) :: time !< number of steps
     integer(I4B) :: bnd !< number in boundary
   contains
@@ -38,12 +41,12 @@ module DisNCStructuredModule
   type :: StructuredNCVarIdType
     integer(I4B) :: x !< x coordinate variable
     integer(I4B) :: y !< y coordinate variable
-    integer(I4B) :: z !< z coordinate variable
+    integer(I4B) :: layer !< layer coordinate variable (discrete layer index, not a position)
+    integer(I4B) :: elevation !< z auxiliary coordinate variable (cell center elevation, a real vertical position)
     integer(I4B) :: time !< time coordinate variable
     integer(I4B) :: dependent !< dependent variable
     integer(I4B) :: x_bnds !< x boundaries 2D array
     integer(I4B) :: y_bnds !< y boundaries 2D array
-    integer(I4B) :: z_bnds !< z boundaries 2D array
     integer(I4B) :: latitude !< latitude 2D array
     integer(I4B) :: longitude !< longitude 2D array
     integer(I4B) :: export !< in scope export
@@ -157,22 +160,38 @@ contains
 
       if (latsz > 0 .and. lonsz > 0) then
         this%latlon = .true.
-        if (this%wkt /= '') then
-          write (warnmsg, '(a)') 'Ignoring user provided NetCDF wkt parameter &
-            &as longitude and latitude arrays have been provided. &
+        if (this%wkt /= '' .or. this%crs_wkt /= '') then
+          write (warnmsg, '(a)') 'Ignoring user provided NetCDF wkt/crs_wkt &
+         &parameter(s) as longitude and latitude arrays have been provided. &
             &Applies to file "'//trim(nc_fname)//'".'
           call store_warning(warnmsg)
           this%wkt = ''
+          this%crs_wkt = ''
           this%gridmap_name = ''
         end if
         call mem_setptr(this%latitude, 'LATITUDE', this%ncf_mempath)
         call mem_setptr(this%longitude, 'LONGITUDE', this%ncf_mempath)
+        if (this%dis%angrot /= DZERO) then
+          write (warnmsg, '(a)') 'Structured rotated grid with &
+            &user-provided latitude/longitude: MF6 cannot verify these &
+            &values correctly account for grid rotation (angrot). They &
+            &must be computed from each cell''s true rotated position, &
+            &not from grid-local x/y. Applies to file "'// &
+            trim(nc_fname)//'".'
+          call store_warning(warnmsg)
+        end if
       end if
 
-      if (this%wkt /= '') then
+      if (this%gridmap_name /= '') then
         if (this%dis%angrot /= DZERO) then
-          write (warnmsg, '(a)') 'WKT parameter set with structured rotated &
-            &grid. Projected coordinates will have grid local values. &
+          write (warnmsg, '(a)') 'CRS parameter set with structured rotated &
+            &grid. The x/y coordinate variables have grid-local, not &
+            &real-world, values. A CRS-aware consumer must apply the full &
+            &crs_wkt (which encodes rotation when a valid WKT2 PROJCRS was &
+            &supplied) via proper reprojection to resolve the true &
+            &position; deriving real longitude/latitude directly from x/y &
+            &and the flat/numeric CF grid_mapping parameters alone will be &
+            &incorrect, since those parameters never encode grid rotation. &
             &Applies to file "'//trim(nc_fname)//'".'
           call store_warning(warnmsg)
         end if
@@ -181,6 +200,8 @@ contains
 
     if (this%dis%lenuni == 1) then
       this%lenunits = 'ft'
+    else if (this%dis%lenuni == 3) then
+      this%lenunits = 'cm'
     else
       this%lenunits = 'm'
     end if
@@ -219,20 +240,23 @@ contains
     call this%define_dim()
     ! define grid projection variables
     call this%define_geocoords()
-    if (isim_mode /= MVALIDATE) then
+    if (isim_mode == MVALIDATE) then
+      ! define period input arrays
+      call this%df_export()
+    else
       ! define the dependent variable
       call this%define_dependent()
     end if
-    ! define period input arrays
-    call this%df_export()
     ! exit define mode
     call nf_verify(nf90_enddef(this%ncid), this%nc_fname)
     ! add data locations
     call this%add_grid_data()
     ! add projection data
     call this%add_proj_data()
-    ! define and set package input griddata
-    call this%add_pkg_data()
+    if (isim_mode == MVALIDATE) then
+      ! define and set package input griddata
+      call this%add_pkg_data()
+    end if
     ! define and set gridmap variable
     call this%define_gridmap()
     ! synchronize file
@@ -257,13 +281,12 @@ contains
   subroutine step(this)
     use ConstantsModule, only: DHNOFLO
     use TdisModule, only: totim
-    use NetCDFCommonModule, only: ixstp
     class(DisNCStructuredType), intent(inout) :: this
     real(DP), dimension(:), pointer, contiguous :: dbl1d
     integer(I4B) :: n, istp
 
     ! set global step index
-    istp = ixstp()
+    istp = this%istp()
 
     if (size(this%dis%nodeuser) < &
         size(this%dis%nodereduced)) then
@@ -418,6 +441,9 @@ contains
     class(ExportPackageType), pointer, intent(in) :: export_pkg
     character(len=LINELENGTH) :: varname, longname, nc_tag
     integer(I4B) :: varid
+    logical(LGP) :: has_layer
+
+    has_layer = .not. (idt%shape == 'NCPL' .or. idt%shape == 'NAUX NCPL')
 
     ! set variable input tag
     nc_tag = this%input_attribute(export_pkg%mf6_input%subcomponent_name, &
@@ -430,7 +456,9 @@ contains
     longname = export_longname(idt%longname, &
                                export_pkg%mf6_input%subcomponent_name, &
                                idt%tagname, export_pkg%mf6_input%mempath, &
-                               iaux=iaux)
+                               iaux=iaux, &
+                               component_type=idt%component_type, &
+                               subcomponent_type=idt%subcomponent_type)
 
     ! create the netcdf timeseries variable
     select case (idt%datatype)
@@ -446,7 +474,7 @@ contains
         call nf_verify(nf90_def_var(this%ncid, varname, NF90_DOUBLE, &
                                     (/this%dim_ids%x, &
                                       this%dim_ids%y, &
-                                      this%dim_ids%z, &
+                                      this%dim_ids%layer, &
                                       this%dim_ids%time/), varid), &
                        this%nc_fname)
       end if
@@ -465,7 +493,7 @@ contains
         call nf_verify(nf90_def_var(this%ncid, varname, NF90_INT, &
                                     (/this%dim_ids%x, &
                                       this%dim_ids%y, &
-                                      this%dim_ids%z, &
+                                      this%dim_ids%layer, &
                                       this%dim_ids%time/), varid), &
                        this%nc_fname)
       end if
@@ -496,7 +524,7 @@ contains
 
     ! add grid mapping and mf6 attr
     call ncvar_gridmap(this%ncid, varid, this%gridmap_name, this%latlon, &
-                       this%nc_fname)
+                       has_layer, this%nc_fname)
     call ncvar_mf6attr(this%ncid, varid, iaux, nc_tag, this%nc_fname)
 
     ! store variable id
@@ -536,7 +564,7 @@ contains
   !> @brief netcdf export package dynamic input
   !<
   subroutine package_step(this, export_pkg)
-    use TdisModule, only: kper
+    use TdisModule, only: totim, kper
     use DefinitionSelectModule, only: get_param_definition_type
     use NCModelExportModule, only: ExportPackageType
     class(DisNCStructuredType), intent(inout) :: this
@@ -554,6 +582,7 @@ contains
 
     ! export defined period input
     do iparam = 1, export_pkg%nparam
+      if (export_pkg%iper /= kper) cycle
       ! check if variable was read this period
       if (export_pkg%param_reads(iparam)%invar < 1) cycle
 
@@ -655,6 +684,11 @@ contains
       end select
     end do
 
+    ! write to time coordinate variable
+    call nf_verify(nf90_put_var(this%ncid, this%var_ids%time, &
+                                totim, start=(/kper/)), &
+                   this%nc_fname)
+
     ! synchronize file
     call nf_verify(nf90_sync(this%ncid), this%nc_fname)
   end subroutine package_step
@@ -701,7 +735,8 @@ contains
       ! export input arrays
       if (mempath /= '') then
         ! update export
-        call mem_set_value(export_arrays, 'EXPORT_NC', mempath, found)
+        call mem_set_value(export_arrays, 'EXPORT_NC', mempath, found, &
+                           release=.false.)
 
         if (export_arrays > 0) then
           pkgtype = idm_subcomponent_type(this%modeltype, ptype)
@@ -743,46 +778,48 @@ contains
   !> @brief netcdf export define dimensions
   !<
   subroutine define_dim(this)
+    use ConstantsModule, only: MVALIDATE
+    use SimVariablesModule, only: isim_mode
     class(DisNCStructuredType), intent(inout) :: this
 
     ! bound dim
     call nf_verify(nf90_def_dim(this%ncid, 'bnd', 2, this%dim_ids%bnd), &
                    this%nc_fname)
 
-    ! Time
-    call nf_verify(nf90_def_dim(this%ncid, 'time', this%totnstp, &
-                                this%dim_ids%time), this%nc_fname)
-    call nf_verify(nf90_def_var(this%ncid, 'time', NF90_DOUBLE, &
-                                this%dim_ids%time, this%var_ids%time), &
-                   this%nc_fname)
-    call nf_verify(nf90_put_att(this%ncid, this%var_ids%time, 'calendar', &
-                                'standard'), this%nc_fname)
-    call nf_verify(nf90_put_att(this%ncid, this%var_ids%time, 'units', &
-                                this%datetime), this%nc_fname)
-    call nf_verify(nf90_put_att(this%ncid, this%var_ids%time, 'axis', 'T'), &
-                   this%nc_fname)
-    !call nf_verify(nf90_put_att(ncid, var_ids%time, 'bounds', 'time_bnds'), this%nc_fname)
-    call nf_verify(nf90_put_att(this%ncid, this%var_ids%time, 'standard_name', &
-                                'time'), this%nc_fname)
-    call nf_verify(nf90_put_att(this%ncid, this%var_ids%time, 'long_name', &
-                                'time'), this%nc_fname)
+    if (isim_mode /= MVALIDATE .or. this%pkglist%Count() > 0) then
+      ! Time
+      call nf_verify(nf90_def_dim(this%ncid, 'time', this%totnstp, &
+                                  this%dim_ids%time), this%nc_fname)
+      call nf_verify(nf90_def_var(this%ncid, 'time', NF90_DOUBLE, &
+                                  this%dim_ids%time, this%var_ids%time), &
+                     this%nc_fname)
+      call nf_verify(nf90_put_att(this%ncid, this%var_ids%time, 'calendar', &
+                                  'standard'), this%nc_fname)
+      call nf_verify(nf90_put_att(this%ncid, this%var_ids%time, 'units', &
+                                  this%datetime), this%nc_fname)
+      call nf_verify(nf90_put_att(this%ncid, this%var_ids%time, 'axis', 'T'), &
+                     this%nc_fname)
+      !call nf_verify(nf90_put_att(ncid, var_ids%time, 'bounds', 'time_bnds'), this%nc_fname)
+      call nf_verify(nf90_put_att(this%ncid, this%var_ids%time, 'standard_name', &
+                                  'time'), this%nc_fname)
+      call nf_verify(nf90_put_att(this%ncid, this%var_ids%time, 'long_name', &
+                                  'time'), this%nc_fname)
+    end if
 
     ! Z dimension
-    call nf_verify(nf90_def_dim(this%ncid, 'z', this%dis%nlay, this%dim_ids%z), &
+    call nf_verify(nf90_def_dim(this%ncid, 'layer', this%dis%nlay, &
+                                this%dim_ids%layer), this%nc_fname)
+    call nf_verify(nf90_def_var(this%ncid, 'layer', NF90_INT, &
+                                this%dim_ids%layer, this%var_ids%layer), &
                    this%nc_fname)
-    call nf_verify(nf90_def_var(this%ncid, 'z', NF90_DOUBLE, this%dim_ids%z, &
-                                this%var_ids%z), this%nc_fname)
-    call nf_verify(nf90_put_att(this%ncid, this%var_ids%z, 'units', 'layer'), &
+    call nf_verify(nf90_put_att(this%ncid, this%var_ids%layer, 'units', '1'), &
                    this%nc_fname)
-    call nf_verify(nf90_put_att(this%ncid, this%var_ids%z, 'long_name', &
-                                'layer number'), this%nc_fname)
-    !call nf_verify(nf90_put_att(this%ncid, this%var_ids%z, 'bounds', 'z_bnds'), &
-    !               this%nc_fname)
-    !call nf_verify(nf90_def_var(this%ncid, 'z_bnds', NF90_DOUBLE, &
-    !                            (/this%dim_ids%bnd, this%dim_ids%z/), &
-    !                            this%var_ids%z_bnds), this%nc_fname)
-    !call nf_verify(nf90_put_var(this%ncid, this%var_ids%z_bnds, &
-    !                            this%elev_bnds), this%nc_fname)
+    call nf_verify(nf90_put_att(this%ncid, this%var_ids%layer, 'axis', 'Z'), &
+                   this%nc_fname)
+    call nf_verify(nf90_put_att(this%ncid, this%var_ids%layer, 'positive', &
+                                'down'), this%nc_fname)
+    call nf_verify(nf90_put_att(this%ncid, this%var_ids%layer, 'long_name', &
+                                'model layer'), this%nc_fname)
 
     ! Y dimension
     call nf_verify(nf90_def_dim(this%ncid, 'y', this%dis%nrow, this%dim_ids%y), &
@@ -791,13 +828,23 @@ contains
                                 this%var_ids%y), this%nc_fname)
     call nf_verify(nf90_put_att(this%ncid, this%var_ids%y, 'units', &
                                 this%lenunits), this%nc_fname)
-    call nf_verify(nf90_put_att(this%ncid, this%var_ids%y, 'axis', 'Y'), &
-                   this%nc_fname)
-    call nf_verify(nf90_put_att(this%ncid, this%var_ids%y, 'standard_name', &
-                                'projection_y_coordinate'), this%nc_fname)
+    if (this%dis%angrot == DZERO .or. &
+        wrap_rotated_crs(this%crs_wkt, this%dis%xorigin, this%dis%yorigin, &
+                         this%dis%angrot) /= '') then
+      ! axis/standard_name assert that y holds the true projected
+      ! position. For a rotated grid this only holds once crs_wkt
+      ! encodes the rotation (see wrap_rotated_crs in define_gridmap);
+      ! otherwise y is grid-local (see add_grid_data) and asserting it
+      ! would cause GDAL's netCDF driver to derive an incorrect,
+      ! unrotated position directly from y's grid-local values.
+      call nf_verify(nf90_put_att(this%ncid, this%var_ids%y, 'axis', 'Y'), &
+                     this%nc_fname)
+      call nf_verify(nf90_put_att(this%ncid, this%var_ids%y, 'standard_name', &
+                                  'projection_y_coordinate'), this%nc_fname)
+    end if
     call nf_verify(nf90_put_att(this%ncid, this%var_ids%y, 'long_name', &
                                 'Northing'), this%nc_fname)
-    if (this%wkt /= '') then
+    if (this%gridmap_name /= '') then
       call nf_verify(nf90_put_att(this%ncid, this%var_ids%y, 'grid_mapping', &
                                   this%gridmap_name), this%nc_fname)
     end if
@@ -814,13 +861,18 @@ contains
                                 this%var_ids%x), this%nc_fname)
     call nf_verify(nf90_put_att(this%ncid, this%var_ids%x, 'units', &
                                 this%lenunits), this%nc_fname)
-    call nf_verify(nf90_put_att(this%ncid, this%var_ids%x, 'axis', 'X'), &
-                   this%nc_fname)
-    call nf_verify(nf90_put_att(this%ncid, this%var_ids%x, 'standard_name', &
-                                'projection_x_coordinate'), this%nc_fname)
+    if (this%dis%angrot == DZERO .or. &
+        wrap_rotated_crs(this%crs_wkt, this%dis%xorigin, this%dis%yorigin, &
+                         this%dis%angrot) /= '') then
+      ! see matching comment on the Y dimension above
+      call nf_verify(nf90_put_att(this%ncid, this%var_ids%x, 'axis', 'X'), &
+                     this%nc_fname)
+      call nf_verify(nf90_put_att(this%ncid, this%var_ids%x, 'standard_name', &
+                                  'projection_x_coordinate'), this%nc_fname)
+    end if
     call nf_verify(nf90_put_att(this%ncid, this%var_ids%x, 'long_name', &
                                 'Easting'), this%nc_fname)
-    if (this%wkt /= '') then
+    if (this%gridmap_name /= '') then
       call nf_verify(nf90_put_att(this%ncid, this%var_ids%x, 'grid_mapping', &
                                   this%gridmap_name), this%nc_fname)
     end if
@@ -830,10 +882,26 @@ contains
                                 (/this%dim_ids%bnd, this%dim_ids%x/), &
                                 this%var_ids%x_bnds), this%nc_fname)
 
-    ! NCPL dimension
-    call nf_verify(nf90_def_dim(this%ncid, 'ncpl', &
-                                this%dis%ncol * this%dis%nrow, &
-                                this%dim_ids%ncpl), this%nc_fname)
+    ! z: cell center elevation auxiliary coordinate -- a real vertical
+    ! position, unlike the discrete layer index.  Always written,
+    ! independent of CRS/NCF configuration.
+    call nf_verify(nf90_def_var(this%ncid, 'z', NF90_DOUBLE, &
+                                (/this%dim_ids%x, this%dim_ids%y, &
+                                  this%dim_ids%layer/), &
+                                this%var_ids%elevation), this%nc_fname)
+    call ncvar_chunk3d(this%ncid, this%var_ids%elevation, this%chunk_x, &
+                       this%chunk_y, this%chunk_z, this%nc_fname)
+    call ncvar_deflate(this%ncid, this%var_ids%elevation, this%deflate, &
+                       this%shuffle, this%nc_fname)
+    call nf_verify(nf90_put_att(this%ncid, this%var_ids%elevation, 'units', &
+                                this%lenunits), this%nc_fname)
+    call nf_verify(nf90_put_att(this%ncid, this%var_ids%elevation, &
+                                'standard_name', 'altitude'), this%nc_fname)
+    call nf_verify(nf90_put_att(this%ncid, this%var_ids%elevation, &
+                                'positive', 'up'), this%nc_fname)
+    call nf_verify(nf90_put_att(this%ncid, this%var_ids%elevation, &
+                                'long_name', 'cell center elevation'), &
+                   this%nc_fname)
   end subroutine define_dim
 
   !> @brief create the model layer dependent variables
@@ -844,7 +912,7 @@ contains
 
     call nf_verify(nf90_def_var(this%ncid, this%xname, NF90_DOUBLE, &
                                 (/this%dim_ids%x, this%dim_ids%y, &
-                                  this%dim_ids%z, this%dim_ids%time/), &
+                                  this%dim_ids%layer, this%dim_ids%time/), &
                                 this%var_ids%dependent), &
                    this%nc_fname)
 
@@ -865,17 +933,22 @@ contains
     ! put attr
     call nf_verify(nf90_put_att(this%ncid, this%var_ids%dependent, &
                                 'units', this%lenunits), this%nc_fname)
-    call nf_verify(nf90_put_att(this%ncid, this%var_ids%dependent, &
-                                'standard_name', this%annotation%stdname), &
-                   this%nc_fname)
     call nf_verify(nf90_put_att(this%ncid, this%var_ids%dependent, 'long_name', &
                                 this%annotation%longname), this%nc_fname)
     call nf_verify(nf90_put_att(this%ncid, this%var_ids%dependent, '_FillValue', &
                                 (/DHNOFLO/)), this%nc_fname)
+    ! cell_methods (CF-1.13 7.3): dependent variable values are the
+    ! instantaneous simulated state at each output time, not a time
+    ! mean/accumulation over the interval -- an intensive quantity whose
+    ! default method is already "point" per CF's own Appendix E, stated
+    ! explicitly here per CF's recommendation to do so for every
+    ! spatio-temporal dimension.
+    call nf_verify(nf90_put_att(this%ncid, this%var_ids%dependent, &
+                                'cell_methods', 'time: point'), this%nc_fname)
 
     ! add grid mapping
     call ncvar_gridmap(this%ncid, this%var_ids%dependent, this%gridmap_name, &
-                       this%latlon, this%nc_fname)
+                       this%latlon, .true., this%nc_fname)
   end subroutine define_dependent
 
   !> @brief create the file grid mapping container variable
@@ -883,13 +956,210 @@ contains
   subroutine define_gridmap(this)
     class(DisNCStructuredType), intent(inout) :: this
     integer(I4B) :: var_id
-    if (this%wkt /= '') then
+    character(len=LINELENGTH) :: gmname
+    character(len=LENBIGLINE) :: effective_crs_wkt, derived_wkt
+    character(len=100) :: rotinfo
+    real(DP) :: longitude_of_central_meridian, latitude_of_projection_origin
+    real(DP) :: scale_factor_at_central_meridian, false_easting, false_northing
+    real(DP) :: semi_major_axis, inverse_flattening
+    real(DP) :: standard_parallel_1, standard_parallel_2
+    logical(LGP) :: params_found, is_2sp
+
+    if (this%wkt /= '' .or. this%crs_wkt /= '') then
       call nf_verify(nf90_redef(this%ncid), this%nc_fname)
       call nf_verify(nf90_def_var(this%ncid, this%gridmap_name, NF90_INT, &
                                   var_id), this%nc_fname)
-      ! TODO: consider variants epsg_code, spatial_ref, esri_pe_string, wkt, etc
-      call nf_verify(nf90_put_att(this%ncid, var_id, 'crs_wkt', this%wkt), &
-                     this%nc_fname)
+      ! wkt (WKT1, OGC 01-009) -- for legacy/QGIS compatibility.  WKT1
+      ! has no derived-CRS syntax, so it cannot encode grid rotation and
+      ! is always written unmodified.
+      if (this%wkt /= '') then
+        call nf_verify(nf90_put_att(this%ncid, var_id, 'wkt', this%wkt), &
+                       this%nc_fname)
+      end if
+      ! crs_wkt (WKT2, ISO 19162:2019) -- required by CF-1.13
+      if (this%crs_wkt /= '') then
+        effective_crs_wkt = this%crs_wkt
+      else
+        effective_crs_wkt = this%wkt
+      end if
+      ! For a rotated structured grid, wrap crs_wkt in a derived CRS
+      ! encoding the rotation (see wrap_rotated_crs) so a CRS-aware
+      ! consumer resolves the correct real-world position and shape
+      ! via ordinary reprojection.  Falls back to an unmodified
+      ! crs_wkt, with a warning, if CRS_WKT was not provided or is not
+      ! a recognized WKT2 PROJCRS.
+      if (this%dis%angrot /= DZERO) then
+        if (this%crs_wkt == '') then
+          write (warnmsg, '(a)') 'Structured rotated grid with no CRS_WKT &
+            &input: no rotation-positioning information will be written &
+            &to the output CRS; x/y coordinate values will not reflect &
+            &the true rotated position. Applies to file "'// &
+            trim(this%nc_fname)//'".'
+          call store_warning(warnmsg)
+        else
+          derived_wkt = wrap_rotated_crs(this%crs_wkt, this%dis%xorigin, &
+                                         this%dis%yorigin, this%dis%angrot)
+          if (derived_wkt /= '') then
+            write (rotinfo, '(a,g0,a,g0,a,g0,a)') 'xorigin=', &
+              this%dis%xorigin, ', yorigin=', this%dis%yorigin, &
+              ', angrot=', this%dis%angrot, ' deg'
+            write (warnmsg, '(a)') 'Structured rotated grid: wrapped &
+              &CRS_WKT in a derived CRS to encode grid rotation ('// &
+              trim(rotinfo)//'). Applies to file "'// &
+              trim(this%nc_fname)//'".'
+            call store_warning(warnmsg)
+            effective_crs_wkt = derived_wkt
+          else
+            write (warnmsg, '(a)') 'Structured rotated grid: CRS_WKT is &
+              &not a recognized WKT2 PROJCRS; no rotation-positioning &
+              &information will be written to the output CRS; x/y &
+              &coordinate values will not reflect the true rotated &
+              &position. Applies to file "'//trim(this%nc_fname)//'".'
+            call store_warning(warnmsg)
+          end if
+        end if
+      end if
+      call nf_verify(nf90_put_att(this%ncid, var_id, 'crs_wkt', &
+                                  trim(effective_crs_wkt)), this%nc_fname)
+      ! grid_mapping_name derived from WKT projection keyword
+      gmname = wkt_to_cf_gridmapping(trim(effective_crs_wkt))
+      if (gmname /= '') then
+        call nf_verify(nf90_put_att(this%ncid, var_id, 'grid_mapping_name', &
+                                    trim(gmname)), this%nc_fname)
+      end if
+      ! CF-standard numeric grid_mapping parameters (in addition to
+      ! wkt/crs_wkt): some netCDF readers -- notably ArcGIS's classic
+      ! netCDF connector -- position a projected grid using these
+      ! individual attributes rather than parsing wkt/crs_wkt, and
+      ! default every parameter to 0 if they are absent. Covers
+      ! transverse_mercator, lambert_conformal_conic (2SP only -- CF has
+      ! no scale_factor attribute for this method, so a 1SP/scale-factor
+      ! WKT cannot be exactly represented), and albers_conical_equal_area;
+      ! other grid_mapping_name values are unaffected. Best-effort
+      ! extraction from effective_crs_wkt -- MF6 has no CRS parsing
+      ! library, so this is skipped if any parameter cannot be located.
+      if (trim(gmname) == 'transverse_mercator') then
+        call wkt_transverse_mercator_params(trim(effective_crs_wkt), &
+                                            longitude_of_central_meridian, &
+                                            latitude_of_projection_origin, &
+                                            scale_factor_at_central_meridian, &
+                                            false_easting, false_northing, &
+                                            semi_major_axis, inverse_flattening, &
+                                            params_found)
+        if (params_found) then
+          call nf_verify(nf90_put_att(this%ncid, var_id, &
+                                      'longitude_of_central_meridian', &
+                                      longitude_of_central_meridian), &
+                         this%nc_fname)
+          call nf_verify(nf90_put_att(this%ncid, var_id, &
+                                      'latitude_of_projection_origin', &
+                                      latitude_of_projection_origin), &
+                         this%nc_fname)
+          call nf_verify(nf90_put_att(this%ncid, var_id, &
+                                      'scale_factor_at_central_meridian', &
+                                      scale_factor_at_central_meridian), &
+                         this%nc_fname)
+          call nf_verify(nf90_put_att(this%ncid, var_id, 'false_easting', &
+                                      false_easting), this%nc_fname)
+          call nf_verify(nf90_put_att(this%ncid, var_id, 'false_northing', &
+                                      false_northing), this%nc_fname)
+          call nf_verify(nf90_put_att(this%ncid, var_id, 'semi_major_axis', &
+                                      semi_major_axis), this%nc_fname)
+          call nf_verify(nf90_put_att(this%ncid, var_id, 'inverse_flattening', &
+                                      inverse_flattening), this%nc_fname)
+        else
+          write (warnmsg, '(a)') 'Structured grid: unable to extract CF &
+            &transverse_mercator grid_mapping parameters from CRS_WKT; &
+            &some netCDF readers may not correctly position this grid. &
+            &Applies to file "'//trim(this%nc_fname)//'".'
+          call store_warning(warnmsg)
+        end if
+      else if (trim(gmname) == 'lambert_conformal_conic') then
+        call wkt_lambert_conformal_conic_params(trim(effective_crs_wkt), &
+                                                standard_parallel_1, &
+                                                standard_parallel_2, &
+                                                longitude_of_central_meridian, &
+                                                latitude_of_projection_origin, &
+                                                false_easting, false_northing, &
+                                                semi_major_axis, &
+                                                inverse_flattening, is_2sp, &
+                                                params_found)
+        if (params_found) then
+          call nf_verify(nf90_put_att(this%ncid, var_id, 'standard_parallel', &
+                                      (/standard_parallel_1, &
+                                        standard_parallel_2/)), this%nc_fname)
+          call nf_verify(nf90_put_att(this%ncid, var_id, &
+                                      'longitude_of_central_meridian', &
+                                      longitude_of_central_meridian), &
+                         this%nc_fname)
+          call nf_verify(nf90_put_att(this%ncid, var_id, &
+                                      'latitude_of_projection_origin', &
+                                      latitude_of_projection_origin), &
+                         this%nc_fname)
+          call nf_verify(nf90_put_att(this%ncid, var_id, 'false_easting', &
+                                      false_easting), this%nc_fname)
+          call nf_verify(nf90_put_att(this%ncid, var_id, 'false_northing', &
+                                      false_northing), this%nc_fname)
+          call nf_verify(nf90_put_att(this%ncid, var_id, 'semi_major_axis', &
+                                      semi_major_axis), this%nc_fname)
+          call nf_verify(nf90_put_att(this%ncid, var_id, 'inverse_flattening', &
+                                      inverse_flattening), this%nc_fname)
+        else if (.not. is_2sp) then
+          write (warnmsg, '(a)') 'Structured grid: 1SP lambert_conformal_conic &
+            &variants are not supported for CF grid_mapping parameter &
+            &extraction (CF has no scale_factor attribute for this method); &
+            &some netCDF readers may not correctly position this grid. &
+            &Applies to file "'//trim(this%nc_fname)//'".'
+          call store_warning(warnmsg)
+        else
+          write (warnmsg, '(a)') 'Structured grid: unable to extract CF &
+            &lambert_conformal_conic grid_mapping parameters from CRS_WKT; &
+            &some netCDF readers may not correctly position this grid. &
+            &Applies to file "'//trim(this%nc_fname)//'".'
+          call store_warning(warnmsg)
+        end if
+      else if (trim(gmname) == 'albers_conical_equal_area') then
+        call wkt_albers_conical_equal_area_params(trim(effective_crs_wkt), &
+                                                  standard_parallel_1, &
+                                                  standard_parallel_2, &
+                                                  longitude_of_central_meridian, &
+                                                  latitude_of_projection_origin, &
+                                                  false_easting, false_northing, &
+                                                  semi_major_axis, &
+                                                  inverse_flattening, &
+                                                  params_found)
+        if (params_found) then
+          call nf_verify(nf90_put_att(this%ncid, var_id, 'standard_parallel', &
+                                      (/standard_parallel_1, &
+                                        standard_parallel_2/)), this%nc_fname)
+          call nf_verify(nf90_put_att(this%ncid, var_id, &
+                                      'longitude_of_central_meridian', &
+                                      longitude_of_central_meridian), &
+                         this%nc_fname)
+          call nf_verify(nf90_put_att(this%ncid, var_id, &
+                                      'latitude_of_projection_origin', &
+                                      latitude_of_projection_origin), &
+                         this%nc_fname)
+          call nf_verify(nf90_put_att(this%ncid, var_id, 'false_easting', &
+                                      false_easting), this%nc_fname)
+          call nf_verify(nf90_put_att(this%ncid, var_id, 'false_northing', &
+                                      false_northing), this%nc_fname)
+          call nf_verify(nf90_put_att(this%ncid, var_id, 'semi_major_axis', &
+                                      semi_major_axis), this%nc_fname)
+          call nf_verify(nf90_put_att(this%ncid, var_id, 'inverse_flattening', &
+                                      inverse_flattening), this%nc_fname)
+        else
+          write (warnmsg, '(a)') 'Structured grid: unable to extract CF &
+            &albers_conical_equal_area grid_mapping parameters from &
+            &CRS_WKT; some netCDF readers may not correctly position this &
+            &grid. Applies to file "'//trim(this%nc_fname)//'".'
+          call store_warning(warnmsg)
+        end if
+      end if
+      ! GeoTransform/spatial_ref intentionally not written: a GDAL-only,
+      ! non-CF extension ArcGIS does not read, superseded by crs_wkt's
+      ! derived-CRS encoding above, which any CRS-aware consumer resolves
+      ! via ordinary reprojection.
       call nf_verify(nf90_enddef(this%ncid), this%nc_fname)
       call nf_verify(nf90_put_var(this%ncid, var_id, 1), &
                      this%nc_fname)
@@ -948,9 +1218,10 @@ contains
   !<
   subroutine add_grid_data(this)
     class(DisNCStructuredType), intent(inout) :: this
-    integer(I4B) :: ibnd, n !, k, i, j
+    integer(I4B) :: ibnd, n, k
     real(DP), dimension(:, :), pointer, contiguous :: dbl2d
     real(DP), dimension(:), allocatable :: x, y
+    real(DP), dimension(:, :, :), allocatable :: elev3d
     real(DP) :: xoff, yoff
 
     if (this%dis%angrot /= DZERO) then
@@ -977,11 +1248,27 @@ contains
     call nf_verify(nf90_put_var(this%ncid, this%var_ids%y, y), &
                    this%nc_fname)
     ! TODO see cf-conventions 4.3.3. Parametric Vertical Coordinate
-    call nf_verify(nf90_put_var(this%ncid, this%var_ids%z, this%layers), &
+    call nf_verify(nf90_put_var(this%ncid, this%var_ids%layer, this%layers), &
                    this%nc_fname)
 
     deallocate (x)
     deallocate (y)
+
+    ! z: cell center elevation, layer 1 = midpoint of top/bot3d(1),
+    ! layer k>1 = midpoint of bot3d(k-1)/bot3d(k)
+    allocate (elev3d(this%dis%ncol, this%dis%nrow, this%nlay))
+    do k = 1, this%nlay
+      if (k == 1) then
+        elev3d(:, :, k) = (this%dis%top2d(:, :) + this%dis%bot3d(:, :, k)) * &
+                          DHALF
+      else
+        elev3d(:, :, k) = (this%dis%bot3d(:, :, k - 1) + &
+                           this%dis%bot3d(:, :, k)) * DHALF
+      end if
+    end do
+    call nf_verify(nf90_put_var(this%ncid, this%var_ids%elevation, elev3d), &
+                   this%nc_fname)
+    deallocate (elev3d)
 
     ! bounds x
     allocate (dbl2d(2, size(this%dis%cellx)))
@@ -1065,20 +1352,44 @@ contains
   end subroutine ncvar_deflate
 
   !> @brief put variable gridmap attributes
+  !!
+  !! has_layer must be true only for variables carrying the layer, y, and x
+  !! dimensions -- z(layer, y, x) can only be legally referenced via
+  !! `coordinates` from a variable whose dimensions are a superset of its
+  !! own (CF-1.13 5.2). 2D (y, x)-only variables such as dis_top must pass
+  !! has_layer=.false. z is written unconditionally, independent of
+  !! gridmap_name/latlon.
   !<
-  subroutine ncvar_gridmap(ncid, varid, gridmap_name, latlon, nc_fname)
+  subroutine ncvar_gridmap(ncid, varid, gridmap_name, latlon, has_layer, &
+                           nc_fname)
     integer(I4B), intent(in) :: ncid
     integer(I4B), intent(in) :: varid
     character(len=*), intent(in) :: gridmap_name
     logical(LGP), intent(in) :: latlon
+    logical(LGP), intent(in) :: has_layer
     character(len=*), intent(in) :: nc_fname
+    character(len=LINELENGTH) :: coords
+    coords = ''
+    ! NOTE: x/y are not listed here even when gridmap_name is set -- unlike
+    ! lon/lat (real 2D auxiliary coordinates), x/y are true CF dimension
+    ! coordinates already discoverable by dimension-name matching alone, so
+    ! listing them in 'coordinates' is redundant (CF-1.13 Ch.5 preamble).
+    if (latlon) then
+      coords = 'lon lat'
+    end if
+    if (has_layer) then
+      if (len_trim(coords) > 0) then
+        coords = trim(coords)//' z'
+      else
+        coords = 'z'
+      end if
+    end if
+    if (len_trim(coords) > 0) then
+      call nf_verify(nf90_put_att(ncid, varid, 'coordinates', trim(coords)), &
+                     nc_fname)
+    end if
     if (gridmap_name /= '') then
-      call nf_verify(nf90_put_att(ncid, varid, 'coordinates', 'x y'), &
-                     nc_fname)
       call nf_verify(nf90_put_att(ncid, varid, 'grid_mapping', gridmap_name), &
-                     nc_fname)
-    else if (latlon) then
-      call nf_verify(nf90_put_att(ncid, varid, 'coordinates', 'lon lat'), &
                      nc_fname)
     end if
   end subroutine ncvar_gridmap
@@ -1106,7 +1417,7 @@ contains
   subroutine nc_export_int1d(p_mem, ncid, dim_ids, var_ids, dis, idt, mempath, &
                              nc_tag, pkgname, gridmap_name, latlon, deflate, &
                              shuffle, chunk_z, chunk_y, chunk_x, iper, nc_fname)
-    use NetCDFCommonModule, only: ixstp
+    use TdisModule, only: kper
     integer(I4B), dimension(:), pointer, contiguous, intent(in) :: p_mem
     integer(I4B), intent(in) :: ncid
     type(StructuredNCDimIdType), intent(inout) :: dim_ids
@@ -1125,7 +1436,7 @@ contains
     integer(I4B), intent(in) :: chunk_x
     integer(I4B), intent(in) :: iper
     character(len=*), intent(in) :: nc_fname
-    integer(I4B) :: var_id, axis_sz, istp
+    integer(I4B) :: var_id, axis_sz
     character(len=LINELENGTH) :: varname, longname
 
     varname = export_varname(pkgname, idt%tagname, mempath)
@@ -1141,11 +1452,11 @@ contains
           axis_sz = dim_ids%y
         case ('NCOL')
           axis_sz = dim_ids%x
-        case ('NCPL', 'NAUX NCPL')
-          axis_sz = dim_ids%ncpl
         end select
 
-        longname = export_longname(idt%longname, pkgname, idt%tagname, mempath)
+        longname = export_longname(idt%longname, pkgname, idt%tagname, mempath, &
+                                   component_type=idt%component_type, &
+                                   subcomponent_type=idt%subcomponent_type)
 
         ! reenter define mode and create variable
         call nf_verify(nf90_redef(ncid), nc_fname)
@@ -1171,10 +1482,9 @@ contains
                        nc_fname)
       else
         ! timeseries
-        istp = ixstp()
         call nf_verify(nf90_put_var(ncid, &
                                     var_ids%export, p_mem, &
-                                    start=(/1, istp/), &
+                                    start=(/1, 1, kper/), &
                                     count=(/dis%ncol, dis%nrow, 1/)), nc_fname)
       end if
 
@@ -1184,7 +1494,7 @@ contains
         ! reenter define mode and create variable
         call nf_verify(nf90_redef(ncid), nc_fname)
         call nf_verify(nf90_def_var(ncid, varname, NF90_INT, &
-                                    (/dim_ids%x, dim_ids%y, dim_ids%z/), &
+                                    (/dim_ids%x, dim_ids%y, dim_ids%layer/), &
                                     var_id), nc_fname)
 
         ! apply chunking parameters
@@ -1199,7 +1509,8 @@ contains
                                     idt%longname), nc_fname)
 
         ! add grid mapping and mf6 attr
-        call ncvar_gridmap(ncid, var_id, gridmap_name, latlon, nc_fname)
+        call ncvar_gridmap(ncid, var_id, gridmap_name, latlon, .true., &
+                           nc_fname)
         call ncvar_mf6attr(ncid, var_id, 0, nc_tag, nc_fname)
 
         ! exit define mode and write data
@@ -1209,10 +1520,9 @@ contains
                        nc_fname)
       else
         ! timeseries
-        istp = ixstp()
         call nf_verify(nf90_put_var(ncid, &
                                     var_ids%export, p_mem, &
-                                    start=(/1, 1, 1, istp/), &
+                                    start=(/1, 1, 1, kper/), &
                                     count=(/dis%ncol, dis%nrow, dis%nlay, 1/)), &
                        nc_fname)
       end if
@@ -1264,7 +1574,8 @@ contains
                                 idt%longname), nc_fname)
 
     ! add grid mapping and mf6 attr
-    call ncvar_gridmap(ncid, var_id, gridmap_name, latlon, nc_fname)
+    call ncvar_gridmap(ncid, var_id, gridmap_name, latlon, .false., &
+                       nc_fname)
     call ncvar_mf6attr(ncid, var_id, 0, nc_tag, nc_fname)
 
     ! exit define mode and write data
@@ -1304,8 +1615,8 @@ contains
     ! reenter define mode and create variable
     call nf_verify(nf90_redef(ncid), nc_fname)
     call nf_verify(nf90_def_var(ncid, varname, NF90_INT, &
-                                (/dim_ids%x, dim_ids%y, dim_ids%z/), var_id), &
-                   nc_fname)
+                                (/dim_ids%x, dim_ids%y, dim_ids%layer/), &
+                                var_id), nc_fname)
 
     ! apply chunking parameters
     call ncvar_chunk3d(ncid, var_id, chunk_x, chunk_y, chunk_z, nc_fname)
@@ -1319,7 +1630,8 @@ contains
                                 idt%longname), nc_fname)
 
     ! add grid mapping and mf6 attr
-    call ncvar_gridmap(ncid, var_id, gridmap_name, latlon, nc_fname)
+    call ncvar_gridmap(ncid, var_id, gridmap_name, latlon, .true., &
+                       nc_fname)
     call ncvar_mf6attr(ncid, var_id, 0, nc_tag, nc_fname)
 
     ! exit define mode and write data
@@ -1335,7 +1647,7 @@ contains
                              nc_tag, pkgname, gridmap_name, latlon, deflate, &
                              shuffle, chunk_z, chunk_y, chunk_x, iper, iaux, &
                              nc_fname)
-    use NetCDFCommonModule, only: ixstp
+    use TdisModule, only: kper
     real(DP), dimension(:), pointer, contiguous, intent(in) :: p_mem
     integer(I4B), intent(in) :: ncid
     type(StructuredNCDimIdType), intent(inout) :: dim_ids
@@ -1355,7 +1667,7 @@ contains
     integer(I4B), intent(in) :: iper
     integer(I4B), intent(in) :: iaux
     character(len=*), intent(in) :: nc_fname
-    integer(I4B) :: var_id, axis_sz, istp
+    integer(I4B) :: var_id, axis_sz
     character(len=LINELENGTH) :: varname, longname
 
     if (idt%shape == 'NROW' .or. &
@@ -1369,13 +1681,13 @@ contains
           axis_sz = dim_ids%y
         case ('NCOL')
           axis_sz = dim_ids%x
-        case ('NCPL', 'NAUX NCPL')
-          axis_sz = dim_ids%ncpl
         end select
 
         varname = export_varname(pkgname, idt%tagname, mempath)
         longname = export_longname(idt%longname, pkgname, idt%tagname, mempath, &
-                                   iaux=iaux)
+                                   iaux=iaux, &
+                                   component_type=idt%component_type, &
+                                   subcomponent_type=idt%subcomponent_type)
 
         ! reenter define mode and create variable
         call nf_verify(nf90_redef(ncid), nc_fname)
@@ -1401,10 +1713,9 @@ contains
                        nc_fname)
       else
         ! timeseries
-        istp = ixstp()
         call nf_verify(nf90_put_var(ncid, &
                                     var_ids%export, p_mem, &
-                                    start=(/1, istp/), &
+                                    start=(/1, 1, kper/), &
                                     count=(/dis%ncol, dis%nrow, 1/)), nc_fname)
       end if
 
@@ -1413,12 +1724,14 @@ contains
       if (iper == 0) then
         varname = export_varname(pkgname, idt%tagname, mempath, iaux=iaux)
         longname = export_longname(idt%longname, pkgname, idt%tagname, mempath, &
-                                   iaux=iaux)
+                                   iaux=iaux, &
+                                   component_type=idt%component_type, &
+                                   subcomponent_type=idt%subcomponent_type)
 
         ! reenter define mode and create variable
         call nf_verify(nf90_redef(ncid), nc_fname)
         call nf_verify(nf90_def_var(ncid, varname, NF90_DOUBLE, &
-                                    (/dim_ids%x, dim_ids%y, dim_ids%z/), &
+                                    (/dim_ids%x, dim_ids%y, dim_ids%layer/), &
                                     var_id), nc_fname)
 
         ! apply chunking parameters
@@ -1433,7 +1746,8 @@ contains
                                     longname), nc_fname)
 
         ! add grid mapping and mf6 attr
-        call ncvar_gridmap(ncid, var_id, gridmap_name, latlon, nc_fname)
+        call ncvar_gridmap(ncid, var_id, gridmap_name, latlon, .true., &
+                           nc_fname)
         call ncvar_mf6attr(ncid, var_id, iaux, nc_tag, nc_fname)
 
         ! exit define mode and write data
@@ -1443,10 +1757,9 @@ contains
                        nc_fname)
       else
         ! timeseries
-        istp = ixstp()
         call nf_verify(nf90_put_var(ncid, &
                                     var_ids%export, p_mem, &
-                                    start=(/1, 1, 1, istp/), &
+                                    start=(/1, 1, 1, kper/), &
                                     count=(/dis%ncol, dis%nrow, dis%nlay, 1/)), &
                        nc_fname)
       end if
@@ -1498,7 +1811,8 @@ contains
                                 idt%longname), nc_fname)
 
     ! add grid mapping and mf6 attr
-    call ncvar_gridmap(ncid, var_id, gridmap_name, latlon, nc_fname)
+    call ncvar_gridmap(ncid, var_id, gridmap_name, latlon, .false., &
+                       nc_fname)
     call ncvar_mf6attr(ncid, var_id, 0, nc_tag, nc_fname)
 
     ! exit define mode and write data
@@ -1534,13 +1848,15 @@ contains
     character(len=LINELENGTH) :: varname, longname
 
     varname = export_varname(pkgname, idt%tagname, mempath)
-    longname = export_longname(idt%longname, pkgname, idt%tagname, mempath)
+    longname = export_longname(idt%longname, pkgname, idt%tagname, mempath, &
+                               component_type=idt%component_type, &
+                               subcomponent_type=idt%subcomponent_type)
 
     ! reenter define mode and create variable
     call nf_verify(nf90_redef(ncid), nc_fname)
     call nf_verify(nf90_def_var(ncid, varname, NF90_DOUBLE, &
-                                (/dim_ids%x, dim_ids%y, dim_ids%z/), var_id), &
-                   nc_fname)
+                                (/dim_ids%x, dim_ids%y, dim_ids%layer/), &
+                                var_id), nc_fname)
 
     ! apply chunking parameters
     call ncvar_chunk3d(ncid, var_id, chunk_x, chunk_y, chunk_z, nc_fname)
@@ -1554,7 +1870,8 @@ contains
                                 longname), nc_fname)
 
     ! add grid mapping and mf6 attr
-    call ncvar_gridmap(ncid, var_id, gridmap_name, latlon, nc_fname)
+    call ncvar_gridmap(ncid, var_id, gridmap_name, latlon, .true., &
+                       nc_fname)
     call ncvar_mf6attr(ncid, var_id, 0, nc_tag, nc_fname)
 
     ! exit define mode and write data

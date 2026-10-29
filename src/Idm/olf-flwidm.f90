@@ -9,15 +9,16 @@ module OlfFlwInputModule
   public olf_flw_block_definitions
   public OlfFlwParamFoundType
   public olf_flw_multi_package
+  public olf_flw_is_advanced
   public olf_flw_subpackages
 
   type OlfFlwParamFoundType
     logical :: auxiliary = .false.
     logical :: auxmultname = .false.
     logical :: boundnames = .false.
-    logical :: print_input = .false.
-    logical :: print_flows = .false.
-    logical :: save_flows = .false.
+    logical :: iprpak = .false.
+    logical :: iprflow = .false.
+    logical :: ipakcb = .false.
     logical :: ts_filerecord = .false.
     logical :: ts6 = .false.
     logical :: filein = .false.
@@ -28,11 +29,12 @@ module OlfFlwInputModule
     logical :: maxbound = .false.
     logical :: cellid = .false.
     logical :: q = .false.
-    logical :: aux = .false.
+    logical :: auxvar = .false.
     logical :: boundname = .false.
   end type OlfFlwParamFoundType
 
   logical :: olf_flw_multi_package = .true.
+  logical :: olf_flw_is_advanced = .false.
 
   character(len=16), parameter :: &
     olf_flw_subpackages(*) = &
@@ -52,6 +54,7 @@ module OlfFlwInputModule
     'NAUX', & ! shape
     'keyword to specify aux variables', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -70,6 +73,7 @@ module OlfFlwInputModule
     '', & ! shape
     'name of auxiliary variable for multiplier', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -88,6 +92,7 @@ module OlfFlwInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -95,17 +100,18 @@ module OlfFlwInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    olfflw_print_input = InputParamDefinitionType &
+    olfflw_iprpak = InputParamDefinitionType &
     ( &
     'OLF', & ! component
     'FLW', & ! subcomponent
     'OPTIONS', & ! block
     'PRINT_INPUT', & ! tag name
-    'PRINT_INPUT', & ! fortran variable
+    'IPRPAK', & ! fortran variable
     'KEYWORD', & ! type
     '', & ! shape
     'print input to listing file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -113,17 +119,18 @@ module OlfFlwInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    olfflw_print_flows = InputParamDefinitionType &
+    olfflw_iprflow = InputParamDefinitionType &
     ( &
     'OLF', & ! component
     'FLW', & ! subcomponent
     'OPTIONS', & ! block
     'PRINT_FLOWS', & ! tag name
-    'PRINT_FLOWS', & ! fortran variable
+    'IPRFLOW', & ! fortran variable
     'KEYWORD', & ! type
     '', & ! shape
     'print calculated flows to listing file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -131,17 +138,18 @@ module OlfFlwInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    olfflw_save_flows = InputParamDefinitionType &
+    olfflw_ipakcb = InputParamDefinitionType &
     ( &
     'OLF', & ! component
     'FLW', & ! subcomponent
     'OPTIONS', & ! block
     'SAVE_FLOWS', & ! tag name
-    'SAVE_FLOWS', & ! fortran variable
+    'IPAKCB', & ! fortran variable
     'KEYWORD', & ! type
     '', & ! shape
     'save well flows to budget file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -160,6 +168,7 @@ module OlfFlwInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -178,6 +187,7 @@ module OlfFlwInputModule
     '', & ! shape
     'head keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -196,6 +206,7 @@ module OlfFlwInputModule
     '', & ! shape
     'file keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -214,6 +225,7 @@ module OlfFlwInputModule
     '', & ! shape
     'file name of time series information', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -232,6 +244,7 @@ module OlfFlwInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -250,6 +263,7 @@ module OlfFlwInputModule
     '', & ! shape
     'obs keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -268,6 +282,7 @@ module OlfFlwInputModule
     '', & ! shape
     'obs6 input filename', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -286,6 +301,7 @@ module OlfFlwInputModule
     '', & ! shape
     'maximum number of inflow', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -304,6 +320,7 @@ module OlfFlwInputModule
     'NCELLDIM', & ! shape
     'cell identifier', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -322,6 +339,7 @@ module OlfFlwInputModule
     '', & ! shape
     'flow rate', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -329,17 +347,18 @@ module OlfFlwInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    olfflw_aux = InputParamDefinitionType &
+    olfflw_auxvar = InputParamDefinitionType &
     ( &
     'OLF', & ! component
     'FLW', & ! subcomponent
     'PERIOD', & ! block
     'AUX', & ! tag name
-    'AUX', & ! fortran variable
+    'AUXVAR', & ! fortran variable
     'DOUBLE1D', & ! type
     'NAUX', & ! shape
     'auxiliary variables', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -358,6 +377,7 @@ module OlfFlwInputModule
     '', & ! shape
     'inflow name', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -370,9 +390,9 @@ module OlfFlwInputModule
     olfflw_auxiliary, &
     olfflw_auxmultname, &
     olfflw_boundnames, &
-    olfflw_print_input, &
-    olfflw_print_flows, &
-    olfflw_save_flows, &
+    olfflw_iprpak, &
+    olfflw_iprflow, &
+    olfflw_ipakcb, &
     olfflw_ts_filerecord, &
     olfflw_ts6, &
     olfflw_filein, &
@@ -383,7 +403,7 @@ module OlfFlwInputModule
     olfflw_maxbound, &
     olfflw_cellid, &
     olfflw_q, &
-    olfflw_aux, &
+    olfflw_auxvar, &
     olfflw_boundname &
     ]
 
@@ -399,6 +419,7 @@ module OlfFlwInputModule
     'MAXBOUND', & ! shape
     '', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered

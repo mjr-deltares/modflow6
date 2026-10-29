@@ -9,6 +9,7 @@ module PrtFmiInputModule
   public prt_fmi_block_definitions
   public PrtFmiParamFoundType
   public prt_fmi_multi_package
+  public prt_fmi_is_advanced
   public prt_fmi_subpackages
 
   type PrtFmiParamFoundType
@@ -19,6 +20,7 @@ module PrtFmiInputModule
   end type PrtFmiParamFoundType
 
   logical :: prt_fmi_multi_package = .false.
+  logical :: prt_fmi_is_advanced = .false.
 
   character(len=16), parameter :: &
     prt_fmi_subpackages(*) = &
@@ -38,6 +40,7 @@ module PrtFmiInputModule
     '', & ! shape
     'save cell-by-cell flows to budget file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -56,6 +59,7 @@ module PrtFmiInputModule
     '', & ! shape
     'flow type', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -74,6 +78,7 @@ module PrtFmiInputModule
     '', & ! shape
     'file keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -92,6 +97,7 @@ module PrtFmiInputModule
     '', & ! shape
     'file name', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -119,6 +125,7 @@ module PrtFmiInputModule
     '', & ! shape
     'flowtype list', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered

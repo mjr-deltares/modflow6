@@ -58,7 +58,9 @@ module VirtualDataContainerModule
     logical(LGP) :: is_local !< when true, the physical object resides on the same process. However,
                              !! some of its variables can still be remote
     logical(LGP) :: is_active !< when true, this container is being synchronized
-    integer(I4B) :: orig_rank !< the global rank of the process which holds the physical data for this container
+    integer(I4B) :: orig_rank !< the global rank of the process which holds the physical data for this container,
+    !< for exchanges this is set to be where model1 sits, or if model1 is local,
+    !< where model2 sits
     type(STLVecInt) :: rcv_ranks !< the ranks of processes, other than orig_rank, having this container active
     !< (only guaranteed to be complete after synchronization)
 
@@ -122,7 +124,9 @@ contains
   end subroutine vdc_create
 
   !> @brief Init virtual data item, without allocation,
-  !< and store it in this container.
+  !! and store it in this container. The 'is_local' flag
+  !! makes it possible to mark some fields local in an
+  !< otherwise fully remote container, or v.v.
   subroutine set(this, field, var_name, subcmp_name, map_id, is_local)
     class(VirtualDataContainerType) :: this
     class(VirtualDataType), pointer :: field
@@ -279,25 +283,25 @@ contains
 
   !> @brief Get indexes of virtual data items to be
   !< sent for a given stage and rank
-  subroutine vdc_get_send_items(this, stage, rank, virtual_items)
+  subroutine vdc_get_send_items(this, stg, rank, vi)
     class(VirtualDataContainerType) :: this
-    integer(I4B) :: stage
+    integer(I4B) :: stg
     integer(I4B) :: rank
-    type(STLVecInt) :: virtual_items
+    type(STLVecInt) :: vi
 
-    call this%get_items_for_stage(stage, virtual_items)
+    call this%get_items_for_stage(stg, vi)
 
   end subroutine vdc_get_send_items
 
   !> @brief Get indexes of virtual data items to be
   !< received for a given stage and rank
-  subroutine vdc_get_recv_items(this, stage, rank, virtual_items)
+  subroutine vdc_get_recv_items(this, stg, rank, vi)
     class(VirtualDataContainerType) :: this
-    integer(I4B) :: stage
+    integer(I4B) :: stg
     integer(I4B) :: rank
-    type(STLVecInt) :: virtual_items
+    type(STLVecInt) :: vi
 
-    call this%get_items_for_stage(stage, virtual_items)
+    call this%get_items_for_stage(stg, vi)
 
   end subroutine vdc_get_recv_items
 

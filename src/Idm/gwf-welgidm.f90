@@ -9,6 +9,7 @@ module GwfWelgInputModule
   public gwf_welg_block_definitions
   public GwfWelgParamFoundType
   public gwf_welg_multi_package
+  public gwf_welg_is_advanced
   public gwf_welg_subpackages
 
   type GwfWelgParamFoundType
@@ -23,6 +24,7 @@ module GwfWelgInputModule
     logical :: afrcsv = .false.
     logical :: fileout = .false.
     logical :: afrcsvfile = .false.
+    logical :: iflowredlen = .false.
     logical :: obs_filerecord = .false.
     logical :: filein = .false.
     logical :: obs6 = .false.
@@ -35,6 +37,7 @@ module GwfWelgInputModule
   end type GwfWelgParamFoundType
 
   logical :: gwf_welg_multi_package = .true.
+  logical :: gwf_welg_is_advanced = .false.
 
   character(len=16), parameter :: &
     gwf_welg_subpackages(*) = &
@@ -54,6 +57,7 @@ module GwfWelgInputModule
     '', & ! shape
     'use array-based grid input', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -72,6 +76,7 @@ module GwfWelgInputModule
     'NAUX', & ! shape
     'keyword to specify aux variables', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -90,6 +95,7 @@ module GwfWelgInputModule
     '', & ! shape
     'name of auxiliary variable for multiplier', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -108,6 +114,7 @@ module GwfWelgInputModule
     '', & ! shape
     'print input to listing file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -126,6 +133,7 @@ module GwfWelgInputModule
     '', & ! shape
     'print calculated flows to listing file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -144,6 +152,7 @@ module GwfWelgInputModule
     '', & ! shape
     'save well flows to budget file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -162,6 +171,7 @@ module GwfWelgInputModule
     '', & ! shape
     'cell fractional thickness for reduced pumping', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -180,6 +190,7 @@ module GwfWelgInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -198,6 +209,7 @@ module GwfWelgInputModule
     '', & ! shape
     'budget keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -216,6 +228,7 @@ module GwfWelgInputModule
     '', & ! shape
     'file keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -234,8 +247,28 @@ module GwfWelgInputModule
     '', & ! shape
     'file keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
+    .false., & ! layered
+    .false. & ! timeseries
+    )
+
+  type(InputParamDefinitionType), parameter :: &
+    gwfwelg_iflowredlen = InputParamDefinitionType &
+    ( &
+    'GWF', & ! component
+    'WELG', & ! subcomponent
+    'OPTIONS', & ! block
+    'FLOW_REDUCTION_LENGTH', & ! tag name
+    'IFLOWREDLEN', & ! fortran variable
+    'KEYWORD', & ! type
+    '', & ! shape
+    'flow reduction length keyword', & ! longname
+    .false., & ! required
+    .false., & ! developmode
+    .false., & ! multi-record
+    .false., & ! preserve case
     .false., & ! layered
     .false. & ! timeseries
     )
@@ -252,6 +285,7 @@ module GwfWelgInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -270,6 +304,7 @@ module GwfWelgInputModule
     '', & ! shape
     'file keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -288,6 +323,7 @@ module GwfWelgInputModule
     '', & ! shape
     'obs keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -306,6 +342,7 @@ module GwfWelgInputModule
     '', & ! shape
     'obs6 input filename', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -324,6 +361,7 @@ module GwfWelgInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -342,6 +380,7 @@ module GwfWelgInputModule
     '', & ! shape
     'export array variables to netcdf output files.', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -360,6 +399,7 @@ module GwfWelgInputModule
     '', & ! shape
     'maximum number of wells in any stress period', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -378,6 +418,7 @@ module GwfWelgInputModule
     'NODES', & ! shape
     'well rate', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .true., & ! layered
@@ -396,6 +437,7 @@ module GwfWelgInputModule
     'NAUX NODES', & ! shape
     'well auxiliary variable iaux', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .true., & ! layered
@@ -416,6 +458,7 @@ module GwfWelgInputModule
     gwfwelg_afrcsv, &
     gwfwelg_fileout, &
     gwfwelg_afrcsvfile, &
+    gwfwelg_iflowredlen, &
     gwfwelg_obs_filerecord, &
     gwfwelg_filein, &
     gwfwelg_obs6, &
@@ -441,6 +484,7 @@ module GwfWelgInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered

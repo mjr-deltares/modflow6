@@ -10,6 +10,7 @@ module IdmPrtDfnSelectorModule
   use PrtDisvInputModule
   use PrtFmiInputModule
   use PrtMipInputModule
+  use PrtOcInputModule
   use PrtPrpInputModule
 
   implicit none
@@ -18,6 +19,7 @@ module IdmPrtDfnSelectorModule
   public :: prt_aggregate_definitions
   public :: prt_block_definitions
   public :: prt_idm_multi_package
+  public :: prt_idm_is_advanced
   public :: prt_idm_subpackages
   public :: prt_idm_integrated
 
@@ -56,6 +58,8 @@ contains
       call set_param_pointer(input_definition, prt_fmi_param_definitions)
     case ('MIP')
       call set_param_pointer(input_definition, prt_mip_param_definitions)
+    case ('OC')
+      call set_param_pointer(input_definition, prt_oc_param_definitions)
     case ('PRP')
       call set_param_pointer(input_definition, prt_prp_param_definitions)
     case default
@@ -78,6 +82,8 @@ contains
       call set_param_pointer(input_definition, prt_fmi_aggregate_definitions)
     case ('MIP')
       call set_param_pointer(input_definition, prt_mip_aggregate_definitions)
+    case ('OC')
+      call set_param_pointer(input_definition, prt_oc_aggregate_definitions)
     case ('PRP')
       call set_param_pointer(input_definition, prt_prp_aggregate_definitions)
     case default
@@ -100,6 +106,8 @@ contains
       call set_block_pointer(input_definition, prt_fmi_block_definitions)
     case ('MIP')
       call set_block_pointer(input_definition, prt_mip_block_definitions)
+    case ('OC')
+      call set_block_pointer(input_definition, prt_oc_block_definitions)
     case ('PRP')
       call set_block_pointer(input_definition, prt_prp_block_definitions)
     case default
@@ -121,6 +129,8 @@ contains
       multi_package = prt_fmi_multi_package
     case ('MIP')
       multi_package = prt_mip_multi_package
+    case ('OC')
+      multi_package = prt_oc_multi_package
     case ('PRP')
       multi_package = prt_prp_multi_package
     case default
@@ -130,6 +140,32 @@ contains
     end select
     return
   end function prt_idm_multi_package
+
+  function prt_idm_is_advanced(subcomponent) result(is_advanced)
+    character(len=*), intent(in) :: subcomponent
+    logical :: is_advanced
+    select case (subcomponent)
+    case ('NAM')
+      is_advanced = prt_nam_is_advanced
+    case ('DIS')
+      is_advanced = prt_dis_is_advanced
+    case ('DISV')
+      is_advanced = prt_disv_is_advanced
+    case ('FMI')
+      is_advanced = prt_fmi_is_advanced
+    case ('MIP')
+      is_advanced = prt_mip_is_advanced
+    case ('OC')
+      is_advanced = prt_oc_is_advanced
+    case ('PRP')
+      is_advanced = prt_prp_is_advanced
+    case default
+      call store_error('Idm selector subcomponent not found; '//&
+                       &'component="PRT"'//&
+                       &', subcomponent="'//trim(subcomponent)//'".', .true.)
+    end select
+    return
+  end function prt_idm_is_advanced
 
   function prt_idm_subpackages(subcomponent) result(subpackages)
     character(len=*), intent(in) :: subcomponent
@@ -145,6 +181,8 @@ contains
       call set_subpkg_pointer(subpackages, prt_fmi_subpackages)
     case ('MIP')
       call set_subpkg_pointer(subpackages, prt_mip_subpackages)
+    case ('OC')
+      call set_subpkg_pointer(subpackages, prt_oc_subpackages)
     case ('PRP')
       call set_subpkg_pointer(subpackages, prt_prp_subpackages)
     case default
@@ -166,6 +204,8 @@ contains
     case ('FMI')
       integrated = .true.
     case ('MIP')
+      integrated = .true.
+    case ('OC')
       integrated = .true.
     case ('PRP')
       integrated = .true.

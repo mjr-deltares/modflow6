@@ -1,5 +1,6 @@
 # --------------------- gwt src options ---------------------
 # flopy multi-package
+# package-type stress-package
 
 block options
 name auxiliary
@@ -52,7 +53,7 @@ type keyword
 reader urword
 optional true
 mf6internal ipakcb
-longname save well flows to budget file
+longname save SRC flows to budget file
 description REPLACE save_flows {'{#1}': 'mass source'}
 
 block options
@@ -128,7 +129,7 @@ tagged false
 reader urword
 optional false
 longname obs6 input filename
-description REPLACE obs6_filename {'{#1}': 'Mass Source'}
+description REPLACE obs6_filename {'{#1}': 'SRC', '{#2}': '\\ref{table:gwt-obstypetable}'}
 
 block options
 name highest_saturated
@@ -218,5 +219,5 @@ tagged false
 in_record true
 reader urword
 optional true
-longname well name
+longname source name
 description REPLACE boundname {'{#1}': 'mass source'}

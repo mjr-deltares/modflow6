@@ -9,6 +9,7 @@ module GwfVscInputModule
   public gwf_vsc_block_definitions
   public GwfVscParamFoundType
   public gwf_vsc_multi_package
+  public gwf_vsc_is_advanced
   public gwf_vsc_subpackages
 
   type GwfVscParamFoundType
@@ -31,6 +32,7 @@ module GwfVscInputModule
   end type GwfVscParamFoundType
 
   logical :: gwf_vsc_multi_package = .false.
+  logical :: gwf_vsc_is_advanced = .false.
 
   character(len=16), parameter :: &
     gwf_vsc_subpackages(*) = &
@@ -50,6 +52,7 @@ module GwfVscInputModule
     '', & ! shape
     'reference viscosity', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -68,6 +71,7 @@ module GwfVscInputModule
     '', & ! shape
     'auxspeciesname that corresponds to temperature', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -84,8 +88,10 @@ module GwfVscInputModule
     'THERMAL_FORM', & ! fortran variable
     'STRING', & ! type
     '', & ! shape
-    'keyword to specify viscosity formulation for the temperature species', & ! longname
+    'keyword to specify viscosity formulation for the temperature '// &
+    'species', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -104,6 +110,7 @@ module GwfVscInputModule
     '', & ! shape
     'coefficient used in nonlinear viscosity function', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -122,6 +129,7 @@ module GwfVscInputModule
     '', & ! shape
     'coefficient used in nonlinear viscosity function', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -140,6 +148,7 @@ module GwfVscInputModule
     '', & ! shape
     'coefficient used in nonlinear viscosity function', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -158,6 +167,7 @@ module GwfVscInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -176,6 +186,7 @@ module GwfVscInputModule
     '', & ! shape
     'viscosity keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -194,6 +205,7 @@ module GwfVscInputModule
     '', & ! shape
     'file keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -212,6 +224,7 @@ module GwfVscInputModule
     '', & ! shape
     'file keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -230,6 +243,7 @@ module GwfVscInputModule
     '', & ! shape
     'number of species used in viscosity equation of state', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -248,6 +262,7 @@ module GwfVscInputModule
     '', & ! shape
     'species number for this entry', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -264,10 +279,12 @@ module GwfVscInputModule
     'DVISCDC', & ! fortran variable
     'DOUBLE', & ! type
     '', & ! shape
-    'slope of the line that defines the linear relationship between&
-     & viscosity and temperature or between viscosity and concentration,&
-     & depending on the type of species entered on each line.', & ! longname
+    'slope of the line that defines the linear relationship '// &
+    'between viscosity and temperature or between viscosity and '// &
+    'concentration, depending on the type of species entered on '// &
+    'each line.', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -286,6 +303,7 @@ module GwfVscInputModule
     '', & ! shape
     'reference temperature value or reference concentration value', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -304,6 +322,7 @@ module GwfVscInputModule
     '', & ! shape
     'modelname', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -322,6 +341,7 @@ module GwfVscInputModule
     '', & ! shape
     'auxspeciesname', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -361,6 +381,7 @@ module GwfVscInputModule
     'NVISCSPECIES', & ! shape
     '', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered

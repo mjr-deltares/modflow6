@@ -9,6 +9,7 @@ module GwtDspInputModule
   public gwt_dsp_block_definitions
   public GwtDspParamFoundType
   public gwt_dsp_multi_package
+  public gwt_dsp_is_advanced
   public gwt_dsp_subpackages
 
   type GwtDspParamFoundType
@@ -25,6 +26,7 @@ module GwtDspInputModule
   end type GwtDspParamFoundType
 
   logical :: gwt_dsp_multi_package = .false.
+  logical :: gwt_dsp_is_advanced = .false.
 
   character(len=16), parameter :: &
     gwt_dsp_subpackages(*) = &
@@ -44,6 +46,7 @@ module GwtDspInputModule
     '', & ! shape
     'deactivate xt3d', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -62,6 +65,7 @@ module GwtDspInputModule
     '', & ! shape
     'xt3d on right-hand side', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -80,6 +84,7 @@ module GwtDspInputModule
     '', & ! shape
     'export array variables to layered ascii files.', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -98,6 +103,7 @@ module GwtDspInputModule
     '', & ! shape
     'export array variables to netcdf output files.', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -116,6 +122,7 @@ module GwtDspInputModule
     'NODES', & ! shape
     'effective molecular diffusion coefficient', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .true., & ! layered
@@ -134,6 +141,7 @@ module GwtDspInputModule
     'NODES', & ! shape
     'longitudinal dispersivity in horizontal direction', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .true., & ! layered
@@ -152,6 +160,7 @@ module GwtDspInputModule
     'NODES', & ! shape
     'longitudinal dispersivity in vertical direction', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .true., & ! layered
@@ -170,6 +179,7 @@ module GwtDspInputModule
     'NODES', & ! shape
     'transverse dispersivity in horizontal direction', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .true., & ! layered
@@ -188,6 +198,7 @@ module GwtDspInputModule
     'NODES', & ! shape
     'transverse dispersivity in horizontal direction', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .true., & ! layered
@@ -206,6 +217,7 @@ module GwtDspInputModule
     'NODES', & ! shape
     'transverse dispersivity when flow is in vertical direction', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .true., & ! layered
@@ -241,6 +253,7 @@ module GwtDspInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered

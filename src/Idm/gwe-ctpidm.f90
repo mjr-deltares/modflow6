@@ -9,15 +9,16 @@ module GweCtpInputModule
   public gwe_ctp_block_definitions
   public GweCtpParamFoundType
   public gwe_ctp_multi_package
+  public gwe_ctp_is_advanced
   public gwe_ctp_subpackages
 
   type GweCtpParamFoundType
     logical :: auxiliary = .false.
     logical :: auxmultname = .false.
     logical :: boundnames = .false.
+    logical :: iprpak = .false.
     logical :: iprflow = .false.
     logical :: ipakcb = .false.
-    logical :: iprpak = .false.
     logical :: ts_filerecord = .false.
     logical :: ts6 = .false.
     logical :: filein = .false.
@@ -33,6 +34,7 @@ module GweCtpInputModule
   end type GweCtpParamFoundType
 
   logical :: gwe_ctp_multi_package = .true.
+  logical :: gwe_ctp_is_advanced = .false.
 
   character(len=16), parameter :: &
     gwe_ctp_subpackages(*) = &
@@ -52,6 +54,7 @@ module GweCtpInputModule
     'NAUX', & ! shape
     'keyword to specify aux variables', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -70,6 +73,7 @@ module GweCtpInputModule
     '', & ! shape
     'name of auxiliary variable for multiplier', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -88,42 +92,7 @@ module GweCtpInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
-    .false., & ! multi-record
-    .false., & ! preserve case
-    .false., & ! layered
-    .false. & ! timeseries
-    )
-
-  type(InputParamDefinitionType), parameter :: &
-    gwectp_iprflow = InputParamDefinitionType &
-    ( &
-    'GWE', & ! component
-    'CTP', & ! subcomponent
-    'OPTIONS', & ! block
-    'PRINT_INPUT', & ! tag name
-    'IPRFLOW', & ! fortran variable
-    'KEYWORD', & ! type
-    '', & ! shape
-    'print input to listing file', & ! longname
-    .false., & ! required
-    .false., & ! multi-record
-    .false., & ! preserve case
-    .false., & ! layered
-    .false. & ! timeseries
-    )
-
-  type(InputParamDefinitionType), parameter :: &
-    gwectp_ipakcb = InputParamDefinitionType &
-    ( &
-    'GWE', & ! component
-    'CTP', & ! subcomponent
-    'OPTIONS', & ! block
-    'PRINT_FLOWS', & ! tag name
-    'IPAKCB', & ! fortran variable
-    'KEYWORD', & ! type
-    '', & ! shape
-    'print calculated flows to listing file', & ! longname
-    .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -136,12 +105,51 @@ module GweCtpInputModule
     'GWE', & ! component
     'CTP', & ! subcomponent
     'OPTIONS', & ! block
-    'SAVE_FLOWS', & ! tag name
+    'PRINT_INPUT', & ! tag name
     'IPRPAK', & ! fortran variable
+    'KEYWORD', & ! type
+    '', & ! shape
+    'print input to listing file', & ! longname
+    .false., & ! required
+    .false., & ! developmode
+    .false., & ! multi-record
+    .false., & ! preserve case
+    .false., & ! layered
+    .false. & ! timeseries
+    )
+
+  type(InputParamDefinitionType), parameter :: &
+    gwectp_iprflow = InputParamDefinitionType &
+    ( &
+    'GWE', & ! component
+    'CTP', & ! subcomponent
+    'OPTIONS', & ! block
+    'PRINT_FLOWS', & ! tag name
+    'IPRFLOW', & ! fortran variable
+    'KEYWORD', & ! type
+    '', & ! shape
+    'print calculated flows to listing file', & ! longname
+    .false., & ! required
+    .false., & ! developmode
+    .false., & ! multi-record
+    .false., & ! preserve case
+    .false., & ! layered
+    .false. & ! timeseries
+    )
+
+  type(InputParamDefinitionType), parameter :: &
+    gwectp_ipakcb = InputParamDefinitionType &
+    ( &
+    'GWE', & ! component
+    'CTP', & ! subcomponent
+    'OPTIONS', & ! block
+    'SAVE_FLOWS', & ! tag name
+    'IPAKCB', & ! fortran variable
     'KEYWORD', & ! type
     '', & ! shape
     'save constant temperature flows to budget file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -160,6 +168,7 @@ module GweCtpInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -178,6 +187,7 @@ module GweCtpInputModule
     '', & ! shape
     'time series keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -196,6 +206,7 @@ module GweCtpInputModule
     '', & ! shape
     'file keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -214,6 +225,7 @@ module GweCtpInputModule
     '', & ! shape
     'file name of time series information', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -232,6 +244,7 @@ module GweCtpInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -250,6 +263,7 @@ module GweCtpInputModule
     '', & ! shape
     'obs keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -268,6 +282,7 @@ module GweCtpInputModule
     '', & ! shape
     'obs6 input filename', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -286,6 +301,7 @@ module GweCtpInputModule
     '', & ! shape
     'maximum number of constant temperatures', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -304,6 +320,7 @@ module GweCtpInputModule
     'NCELLDIM', & ! shape
     'cell identifier', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -322,6 +339,7 @@ module GweCtpInputModule
     '', & ! shape
     'constant temperature value', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -340,6 +358,7 @@ module GweCtpInputModule
     'NAUX', & ! shape
     'auxiliary variables', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -358,6 +377,7 @@ module GweCtpInputModule
     '', & ! shape
     'constant temperature name', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -370,9 +390,9 @@ module GweCtpInputModule
     gwectp_auxiliary, &
     gwectp_auxmultname, &
     gwectp_boundnames, &
+    gwectp_iprpak, &
     gwectp_iprflow, &
     gwectp_ipakcb, &
-    gwectp_iprpak, &
     gwectp_ts_filerecord, &
     gwectp_ts6, &
     gwectp_filein, &
@@ -399,6 +419,7 @@ module GweCtpInputModule
     'MAXBOUND', & ! shape
     '', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered

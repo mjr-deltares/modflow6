@@ -1,6 +1,7 @@
 module GwfNpfModule
   use KindModule, only: DP, I4B
-  use SimVariablesModule, only: errmsg
+  use SimVariablesModule, only: errmsg, warnmsg
+  use DisuModule, only: DisuType
   use ConstantsModule, only: DZERO, DEM9, DEM8, DEM7, DEM6, DEM2, &
                              DHALF, DP9, DONE, DTWO, &
                              DHNOFLO, DHDRY, DEM10, &
@@ -15,7 +16,6 @@ module GwfNpfModule
   use GwfVscModule, only: GwfVscType
   use Xt3dModule, only: Xt3dType
   use SpdisWorkArrayModule, only: SpdisWorkArrayType
-  use InputOutputModule, only: GetUnit, openfile
   use TvkModule, only: TvkType, tvk_cr
   use MemoryManagerModule, only: mem_allocate, mem_reallocate, &
                                  mem_deallocate, mem_setptr, &
@@ -25,6 +25,10 @@ module GwfNpfModule
   use GwfConductanceUtilsModule, only: hcond, vcond, &
                                        condmean, thksatnm, &
                                        CCOND_HMEAN
+  use GwfNpfFormulationModule, only: GwfNpfFormulationType, &
+                                     GwfNpfFormContainerType, &
+                                     MAX_EXT_FLOW_FORMS, &
+                                     DEFAULT_FLOW
 
   implicit none
 
@@ -47,6 +51,7 @@ module GwfNpfModule
     integer(I4B), pointer :: ivarcv => null() !< CV is function of water table
     integer(I4B), pointer :: idewatcv => null() !< CV may be a discontinuous function of water table
     integer(I4B), pointer :: ithickstrt => null() !< thickstrt option flag
+    integer(I4B), pointer :: ihighcellsat => null() !< highest_cell_saturation option flag
     integer(I4B), pointer :: igwfnewtonur => null() !< newton head dampening using node bottom option flag
     integer(I4B), pointer :: icalcspdis => null() !< Calculate specific discharge at cell centers
     integer(I4B), pointer :: isavspdis => null() !< Save specific discharge at cell centers
@@ -66,6 +71,7 @@ module GwfNpfModule
     real(DP), dimension(:), pointer, contiguous :: k11 => null() !< hydraulic conductivity; if anisotropic, then this is Kx prior to rotation
     real(DP), dimension(:), pointer, contiguous :: k22 => null() !< hydraulic conductivity; if specified then this is Ky prior to rotation
     real(DP), dimension(:), pointer, contiguous :: k33 => null() !< hydraulic conductivity; if specified then this is Kz prior to rotation
+    real(DP), dimension(:), pointer, contiguous :: krel => null() !< relative permeability; unless UZR flow is active in a cell, this is 1
     real(DP), dimension(:), pointer, contiguous :: k11input => null() !< hydraulic conductivity originally specified by user prior to TVK or VSC modification
     real(DP), dimension(:), pointer, contiguous :: k22input => null() !< hydraulic conductivity originally specified by user prior to TVK or VSC modification
     real(DP), dimension(:), pointer, contiguous :: k33input => null() !< hydraulic conductivity originally specified by user prior to TVK or VSC modification
@@ -97,15 +103,18 @@ module GwfNpfModule
     integer(I4B), dimension(:), pointer, contiguous :: edge_idxs => null() !< sorted edge indexes for faster lookup
     type(SpdisWorkArrayType), pointer :: spdis_wa => null() !< work arrays for spdis calculation
     !
-    integer(I4B), pointer :: intvk => null() ! TVK (time-varying K) unit number (0 if unused)
-    integer(I4B), pointer :: invsc => null() ! VSC (viscosity) unit number (0 if unused); viscosity leads to time-varying K's
-    type(TvkType), pointer :: tvk => null() ! TVK object
-    integer(I4B), pointer :: kchangeper => null() ! last stress period in which any node K (or K22, or K33) values were changed (0 if unchanged from start of simulation)
-    integer(I4B), pointer :: kchangestp => null() ! last time step in which any node K (or K22, or K33) values were changed (0 if unchanged from start of simulation)
+    integer(I4B), pointer :: intvk => null() !< TVK (time-varying K) unit number (0 if unused)
+    integer(I4B), pointer :: invsc => null() !< VSC (viscosity) unit number (0 if unused); viscosity leads to time-varying K's
+    type(TvkType), pointer :: tvk => null() !< TVK object
+    integer(I4B), pointer :: kchangeper => null() !< last stress period in which any node K (or K22, or K33) values were changed (0 if unchanged from start of simulation)
+    integer(I4B), pointer :: kchangestp => null() !< last time step in which any node K (or K22, or K33) values were changed (0 if unchanged from start of simulation)
     integer(I4B), dimension(:), pointer, contiguous :: nodekchange => null() ! grid array of flags indicating for each node whether its K (or K22, or K33) value changed (1) at (kchangeper, kchangestp) or not (0)
-
+    !
+    integer(I4B), dimension(:), pointer, contiguous :: iformulation => null() !< active formulation for the connection (size: nja)
+    type(GwfNpfFormContainerType), dimension(MAX_EXT_FLOW_FORMS), private :: &
+      flow_formulations !< alternative flow calculations by extension
+    class(GwfNpfFormulationType), pointer :: default_form => null() !< default conductance formulation
   contains
-
     procedure :: npf_df
     procedure :: npf_ac
     procedure :: npf_mc
@@ -120,11 +129,21 @@ module GwfNpfModule
     procedure :: npf_nur
     procedure :: npf_print_model_flows
     procedure :: npf_da
+    procedure :: allocate_scalars
+    procedure :: rewet_check
+    procedure :: hy_eff
+    procedure :: calc_spdis
+    procedure :: sav_spdis
+    procedure :: sav_sat
+    procedure :: increase_edge_count
+    procedure :: set_edge_properties
+    procedure :: calcSatThickness
+    procedure :: add_flow_formulation
+    ! private
     procedure, private :: thksat => sgwf_npf_thksat
     procedure, private :: qcalc => sgwf_npf_qcalc
     procedure, private :: wd => sgwf_npf_wetdry
     procedure, private :: wdmsg => sgwf_npf_wdmsg
-    procedure :: allocate_scalars
     procedure, private :: store_original_k_arrays
     procedure, private :: allocate_arrays
     procedure, private :: source_options
@@ -135,19 +154,31 @@ module GwfNpfModule
     procedure, private :: check_options
     procedure, private :: prepcheck
     procedure, private :: preprocess_input
+    procedure, private :: cf_default_flow
+    procedure, private :: fc_default_flow
+    procedure, private :: fn_default_flow
+    procedure, private :: cq_default_flow
     procedure, private :: calc_condsat
     procedure, private :: calc_initial_sat
-    procedure, public :: rewet_check
-    procedure, public :: hy_eff
-    procedure, public :: calc_spdis
-    procedure, public :: sav_spdis
-    procedure, public :: sav_sat
-    procedure, public :: increase_edge_count
-    procedure, public :: set_edge_properties
-    procedure, public :: calcSatThickness
     procedure, private :: calc_max_conns
     procedure, private :: prepare_edge_lookup
+    procedure, private :: highest_cell_saturation
   end type
+
+  !> @brief Default conductance flow formulation
+  !!
+  !! Wraps the standard NPF conductance fill so it participates in the
+  !! additive list of flow formulations. Faces claimed by an exclusive
+  !! formulation are skipped.
+  !<
+  type, extends(GwfNpfFormulationType) :: DefaultFlowFormulationType
+    class(GwfNpfType), pointer :: npf => null() !< owning NPF package
+  contains
+    procedure :: cf => default_flow_cf
+    procedure :: fc => default_flow_fc
+    procedure :: fn => default_flow_fn
+    procedure :: cq => default_flow_cq
+  end type DefaultFlowFormulationType
 
 contains
 
@@ -284,6 +315,7 @@ contains
   !<
   subroutine npf_ar(this, ic, vsc, ibound, hnew)
     ! -- modules
+    use SimModule, only: store_error, store_error_filename
     use MemoryManagerModule, only: mem_reallocate
     ! -- dummy
     class(GwfNpftype) :: this !< instance of the NPF package
@@ -344,6 +376,24 @@ contains
     call this%preprocess_input()
     !
     ! -- xt3d
+    ! -- Terminate if the DISU ANGLDEGX values are inconsistent and this
+    !    package requires ANGLDEGX (it has no effect otherwise)
+    if (this%ixt3d /= 0 .or. this%ik22 /= 0 .or. this%icalcspdis /= 0) then
+      select type (dis => this%dis)
+      type is (DisuType)
+        if (dis%nangldegxerr > 0) then
+          write (errmsg, '(a,1x,i0,1x,a)') &
+            'ANGLDEGX values in the DISU Package are inconsistent for', &
+            dis%nangldegxerr, 'cell faces (see the warnings written after &
+            &the DISU Package input in the model listing file). ANGLDEGX &
+            &must be correct because it is required input for the NPF &
+            &Package when XT3D, K22, or SAVE_SPECIFIC_DISCHARGE is specified.'
+          call store_error(errmsg)
+          call store_error_filename(dis%input_fname)
+        end if
+      end select
+    end if
+    !
     if (this%ixt3d /= 0) then
       call this%xt3d%xt3d_ar(ibound, this%k11, this%ik33, this%k33, &
                              this%sat, this%ik22, this%k22, &
@@ -439,139 +489,258 @@ contains
     end if
   end subroutine npf_ad
 
-  !> @brief Routines associated fill coefficients
+  !> @brief Calculate coefficients
   !<
   subroutine npf_cf(this, kiter, nodes, hnew)
-    ! -- dummy
     class(GwfNpfType) :: this
     integer(I4B) :: kiter
     integer(I4B), intent(in) :: nodes
     real(DP), intent(inout), dimension(nodes) :: hnew
-    ! -- local
-    integer(I4B) :: n
-    real(DP) :: satn
-    !
-    ! -- Perform wetting and drying
+    ! local
+    integer(I4B) :: iform
+
+    ! Perform wetting and drying
     if (this%inewton /= 1) then
       call this%wd(kiter, hnew)
     end if
-    !
-    ! -- Calculate saturation for convertible cells
-    do n = 1, this%dis%nodes
-      if (this%icelltype(n) /= 0) then
-        if (this%ibound(n) == 0) then
-          satn = DZERO
-        else
-          call this%thksat(n, hnew(n), satn)
-        end if
-        this%sat(n) = satn
+
+    ! Each active formulation runs over all cells and adds its
+    ! terms; the default conductance formulation is always active.
+    call this%default_form%cf(kiter)
+    do iform = 1, MAX_EXT_FLOW_FORMS
+      if (associated(this%flow_formulations(iform)%form)) then
+        call this%flow_formulations(iform)%form%cf(kiter)
       end if
     end do
+
   end subroutine npf_cf
+
+  !> @brief Calculate coefficients for the default conductance formulation
+  !!
+  !! Runs over all cells and computes the saturated fraction for
+  !! convertible cells, skipping cells claimed by an exclusive formulation.
+  !<
+  subroutine default_flow_cf(this, kiter)
+    class(DefaultFlowFormulationType), intent(inout) :: this !< default formulation
+    integer(I4B), intent(in) :: kiter !< outer iteration number
+    ! local
+    integer(I4B) :: n, idiag
+
+    do n = 1, this%npf%dis%nodes
+      ! skip cells claimed by an exclusive formulation
+      idiag = this%npf%dis%con%ia(n)
+      if (this%npf%iformulation(idiag) /= DEFAULT_FLOW) cycle
+      call this%npf%cf_default_flow(kiter, n)
+    end do
+
+  end subroutine default_flow_cf
+
+  !> @brief Calculate coefficients using the
+  !< standard conductance formulation
+  subroutine cf_default_flow(this, kiter, n)
+    class(GwfNpfType) :: this
+    integer(I4B) :: kiter
+    integer(I4B) :: n
+    ! local
+    real(DP) :: satn
+
+    ! Calculate saturated fraction for convertible cells
+    if (this%icelltype(n) /= 0) then
+      if (this%ibound(n) == 0) then
+        satn = DZERO
+      else
+        call this%thksat(n, this%hnew(n), satn)
+      end if
+      this%sat(n) = satn
+    end if
+
+  end subroutine cf_default_flow
 
   !> @brief Formulate coefficients
   !<
   subroutine npf_fc(this, kiter, matrix_sln, idxglo, rhs, hnew)
-    ! -- modules
-    use ConstantsModule, only: DONE
-    ! -- dummy
-    class(GwfNpfType) :: this
-    integer(I4B) :: kiter
-    class(MatrixBaseType), pointer :: matrix_sln
-    integer(I4B), intent(in), dimension(:) :: idxglo
-    real(DP), intent(inout), dimension(:) :: rhs
-    real(DP), intent(inout), dimension(:) :: hnew
-    ! -- local
-    integer(I4B) :: n, m, ii, idiag, ihc
-    integer(I4B) :: isymcon, idiagm
-    real(DP) :: hyn, hym
-    real(DP) :: cond
-    !
-    ! -- Calculate conductance and put into amat
-    !
+    class(GwfNpfType) :: this !< this instance
+    integer(I4B) :: kiter !< outer iteration number
+    class(MatrixBaseType), pointer :: matrix_sln !< the system to be formulated
+    integer(I4B), intent(in), dimension(:) :: idxglo !< lookup table from local to global connection number
+    real(DP), intent(inout), dimension(:) :: rhs !< the righthandside vector
+    real(DP), intent(inout), dimension(:) :: hnew !< the new head values
+    ! local
+    integer(I4B) :: iform
+
     if (this%ixt3d /= 0) then
       call this%xt3d%xt3d_fc(kiter, matrix_sln, idxglo, rhs, hnew)
     else
-      do n = 1, this%dis%nodes
-        do ii = this%dis%con%ia(n) + 1, this%dis%con%ia(n + 1) - 1
-          if (this%dis%con%mask(ii) == 0) cycle
-
-          m = this%dis%con%ja(ii)
-          !
-          ! -- Calculate conductance only for upper triangle but insert into
-          !    upper and lower parts of amat.
-          if (m < n) cycle
-          ihc = this%dis%con%ihc(this%dis%con%jas(ii))
-          hyn = this%hy_eff(n, m, ihc, ipos=ii)
-          hym = this%hy_eff(m, n, ihc, ipos=ii)
-          !
-          ! -- Vertical connection
-          if (ihc == C3D_VERTICAL) then
-            !
-            ! -- Calculate vertical conductance
-            cond = vcond(this%ibound(n), this%ibound(m), &
-                         this%icelltype(n), this%icelltype(m), this%inewton, &
-                         this%ivarcv, this%idewatcv, &
-                         this%condsat(this%dis%con%jas(ii)), hnew(n), hnew(m), &
-                         hyn, hym, &
-                         this%sat(n), this%sat(m), &
-                         this%dis%top(n), this%dis%top(m), &
-                         this%dis%bot(n), this%dis%bot(m), &
-                         this%dis%con%hwva(this%dis%con%jas(ii)))
-            !
-            ! -- Vertical flow for perched conditions
-            if (this%iperched /= 0) then
-              if (this%icelltype(m) /= 0) then
-                if (hnew(m) < this%dis%top(m)) then
-                  !
-                  ! -- Fill row n
-                  idiag = this%dis%con%ia(n)
-                  rhs(n) = rhs(n) - cond * this%dis%bot(n)
-                  call matrix_sln%add_value_pos(idxglo(idiag), -cond)
-                  !
-                  ! -- Fill row m
-                  isymcon = this%dis%con%isym(ii)
-                  call matrix_sln%add_value_pos(idxglo(isymcon), cond)
-                  rhs(m) = rhs(m) + cond * this%dis%bot(n)
-                  !
-                  ! -- cycle the connection loop
-                  cycle
-                end if
-              end if
-            end if
-            !
-          else
-            !
-            ! -- Horizontal conductance
-            cond = hcond(this%ibound(n), this%ibound(m), &
-                         this%icelltype(n), this%icelltype(m), &
-                         this%inewton, &
-                         this%dis%con%ihc(this%dis%con%jas(ii)), &
-                         this%icellavg, &
-                         this%condsat(this%dis%con%jas(ii)), &
-                         hnew(n), hnew(m), this%sat(n), this%sat(m), hyn, hym, &
-                         this%dis%top(n), this%dis%top(m), &
-                         this%dis%bot(n), this%dis%bot(m), &
-                         this%dis%con%cl1(this%dis%con%jas(ii)), &
-                         this%dis%con%cl2(this%dis%con%jas(ii)), &
-                         this%dis%con%hwva(this%dis%con%jas(ii)))
-          end if
-          !
-          ! -- Fill row n
-          idiag = this%dis%con%ia(n)
-          call matrix_sln%add_value_pos(idxglo(ii), cond)
-          call matrix_sln%add_value_pos(idxglo(idiag), -cond)
-          !
-          ! -- Fill row m
-          isymcon = this%dis%con%isym(ii)
-          idiagm = this%dis%con%ia(m)
-          call matrix_sln%add_value_pos(idxglo(isymcon), cond)
-          call matrix_sln%add_value_pos(idxglo(idiagm), -cond)
-        end do
+      ! Each active formulation runs over all connections and adds its
+      ! terms; the default conductance formulation is always active.
+      call this%default_form%fc(kiter, matrix_sln, idxglo, rhs, hnew)
+      do iform = 1, MAX_EXT_FLOW_FORMS
+        if (associated(this%flow_formulations(iform)%form)) then
+          call this%flow_formulations(iform)%form%fc(kiter, matrix_sln, &
+                                                     idxglo, rhs, hnew)
+        end if
       end do
-      !
     end if
+
   end subroutine npf_fc
+
+  !> @brief Calculate and add coefficients using the
+  !< standard conductance formulation
+  subroutine fc_default_flow(this, n, m, ipos, matrix_sln, rhs, idxglo, hnew)
+    class(GwfNpfType) :: this !< this instance
+    integer(I4B) :: n !< node number n
+    integer(I4B) :: m !< node number m
+    integer(I4B) :: ipos !< connection number
+    class(MatrixBaseType), pointer :: matrix_sln !< system matrix
+    real(DP), intent(inout), dimension(:) :: rhs !< rhs vector
+    integer(I4B), intent(in), dimension(:) :: idxglo !< lookup table from local ipos to global system
+    real(DP), intent(inout), dimension(:) :: hnew !< new head values
+    ! local
+    integer(I4B) :: idiag, ihc
+    integer(I4B) :: isymcon, idiagm
+    real(DP) :: hyn, hym
+    real(DP) :: cond
+    real(DP) :: satn
+    real(DP) :: satm
+
+    ihc = this%dis%con%ihc(this%dis%con%jas(ipos))
+    hyn = this%hy_eff(n, m, ihc, ipos=ipos)
+    hym = this%hy_eff(m, n, ihc, ipos=ipos)
+
+    if (ihc == C3D_VERTICAL) then
+      ! Horizontal conductance
+      cond = vcond(this%ibound(n), this%ibound(m), &
+                   this%icelltype(n), this%icelltype(m), this%inewton, &
+                   this%ivarcv, this%idewatcv, &
+                   this%condsat(this%dis%con%jas(ipos)), hnew(n), hnew(m), &
+                   hyn, hym, &
+                   this%sat(n), this%sat(m), &
+                   this%dis%top(n), this%dis%top(m), &
+                   this%dis%bot(n), this%dis%bot(m), &
+                   this%dis%con%hwva(this%dis%con%jas(ipos)))
+
+      ! Vertical flow for perched conditions
+      if (this%iperched /= 0) then
+        if (this%icelltype(m) /= 0) then
+          if (hnew(m) < this%dis%top(m)) then
+
+            ! Fill diagonal for n, and add to RHS
+            idiag = this%dis%con%ia(n)
+            rhs(n) = rhs(n) - cond * this%dis%bot(n)
+            call matrix_sln%add_value_pos(idxglo(idiag), -cond)
+
+            ! Fill diagonal for m, and add to RHS
+            isymcon = this%dis%con%isym(ipos)
+            call matrix_sln%add_value_pos(idxglo(isymcon), cond)
+            rhs(m) = rhs(m) + cond * this%dis%bot(n)
+
+            ! go to next connection
+            return
+          end if
+        end if
+      end if
+    else
+      satn = this%sat(n)
+      satm = this%sat(m)
+      if (this%ihighcellsat /= 0) then
+        call this%highest_cell_saturation(n, m, &
+                                          hnew(n), hnew(m), &
+                                          satn, satm)
+      end if
+      ! Horizontal conductance
+      cond = hcond(this%ibound(n), this%ibound(m), &
+                   this%icelltype(n), this%icelltype(m), &
+                   this%inewton, &
+                   this%dis%con%ihc(this%dis%con%jas(ipos)), &
+                   this%icellavg, &
+                   this%condsat(this%dis%con%jas(ipos)), &
+                   hnew(n), hnew(m), satn, satm, hyn, hym, &
+                   this%dis%top(n), this%dis%top(m), &
+                   this%dis%bot(n), this%dis%bot(m), &
+                   this%dis%con%cl1(this%dis%con%jas(ipos)), &
+                   this%dis%con%cl2(this%dis%con%jas(ipos)), &
+                   this%dis%con%hwva(this%dis%con%jas(ipos)))
+    end if
+
+    ! Fill row n
+    idiag = this%dis%con%ia(n)
+    call matrix_sln%add_value_pos(idxglo(ipos), cond)
+    call matrix_sln%add_value_pos(idxglo(idiag), -cond)
+
+    ! Fill row m
+    isymcon = this%dis%con%isym(ipos)
+    idiagm = this%dis%con%ia(m)
+    call matrix_sln%add_value_pos(idxglo(isymcon), cond)
+    call matrix_sln%add_value_pos(idxglo(idiagm), -cond)
+
+  end subroutine fc_default_flow
+
+  !> @brief Fill coefficients for the default conductance formulation
+  !!
+  !! Runs over all connections and fills the standard NPF conductance
+  !! terms, skipping faces claimed by an exclusive formulation.
+  !<
+  subroutine default_flow_fc(this, kiter, matrix_sln, idxglo, rhs, hnew)
+    class(DefaultFlowFormulationType), intent(inout) :: this !< default formulation
+    integer(I4B), intent(in) :: kiter !< outer iteration number
+    class(MatrixBaseType), pointer, intent(inout) :: matrix_sln !< system matrix
+    integer(I4B), dimension(:), intent(in) :: idxglo !< local to global connection map
+    real(DP), dimension(:), intent(inout) :: rhs !< right-hand side vector
+    real(DP), dimension(:), intent(inout) :: hnew !< new head values
+    ! local
+    integer(I4B) :: n, m, ipos
+
+    do n = 1, this%npf%dis%nodes
+      do ipos = this%npf%dis%con%ia(n) + 1, this%npf%dis%con%ia(n + 1) - 1
+        if (this%npf%dis%con%mask(ipos) == 0) cycle
+
+        m = this%npf%dis%con%ja(ipos)
+
+        ! Calculate upper triangle only, but insert into
+        ! upper and lower parts of matrix
+        if (m < n) cycle
+
+        ! skip faces claimed by an exclusive formulation
+        if (this%npf%iformulation(ipos) /= DEFAULT_FLOW) cycle
+
+        call this%npf%fc_default_flow(n, m, ipos, matrix_sln, &
+                                      rhs, idxglo, hnew)
+      end do
+    end do
+
+  end subroutine default_flow_fc
+
+  !> @brief Calculate dry cell saturation
+  !!
+  !! Calculate the saturation based on the maximum cell bottom for
+  !! two connected cells
+  !<
+  subroutine highest_cell_saturation(this, n, m, hn, hm, satn, satm)
+    ! dummy
+    class(GwfNpfType) :: this
+    integer(I4B), intent(in) :: n, m
+    real(DP), intent(in) :: hn, hm
+    real(DP), intent(inout) :: satn, satm
+    ! local
+    integer(I4B) :: ihdbot
+    real(DP) :: botn, botm
+    real(DP) :: top, bot
+
+    botn = this%dis%bot(n)
+    botm = this%dis%bot(m)
+
+    ihdbot = n
+    if (botm > botn) ihdbot = m
+
+    ! recalculate saturation if the difference in elevation between
+    ! two cells exceed a threshold value
+    if (abs(botm - botn) >= DEM2) then
+      top = this%dis%top(ihdbot)
+      bot = this%dis%bot(ihdbot)
+      satn = sQuadraticSaturation(top, bot, hn, this%satomega)
+      satm = sQuadraticSaturation(top, bot, hm, this%satomega)
+    end if
+  end subroutine highest_cell_saturation
 
   !> @brief Fill newton terms
   !<
@@ -585,8 +754,72 @@ contains
     real(DP), intent(inout), dimension(:) :: hnew
     ! -- local
     integer(I4B) :: nodes, nja
-    integer(I4B) :: n, m, ii, idiag
-    integer(I4B) :: isymcon, idiagm
+    integer(I4B) :: iform
+    !
+    ! -- add newton terms to solution matrix
+    nodes = this%dis%nodes
+    nja = this%dis%con%nja
+    if (this%ixt3d /= 0) then
+      call this%xt3d%xt3d_fn(kiter, nodes, nja, matrix_sln, idxglo, rhs, hnew)
+    else
+      ! Each active formulation runs over all connections and adds its
+      ! newton terms; the default conductance formulation is always active.
+      call this%default_form%fn(kiter, matrix_sln, idxglo, rhs, hnew)
+      do iform = 1, MAX_EXT_FLOW_FORMS
+        if (associated(this%flow_formulations(iform)%form)) then
+          call this%flow_formulations(iform)%form%fn(kiter, matrix_sln, &
+                                                     idxglo, rhs, hnew)
+        end if
+      end do
+    end if
+  end subroutine npf_fn
+
+  !> @brief Fill newton terms for the default conductance formulation
+  !!
+  !! Runs over all connections and fills the standard NPF newton terms,
+  !! skipping faces claimed by an exclusive formulation.
+  !<
+  subroutine default_flow_fn(this, kiter, matrix_sln, idxglo, rhs, hnew)
+    class(DefaultFlowFormulationType), intent(inout) :: this !< default formulation
+    integer(I4B), intent(in) :: kiter !< outer iteration number
+    class(MatrixBaseType), pointer, intent(inout) :: matrix_sln !< system matrix
+    integer(I4B), dimension(:), intent(in) :: idxglo !< local to global connection map
+    real(DP), dimension(:), intent(inout) :: rhs !< right-hand side vector
+    real(DP), dimension(:), intent(inout) :: hnew !< new head values
+    ! local
+    integer(I4B) :: n, m, ipos
+
+    do n = 1, this%npf%dis%nodes
+      do ipos = this%npf%dis%con%ia(n) + 1, this%npf%dis%con%ia(n + 1) - 1
+        if (this%npf%dis%con%mask(ipos) == 0) cycle
+
+        m = this%npf%dis%con%ja(ipos)
+
+        ! work on upper triangle
+        if (m < n) cycle
+
+        ! skip faces claimed by an exclusive formulation
+        if (this%npf%iformulation(ipos) /= DEFAULT_FLOW) cycle
+
+        call this%npf%fn_default_flow(n, m, ipos, matrix_sln, &
+                                      rhs, idxglo, hnew)
+      end do
+    end do
+
+  end subroutine default_flow_fn
+
+  subroutine fn_default_flow(this, n, m, ipos, matrix_sln, rhs, idxglo, hnew)
+    class(GwfNpfType) :: this
+    integer(I4B) :: n
+    integer(I4B) :: m
+    integer(I4B) :: ipos
+    class(MatrixBaseType), pointer :: matrix_sln
+    real(DP), intent(inout), dimension(:) :: rhs
+    integer(I4B), intent(in), dimension(:) :: idxglo
+    real(DP), intent(inout), dimension(:) :: hnew
+    ! local
+    integer(I4B) :: isymcon
+    integer(I4B) :: idiag, idiagm
     integer(I4B) :: iups
     integer(I4B) :: idn
     real(DP) :: cond
@@ -597,105 +830,87 @@ contains
     real(DP) :: term
     real(DP) :: topup
     real(DP) :: botup
-    !
-    ! -- add newton terms to solution matrix
-    nodes = this%dis%nodes
-    nja = this%dis%con%nja
-    if (this%ixt3d /= 0) then
-      call this%xt3d%xt3d_fn(kiter, nodes, nja, matrix_sln, idxglo, rhs, hnew)
-    else
-      !
-      do n = 1, nodes
-        idiag = this%dis%con%ia(n)
-        do ii = this%dis%con%ia(n) + 1, this%dis%con%ia(n + 1) - 1
-          if (this%dis%con%mask(ii) == 0) cycle
 
-          m = this%dis%con%ja(ii)
-          isymcon = this%dis%con%isym(ii)
-          ! work on upper triangle
-          if (m < n) cycle
-          if (this%dis%con%ihc(this%dis%con%jas(ii)) == 0 .and. &
-              this%ivarcv == 0) then
-            !call this%vcond(n,m,hnew(n),hnew(m),ii,cond)
-            ! do nothing
-          else
-            ! determine upstream node
-            iups = m
-            if (hnew(m) < hnew(n)) iups = n
-            idn = n
-            if (iups == n) idn = m
-            !
-            ! -- no newton terms if upstream cell is confined
-            if (this%icelltype(iups) == 0) cycle
-            !
-            ! -- Set the upstream top and bot, and then recalculate for a
-            !    vertically staggered horizontal connection
-            topup = this%dis%top(iups)
-            botup = this%dis%bot(iups)
-            if (this%dis%con%ihc(this%dis%con%jas(ii)) == 2) then
-              topup = min(this%dis%top(n), this%dis%top(m))
-              botup = max(this%dis%bot(n), this%dis%bot(m))
-            end if
-            !
-            ! get saturated conductivity for derivative
-            cond = this%condsat(this%dis%con%jas(ii))
-            !
-            ! compute additional term
-            consterm = -cond * (hnew(iups) - hnew(idn)) !needs to use hwadi instead of hnew(idn)
-            !filledterm = cond
-            filledterm = matrix_sln%get_value_pos(idxglo(ii))
-            derv = sQuadraticSaturationDerivative(topup, botup, hnew(iups), &
-                                                  this%satomega)
-            idiagm = this%dis%con%ia(m)
-            ! fill jacobian for n being the upstream node
-            if (iups == n) then
-              hds = hnew(m)
-              !isymcon =  this%dis%con%isym(ii)
-              term = consterm * derv
-              rhs(n) = rhs(n) + term * hnew(n) !+ amat(idxglo(isymcon)) * (dwadi * hds - hds) !need to add dwadi
-              rhs(m) = rhs(m) - term * hnew(n) !- amat(idxglo(isymcon)) * (dwadi * hds - hds) !need to add dwadi
-              ! fill in row of n
-              call matrix_sln%add_value_pos(idxglo(idiag), term)
-              ! fill newton term in off diagonal if active cell
-              if (this%ibound(n) > 0) then
-                filledterm = matrix_sln%get_value_pos(idxglo(ii))
-                call matrix_sln%set_value_pos(idxglo(ii), filledterm) !* dwadi !need to add dwadi
-              end if
-              !fill row of m
-              filledterm = matrix_sln%get_value_pos(idxglo(idiagm))
-              call matrix_sln%set_value_pos(idxglo(idiagm), filledterm) !- filledterm * (dwadi - DONE) !need to add dwadi
-              ! fill newton term in off diagonal if active cell
-              if (this%ibound(m) > 0) then
-                call matrix_sln%add_value_pos(idxglo(isymcon), -term)
-              end if
-              ! fill jacobian for m being the upstream node
-            else
-              hds = hnew(n)
-              term = -consterm * derv
-              rhs(n) = rhs(n) + term * hnew(m) !+ amat(idxglo(ii)) * (dwadi * hds - hds) !need to add dwadi
-              rhs(m) = rhs(m) - term * hnew(m) !- amat(idxglo(ii)) * (dwadi * hds - hds) !need to add dwadi
-              ! fill in row of n
-              filledterm = matrix_sln%get_value_pos(idxglo(idiag))
-              call matrix_sln%set_value_pos(idxglo(idiag), filledterm) !- filledterm * (dwadi - DONE) !need to add dwadi
-              ! fill newton term in off diagonal if active cell
-              if (this%ibound(n) > 0) then
-                call matrix_sln%add_value_pos(idxglo(ii), term)
-              end if
-              !fill row of m
-              call matrix_sln%add_value_pos(idxglo(idiagm), -term)
-              ! fill newton term in off diagonal if active cell
-              if (this%ibound(m) > 0) then
-                filledterm = matrix_sln%get_value_pos(idxglo(isymcon))
-                call matrix_sln%set_value_pos(idxglo(isymcon), filledterm) !* dwadi  !need to add dwadi
-              end if
-            end if
-          end if
+    idiag = this%dis%con%ia(n)
+    isymcon = this%dis%con%isym(ipos)
 
-        end do
-      end do
-      !
+    if (this%dis%con%ihc(this%dis%con%jas(ipos)) == 0 .and. &
+        this%ivarcv == 0) then
+      return
     end if
-  end subroutine npf_fn
+
+    ! determine upstream node
+    iups = m
+    if (hnew(m) < hnew(n)) iups = n
+    idn = n
+    if (iups == n) idn = m
+    !
+    ! -- no newton terms if upstream cell is confined
+    if (this%icelltype(iups) == 0) return
+    !
+    ! -- Set the upstream top and bot, and then recalculate for a
+    !    vertically staggered horizontal connection
+    topup = this%dis%top(iups)
+    botup = this%dis%bot(iups)
+    if (this%dis%con%ihc(this%dis%con%jas(ipos)) == 2) then
+      topup = min(this%dis%top(n), this%dis%top(m))
+      botup = max(this%dis%bot(n), this%dis%bot(m))
+    end if
+    !
+    ! get saturated conductivity for derivative
+    cond = this%condsat(this%dis%con%jas(ipos))
+    !
+    ! compute additional term
+    consterm = -cond * (hnew(iups) - hnew(idn)) !needs to use hwadi instead of hnew(idn)
+    !filledterm = cond
+    filledterm = matrix_sln%get_value_pos(idxglo(ipos))
+    derv = sQuadraticSaturationDerivative(topup, botup, hnew(iups), &
+                                          this%satomega)
+    idiagm = this%dis%con%ia(m)
+    ! fill jacobian for n being the upstream node
+    if (iups == n) then
+      hds = hnew(m)
+      !isymcon =  this%dis%con%isym(ii)
+      term = consterm * derv
+      rhs(n) = rhs(n) + term * hnew(n) !+ amat(idxglo(isymcon)) * (dwadi * hds - hds) !need to add dwadi
+      rhs(m) = rhs(m) - term * hnew(n) !- amat(idxglo(isymcon)) * (dwadi * hds - hds) !need to add dwadi
+      ! fill in row of n
+      call matrix_sln%add_value_pos(idxglo(idiag), term)
+      ! fill newton term in off diagonal if active cell
+      if (this%ibound(n) > 0) then
+        filledterm = matrix_sln%get_value_pos(idxglo(ipos))
+        call matrix_sln%set_value_pos(idxglo(ipos), filledterm) !* dwadi !need to add dwadi
+      end if
+      !fill row of m
+      filledterm = matrix_sln%get_value_pos(idxglo(idiagm))
+      call matrix_sln%set_value_pos(idxglo(idiagm), filledterm) !- filledterm * (dwadi - DONE) !need to add dwadi
+      ! fill newton term in off diagonal if active cell
+      if (this%ibound(m) > 0) then
+        call matrix_sln%add_value_pos(idxglo(isymcon), -term)
+      end if
+      ! fill jacobian for m being the upstream node
+    else
+      hds = hnew(n)
+      term = -consterm * derv
+      rhs(n) = rhs(n) + term * hnew(m) !+ amat(idxglo(ii)) * (dwadi * hds - hds) !need to add dwadi
+      rhs(m) = rhs(m) - term * hnew(m) !- amat(idxglo(ii)) * (dwadi * hds - hds) !need to add dwadi
+      ! fill in row of n
+      filledterm = matrix_sln%get_value_pos(idxglo(idiag))
+      call matrix_sln%set_value_pos(idxglo(idiag), filledterm) !- filledterm * (dwadi - DONE) !need to add dwadi
+      ! fill newton term in off diagonal if active cell
+      if (this%ibound(n) > 0) then
+        call matrix_sln%add_value_pos(idxglo(ipos), term)
+      end if
+      !fill row of m
+      call matrix_sln%add_value_pos(idxglo(idiagm), -term)
+      ! fill newton term in off diagonal if active cell
+      if (this%ibound(m) > 0) then
+        filledterm = matrix_sln%get_value_pos(idxglo(isymcon))
+        call matrix_sln%set_value_pos(idxglo(isymcon), filledterm) !* dwadi  !need to add dwadi
+      end if
+    end if
+
+  end subroutine fn_default_flow
 
   !> @brief Under-relaxation
   !!
@@ -714,6 +929,7 @@ contains
     integer(I4B), intent(inout) :: locmax
     ! -- local
     integer(I4B) :: n
+    integer(I4B) :: ibot
     real(DP) :: botm
     real(DP) :: xx
     real(DP) :: dxx
@@ -721,20 +937,23 @@ contains
     ! -- Newton-Raphson under-relaxation
     do n = 1, this%dis%nodes
       if (this%ibound(n) < 1) cycle
-      if (this%icelltype(n) > 0) then
-        botm = this%dis%bot(this%ibotnode(n))
-        ! -- only apply Newton-Raphson under-relaxation if
-        !    solution head is below the bottom of the model
+      ibot = this%ibotnode(n)
+      ! Newton-Raphson under-relaxation is only applied to convertible cells where
+      ! the bottom cell in a stack is convertible
+      if (this%icelltype(n) > 0 .and. this%icelltype(ibot) > 0) then
+        botm = this%dis%bot(ibot)
+        ! Newton-Raphson under-relaxation applied when solution head is
+        ! below the bottom of the model
         if (x(n) < botm) then
           inewtonur = 1
           xx = xtemp(n) * (DONE - DP9) + botm * DP9
-          dxx = x(n) - xx
+          dxx = xx - xtemp(n)
           if (abs(dxx) > abs(dxmax)) then
             locmax = n
             dxmax = dxx
           end if
           x(n) = xx
-          dx(n) = DZERO
+          dx(n) = xtemp(n) - x(n)
         end if
       end if
     end do
@@ -748,27 +967,66 @@ contains
     real(DP), intent(inout), dimension(:) :: hnew
     real(DP), intent(inout), dimension(:) :: flowja
     ! -- local
-    integer(I4B) :: n, ipos, m
-    real(DP) :: qnm
+    integer(I4B) :: iform
     !
     ! -- Calculate the flow across each cell face and store in flowja
     !
     if (this%ixt3d /= 0) then
       call this%xt3d%xt3d_flowja(hnew, flowja)
     else
-      !
-      do n = 1, this%dis%nodes
-        do ipos = this%dis%con%ia(n) + 1, this%dis%con%ia(n + 1) - 1
-          m = this%dis%con%ja(ipos)
-          if (m < n) cycle
-          call this%qcalc(n, m, hnew(n), hnew(m), ipos, qnm)
-          flowja(ipos) = qnm
-          flowja(this%dis%con%isym(ipos)) = -qnm
-        end do
+      ! Each active formulation runs over all connections and adds its
+      ! flows; the default conductance formulation is always active.
+      call this%default_form%cq(hnew, flowja)
+      do iform = 1, MAX_EXT_FLOW_FORMS
+        if (associated(this%flow_formulations(iform)%form)) then
+          call this%flow_formulations(iform)%form%cq(hnew, flowja)
+        end if
       end do
-      !
     end if
   end subroutine npf_cq
+
+  !> @brief Calculate flows for the default conductance formulation
+  !!
+  !! Runs over all connections and stores the standard NPF face flows,
+  !! skipping faces claimed by an exclusive formulation.
+  !<
+  subroutine default_flow_cq(this, hnew, flowja)
+    class(DefaultFlowFormulationType), intent(inout) :: this !< default formulation
+    real(DP), dimension(:), intent(inout) :: hnew !< new head values
+    real(DP), dimension(:), intent(inout) :: flowja !< flow between cells
+    ! local
+    integer(I4B) :: n, m, ipos
+
+    do n = 1, this%npf%dis%nodes
+      do ipos = this%npf%dis%con%ia(n) + 1, this%npf%dis%con%ia(n + 1) - 1
+        m = this%npf%dis%con%ja(ipos)
+        if (m < n) cycle
+        !TODO_MJR: why don't we exclude masked connections here?
+
+        ! skip faces claimed by an exclusive formulation
+        if (this%npf%iformulation(ipos) /= DEFAULT_FLOW) cycle
+
+        call this%npf%cq_default_flow(n, m, ipos, flowja, hnew)
+      end do
+    end do
+
+  end subroutine default_flow_cq
+
+  subroutine cq_default_flow(this, n, m, ipos, flowja, hnew)
+    class(GwfNpfType) :: this
+    integer(I4B), intent(in) :: n
+    integer(I4B), intent(in) :: m
+    integer(I4B), intent(in) :: ipos
+    real(DP), dimension(:), intent(inout) :: flowja
+    real(DP), dimension(:), intent(in) :: hnew
+    ! local
+    real(DP) :: qnm
+
+    call this%qcalc(n, m, hnew(n), hnew(m), ipos, qnm)
+    flowja(ipos) = qnm
+    flowja(this%dis%con%isym(ipos)) = -qnm
+
+  end subroutine cq_default_flow
 
   !> @brief Fractional cell saturation
   !<
@@ -808,6 +1066,7 @@ contains
     real(DP) :: hyn, hym
     real(DP) :: condnm
     real(DP) :: hntemp, hmtemp
+    real(DP) :: satn, satm
     integer(I4B) :: ihc
     !
     ! -- Initialize
@@ -827,13 +1086,19 @@ contains
                      this%dis%bot(n), this%dis%bot(m), &
                      this%dis%con%hwva(this%dis%con%jas(icon)))
     else
+      satn = this%sat(n)
+      satm = this%sat(m)
+      if (this%ihighcellsat /= 0) then
+        call this%highest_cell_saturation(n, m, hn, hm, satn, satm)
+      end if
+
       condnm = hcond(this%ibound(n), this%ibound(m), &
                      this%icelltype(n), this%icelltype(m), &
                      this%inewton, &
                      this%dis%con%ihc(this%dis%con%jas(icon)), &
                      this%icellavg, &
                      this%condsat(this%dis%con%jas(icon)), &
-                     hn, hm, this%sat(n), this%sat(m), hyn, hym, &
+                     hn, hm, satn, satm, hyn, hym, &
                      this%dis%top(n), this%dis%top(m), &
                      this%dis%bot(n), this%dis%bot(m), &
                      this%dis%con%cl1(this%dis%con%jas(icon)), &
@@ -968,8 +1233,6 @@ contains
       nullify (this%vsc)
     end if
     !
-    ! -- Strings
-    !
     ! -- Scalars
     call mem_deallocate(this%iname)
     call mem_deallocate(this%ixt3d)
@@ -985,6 +1248,7 @@ contains
     call mem_deallocate(this%ivarcv)
     call mem_deallocate(this%idewatcv)
     call mem_deallocate(this%ithickstrt)
+    call mem_deallocate(this%ihighcellsat)
     call mem_deallocate(this%isavspdis)
     call mem_deallocate(this%isavsat)
     call mem_deallocate(this%icalcspdis)
@@ -1013,6 +1277,7 @@ contains
     call mem_deallocate(this%k11)
     call mem_deallocate(this%k22)
     call mem_deallocate(this%k33)
+    call mem_deallocate(this%krel)
     call mem_deallocate(this%k11input)
     call mem_deallocate(this%k22input)
     call mem_deallocate(this%k33input)
@@ -1029,6 +1294,13 @@ contains
     call mem_deallocate(this%edge_idxs)
     call mem_deallocate(this%spdis, 'SPDIS', this%memoryPath)
     call mem_deallocate(this%nodekchange)
+    call mem_deallocate(this%iformulation)
+    !
+    ! -- deallocate the default conductance formulation
+    if (associated(this%default_form)) then
+      deallocate (this%default_form)
+      this%default_form => null()
+    end if
     !
     ! -- deallocate parent
     call this%NumericalPackageType%da()
@@ -1069,6 +1341,7 @@ contains
     call mem_allocate(this%ivarcv, 'IVARCV', this%memoryPath)
     call mem_allocate(this%idewatcv, 'IDEWATCV', this%memoryPath)
     call mem_allocate(this%ithickstrt, 'ITHICKSTRT', this%memoryPath)
+    call mem_allocate(this%ihighcellsat, 'IHIGHCELLSAT', this%memoryPath)
     call mem_allocate(this%icalcspdis, 'ICALCSPDIS', this%memoryPath)
     call mem_allocate(this%isavspdis, 'ISAVSPDIS', this%memoryPath)
     call mem_allocate(this%isavsat, 'ISAVSAT', this%memoryPath)
@@ -1108,6 +1381,7 @@ contains
     this%ivarcv = 0
     this%idewatcv = 0
     this%ithickstrt = 0
+    this%ihighcellsat = 0
     this%icalcspdis = 0
     this%isavspdis = 0
     this%isavsat = 0
@@ -1162,7 +1436,7 @@ contains
   !<
   subroutine allocate_arrays(this, ncells, njas)
     ! -- dummy
-    class(GwfNpftype) :: this
+    class(GwfNpftype), target :: this
     integer(I4B), intent(in) :: ncells
     integer(I4B), intent(in) :: njas
     ! -- local
@@ -1172,6 +1446,7 @@ contains
                       this%memoryPath)
     call mem_allocate(this%icelltype, ncells, 'ICELLTYPE', this%memoryPath)
     call mem_allocate(this%k11, ncells, 'K11', this%memoryPath)
+    call mem_allocate(this%krel, ncells, 'KREL', this%memoryPath)
     call mem_allocate(this%sat, ncells, 'SAT', this%memoryPath)
     call mem_allocate(this%condsat, njas, 'CONDSAT', this%memoryPath)
     !
@@ -1202,6 +1477,21 @@ contains
     ! -- Time-varying property flag arrays
     call mem_allocate(this%nodekchange, ncells, 'NODEKCHANGE', this%memoryPath)
     !
+    call mem_allocate(this%iformulation, this%dis%con%nja, 'IFORM', &
+                      this%memoryPath)
+    !
+    ! -- set to standard NPF flow
+    do n = 1, size(this%iformulation)
+      this%iformulation(n) = DEFAULT_FLOW
+    end do
+    !
+    ! -- create the default conductance formulation and point it at this package
+    allocate (DefaultFlowFormulationType :: this%default_form)
+    select type (form => this%default_form)
+    type is (DefaultFlowFormulationType)
+      form%npf => this
+    end select
+    !
     ! -- initialize iangle1, iangle2, iangle3, and wetdry
     do n = 1, ncells
       this%angle1(n) = DZERO
@@ -1209,6 +1499,7 @@ contains
       this%angle3(n) = DZERO
       this%wetdry(n) = DZERO
       this%nodekchange(n) = DZERO
+      this%krel(n) = DONE
     end do
     !
     ! -- allocate variable names
@@ -1243,14 +1534,19 @@ contains
                                      this%icellavg
     if (found%ithickstrt) &
       write (this%iout, '(4x,a)') 'THICKSTRT option has been activated.'
+    if (found%ihighcellsat) &
+      write (this%iout, '(4x,a)') 'HIGHEST_CELL_SATURATION option &
+                                  &has been activated.'
     if (found%iperched) &
       write (this%iout, '(4x,a)') 'Vertical flow will be adjusted for perched &
                                   &conditions.'
     if (found%ivarcv) &
       write (this%iout, '(4x,a)') 'Vertical conductance varies with water table.'
     if (found%idewatcv) &
-      write (this%iout, '(4x,a)') 'Vertical conductance accounts for dewatered &
-                                  &portion of an underlying cell.'
+      write (this%iout, '(4x,a)') 'Vertical conductance is calculated using &
+                                  &only the saturated thickness and properties &
+                                  &of the overlying cell if the head in the &
+                                  &underlying cell is below its top.'
     if (found%ixt3d) write (this%iout, '(4x,a)') 'XT3D formulation is selected.'
     if (found%ixt3drhs) &
       write (this%iout, '(4x,a)') 'XT3D RHS formulation is selected.'
@@ -1296,15 +1592,17 @@ contains
     use MemoryManagerModule, only: mem_setptr, get_isize
     use MemoryManagerExtModule, only: mem_set_value
     use CharacterStringModule, only: CharacterStringType
-    use GwfNpfInputModule, only: GwfNpfParamFoundType
     use SourceCommonModule, only: filein_fname
+    use GwfNpfInputModule, only: GwfNpfParamFoundType
     ! -- dummy
     class(GwfNpftype) :: this
     ! -- locals
     character(len=LENVARNAME), dimension(3) :: cellavg_method = &
       &[character(len=LENVARNAME) :: 'LOGARITHMIC', 'AMT-LMK', 'AMT-HMK']
     type(GwfNpfParamFoundType) :: found
+    type(CharacterStringType), dimension(:), pointer, contiguous :: tvk6_mempaths
     character(len=LINELENGTH) :: tvk6_filename
+    character(len=LENMEMPATH) :: tvk6_mempath
     !
     ! -- update defaults with idm sourced values
     call mem_set_value(this%iprflow, 'IPRFLOW', this%input_mempath, found%iprflow)
@@ -1313,6 +1611,8 @@ contains
                        cellavg_method, found%cellavg)
     call mem_set_value(this%ithickstrt, 'ITHICKSTRT', this%input_mempath, &
                        found%ithickstrt)
+    call mem_set_value(this%ihighcellsat, 'IHIGHCELLSAT', this%input_mempath, &
+                       found%ihighcellsat)
     call mem_set_value(this%iperched, 'IPERCHED', this%input_mempath, &
                        found%iperched)
     call mem_set_value(this%ivarcv, 'IVARCV', this%input_mempath, found%ivarcv)
@@ -1351,11 +1651,22 @@ contains
       this%iasym = 0
     end if
     !
-    ! -- enforce 0 or 1 TVK6_FILENAME entries in option block
-    if (filein_fname(tvk6_filename, 'TVK6_FILENAME', this%input_mempath, &
-                     this%input_fname)) then
-      call openfile(this%intvk, this%iout, tvk6_filename, 'TVK')
-      call tvk_cr(this%tvk, this%name_model, this%intvk, this%iout)
+    ! -- TVK6 subpackage
+    if (filein_fname(tvk6_filename, 'TVK6_FILENAME', &
+                     this%input_mempath, this%input_fname)) then
+      call mem_setptr(tvk6_mempaths, 'TVK6_MEMPATH', this%input_mempath)
+      tvk6_mempath = tvk6_mempaths(1)
+      this%intvk = 1 ! tvk active
+      call tvk_cr(this%tvk, this%name_model, tvk6_mempath, this%intvk, this%iout)
+    end if
+    !
+    ! -- verify ALTERNATIVE_CELL_AVERAGING input value is supported
+    if (found%cellavg) then
+      if (this%icellavg == 0) then
+        errmsg = 'Unrecognized input value for ALTERNATIVE_CELL_AVERAGING option.'
+        call store_error(errmsg)
+        call store_error_filename(this%input_fname)
+      end if
     end if
     !
     ! -- log options
@@ -1371,8 +1682,8 @@ contains
     class(GwfNpftype) :: this
     type(GwfNpfOptionsType), intent(in) :: options
     !
-    this%icellavg = options%icellavg
     this%ithickstrt = options%ithickstrt
+    this%ihighcellsat = options%ihighcellsat
     this%iperched = options%iperched
     this%ivarcv = options%ivarcv
     this%idewatcv = options%idewatcv
@@ -1386,7 +1697,8 @@ contains
   !<
   subroutine check_options(this)
     ! -- modules
-    use SimModule, only: store_error, count_errors, store_error_filename
+    use SimModule, only: store_error, store_warning, &
+                         count_errors, store_error_filename
     use ConstantsModule, only: LINELENGTH
     ! -- dummy
     class(GwfNpftype) :: this
@@ -1411,6 +1723,14 @@ contains
         write (errmsg, '(a)') 'ERROR IN NPF OPTIONS. NEWTON OPTION CANNOT '// &
           'BE USED WITH REWET OPTION.'
         call store_error(errmsg)
+      end if
+    else
+      if (this%ihighcellsat /= 0) then
+        write (warnmsg, '(a)') 'HIGHEST_CELL_SATURATION '// &
+          'option cannot be used when NEWTON option in not specified. '// &
+          'Resetting HIGHEST_CELL_SATURATION option to off.'
+        this%ihighcellsat = 0
+        call store_warning(warnmsg)
       end if
     end if
     !
@@ -1500,7 +1820,7 @@ contains
     ! -- modules
     use SimModule, only: count_errors, store_error
     use MemoryManagerModule, only: mem_reallocate
-    use MemoryManagerExtModule, only: mem_set_value
+    use MemoryManagerExtModule, only: mem_set_value, memorystore_release
     use GwfNpfInputModule, only: GwfNpfParamFoundType
     ! -- dummy
     class(GwfNpftype) :: this
@@ -1517,7 +1837,8 @@ contains
     ! -- update defaults with idm sourced values
     call mem_set_value(this%icelltype, 'ICELLTYPE', this%input_mempath, map, &
                        found%icelltype)
-    call mem_set_value(this%k11, 'K', this%input_mempath, map, found%k)
+    call mem_set_value(this%k11, 'K', this%input_mempath, map, found%k, &
+                       release=.false.)
     call mem_set_value(this%k33, 'K33', this%input_mempath, map, found%k33)
     call mem_set_value(this%k22, 'K22', this%input_mempath, map, found%k22)
     call mem_set_value(this%wetdry, 'WETDRY', this%input_mempath, map, &
@@ -1563,10 +1884,12 @@ contains
     !
     ! -- handle not found side effects
     if (.not. found%k33) then
-      call mem_set_value(this%k33, 'K', this%input_mempath, map, afound(1))
+      call mem_set_value(this%k33, 'K', this%input_mempath, map, afound(1), &
+                         release=.false.)
     end if
     if (.not. found%k22) then
-      call mem_set_value(this%k22, 'K', this%input_mempath, map, afound(2))
+      call mem_set_value(this%k22, 'K', this%input_mempath, map, afound(2), &
+                         release=.false.)
     end if
     if (.not. found%wetdry) call mem_reallocate(this%wetdry, 1, 'WETDRY', &
                                                 trim(this%memoryPath))
@@ -1576,6 +1899,9 @@ contains
       call mem_reallocate(this%angle2, 0, 'ANGLE2', trim(this%memoryPath))
     if (.not. found%angle3 .and. this%ixt3d == 0) &
       call mem_reallocate(this%angle3, 0, 'ANGLE3', trim(this%memoryPath))
+    !
+    ! -- cleanup
+    call memorystore_release('K', this%input_mempath)
     !
     ! -- log griddata
     if (this%iout > 0) then
@@ -2803,5 +3129,14 @@ contains
                             this%dis%bot(n), &
                             this%dis%bot(m))
   end function calcSatThickness
+
+  subroutine add_flow_formulation(this, npf_form, form_id)
+    class(GwfNpfType), intent(inout) :: this !< this NPF instance
+    class(GwfNpfFormulationType), pointer :: npf_form !< the extended flow calculator
+    integer(I4B) :: form_id !< the id for the flow formulation
+
+    this%flow_formulations(form_id)%form => npf_form
+
+  end subroutine add_flow_formulation
 
 end module GwfNpfModule

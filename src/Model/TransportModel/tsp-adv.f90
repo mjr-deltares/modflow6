@@ -373,6 +373,7 @@ contains
         this%iadvwt = this%iadvwt - 1
       end if
     end if
+
     if (found_atspercel) then
       if (this%ats_percel == DZERO) this%ats_percel = DNODATA
     end if

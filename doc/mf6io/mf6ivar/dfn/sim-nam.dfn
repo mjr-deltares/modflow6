@@ -103,7 +103,6 @@ name tdis6
 preserve_case true
 type string
 reader urword
-optional
 longname name of tdis input file
 description is the name of the Temporal Discretization (TDIS) Input File.
 
@@ -144,7 +143,7 @@ type string
 tagged false
 reader urword
 longname name of model
-description is the user-assigned name of the model.  The model name cannot exceed 16 characters and must not have blanks within the name.  The model name is case insensitive; any lowercase letters are converted and stored as upper case letters.
+description is the user-assigned name of the model.  The model name cannot exceed 16 characters and must not have blanks within the name.  The model name is case insensitive; any lowercase letters are converted and stored as upper case letters.  Model names must be unique.
 
 
 # --------------------- sim nam exchanges ---------------------

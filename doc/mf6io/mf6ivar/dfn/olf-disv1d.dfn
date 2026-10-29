@@ -34,7 +34,6 @@ tagged true
 optional false
 longname grb keyword
 description keyword to specify that record corresponds to a binary grid file.
-extended true
 
 block options
 name fileout
@@ -56,7 +55,6 @@ optional false
 tagged false
 longname file name of GRB information
 description defines a binary grid output file. If this option is not provided, the output file will have the same name as the discretization input file, plus extension ``.grb''.
-extended true
 
 block options
 name xorigin
@@ -116,7 +114,7 @@ name nvert
 type integer
 reader urword
 optional true
-longname number of columns
+longname number of vertices
 description is the total number of (x, y, z) vertex pairs used to characterize the model grid.
 
 # --------------------- olf disv1d griddata ---------------------

@@ -6,10 +6,11 @@ module IdmChfDfnSelectorModule
   use InputDefinitionModule, only: InputParamDefinitionType, &
                                    InputBlockDefinitionType
   use ChfNamInputModule
-  use ChfDisv1DInputModule
+  use ChfDisv1dInputModule
   use ChfCxsInputModule
   use ChfDfwInputModule
   use ChfIcInputModule
+  use ChfOcInputModule
   use ChfCdbInputModule
   use ChfChdInputModule
   use ChfFlwInputModule
@@ -24,6 +25,7 @@ module IdmChfDfnSelectorModule
   public :: chf_aggregate_definitions
   public :: chf_block_definitions
   public :: chf_idm_multi_package
+  public :: chf_idm_is_advanced
   public :: chf_idm_subpackages
   public :: chf_idm_integrated
 
@@ -62,6 +64,8 @@ contains
       call set_param_pointer(input_definition, chf_dfw_param_definitions)
     case ('IC')
       call set_param_pointer(input_definition, chf_ic_param_definitions)
+    case ('OC')
+      call set_param_pointer(input_definition, chf_oc_param_definitions)
     case ('CDB')
       call set_param_pointer(input_definition, chf_cdb_param_definitions)
     case ('CHD')
@@ -96,6 +100,8 @@ contains
       call set_param_pointer(input_definition, chf_dfw_aggregate_definitions)
     case ('IC')
       call set_param_pointer(input_definition, chf_ic_aggregate_definitions)
+    case ('OC')
+      call set_param_pointer(input_definition, chf_oc_aggregate_definitions)
     case ('CDB')
       call set_param_pointer(input_definition, chf_cdb_aggregate_definitions)
     case ('CHD')
@@ -130,6 +136,8 @@ contains
       call set_block_pointer(input_definition, chf_dfw_block_definitions)
     case ('IC')
       call set_block_pointer(input_definition, chf_ic_block_definitions)
+    case ('OC')
+      call set_block_pointer(input_definition, chf_oc_block_definitions)
     case ('CDB')
       call set_block_pointer(input_definition, chf_cdb_block_definitions)
     case ('CHD')
@@ -163,6 +171,8 @@ contains
       multi_package = chf_dfw_multi_package
     case ('IC')
       multi_package = chf_ic_multi_package
+    case ('OC')
+      multi_package = chf_oc_multi_package
     case ('CDB')
       multi_package = chf_cdb_multi_package
     case ('CHD')
@@ -185,6 +195,44 @@ contains
     return
   end function chf_idm_multi_package
 
+  function chf_idm_is_advanced(subcomponent) result(is_advanced)
+    character(len=*), intent(in) :: subcomponent
+    logical :: is_advanced
+    select case (subcomponent)
+    case ('NAM')
+      is_advanced = chf_nam_is_advanced
+    case ('DISV1D')
+      is_advanced = chf_disv1d_is_advanced
+    case ('CXS')
+      is_advanced = chf_cxs_is_advanced
+    case ('DFW')
+      is_advanced = chf_dfw_is_advanced
+    case ('IC')
+      is_advanced = chf_ic_is_advanced
+    case ('OC')
+      is_advanced = chf_oc_is_advanced
+    case ('CDB')
+      is_advanced = chf_cdb_is_advanced
+    case ('CHD')
+      is_advanced = chf_chd_is_advanced
+    case ('FLW')
+      is_advanced = chf_flw_is_advanced
+    case ('PCP')
+      is_advanced = chf_pcp_is_advanced
+    case ('EVP')
+      is_advanced = chf_evp_is_advanced
+    case ('STO')
+      is_advanced = chf_sto_is_advanced
+    case ('ZDG')
+      is_advanced = chf_zdg_is_advanced
+    case default
+      call store_error('Idm selector subcomponent not found; '//&
+                       &'component="CHF"'//&
+                       &', subcomponent="'//trim(subcomponent)//'".', .true.)
+    end select
+    return
+  end function chf_idm_is_advanced
+
   function chf_idm_subpackages(subcomponent) result(subpackages)
     character(len=*), intent(in) :: subcomponent
     character(len=16), dimension(:), pointer :: subpackages
@@ -199,6 +247,8 @@ contains
       call set_subpkg_pointer(subpackages, chf_dfw_subpackages)
     case ('IC')
       call set_subpkg_pointer(subpackages, chf_ic_subpackages)
+    case ('OC')
+      call set_subpkg_pointer(subpackages, chf_oc_subpackages)
     case ('CDB')
       call set_subpkg_pointer(subpackages, chf_cdb_subpackages)
     case ('CHD')
@@ -232,6 +282,8 @@ contains
     case ('DFW')
       integrated = .true.
     case ('IC')
+      integrated = .true.
+    case ('OC')
       integrated = .true.
     case ('CDB')
       integrated = .true.

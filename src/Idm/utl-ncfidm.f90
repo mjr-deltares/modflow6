@@ -9,10 +9,12 @@ module UtlNcfInputModule
   public utl_ncf_block_definitions
   public UtlNcfParamFoundType
   public utl_ncf_multi_package
+  public utl_ncf_is_advanced
   public utl_ncf_subpackages
 
   type UtlNcfParamFoundType
     logical :: wkt = .false.
+    logical :: crs_wkt = .false.
     logical :: deflate = .false.
     logical :: shuffle = .false.
     logical :: chunk_time = .false.
@@ -27,6 +29,7 @@ module UtlNcfInputModule
   end type UtlNcfParamFoundType
 
   logical :: utl_ncf_multi_package = .false.
+  logical :: utl_ncf_is_advanced = .false.
 
   character(len=16), parameter :: &
     utl_ncf_subpackages(*) = &
@@ -44,10 +47,30 @@ module UtlNcfInputModule
     'WKT', & ! fortran variable
     'STRING', & ! type
     'LENBIGLINE', & ! shape
-    'CRS well-known text (WKT) string', & ! longname
+    'CRS well-known text (WKT1) string', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
-    .false., & ! preserve case
+    .true., & ! preserve case
+    .false., & ! layered
+    .false. & ! timeseries
+    )
+
+  type(InputParamDefinitionType), parameter :: &
+    utlncf_crs_wkt = InputParamDefinitionType &
+    ( &
+    'UTL', & ! component
+    'NCF', & ! subcomponent
+    'OPTIONS', & ! block
+    'CRS_WKT', & ! tag name
+    'CRS_WKT', & ! fortran variable
+    'STRING', & ! type
+    'LENBIGLINE', & ! shape
+    'CRS well-known text (WKT2) string', & ! longname
+    .false., & ! required
+    .false., & ! developmode
+    .false., & ! multi-record
+    .true., & ! preserve case
     .false., & ! layered
     .false. & ! timeseries
     )
@@ -64,6 +87,7 @@ module UtlNcfInputModule
     '', & ! shape
     'variable compression deflate level', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -82,6 +106,7 @@ module UtlNcfInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -100,6 +125,7 @@ module UtlNcfInputModule
     '', & ! shape
     'chunking parameter for the time dimension', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -118,6 +144,7 @@ module UtlNcfInputModule
     '', & ! shape
     'chunking parameter for the mesh face dimension', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -134,8 +161,9 @@ module UtlNcfInputModule
     'CHUNK_Z', & ! fortran variable
     'INTEGER', & ! type
     '', & ! shape
-    'chunking parameter for structured z', & ! longname
+    'chunking parameter for the layer dimension', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -154,6 +182,7 @@ module UtlNcfInputModule
     '', & ! shape
     'chunking parameter for structured y', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -172,6 +201,7 @@ module UtlNcfInputModule
     '', & ! shape
     'chunking parameter for structured x', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -190,6 +220,7 @@ module UtlNcfInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -208,6 +239,7 @@ module UtlNcfInputModule
     '', & ! shape
     'number of cells in layer', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -226,6 +258,7 @@ module UtlNcfInputModule
     'NCPL', & ! shape
     'cell center latitude', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -244,6 +277,7 @@ module UtlNcfInputModule
     'NCPL', & ! shape
     'cell center longitude', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -254,6 +288,7 @@ module UtlNcfInputModule
     utl_ncf_param_definitions(*) = &
     [ &
     utlncf_wkt, &
+    utlncf_crs_wkt, &
     utlncf_deflate, &
     utlncf_shuffle, &
     utlncf_chunk_time, &
@@ -281,6 +316,7 @@ module UtlNcfInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered

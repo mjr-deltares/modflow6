@@ -1,5 +1,6 @@
 # --------------------- swf evp options ---------------------
 # flopy multi-package
+# package-type stress-package
 
 block options
 name auxiliary
@@ -128,7 +129,7 @@ tagged false
 reader urword
 optional false
 longname obs6 input filename
-description REPLACE obs6_filename {'{#1}': 'Evaporation'}
+description REPLACE obs6_filename {'{#1}': 'EVP', '{#2}': '\\ref{table:gwf-obstypetable}'}
 
 # --------------------- swf evp dimensions ---------------------
 
@@ -138,7 +139,7 @@ type integer
 reader urword
 optional false
 longname maximum number of evaporation cells
-description REPLACE maxbound {'{#1}': 'evaporation cells'}
+description REPLACE maxbound {'{#1}': 'evaporation'}
 
 
 # --------------------- swf evp period ---------------------

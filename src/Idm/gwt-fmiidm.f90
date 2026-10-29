@@ -9,6 +9,7 @@ module GwtFmiInputModule
   public gwt_fmi_block_definitions
   public GwtFmiParamFoundType
   public gwt_fmi_multi_package
+  public gwt_fmi_is_advanced
   public gwt_fmi_subpackages
 
   type GwtFmiParamFoundType
@@ -20,6 +21,7 @@ module GwtFmiInputModule
   end type GwtFmiParamFoundType
 
   logical :: gwt_fmi_multi_package = .false.
+  logical :: gwt_fmi_is_advanced = .false.
 
   character(len=16), parameter :: &
     gwt_fmi_subpackages(*) = &
@@ -39,6 +41,7 @@ module GwtFmiInputModule
     '', & ! shape
     'save calculated flow imbalance correction to budget file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -57,6 +60,7 @@ module GwtFmiInputModule
     '', & ! shape
     'correct for flow imbalance', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -75,6 +79,7 @@ module GwtFmiInputModule
     '', & ! shape
     'flow type', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -93,6 +98,7 @@ module GwtFmiInputModule
     '', & ! shape
     'file keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -111,6 +117,7 @@ module GwtFmiInputModule
     '', & ! shape
     'file name', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -139,6 +146,7 @@ module GwtFmiInputModule
     '', & ! shape
     'flowtype list', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered

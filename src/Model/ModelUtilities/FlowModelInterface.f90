@@ -14,6 +14,7 @@ module FlowModelInterfaceModule
   use GridFileReaderModule, only: GridFileReaderType
   use PackageBudgetModule, only: PackageBudgetType
   use BudgetObjectModule, only: BudgetObjectType, budgetobject_cr_bfr
+  use MemoryManagerModule, only: mem_allocate
 
   implicit none
   private
@@ -34,9 +35,11 @@ module FlowModelInterfaceModule
     integer(I4B), pointer :: idryinactive => null() !< mark cells with an additional flag to exclude from deactivation (gwe will simulate conduction through dry cells)
     real(DP), dimension(:), pointer, contiguous :: gwfstrgss => null() !< pointer to flow model QSTOSS
     real(DP), dimension(:), pointer, contiguous :: gwfstrgsy => null() !< pointer to flow model QSTOSY
+    integer(I4B), dimension(:), pointer, contiguous :: gwfceltyp => null() !< pointer to flow model NPF icelltype
     integer(I4B), pointer :: igwfspdis => null() !< indicates if gwfspdis is available
     integer(I4B), pointer :: igwfstrgss => null() !< indicates if gwfstrgss is available
     integer(I4B), pointer :: igwfstrgsy => null() !< indicates if gwfstrgsy is available
+    integer(I4B), pointer :: igwfceltyp => null() !< indicates if gwfceltyp is available
     integer(I4B), pointer :: iubud => null() !< unit number GWF budget file
     integer(I4B), pointer :: iuhds => null() !< unit number GWF head file
     integer(I4B), pointer :: iumvr => null() !< unit number GWF mover budget file
@@ -71,6 +74,7 @@ module FlowModelInterfaceModule
     procedure :: initialize_hfr
     procedure :: source_options
     procedure :: source_packagedata
+    procedure :: source_packagedata_other
     procedure :: read_grid
 
   end type FlowModelInterfaceType
@@ -161,14 +165,17 @@ contains
     call this%deallocate_gwfpackages()
     !
     ! -- deallocate fmi arrays
-    deallocate (this%gwfpackages)
-    deallocate (this%flowpacknamearray)
-    call mem_deallocate(this%igwfmvrterm)
+    if (allocated(this%gwfpackages)) then
+      deallocate (this%gwfpackages)
+      deallocate (this%flowpacknamearray)
+      call mem_deallocate(this%igwfmvrterm)
+    end if
     call mem_deallocate(this%ibdgwfsat0)
     !
     if (this%flows_from_file) then
       call mem_deallocate(this%gwfstrgss)
       call mem_deallocate(this%gwfstrgsy)
+      call mem_deallocate(this%gwfceltyp)
     end if
     !
     ! -- special treatment, these could be from mem_checkin
@@ -183,6 +190,7 @@ contains
     call mem_deallocate(this%igwfspdis)
     call mem_deallocate(this%igwfstrgss)
     call mem_deallocate(this%igwfstrgsy)
+    call mem_deallocate(this%igwfceltyp)
     call mem_deallocate(this%iubud)
     call mem_deallocate(this%iuhds)
     call mem_deallocate(this%iumvr)
@@ -213,6 +221,7 @@ contains
     call mem_allocate(this%igwfspdis, 'IGWFSPDIS', this%memoryPath)
     call mem_allocate(this%igwfstrgss, 'IGWFSTRGSS', this%memoryPath)
     call mem_allocate(this%igwfstrgsy, 'IGWFSTRGSY', this%memoryPath)
+    call mem_allocate(this%igwfceltyp, 'IGWFCELTYP', this%memoryPath)
     call mem_allocate(this%iubud, 'IUBUD', this%memoryPath)
     call mem_allocate(this%iuhds, 'IUHDS', this%memoryPath)
     call mem_allocate(this%iumvr, 'IUMVR', this%memoryPath)
@@ -227,6 +236,7 @@ contains
     this%igwfspdis = 0
     this%igwfstrgss = 0
     this%igwfstrgsy = 0
+    this%igwfceltyp = 0
     this%iubud = 0
     this%iuhds = 0
     this%iumvr = 0
@@ -288,6 +298,13 @@ contains
       do n = 1, size(this%gwfstrgsy)
         this%gwfstrgsy(n) = DZERO
       end do
+      ! allocate and initialize cell type array. if the FMI is in a separate
+      ! simulation from the GWF model, we expect cell type to have been read
+      ! already if the binary grid file was provided to FMI. otherwise don't
+      ! initialize the cell type array to any default; unless it is received
+      ! from GWF NPF by an EXG it's undefined as indicated by igwfceltyp = 0
+      if (this%igwfceltyp == 0) &
+        call mem_allocate(this%gwfceltyp, nodes, 'GWFCELTYP', this%memoryPath)
       !
       ! -- If there is no fmi package, then there are no flows at all or a
       !    connected GWF model, so allocate gwfpackages to zero
@@ -327,7 +344,7 @@ contains
   subroutine source_packagedata(this)
     ! -- modules
     use MemoryManagerModule, only: mem_setptr
-    use MemoryManagerExtModule, only: mem_set_value
+    use MemoryManagerExtModule, only: mem_set_value, memorystore_release
     use CharacterStringModule, only: CharacterStringType
     use OpenSpecModule, only: ACCESS, FORM
     use ConstantsModule, only: LINELENGTH, DEM6, LENPACKAGENAME
@@ -372,19 +389,19 @@ contains
       case ('GWFBUDGET')
         inunit = getunit()
         call openfile(inunit, this%iout, fname, 'DATA(BINARY)', FORM, &
-                      ACCESS, 'UNKNOWN')
+                      ACCESS, 'OLD')
         this%iubud = inunit
         call this%initialize_bfr()
       case ('GWFHEAD')
         inunit = getunit()
         call openfile(inunit, this%iout, fname, 'DATA(BINARY)', FORM, &
-                      ACCESS, 'UNKNOWN')
+                      ACCESS, 'OLD')
         this%iuhds = inunit
         call this%initialize_hfr()
       case ('GWFMOVER')
         inunit = getunit()
         call openfile(inunit, this%iout, fname, 'DATA(BINARY)', FORM, &
-                      ACCESS, 'UNKNOWN')
+                      ACCESS, 'OLD')
         this%iumvr = inunit
         call budgetobject_cr_bfr(this%mvrbudobj, 'MVT', this%iumvr, &
                                  this%iout)
@@ -392,13 +409,11 @@ contains
       case ('GWFGRID')
         inunit = getunit()
         call openfile(inunit, this%iout, fname, 'DATA(BINARY)', &
-                      FORM, ACCESS, 'UNKNOWN')
+                      FORM, ACCESS, 'OLD')
         this%iugrb = inunit
         call this%read_grid()
       case default
-        write (errmsg, '(a,3(1x,a))') &
-          'UNKNOWN', trim(adjustl(this%text)), 'PACKAGEDATA:', trim(flowtype)
-        call store_error(errmsg)
+        call this%source_packagedata_other(flowtype, fname)
       end select
     end do
 
@@ -407,9 +422,24 @@ contains
     if (count_errors() > 0) then
       call store_error_filename(this%input_fname)
     end if
+
+    call memorystore_release('FLOWTYPE', this%input_mempath)
+    call memorystore_release('FILEIN', this%input_mempath)
+    call memorystore_release('FNAME', this%input_mempath)
   end subroutine source_packagedata
 
-  !> @brief Validate flow model grid
+  !> @brief Source a packagedata entry with a model-specific flow type
+  subroutine source_packagedata_other(this, flowtype, fname)
+    class(FlowModelInterfaceType) :: this
+    character(len=*), intent(in) :: flowtype !< packagedata flow type
+    character(len=*), intent(in) :: fname !< packagedata file name
+
+    write (errmsg, '(a,3(1x,a))') &
+      'UNKNOWN', trim(adjustl(this%text)), 'PACKAGEDATA:', trim(flowtype)
+    call store_error(errmsg)
+  end subroutine source_packagedata_other
+
+  !> @brief Read/validate flow model grid
   !<
   subroutine read_grid(this)
     ! -- modules
@@ -435,6 +465,14 @@ contains
       &Ensure discretization packages, including IDOMAIN, are identical.')"
 
     call this%gfr%initialize(this%iugrb)
+
+    ! load icelltype array
+    if (this%gfr%has_variable("ICELLTYPE")) then
+      this%igwfceltyp = 1
+      call mem_allocate(this%gwfceltyp, this%dis%nodesuser, &
+                        'GWFCELTYP', this%memoryPath)
+      call this%gfr%read_int_1d_into("ICELLTYPE", this%gwfceltyp)
+    end if
 
     ! check grid equivalence
     select case (this%gfr%grid_type)
@@ -566,7 +604,7 @@ contains
   !<
   subroutine advance_bfr(this)
     ! -- modules
-    use TdisModule, only: kstp, kper
+    use TdisModule, only: kstp, kper, endofsimulation
     ! -- dummy
     class(FlowModelInterfaceType) :: this
     ! -- local
@@ -585,6 +623,12 @@ contains
       &FOR KSTP ', i0, ' AND KPER ',        &
       &i0, ' TO BUDGET FILE TERMS FROM &
       &KSTP ', i0, ' AND KPER ', i0)"
+    character(len=*), parameter :: fmtbadtdis = &
+      "(4x, 'TIME DISCRETIZATION IN BUDGET FILE &
+      &IS INCOMPATIBLE WITH TIME DISCRETIZATION IN COUPLED MODEL. &
+      &IF THERE IS MORE THAN ONE TIME STEP IN THE BUDGET FILE FOR A &
+      &GIVEN STRESS PERIOD, BUDGET FILE TIME STEPS MUST MATCH THE &
+      &COUPLED MODEL TIME STEPS ONE-FOR-ONE IN THAT STRESS PERIOD.')"
     !
     ! -- If the latest record read from the budget file is from a stress
     ! -- period with only one time step, reuse that record (do not read a
@@ -626,22 +670,14 @@ contains
         !
         ! -- Ensure kper is same between model and budget file
         if (kper /= this%bfr%header%kper) then
-          write (errmsg, '(4x,a)') 'PERIOD NUMBER IN BUDGET FILE &
-            &DOES NOT MATCH PERIOD NUMBER IN TRANSPORT MODEL.  IF THERE &
-            &IS MORE THAN ONE TIME STEP IN THE BUDGET FILE FOR A GIVEN &
-            &STRESS PERIOD, BUDGET FILE TIME STEPS MUST MATCH GWT MODEL &
-            &TIME STEPS ONE-FOR-ONE IN THAT STRESS PERIOD.'
+          write (errmsg, fmtbadtdis)
           call store_error(errmsg)
           call store_error_unit(this%iubud)
         end if
         !
         ! -- if budget file kstp > 1, then kstp must match
         if (this%bfr%header%kstp > 1 .and. (kstp /= this%bfr%header%kstp)) then
-          write (errmsg, '(4x,a)') 'TIME STEP NUMBER IN BUDGET FILE &
-            &DOES NOT MATCH TIME STEP NUMBER IN TRANSPORT MODEL.  IF THERE &
-         &IS MORE THAN ONE TIME STEP IN THE BUDGET FILE FOR A GIVEN STRESS &
-           &PERIOD, BUDGET FILE TIME STEPS MUST MATCH GWT MODEL TIME STEPS &
-            &ONE-FOR-ONE IN THAT STRESS PERIOD.'
+          write (errmsg, fmtbadtdis)
           call store_error(errmsg)
           call store_error_unit(this%iubud)
         end if
@@ -701,6 +737,16 @@ contains
           end select
         end select
       end do
+
+      ! If this is the final time step, make sure no records
+      ! for this period are being skipped in the budget file.
+      if (endofsimulation .and. .not. this%bfr%endoffile) then
+        if (this%bfr%headernext%kper == kper) then
+          write (errmsg, fmtbadtdis)
+          call store_error(errmsg)
+          call store_error_unit(this%iubud)
+        end if
+      end if
     else
       !
       ! -- write message to indicate that flows are being reused
@@ -831,8 +877,6 @@ contains
   !! different terms and packages are contained within the file
   !<
   subroutine initialize_gwfterms_from_bfr(this)
-    ! -- modules
-    use MemoryManagerModule, only: mem_allocate
     ! -- dummy
     class(FlowModelInterfaceType) :: this
     ! -- local

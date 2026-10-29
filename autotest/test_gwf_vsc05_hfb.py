@@ -1,7 +1,7 @@
 """
 Uses constant head and general-head boundaries on the left and right
 sides of a 10 row by 10 column by 1 layer model to drive flow from left to
-right.  Tests that a horizontal flow barrier accounts for changes in
+right.  Tests that a hydraulic flow barrier accounts for changes in
 viscosity when temperature is simulated. Barrier is between middle two
 columns, but only cuts across the bottom 5 rows.
 Model 1: VSC inactive, uses a higher speified K that matches what the VSC
@@ -24,14 +24,15 @@ import numpy as np
 import pytest
 from framework import TestFramework
 
-cases = ["no-vsc05-hfb", "vsc05-hfb", "no-vsc05-k"]
+cases = ["no-vsc05-hfb", "vsc05-hfb", "no-vsc05-k", "hfb-idomain"]
 hyd_cond = [1205.49396942506, 864.0]  # Hydraulic conductivity (m/d)
-viscosity_on = [False, True, False]
-hydraulic_conductivity = [hyd_cond[0], hyd_cond[1], hyd_cond[1]]
+viscosity_on = [False, True, False, False]
+hydraulic_conductivity = [hyd_cond[0], hyd_cond[1], hyd_cond[1], hyd_cond[0]]
+icell_inactive = 3
 
 # Model units
 
-length_units = "cm"
+length_units = "centimeters"
 time_units = "seconds"
 
 # Table of model parameters
@@ -102,6 +103,11 @@ def build_models(idx, test):
     )
     sim.register_ims_package(ims, [gwfname])
 
+    idomain = np.ones((nlay, nrow, ncol), dtype=int)
+    if idx == icell_inactive:
+        sim.simulation_data.verify_data = False
+        idomain[0, 7, 4] = 0
+
     # Instantiating DIS
     flopy.mf6.ModflowGwfdis(
         gwf,
@@ -113,6 +119,7 @@ def build_models(idx, test):
         delc=delc,
         top=top,
         botm=botm,
+        idomain=idomain,
     )
 
     # Instantiating NPF
@@ -164,7 +171,7 @@ def build_models(idx, test):
         auxiliary="temperature",
     )
 
-    # Instantiate Horizontal Flow-Barrier (HFB) package
+    # Instantiate Hydraulic Flow-Barrier (HFB) package
     # Barrier present between middle two columns of the model domain, but only
     # in rows 6-10.  Remember that the hydraulic characteristic is the barrier
     # hydraulic conductivity divided by the width of the horizontal-flow
@@ -225,6 +232,7 @@ def build_models(idx, test):
         delc=delc,
         top=top,
         botm=botm,
+        idomain=idomain,
     )
 
     # Instantiating MST for GWT
@@ -346,6 +354,17 @@ def check_output(idx, test):
         assert np.less(no_vsc_low_k_bud_last[:, 2], stored_ans[:, 2]).all(), (
             "Exit flow from model the established answer "
             "should be greater than flow existing " + cases[2] + ", but it is not."
+        )
+    elif idx == 3:
+        cell_inactive_vals = np.array(vals_to_store)
+
+        # Ensure HFB inactive cell (1,8,5) cell-to-cell flows
+        # have been excluded
+        assert np.allclose(
+            cell_inactive_vals[:, 0], [4, 14, 24, 34, 44, 54, 64, 84, 94]
+        )
+        assert np.allclose(
+            cell_inactive_vals[:, 1], [5, 15, 25, 35, 45, 55, 65, 85, 95]
         )
 
 

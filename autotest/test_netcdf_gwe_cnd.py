@@ -26,6 +26,28 @@ xa = pytest.importorskip("xarray")
 xu = pytest.importorskip("xugrid")
 nc = pytest.importorskip("netCDF4")
 
+# WKT1 for EPSG:26918 (NAD83 / UTM zone 18N)
+WKT1 = (
+    'PROJCS["NAD83 / UTM zone 18N",'
+    'GEOGCS["NAD83",'
+    'DATUM["North_American_Datum_1983",'
+    'SPHEROID["GRS 1980",6378137,298.257222101,AUTHORITY["EPSG","7019"]],'
+    'AUTHORITY["EPSG","6269"]],'
+    'PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],'
+    'UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],'
+    'AUTHORITY["EPSG","4269"]],'
+    'PROJECTION["Transverse_Mercator"],'
+    'PARAMETER["latitude_of_origin",0],'
+    'PARAMETER["central_meridian",-75],'
+    'PARAMETER["scale_factor",0.9996],'
+    'PARAMETER["false_easting",500000],'
+    'PARAMETER["false_northing",0],'
+    'UNIT["metre",1,AUTHORITY["EPSG","9001"]],'
+    'AXIS["Easting",EAST],'
+    'AXIS["Northing",NORTH],'
+    'AUTHORITY["EPSG","26918"]]'
+)
+
 
 def build_models(idx, test, export, gridded_input):
     from test_gwe_cnd import build_models as build
@@ -39,14 +61,16 @@ def build_models(idx, test, export, gridded_input):
 
     name = "gwe-" + cases[idx]
 
+    fname = f"{name}.{export}.nc" if gridded_input == "netcdf" else f"{name}.nc"
     if export == "ugrid":
-        gwe.name_file.nc_mesh2d_filerecord = f"{name}.nc"
+        gwe.name_file.nc_mesh2d_filerecord = fname
     elif export == "structured":
-        gwe.name_file.nc_structured_filerecord = f"{name}.nc"
+        gwe.name_file.nc_structured_filerecord = fname
 
     # netcdf config
     ncf = flopy.mf6.ModflowUtlncf(
         gwe.dis,
+        wkt=WKT1,
         filename=f"{name}.dis.ncf",
     )
 
@@ -59,15 +83,12 @@ def check_output(idx, test, export, gridded_input):
     name = "gwe-" + test.name
 
     # verify format of generated netcdf file
-    with nc.Dataset(test.workspace / f"{name}.nc") as ds:
+    fname = f"{name}.{export}.nc" if gridded_input == "netcdf" else f"{name}.nc"
+    with nc.Dataset(test.workspace / fname) as ds:
         assert ds.data_model == "NETCDF4"
 
     if gridded_input == "netcdf":
         # re-run the simulation with model netcdf input
-        input_fname = f"{name}.nc"
-        nc_fname = f"{name}.{export}.nc"
-        os.rename(test.workspace / input_fname, test.workspace / nc_fname)
-
         if export == "ugrid":
             fileout_tag = "NETCDF_MESH2D"
         elif export == "structured":
@@ -93,7 +114,6 @@ def check_output(idx, test, export, gridded_input):
         with open(test.workspace / f"{name}.dis", "w") as f:
             f.write("BEGIN options\n")
             f.write("  NOGRB\n")
-            f.write("  EXPORT_ARRAY_NETCDF\n")
             f.write(f"  NCF6  FILEIN  {name}.dis.ncf\n")
             f.write("END options\n\n")
             f.write("BEGIN dimensions\n")
@@ -111,7 +131,6 @@ def check_output(idx, test, export, gridded_input):
 
         with open(test.workspace / f"{name}.ic", "w") as f:
             f.write("BEGIN options\n")
-            f.write("  EXPORT_ARRAY_NETCDF\n")
             f.write("END options\n\n")
             f.write("BEGIN griddata\n")
             f.write("  strt NETCDF\n")
@@ -120,7 +139,6 @@ def check_output(idx, test, export, gridded_input):
         with open(test.workspace / f"{name}.cnd", "w") as f:
             f.write("BEGIN options\n")
             f.write("  XT3D_OFF\n")
-            f.write("  EXPORT_ARRAY_NETCDF\n")
             f.write("END options\n\n")
             f.write("BEGIN griddata\n")
             f.write("  alh  NETCDF\n")
@@ -141,11 +159,38 @@ def check_output(idx, test, export, gridded_input):
 
     check(idx, test)
 
-    # read transport results from GWE model
-    name = cases[idx]
-    gwename = "gwe-" + name
+    # verify CRS attributes and z/z_lN on the
+    # real dependent-variable output file
+    with nc.Dataset(test.workspace / f"{name}.nc") as ds:
+        if export == "structured":
+            proj = ds.variables["projection"]
+            assert "GeoTransform" not in proj.ncattrs()
+            assert "spatial_ref" not in proj.ncattrs()
+            assert proj.getncattr("wkt") == WKT1
+            assert proj.getncattr("grid_mapping_name") == "transverse_mercator"
+            assert proj.getncattr("longitude_of_central_meridian") == -75.0
+            assert proj.getncattr("latitude_of_projection_origin") == 0.0
+            assert proj.getncattr("scale_factor_at_central_meridian") == 0.9996
+            assert proj.getncattr("false_easting") == 500000.0
+            assert proj.getncattr("false_northing") == 0.0
+            assert proj.getncattr("semi_major_axis") == 6378137.0
+            assert proj.getncattr("inverse_flattening") == 298.257222101
 
-    fpth = os.path.join(test.workspace, f"{gwename}.ucn")
+            z = ds.variables["z"]
+            assert z.getncattr("standard_name") == "altitude"
+            assert z.getncattr("positive") == "up"
+            assert "coordinates" in ds.variables["temperature"].ncattrs()
+            assert "z" in ds.variables["temperature"].getncattr("coordinates").split()
+        elif export == "ugrid":
+            # test_gwe_cnd is a single-layer (nlay=1) model
+            z = ds.variables["z_l1"]
+            assert z.getncattr("standard_name") == "altitude"
+            assert z.getncattr("positive") == "up"
+            assert z.getncattr("layer") == 1
+            coords = ds.variables["temperature_l1"].getncattr("coordinates").split()
+            assert "z_l1" in coords
+
+    fpth = os.path.join(test.workspace, f"{name}.ucn")
     try:
         # load temperatures
         cobj = flopy.utils.HeadFile(fpth, precision="double", text="TEMPERATURE")
@@ -154,7 +199,7 @@ def check_output(idx, test, export, gridded_input):
         assert False, f'could not load concentration data from "{fpth}"'
 
     # Check NetCDF output
-    nc_fpth = os.path.join(test.workspace, f"{gwename}.nc")
+    nc_fpth = os.path.join(test.workspace, f"{name}.nc")
     if export == "ugrid":
         ds = xu.open_dataset(nc_fpth)
         xds = ds.ugrid.to_dataset()
@@ -186,6 +231,24 @@ def check_output(idx, test, export, gridded_input):
                     xds["temperature"][kstp, :].data,
                 ), f"NetCDF-temperature comparison failure in timestep {kstp + 1}"
                 kstp += 1
+
+    for v in xds.data_vars.keys():
+        assert not v.startswith("dis")
+        assert not v.startswith("ic")
+        assert not v.startswith("cnd")
+
+    xds.close()
+
+    if gridded_input == "ascii":
+        return
+
+    # Check NetCDF input
+    nc_fpth = os.path.join(test.workspace, f"{name}.{export}.nc")
+    if export == "ugrid":
+        ds = xu.open_dataset(nc_fpth)
+        xds = ds.ugrid.to_dataset()
+    elif export == "structured":
+        xds = xa.open_dataset(nc_fpth)
 
     vlist = [
         "dis_delr",
@@ -241,5 +304,6 @@ def test_mf6model(idx, name, function_tmpdir, targets, export, gridded_input):
         build=lambda t: build_models(idx, t, export, gridded_input),
         check=lambda t: check_output(idx, t, export, gridded_input),
         targets=targets,
+        cargs=["--mode=validate"] if gridded_input == "netcdf" else None,
     )
     test.run()

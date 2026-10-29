@@ -9,7 +9,7 @@ module MeshDisModelModule
 
   use KindModule, only: DP, I4B, LGP
   use ConstantsModule, only: LINELENGTH, LENBIGLINE, LENCOMPONENTNAME, &
-                             LENMEMPATH, DNODATA, DZERO
+                             LENMEMPATH, DNODATA, DZERO, DHALF
   use SimVariablesModule, only: errmsg
   use SimModule, only: store_error, store_error_filename
   use MemoryManagerModule, only: mem_setptr
@@ -17,7 +17,7 @@ module MeshDisModelModule
   use CharacterStringModule, only: CharacterStringType
   use MeshModelModule, only: Mesh2dModelType, MeshNCDimIdType, MeshNCVarIdType, &
                              ncvar_chunk, ncvar_deflate, ncvar_gridmap, &
-                             ncvar_mf6attr
+                             ncvar_mf6attr, ncvar_layer
   use NCModelExportModule, only: export_longname, export_varname
   use DisModule, only: DisType
   use NetCDFCommonModule, only: nf_verify
@@ -93,18 +93,21 @@ contains
     call this%define_dim()
     ! define mesh variables
     call this%create_mesh()
-    if (isim_mode /= MVALIDATE) then
+    if (isim_mode == MVALIDATE) then
+      ! define period input arrays
+      call this%df_export()
+    else
       ! define the dependent variable
       call this%define_dependent()
     end if
-    ! define period input arrays
-    call this%df_export()
     ! exit define mode
     call nf_verify(nf90_enddef(this%ncid), this%nc_fname)
     ! create mesh
     call this%add_mesh_data()
-    ! define and set package input griddata
-    call this%add_pkg_data()
+    if (isim_mode == MVALIDATE) then
+      ! define and set package input griddata
+      call this%add_pkg_data()
+    end if
     ! define and set gridmap variable
     call this%define_gridmap()
     ! synchronize file
@@ -116,7 +119,6 @@ contains
   subroutine step(this)
     use ConstantsModule, only: DHNOFLO
     use TdisModule, only: totim
-    use NetCDFCommonModule, only: ixstp
     class(Mesh2dDisExportType), intent(inout) :: this
     real(DP), dimension(:), pointer, contiguous :: dbl1d
     integer(I4B) :: n, k, nvals, istp
@@ -128,7 +130,7 @@ contains
     nullify (dbl2d)
 
     ! set global step index
-    istp = ixstp()
+    istp = this%istp()
 
     dis_shape(1) = this%dis%ncol * this%dis%nrow
     dis_shape(2) = this%dis%nlay
@@ -181,7 +183,7 @@ contains
   !> @brief netcdf export package dynamic input
   !<
   subroutine package_step(this, export_pkg)
-    use TdisModule, only: kper
+    use TdisModule, only: totim, kper
     use DefinitionSelectModule, only: get_param_definition_type
     use NCModelExportModule, only: ExportPackageType
     class(Mesh2dDisExportType), intent(inout) :: this
@@ -306,6 +308,11 @@ contains
       end select
     end do
 
+    ! write to time coordinate variable
+    call nf_verify(nf90_put_var(this%ncid, this%var_ids%time, &
+                                totim, start=(/kper/)), &
+                   this%nc_fname)
+
     ! synchronize file
     call nf_verify(nf90_sync(this%ncid), this%nc_fname)
   end subroutine package_step
@@ -379,24 +386,31 @@ contains
   !> @brief netcdf export define dimensions
   !<
   subroutine define_dim(this)
+    use ConstantsModule, only: MVALIDATE
+    use SimVariablesModule, only: isim_mode
     class(Mesh2dDisExportType), intent(inout) :: this
+    integer(I4B) :: k
+    character(len=LINELENGTH) :: varname
+    character(len=LINELENGTH) :: elev_longname
 
-    ! time
-    call nf_verify(nf90_def_dim(this%ncid, 'time', this%totnstp, &
-                                this%dim_ids%time), this%nc_fname)
-    call nf_verify(nf90_def_var(this%ncid, 'time', NF90_DOUBLE, &
-                                this%dim_ids%time, this%var_ids%time), &
-                   this%nc_fname)
-    call nf_verify(nf90_put_att(this%ncid, this%var_ids%time, 'calendar', &
-                                'standard'), this%nc_fname)
-    call nf_verify(nf90_put_att(this%ncid, this%var_ids%time, 'units', &
-                                this%datetime), this%nc_fname)
-    call nf_verify(nf90_put_att(this%ncid, this%var_ids%time, 'axis', 'T'), &
-                   this%nc_fname)
-    call nf_verify(nf90_put_att(this%ncid, this%var_ids%time, 'standard_name', &
-                                'time'), this%nc_fname)
-    call nf_verify(nf90_put_att(this%ncid, this%var_ids%time, 'long_name', &
-                                'time'), this%nc_fname)
+    if (isim_mode /= MVALIDATE .or. this%pkglist%Count() > 0) then
+      ! time
+      call nf_verify(nf90_def_dim(this%ncid, 'time', this%totnstp, &
+                                  this%dim_ids%time), this%nc_fname)
+      call nf_verify(nf90_def_var(this%ncid, 'time', NF90_DOUBLE, &
+                                  this%dim_ids%time, this%var_ids%time), &
+                     this%nc_fname)
+      call nf_verify(nf90_put_att(this%ncid, this%var_ids%time, 'calendar', &
+                                  'standard'), this%nc_fname)
+      call nf_verify(nf90_put_att(this%ncid, this%var_ids%time, 'units', &
+                                  this%datetime), this%nc_fname)
+      call nf_verify(nf90_put_att(this%ncid, this%var_ids%time, 'axis', 'T'), &
+                     this%nc_fname)
+      call nf_verify(nf90_put_att(this%ncid, this%var_ids%time, 'standard_name', &
+                                  'time'), this%nc_fname)
+      call nf_verify(nf90_put_att(this%ncid, this%var_ids%time, 'long_name', &
+                                  'time'), this%nc_fname)
+    end if
 
     ! mesh
     call nf_verify(nf90_def_dim(this%ncid, 'nmesh_node', &
@@ -409,13 +423,56 @@ contains
                                 this%dim_ids%max_nmesh_face_nodes), &
                    this%nc_fname)
 
-    ! x, y, nlay
-    call nf_verify(nf90_def_dim(this%ncid, 'nlay', this%dis%nlay, &
-                                this%dim_ids%nlay), this%nc_fname)
+    ! x, y
     call nf_verify(nf90_def_dim(this%ncid, 'x', this%dis%ncol, &
                                 this%x_dim), this%nc_fname)
     call nf_verify(nf90_def_dim(this%ncid, 'y', this%dis%nrow, &
                                 this%y_dim), this%nc_fname)
+
+    ! layer
+    call nf_verify(nf90_def_dim(this%ncid, 'layer', this%nlay, &
+                                this%dim_ids%layer), this%nc_fname)
+    call nf_verify(nf90_def_var(this%ncid, 'layer', NF90_INT, &
+                                this%dim_ids%layer, this%var_ids%layer), &
+                   this%nc_fname)
+    call nf_verify(nf90_put_att(this%ncid, this%var_ids%layer, 'units', '1'), &
+                   this%nc_fname)
+    call nf_verify(nf90_put_att(this%ncid, this%var_ids%layer, 'axis', 'Z'), &
+                   this%nc_fname)
+    call nf_verify(nf90_put_att(this%ncid, this%var_ids%layer, 'positive', &
+                                'down'), this%nc_fname)
+    call nf_verify(nf90_put_att(this%ncid, this%var_ids%layer, 'long_name', &
+                                'model layer'), this%nc_fname)
+
+    ! z_l1, z_l2, ... : per-layer cell center elevation auxiliary
+    ! coordinates -- real vertical position, unlike the discrete layer
+    ! index. Always written, independent of CRS/NCF configuration; split
+    ! per layer since face-indexed variables carry no layer dimension to
+    ! legally reference a combined z(layer, nmesh_face) coordinate
+    ! (CF-1.13 5.2).
+    allocate (this%var_ids%elevation(this%nlay))
+    do k = 1, this%nlay
+      write (varname, '(a,i0)') 'z_l', k
+      call nf_verify(nf90_def_var(this%ncid, trim(varname), NF90_DOUBLE, &
+                                  (/this%dim_ids%nmesh_face/), &
+                                  this%var_ids%elevation(k)), this%nc_fname)
+      call ncvar_chunk(this%ncid, this%var_ids%elevation(k), this%chunk_face, &
+                       this%nc_fname)
+      call ncvar_deflate(this%ncid, this%var_ids%elevation(k), this%deflate, &
+                         this%shuffle, this%nc_fname)
+      call nf_verify(nf90_put_att(this%ncid, this%var_ids%elevation(k), &
+                                  'units', this%lenunits), this%nc_fname)
+      call nf_verify(nf90_put_att(this%ncid, this%var_ids%elevation(k), &
+                                  'standard_name', 'altitude'), this%nc_fname)
+      call nf_verify(nf90_put_att(this%ncid, this%var_ids%elevation(k), &
+                                  'positive', 'up'), this%nc_fname)
+      write (elev_longname, '(a,i0,a)') 'cell center elevation (layer ', &
+        k, ')'
+      call nf_verify(nf90_put_att(this%ncid, this%var_ids%elevation(k), &
+                                  'long_name', trim(elev_longname)), &
+                     this%nc_fname)
+      call ncvar_layer(this%ncid, this%var_ids%elevation(k), k, this%nc_fname)
+    end do
   end subroutine define_dim
 
   !> @brief netcdf export add mesh information
@@ -423,13 +480,14 @@ contains
   subroutine add_mesh_data(this)
     use BaseDisModule, only: dis_transform_xy
     class(Mesh2dDisExportType), intent(inout) :: this
-    integer(I4B) :: cnt, maxvert, m
-    integer(I4B), dimension(:), allocatable :: verts
+    integer(I4B) :: cnt, maxvert, m, k
+    integer(I4B), dimension(:), allocatable :: verts, layers
     real(DP), dimension(:), allocatable :: bnds
     integer(I4B) :: i, j
     real(DP) :: x, y, x_transform, y_transform
     real(DP), dimension(:), allocatable :: node_x, node_y
     real(DP), dimension(:), allocatable :: cell_x, cell_y
+    real(DP), dimension(:), allocatable :: elev_face
 
     ! initialize max vertices required to define cell
     maxvert = 4
@@ -437,6 +495,15 @@ contains
     ! set mesh container variable value to 1
     call nf_verify(nf90_put_var(this%ncid, this%var_ids%mesh, 1), &
                    this%nc_fname)
+
+    ! write layer coordinate data
+    allocate (layers(this%nlay))
+    do k = 1, this%nlay
+      layers(k) = k
+    end do
+    call nf_verify(nf90_put_var(this%ncid, this%var_ids%layer, layers), &
+                   this%nc_fname)
+    deallocate (layers)
 
     ! allocate temporary arrays
     allocate (verts(maxvert))
@@ -497,6 +564,29 @@ contains
                    this%nc_fname)
     call nf_verify(nf90_put_var(this%ncid, this%var_ids%mesh_face_y, cell_y), &
                    this%nc_fname)
+
+    ! set and write z_l1, z_l2, ... face-flattened cell center elevation
+    ! arrays, reusing the same (row outer, col inner, cnt incrementing)
+    ! face-order convention as cell_x/cell_y above
+    allocate (elev_face((this%dis%ncol * this%dis%nrow)))
+    do k = 1, this%nlay
+      cnt = 1
+      do j = 1, this%dis%nrow
+        do i = 1, this%dis%ncol
+          if (k == 1) then
+            elev_face(cnt) = (this%dis%top2d(i, j) + &
+                              this%dis%bot3d(i, j, k)) * DHALF
+          else
+            elev_face(cnt) = (this%dis%bot3d(i, j, k - 1) + &
+                              this%dis%bot3d(i, j, k)) * DHALF
+          end if
+          cnt = cnt + 1
+        end do
+      end do
+      call nf_verify(nf90_put_var(this%ncid, this%var_ids%elevation(k), &
+                                  elev_face), this%nc_fname)
+    end do
+    deallocate (elev_face)
 
     ! set face nodes array
     cnt = 0
@@ -562,7 +652,7 @@ contains
   subroutine nc_export_int1d(p_mem, ncid, dim_ids, x_dim, y_dim, var_ids, dis, &
                              idt, mempath, nc_tag, pkgname, gridmap_name, &
                              deflate, shuffle, chunk_face, iper, nc_fname)
-    use NetCDFCommonModule, only: ixstp
+    use TdisModule, only: kper
     integer(I4B), dimension(:), pointer, contiguous, intent(in) :: p_mem
     integer(I4B), intent(in) :: ncid
     type(MeshNCDimIdType), intent(inout) :: dim_ids
@@ -582,7 +672,7 @@ contains
     character(len=*), intent(in) :: nc_fname
     integer(I4B), dimension(:, :, :), pointer, contiguous :: int3d
     integer(I4B), dimension(:), pointer, contiguous :: int1d
-    integer(I4B) :: axis_dim, nvals, k, istp
+    integer(I4B) :: axis_dim, nvals, k
     integer(I4B), dimension(:), allocatable :: var_id
     character(len=LINELENGTH) :: longname, varname
 
@@ -604,7 +694,9 @@ contains
 
         ! set names
         varname = export_varname(pkgname, idt%tagname, mempath)
-        longname = export_longname(idt%longname, pkgname, idt%tagname, mempath)
+        longname = export_longname(idt%longname, pkgname, idt%tagname, mempath, &
+                                   component_type=idt%component_type, &
+                                   subcomponent_type=idt%subcomponent_type)
 
         allocate (var_id(1))
 
@@ -614,7 +706,10 @@ contains
                                     (/axis_dim/), var_id(1)), &
                        nc_fname)
 
-        ! NROW/NCOL shapes use default chunking
+        ! apply chunking for face-indexed variables; NROW/NCOL use default
+        if (axis_dim == dim_ids%nmesh_face) then
+          call ncvar_chunk(ncid, var_id(1), chunk_face, nc_fname)
+        end if
         call ncvar_deflate(ncid, var_id(1), deflate, shuffle, nc_fname)
 
         ! put attr
@@ -622,6 +717,11 @@ contains
                                     (/NF90_FILL_INT/)), nc_fname)
         call nf_verify(nf90_put_att(ncid, var_id(1), 'long_name', &
                                     longname), nc_fname)
+
+        ! add grid mapping for face-indexed variables
+        if (axis_dim == dim_ids%nmesh_face) then
+          call ncvar_gridmap(ncid, var_id(1), gridmap_name, 0, nc_fname)
+        end if
 
         ! add mf6 attr
         call ncvar_mf6attr(ncid, var_id(1), 0, 0, nc_tag, nc_fname)
@@ -631,11 +731,10 @@ contains
         call nf_verify(nf90_put_var(ncid, var_id(1), p_mem), &
                        nc_fname)
       else
-        istp = ixstp()
         nvals = dis%nrow * dis%ncol
         call nf_verify(nf90_put_var(ncid, &
                                     var_ids%export(1), p_mem, &
-                                    start=(/1, istp/), &
+                                    start=(/1, kper/), &
                                     count=(/nvals, 1/)), nc_fname)
       end if
 
@@ -657,7 +756,9 @@ contains
           varname = export_varname(pkgname, idt%tagname, mempath, &
                                    layer=k)
           longname = export_longname(idt%longname, pkgname, idt%tagname, &
-                                     mempath, layer=k)
+                                     mempath, layer=k, &
+                                     component_type=idt%component_type, &
+                                     subcomponent_type=idt%subcomponent_type)
 
           call nf_verify(nf90_def_var(ncid, varname, NF90_INT, &
                                       (/dim_ids%nmesh_face/), var_id(k)), &
@@ -675,7 +776,7 @@ contains
                                       longname), nc_fname)
 
           ! add grid mapping and mf6 attr
-          call ncvar_gridmap(ncid, var_id(k), gridmap_name, nc_fname)
+          call ncvar_gridmap(ncid, var_id(k), gridmap_name, k, nc_fname)
           call ncvar_mf6attr(ncid, var_id(k), k, 0, nc_tag, nc_fname)
         end do
 
@@ -690,12 +791,11 @@ contains
         deallocate (var_id)
       else
         ! timeseries, add period data
-        istp = ixstp()
         do k = 1, dis%nlay
           int1d(1:nvals) => int3d(:, :, k)
           call nf_verify(nf90_put_var(ncid, &
                                       var_ids%export(k), int1d, &
-                                      start=(/1, istp/), &
+                                      start=(/1, kper/), &
                                       count=(/nvals, 1/)), nc_fname)
         end do
       end if
@@ -727,7 +827,9 @@ contains
 
     ! set names
     varname = export_varname(pkgname, idt%tagname, mempath)
-    longname = export_longname(idt%longname, pkgname, idt%tagname, mempath)
+    longname = export_longname(idt%longname, pkgname, idt%tagname, mempath, &
+                               component_type=idt%component_type, &
+                               subcomponent_type=idt%subcomponent_type)
 
     ! reenter define mode and create variable
     call nf_verify(nf90_redef(ncid), nc_fname)
@@ -747,7 +849,7 @@ contains
                                 longname), nc_fname)
 
     ! add grid mapping and mf6 attr
-    call ncvar_gridmap(ncid, var_id, gridmap_name, nc_fname)
+    call ncvar_gridmap(ncid, var_id, gridmap_name, 0, nc_fname)
     call ncvar_mf6attr(ncid, var_id, 0, 0, nc_tag, nc_fname)
 
     ! exit define mode and write data
@@ -789,7 +891,9 @@ contains
       ! set names
       varname = export_varname(pkgname, idt%tagname, mempath, layer=k)
       longname = export_longname(idt%longname, pkgname, idt%tagname, &
-                                 mempath, layer=k)
+                                 mempath, layer=k, &
+                                 component_type=idt%component_type, &
+                                 subcomponent_type=idt%subcomponent_type)
 
       call nf_verify(nf90_def_var(ncid, varname, NF90_INT, &
                                   (/dim_ids%nmesh_face/), var_id(k)), &
@@ -807,7 +911,7 @@ contains
                                   longname), nc_fname)
 
       ! add grid mapping and mf6 attr
-      call ncvar_gridmap(ncid, var_id(k), gridmap_name, nc_fname)
+      call ncvar_gridmap(ncid, var_id(k), gridmap_name, k, nc_fname)
       call ncvar_mf6attr(ncid, var_id(k), k, 0, nc_tag, nc_fname)
     end do
 
@@ -828,7 +932,7 @@ contains
   subroutine nc_export_dbl1d(p_mem, ncid, dim_ids, x_dim, y_dim, var_ids, dis, &
                              idt, mempath, nc_tag, pkgname, gridmap_name, &
                              deflate, shuffle, chunk_face, iper, iaux, nc_fname)
-    use NetCDFCommonModule, only: ixstp
+    use TdisModule, only: kper
     real(DP), dimension(:), pointer, contiguous, intent(in) :: p_mem
     integer(I4B), intent(in) :: ncid
     type(MeshNCDimIdType), intent(inout) :: dim_ids
@@ -849,8 +953,8 @@ contains
     character(len=*), intent(in) :: nc_fname
     real(DP), dimension(:, :, :), pointer, contiguous :: dbl3d
     real(DP), dimension(:), pointer, contiguous :: dbl1d
-    integer(I4B) :: axis_dim, nvals, k, istp
-    integer(NF90_INT), dimension(:), allocatable :: var_id
+    integer(I4B) :: axis_dim, nvals, k
+    integer(I4B), dimension(:), allocatable :: var_id
     character(len=LINELENGTH) :: longname, varname
 
     if (idt%shape == 'NROW' .or. &
@@ -872,7 +976,9 @@ contains
         ! set names
         varname = export_varname(pkgname, idt%tagname, mempath, iaux=iaux)
         longname = export_longname(idt%longname, pkgname, idt%tagname, &
-                                   mempath, iaux=iaux)
+                                   mempath, iaux=iaux, &
+                                   component_type=idt%component_type, &
+                                   subcomponent_type=idt%subcomponent_type)
 
         allocate (var_id(1))
 
@@ -882,7 +988,10 @@ contains
                                     (/axis_dim/), var_id(1)), &
                        nc_fname)
 
-        ! NROW/NCOL shapes use default chunking
+        ! apply chunking for face-indexed variables; NROW/NCOL use default
+        if (axis_dim == dim_ids%nmesh_face) then
+          call ncvar_chunk(ncid, var_id(1), chunk_face, nc_fname)
+        end if
         call ncvar_deflate(ncid, var_id(1), deflate, shuffle, nc_fname)
 
         ! put attr
@@ -890,6 +999,11 @@ contains
                                     (/NF90_FILL_DOUBLE/)), nc_fname)
         call nf_verify(nf90_put_att(ncid, var_id(1), 'long_name', &
                                     longname), nc_fname)
+
+        ! add grid mapping for face-indexed variables
+        if (axis_dim == dim_ids%nmesh_face) then
+          call ncvar_gridmap(ncid, var_id(1), gridmap_name, 0, nc_fname)
+        end if
 
         ! add mf6 attr
         call ncvar_mf6attr(ncid, var_id(1), 0, iaux, nc_tag, nc_fname)
@@ -899,11 +1013,10 @@ contains
         call nf_verify(nf90_put_var(ncid, var_id(1), p_mem), &
                        nc_fname)
       else
-        istp = ixstp()
         nvals = dis%nrow * dis%ncol
         call nf_verify(nf90_put_var(ncid, &
                                     var_ids%export(1), p_mem, &
-                                    start=(/1, istp/), &
+                                    start=(/1, kper/), &
                                     count=(/nvals, 1/)), nc_fname)
       end if
 
@@ -927,7 +1040,9 @@ contains
           varname = export_varname(pkgname, idt%tagname, mempath, layer=k, &
                                    iaux=iaux)
           longname = export_longname(idt%longname, pkgname, idt%tagname, &
-                                     mempath, layer=k, iaux=iaux)
+                                     mempath, layer=k, iaux=iaux, &
+                                     component_type=idt%component_type, &
+                                     subcomponent_type=idt%subcomponent_type)
 
           ! create layer variable
           call nf_verify(nf90_def_var(ncid, varname, NF90_DOUBLE, &
@@ -946,7 +1061,7 @@ contains
                                       longname), nc_fname)
 
           ! add grid mapping and mf6 attr
-          call ncvar_gridmap(ncid, var_id(k), gridmap_name, nc_fname)
+          call ncvar_gridmap(ncid, var_id(k), gridmap_name, k, nc_fname)
           call ncvar_mf6attr(ncid, var_id(k), k, iaux, nc_tag, nc_fname)
         end do
 
@@ -963,12 +1078,11 @@ contains
         deallocate (var_id)
       else
         ! timeseries, add period data
-        istp = ixstp()
         do k = 1, dis%nlay
           dbl1d(1:nvals) => dbl3d(:, :, k)
           call nf_verify(nf90_put_var(ncid, &
                                       var_ids%export(k), dbl1d, &
-                                      start=(/1, istp/), &
+                                      start=(/1, kper/), &
                                       count=(/nvals, 1/)), nc_fname)
         end do
       end if
@@ -1000,7 +1114,9 @@ contains
 
     ! set names
     varname = export_varname(pkgname, idt%tagname, mempath)
-    longname = export_longname(idt%longname, pkgname, idt%tagname, mempath)
+    longname = export_longname(idt%longname, pkgname, idt%tagname, mempath, &
+                               component_type=idt%component_type, &
+                               subcomponent_type=idt%subcomponent_type)
 
     ! reenter define mode and create variable
     call nf_verify(nf90_redef(ncid), nc_fname)
@@ -1020,7 +1136,7 @@ contains
                                 longname), nc_fname)
 
     ! add grid mapping and mf6 attr
-    call ncvar_gridmap(ncid, var_id, gridmap_name, nc_fname)
+    call ncvar_gridmap(ncid, var_id, gridmap_name, 0, nc_fname)
     call ncvar_mf6attr(ncid, var_id, 0, 0, nc_tag, nc_fname)
 
     ! exit define mode and write data
@@ -1065,7 +1181,9 @@ contains
       ! set names
       varname = export_varname(pkgname, idt%tagname, mempath, layer=k)
       longname = export_longname(idt%longname, pkgname, idt%tagname, &
-                                 mempath, layer=k)
+                                 mempath, layer=k, &
+                                 component_type=idt%component_type, &
+                                 subcomponent_type=idt%subcomponent_type)
 
       call nf_verify(nf90_def_var(ncid, varname, NF90_DOUBLE, &
                                   (/dim_ids%nmesh_face/), var_id(k)), &
@@ -1083,7 +1201,7 @@ contains
                                   longname), nc_fname)
 
       ! add grid mapping and mf6 attr
-      call ncvar_gridmap(ncid, var_id(k), gridmap_name, nc_fname)
+      call ncvar_gridmap(ncid, var_id(k), gridmap_name, k, nc_fname)
       call ncvar_mf6attr(ncid, var_id(k), k, 0, nc_tag, nc_fname)
     end do
 

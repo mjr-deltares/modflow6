@@ -9,6 +9,7 @@ module ChfZdgInputModule
   public chf_zdg_block_definitions
   public ChfZdgParamFoundType
   public chf_zdg_multi_package
+  public chf_zdg_is_advanced
   public chf_zdg_subpackages
 
   type ChfZdgParamFoundType
@@ -35,6 +36,7 @@ module ChfZdgInputModule
   end type ChfZdgParamFoundType
 
   logical :: chf_zdg_multi_package = .true.
+  logical :: chf_zdg_is_advanced = .false.
 
   character(len=16), parameter :: &
     chf_zdg_subpackages(*) = &
@@ -54,6 +56,7 @@ module ChfZdgInputModule
     'NAUX', & ! shape
     'keyword to specify aux variables', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -72,6 +75,7 @@ module ChfZdgInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -90,6 +94,7 @@ module ChfZdgInputModule
     '', & ! shape
     'print input to listing file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -108,6 +113,7 @@ module ChfZdgInputModule
     '', & ! shape
     'print calculated flows to listing file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -126,6 +132,7 @@ module ChfZdgInputModule
     '', & ! shape
     'save flows to budget file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -144,6 +151,7 @@ module ChfZdgInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -162,6 +170,7 @@ module ChfZdgInputModule
     '', & ! shape
     'head keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -180,6 +189,7 @@ module ChfZdgInputModule
     '', & ! shape
     'file keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -198,6 +208,7 @@ module ChfZdgInputModule
     '', & ! shape
     'file name of time series information', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -216,6 +227,7 @@ module ChfZdgInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -234,6 +246,7 @@ module ChfZdgInputModule
     '', & ! shape
     'obs keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -252,6 +265,7 @@ module ChfZdgInputModule
     '', & ! shape
     'obs6 input filename', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -270,6 +284,7 @@ module ChfZdgInputModule
     '', & ! shape
     'maximum number of zero-depth-gradient boundaries', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -288,6 +303,7 @@ module ChfZdgInputModule
     'NCELLDIM', & ! shape
     'cell identifier', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -306,6 +322,7 @@ module ChfZdgInputModule
     '', & ! shape
     'cross section identifier', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -324,6 +341,7 @@ module ChfZdgInputModule
     '', & ! shape
     'width of the zero-depth gradient boundary', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -342,6 +360,7 @@ module ChfZdgInputModule
     '', & ! shape
     'channel slope', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -360,6 +379,7 @@ module ChfZdgInputModule
     '', & ! shape
     'channel roughness', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -378,6 +398,7 @@ module ChfZdgInputModule
     'NAUX', & ! shape
     'auxiliary variables', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -396,6 +417,7 @@ module ChfZdgInputModule
     '', & ! shape
     'zero-depth-gradient boundary name', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -439,6 +461,7 @@ module ChfZdgInputModule
     'MAXBOUND', & ! shape
     '', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered

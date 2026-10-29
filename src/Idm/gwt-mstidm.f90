@@ -9,6 +9,7 @@ module GwtMstInputModule
   public gwt_mst_block_definitions
   public GwtMstParamFoundType
   public gwt_mst_multi_package
+  public gwt_mst_is_advanced
   public gwt_mst_subpackages
 
   type GwtMstParamFoundType
@@ -31,6 +32,7 @@ module GwtMstInputModule
   end type GwtMstParamFoundType
 
   logical :: gwt_mst_multi_package = .false.
+  logical :: gwt_mst_is_advanced = .false.
 
   character(len=16), parameter :: &
     gwt_mst_subpackages(*) = &
@@ -50,6 +52,7 @@ module GwtMstInputModule
     '', & ! shape
     'save calculated flows to budget file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -68,6 +71,7 @@ module GwtMstInputModule
     '', & ! shape
     'activate first-order decay', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -86,6 +90,7 @@ module GwtMstInputModule
     '', & ! shape
     'activate zero-order decay', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -104,6 +109,7 @@ module GwtMstInputModule
     '', & ! shape
     'activate sorption', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -122,6 +128,7 @@ module GwtMstInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -140,6 +147,7 @@ module GwtMstInputModule
     '', & ! shape
     'sorbate keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -158,6 +166,7 @@ module GwtMstInputModule
     '', & ! shape
     'file keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -176,6 +185,7 @@ module GwtMstInputModule
     '', & ! shape
     'file keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -194,6 +204,7 @@ module GwtMstInputModule
     '', & ! shape
     'export array variables to layered ascii files.', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -212,6 +223,7 @@ module GwtMstInputModule
     '', & ! shape
     'export array variables to netcdf output files.', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -230,6 +242,7 @@ module GwtMstInputModule
     'NODES', & ! shape
     'porosity', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .true., & ! layered
@@ -248,6 +261,7 @@ module GwtMstInputModule
     'NODES', & ! shape
     'aqueous phase decay rate coefficient', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .true., & ! layered
@@ -266,6 +280,7 @@ module GwtMstInputModule
     'NODES', & ! shape
     'sorbed phase decay rate coefficient', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .true., & ! layered
@@ -284,6 +299,7 @@ module GwtMstInputModule
     'NODES', & ! shape
     'bulk density', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .true., & ! layered
@@ -302,6 +318,7 @@ module GwtMstInputModule
     'NODES', & ! shape
     'distribution coefficient', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .true., & ! layered
@@ -320,6 +337,7 @@ module GwtMstInputModule
     'NODES', & ! shape
     'second sorption parameter', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .true., & ! layered
@@ -361,6 +379,7 @@ module GwtMstInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered

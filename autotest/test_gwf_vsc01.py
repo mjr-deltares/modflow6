@@ -21,7 +21,7 @@ hydraulic_conductivity = [hyd_cond[0], hyd_cond[1], hyd_cond[1]]
 
 # Model units
 
-length_units = "cm"
+length_units = "centimeters"
 time_units = "seconds"
 
 # Table of model parameters
@@ -363,7 +363,6 @@ def check_outputs(idx, test):
     check_output(idx, ws, array_input=True)
 
 
-@pytest.mark.developmode
 @pytest.mark.parametrize("idx, name", enumerate(cases))
 def test_mf6model(idx, name, function_tmpdir, targets):
     test = TestFramework(

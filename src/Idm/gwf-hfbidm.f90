@@ -9,6 +9,7 @@ module GwfHfbInputModule
   public gwf_hfb_block_definitions
   public GwfHfbParamFoundType
   public gwf_hfb_multi_package
+  public gwf_hfb_is_advanced
   public gwf_hfb_subpackages
 
   type GwfHfbParamFoundType
@@ -20,6 +21,7 @@ module GwfHfbInputModule
   end type GwfHfbParamFoundType
 
   logical :: gwf_hfb_multi_package = .false.
+  logical :: gwf_hfb_is_advanced = .false.
 
   character(len=16), parameter :: &
     gwf_hfb_subpackages(*) = &
@@ -39,6 +41,7 @@ module GwfHfbInputModule
     '', & ! shape
     'model print input to listing file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -57,6 +60,7 @@ module GwfHfbInputModule
     '', & ! shape
     'maximum number of barriers', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -75,6 +79,7 @@ module GwfHfbInputModule
     'NCELLDIM', & ! shape
     'first cell adjacent to barrier', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -93,6 +98,7 @@ module GwfHfbInputModule
     'NCELLDIM', & ! shape
     'second cell adjacent to barrier', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -111,6 +117,7 @@ module GwfHfbInputModule
     '', & ! shape
     'barrier hydraulic characteristic', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -139,6 +146,7 @@ module GwfHfbInputModule
     'MAXHFB', & ! shape
     '', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered

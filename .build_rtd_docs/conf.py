@@ -101,16 +101,20 @@ src = os.path.join("..", fpth)
 dst = os.path.join(dstdir, fpth)
 shutil.copy(src, dst)
 
-dstdir = "_migration"
+dstdir = "_misc"
 if os.path.isdir(dstdir):
     shutil.rmtree(dstdir)
 os.makedirs(dstdir)
 
-print(f"Copy migration guides to {dstdir}")
-fpth = "mf6_6_0_prt_migration_guide.md"
-src = os.path.join(fpth)
-dst = os.path.join(dstdir, fpth)
-shutil.move(src, dst)
+print(f"Copy special topics to {dstdir}")
+fpths = [
+    "mf6_6_0_prt_migration_guide.md",
+    "mf6_7_0_prt_migration_guide.md",
+]
+for fpth in fpths:
+    src = os.path.join(fpth)
+    dst = os.path.join(dstdir, fpth)
+    shutil.copy(src, dst)
 
 # -- build the deprecations table --------------------------------------------
 print("Build the deprecations markdown table")
@@ -162,7 +166,7 @@ with open("Doxyfile", "w") as fp:
 # -- Project information -----------------------------------------------------
 
 project = "MODFLOW 6"
-copyright = "2024, MODFLOW Development Team"
+copyright = "2026, MODFLOW Development Team"
 author = "MODFLOW Development Team"
 
 # -- Project version ---------------------------------------------------------

@@ -104,7 +104,7 @@ contains
     type(GwfVscType), pointer, intent(in) :: vsc !< viscosity package
     ! -- formats
     character(len=*), parameter :: fmtheader = &
-      "(1x, /1x, 'HFB -- HORIZONTAL FLOW BARRIER PACKAGE, VERSION 8, ', &
+      "(1x, /1x, 'HFB -- HYDRAULIC FLOW BARRIER PACKAGE, VERSION 8, ', &
       &'4/24/2015 INPUT READ FROM MEMPATH: ', a, /)"
     !
     ! -- Print a message identifying the node property flow package.
@@ -192,7 +192,7 @@ contains
     integer(I4B) :: idiag, isymcon
     integer(I4B) :: ixt3d
     real(DP) :: cond, condhfb, aterm
-    real(DP) :: fawidth, faheight
+    real(DP) :: fawidth, faheight, faarea
     real(DP) :: topn, topm, botn, botm
     real(DP) :: viscratio
     !
@@ -236,9 +236,15 @@ contains
             else
               faheight = DHALF * ((topn - botn) + (topm - botm))
             end if
-            fawidth = this%hwva(this%jas(ipos))
-            condhfb = this%hydchr(ihfb) * viscratio * &
-                      fawidth * faheight
+
+            if (this%ihc(this%jas(ipos)) == 0) then
+              faarea = this%hwva(this%jas(ipos))
+            else
+              fawidth = this%hwva(this%jas(ipos))
+              faarea = fawidth * faheight
+            end if
+
+            condhfb = this%hydchr(ihfb) * viscratio * faarea
           else
             condhfb = this%hydchr(ihfb) * viscratio
           end if
@@ -284,10 +290,16 @@ contains
             else
               faheight = DHALF * ((topn - botn) + (topm - botm))
             end if
-            if (this%hydchr(ihfb) > DZERO) then
+
+            if (this%ihc(this%jas(ipos)) == 0) then
+              faarea = this%hwva(this%jas(ipos))
+            else
               fawidth = this%hwva(this%jas(ipos))
-              condhfb = this%hydchr(ihfb) * viscratio * &
-                        fawidth * faheight
+              faarea = fawidth * faheight
+            end if
+
+            if (this%hydchr(ihfb) > DZERO) then
+              condhfb = this%hydchr(ihfb) * viscratio * faarea
               cond = aterm * condhfb / (aterm + condhfb)
             else
               cond = -aterm * this%hydchr(ihfb)
@@ -333,7 +345,7 @@ contains
     real(DP) :: cond
     integer(I4B) :: ixt3d
     real(DP) :: condhfb
-    real(DP) :: fawidth, faheight
+    real(DP) :: fawidth, faheight, faarea
     real(DP) :: topn, topm, botn, botm
     real(DP) :: viscratio
     !
@@ -377,9 +389,16 @@ contains
             else
               faheight = DHALF * ((topn - botn) + (topm - botm))
             end if
+
+            if (this%ihc(this%jas(ipos)) == 0) then
+              faarea = this%hwva(this%jas(ipos))
+            else
+              fawidth = this%hwva(this%jas(ipos))
+              faarea = fawidth * faheight
+            end if
+
             fawidth = this%hwva(this%jas(ipos))
-            condhfb = this%hydchr(ihfb) * viscratio * &
-                      fawidth * faheight
+            condhfb = this%hydchr(ihfb) * viscratio * faarea
           else
             condhfb = this%hydchr(ihfb)
           end if
@@ -564,6 +583,8 @@ contains
   subroutine source_data(this)
     ! -- modules
     use TdisModule, only: kper
+    use SimVariablesModule, only: warnmsg
+    use SimModule, only: store_warning
     use ConstantsModule, only: LINELENGTH
     use MemoryManagerModule, only: mem_setptr
     use GeomUtilModule, only: get_node
@@ -575,9 +596,10 @@ contains
     real(DP), dimension(:), pointer, contiguous :: hydchr
     character(len=LINELENGTH) :: nodenstr, nodemstr
     integer(I4B), pointer :: nbound
-    integer(I4B) :: n, nodeu1, nodeu2, noder1, noder2
+    integer(I4B) :: n, nodeu1, nodeu2, noder1, noder2, hfbno
+    character(len=20) :: node1str, node2str
     ! -- formats
-    character(len=*), parameter :: fmthfb = "(i10, 2a10, 1(1pg15.6))"
+    character(len=*), parameter :: fmthfb = "(i10, 2a20, 1(1pg15.6))"
 
     ! set input context pointers
     call mem_setptr(nbound, 'NBOUND', this%input_mempath)
@@ -585,18 +607,21 @@ contains
     call mem_setptr(cellids2, 'CELLID2', this%input_mempath)
     call mem_setptr(hydchr, 'HYDCHR', this%input_mempath)
 
+    ! initialize hfb number
+    hfbno = 0
+
     ! set nhfb
     this%nhfb = nbound
 
     ! log data
     write (this%iout, '(//,1x,a)') 'READING HFB DATA'
     if (this%iprpak > 0) then
-      write (this%iout, '(3a10, 1a15)') 'HFB NUM', 'CELL1', 'CELL2', &
+      write (this%iout, '(a10, 2a20, 1a15)') 'HFB NUM', 'CELL1', 'CELL2', &
         'HYDCHR'
     end if
 
     ! update state
-    do n = 1, this%nhfb
+    do n = 1, nbound
 
       ! set cellid
       cellid1 => cellids1(:, n)
@@ -629,20 +654,28 @@ contains
       noder2 = this%dis%get_nodenumber(nodeu2, 1)
       if (noder1 <= 0 .or. &
           noder2 <= 0) then
+        call this%dis%nodeu_to_string(nodeu1, node1str)
+        call this%dis%nodeu_to_string(nodeu2, node2str)
+        write (warnmsg, '(a)') &
+            'HFB connection between inactive cell(s) will be excluded: '&
+            &//trim(node1str)//' to '//trim(node2str)//'.'
+        call store_warning(warnmsg)
+        this%nhfb = this%nhfb - 1
         cycle
-      else
-        this%noden(n) = noder1
-        this%nodem(n) = noder2
       end if
 
-      this%hydchr(n) = hydchr(n)
+      ! add hfb
+      hfbno = hfbno + 1
+      this%noden(hfbno) = noder1
+      this%nodem(hfbno) = noder2
+      this%hydchr(hfbno) = hydchr(n)
 
       ! print input if requested
       if (this%iprpak /= 0) then
-        call this%dis%noder_to_string(this%noden(n), nodenstr)
-        call this%dis%noder_to_string(this%nodem(n), nodemstr)
-        write (this%iout, fmthfb) n, trim(adjustl(nodenstr)), &
-          trim(adjustl(nodemstr)), this%hydchr(n)
+        call this%dis%noder_to_string(this%noden(hfbno), nodenstr)
+        call this%dis%noder_to_string(this%nodem(hfbno), nodemstr)
+        write (this%iout, fmthfb) hfbno, trim(adjustl(nodenstr)), &
+          trim(adjustl(nodemstr)), this%hydchr(hfbno)
       end if
     end do
 
@@ -661,9 +694,10 @@ contains
     call this%check_data()
   end subroutine source_data
 
-  !> @brief Check for hfb's between two unconnected cells and write a warning
+  !> @brief Check the hfb input data
   !!
-  !! Store ipos in idxloc
+  !! Check that the two cells of each hfb are connected and that no more than
+  !! one hfb is assigned to any one cell connection.  Store ipos in idxloc.
   !<
   subroutine check_data(this)
     ! -- modules
@@ -672,19 +706,29 @@ contains
     class(GwfHfbType) :: this
     ! -- local
     integer(I4B) :: ihfb, n, m
-    integer(I4B) :: ipos
+    integer(I4B) :: ipos, isympos
+    integer(I4B), dimension(:), allocatable :: ihfbcon
     character(len=LINELENGTH) :: nodenstr, nodemstr
     logical :: found
     ! -- formats
     character(len=*), parameter :: fmterr = "(1x, 'HFB no. ',i0, &
       &' is between two unconnected cells: ', a, ' and ', a)"
-    character(len=*), parameter :: fmtverr = "(1x, 'HFB no. ',i0, &
-      &' is between two cells not horizontally connected: ', a, ' and ', a)"
+    character(len=*), parameter :: fmtdup = "(1x, 'HFB no. ',i0, ' and HFB &
+      &no. ',i0, ' are both between cells ', a, ' and ', a, '. Only one HFB &
+      &can be assigned to a cell connection.')"
+    !
+    ! -- ihfbcon holds, for each symmetric connection, the first hfb assigned
+    !    to it (0 if none), so duplicates are found in one pass over the hfbs.
+    allocate (ihfbcon(this%dis%njas))
+    do isympos = 1, this%dis%njas
+      ihfbcon(isympos) = 0
+    end do
     !
     do ihfb = 1, this%nhfb
       n = this%noden(ihfb)
       m = this%nodem(ihfb)
       found = .false.
+      this%idxloc(ihfb) = 0
       do ipos = this%ia(n) + 1, this%ia(n + 1) - 1
         if (m == this%ja(ipos)) then
           found = .true.
@@ -700,19 +744,25 @@ contains
         write (errmsg, fmterr) ihfb, trim(adjustl(nodenstr)), &
           trim(adjustl(nodemstr))
         call store_error(errmsg)
+        cycle
+      end if
+      !
+      ! -- check to make sure this connection does not already have an hfb.
+      !    jas maps both (n, m) and (m, n) to the same symmetric connection,
+      !    so cells entered in either order are detected.
+      isympos = this%jas(this%idxloc(ihfb))
+      if (ihfbcon(isympos) == 0) then
+        ihfbcon(isympos) = ihfb
       else
-        !
-        ! -- check to make sure cells are not vertically connected
-        ipos = this%idxloc(ihfb)
-        if (this%ihc(this%jas(ipos)) == 0) then
-          call this%dis%noder_to_string(n, nodenstr)
-          call this%dis%noder_to_string(m, nodemstr)
-          write (errmsg, fmtverr) ihfb, trim(adjustl(nodenstr)), &
-            trim(adjustl(nodemstr))
-          call store_error(errmsg)
-        end if
+        call this%dis%noder_to_string(n, nodenstr)
+        call this%dis%noder_to_string(m, nodemstr)
+        write (errmsg, fmtdup) ihfbcon(isympos), ihfb, &
+          trim(adjustl(nodenstr)), trim(adjustl(nodemstr))
+        call store_error(errmsg)
       end if
     end do
+    !
+    deallocate (ihfbcon)
     !
     ! -- Stop if errors detected
     if (count_errors() > 0) then
@@ -750,7 +800,7 @@ contains
     integer(I4B) :: ihfb, n, m
     integer(I4B) :: ipos
     real(DP) :: cond, condhfb
-    real(DP) :: fawidth, faheight
+    real(DP) :: fawidth, faheight, faarea
     real(DP) :: topn, topm, botn, botm
     !
     do ihfb = 1, this%nhfb
@@ -773,10 +823,16 @@ contains
         else
           faheight = DHALF * ((topn - botn) + (topm - botm))
         end if
-        if (this%hydchr(ihfb) > DZERO) then
+
+        if (this%ihc(this%jas(ipos)) == 0) then
+          faarea = this%hwva(this%jas(ipos))
+        else
           fawidth = this%hwva(this%jas(ipos))
-          condhfb = this%hydchr(ihfb) * &
-                    fawidth * faheight
+          faarea = fawidth * faheight
+        end if
+
+        if (this%hydchr(ihfb) > DZERO) then
+          condhfb = this%hydchr(ihfb) * faarea
           cond = cond * condhfb / (cond + condhfb)
         else
           cond = -cond * this%hydchr(ihfb)

@@ -44,7 +44,7 @@ module GwfModule
     type(GwfCsubType), pointer :: csub => null() ! subsidence package
     type(GwfOcType), pointer :: oc => null() ! output control package
     type(GhostNodeType), pointer :: gnc => null() ! ghost node correction package
-    type(GwfHfbType), pointer :: hfb => null() ! horizontal flow barrier package
+    type(GwfHfbType), pointer :: hfb => null() ! hydraulic flow barrier package
     type(GwfMvrType), pointer :: mvr => null() ! water mover package
     type(GwfObsType), pointer :: obs => null() ! observation package
     type(BudgetType), pointer :: budget => null() ! budget object
@@ -79,6 +79,7 @@ module GwfModule
     procedure :: model_cq => gwf_cq
     procedure :: model_bd => gwf_bd
     procedure :: model_ot => gwf_ot
+    procedure :: model_dt => gwf_dt
     procedure :: model_fp => gwf_fp
     procedure :: model_da => gwf_da
     procedure :: model_bdentry => gwf_bdentry
@@ -381,6 +382,7 @@ contains
     do ip = 1, this%bndlist%Count()
       packobj => GetBndFromList(this%bndlist, ip)
       call packobj%bnd_rp()
+      call packobj%bnd_rp_log()
       call packobj%bnd_rp_obs()
     end do
     !
@@ -634,6 +636,9 @@ contains
     ! -- local
     integer(I4B) :: n
     integer(I4B) :: iptct
+    integer(I4B) :: irow_start
+    integer(I4B) :: irow_end
+    integer(I4B) :: ioffset
     real(DP) :: v
     real(DP) :: resid
     real(DP) :: ptcdelem1
@@ -654,6 +659,10 @@ contains
     ! -- calculate pseudo-transient continuation factor for model
     if (iptct > 0) then
       !
+      ! -- offset of this model in the local residual vector
+      call vec_residual%get_ownership_range(irow_start, irow_end)
+      ioffset = this%moffset - (irow_start - 1)
+      !
       ! -- calculate the pseudo-time step using the residual
       do n = 1, this%dis%nodes
         if (this%npf%ibound(n) < 1) cycle
@@ -662,7 +671,7 @@ contains
         v = this%dis%get_cell_volume(n, this%dis%top(n))
         !
         ! -- set the residual
-        resid = vec_residual%get_value_local(n)
+        resid = vec_residual%get_value_local(n + ioffset)
         !
         ! -- calculate the reciprocal of the pseudo-time step
         !    resid [L3/T] / volume [L3] = [1/T]
@@ -1023,18 +1032,40 @@ contains
 
   end subroutine gwf_ot_bdsummary
 
-  !> @brief Final processing
+  !> @brief Submit boundary-package ATS time step requests
   !<
+  subroutine gwf_dt(this)
+    ! -- dummy
+    class(GwfModelType) :: this
+    ! -- local
+    integer(I4B) :: ip
+    class(BndType), pointer :: packobj => null()
+    !
+    ! -- boundary package time step submission
+    do ip = 1, this%bndlist%Count()
+      packobj => GetBndFromList(this%bndlist, ip)
+      call packobj%bnd_dt()
+    end do
+  end subroutine gwf_dt
+
   subroutine gwf_fp(this)
     ! -- modules
     ! -- dummy
     class(GwfModelType) :: this
     ! -- local
+    integer(I4B) :: ip
+    class(BndType), pointer :: packobj => null()
     !
     ! -- csub final processing
     if (this%incsub > 0) then
       call this%csub%csub_fp()
     end if
+    !
+    ! -- boundary package final processing
+    do ip = 1, this%bndlist%Count()
+      packobj => GetBndFromList(this%bndlist, ip)
+      call packobj%bnd_fp()
+    end do
   end subroutine gwf_fp
 
   !> @brief Deallocate
@@ -1264,13 +1295,17 @@ contains
       call evt_create(packobj, ipakid, ipaknum, inunit, iout, this%name, &
                       pakname, mempath)
     case ('MAW6')
-      call maw_create(packobj, ipakid, ipaknum, inunit, iout, this%name, pakname)
+      call maw_create(packobj, ipakid, ipaknum, inunit, iout, this%name, &
+                      pakname, mempath)
     case ('SFR6')
-      call sfr_create(packobj, ipakid, ipaknum, inunit, iout, this%name, pakname)
+      call sfr_create(packobj, ipakid, ipaknum, inunit, iout, this%name, &
+                      pakname, mempath)
     case ('LAK6')
-      call lak_create(packobj, ipakid, ipaknum, inunit, iout, this%name, pakname)
+      call lak_create(packobj, ipakid, ipaknum, inunit, iout, this%name, &
+                      pakname, mempath)
     case ('UZF6')
-      call uzf_create(packobj, ipakid, ipaknum, inunit, iout, this%name, pakname)
+      call uzf_create(packobj, ipakid, ipaknum, inunit, iout, this%name, &
+                      pakname, mempath)
     case ('API6')
       call api_create(packobj, ipakid, ipaknum, inunit, iout, this%name, &
                       pakname, mempath)
@@ -1443,6 +1478,7 @@ contains
     character(len=LENMEMPATH) :: mempathhfb = ''
     character(len=LENMEMPATH) :: mempathic = ''
     character(len=LENMEMPATH) :: mempathnpf = ''
+    character(len=LENMEMPATH) :: mempathoc = ''
     character(len=LENMEMPATH) :: mempathsto = ''
     character(len=LENMEMPATH) :: mempathvsc = ''
     !
@@ -1500,7 +1536,8 @@ contains
       case ('MVR6')
         this%inmvr = inunit
       case ('OC6')
-        this%inoc = inunit
+        this%inoc = 1
+        mempathoc = mempath
       case ('OBS6')
         this%inobs = inunit
       case ('WEL6', 'DRN6', 'RIV6', 'GHB6', 'RCH6', &
@@ -1525,7 +1562,7 @@ contains
                  this%sto%packName, this%incsub, this%iout)
     call ic_cr(this%ic, this%name, mempathic, this%inic, this%iout, this%dis)
     call mvr_cr(this%mvr, this%name, this%inmvr, this%iout, this%dis)
-    call oc_cr(this%oc, this%name, this%inoc, this%iout)
+    call oc_cr(this%oc, this%name, mempathoc, this%inoc, this%iout)
     call gwf_obs_cr(this%obs, this%inobs)
     !
     ! -- Check to make sure that required ftype's have been specified
@@ -1580,14 +1617,13 @@ contains
   !<
   subroutine steady_period_check(this)
     ! -- modules
-    use TdisModule, only: kper
-    use AdaptiveTimeStepModule, only: isAdaptivePeriod
+    use TdisModule, only: kper, ats
     use SimVariablesModule, only: warnmsg
     use SimModule, only: store_warning
     ! -- dummy
     class(GwfModelType) :: this
     if (this%iss == 1) then
-      if (isAdaptivePeriod(kper)) then
+      if (ats%isAdaptivePeriod(kper)) then
         write (warnmsg, '(a,a,a,i0,a)') &
           'GWF Model (', trim(this%name), ') is steady state for period ', &
           kper, ' and adaptive time stepping is active.  Adaptive time &

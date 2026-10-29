@@ -4,13 +4,8 @@ on:
   # from this repo or the nightly build repo for dev builds
   workflow_call:
     inputs:
-      approve:
-        description: 'Approve the release, modifying disclaimer language to indicate the distribution has been reviewed. If false, disclaimers & version strings indicate preliminary/provisional status.'
-        required: false
-        type: boolean
-        default: false
-      branch:
-        description: 'Branch to release from.'
+      ref:
+        description: 'Branch, tag or commit SHA to build, resolved to a SHA once so all jobs build the same commit. In release mode, the release metadata is committed on top of it.'
         required: true
         type: string
       compiler_toolchain:
@@ -22,14 +17,9 @@ on:
         description: 'Compiler version to use. For supported options see https://github.com/MODFLOW-ORG/modflow6/blob/develop/DEVELOPER.md#compiler-compatibility.'
         required: false
         type: string
-        default: '2021.7'
-      developmode:
-        description: 'Build binaries in develop mode. If false, IDEVELOPMODE is set to 0.'
-        required: false
-        type: boolean
-        default: true
-      full:
-        description: 'Build a full distribution containing sources, examples, and all documentation. If false, the distribution contains only binaries, mf6io, release notes, and code.json.'
+        default: '2021.6'
+      releasemode:
+        description: 'Build a full distribution containing sources, examples, and all documentation. If false, the distribution contains only binaries, mf6io, release notes, and code.json, with binaries built in develop mode, and disclaimers & version strings indicating preliminary/provisional status. If true, a full distribution is created, with binaries built in release mode, and disclaimer language indicating review and approval.'
         required: false
         type: boolean
         default: false
@@ -44,14 +34,24 @@ on:
         type: boolean
         default: true
       version:
-        description: 'Version number to use for release.'
-        required: true
-        type: string
-      models:
-        description: 'Models to include in the release documentation'
+        description: 'Version number. Required in release mode. In develop mode, defaults to version.txt on ref and must match it if given.'
         required: false
         type: string
+        default: ''
+      patch:
+        description: 'Create a patch release. If true, only bug fixes and new examples will be included in generated documentation.'
+        required: false
+        type: boolean
+        default: false
+      doi:
+        description: 'Release DOI, e.g. https://doi.org/10.5066/P1PGE9XW, for the release history. Required for a new minor release unless ref has its row already. Patch releases reuse the previous DOI. Release mode only.'
+        required: false
+        type: string
+        default: ''
     outputs:
+      sha:
+        description: 'SHA the release was built from. In release mode, a release commit on top of ref, unless ref already has the release metadata. The release commit is not pushed, but uploaded as the release-commit artifact (a git bundle with branch release).'
+        value: ${{ jobs.prepare.outputs.sha }}
       version:
         description: 'Version number used for release'
         value: ${{ jobs.build.outputs.version }}
@@ -61,8 +61,143 @@ on:
 env:
   PIXI_BETA_WARNING_OFF: true
 jobs:
+  prepare:
+    name: Prepare release
+    runs-on: ubuntu-22.04
+    defaults:
+      run:
+        shell: bash
+    outputs:
+      sha: ${{ steps.prepare.outputs.sha }}
+      version: ${{ steps.version.outputs.version }}
+      date: ${{ steps.date.outputs.date }}
+    steps:
+      - name: Check ref
+        env:
+          REF: ${{ inputs.ref }}
+        run: |
+          # required inputs can still be passed an empty string, e.g. from an
+          # expression whose operands are all empty
+          if [[ -z "$REF" ]]; then
+            echo "::error::The ref input is empty. Pass the branch, tag or commit SHA to release from."
+            exit 1
+          fi
+
+      - name: Checkout modflow6
+        uses: actions/checkout@v7
+        with:
+          repository: ${{ github.repository_owner }}/modflow6
+          path: modflow6
+          ref: ${{ inputs.ref }}
+
+      # pin ref to a SHA so all jobs build the same commit, even if a branch moves
+      - name: Resolve ref to commit SHA
+        id: resolve
+        working-directory: modflow6
+        run: |
+          sha=$(git rev-parse HEAD)
+          echo "resolved ${{ inputs.ref }} to $sha"
+          echo "sha=$sha" >> "$GITHUB_OUTPUT"
+
+      - name: Resolve version
+        id: version
+        working-directory: modflow6
+        env:
+          VERSION: ${{ inputs.version }}
+        run: |
+          if [[ "${{ inputs.releasemode }}" == "true" ]]; then
+            if [[ -z "$VERSION" ]]; then
+              echo "::error::The version input is required in release mode."
+              exit 1
+            fi
+          else
+            # development builds use the committed version metadata as is
+            committed=$(cat version.txt)
+            if [[ -z "$VERSION" ]]; then
+              VERSION="$committed"
+            elif [[ "$committed" != "$VERSION" ]]; then
+              echo "::error::The version input $VERSION doesn't match version.txt ($committed) on ${{ inputs.ref }}. Omit it or pass the committed version."
+              exit 1
+            fi
+          fi
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      # one date for all jobs, in case the run crosses midnight
+      - name: Set date
+        id: date
+        run: echo "date=$(date -u +%F)" >> "$GITHUB_OUTPUT"
+
+      - name: Setup pixi
+        if: inputs.releasemode == true
+        uses: prefix-dev/setup-pixi@v0.11.2
+        with:
+          pixi-version: v0.82.1
+          manifest-path: "modflow6/pixi.toml"
+
+      # in release mode, commit the release metadata once, so every job builds, and
+      # the release publishes, the same commit. develop mode builds ref as is
+      - name: Apply release metadata
+        id: prepare
+        working-directory: modflow6
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+          DATE: ${{ steps.date.outputs.date }}
+          DOI: ${{ inputs.doi }}
+          BASE: ${{ steps.resolve.outputs.sha }}
+        run: |
+          if [[ "${{ inputs.releasemode }}" != "true" ]]; then
+            echo "sha=$BASE" >> "$GITHUB_OUTPUT"
+            echo "committed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          args=(-v "$VERSION" --date "$DATE")
+          if [[ -n "$DOI" ]]; then
+            args+=(--doi "$DOI")
+          fi
+          # frozen, so pixi.lock isn't modified and committed
+          pixi run --frozen prepare-release "${args[@]}"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -u
+
+          # the scripts only modify tracked files, so anything new is unexpected
+          untracked=$(git ls-files --others --exclude-standard)
+          if [[ -n "$untracked" ]]; then
+            echo "::error::prepare-release created untracked files:"
+            echo "$untracked"
+            exit 1
+          fi
+
+          # doc/version.py always changes (it embeds the run time), so ignore it.
+          # nothing else does if ref already has the metadata, e.g. a same-day rerun
+          if git diff --cached --quiet -- . ':(exclude)doc/version.py'; then
+            echo "${{ inputs.ref }} already has the release metadata for $VERSION"
+            echo "sha=$BASE" >> "$GITHUB_OUTPUT"
+            echo "committed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # the bundle only holds the release commit, so recipients need BASE
+          git switch -C release
+          git commit -m "ci(release): update version to $VERSION"
+          git bundle create ../release.bundle "$BASE..release"
+          sha=$(git rev-parse HEAD)
+          echo "committed $sha on top of $BASE"
+          echo "sha=$sha" >> "$GITHUB_OUTPUT"
+          echo "committed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Upload release commit
+        if: steps.prepare.outputs.committed == 'true'
+        uses: actions/upload-artifact@v7
+        with:
+          name: release-commit
+          path: release.bundle
+
   build:
     name: Build binaries (${{ matrix.os }}, extended=${{ matrix.extended }})
+    needs: prepare
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -71,65 +206,58 @@ jobs:
           - os: ${{ inputs.linux_version }}
             compiler: ${{ inputs.compiler_toolchain }}
             version: ${{ inputs.compiler_version }}
-            optimization: 2
-            extended: false
-          - os: macos-13
-            compiler: ${{ inputs.compiler_toolchain }}
-            version: ${{ inputs.compiler_version }}
-            optimization: 2
             extended: false
           - os: macos-14
             compiler: gcc
             version: 13
-            optimization: 1
             extended: false
+            xcode-version: '15.1.0'
           - os: windows-2022
             compiler: ${{ inputs.compiler_toolchain }}
             version: ${{ inputs.compiler_version }}
-            optimization: 2
             extended: false
           - os: windows-2022
             compiler: intel-classic
-            version: "2021.7"
-            optimization: 2
+            version: "2021.6"
             extended: true
     defaults:
       run:
-        shell: bash -l {0}
+        shell: bash
     outputs:
       version: ${{ steps.set_version.outputs.version }}
       distname: ${{ steps.set_version.outputs.distname }}
     steps:
+      - name: Free Disk Space (Ubuntu)
+        if: runner.os == 'Linux'
+        uses: jlumbroso/free-disk-space@main
+        with:
+          tool-cache: false
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: true
+          docker-images: true
+          swap-storage: true
+
+      # from develop, since release branches may predate the action
       - name: Checkout modflow6
-        uses: actions/checkout@v5
+        uses: MODFLOW-ORG/modflow6/.github/actions/checkout-release@develop
         with:
-          repository: ${{ github.repository_owner }}/modflow6
-          path: modflow6
-          ref: ${{ inputs.branch }}
+          sha: ${{ needs.prepare.outputs.sha }}
 
-      - name: Setup pixi
-        uses: prefix-dev/setup-pixi@v0.9.0
+      - name: Checkout modflow6-testmodels
+        if: inputs.run_tests == true && !(runner.os == 'Windows' && matrix.extended)
+        uses: actions/checkout@v7
         with:
-          pixi-version: v0.41.4
-          manifest-path: "modflow6/pixi.toml"
+          repository: MODFLOW-ORG/modflow6-testmodels
+          path: modflow6-testmodels
 
-      - name: Custom pixi install
-        working-directory: modflow6
-        run: pixi run install
-
-      - name: Install additional netcdf testing packages
-        working-directory: modflow6
-        run: pixi run pip install xugrid xarray netcdf4
-
-      - name: Setup Micromamba
-        uses: mamba-org/setup-micromamba@v1
+      - name: Checkout modflow6-examples
+        if: inputs.run_tests == true && !(runner.os == 'Windows' && matrix.extended)
+        uses: actions/checkout@v7
         with:
-          environment-file: modflow6/environment.yml
-          cache-downloads: true
-          cache-environment: true
-          init-shell: >-
-            bash
-            powershell
+          repository: MODFLOW-ORG/modflow6-examples
+          path: modflow6-examples
 
       - name: Setup ${{ matrix.compiler }} ${{ matrix.version }}
         if: (!(runner.os == 'Windows' && matrix.extended))
@@ -138,97 +266,182 @@ jobs:
         with:
           compiler: ${{ matrix.compiler }}
           version: ${{ matrix.version }}
-      
+
+      - name: Setup pixi
+        uses: prefix-dev/setup-pixi@v0.11.2
+        with:
+          pixi-version: v0.82.1
+          manifest-path: "modflow6/pixi.toml"
+
+      - name: Custom pixi install
+        working-directory: modflow6
+        run: pixi run install
+
       - name: Set version number
         id: set_version
         run: |
           # distribution name format is 'mf<major.minor.patch[label]>'
-          distname="mf${{ inputs.version }}"
+          distname="mf${{ needs.prepare.outputs.version }}"
 
           # set step outputs and environment variables
-          echo "version=${{ inputs.version }}" >> "$GITHUB_OUTPUT"
-          echo "VERSION=${{ inputs.version }}" >> "$GITHUB_ENV"
+          echo "version=${{ needs.prepare.outputs.version }}" >> "$GITHUB_OUTPUT"
+          echo "VERSION=${{ needs.prepare.outputs.version }}" >> "$GITHUB_ENV"
           echo "distname=$distname" >> "$GITHUB_OUTPUT"
           echo "DISTNAME=$distname" >> "$GITHUB_ENV"
 
-      - name: Update version
-        id: update_version
-        working-directory: modflow6/distribution
+      - name: Update flopy
+        if: inputs.run_tests == true && !(runner.os == 'Windows' && matrix.extended)
+        working-directory: modflow6
         run: |
-          ver="${{ steps.set_version.outputs.version }}"
-          cmd="python update_version.py -v $ver"
-          if [[ "${{ inputs.approve }}" == "true" ]]; then
-            cmd="$cmd --approve"
-          fi
-          if [[ "${{ inputs.developmode }}" == "false" ]]; then
+          cmd="pixi run update-flopy"
+          if [[ "${{ inputs.releasemode }}" == "true" ]]; then
             cmd="$cmd --releasemode"
           fi
           eval "$cmd"
 
-      - name: Get OS tag
+      - name: Set OS tag
         id: ostag
+        working-directory: modflow6
         run: |
-          ostag=$(python -c "from modflow_devtools.ostags import get_ostag; print(get_ostag())")
+          ostag=$(pixi run python -c "from modflow_devtools.ostags import get_ostag; print(get_ostag())")
           if [[ "${{ matrix.extended }}" == "true" ]]; then
             ostag="${ostag}ext"
           fi
           echo "ostag=$ostag" >> $GITHUB_OUTPUT
 
-      # for statically linked gfortran ARM mac build
+      - name: Set markers
+        if: inputs.run_tests == true
+        id: set_markers
+        run: |
+          markers="not large"
+          if [[ "${{ inputs.releasemode }}" == "true" ]]; then
+            markers="$markers and not developmode"
+          fi
+          echo "markers=$markers" >> $GITHUB_OUTPUT
+
+      - name: Set filters
+        if: inputs.run_tests == true
+        id: set_filters
+        run: |
+          filters=""
+          if [[ "${{ matrix.extended }}" == "true" ]] && [[ "${{ inputs.releasemode }}" != "true" ]]; then
+            # run only parallel/extended tests in developmode, run all tests in releasemode
+            filters="test_par or test_netcdf"
+          fi
+          # sfr rewet comparison fails on macos
+          if [[ "${{ runner.os }}" == "macOS" ]]; then
+            if [[ "$filters" != "" ]]; then
+              filters="$filters and not test028_sfr_rewet"
+            else
+              filters="not test028_sfr_rewet"
+            fi
+          fi
+          echo "filters=$filters" >> $GITHUB_OUTPUT
+
+      - name: Set xcode version (macOS)
+        if: runner.os == 'macOS'
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: ${{ matrix.xcode-version }}
+
+      # static link gfortran libs
       - name: Hide dylibs (macOS)
-        if: matrix.os == 'macos-14'
+        if: runner.os == 'macOS'
         run: |
           version="${{ matrix.version }}"
-          libpath="/opt/homebrew/opt/gcc@$version/lib/gcc/$version"
-          mv $libpath/libgfortran.5.dylib $libpath/libgfortran.5.dylib.bak 
+          brew_prefix="$(brew --prefix)"
+          libpath="$brew_prefix/opt/gcc@$version/lib/gcc/$version"
+          mv $libpath/libgcc_s.1.1.dylib $libpath/libgcc_s.1.1.dylib.bak
+          mv $libpath/libgfortran.5.dylib $libpath/libgfortran.5.dylib.bak
           mv $libpath/libquadmath.0.dylib $libpath/libquadmath.0.dylib.bak 
 
+      # use classic xcode linker, static link libgcc
       - name: Set LDFLAGS (macOS)
         if: runner.os == 'macOS'
         run: |
-          os_ver=$(sw_vers -productVersion | cut -d'.' -f1)
-          if (( "$os_ver" > 12 )); then
-            ldflags="$LDFLAGS -Wl,-ld_classic"
-            echo "LDFLAGS=$ldflags" >> $GITHUB_ENV
-          fi
+          ldflags="$LDFLAGS -Wl,-ld_classic -static-libgcc"
+          echo "LDFLAGS=$ldflags" >> $GITHUB_ENV
 
-      - name: Build binaries
+      - name: Build MF6
         if: (!(runner.os == 'Windows' && matrix.extended))
         working-directory: modflow6
         run: |
-          meson setup builddir --prefix=$(pwd) --libdir=bin -Doptimization=${{ matrix.optimization }}
-          meson install -C builddir
-          meson test --verbose --no-rebuild -C builddir
+          pixi run setup builddir
+          pixi run build builddir
 
       - name: Build mf5to6 converter
         if: (!(runner.os == 'Windows' && matrix.extended))
-        working-directory: modflow6/utils/mf5to6
+        working-directory: modflow6
         run: |
-          meson setup builddir --prefix=$(pwd)/../../ --libdir=bin -Doptimization=${{ matrix.optimization }}
-          meson install -C builddir
+          pixi run setup-mf5to6 builddir
+          pixi run build-mf5to6 builddir
 
-      - name: Check architecture (macOS)
-        working-directory: modflow6/bin
+      - name: Show build log
+        if: failure()
+        working-directory: modflow6
+        run: cat builddir/meson-logs/meson-log.txt
+
+      - name: Upload build log
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: ${{ matrix.os }}-${{ matrix.compiler }}-${{ matrix.version }}-meson-log.txt
+          path: modflow6/builddir/meson-logs/meson-log.txt
+
+      - name: Check arch/libs (macOS)
         if: runner.os == 'macOS'
+        working-directory: modflow6/bin
         run: |
           otool -L mf6
+          otool -L libmf6.dylib
+          otool -L mf5to6
+          otool -L zbud6
           lipo -info mf6 
+          lipo -info libmf6.dylib
+          lipo -info mf5to6
+          lipo -info zbud6
+
+      # TODO remove after next executables release. only necessary because
+      # tests using gridgen were failing as the current gridgen depends on
+      # some dylibs. new executables all statically link gcc/gfortran libs
+      - name: Restore dylibs (macOS)
+        if: runner.os == 'macOS'
+        run: |
+          version="${{ matrix.version }}"
+          brew_prefix="$(brew --prefix)"
+          libpath="$brew_prefix/opt/gcc@$version/lib/gcc/$version"
+          mv $libpath/libgcc_s.1.1.dylib.bak $libpath/libgcc_s.1.1.dylib
+          mv $libpath/libgfortran.5.dylib.bak $libpath/libgfortran.5.dylib
+          mv $libpath/libquadmath.0.dylib.bak $libpath/libquadmath.0.dylib
+
+      - name: Unit test MF6
+        # temporarily skip on macOS.. why don't these fail in the normal CI?
+        if: (!(runner.os == 'Windows' && matrix.extended) && !(runner.os == 'macOS'))
+        working-directory: modflow6
+        run: pixi run test builddir
+
+      - name: Get executables
+        if: inputs.run_tests == true && !(runner.os == 'Windows' && matrix.extended)
+        working-directory: modflow6
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: pixi run get-exes -s
 
       - name: Build binaries (Windows)
         if: runner.os == 'Windows' && matrix.extended && !inputs.run_tests
         uses: ./modflow6/.github/actions/build-extended-win
+        env:
+          RELEASEMODE: ${{ inputs.releasemode }}
 
       - name: Build and test binaries (Windows)
-        if: runner.os == 'Windows' && matrix.extended && inputs.run_tests && inputs.developmode
-        uses: ./modflow6/.github/actions/test-extended-win
-
-      - name: Build and test binaries (Windows)
-        if: runner.os == 'Windows' && matrix.extended && inputs.run_tests && !inputs.developmode
+        if: runner.os == 'Windows' && matrix.extended && inputs.run_tests
         uses: ./modflow6/.github/actions/test-extended-win
         env:
-          MARKERS: not developmode
+          RELEASEMODE: ${{ inputs.releasemode }}
+          MARKERS: ${{ steps.set_markers.outputs.markers }}
+          FILTERS: ${{ steps.set_filters.outputs.filters }}
 
-      - name: Copy deps to bin dir
+      - name: Copy deps to bin dir (Windows)
         if: runner.os == 'Windows' && matrix.extended
         working-directory: modflow6/bin
         shell: cmd
@@ -264,94 +477,52 @@ jobs:
 
           :: remove rebuilt and downloaded dirs
           if exist rebuilt rd /s /q rebuilt
-          if exist rebuilt rd /s /q downloaded
-
-      - name: Upload binaries
-        uses: actions/upload-artifact@v4
-        with:
-          name: bin-${{ steps.ostag.outputs.ostag }}
-          path: modflow6/bin
-
-      - name: Checkout modflow6-testmodels
-        if: inputs.run_tests == true && runner.os != 'Windows'
-        uses: actions/checkout@v5
-        with:
-          repository: MODFLOW-ORG/modflow6-testmodels
-          path: modflow6-testmodels
-
-      - name: Checkout modflow6-examples
-        if: inputs.run_tests == true && runner.os != 'Windows'
-        uses: actions/checkout@v5
-        with:
-          repository: MODFLOW-ORG/modflow6-examples
-          path: modflow6-examples
-
-      - name: Update flopy
-        if: inputs.run_tests == true && runner.os != 'Windows'
-        working-directory: modflow6/autotest
-        run: python update_flopy.py
-
-      - name: Get executables
-        if: inputs.run_tests == true && runner.os != 'Windows'
-        working-directory: modflow6/autotest
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        run: pytest -v --durations 0 get_exes.py
-
-      - name: Set markers
-        if: inputs.run_tests == true && runner.os != 'Windows'
-        id: set_markers
-        run: |
-          markers="not large"
-          if [[ "${{ inputs.developmode }}" == "false" ]]; then
-            markers="$markers and not developmode"
-          fi
-          echo "markers=$markers" >> $GITHUB_OUTPUT
-
-      - name: Set filters
-        if: inputs.run_tests == true && runner.os != 'Windows'
-        id: set_filters
-        run: |
-          filters=""
-          if [[ "${{ matrix.os }}" == "macos-14" ]]; then
-            # comparison fails on macos-14 with optimization=1
-            filters="not test028_sfr_rewet"
-          fi
-          echo "filters=$filters" >> $GITHUB_OUTPUT
+          if exist downloaded rd /s /q downloaded
 
       - name: Test MF6
-        if: inputs.run_tests == true && runner.os != 'Windows'
-        working-directory: modflow6/autotest
+        if: inputs.run_tests == true && !(runner.os == 'Windows' && matrix.extended)
+        working-directory: modflow6
         env:
           REPOS_PATH: ${{ github.workspace }}
-        run: pytest -v -n auto -m "${{ steps.set_markers.outputs.markers }} and not external" -k "${{ steps.set_filters.outputs.filters }}"
+        run: pixi run autotest -m "${{ steps.set_markers.outputs.markers }} and not external" -k "${{ steps.set_filters.outputs.filters }}"
 
       - name: Test MF6 models
-        if: inputs.run_tests == true && runner.os != 'Windows'
-        working-directory: modflow6/autotest
+        if: inputs.run_tests == true && !(runner.os == 'Windows' && matrix.extended)
+        working-directory: modflow6
         env:
           REPOS_PATH: ${{ github.workspace }}
-        run: pytest -v -n auto -m "${{ steps.set_markers.outputs.markers }} and external" -k "${{ steps.set_filters.outputs.filters }}" --models-path ../../modflow6-testmodels/mf6
+        run: pixi run autotest -m "${{ steps.set_markers.outputs.markers }} and external" -k "${{ steps.set_filters.outputs.filters }}" --models-path ../../modflow6-testmodels/mf6
 
       - name: Test converter models
-        if: inputs.run_tests == true && runner.os != 'Windows'
-        working-directory: modflow6/autotest
+        if: inputs.run_tests == true && !(runner.os == 'Windows' && matrix.extended)
+        working-directory: modflow6
         env:
           REPOS_PATH: ${{ github.workspace }}
-        run: pytest -v -n auto -m "${{ steps.set_markers.outputs.markers }} and external" -k "${{ steps.set_filters.outputs.filters }}" --models-path ../../modflow6-testmodels/mf5to6 --namefile-pattern "*.nam"
-      
+        run: pixi run autotest -m "${{ steps.set_markers.outputs.markers }} and external" -k "${{ steps.set_filters.outputs.filters }}" --models-path ../../modflow6-testmodels/mf5to6 --namefile-pattern "*.nam"
+
       - name: Upload failed test output
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: failed-${{ matrix.os }}-${{ inputs.compiler_toolchain }}-${{ inputs.compiler_version }}
           path: modflow6/autotest/.failed
       
+      - name: Clean bin directory
+        if: inputs.run_tests == true && !(runner.os == 'Windows' && matrix.extended)
+        working-directory: modflow6/bin
+        run: rm -rf rebuilt downloaded
+
+      - name: Upload binaries
+        uses: actions/upload-artifact@v7
+        with:
+          name: bin-${{ steps.ostag.outputs.ostag }}
+          path: modflow6/bin
+
       # steps below run only on Linux to test distribution procedures, e.g.
       # compiling binaries, building documentation
       - name: Checkout usgslatex
         if: ${{ runner.os == 'Linux' && inputs.run_tests == true }}
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           repository: MODFLOW-ORG/usgslatex
           path: usgslatex
@@ -372,36 +543,47 @@ jobs:
         run: sudo ./install.sh --all-users
 
       - name: Test distribution scripts
-        if: ${{ inputs.run_tests == true && runner.os != 'Windows' }}
-        working-directory: modflow6/distribution
+        if: ${{ inputs.run_tests == true && !(runner.os == 'Windows' && matrix.extended) }}
+        working-directory: modflow6
         env:
           GITHUB_TOKEN: ${{ github.token }}
-        run: pytest -v --durations 0
+        run: pixi run test-dist-scripts
 
   docs:
     name: Build docs
-    needs: build
+    needs:
+      - prepare
+      - build
     runs-on: ubuntu-22.04
     defaults:
       run:
         shell: bash -l {0}
     steps:
-
-      - name: Checkout modflow6
-        uses: actions/checkout@v5
+      - name: Free disk space (Ubuntu)
+        uses: jlumbroso/free-disk-space@main
         with:
-          repository: ${{ github.repository_owner }}/modflow6
-          path: modflow6
-          ref: ${{ inputs.branch }}
+          tool-cache: true
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: true
+          docker-images: true
+          swap-storage: true
+
+      # from develop, since release branches may predate the action
+      - name: Checkout modflow6
+        uses: MODFLOW-ORG/modflow6/.github/actions/checkout-release@develop
+        with:
+          sha: ${{ needs.prepare.outputs.sha }}
 
       - name: Checkout modflow6-examples
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           repository: MODFLOW-ORG/modflow6-examples
           path: modflow6-examples
 
       - name: Checkout usgslatex
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           repository: MODFLOW-ORG/usgslatex
           path: usgslatex
@@ -419,12 +601,21 @@ jobs:
         working-directory: usgslatex/usgsLaTeX
         run: sudo ./install.sh --all-users
 
-      - name: Setup Micromamba
-        uses: mamba-org/setup-micromamba@v1
+      - name: Setup pixi
+        uses: prefix-dev/setup-pixi@v0.11.2
         with:
-          environment-file: modflow6/environment.yml
-          cache-downloads: true
-          cache-environment: true
+          pixi-version: v0.82.1
+          manifest-path: "modflow6/pixi.toml"
+
+      - name: Custom pixi install
+        working-directory: modflow6
+        run: pixi run install
+
+      # develop mode builds ref as is, but dates the docs and metadata by the build
+      - name: Update version
+        if: inputs.releasemode == false
+        working-directory: modflow6
+        run: pixi run update-version -v "${{ needs.prepare.outputs.version }}" --date "${{ needs.prepare.outputs.date }}"
 
       - name: Setup ${{ inputs.compiler_toolchain }} ${{ inputs.compiler_version }}
         uses: fortran-lang/setup-fortran@v1
@@ -432,32 +623,25 @@ jobs:
           compiler: ${{ inputs.compiler_toolchain }}
           version: ${{ inputs.compiler_version }}
 
-      - name: Update version
-        id: update_version
-        working-directory: modflow6/distribution
+      - name: Update flopy
+        working-directory: modflow6
         run: |
-          ver="${{ needs.build.outputs.version }}"
-          cmd="python update_version.py -v $ver"
-          if [[ "${{ inputs.approve }}" == "true" ]]; then
-            cmd="$cmd --approve"
-          fi
-          if [[ "${{ inputs.developmode }}" == "false" ]]; then
+          cmd="pixi run update-flopy --dfnpath doc/mf6io/mf6ivar/dfn"
+          if [[ "${{ inputs.releasemode }}" == "true" ]]; then
             cmd="$cmd --releasemode"
           fi
           eval "$cmd"
 
-      - name: Update FloPy classes
-        working-directory: modflow6/autotest
-        run: python update_flopy.py
-
       - name: Get OS tag
+
         id: ostag
+        working-directory: modflow6
         run: |
-          ostag=$(python -c "from modflow_devtools.ostags import get_ostag; print(get_ostag())")
+          ostag=$(pixi run python -c "from modflow_devtools.ostags import get_ostag; print(get_ostag())")
           echo "ostag=$ostag" >> $GITHUB_OUTPUT
 
       - name: Download pre-built binaries
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: bin-${{ steps.ostag.outputs.ostag }}
           path: bin
@@ -471,59 +655,60 @@ jobs:
           chmod +x "${{ github.workspace }}/bin/zbud6"
     
       - name: Install dependencies for building models
-        if: inputs.full == true
+        if: inputs.releasemode == true
         working-directory: modflow6-examples/etc
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
-          pip install -r requirements.pip.txt
+          pixi run --manifest-path ../../modflow6/pixi.toml pip install -r requirements.pip.txt
           echo "${{ github.workspace }}/bin" >> $GITHUB_PATH
-          get-modflow "${{ github.workspace }}/bin" --subset mf2005,triangle,gridgen
+          pixi run --manifest-path ../../modflow6/pixi.toml get-modflow "${{ github.workspace }}/bin" --subset mf2005,triangle,gridgen
 
       - name: Build example models
-        if: inputs.full == true
+        if: inputs.releasemode == true
         working-directory: modflow6-examples/autotest
         run: |
-          models="${{ inputs.models }}"
-          pytest -v -n auto test_scripts.py --init -k "${models//,/ or }"
+          models="gwf,gwt,gwe,prt"
+          pixi run --manifest-path ../../modflow6/pixi.toml pytest -v -n auto test_scripts.py --init -k "${models//,/ or }"
       
       - name: Collect deprecations
         working-directory: modflow6/doc/mf6io/mf6ivar
         run: |
-          python deprecations.py
+          pixi run collect-deprecations
           cat md/deprecations.md
 
       - name: Upload deprecations
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: deprecations
           path: modflow6/doc/mf6io/mf6ivar/md/deprecations.md
 
       - name: Build MF6IO files from DFNs
         working-directory: modflow6/doc/mf6io/mf6ivar
-        run: python mf6ivar.py
+        run: |
+          cmd="pixi run run-mf6ivar"
+          if [[ "${{ inputs.releasemode }}" == "true" ]]; then
+            cmd="$cmd --releasemode"
+          fi
+          eval "$cmd"
 
       - name: Build documentation
         env:
-          # this step is lazy about building the mf6 examples PDF document, first
-          # trying to download a prebuilt PDF from MODFLOW-ORG/modflow6-examples,
-          # so it needs a GITHUB_TOKEN.
           GITHUB_TOKEN: ${{ github.token }}
         run: |
           mkdir -p "${{ needs.build.outputs.distname }}/doc"
-          cmd="python modflow6/distribution/build_docs.py -b bin -o doc"
-          models="${{ inputs.models }}"
-          if [ -n "$models" ]; then
-            cmd="$cmd -m ${models//,/ -m }"
+          cmd="pixi run --manifest-path modflow6/pixi.toml build-docs -b ../../bin -o ../../doc --force"
+          if [[ "${{ inputs.releasemode }}" == "true" ]]; then
+            cmd="$cmd --releasemode"
           fi
-          if [[ "${{ inputs.full }}" == "true" ]]; then
-            cmd="$cmd --full"
+          if [[ "${{ inputs.patch }}" == "true" ]]; then
+            cmd="$cmd --patch"
           fi
           eval "$cmd"
           mv "doc/ReleaseNotes.pdf" "doc/release.pdf"
 
       - name: Upload documentation artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: doc
           path: doc
@@ -531,6 +716,7 @@ jobs:
   dist:
     name: Build distribution (${{ matrix.os }})
     needs:
+      - prepare
       - build
       - docs
     runs-on: ${{ matrix.os }}
@@ -539,70 +725,69 @@ jobs:
       matrix:
         include:
           - os: ubuntu-22.04
-          - os: macos-13
+            compiler: ${{ inputs.compiler_toolchain }}
+            version: ${{ inputs.compiler_version }}
           - os: macos-14
+            compiler: gcc
+            version: 13
           - os: windows-2022
+            compiler: ${{ inputs.compiler_toolchain }}
+            version: ${{ inputs.compiler_version }}
             extended: false
           - os: windows-2022
+            compiler: ${{ inputs.compiler_toolchain }}
+            version: ${{ inputs.compiler_version }}
             extended: true
     defaults:
       run:
         shell: bash -l {0}
     steps:
+      # from develop, since release branches may predate the action
       - name: Checkout modflow6
-        uses: actions/checkout@v5
+        uses: MODFLOW-ORG/modflow6/.github/actions/checkout-release@develop
         with:
-          repository: ${{ github.repository_owner }}/modflow6
-          path: modflow6
-          ref: ${{ inputs.branch }}
+          sha: ${{ needs.prepare.outputs.sha }}
 
       - name: Checkout modflow6-examples
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           repository: MODFLOW-ORG/modflow6-examples
           path: modflow6-examples
 
-      - name: Setup Micromamba
-        uses: mamba-org/setup-micromamba@v1
-        with:
-          environment-file: modflow6/environment.yml
-          cache-downloads: true
-          cache-environment: true
-          init-shell: >-
-            bash
-            powershell
-
-      - name: Setup ${{ inputs.compiler_toolchain }} ${{ inputs.compiler_version }}
+      - name: Setup ${{ matrix.compiler }} ${{ matrix.version }}
         uses: fortran-lang/setup-fortran@v1
         with:
-          compiler: ${{ inputs.compiler_toolchain }}
-          version: ${{ inputs.compiler_version }}
-      
+          compiler: ${{ matrix.compiler }}
+          version: ${{ matrix.version }}
+
+      - name: Setup pixi
+        uses: prefix-dev/setup-pixi@v0.11.2
+        with:
+          pixi-version: v0.82.1
+          manifest-path: "modflow6/pixi.toml"
+
+      - name: Custom pixi install
+        working-directory: modflow6
+        run: pixi run install
+
+      # develop mode builds ref as is, but dates the docs and metadata by the build
       - name: Update version
-        id: update_version
-        working-directory: modflow6/distribution
-        run: |
-          ver="${{ needs.build.outputs.version }}"
-          cmd="python update_version.py -v $ver"
-          if [[ "${{ inputs.approve }}" == "true" ]]; then
-            cmd="$cmd --approve"
-          fi
-          if [[ "${{ inputs.developmode }}" == "false" ]]; then
-            cmd="$cmd --releasemode"
-          fi
-          eval "$cmd"
- 
+        if: inputs.releasemode == false
+        working-directory: modflow6
+        run: pixi run update-version -v "${{ needs.prepare.outputs.version }}" --date "${{ needs.prepare.outputs.date }}"
+      
       - name: Get OS tag
+        working-directory: modflow6
         id: ostag
         run: |
-          ostag=$(python -c "from modflow_devtools.ostags import get_ostag; print(get_ostag())")
+          ostag=$(pixi run python -c "from modflow_devtools.ostags import get_ostag; print(get_ostag())")
           if [[ "${{ matrix.extended }}" == "true" ]]; then
             ostag="${ostag}ext"
           fi
           echo "ostag=$ostag" >> $GITHUB_OUTPUT
 
       - name: Download artifacts
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           path: ${{ needs.build.outputs.distname }}_${{ steps.ostag.outputs.ostag }}
       
@@ -628,18 +813,14 @@ jobs:
         run: |
           # build distribution
           distname="${{ needs.build.outputs.distname }}_${{ steps.ostag.outputs.ostag }}"
-          cmd="python modflow6/distribution/build_dist.py -o $distname"
-          models="${{ inputs.models }}"
-          if [ -n "$models" ]; then
-            cmd="$cmd -m ${models//,/ -m }"
-          fi
-          if [[ "${{ inputs.full }}" == "true" ]]; then
-            cmd="$cmd --full"
+          cmd="pixi run --manifest-path modflow6/pixi.toml build-dist -o ../../$distname"
+          if [[ "${{ inputs.releasemode }}" == "true" ]]; then
+            cmd="$cmd --releasemode"
           fi
           eval "$cmd"
 
           # rename PDF documents
-          if [[ "${{ inputs.full }}" == "true" ]]; then
+          if [[ "${{ inputs.releasemode }}" == "true" ]]; then
             mv "$distname/doc/converter_mf5to6.pdf" "$distname/doc/mf5to6.pdf"
           fi
 
@@ -647,9 +828,10 @@ jobs:
         if: runner.os != 'Windows'
         run: |
           distname="${{ needs.build.outputs.distname }}_${{ steps.ostag.outputs.ostag }}"
-          if [[ "${{ inputs.full }}" == "true" ]]; then
+          if [[ "${{ inputs.releasemode }}" == "true" ]]; then
             zip -r $distname.zip \
               $distname/bin \
+              $distname/dfns \
               $distname/src \
               $distname/srcbmi \
               $distname/doc \
@@ -657,6 +839,7 @@ jobs:
               $distname/make \
               $distname/msvs \
               $distname/utils \
+              $distname/distribution \
               $distname/code.json \
               $distname/meson.build \
               $distname/meson.options \
@@ -668,6 +851,7 @@ jobs:
           else
             zip -r $distname.zip \
               $distname/bin/* \
+              $distname/dfns \
               $distname/doc/mf6io.pdf \
               $distname/doc/release.pdf \
               $distname/code.json \
@@ -682,9 +866,10 @@ jobs:
         if: runner.os == 'Windows'
         run: |
           distname="${{ needs.build.outputs.distname }}_${{ steps.ostag.outputs.ostag }}"
-          if [[ "${{ inputs.full }}" == "true" ]]; then
+          if [[ "${{ inputs.releasemode }}" == "true" ]]; then
             7z a -tzip $distname.zip \
               $distname/bin \
+              $distname/dfns \
               $distname/src \
               $distname/srcbmi \
               $distname/doc \
@@ -692,6 +877,7 @@ jobs:
               $distname/make \
               $distname/msvs \
               $distname/utils \
+              $distname/distribution \
               $distname/code.json \
               $distname/meson.build \
               $distname/meson.options \
@@ -702,6 +888,7 @@ jobs:
           else
             7z a -tzip $distname.zip \
               $distname/bin/* \
+              $distname/dfns \
               $distname/doc/mf6io.pdf \
               $distname/doc/release.pdf \
               $distname/code.json \
@@ -712,14 +899,28 @@ jobs:
           fi
 
       - name: Upload distribution
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: "${{ needs.build.outputs.distname }}_${{ steps.ostag.outputs.ostag }}"
           path: "${{ needs.build.outputs.distname }}_${{ steps.ostag.outputs.ostag }}.zip"
 
+      - name: Create DFN asset
+        if: runner.os == 'Linux'
+        run: |
+          distname="${{ needs.build.outputs.distname }}_${{ steps.ostag.outputs.ostag }}"
+          cd "$distname/dfns"
+          zip -r "../../${{ needs.build.outputs.distname }}_dfns.zip" .
+
+      - name: Upload DFN asset
+        if: runner.os == 'Linux'
+        uses: actions/upload-artifact@v7
+        with:
+          name: "${{ needs.build.outputs.distname }}_dfns"
+          path: "${{ needs.build.outputs.distname }}_dfns.zip"
+
       - name: Upload release notes
         if: runner.os == 'Linux'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: release_notes
           path: "${{ needs.build.outputs.distname }}_${{ steps.ostag.outputs.ostag }}/doc/release.pdf"
@@ -737,14 +938,8 @@ jobs:
             unzip $distfile -d $checkdir
           fi
 
-          cmd="pytest -v -s modflow6/distribution/check_dist.py --path $checkdir/$distname"
-          if [[ "${{ inputs.approve }}" == "true" ]]; then
-            cmd="$cmd --approved"
-          fi
-          if [[ "${{ inputs.developmode }}" == "false" ]]; then
-             cmd="$cmd --releasemode"
-          fi
-          if [[ "${{ inputs.full }}" == "true" ]]; then
-            cmd="$cmd --full"
+          cmd="pixi run --manifest-path modflow6/pixi.toml check-dist --path $(pwd)/$checkdir/$distname"
+          if [[ "${{ inputs.releasemode }}" == "true" ]]; then
+            cmd="$cmd --releasemode"
           fi
           eval "$cmd"

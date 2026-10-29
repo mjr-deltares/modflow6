@@ -88,6 +88,7 @@ contains
     packobj%iout = iout
     packobj%id = id
     packobj%ibcnum = ibcnum
+    packobj%ncolbnd = 2
     packobj%ictMemPath = create_mem_path(namemodel, 'NPF')
   end subroutine drn_create
 
@@ -175,11 +176,6 @@ contains
     if (this%ivsc == 1) then
       call this%drn_store_user_cond()
     end if
-    !
-    ! -- Write the list to iout if requested
-    if (this%iprpak /= 0) then
-      call this%write_list()
-    end if
   end subroutine drn_rp
 
   !> @brief Source options specific to DrnType
@@ -238,6 +234,11 @@ contains
     !
     ! -- log DRN specific options
     call this%log_drn_options(found)
+    !
+    ! -- terminate if errors were detected
+    if (count_errors() > 0) then
+      call store_error_filename(this%input_fname)
+    end if
   end subroutine drn_options
 
   !> @ brief Log DRN specific package options
@@ -246,7 +247,7 @@ contains
     ! -- modules
     use GwfDrnInputModule, only: GwfDrnParamFoundType
     ! -- dummy variables
-    class(DrnType), intent(inout) :: this !< BndExtType object
+    class(DrnType), intent(inout) :: this
     type(GwfDrnParamFoundType), intent(in) :: found
     ! -- local variables
     ! -- format
@@ -386,8 +387,6 @@ contains
     integer(I4B) :: n
     integer(I4B) :: ipos
     real(DP) :: fact
-    real(DP) :: drnbot
-    real(DP) :: drncond
     real(DP) :: qdrn
     !
     ! -- packmvrobj fc
@@ -403,13 +402,14 @@ contains
       call matrix_sln%add_value_pos(idxglo(ipos), this%hcof(i))
       !
       ! -- calculate the drainage scaling factor
-      call this%get_drain_factor(i, fact, drnbot)
+      call this%get_drain_factor(i, fact)
       !
       ! -- If mover is active and this drain is discharging,
-      !    store available water (as positive value).
+      !    store available water (as positive value). Use the assembled
+      !    coefficients so terms added to hcof and rhs after drn_cf, such
+      !    as those from another package, are included.
       if (this%imover == 1 .and. fact > DZERO) then
-        drncond = this%cond_mult(i)
-        qdrn = fact * drncond * (this%xnew(n) - drnbot)
+        qdrn = this%rhs(i) - this%hcof(i) * this%xnew(n)
         call this%pakmvrobj%accumulate_qformvr(i, qdrn)
       end if
     end do
@@ -611,7 +611,7 @@ contains
   !<
   subroutine drn_store_user_cond(this)
     ! -- dummy
-    class(DrnType), intent(inout) :: this !< BndExtType object
+    class(DrnType), intent(inout) :: this
     ! -- local
     integer(I4B) :: n
     !
@@ -627,7 +627,7 @@ contains
     ! -- modules
     use ConstantsModule, only: DZERO
     ! -- dummy variables
-    class(DrnType), intent(inout) :: this !< BndExtType object
+    class(DrnType), intent(inout) :: this
     integer(I4B), intent(in) :: row
     ! -- result
     real(DP) :: cond
@@ -645,7 +645,7 @@ contains
     ! -- modules
     use ConstantsModule, only: DZERO
     ! -- dummy variables
-    class(DrnType), intent(inout) :: this !< BndExtType object
+    class(DrnType), intent(inout) :: this
     integer(I4B), intent(in) :: col
     integer(I4B), intent(in) :: row
     ! -- result

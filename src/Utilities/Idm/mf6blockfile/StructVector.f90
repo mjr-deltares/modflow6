@@ -17,12 +17,24 @@ module StructVectorModule
   implicit none
   private
   public :: StructVectorType, TSStringLocType
+  public :: MTYPE_UNDEF, MTYPE_INT, MTYPE_DBL, MTYPE_STR, &
+            MTYPE_INTVEC, MTYPE_INT2D, MTYPE_DBL2D
+
+  enum, bind(C)
+    enumerator :: MTYPE_UNDEF = 0 !< undefined memtype
+    enumerator :: MTYPE_INT = 1 !< int1d column
+    enumerator :: MTYPE_DBL = 2 !< dbl1d column
+    enumerator :: MTYPE_STR = 3 !< charstr1d column
+    enumerator :: MTYPE_INTVEC = 4 !< intvector column
+    enumerator :: MTYPE_INT2D = 5 !< int2d (NCELLDIM) column
+    enumerator :: MTYPE_DBL2D = 6 !< dbl2d (NAUX/NSEG) column
+  end enum
 
   !> @brief derived type which describes time series string field
   !<
   type :: TSStringLocType
     integer(I4B) :: structarray_col !< global SA column index
-    integer(I4B) :: col !< SV column (1 if 1d array)
+    integer(I4B) :: col !< SV column (1d array, or always 1 for keystring loads)
     integer(I4B) :: row !< SV row
     character(LINELENGTH) :: token !< TS string token
   contains
@@ -40,6 +52,10 @@ module StructVectorModule
     integer(I4B) :: memtype = 0 !< SA memtype
     integer(I4B) :: icol = 0 !< SA column
     integer(I4B) :: size = 0 !< size of array
+    integer(I4B) :: head_nbody = 0 !< on a record head column: number of body columns that follow it (0 on non-head columns)
+    integer(I4B) :: body_start = 0 !< on a record head column: SA column index of its first body (0 = not a head/metadata vector)
+    integer(I4B) :: charlen = LINELENGTH !< character length for charstr1d allocation
+    character(len=LENVARNAME) :: varname_override = '' !< overrides idt%mf6varname as the memory-manager name
     ! Data pointers
     integer(I4B), dimension(:), pointer, contiguous :: int1d => null()
     integer(I4B), dimension(:, :), pointer, contiguous :: int2d => null()
@@ -48,6 +64,8 @@ module StructVectorModule
     type(CharacterStringType), dimension(:), pointer, contiguous :: &
       charstr1d => null()
     type(STLVecInt), pointer :: intvector => null()
+    logical(LGP) :: intvector_ragged = .false. !< .true. if column has no predetermined width; read to end of record
+    type(STLVecInt), pointer :: intvector_ia => null() !< CSR row-start offsets into intvector; published as "<TAGNAME>_IA"
     ! Shape data pointers
     integer(I4B), pointer :: intshape => null()
     integer(I4B), dimension(:), pointer, contiguous :: intvector_shape => null()

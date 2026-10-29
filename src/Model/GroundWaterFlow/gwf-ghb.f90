@@ -75,6 +75,7 @@ contains
     packobj%iout = iout
     packobj%id = id
     packobj%ibcnum = ibcnum
+    packobj%ncolbnd = 2
     packobj%ictMemPath = create_mem_path(namemodel, 'NPF')
   end subroutine ghb_create
 
@@ -120,7 +121,7 @@ contains
   subroutine log_ghb_options(this, found_mover)
     ! -- modules
     ! -- dummy
-    class(GhbType), intent(inout) :: this !< BndExtType object
+    class(GhbType), intent(inout) :: this
     logical(LGP), intent(in) :: found_mover
     !
     ! -- log found options
@@ -176,11 +177,6 @@ contains
     ! -- store user cond
     if (this%ivsc == 1) then
       call this%ghb_store_user_cond()
-    end if
-    !
-    ! -- Write the list to iout if requested
-    if (this%iprpak /= 0) then
-      call this%write_list()
     end if
   end subroutine ghb_rp
 
@@ -275,7 +271,7 @@ contains
     class(MatrixBaseType), pointer :: matrix_sln
     ! -- local
     integer(I4B) :: i, n, ipos
-    real(DP) :: cond, bhead, qghb
+    real(DP) :: qghb
     !
     ! -- pakmvrobj fc
     if (this%imover == 1) then
@@ -291,12 +287,14 @@ contains
       call matrix_sln%add_value_pos(idxglo(ipos), this%hcof(i))
       !
       ! -- If mover is active and this boundary is discharging,
-      !    store available water (as positive value).
-      bhead = this%bhead(i)
-      if (this%imover == 1 .and. this%xnew(n) > bhead) then
-        cond = this%cond_mult(i)
-        qghb = cond * (this%xnew(n) - bhead)
-        call this%pakmvrobj%accumulate_qformvr(i, qghb)
+      !    store available water (as positive value). Use the assembled
+      !    coefficients so terms added to hcof and rhs after ghb_cf, such
+      !    as the BUY density terms, are included.
+      if (this%imover == 1) then
+        qghb = this%rhs(i) - this%hcof(i) * this%xnew(n)
+        if (qghb > DZERO) then
+          call this%pakmvrobj%accumulate_qformvr(i, qghb)
+        end if
       end if
     end do
   end subroutine ghb_fc
@@ -365,7 +363,7 @@ contains
   !<
   subroutine ghb_store_user_cond(this)
     ! -- dummy
-    class(GhbType), intent(inout) :: this !< BndExtType object
+    class(GhbType), intent(inout) :: this
     ! -- local
     integer(I4B) :: n
     !
@@ -381,7 +379,7 @@ contains
     ! -- modules
     use ConstantsModule, only: DZERO
     ! -- dummy variables
-    class(GhbType), intent(inout) :: this !< BndExtType object
+    class(GhbType), intent(inout) :: this
     integer(I4B), intent(in) :: row
     ! -- result
     real(DP) :: cond
@@ -399,7 +397,7 @@ contains
     ! -- modules
     use ConstantsModule, only: DZERO
     ! -- dummy
-    class(GhbType), intent(inout) :: this !< BndExtType object
+    class(GhbType), intent(inout) :: this
     integer(I4B), intent(in) :: col
     integer(I4B), intent(in) :: row
     ! -- result

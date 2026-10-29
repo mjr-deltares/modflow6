@@ -1,4 +1,5 @@
 # --------------------- gwf npf options ---------------------
+# mf6 subpackage utl-tvk
 
 block options
 name save_flows
@@ -25,7 +26,7 @@ valid logarithmic amt-lmk amt-hmk
 reader urword
 optional true
 longname conductance weighting option
-description is a text keyword to indicate that an alternative method will be used for calculating the conductance for horizontal cell connections.  The text value for ALTERNATIVE\_CELL\_AVERAGING can be ``LOGARITHMIC'', ``AMT-LMK'', or ``AMT-HMK''.  ``AMT-LMK'' signifies that the conductance will be calculated using arithmetic-mean thickness and logarithmic-mean hydraulic conductivity.  ``AMT-HMK'' signifies that the conductance will be calculated using arithmetic-mean thickness and harmonic-mean hydraulic conductivity. If the user does not specify a value for ALTERNATIVE\_CELL\_AVERAGING, then the harmonic-mean method will be used.  This option cannot be used if the XT3D option is invoked.
+description is a text keyword to indicate that an alternative method will be used for calculating the conductance for horizontal cell connections.  The text value for ALTERNATIVE\_CELL\_AVERAGING can be ``LOGARITHMIC'', ``AMT-LMK'', or ``AMT-HMK''.  ``AMT-LMK'' signifies that the conductance will be calculated using arithmetic-mean thickness and logarithmic-mean hydraulic conductivity.  ``AMT-HMK'' signifies that the conductance will be calculated using arithmetic-mean thickness and harmonic-mean hydraulic conductivity. If the user does not specify a value for ALTERNATIVE\_CELL\_AVERAGING, then the harmonic-mean method will be used.  This option cannot be used if the XT3D option is invoked. The AMT-HMK ALTERNATIVE\_CELL\_AVERAGING option, in combination with the DRY\_CELL\_SATURATION option, can be used to calculate the same horizontal conductance as MODFLOW-USG when upstream weighting is used (LAYCON=4).
 mf6internal cellavg
 
 block options
@@ -97,6 +98,7 @@ type double precision
 in_record true
 reader urword
 optional false
+tagged true
 longname wetting factor to use for rewetting
 description is a keyword and factor that is included in the calculation of the head that is initially established at a cell when that cell is converted from dry to wet.
 
@@ -106,6 +108,7 @@ type integer
 in_record true
 reader urword
 optional false
+tagged true
 longname interval to use for rewetting
 description is a keyword and iteration interval for attempting to wet cells. Wetting is attempted every IWETIT iteration. This applies to outer iterations and not inner iterations. If IWETIT is specified as zero or less, then the value is changed to 1.
 
@@ -115,6 +118,7 @@ type integer
 in_record true
 reader urword
 optional false
+tagged true
 longname flag to determine wetting equation
 description is a keyword and integer flag that determines which equation is used to define the initial head at cells that become wet.  If IHDWET is 0, h = BOT + WETFCT (hm - BOT). If IHDWET is not 0, h = BOT + WETFCT (THRESH).
 
@@ -144,6 +148,16 @@ optional true
 longname keyword to XT3D on right hand side
 description If the RHS keyword is also included, then the XT3D additional terms will be added to the right-hand side.  If the RHS keyword is excluded, then the XT3D terms will be put into the coefficient matrix.
 mf6internal ixt3drhs
+
+block options
+name highest_cell_saturation
+type keyword
+reader urword
+optional true
+longname keyword to activate HIGHEST_CELL_SATURATION option
+description keyword indicating that the maximum cell bottom will be used to calculate the saturation used to calculate the horizontal conductance between cells. This option is intended to prevent flow from leaving a dry cell and is based on~\cite{painter2008robust}. This option is only applied when the Newton-Raphson formulation is used, A warning will be issued if this option is specified and the Newton-Raphson formulation is not specified in the GWF name file. This option, in combination with the AMT-HMK ALTERNATIVE\_CELL\_AVERAGING option, can be used to calculate the same horizontal conductance as MODFLOW-USG when upstream weighting is used (LAYCON=4).
+mf6internal ihighcellsat
+
 
 block options
 name save_specific_discharge
@@ -240,7 +254,7 @@ reader urword
 optional true
 mf6internal export_nc
 longname export array variables to netcdf output files.
-description keyword that specifies input griddata arrays should be written to the model output netcdf file.
+description keyword that specifies input gridded arrays should be written to the model output NetCDF file with attributes that support using the generated file as a MODFLOW 6 simulation input.  This option only has an effect when an output model NetCDF file is configured and the simulation is run in VALIDATE mode, otherwise it is ignored.
 extended true
 
 # dev options

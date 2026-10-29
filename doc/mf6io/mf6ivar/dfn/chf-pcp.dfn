@@ -1,5 +1,6 @@
 # --------------------- swf pcp options ---------------------
 # flopy multi-package
+# package-type stress-package
 
 block options
 name auxiliary
@@ -128,7 +129,7 @@ tagged false
 reader urword
 optional false
 longname obs6 input filename
-description REPLACE obs6_filename {'{#1}': 'Precipitation'}
+description REPLACE obs6_filename {'{#1}': 'PCP', '{#2}': '\\ref{table:gwf-obstypetable}'}
 
 # --------------------- swf pcp dimensions ---------------------
 
@@ -138,7 +139,7 @@ type integer
 reader urword
 optional false
 longname maximum number of precipitation cells
-description REPLACE maxbound {'{#1}': 'precipitation cells'}
+description REPLACE maxbound {'{#1}': 'precipitation'}
 
 
 # --------------------- swf pcp period ---------------------

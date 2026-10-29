@@ -3,12 +3,24 @@ module ImsLinearSettingsModule
   use ConstantsModule
   use MemoryManagerModule, only: mem_allocate, mem_deallocate
   use BlockParserModule, only: BlockParserType
-  use SimModule, only: store_error, deprecation_warning
+  use SimModule, only: store_error, store_warning, deprecation_warning
   implicit none
   private
 
   integer(I4B), public, parameter :: CG_METHOD = 1
   integer(I4B), public, parameter :: BCGS_METHOD = 2
+
+  !> @brief IMS linear preconditioner types
+  !<
+  enum, bind(C)
+    enumerator :: IPC_UNKNOWN = 0 !< preconditioner type not set
+    enumerator :: IPC_ILU0 = 1 !< ILU0 (incomplete LU, zero fill)
+    enumerator :: IPC_MILU0 = 2 !< modified ILU0
+    enumerator :: IPC_ILUT = 3 !< ILUT (incomplete LU with threshold)
+    enumerator :: IPC_MILUT = 4 !< modified ILUT
+  end enum
+  public :: IPC_UNKNOWN, IPC_ILU0, IPC_MILU0, IPC_ILUT, IPC_MILUT
+  public :: resolve_ipc
 
   type, public :: ImsLinearSettingsType
     character(len=LENMEMPATH) :: memory_path
@@ -28,6 +40,7 @@ module ImsLinearSettingsModule
     procedure :: init
     procedure :: preset_config
     procedure :: read_from_file
+    procedure :: check_settings
     procedure :: destroy
   end type
 
@@ -125,7 +138,6 @@ contains
     logical(LGP) :: block_found, end_of_block
     integer(I4B) :: ierr
     character(len=LINELENGTH) :: errmsg
-    character(len=LINELENGTH) :: warnmsg
     character(len=LINELENGTH) :: keyword
     integer(I4B) :: iscaling, iordering
 
@@ -223,18 +235,6 @@ contains
             call store_error(errmsg)
           end if
           !
-          ! -- deprecated variables
-        case ('INNER_HCLOSE')
-          this%dvclose = parser%GetDouble()
-          !
-          ! -- create warning message
-          write (warnmsg, '(a)') &
-            'SETTING INNER_DVCLOSE TO INNER_HCLOSE VALUE'
-          !
-          ! -- create deprecation warning
-          call deprecation_warning('LINEAR', 'INNER_HCLOSE', '6.1.1', &
-                                   warnmsg, parser%GetUnit())
-          !
           ! -- default
         case default
           write (errmsg, '(3a)') &
@@ -251,6 +251,21 @@ contains
     end if
 
   end subroutine read_from_file
+
+  !> @brief Check the settings after reading the configuration from file
+  !<
+  subroutine check_settings(this)
+    class(ImsLinearSettingsType) :: this !< linear settings
+    ! local
+    character(len=LINELENGTH) :: warnmsg
+
+    if (this%level == 0 .and. this%droptol > 0.0_DP) then
+      write (warnmsg, '(a)') "PRECONDITIONER_DROP_TOLERANCE is ignored because &
+                             &PRECONDITIONER_LEVELS equals zero."
+      call store_warning(warnmsg)
+    end if
+
+  end subroutine check_settings
 
   subroutine destroy(this)
     class(ImsLinearSettingsType) :: this !< linear settings
@@ -269,5 +284,37 @@ contains
     call mem_deallocate(this%ifdparam)
 
   end subroutine destroy
+
+  !> @brief Resolve the preconditioner enum from the ILU controls
+  !!
+  !! Maps the ILU fill level and relaxation factor to a specific IPC_*
+  !! preconditioner:
+  !!   level > 0   -> IPC_ILUT  (-> IPC_MILUT when relax > 0)
+  !!   level == 0  -> IPC_ILU0  (-> IPC_MILU0 when relax > 0)
+  !!
+  !! Extracted into a pure function so the same resolution can be reused when
+  !! preconditioner settings change at runtime (e.g. by stress period).
+  !<
+  pure function resolve_ipc(level, relax) result(ipc)
+    integer(I4B), intent(in) :: level !< ILU fill level
+    real(DP), intent(in) :: relax !< relaxation factor (> 0 selects the modified ILU)
+    integer(I4B) :: ipc !< resolved preconditioner enum (IPC_*)
+    !
+    ! -- map explicitly to the target enum (do not rely on IPC_* being
+    !    consecutive); relax > 0 selects the modified variant
+    if (level > 0) then
+      if (relax > DZERO) then
+        ipc = IPC_MILUT
+      else
+        ipc = IPC_ILUT
+      end if
+    else
+      if (relax > DZERO) then
+        ipc = IPC_MILU0
+      else
+        ipc = IPC_ILU0
+      end if
+    end if
+  end function resolve_ipc
 
 end module

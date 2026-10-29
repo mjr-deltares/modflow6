@@ -26,10 +26,7 @@ module MethodSubcellPollockModule
   type, extends(MethodSubcellType) :: MethodSubcellPollockType
     private
     real(DP), allocatable, public :: qextl1(:), qextl2(:), qintl(:) !< external and internal subcell flows
-    type(LinearExitSolutionType), public :: exit_solutions(3) !< candidate exit solutions
   contains
-    procedure, public :: find_exits
-    procedure, public :: pick_exit
     procedure, public :: apply => apply_msp
     procedure, public :: deallocate
     procedure, private :: track_subcell
@@ -66,7 +63,6 @@ contains
     ! local
     real(DP) :: x_origin
     real(DP) :: y_origin
-    real(DP) :: z_origin
     real(DP) :: sinrot
     real(DP) :: cosrot
 
@@ -75,13 +71,23 @@ contains
       ! Transform particle position into local subcell coordinates,
       ! track particle across subcell, convert back to model coords
       ! (sinrot and cosrot should be 0 and 1, respectively, i.e. no
-      ! rotation, also no z translation; only x and y translations)
+      ! rotation, also no z translation; only x and y translations,
+      ! since subcell%zOrigin is always 0 -- z is translated once,
+      ! at the cell level, not again here)
       x_origin = subcell%xOrigin
       y_origin = subcell%yOrigin
-      z_origin = subcell%zOrigin
       sinrot = subcell%sinrot
       cosrot = subcell%cosrot
       call particle%transform(x_origin, y_origin)
+
+      ! Clamp the particle into the subcell in case roundoff in the
+      ! model-to-local coordinate transform (e.g. under grid rotation)
+      ! left it just outside, analogous to the nudge applied to the
+      ! ternary method's barycentric coordinates.
+      particle%x = min(max(particle%x, DZERO), subcell%dx)
+      particle%y = min(max(particle%y, DZERO), subcell%dy)
+      particle%z = min(max(particle%z, DZERO), subcell%dz)
+
       call this%track_subcell(subcell, particle, tmax)
       call particle%transform(x_origin, y_origin, invert=.true.)
     end select
@@ -95,7 +101,6 @@ contains
   !! this context and for any modifications or errors.
   !<
   subroutine track_subcell(this, subcell, particle, tmax)
-    use TdisModule, only: endofsimulation
     use ParticleModule, only: ACTIVE, TERM_NO_EXITS_SUB, TERM_TIMEOUT
     use ParticleEventModule, only: TIMESTEP, FEATEXIT
     ! dummy
@@ -108,49 +113,44 @@ contains
     real(DP) :: t, x, y, z
     real(DP) :: t0, x0, y0, z0
     integer(I4B) :: i, exit_face, exit_soln
+    type(LinearExitSolutionType) :: exit_solutions(3)
     type(LinearExitSolutionType) :: exit_x, exit_y, exit_z
 
     t0 = particle%ttrack
-    x0 = particle%x / subcell%dx
-    y0 = particle%y / subcell%dy
-    z0 = particle%z / subcell%dz
 
-    ! Find exit solutions for each coordinate direction
-    call this%find_exits(particle, subcell)
+    ! Find exit solution in each direction; also returns the
+    ! local subcell coordinates used, so we don't recompute them
+    call find_exits(particle, subcell, exit_solutions, x0, y0, z0)
+    exit_x = exit_solutions(1)
+    exit_y = exit_solutions(2)
+    exit_z = exit_solutions(3)
 
-    exit_x = this%exit_solutions(1)
-    exit_y = this%exit_solutions(2)
-    exit_z = this%exit_solutions(3)
-
-    ! Subcell has no exit face, terminate the particle
-    ! todo: after initial release, consider ramifications
-    if (all([this%exit_solutions%status] == NO_EXIT_NO_OUTFLOW)) then
-      call this%terminate(particle, status=TERM_NO_EXITS_SUB)
-      return
-    end if
-
-    ! If particle stationary and extended tracking is on, terminate here if it's
-    ! the last timestep. TODO: temporary solution, consider where to catch this?
-    ! Should we really have to special case this here? We do diverge from MP7 in
-    ! guaranteeing that every particle terminates at the end of the simulation..
-    ! ideally that would be handled at a higher scope but with extended tracking
-    ! tmax is not the end of the simulation, it's just a wildly high upper bound.
-    if (all([this%exit_solutions%status] == NO_EXIT_STATIONARY) .and. &
-        particle%extend .and. endofsimulation) then
-      call this%terminate(particle, status=TERM_TIMEOUT)
-      return
-    end if
-
-    ! Pick exit solution, face, travel time, and time
-    exit_soln = this%pick_exit(particle)
+    ! Set solution, face, & travel time
+    exit_soln = pick_exit(exit_solutions)
     if (exit_soln == 0) then
       exit_face = 0
       dtexit = 1.0d+30
     else
-      exit_face = this%exit_solutions(exit_soln)%iboundary
-      dtexit = this%exit_solutions(exit_soln)%dt
+      exit_face = exit_solutions(exit_soln)%iboundary
+      dtexit = exit_solutions(exit_soln)%dt
     end if
     texit = particle%ttrack + dtexit
+
+    ! Terminate if no valid exit solution was found.
+    ! MP7 is more nuanced in determining what to do
+    ! here. It considers whether this stress period
+    ! is steady state or transient, and whether the
+    ! flow is stationary, in determining whether to
+    ! terminate or allow the particle to survive to
+    ! the next time step. It does not compute paths
+    ! within the subcell even for particles it lets
+    ! remain active under this circumstance, though.
+    ! While we may consider that someday, we simply
+    ! terminate and sidestep the complexity for now.
+    if (all([exit_solutions%status] >= NO_EXIT_STATIONARY)) then
+      call this%terminate(particle, status=TERM_NO_EXITS_SUB)
+      return
+    end if
 
     ! Select user tracking times to solve. If this is the first time step
     ! of the simulation, include all times before it begins; if it is the
@@ -161,7 +161,7 @@ contains
       do i = this%tracktimes%selection(1), this%tracktimes%selection(2)
         t = this%tracktimes%times(i)
         if (t < particle%ttrack) cycle
-        if (t >= texit .or. t >= tmax) exit
+        if (t > texit .or. t > tmax) exit
         dt = t - t0
         x = new_x(exit_x%v, exit_x%dvdx, subcell%vx1, subcell%vx2, &
                   dt, x0, subcell%dx, exit_x%status == 1)
@@ -178,10 +178,9 @@ contains
       end do
     end if
 
+    ! Computed exit time greater than the maximum time? Set the
+    ! tracking time to tmax and calculate the particle location.
     if (texit .gt. tmax) then
-      ! The computed exit time is greater than the maximum time, so set
-      ! final time for particle trajectory equal to maximum time and
-      ! calculate particle location at that final time.
       t = tmax
       dt = t - t0
       x = new_x(exit_x%v, exit_x%dvdx, subcell%vx1, subcell%vx2, &
@@ -193,97 +192,91 @@ contains
       exit_face = 0
       particle%istatus = ACTIVE
       particle%advancing = .false.
-
-      ! Set final particle location in local (unscaled) subcell coordinates,
-      ! final time for particle trajectory
       particle%x = x * subcell%dx
       particle%y = y * subcell%dy
       particle%z = z * subcell%dz
       particle%ttrack = t
       particle%iboundary(LEVEL_SUBFEATURE) = exit_face
-
-      ! Save particle track record
       call this%timestep(particle)
-    else
-      ! The computed exit time is less than or equal to the maximum time,
-      ! so set final time for particle trajectory equal to exit time and
-      ! calculate exit location.
-      t = texit
-      dt = dtexit
-      if ((exit_face .eq. 1) .or. (exit_face .eq. 2)) then
-        x = DZERO
-        y = new_x(exit_y%v, exit_y%dvdx, subcell%vy1, subcell%vy2, &
-                  dt, y0, subcell%dy, exit_y%status == 1)
-        z = new_x(exit_z%v, exit_z%dvdx, subcell%vz1, subcell%vz2, &
-                  dt, z0, subcell%dz, exit_z%status == 1)
-        if (exit_face .eq. 2) x = DONE
-      else if ((exit_face .eq. 3) .or. (exit_face .eq. 4)) then
-        x = new_x(exit_x%v, exit_x%dvdx, subcell%vx1, subcell%vx2, dt, &
-                  x0, subcell%dx, exit_x%status == 1)
-        y = DZERO
-        z = new_x(exit_z%v, exit_z%dvdx, subcell%vz1, subcell%vz2, dt, &
-                  z0, subcell%dz, exit_z%status == 1)
-        if (exit_face .eq. 4) y = DONE
-      else if ((exit_face .eq. 5) .or. (exit_face .eq. 6)) then
-        x = new_x(exit_x%v, exit_x%dvdx, subcell%vx1, subcell%vx2, &
-                  dt, x0, subcell%dx, exit_x%status == 1)
-        y = new_x(exit_y%v, exit_y%dvdx, subcell%vy1, subcell%vy2, &
-                  dt, y0, subcell%dy, exit_y%status == 1)
-        z = DZERO
-        if (exit_face .eq. 6) z = DONE
-      else
-        print *, "programmer error, invalid exit face", exit_face
-        call pstop(1)
-      end if
-
-      ! Set final particle location in local (unscaled) subcell coordinates,
-      ! final time for particle trajectory, and exit face
-      particle%x = x * subcell%dx
-      particle%y = y * subcell%dy
-      particle%z = z * subcell%dz
-      particle%ttrack = t
-      particle%iboundary(LEVEL_SUBFEATURE) = exit_face
-
-      ! Save particle track record
-      call this%subcellexit(particle)
+      return
     end if
+
+    ! If we get to here, the particle is exiting the subcell.
+    ! Its exit time is less than or equal to the maximum time.
+    ! Set tracking time to the exit time and set exit location.
+    t = texit
+    dt = dtexit
+    if ((exit_face .eq. 1) .or. (exit_face .eq. 2)) then
+      x = DZERO
+      y = new_x(exit_y%v, exit_y%dvdx, subcell%vy1, subcell%vy2, &
+                dt, y0, subcell%dy, exit_y%status == 1)
+      z = new_x(exit_z%v, exit_z%dvdx, subcell%vz1, subcell%vz2, &
+                dt, z0, subcell%dz, exit_z%status == 1)
+      if (exit_face .eq. 2) x = DONE
+    else if ((exit_face .eq. 3) .or. (exit_face .eq. 4)) then
+      x = new_x(exit_x%v, exit_x%dvdx, subcell%vx1, subcell%vx2, dt, &
+                x0, subcell%dx, exit_x%status == 1)
+      y = DZERO
+      z = new_x(exit_z%v, exit_z%dvdx, subcell%vz1, subcell%vz2, dt, &
+                z0, subcell%dz, exit_z%status == 1)
+      if (exit_face .eq. 4) y = DONE
+    else if ((exit_face .eq. 5) .or. (exit_face .eq. 6)) then
+      x = new_x(exit_x%v, exit_x%dvdx, subcell%vx1, subcell%vx2, &
+                dt, x0, subcell%dx, exit_x%status == 1)
+      y = new_x(exit_y%v, exit_y%dvdx, subcell%vy1, subcell%vy2, &
+                dt, y0, subcell%dy, exit_y%status == 1)
+      z = DZERO
+      if (exit_face .eq. 6) z = DONE
+    else
+      print *, "programmer error, invalid exit face", exit_face
+      call pstop(1)
+    end if
+    particle%x = x * subcell%dx
+    particle%y = y * subcell%dy
+    particle%z = z * subcell%dz
+    particle%ttrack = t
+    particle%iboundary(LEVEL_SUBFEATURE) = exit_face
+    call this%subcellexit(particle)
 
   end subroutine track_subcell
 
   !> @brief Pick the exit solution with the shortest travel time
-  function pick_exit(this, particle) result(exit_soln)
-    class(MethodSubcellPollockType), intent(inout) :: this
-    type(ParticleType), pointer, intent(inout) :: particle
+  function pick_exit(exit_solutions) result(exit_soln)
+    type(LinearExitSolutionType), intent(in) :: exit_solutions(3)
     integer(I4B) :: exit_soln
     ! local
     real(DP) :: dtmin
 
     exit_soln = 0
     dtmin = 1.0d+30
-    if (this%exit_solutions(1)%status < 2) then
-      exit_soln = 1
-      dtmin = this%exit_solutions(1)%dt
+
+    if (exit_solutions(1)%status < 2) then
+      exit_soln = 1 ! x
+      dtmin = exit_solutions(1)%dt
     end if
-    if (this%exit_solutions(2)%status < 2 .and. &
-        this%exit_solutions(2)%dt < dtmin) then
-      exit_soln = 2
-      dtmin = this%exit_solutions(2)%dt
+    if (exit_solutions(2)%status < 2 .and. &
+        exit_solutions(2)%dt < dtmin) then
+      exit_soln = 2 ! y
+      dtmin = exit_solutions(2)%dt
     end if
-    if (this%exit_solutions(3)%status < 2 .and. &
-        this%exit_solutions(3)%dt < dtmin) then
-      exit_soln = 3
-      dtmin = this%exit_solutions(3)%dt
+    if (exit_solutions(3)%status < 2 .and. &
+        exit_solutions(3)%dt < dtmin) then
+      exit_soln = 3 ! z
     end if
 
   end function pick_exit
 
   !> @brief Compute candidate exit solutions
-  subroutine find_exits(this, particle, domain)
-    class(MethodSubcellPollockType), intent(inout) :: this
+  !!
+  !! Also returns the local subcell coordinates used (x0, y0, z0),
+  !! so track_subcell doesn't need to recompute them from the
+  !! particle's position.
+  !<
+  subroutine find_exits(particle, domain, exit_solutions, x0, y0, z0)
     type(ParticleType), pointer, intent(inout) :: particle
     class(DomainType), intent(in) :: domain
-    ! local
-    real(DP) :: x0, y0, z0
+    type(LinearExitSolutionType), intent(out) :: exit_solutions(3)
+    real(DP), intent(out) :: x0, y0, z0
 
     select type (domain)
     type is (SubcellRectType)
@@ -293,27 +286,27 @@ contains
       z0 = particle%z / domain%dz
 
       ! Calculate exit solutions for each coordinate direction
-      this%exit_solutions = [ &
-                            find_exit(domain%vx1, domain%vx2, domain%dx, x0), &
-                            find_exit(domain%vy1, domain%vy2, domain%dy, y0), &
-                            find_exit(domain%vz1, domain%vz2, domain%dz, z0) &
-                            ]
+      exit_solutions = [ &
+                       find_exit(domain%vx1, domain%vx2, domain%dx, x0), &
+                       find_exit(domain%vy1, domain%vy2, domain%dy, y0), &
+                       find_exit(domain%vz1, domain%vz2, domain%dz, z0) &
+                       ]
 
       ! Set exit faces
-      if (this%exit_solutions(1)%v < DZERO) then
-        this%exit_solutions(1)%iboundary = 1
-      else if (this%exit_solutions(1)%v > DZERO) then
-        this%exit_solutions(1)%iboundary = 2
+      if (exit_solutions(1)%v < DZERO) then
+        exit_solutions(1)%iboundary = 1
+      else if (exit_solutions(1)%v > DZERO) then
+        exit_solutions(1)%iboundary = 2
       end if
-      if (this%exit_solutions(2)%v < DZERO) then
-        this%exit_solutions(2)%iboundary = 3
-      else if (this%exit_solutions(2)%v > DZERO) then
-        this%exit_solutions(2)%iboundary = 4
+      if (exit_solutions(2)%v < DZERO) then
+        exit_solutions(2)%iboundary = 3
+      else if (exit_solutions(2)%v > DZERO) then
+        exit_solutions(2)%iboundary = 4
       end if
-      if (this%exit_solutions(3)%v < DZERO) then
-        this%exit_solutions(3)%iboundary = 5
-      else if (this%exit_solutions(3)%v > DZERO) then
-        this%exit_solutions(3)%iboundary = 6
+      if (exit_solutions(3)%v < DZERO) then
+        exit_solutions(3)%iboundary = 5
+      else if (exit_solutions(3)%v > DZERO) then
+        exit_solutions(3)%iboundary = 6
       end if
     end select
   end subroutine find_exits

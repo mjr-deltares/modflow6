@@ -701,6 +701,7 @@ contains
     character(len=LENMEMPATH) :: mempathadv = ''
     character(len=LENMEMPATH) :: mempathfmi = ''
     character(len=LENMEMPATH) :: mempathic = ''
+    character(len=LENMEMPATH) :: mempathoc = ''
     character(len=LENMEMPATH) :: mempathssm = ''
     !
     ! -- Initialize
@@ -749,11 +750,11 @@ contains
         this%inssm = 1
         mempathssm = mempath
       case ('OC6')
-        this%inoc = inunit
+        this%inoc = 1
+        mempathoc = mempath
       case ('OBS6')
         this%inobs = inunit
-        !case default
-        ! TODO
+      case default
       end select
     end do
     !
@@ -768,7 +769,7 @@ contains
                 this%fmi, this%eqnsclfac, this%depvartype)
     call mvt_cr(this%mvt, this%name, this%inmvt, this%iout, this%fmi, &
                 this%eqnsclfac, this%depvartype)
-    call oc_cr(this%oc, this%name, this%inoc, this%iout)
+    call oc_cr(this%oc, this%name, mempathoc, this%inoc, this%iout)
     call tsp_obs_cr(this%obs, this%inobs, this%depvartype)
   end subroutine create_tsp_packages
 

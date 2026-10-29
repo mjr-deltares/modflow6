@@ -22,12 +22,17 @@ module IdmGwfDfnSelectorModule
   use GwfGhbgInputModule
   use GwfHfbInputModule
   use GwfIcInputModule
+  use GwfLakInputModule
+  use GwfMawInputModule
   use GwfNpfInputModule
+  use GwfOcInputModule
   use GwfRchInputModule
   use GwfRchaInputModule
   use GwfRivInputModule
   use GwfRivgInputModule
+  use GwfSfrInputModule
   use GwfStoInputModule
+  use GwfUzfInputModule
   use GwfVscInputModule
   use GwfWelInputModule
   use GwfWelgInputModule
@@ -38,6 +43,7 @@ module IdmGwfDfnSelectorModule
   public :: gwf_aggregate_definitions
   public :: gwf_block_definitions
   public :: gwf_idm_multi_package
+  public :: gwf_idm_is_advanced
   public :: gwf_idm_subpackages
   public :: gwf_idm_integrated
 
@@ -100,8 +106,14 @@ contains
       call set_param_pointer(input_definition, gwf_hfb_param_definitions)
     case ('IC')
       call set_param_pointer(input_definition, gwf_ic_param_definitions)
+    case ('LAK')
+      call set_param_pointer(input_definition, gwf_lak_param_definitions)
+    case ('MAW')
+      call set_param_pointer(input_definition, gwf_maw_param_definitions)
     case ('NPF')
       call set_param_pointer(input_definition, gwf_npf_param_definitions)
+    case ('OC')
+      call set_param_pointer(input_definition, gwf_oc_param_definitions)
     case ('RCH')
       call set_param_pointer(input_definition, gwf_rch_param_definitions)
     case ('RCHA')
@@ -110,8 +122,12 @@ contains
       call set_param_pointer(input_definition, gwf_riv_param_definitions)
     case ('RIVG')
       call set_param_pointer(input_definition, gwf_rivg_param_definitions)
+    case ('SFR')
+      call set_param_pointer(input_definition, gwf_sfr_param_definitions)
     case ('STO')
       call set_param_pointer(input_definition, gwf_sto_param_definitions)
+    case ('UZF')
+      call set_param_pointer(input_definition, gwf_uzf_param_definitions)
     case ('VSC')
       call set_param_pointer(input_definition, gwf_vsc_param_definitions)
     case ('WEL')
@@ -162,8 +178,14 @@ contains
       call set_param_pointer(input_definition, gwf_hfb_aggregate_definitions)
     case ('IC')
       call set_param_pointer(input_definition, gwf_ic_aggregate_definitions)
+    case ('LAK')
+      call set_param_pointer(input_definition, gwf_lak_aggregate_definitions)
+    case ('MAW')
+      call set_param_pointer(input_definition, gwf_maw_aggregate_definitions)
     case ('NPF')
       call set_param_pointer(input_definition, gwf_npf_aggregate_definitions)
+    case ('OC')
+      call set_param_pointer(input_definition, gwf_oc_aggregate_definitions)
     case ('RCH')
       call set_param_pointer(input_definition, gwf_rch_aggregate_definitions)
     case ('RCHA')
@@ -172,8 +194,12 @@ contains
       call set_param_pointer(input_definition, gwf_riv_aggregate_definitions)
     case ('RIVG')
       call set_param_pointer(input_definition, gwf_rivg_aggregate_definitions)
+    case ('SFR')
+      call set_param_pointer(input_definition, gwf_sfr_aggregate_definitions)
     case ('STO')
       call set_param_pointer(input_definition, gwf_sto_aggregate_definitions)
+    case ('UZF')
+      call set_param_pointer(input_definition, gwf_uzf_aggregate_definitions)
     case ('VSC')
       call set_param_pointer(input_definition, gwf_vsc_aggregate_definitions)
     case ('WEL')
@@ -224,8 +250,14 @@ contains
       call set_block_pointer(input_definition, gwf_hfb_block_definitions)
     case ('IC')
       call set_block_pointer(input_definition, gwf_ic_block_definitions)
+    case ('LAK')
+      call set_block_pointer(input_definition, gwf_lak_block_definitions)
+    case ('MAW')
+      call set_block_pointer(input_definition, gwf_maw_block_definitions)
     case ('NPF')
       call set_block_pointer(input_definition, gwf_npf_block_definitions)
+    case ('OC')
+      call set_block_pointer(input_definition, gwf_oc_block_definitions)
     case ('RCH')
       call set_block_pointer(input_definition, gwf_rch_block_definitions)
     case ('RCHA')
@@ -234,8 +266,12 @@ contains
       call set_block_pointer(input_definition, gwf_riv_block_definitions)
     case ('RIVG')
       call set_block_pointer(input_definition, gwf_rivg_block_definitions)
+    case ('SFR')
+      call set_block_pointer(input_definition, gwf_sfr_block_definitions)
     case ('STO')
       call set_block_pointer(input_definition, gwf_sto_block_definitions)
+    case ('UZF')
+      call set_block_pointer(input_definition, gwf_uzf_block_definitions)
     case ('VSC')
       call set_block_pointer(input_definition, gwf_vsc_block_definitions)
     case ('WEL')
@@ -285,8 +321,14 @@ contains
       multi_package = gwf_hfb_multi_package
     case ('IC')
       multi_package = gwf_ic_multi_package
+    case ('LAK')
+      multi_package = gwf_lak_multi_package
+    case ('MAW')
+      multi_package = gwf_maw_multi_package
     case ('NPF')
       multi_package = gwf_npf_multi_package
+    case ('OC')
+      multi_package = gwf_oc_multi_package
     case ('RCH')
       multi_package = gwf_rch_multi_package
     case ('RCHA')
@@ -295,8 +337,12 @@ contains
       multi_package = gwf_riv_multi_package
     case ('RIVG')
       multi_package = gwf_rivg_multi_package
+    case ('SFR')
+      multi_package = gwf_sfr_multi_package
     case ('STO')
       multi_package = gwf_sto_multi_package
+    case ('UZF')
+      multi_package = gwf_uzf_multi_package
     case ('VSC')
       multi_package = gwf_vsc_multi_package
     case ('WEL')
@@ -310,6 +356,80 @@ contains
     end select
     return
   end function gwf_idm_multi_package
+
+  function gwf_idm_is_advanced(subcomponent) result(is_advanced)
+    character(len=*), intent(in) :: subcomponent
+    logical :: is_advanced
+    select case (subcomponent)
+    case ('NAM')
+      is_advanced = gwf_nam_is_advanced
+    case ('API')
+      is_advanced = gwf_api_is_advanced
+    case ('BUY')
+      is_advanced = gwf_buy_is_advanced
+    case ('CHD')
+      is_advanced = gwf_chd_is_advanced
+    case ('CHDG')
+      is_advanced = gwf_chdg_is_advanced
+    case ('CSUB')
+      is_advanced = gwf_csub_is_advanced
+    case ('DIS')
+      is_advanced = gwf_dis_is_advanced
+    case ('DISU')
+      is_advanced = gwf_disu_is_advanced
+    case ('DISV')
+      is_advanced = gwf_disv_is_advanced
+    case ('DRN')
+      is_advanced = gwf_drn_is_advanced
+    case ('DRNG')
+      is_advanced = gwf_drng_is_advanced
+    case ('EVT')
+      is_advanced = gwf_evt_is_advanced
+    case ('EVTA')
+      is_advanced = gwf_evta_is_advanced
+    case ('GHB')
+      is_advanced = gwf_ghb_is_advanced
+    case ('GHBG')
+      is_advanced = gwf_ghbg_is_advanced
+    case ('HFB')
+      is_advanced = gwf_hfb_is_advanced
+    case ('IC')
+      is_advanced = gwf_ic_is_advanced
+    case ('LAK')
+      is_advanced = gwf_lak_is_advanced
+    case ('MAW')
+      is_advanced = gwf_maw_is_advanced
+    case ('NPF')
+      is_advanced = gwf_npf_is_advanced
+    case ('OC')
+      is_advanced = gwf_oc_is_advanced
+    case ('RCH')
+      is_advanced = gwf_rch_is_advanced
+    case ('RCHA')
+      is_advanced = gwf_rcha_is_advanced
+    case ('RIV')
+      is_advanced = gwf_riv_is_advanced
+    case ('RIVG')
+      is_advanced = gwf_rivg_is_advanced
+    case ('SFR')
+      is_advanced = gwf_sfr_is_advanced
+    case ('STO')
+      is_advanced = gwf_sto_is_advanced
+    case ('UZF')
+      is_advanced = gwf_uzf_is_advanced
+    case ('VSC')
+      is_advanced = gwf_vsc_is_advanced
+    case ('WEL')
+      is_advanced = gwf_wel_is_advanced
+    case ('WELG')
+      is_advanced = gwf_welg_is_advanced
+    case default
+      call store_error('Idm selector subcomponent not found; '//&
+                       &'component="GWF"'//&
+                       &', subcomponent="'//trim(subcomponent)//'".', .true.)
+    end select
+    return
+  end function gwf_idm_is_advanced
 
   function gwf_idm_subpackages(subcomponent) result(subpackages)
     character(len=*), intent(in) :: subcomponent
@@ -349,8 +469,14 @@ contains
       call set_subpkg_pointer(subpackages, gwf_hfb_subpackages)
     case ('IC')
       call set_subpkg_pointer(subpackages, gwf_ic_subpackages)
+    case ('LAK')
+      call set_subpkg_pointer(subpackages, gwf_lak_subpackages)
+    case ('MAW')
+      call set_subpkg_pointer(subpackages, gwf_maw_subpackages)
     case ('NPF')
       call set_subpkg_pointer(subpackages, gwf_npf_subpackages)
+    case ('OC')
+      call set_subpkg_pointer(subpackages, gwf_oc_subpackages)
     case ('RCH')
       call set_subpkg_pointer(subpackages, gwf_rch_subpackages)
     case ('RCHA')
@@ -359,8 +485,12 @@ contains
       call set_subpkg_pointer(subpackages, gwf_riv_subpackages)
     case ('RIVG')
       call set_subpkg_pointer(subpackages, gwf_rivg_subpackages)
+    case ('SFR')
+      call set_subpkg_pointer(subpackages, gwf_sfr_subpackages)
     case ('STO')
       call set_subpkg_pointer(subpackages, gwf_sto_subpackages)
+    case ('UZF')
+      call set_subpkg_pointer(subpackages, gwf_uzf_subpackages)
     case ('VSC')
       call set_subpkg_pointer(subpackages, gwf_vsc_subpackages)
     case ('WEL')
@@ -411,7 +541,13 @@ contains
       integrated = .true.
     case ('IC')
       integrated = .true.
+    case ('LAK')
+      integrated = .true.
+    case ('MAW')
+      integrated = .true.
     case ('NPF')
+      integrated = .true.
+    case ('OC')
       integrated = .true.
     case ('RCH')
       integrated = .true.
@@ -421,7 +557,11 @@ contains
       integrated = .true.
     case ('RIVG')
       integrated = .true.
+    case ('SFR')
+      integrated = .true.
     case ('STO')
+      integrated = .true.
+    case ('UZF')
       integrated = .true.
     case ('VSC')
       integrated = .true.

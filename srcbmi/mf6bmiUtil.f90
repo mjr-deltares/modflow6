@@ -82,6 +82,9 @@ contains
       return
     end if
 
+    ! warn if the variable is addressed by a deprecated name
+    call warn_deprecated_address(mem_path, var_name)
+
     success = .true.
 
   end subroutine split_address
@@ -106,6 +109,32 @@ contains
     call get_from_memorystore(var_name, mem_path, mt, found, check=.false.)
 
   end subroutine check_mem_address
+
+  !> @brief Store a warning the first time a deprecated variable name is used
+  !<
+  subroutine warn_deprecated_address(mem_path, var_name)
+    ! -- modules
+    use MemoryAliasModule, only: get_deprecated_alias
+    use SimModule, only: store_warning
+    ! -- dummy variables
+    character(len=LENMEMPATH), intent(in) :: mem_path !< memory path used by the memory manager
+    character(len=LENVARNAME), intent(in) :: var_name !< name of the variable
+    ! -- local variables
+    logical(LGP) :: found
+    character(len=LENMEMADDRESS) :: replacement
+    character(len=LINELENGTH) :: version
+    character(len=MAXCHARLEN) :: msg
+
+    call get_deprecated_alias(var_name, mem_path, found, replacement, version)
+    if (.not. found) return
+
+    write (msg, '(a)') &
+      "API VARIABLE '"//trim(var_name)//"' IN '"//trim(mem_path)// &
+      "' WAS DEPRECATED IN VERSION "//trim(version)//". USE '"// &
+      trim(replacement)//"' INSTEAD."
+    call store_warning(trim(msg), substring=trim(msg))
+
+  end subroutine warn_deprecated_address
 
   !> @brief Returns the string length without the trailing null character
   !<
@@ -238,18 +267,19 @@ contains
   subroutine get_grid_type_model(model_name, grid_type_f)
     ! -- modules
     use ListsModule, only: basemodellist
-    use NumericalModelModule, only: NumericalModelType, GetNumericalModelFromList
+    use BaseModelModule, only: BaseModelType, GetBaseModelFromList
     ! -- dummy variables
     character(len=LENMODELNAME) :: model_name
     character(len=LENGRIDTYPE) :: grid_type_f
     ! -- local variables
     integer(I4B) :: i
-    class(NumericalModelType), pointer :: numericalModel
+    class(BaseModelType), pointer :: baseModel
 
     do i = 1, basemodellist%Count()
-      numericalModel => GetNumericalModelFromList(basemodellist, i)
-      if (numericalModel%name == model_name) then
-        call numericalModel%dis%get_dis_type(grid_type_f)
+      baseModel => GetBaseModelFromList(basemodellist, i)
+      if (baseModel%name == model_name) then
+        call baseModel%dis%get_dis_type(grid_type_f)
+        return
       end if
     end do
   end subroutine get_grid_type_model

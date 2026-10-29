@@ -9,15 +9,16 @@ module ChfFlwInputModule
   public chf_flw_block_definitions
   public ChfFlwParamFoundType
   public chf_flw_multi_package
+  public chf_flw_is_advanced
   public chf_flw_subpackages
 
   type ChfFlwParamFoundType
     logical :: auxiliary = .false.
     logical :: auxmultname = .false.
     logical :: boundnames = .false.
-    logical :: print_input = .false.
-    logical :: print_flows = .false.
-    logical :: save_flows = .false.
+    logical :: iprpak = .false.
+    logical :: iprflow = .false.
+    logical :: ipakcb = .false.
     logical :: ts_filerecord = .false.
     logical :: ts6 = .false.
     logical :: filein = .false.
@@ -28,11 +29,12 @@ module ChfFlwInputModule
     logical :: maxbound = .false.
     logical :: cellid = .false.
     logical :: q = .false.
-    logical :: aux = .false.
+    logical :: auxvar = .false.
     logical :: boundname = .false.
   end type ChfFlwParamFoundType
 
   logical :: chf_flw_multi_package = .true.
+  logical :: chf_flw_is_advanced = .false.
 
   character(len=16), parameter :: &
     chf_flw_subpackages(*) = &
@@ -52,6 +54,7 @@ module ChfFlwInputModule
     'NAUX', & ! shape
     'keyword to specify aux variables', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -70,6 +73,7 @@ module ChfFlwInputModule
     '', & ! shape
     'name of auxiliary variable for multiplier', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -88,6 +92,7 @@ module ChfFlwInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -95,17 +100,18 @@ module ChfFlwInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    chfflw_print_input = InputParamDefinitionType &
+    chfflw_iprpak = InputParamDefinitionType &
     ( &
     'CHF', & ! component
     'FLW', & ! subcomponent
     'OPTIONS', & ! block
     'PRINT_INPUT', & ! tag name
-    'PRINT_INPUT', & ! fortran variable
+    'IPRPAK', & ! fortran variable
     'KEYWORD', & ! type
     '', & ! shape
     'print input to listing file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -113,17 +119,18 @@ module ChfFlwInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    chfflw_print_flows = InputParamDefinitionType &
+    chfflw_iprflow = InputParamDefinitionType &
     ( &
     'CHF', & ! component
     'FLW', & ! subcomponent
     'OPTIONS', & ! block
     'PRINT_FLOWS', & ! tag name
-    'PRINT_FLOWS', & ! fortran variable
+    'IPRFLOW', & ! fortran variable
     'KEYWORD', & ! type
     '', & ! shape
     'print calculated flows to listing file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -131,17 +138,18 @@ module ChfFlwInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    chfflw_save_flows = InputParamDefinitionType &
+    chfflw_ipakcb = InputParamDefinitionType &
     ( &
     'CHF', & ! component
     'FLW', & ! subcomponent
     'OPTIONS', & ! block
     'SAVE_FLOWS', & ! tag name
-    'SAVE_FLOWS', & ! fortran variable
+    'IPAKCB', & ! fortran variable
     'KEYWORD', & ! type
     '', & ! shape
     'save well flows to budget file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -160,6 +168,7 @@ module ChfFlwInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -178,6 +187,7 @@ module ChfFlwInputModule
     '', & ! shape
     'head keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -196,6 +206,7 @@ module ChfFlwInputModule
     '', & ! shape
     'file keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -214,6 +225,7 @@ module ChfFlwInputModule
     '', & ! shape
     'file name of time series information', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -232,6 +244,7 @@ module ChfFlwInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -250,6 +263,7 @@ module ChfFlwInputModule
     '', & ! shape
     'obs keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -268,6 +282,7 @@ module ChfFlwInputModule
     '', & ! shape
     'obs6 input filename', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -286,6 +301,7 @@ module ChfFlwInputModule
     '', & ! shape
     'maximum number of inflow', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -304,6 +320,7 @@ module ChfFlwInputModule
     'NCELLDIM', & ! shape
     'cell identifier', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -322,6 +339,7 @@ module ChfFlwInputModule
     '', & ! shape
     'well rate', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -329,17 +347,18 @@ module ChfFlwInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    chfflw_aux = InputParamDefinitionType &
+    chfflw_auxvar = InputParamDefinitionType &
     ( &
     'CHF', & ! component
     'FLW', & ! subcomponent
     'PERIOD', & ! block
     'AUX', & ! tag name
-    'AUX', & ! fortran variable
+    'AUXVAR', & ! fortran variable
     'DOUBLE1D', & ! type
     'NAUX', & ! shape
     'auxiliary variables', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -358,6 +377,7 @@ module ChfFlwInputModule
     '', & ! shape
     'inflow name', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -370,9 +390,9 @@ module ChfFlwInputModule
     chfflw_auxiliary, &
     chfflw_auxmultname, &
     chfflw_boundnames, &
-    chfflw_print_input, &
-    chfflw_print_flows, &
-    chfflw_save_flows, &
+    chfflw_iprpak, &
+    chfflw_iprflow, &
+    chfflw_ipakcb, &
     chfflw_ts_filerecord, &
     chfflw_ts6, &
     chfflw_filein, &
@@ -383,7 +403,7 @@ module ChfFlwInputModule
     chfflw_maxbound, &
     chfflw_cellid, &
     chfflw_q, &
-    chfflw_aux, &
+    chfflw_auxvar, &
     chfflw_boundname &
     ]
 
@@ -399,6 +419,7 @@ module ChfFlwInputModule
     'MAXBOUND', & ! shape
     '', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered

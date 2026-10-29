@@ -9,6 +9,7 @@ module OlfCdbInputModule
   public olf_cdb_block_definitions
   public OlfCdbParamFoundType
   public olf_cdb_multi_package
+  public olf_cdb_is_advanced
   public olf_cdb_subpackages
 
   type OlfCdbParamFoundType
@@ -30,6 +31,7 @@ module OlfCdbInputModule
   end type OlfCdbParamFoundType
 
   logical :: olf_cdb_multi_package = .true.
+  logical :: olf_cdb_is_advanced = .false.
 
   character(len=16), parameter :: &
     olf_cdb_subpackages(*) = &
@@ -49,6 +51,7 @@ module OlfCdbInputModule
     'NAUX', & ! shape
     'keyword to specify aux variables', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -67,6 +70,7 @@ module OlfCdbInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -85,6 +89,7 @@ module OlfCdbInputModule
     '', & ! shape
     'print input to listing file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -103,6 +108,7 @@ module OlfCdbInputModule
     '', & ! shape
     'print calculated flows to listing file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -121,6 +127,7 @@ module OlfCdbInputModule
     '', & ! shape
     'save flows to budget file', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -139,6 +146,7 @@ module OlfCdbInputModule
     '', & ! shape
     'file keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -157,6 +165,7 @@ module OlfCdbInputModule
     '', & ! shape
     '', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -175,6 +184,7 @@ module OlfCdbInputModule
     '', & ! shape
     'obs keyword', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -193,6 +203,7 @@ module OlfCdbInputModule
     '', & ! shape
     'obs6 input filename', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .true., & ! preserve case
     .false., & ! layered
@@ -211,6 +222,7 @@ module OlfCdbInputModule
     '', & ! shape
     'maximum number of critical depth boundaries', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -229,6 +241,7 @@ module OlfCdbInputModule
     'NCELLDIM', & ! shape
     'cell identifier', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -247,6 +260,7 @@ module OlfCdbInputModule
     '', & ! shape
     'cross section identifier', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -265,6 +279,7 @@ module OlfCdbInputModule
     '', & ! shape
     'width of the zero-depth gradient boundary', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -283,6 +298,7 @@ module OlfCdbInputModule
     'NAUX', & ! shape
     'auxiliary variables', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -301,6 +317,7 @@ module OlfCdbInputModule
     '', & ! shape
     'zero-depth-gradient boundary name', & ! longname
     .false., & ! required
+    .false., & ! developmode
     .true., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered
@@ -339,6 +356,7 @@ module OlfCdbInputModule
     'MAXBOUND', & ! shape
     '', & ! longname
     .true., & ! required
+    .false., & ! developmode
     .false., & ! multi-record
     .false., & ! preserve case
     .false., & ! layered

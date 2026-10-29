@@ -27,8 +27,9 @@ module LoadMf6FileModule
   use DefinitionSelectModule, only: get_param_definition_type, &
                                     get_aggregate_definition_type
   use ModflowInputModule, only: ModflowInputType
-  use MemoryManagerModule, only: mem_allocate, mem_setptr
+  use MemoryManagerModule, only: mem_allocate, mem_setptr, get_isize, get_mem_rank
   use StructArrayModule, only: StructArrayType
+  use StructVectorModule, only: StructVectorType
   use NCFileVarsModule, only: NCPackageVarsType
   use IdmLoggerModule, only: idm_log_var, idm_log_header, idm_log_close, &
                              idm_export
@@ -37,6 +38,12 @@ module LoadMf6FileModule
   private
   public :: LoadMf6FileType
   public :: read_control_record
+
+  !> @brief Fortran workaround for allocatable arrays of pointers; wraps a StructArray pointer for deferred TS linking.
+  !<
+  type :: StaticSAType
+    type(StructArrayType), pointer :: sa => null()
+  end type StaticSAType
 
   !> @brief Static parser based input loader
   !!
@@ -48,6 +55,7 @@ module LoadMf6FileModule
     type(BlockParserType), pointer :: parser !< ascii block parser
     integer(I4B), dimension(:), pointer, contiguous :: mshape => null() !< model shape
     type(StructArrayType), pointer :: structarray => null() !< structarray for loading list input
+    type(StaticSAType), allocatable :: ts_sas(:) !< saved structarrays for deferred TS linking
     type(ModflowInputType) :: mf6_input !< description of input
     type(NCPackageVarsType), pointer :: nc_vars => null()
     character(len=LINELENGTH) :: filename !< name of ascii input file
@@ -71,6 +79,10 @@ module LoadMf6FileModule
     procedure :: load_tag
     procedure :: block_index_dfn
     procedure :: parse_structarray_block
+    procedure :: save_ts_sa
+    procedure :: ts_sa_count
+    procedure :: get_ts_sa
+    procedure :: cleanup
   end type LoadMf6FileType
 
 contains
@@ -82,7 +94,6 @@ contains
   !!
   !<
   subroutine load(this, parser, mf6_input, nc_vars, filename, iout)
-    use MemoryManagerModule, only: get_isize
     class(LoadMf6FileType) :: this
     type(BlockParserType), target, intent(inout) :: parser
     type(ModflowInputType), intent(in) :: mf6_input
@@ -115,7 +126,6 @@ contains
   !!
   !<
   subroutine init(this, parser, mf6_input, filename, iout)
-    use MemoryManagerModule, only: get_isize
     class(LoadMf6FileType) :: this
     type(BlockParserType), target, intent(inout) :: parser
     type(ModflowInputType), intent(in) :: mf6_input
@@ -138,6 +148,9 @@ contains
     if (isize > 0) then
       call mem_setptr(this%mshape, 'MODEL_SHAPE', mf6_input%component_mempath)
     end if
+
+    ! init ts stuctarray list
+    allocate (this%ts_sas(0))
 
     ! log lst file header
     call idm_log_header(this%mf6_input%component_name, &
@@ -194,8 +207,6 @@ contains
   !!
   !<
   subroutine block_post_process(this, iblk)
-    use ConstantsModule, only: LENBOUNDNAME
-    use CharacterStringModule, only: CharacterStringType
     use SourceCommonModule, only: set_model_shape
     class(LoadMf6FileType) :: this
     integer(I4B), intent(in) :: iblk
@@ -215,7 +226,7 @@ contains
           this%readasarrays = .true.
         else if (this%block_tags(iparam) == 'READARRAYGRID') then
           this%readarraygrid = .true.
-        else if (this%block_tags(iparam) == 'TS6') then
+        else if (this%block_tags(iparam) == 'TS6_FILENAME') then
           this%ts_active = .true.
         else if (this%block_tags(iparam) == 'EXPORT_ARRAY_ASCII') then
           this%export = .true.
@@ -326,6 +337,7 @@ contains
   end subroutine parse_block
 
   subroutine parse_io_tag(this, iblk, pkgtype, which, tag)
+    use ArrayHandlersModule, only: expandarray
     class(LoadMf6FileType) :: this
     integer(I4B), intent(in) :: iblk
     character(len=*), intent(in) :: pkgtype
@@ -341,6 +353,8 @@ contains
                                 tag, this%filename)
     ! load io tag
     call load_io_tag(this%parser, idt, this%mf6_input%mempath, which, this%iout)
+    call expandarray(this%block_tags)
+    this%block_tags(size(this%block_tags)) = trim(idt%tagname)
   end subroutine parse_io_tag
 
   recursive subroutine parse_record_tag(this, iblk, inidt, recursive_call)
@@ -445,10 +459,22 @@ contains
   !! Load input associated with tag key into the memory manager.
   !<
   subroutine load_tag(this, iblk, idt)
+    use FeatureFlagsModule, only: developmode
     use ArrayHandlersModule, only: expandarray
     class(LoadMf6FileType) :: this
     integer(I4B), intent(in) :: iblk
     type(InputParamDefinitionType), pointer, intent(in) :: idt !< input data type object describing this record
+    character(len=LINELENGTH) :: dev_msg
+
+    ! check if input param is developmode
+    if (idt%developmode) then
+      dev_msg = 'Input tag "'//trim(idt%tagname)// &
+        &'" read from file "'//trim(this%filename)// &
+        &'" is still under development. Install the &
+        &nightly build or compile from source with IDEVELOPMODE = 1.'
+      call developmode(dev_msg, this%iout)
+    end if
+
     ! allocate and load data type
     select case (idt%datatype)
     case ('KEYWORD')
@@ -537,25 +563,36 @@ contains
   !<
   subroutine parse_structarray_block(this, iblk)
     use StructArrayModule, only: StructArrayType, constructStructArray
-    use LoadContextModule, only: LoadContextType
+    use LoadContextModule, only: LoadContextType, is_feature_keystring
     class(LoadMf6FileType) :: this
     integer(I4B), intent(in) :: iblk
     type(LoadContextType) :: ctx
     character(len=LINELENGTH), dimension(:), allocatable :: param_names
     type(InputParamDefinitionType), pointer :: idt !< input data type object describing this record
+    type(InputParamDefinitionType), pointer :: shape_idt
     type(InputParamDefinitionType), target :: blockvar_idt
     integer(I4B) :: blocknum
     integer(I4B), pointer :: nrow
+    integer(I4B), dimension(:), pointer, contiguous :: int1d
     integer(I4B) :: nrows, nrowsread
+    integer(I4B) :: mem_rank, isize
     integer(I4B) :: ibinary, oc_inunit
     integer(I4B) :: icol, iparam
     integer(I4B) :: ncol, nparam
+    logical(LGP) :: shape_found
+    logical(LGP) :: is_sum_shape
+    character(len=LINELENGTH) :: shape_name
+    integer(I4B), pointer :: pkgdata_maxbound
+
+    nrows = -1
 
     ! initialize load context
     call ctx%init(this%mf6_input, blockname= &
                   this%mf6_input%block_dfns(iblk)%blockname)
-    ! set in scope params for load
-    call ctx%tags(param_names, nparam, this%filename)
+    ! set in-scope params directly from context
+    param_names = ctx%params
+    nparam = size(ctx%params)
+    call ctx%check_developmode(this%filename)
     ! set input definition for this block
     idt => &
       get_aggregate_definition_type(this%mf6_input%aggregate_dfns, &
@@ -575,16 +612,78 @@ contains
     if (blocknum > 0) ncol = ncol + 1
     ! use shape to set the max num of rows
     if (idt%shape /= '') then
-      call mem_setptr(nrow, idt%shape, this%mf6_input%mempath)
-      nrows = nrow
-    else
-      nrows = -1
+      ! "SUM(name)" means total rows = sum of a per-feature array (e.g.
+      ! LAK's CONNECTIONDATA: NLAKECONN summed across all lakes); this
+      ! notation is declared explicitly in the dfn, not inferred
+      is_sum_shape = .false.
+      shape_name = idt%shape
+      if (idt%shape(1:4) == 'SUM(') then
+        is_sum_shape = .true.
+        shape_name = idt%shape(5:len_trim(idt%shape) - 1)
+      end if
+      shape_idt => &
+        get_param_definition_type(this%mf6_input%param_dfns, &
+                                  this%mf6_input%component_type, &
+                                  this%mf6_input%subcomponent_type, &
+                                  'DIMENSIONS', shape_name, this%filename, &
+                                  found=shape_found)
+      if (.not. shape_found) then
+        ! also allow a per-row PACKAGEDATA field (e.g. LAK's NLAKECONN)
+        shape_idt => &
+          get_param_definition_type(this%mf6_input%param_dfns, &
+                                    this%mf6_input%component_type, &
+                                    this%mf6_input%subcomponent_type, &
+                                    'PACKAGEDATA', shape_name, this%filename, &
+                                    found=shape_found)
+      end if
+      if (shape_found) then
+        call get_isize(shape_idt%mf6varname, this%mf6_input%mempath, isize)
+        if (isize < 0) then
+          if (shape_idt%required) then
+            write (errmsg, '(3a)') 'Required dimension "', &
+              trim(shape_name), '" not found.'
+            call store_error(errmsg)
+            call this%parser%StoreErrorUnit()
+          end if
+        else
+          ! cross-check the dfn's declared SUM(...)/plain shape against the
+          ! variable's actual rank, so a mismatch errors instead of
+          ! silently mis-using a scalar/array pointer
+          call get_mem_rank(shape_idt%mf6varname, this%mf6_input%mempath, &
+                            mem_rank)
+          if (is_sum_shape .and. mem_rank == 1) then
+            call mem_setptr(int1d, shape_idt%mf6varname, this%mf6_input%mempath)
+            nrows = sum(int1d)
+            nullify (int1d)
+          else if (.not. is_sum_shape .and. mem_rank == 0) then
+            ! scalar shape variable (e.g. NLAKES, MAXBOUND) — use value directly
+            call mem_setptr(nrow, shape_idt%mf6varname, this%mf6_input%mempath)
+            nrows = nrow
+          else
+            write (errmsg, '(5a)') 'Shape variable "', trim(shape_name), &
+              '" rank does not match its declared shape "', &
+              trim(idt%shape), '".'
+            call store_error(errmsg)
+            call this%parser%StoreErrorUnit()
+          end if
+        end if
+      end if
+      ! -- else: shape variable not found; nrows stays at its initial -1, so
+      !    the block falls back to deferred sizing
     end if
 
-    ! create a structured array
-    this%structarray => constructStructArray(this%mf6_input, ncol, nrows, &
-                                             blocknum, this%mf6_input%mempath, &
-                                             this%mf6_input%component_mempath)
+    ! create a structured array; use a larger deferred init for blocks with no
+    ! explicit shape, which include APT based advanced packages.
+    if (nrows < 0) then
+      this%structarray => constructStructArray(this%mf6_input, ncol, nrows, &
+                                               blocknum, this%mf6_input%mempath, &
+                                               this%mf6_input%component_mempath, &
+                                               size_init=64)
+    else
+      this%structarray => constructStructArray(this%mf6_input, ncol, nrows, &
+                                               blocknum, this%mf6_input%mempath, &
+                                               this%mf6_input%component_mempath)
+    end if
     ! create structarray vectors for each column
     do icol = 1, ncol
       ! if block is reloadable, block number is first column
@@ -627,12 +726,42 @@ contains
     else
       ! read from ascii
       nrowsread = this%structarray%read_from_parser(this%parser, this%ts_active, &
-                                                    this%iout)
+                                                    this%iout, this%filename)
+      ! save structarray for deferred TS linking in df() if any strlocs were stored
+      if (this%ts_active) call this%save_ts_sa()
+    end if
+
+    ! an advanced package's PACKAGEDATA row count is published as
+    ! MAXBOUND, the feature count the PERIOD block's load context needs
+    if (this%mf6_input%block_dfns(iblk)%blockname == 'PACKAGEDATA' .and. &
+        is_feature_keystring(this%mf6_input) .and. ctx%is_advanced) then
+      call get_isize('MAXBOUND', this%mf6_input%mempath, isize)
+      if (isize < 0) then
+        call mem_allocate(pkgdata_maxbound, 'MAXBOUND', this%mf6_input%mempath)
+        pkgdata_maxbound = nrowsread
+      end if
     end if
 
     ! clean up
     call ctx%destroy()
   end subroutine parse_structarray_block
+
+  !> @brief Return number of saved static StructArrays with deferred TS strlocs
+  !<
+  function ts_sa_count(this) result(n)
+    class(LoadMf6FileType), intent(in) :: this
+    integer(I4B) :: n
+    n = size(this%ts_sas)
+  end function ts_sa_count
+
+  !> @brief Return the n-th saved static StructArray pointer
+  !<
+  function get_ts_sa(this, n) result(sa)
+    class(LoadMf6FileType), intent(in) :: this
+    integer(I4B), intent(in) :: n
+    type(StructArrayType), pointer :: sa
+    sa => this%ts_sas(n)%sa
+  end function get_ts_sa
 
   !> @brief load type keyword
   !<
@@ -675,8 +804,7 @@ contains
   !> @brief load io tag
   !<
   subroutine load_io_tag(parser, idt, memoryPath, which, iout)
-    use MemoryManagerModule, only: mem_allocate, mem_reallocate, &
-                                   mem_setptr, get_isize
+    use MemoryManagerModule, only: mem_allocate, mem_reallocate
     use CharacterStringModule, only: CharacterStringType
     type(BlockParserType), intent(inout) :: parser !< block parser
     type(InputParamDefinitionType), intent(in) :: idt !< input data type object describing this record
@@ -1185,5 +1313,55 @@ contains
       call parser%line_reader%bkspc(parser%getunit())
     end if
   end function read_control_record
+
+  !> @brief Save structarray pointer for deferred TS linking
+  !!
+  !! Saves the current structarray pointer when it contains TS string locs,
+  !! then nullifies the pointer so load_block does not destroy it.
+  !<
+  subroutine save_ts_sa(this)
+    class(LoadMf6FileType), intent(inout) :: this
+    type(StructVectorType), pointer :: svect
+    type(StaticSAType), allocatable :: tmp(:)
+    logical(LGP) :: has_ts
+    integer(I4B) :: m, n
+
+    ! check if any column has deferred TS strlocs
+    has_ts = .false.
+    do m = 1, this%structarray%count()
+      svect => this%structarray%get(m)
+      if (svect%idt%timeseries .and. svect%ts_strlocs%count() > 0) then
+        has_ts = .true.
+        exit
+      end if
+    end do
+
+    if (has_ts) then
+      n = size(this%ts_sas)
+      allocate (tmp(n + 1))
+      tmp(1:n) = this%ts_sas
+      tmp(n + 1)%sa => this%structarray
+      call move_alloc(tmp, this%ts_sas)
+      ! nullify so load_block does not destroy the saved SA
+      nullify (this%structarray)
+    end if
+  end subroutine save_ts_sa
+
+  !> @brief Clean up saved static structarrays
+  !!
+  !! Called from destroy() of dynamic loaders.
+  !<
+  subroutine cleanup(this)
+    use StructArrayModule, only: destructStructArray
+    class(LoadMf6FileType), intent(inout) :: this
+    integer(I4B) :: n
+    do n = 1, size(this%ts_sas)
+      if (associated(this%ts_sas(n)%sa)) then
+        call destructStructArray(this%ts_sas(n)%sa)
+        nullify (this%ts_sas(n)%sa)
+      end if
+    end do
+    deallocate (this%ts_sas)
+  end subroutine cleanup
 
 end module LoadMf6FileModule
