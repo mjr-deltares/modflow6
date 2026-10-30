@@ -14,7 +14,7 @@ from framework import TestFramework
 from gwf_test_utils import PLOT_VSF_TESTS, get_vsf_soil_data
 from modflow_devtools.misc import is_in_ci
 
-cases = ["wt-npf", "wt-npf-drn", "wt-vsf", "wt-vsf-drn", "wt-vsf-spg"]
+cases = ["wt-npf", "wt-npf-drn", "wt-vsf", "wt-vsf-drn", "wt-vsf-vssp"]
 use_vsf = [False, False, True, True, True]
 use_drain = [False, True, False, True, False]
 use_seepage = [False, False, False, False, True]
@@ -160,7 +160,7 @@ def build_models(idx, test):
     # boundary data
     chd_data = []
     drn_data = []
-    spg_data = []
+    vssp_data = []
 
     # left boundary
     for ilay in range(nlay):
@@ -175,11 +175,11 @@ def build_models(idx, test):
         else:
             dcond = hk * delc * delz / (0.5 * delr)
             drn_data.append([(ilay, 0, ncol - 1), z, dcond])
-            # seepage face (SPG) on the +x boundary above the right head:
+            # seepage face (VSSP) on the +x boundary above the right head:
             # a vertical face (horizontal connection, ihc=1) with the outward
             # normal along +x (angldegx=0), the cell-center-to-face distance
             # (cl1) and the face area (hwva)
-            spg_data.append([(ilay, 0, ncol - 1), 1, 0.5 * delr, delc * delz, 0.0])
+            vssp_data.append([(ilay, 0, ncol - 1), 1, 0.5 * delr, delc * delz, 0.0])
 
     chd_spd = {0: chd_data}
     chd = flopy.mf6.ModflowGwfchd(
@@ -200,14 +200,14 @@ def build_models(idx, test):
         )
 
     if use_seepage[idx]:
-        spg_spd = {0: spg_data}
-        spg = flopy.mf6.ModflowGwfspg(
+        vssp_spd = {0: vssp_data}
+        vssp = flopy.mf6.ModflowGwfvssp(
             gwf,
-            maxbound=len(spg_data),
-            stress_period_data=spg_spd,
+            maxbound=len(vssp_data),
+            stress_period_data=vssp_spd,
             save_flows=True,
             print_flows=True,
-            pname="SPG-1",
+            pname="VSSP-1",
         )
 
     # output control
@@ -298,7 +298,7 @@ def check_output(idx, test):
     cbb = flopy.utils.CellBudgetFile(cbcpth, precision="double")
     flow_ja_face = cbb.get_data(text="FLOW-JA-FACE")
     ia = grb._datadict["IA"] - 1
-    # the seepage (SPG) on/off nonlinearity converges slightly looser
+    # the seepage (VSSP) on/off nonlinearity converges slightly looser
     res_atol = 1.0e-5 if use_seepage[idx] else 1.0e-6
     for fjf in flow_ja_face:
         fjf = fjf.flatten()

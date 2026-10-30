@@ -1,18 +1,18 @@
 ! ** Do Not Modify! MODFLOW 6 system generated file. **
-module GwfVseInputModule
+module GwfVsetInputModule
   use ConstantsModule, only: LENVARNAME
   use InputDefinitionModule, only: InputParamDefinitionType, &
                                    InputBlockDefinitionType
   private
-  public gwf_vse_param_definitions
-  public gwf_vse_aggregate_definitions
-  public gwf_vse_block_definitions
-  public GwfVseParamFoundType
-  public gwf_vse_multi_package
-  public gwf_vse_is_advanced
-  public gwf_vse_subpackages
+  public gwf_vset_param_definitions
+  public gwf_vset_aggregate_definitions
+  public gwf_vset_block_definitions
+  public GwfVsetParamFoundType
+  public gwf_vset_multi_package
+  public gwf_vset_is_advanced
+  public gwf_vset_subpackages
 
-  type GwfVseParamFoundType
+  type GwfVsetParamFoundType
     logical :: et_model = .false.
     logical :: h1 = .false.
     logical :: h2 = .false.
@@ -36,22 +36,22 @@ module GwfVseInputModule
     logical :: rate = .false.
     logical :: auxvar = .false.
     logical :: boundname = .false.
-  end type GwfVseParamFoundType
+  end type GwfVsetParamFoundType
 
-  logical :: gwf_vse_multi_package = .true.
-  logical :: gwf_vse_is_advanced = .false.
+  logical :: gwf_vset_multi_package = .true.
+  logical :: gwf_vset_is_advanced = .false.
 
   character(len=16), parameter :: &
-    gwf_vse_subpackages(*) = &
+    gwf_vset_subpackages(*) = &
     [ &
     '                ' &
     ]
 
   type(InputParamDefinitionType), parameter :: &
-    gwfvse_et_model = InputParamDefinitionType &
+    gwfvset_et_model = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'VSE', & ! subcomponent
+    'VSET', & ! subcomponent
     'OPTIONS', & ! block
     'ET_MODEL', & ! tag name
     'ET_MODEL', & ! fortran variable
@@ -67,10 +67,10 @@ module GwfVseInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfvse_h1 = InputParamDefinitionType &
+    gwfvset_h1 = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'VSE', & ! subcomponent
+    'VSET', & ! subcomponent
     'OPTIONS', & ! block
     'H1', & ! tag name
     'H1', & ! fortran variable
@@ -86,10 +86,10 @@ module GwfVseInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfvse_h2 = InputParamDefinitionType &
+    gwfvset_h2 = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'VSE', & ! subcomponent
+    'VSET', & ! subcomponent
     'OPTIONS', & ! block
     'H2', & ! tag name
     'H2', & ! fortran variable
@@ -105,10 +105,10 @@ module GwfVseInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfvse_h3 = InputParamDefinitionType &
+    gwfvset_h3 = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'VSE', & ! subcomponent
+    'VSET', & ! subcomponent
     'OPTIONS', & ! block
     'H3', & ! tag name
     'H3', & ! fortran variable
@@ -124,10 +124,10 @@ module GwfVseInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfvse_h4 = InputParamDefinitionType &
+    gwfvset_h4 = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'VSE', & ! subcomponent
+    'VSET', & ! subcomponent
     'OPTIONS', & ! block
     'H4', & ! tag name
     'H4', & ! fortran variable
@@ -143,10 +143,10 @@ module GwfVseInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfvse_auxiliary = InputParamDefinitionType &
+    gwfvset_auxiliary = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'VSE', & ! subcomponent
+    'VSET', & ! subcomponent
     'OPTIONS', & ! block
     'AUXILIARY', & ! tag name
     'AUXILIARY', & ! fortran variable
@@ -162,10 +162,10 @@ module GwfVseInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfvse_auxmultname = InputParamDefinitionType &
+    gwfvset_auxmultname = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'VSE', & ! subcomponent
+    'VSET', & ! subcomponent
     'OPTIONS', & ! block
     'AUXMULTNAME', & ! tag name
     'AUXMULTNAME', & ! fortran variable
@@ -181,10 +181,10 @@ module GwfVseInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfvse_boundnames = InputParamDefinitionType &
+    gwfvset_boundnames = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'VSE', & ! subcomponent
+    'VSET', & ! subcomponent
     'OPTIONS', & ! block
     'BOUNDNAMES', & ! tag name
     'BOUNDNAMES', & ! fortran variable
@@ -200,10 +200,10 @@ module GwfVseInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfvse_iprpak = InputParamDefinitionType &
+    gwfvset_iprpak = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'VSE', & ! subcomponent
+    'VSET', & ! subcomponent
     'OPTIONS', & ! block
     'PRINT_INPUT', & ! tag name
     'IPRPAK', & ! fortran variable
@@ -219,10 +219,10 @@ module GwfVseInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfvse_iprflow = InputParamDefinitionType &
+    gwfvset_iprflow = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'VSE', & ! subcomponent
+    'VSET', & ! subcomponent
     'OPTIONS', & ! block
     'PRINT_FLOWS', & ! tag name
     'IPRFLOW', & ! fortran variable
@@ -238,10 +238,10 @@ module GwfVseInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfvse_ipakcb = InputParamDefinitionType &
+    gwfvset_ipakcb = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'VSE', & ! subcomponent
+    'VSET', & ! subcomponent
     'OPTIONS', & ! block
     'SAVE_FLOWS', & ! tag name
     'IPAKCB', & ! fortran variable
@@ -257,10 +257,10 @@ module GwfVseInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfvse_ts_filerecord = InputParamDefinitionType &
+    gwfvset_ts_filerecord = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'VSE', & ! subcomponent
+    'VSET', & ! subcomponent
     'OPTIONS', & ! block
     'TS_FILERECORD', & ! tag name
     'TS_FILERECORD', & ! fortran variable
@@ -276,10 +276,10 @@ module GwfVseInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfvse_ts6 = InputParamDefinitionType &
+    gwfvset_ts6 = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'VSE', & ! subcomponent
+    'VSET', & ! subcomponent
     'OPTIONS', & ! block
     'TS6', & ! tag name
     'TS6', & ! fortran variable
@@ -295,10 +295,10 @@ module GwfVseInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfvse_filein = InputParamDefinitionType &
+    gwfvset_filein = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'VSE', & ! subcomponent
+    'VSET', & ! subcomponent
     'OPTIONS', & ! block
     'FILEIN', & ! tag name
     'FILEIN', & ! fortran variable
@@ -314,10 +314,10 @@ module GwfVseInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfvse_ts6_filename = InputParamDefinitionType &
+    gwfvset_ts6_filename = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'VSE', & ! subcomponent
+    'VSET', & ! subcomponent
     'OPTIONS', & ! block
     'TS6_FILENAME', & ! tag name
     'TS6_FILENAME', & ! fortran variable
@@ -333,10 +333,10 @@ module GwfVseInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfvse_obs_filerecord = InputParamDefinitionType &
+    gwfvset_obs_filerecord = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'VSE', & ! subcomponent
+    'VSET', & ! subcomponent
     'OPTIONS', & ! block
     'OBS_FILERECORD', & ! tag name
     'OBS_FILERECORD', & ! fortran variable
@@ -352,10 +352,10 @@ module GwfVseInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfvse_obs6 = InputParamDefinitionType &
+    gwfvset_obs6 = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'VSE', & ! subcomponent
+    'VSET', & ! subcomponent
     'OPTIONS', & ! block
     'OBS6', & ! tag name
     'OBS6', & ! fortran variable
@@ -371,10 +371,10 @@ module GwfVseInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfvse_obs6_filename = InputParamDefinitionType &
+    gwfvset_obs6_filename = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'VSE', & ! subcomponent
+    'VSET', & ! subcomponent
     'OPTIONS', & ! block
     'OBS6_FILENAME', & ! tag name
     'OBS6_FILENAME', & ! fortran variable
@@ -390,10 +390,10 @@ module GwfVseInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfvse_maxbound = InputParamDefinitionType &
+    gwfvset_maxbound = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'VSE', & ! subcomponent
+    'VSET', & ! subcomponent
     'DIMENSIONS', & ! block
     'MAXBOUND', & ! tag name
     'MAXBOUND', & ! fortran variable
@@ -409,10 +409,10 @@ module GwfVseInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfvse_cellid = InputParamDefinitionType &
+    gwfvset_cellid = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'VSE', & ! subcomponent
+    'VSET', & ! subcomponent
     'PERIOD', & ! block
     'CELLID', & ! tag name
     'CELLID', & ! fortran variable
@@ -428,10 +428,10 @@ module GwfVseInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfvse_rate = InputParamDefinitionType &
+    gwfvset_rate = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'VSE', & ! subcomponent
+    'VSET', & ! subcomponent
     'PERIOD', & ! block
     'RATE', & ! tag name
     'RATE', & ! fortran variable
@@ -447,10 +447,10 @@ module GwfVseInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfvse_auxvar = InputParamDefinitionType &
+    gwfvset_auxvar = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'VSE', & ! subcomponent
+    'VSET', & ! subcomponent
     'PERIOD', & ! block
     'AUX', & ! tag name
     'AUXVAR', & ! fortran variable
@@ -466,10 +466,10 @@ module GwfVseInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwfvse_boundname = InputParamDefinitionType &
+    gwfvset_boundname = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'VSE', & ! subcomponent
+    'VSET', & ! subcomponent
     'PERIOD', & ! block
     'BOUNDNAME', & ! tag name
     'BOUNDNAME', & ! fortran variable
@@ -485,38 +485,38 @@ module GwfVseInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwf_vse_param_definitions(*) = &
+    gwf_vset_param_definitions(*) = &
     [ &
-    gwfvse_et_model, &
-    gwfvse_h1, &
-    gwfvse_h2, &
-    gwfvse_h3, &
-    gwfvse_h4, &
-    gwfvse_auxiliary, &
-    gwfvse_auxmultname, &
-    gwfvse_boundnames, &
-    gwfvse_iprpak, &
-    gwfvse_iprflow, &
-    gwfvse_ipakcb, &
-    gwfvse_ts_filerecord, &
-    gwfvse_ts6, &
-    gwfvse_filein, &
-    gwfvse_ts6_filename, &
-    gwfvse_obs_filerecord, &
-    gwfvse_obs6, &
-    gwfvse_obs6_filename, &
-    gwfvse_maxbound, &
-    gwfvse_cellid, &
-    gwfvse_rate, &
-    gwfvse_auxvar, &
-    gwfvse_boundname &
+    gwfvset_et_model, &
+    gwfvset_h1, &
+    gwfvset_h2, &
+    gwfvset_h3, &
+    gwfvset_h4, &
+    gwfvset_auxiliary, &
+    gwfvset_auxmultname, &
+    gwfvset_boundnames, &
+    gwfvset_iprpak, &
+    gwfvset_iprflow, &
+    gwfvset_ipakcb, &
+    gwfvset_ts_filerecord, &
+    gwfvset_ts6, &
+    gwfvset_filein, &
+    gwfvset_ts6_filename, &
+    gwfvset_obs_filerecord, &
+    gwfvset_obs6, &
+    gwfvset_obs6_filename, &
+    gwfvset_maxbound, &
+    gwfvset_cellid, &
+    gwfvset_rate, &
+    gwfvset_auxvar, &
+    gwfvset_boundname &
     ]
 
   type(InputParamDefinitionType), parameter :: &
-    gwfvse_spd = InputParamDefinitionType &
+    gwfvset_spd = InputParamDefinitionType &
     ( &
     'GWF', & ! component
-    'VSE', & ! subcomponent
+    'VSET', & ! subcomponent
     'PERIOD', & ! block
     'STRESS_PERIOD_DATA', & ! tag name
     'SPD', & ! fortran variable
@@ -532,13 +532,13 @@ module GwfVseInputModule
     )
 
   type(InputParamDefinitionType), parameter :: &
-    gwf_vse_aggregate_definitions(*) = &
+    gwf_vset_aggregate_definitions(*) = &
     [ &
-    gwfvse_spd &
+    gwfvset_spd &
     ]
 
   type(InputBlockDefinitionType), parameter :: &
-    gwf_vse_block_definitions(*) = &
+    gwf_vset_block_definitions(*) = &
     [ &
     InputBlockDefinitionType( &
     'OPTIONS', & ! blockname
@@ -560,4 +560,4 @@ module GwfVseInputModule
     ) &
     ]
 
-end module GwfVseInputModule
+end module GwfVsetInputModule

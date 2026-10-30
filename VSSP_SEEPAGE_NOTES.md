@@ -1,14 +1,14 @@
-# SPG (Seepage) Package — Status Handoff
+# VSSP (Seepage) Package — Status Handoff
 
 _Last updated: 2026-10-20_
 
 ## Where we are
-The **SPG seepage boundary package** has been reworked from the old prototype
+The **VSSP seepage boundary package** has been reworked from the old prototype
 into a Richards-only seepage face that approximates conductance from NPF
 conductivity × relative permeability. It **builds cleanly** and its **autotest
 passes** (2 scenarios).
 
-## Current SPG behavior
+## Current VSSP behavior
 - **Applies only to Richards (VSF) cells.** Requires the VSF package active;
   validated per-cell via VSF's `IUNSAT` array.
 - **Input** (`stress_period_data`): `cellid  ihc  cl1  hwva  angldegx`
@@ -26,13 +26,13 @@ passes** (2 scenarios).
   abstraction were **removed**.
 
 ## Key files
-- `src/Model/GroundWaterFlow/gwf-spg.f90` — package: `effective_k`, `spg_cf`,
-  `spg_ck` (Richards-cell check), pointer setup/teardown.
-- `doc/mf6io/mf6ivar/dfn/gwf-spg.dfn` — input definition.
-- `src/Idm/gwf-spgidm.f90` — generated IDM (via
+- `src/Model/GroundWaterFlow/gwf-vssp.f90` — package: `effective_k`, `vssp_cf`,
+  `vssp_ck` (Richards-cell check), pointer setup/teardown.
+- `doc/mf6io/mf6ivar/dfn/gwf-vssp.dfn` — input definition.
+- `src/Idm/gwf-vsspidm.f90` — generated IDM (via
   `utils/idmloader/scripts/dfn2f90.py`).
 - `src/Model/GroundWaterFlow/gwf.f90` — model wiring.
-- `autotest/test_gwf_spg.py` — representative VSF+SPG test (active / no-flow),
+- `autotest/test_gwf_vssp.py` — representative VSF+VSSP test (active / no-flow),
   asserts an analytic 2-node Robin solution.
 
 ## Also removed this session (by request)
@@ -53,7 +53,7 @@ cd utils/idmloader/scripts && python dfn2f90.py --outdir ../../../src/Idm
 cd autotest && python update_flopy.py
 
 # run the test (binary staged at bin/mf6)
-cd autotest && python -m pytest test_gwf_spg.py -q
+cd autotest && python -m pytest test_gwf_vssp.py -q
 ```
 Note: `bin/mf6` is a gitignored staged copy of `builddir/src/mf6`.
 
@@ -65,7 +65,7 @@ Note: `bin/mf6` is a gitignored staged copy of `builddir/src/mf6`.
 3. **Convergence near the switch** — the `head > z` on/off combined with
    head-dependent `krel` can chatter; watch in richer models.
 4. **Partial-domain Richards** — VSF today requires all cells `iunsat=1`, so the
-   per-cell SPG check mainly guards "VSF absent" until partial-domain support
+   per-cell VSSP check mainly guards "VSF absent" until partial-domain support
    exists.
 
 ## Known caveats (physics/numerics)

@@ -1,4 +1,4 @@
-module SpgModule
+module VsspModule
   use KindModule, only: DP, I4B, LGP
   use ConstantsModule, only: DZERO, DHALF, &
                              LENFTYPE, LENPACKAGENAME
@@ -14,13 +14,13 @@ module SpgModule
   implicit none
   private
 
-  public :: spg_create
-  public :: SpgType
+  public :: vssp_create
+  public :: VsspType
 
-  character(len=LENFTYPE) :: ftype = 'SPG'
-  character(len=LENPACKAGENAME) :: text = '             SPG'
+  character(len=LENFTYPE) :: ftype = 'VSSP'
+  character(len=LENPACKAGENAME) :: text = '            VSSP'
   !
-  type, extends(BndExtType) :: SpgType
+  type, extends(BndExtType) :: VsspType
     integer(I4B), dimension(:), pointer, contiguous :: ihc => null() !< connection type (0 vertical face, 1 horizontal)
     real(DP), dimension(:), pointer, contiguous :: cl1 => null() !< distance from cell center to seepage face
     real(DP), dimension(:), pointer, contiguous :: hwva => null() !< seepage face area
@@ -31,23 +31,24 @@ module SpgModule
     real(DP), dimension(:), pointer, contiguous :: gwfkrel => null() !< NPF relative permeability (KREL), not owned
     integer(I4B), dimension(:), pointer, contiguous :: vsfiunsat => null() !< VSF flag, 1 for Richards (unsaturated) nodes, not owned
   contains
-    procedure :: allocate_scalars => spg_allocate_scalars
-    procedure :: allocate_arrays => spg_allocate_arrays
-    procedure :: source_options => spg_source_options
-    procedure :: bnd_cf => spg_cf
-    procedure :: bnd_fc => spg_fc
-    procedure :: bnd_ck => spg_ck
-    procedure :: bnd_da => spg_da
+    procedure :: allocate_scalars => vssp_allocate_scalars
+    procedure :: allocate_arrays => vssp_allocate_arrays
+    procedure :: source_options => vssp_source_options
+    procedure :: bnd_cf => vssp_cf
+    procedure :: bnd_fc => vssp_fc
+    procedure :: bnd_fn => vssp_fn
+    procedure :: bnd_ck => vssp_ck
+    procedure :: bnd_da => vssp_da
     procedure :: define_listlabel
     procedure, private :: effective_k
-  end type SpgType
+  end type VsspType
 
 contains
 
-  !> @brief Create a New SPG Package
+  !> @brief Create a New VSSP Package
   !<
-  subroutine spg_create(packobj, id, ibcnum, inunit, iout, namemodel, pakname, &
-                        mempath)
+  subroutine vssp_create(packobj, id, ibcnum, inunit, iout, namemodel, pakname, &
+                         mempath)
     class(BndType), pointer :: packobj
     integer(I4B), intent(in) :: id
     integer(I4B), intent(in) :: ibcnum
@@ -57,11 +58,11 @@ contains
     character(len=*), intent(in) :: pakname
     character(len=*), intent(in) :: mempath
     ! local
-    type(SpgType), pointer :: spgobj
+    type(VsspType), pointer :: vsspobj
 
     ! allocate the object and assign values to object variables
-    allocate (spgobj)
-    packobj => spgobj
+    allocate (vsspobj)
+    packobj => vsspobj
 
     ! create name and memory path
     call packobj%set_names(ibcnum, namemodel, pakname, ftype, mempath)
@@ -79,30 +80,30 @@ contains
     packobj%ibcnum = ibcnum
     packobj%ictMemPath = create_mem_path(namemodel, 'NPF')
 
-  end subroutine spg_create
+  end subroutine vssp_create
 
-  subroutine spg_source_options(this)
-    class(SpgType), intent(inout) :: this
+  subroutine vssp_source_options(this)
+    class(VsspType), intent(inout) :: this
 
     ! source common bound options
     call this%BndExtType%source_options()
 
-  end subroutine spg_source_options
+  end subroutine vssp_source_options
 
   !> @brief Allocate scalars
   !<
-  subroutine spg_allocate_scalars(this)
-    class(SpgType) :: this !< this instance
+  subroutine vssp_allocate_scalars(this)
+    class(VsspType) :: this !< this instance
 
     ! base allocate
     call this%BndExtType%allocate_scalars()
 
-  end subroutine spg_allocate_scalars
+  end subroutine vssp_allocate_scalars
 
   !> @brief Allocate arrays
   !<
-  subroutine spg_allocate_arrays(this, nodelist, auxvar)
-    class(SpgType) :: this
+  subroutine vssp_allocate_arrays(this, nodelist, auxvar)
+    class(VsspType) :: this
     integer(I4B), dimension(:), pointer, contiguous, optional :: nodelist
     real(DP), dimension(:, :), pointer, contiguous, optional :: auxvar
     ! local
@@ -111,13 +112,13 @@ contains
     ! call base type allocate arrays
     call this%BndExtType%allocate_arrays(nodelist, auxvar)
 
-    ! set spg input context pointers
+    ! set vssp input context pointers
     call mem_setptr(this%ihc, 'IHC', this%input_mempath)
     call mem_setptr(this%cl1, 'CL1', this%input_mempath)
     call mem_setptr(this%hwva, 'HWVA', this%input_mempath)
     call mem_setptr(this%angldegx, 'ANGLDEGX', this%input_mempath)
 
-    ! checkin spg input context pointers
+    ! checkin vssp input context pointers
     call mem_checkin(this%ihc, 'IHC', this%memoryPath, &
                      'IHC', this%input_mempath)
     call mem_checkin(this%cl1, 'CL1', this%memoryPath, &
@@ -142,13 +143,13 @@ contains
     call mem_setptr(this%gwfkrel, 'KREL', &
                     create_mem_path(this%name_model, 'NPF'))
 
-    ! SPG may only be applied to Richards (VSF) cells, so the VSF package must
+    ! VSSP may only be applied to Richards (VSF) cells, so the VSF package must
     ! be active.  Point at its IUNSAT flag array when present; the per-cell
-    ! requirement is verified in spg_ck.
+    ! requirement is verified in vssp_ck.
     call get_isize('IUNSAT', create_mem_path(this%name_model, 'VSF'), isize)
     if (isize < 0) then
       write (errmsg, '(a)') &
-        'The SPG package can only be used with the VSF (Richards) package, &
+        'The VSSP package can only be used with the VSF (Richards) package, &
         &but no VSF package is active in this model.'
       call store_error(errmsg)
       call store_error_filename(this%input_fname)
@@ -157,7 +158,7 @@ contains
                       create_mem_path(this%name_model, 'VSF'))
     end if
 
-  end subroutine spg_allocate_arrays
+  end subroutine vssp_allocate_arrays
 
   !> @brief Effective hydraulic conductivity of cell n for the seepage face.
   !!
@@ -169,7 +170,7 @@ contains
   !! resolved by this approximation.
   !<
   function effective_k(this, n, ihc) result(hy)
-    class(SpgType) :: this
+    class(VsspType) :: this
     integer(I4B), intent(in) :: n !< reduced node number
     integer(I4B), intent(in) :: ihc !< connection type
     real(DP) :: hy
@@ -189,8 +190,8 @@ contains
 
   !> @brief Formulate the HCOF and RHS terms
   !<
-  subroutine spg_cf(this)
-    class(SpgType) :: this
+  subroutine vssp_cf(this)
+    class(VsspType) :: this
     ! local
     integer(I4B) :: i, node
     real(DP) :: z, head, cond
@@ -224,12 +225,12 @@ contains
 
     end do
 
-  end subroutine spg_cf
+  end subroutine vssp_cf
 
   !> @brief Copy rhs and hcof into solution rhs and amat
   !<
-  subroutine spg_fc(this, rhs, ia, idxglo, matrix_sln)
-    class(SpgType) :: this
+  subroutine vssp_fc(this, rhs, ia, idxglo, matrix_sln)
+    class(VsspType) :: this
     real(DP), dimension(:), intent(inout) :: rhs
     integer(I4B), dimension(:), intent(in) :: ia
     integer(I4B), dimension(:), intent(in) :: idxglo
@@ -258,22 +259,33 @@ contains
       end if
     end do
 
-  end subroutine spg_fc
+  end subroutine vssp_fc
+
+  !> @brief TODO_VSSP: Fill newton terms
+  !<
+  subroutine vssp_fn(this, rhs, ia, idxglo, matrix_sln)
+    class(VsspType) :: this
+    real(DP), dimension(:), intent(inout) :: rhs
+    integer(I4B), dimension(:), intent(in) :: ia
+    integer(I4B), dimension(:), intent(in) :: idxglo
+    class(MatrixBaseType), pointer :: matrix_sln
+    return
+  end subroutine vssp_fn
 
   !> @brief Verify that every seepage cell is a Richards (VSF) cell
   !!
-  !! The SPG package may only be applied to unsaturated (Richards) cells, which
+  !! The VSSP package may only be applied to unsaturated (Richards) cells, which
   !! are flagged by the VSF package through its IUNSAT array (1 for a Richards
-  !! node).  A missing VSF package is reported in spg_allocate_arrays.
+  !! node).  A missing VSF package is reported in vssp_allocate_arrays.
   !<
-  subroutine spg_ck(this)
-    class(SpgType), intent(inout) :: this
+  subroutine vssp_ck(this)
+    class(VsspType), intent(inout) :: this
     ! local
     character(len=30) :: nodestr
     integer(I4B) :: i, node
     ! formats
-    character(len=*), parameter :: fmtspgerr = &
-      "('SPG BOUNDARY ',i0,' IS APPLIED TO CELL ',a,', which is not a &
+    character(len=*), parameter :: fmtvssperr = &
+      "('VSSP BOUNDARY ',i0,' IS APPLIED TO CELL ',a,', which is not a &
       &Richards (VSF) cell.  Set IUNSAT for this cell in the VSF package.')"
 
     if (.not. associated(this%vsfiunsat)) return
@@ -283,7 +295,7 @@ contains
       if (node < 1) cycle
       if (this%vsfiunsat(node) /= 1) then
         call this%dis%noder_to_string(node, nodestr)
-        write (errmsg, fmt=fmtspgerr) i, trim(nodestr)
+        write (errmsg, fmt=fmtvssperr) i, trim(nodestr)
         call store_error(errmsg)
       end if
     end do
@@ -292,13 +304,13 @@ contains
       call store_error_filename(this%input_fname)
     end if
 
-  end subroutine spg_ck
+  end subroutine vssp_ck
 
   !> @brief Define the list heading that is written to iout when PRINT_INPUT
   !< option is used
   subroutine define_listlabel(this)
 
-    class(SpgType), intent(inout) :: this
+    class(VsspType), intent(inout) :: this
 
     ! create the header list label
     this%listlabel = trim(this%filtyp)//' NO.'
@@ -324,8 +336,8 @@ contains
 
   !> @brief Deallocate memory
   !<
-  subroutine spg_da(this)
-    class(SpgType) :: this
+  subroutine vssp_da(this)
+    class(VsspType) :: this
 
     call this%BndExtType%bnd_da()
 
@@ -343,6 +355,6 @@ contains
     ! VSF IUNSAT flag array is owned by VSF; just disassociate
     nullify (this%vsfiunsat)
 
-  end subroutine spg_da
+  end subroutine vssp_da
 
-end module SpgModule
+end module VsspModule

@@ -1,20 +1,20 @@
 """
-Tests for the variably-saturated evapotranspiration package VSE.
+Tests for the variably-saturated evapotranspiration package VSET.
 
-Case "vse-feddes": a 1D unsaturated column (VSF/Richards) is driven to steady
+Case "vset-feddes": a 1D unsaturated column (VSF/Richards) is driven to steady
 state with a water table fixed near mid-column by a constant-head cell at the
-base.  The VSE package applies a Feddes pressure-head root-water uptake to every
+base.  The VSET package applies a Feddes pressure-head root-water uptake to every
 active cell.  Because the simulated pressure head varies with depth, the cells
 span the Feddes stress regimes (anoxia, wet limb, optimal, dry limb, wilting).
-The check verifies that each cell's VSE budget flow equals the Feddes reduction
+The check verifies that each cell's VSET budget flow equals the Feddes reduction
 applied to the *simulated* pressure head, i.e.
 
-    q_vse = -alpha(psi) * rate * area ,   psi = h - z_cellcenter
+    q_vset = -alpha(psi) * rate * area ,   psi = h - z_cellcenter
 
 which is an exact self-consistency check of the uptake kernel, the budget
 output, area weighting, and sign convention.
 
-Case "vse-no-vsf": the same VSE package without an active VSF package.  VSE may
+Case "vset-no-vsf": the same VSET package without an active VSF package.  VSET may
 only be applied on VSF (Richards) cells, so the run must terminate with an
 error.
 """
@@ -27,7 +27,7 @@ import pytest
 from framework import TestFramework
 from gwf_test_utils import get_vsf_soil_data
 
-cases = ["vse-feddes", "vse-no-vsf"]
+cases = ["vset-feddes", "vset-no-vsf"]
 with_vsf = [True, False]
 xfail = [False, True]
 
@@ -139,7 +139,7 @@ def build_models(idx, test):
     # variably-saturated evapotranspiration (Feddes), applied to all cells
     # except the constant-head base cell
     spd = [[(k, 0, 0), POT_RATE] for k in range(nlay - 1)]
-    flopy.mf6.ModflowGwfvse(
+    flopy.mf6.ModflowGwfvset(
         gwf,
         et_model="feddes",
         h1=H1,
@@ -150,7 +150,7 @@ def build_models(idx, test):
         stress_period_data={0: spd},
         print_flows=True,
         save_flows=True,
-        pname="VSE-1",
+        pname="VSET-1",
     )
 
     # constant head at base sets the water table
@@ -185,10 +185,10 @@ def check_feddes(idx, test):
 
     area = DELR * DELC
 
-    # VSE cell-by-cell flows
+    # VSET cell-by-cell flows
     cbc = flopy.utils.CellBudgetFile(os.path.join(ws, f"{model_name}.cbc"))
-    vse = cbc.get_data(text="VSE")[-1]
-    q_by_node = {int(rec["node"]): float(rec["q"]) for rec in vse}
+    vset = cbc.get_data(text="VSET")[-1]
+    q_by_node = {int(rec["node"]): float(rec["q"]) for rec in vset}
 
     n_partial = 0
     n_optimal = 0
@@ -197,7 +197,7 @@ def check_feddes(idx, test):
         psi = head[k] - zcenter[k]
         alpha = feddes_alpha(psi)
         expected = -alpha * POT_RATE * area
-        assert node in q_by_node, f"missing VSE flow for node {node}"
+        assert node in q_by_node, f"missing VSET flow for node {node}"
         sim_q = q_by_node[node]
         assert np.isclose(sim_q, expected, rtol=1e-6, atol=1e-12), (
             f"cell {k}: psi={psi:.3f} alpha={alpha:.4f} "
@@ -215,8 +215,8 @@ def check_feddes(idx, test):
 
 
 def check_no_vsf(idx, test):
-    # the run must terminate because VSE requires VSF
-    tag = "VSE package requires the VSF package"
+    # the run must terminate because VSET requires VSF
+    tag = "VSET package requires the VSF package"
     with open(os.path.join(test.workspace, "mfsim.lst"), "r") as f:
         found = any(tag in line for line in f)
     assert found, "expected VSF-required error not found in mfsim.lst"

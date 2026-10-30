@@ -1,4 +1,4 @@
-module GwfVseModule
+module GwfVsetModule
   use KindModule, only: DP, I4B, LGP
   use ConstantsModule, only: DZERO, DHALF, DONE, LENFTYPE, LENPACKAGENAME, &
                              LENVARNAME, LENMEMPATH, IWETLAKE
@@ -16,12 +16,12 @@ module GwfVseModule
   implicit none
   private
 
-  public :: vse_create
+  public :: vset_create
 
-  character(len=LENFTYPE) :: ftype = 'VSE'
-  character(len=LENPACKAGENAME) :: text = '             VSE'
+  character(len=LENFTYPE) :: ftype = 'VSET'
+  character(len=LENPACKAGENAME) :: text = '            VSET'
 
-  type, extends(BndExtType) :: GwfVseType
+  type, extends(BndExtType) :: GwfVsetType
     integer(I4B), pointer :: et_model_id => null() !< selected uptake model id
     real(DP), pointer :: h1 => null() !< Feddes anoxia pressure head
     real(DP), pointer :: h2 => null() !< Feddes wet end of optimal range
@@ -31,28 +31,28 @@ module GwfVseModule
     integer(I4B), dimension(:), pointer, contiguous :: iunsat => null() !< VSF unsaturated-cell indicator (not owned)
     class(EtUptakeModelType), pointer :: uptake_model => null() !< pressure-head uptake model
   contains
-    procedure :: allocate_scalars => vse_allocate_scalars
-    procedure :: allocate_arrays => vse_allocate_arrays
-    procedure :: source_options => vse_source_options
-    procedure :: bnd_rp => vse_rp
-    procedure :: bnd_cf => vse_cf
-    procedure :: bnd_fc => vse_fc
-    procedure :: bnd_da => vse_da
-    procedure :: define_listlabel => vse_define_listlabel
-    procedure :: bound_value => vse_bound_value
-    procedure, public :: bnd_obs_supported => vse_obs_supported
-    procedure, public :: bnd_df_obs => vse_df_obs
+    procedure :: allocate_scalars => vset_allocate_scalars
+    procedure :: allocate_arrays => vset_allocate_arrays
+    procedure :: source_options => vset_source_options
+    procedure :: bnd_rp => vset_rp
+    procedure :: bnd_cf => vset_cf
+    procedure :: bnd_fc => vset_fc
+    procedure :: bnd_da => vset_da
+    procedure :: define_listlabel => vset_define_listlabel
+    procedure :: bound_value => vset_bound_value
+    procedure, public :: bnd_obs_supported => vset_obs_supported
+    procedure, public :: bnd_df_obs => vset_df_obs
     ! private
-    procedure, private :: vse_log_options
-    procedure, private :: setup_uptake_model => vse_setup_uptake_model
-  end type GwfVseType
+    procedure, private :: vset_log_options
+    procedure, private :: setup_uptake_model => vset_setup_uptake_model
+  end type GwfVsetType
 
 contains
 
   !> @brief Create a new Variably-Saturated Evapotranspiration Package
   !<
-  subroutine vse_create(packobj, id, ibcnum, inunit, iout, namemodel, pakname, &
-                        mempath)
+  subroutine vset_create(packobj, id, ibcnum, inunit, iout, namemodel, pakname, &
+                         mempath)
     class(BndType), pointer :: packobj !< the new package
     integer(I4B), intent(in) :: id !< consecutive package number
     integer(I4B), intent(in) :: ibcnum !< consecutive boundary package number
@@ -62,15 +62,15 @@ contains
     character(len=*), intent(in) :: pakname !< the package name
     character(len=*), intent(in) :: mempath !< the input memory path
     ! local
-    type(GwfVseType), pointer :: vseobj
+    type(GwfVsetType), pointer :: vsetobj
 
-    allocate (vseobj)
-    packobj => vseobj
+    allocate (vsetobj)
+    packobj => vsetobj
 
     call packobj%set_names(ibcnum, namemodel, pakname, ftype, mempath)
     packobj%text = text
 
-    call vseobj%allocate_scalars()
+    call vsetobj%allocate_scalars()
     call packobj%pack_initialize()
 
     packobj%inunit = inunit
@@ -80,13 +80,13 @@ contains
     packobj%ncolbnd = 1
     packobj%ictMemPath = create_mem_path(namemodel, 'NPF')
 
-  end subroutine vse_create
+  end subroutine vset_create
 
   !> @brief Allocate package scalars
   !<
-  subroutine vse_allocate_scalars(this)
+  subroutine vset_allocate_scalars(this)
     use MemoryManagerModule, only: mem_allocate
-    class(GwfVseType) :: this !< this instance
+    class(GwfVsetType) :: this !< this instance
 
     call this%BndExtType%allocate_scalars()
 
@@ -102,13 +102,13 @@ contains
     this%h3 = DZERO
     this%h4 = DZERO
 
-  end subroutine vse_allocate_scalars
+  end subroutine vset_allocate_scalars
 
   !> @brief Allocate package arrays
   !<
-  subroutine vse_allocate_arrays(this, nodelist, auxvar)
+  subroutine vset_allocate_arrays(this, nodelist, auxvar)
     use MemoryManagerModule, only: mem_setptr, mem_checkin, get_isize
-    class(GwfVseType) :: this !< this instance
+    class(GwfVsetType) :: this !< this instance
     integer(I4B), dimension(:), pointer, contiguous, optional :: nodelist !< package nodelist
     real(DP), dimension(:, :), pointer, contiguous, optional :: auxvar !< package aux variables
     ! local
@@ -122,12 +122,12 @@ contains
     call mem_checkin(this%rate, 'RATE', this%memoryPath, &
                      'RATE', this%input_mempath)
 
-    ! VSE can only be applied on VSF (Richards) cells, so VSF must be active;
+    ! VSET can only be applied on VSF (Richards) cells, so VSF must be active;
     ! bind its unsaturated-cell indicator for per-cell validation
     vsf_mempath = create_mem_path(this%name_model, 'VSF')
     call get_isize('IUNSAT', vsf_mempath, isize)
     if (isize < 0) then
-      write (errmsg, '(a)') 'The VSE package requires the VSF package to be '// &
+      write (errmsg, '(a)') 'The VSET package requires the VSF package to be '// &
         'active in the same GWF model.'
       call store_error(errmsg)
       call store_error_filename(this%input_fname)
@@ -135,16 +135,16 @@ contains
     end if
     call mem_setptr(this%iunsat, 'IUNSAT', vsf_mempath)
 
-  end subroutine vse_allocate_arrays
+  end subroutine vset_allocate_arrays
 
-  !> @brief Source options specific to the VSE package
+  !> @brief Source options specific to the VSET package
   !<
-  subroutine vse_source_options(this)
+  subroutine vset_source_options(this)
     use MemoryManagerExtModule, only: mem_set_value
-    use GwfVseInputModule, only: GwfVseParamFoundType
-    class(GwfVseType), intent(inout) :: this !< this instance
+    use GwfVsetInputModule, only: GwfVsetParamFoundType
+    class(GwfVsetType), intent(inout) :: this !< this instance
     ! local
-    type(GwfVseParamFoundType) :: found
+    type(GwfVsetParamFoundType) :: found
     character(len=LENVARNAME) :: et_model_str
 
     call this%BndExtType%source_options()
@@ -169,17 +169,17 @@ contains
       end select
     end if
 
-    call this%vse_log_options(found)
+    call this%vset_log_options(found)
     call this%setup_uptake_model()
 
-  end subroutine vse_source_options
+  end subroutine vset_source_options
 
-  !> @brief Log VSE specific options
+  !> @brief Log VSET specific options
   !<
-  subroutine vse_log_options(this, found)
-    use GwfVseInputModule, only: GwfVseParamFoundType
-    class(GwfVseType), intent(inout) :: this !< this instance
-    type(GwfVseParamFoundType), intent(in) :: found !< sourced input flags
+  subroutine vset_log_options(this, found)
+    use GwfVsetInputModule, only: GwfVsetParamFoundType
+    class(GwfVsetType), intent(inout) :: this !< this instance
+    type(GwfVsetParamFoundType), intent(in) :: found !< sourced input flags
 
     write (this%iout, '(/1x,a)') 'PROCESSING '//trim(adjustl(this%text)) &
       //' OPTIONS'
@@ -195,13 +195,13 @@ contains
     write (this%iout, '(1x,a)') &
       'END OF '//trim(adjustl(this%text))//' OPTIONS'
 
-  end subroutine vse_log_options
+  end subroutine vset_log_options
 
   !> @brief Validate parameters and create the uptake model instance
   !<
-  subroutine vse_setup_uptake_model(this)
+  subroutine vset_setup_uptake_model(this)
     use EtUptakeFeddesModule, only: FeddesUptakeType
-    class(GwfVseType), intent(inout) :: this !< this instance
+    class(GwfVsetType), intent(inout) :: this !< this instance
 
     select case (this%et_model_id)
     case (FEDDES)
@@ -226,12 +226,12 @@ contains
       um%h4 = this%h4
     end select
 
-  end subroutine vse_setup_uptake_model
+  end subroutine vset_setup_uptake_model
 
   !> @brief Read and prepare; validate that each cell is a VSF cell
   !<
-  subroutine vse_rp(this)
-    class(GwfVseType), intent(inout) :: this !< this instance
+  subroutine vset_rp(this)
+    class(GwfVsetType), intent(inout) :: this !< this instance
     ! local
     integer(I4B) :: i, node
 
@@ -243,20 +243,20 @@ contains
       node = this%nodelist(i)
       if (node <= 0) cycle
       if (this%iunsat(node) /= 1) then
-        write (errmsg, '(a,i0,a)') 'VSE cell at reduced node ', node, &
-          ' is not a VSF (Richards) cell.  VSE may only be applied where '// &
+        write (errmsg, '(a,i0,a)') 'VSET cell at reduced node ', node, &
+          ' is not a VSF (Richards) cell.  VSET may only be applied where '// &
           'IUNSAT is active in the VSF package.'
         call store_error(errmsg)
       end if
     end do
     if (count_errors() > 0) call store_error_filename(this%input_fname)
 
-  end subroutine vse_rp
+  end subroutine vset_rp
 
   !> @brief Formulate the HCOF and RHS terms
   !<
-  subroutine vse_cf(this)
-    class(GwfVseType) :: this !< this instance
+  subroutine vset_cf(this)
+    class(GwfVsetType) :: this !< this instance
     ! local
     integer(I4B) :: i, node
     real(DP) :: c, h, z, hcof, rhs
@@ -292,12 +292,12 @@ contains
       this%rhs(i) = rhs
     end do
 
-  end subroutine vse_cf
+  end subroutine vset_cf
 
   !> @brief Copy rhs and hcof into solution rhs and amat
   !<
-  subroutine vse_fc(this, rhs, ia, idxglo, matrix_sln)
-    class(GwfVseType) :: this !< this instance
+  subroutine vset_fc(this, rhs, ia, idxglo, matrix_sln)
+    class(GwfVsetType) :: this !< this instance
     real(DP), dimension(:), intent(inout) :: rhs !< solution right-hand side
     integer(I4B), dimension(:), intent(in) :: ia !< solution CRS row pointers
     integer(I4B), dimension(:), intent(in) :: idxglo !< global matrix indices
@@ -319,13 +319,13 @@ contains
       call matrix_sln%add_value_pos(idxglo(ipos), this%hcof(i))
     end do
 
-  end subroutine vse_fc
+  end subroutine vset_fc
 
   !> @brief Clean up
   !<
-  subroutine vse_da(this)
+  subroutine vset_da(this)
     use MemoryManagerModule, only: mem_deallocate
-    class(GwfVseType) :: this !< this instance
+    class(GwfVsetType) :: this !< this instance
 
     call destroy_uptake_model(this%uptake_model)
 
@@ -342,12 +342,12 @@ contains
 
     call this%BndExtType%bnd_da()
 
-  end subroutine vse_da
+  end subroutine vset_da
 
   !> @brief Define the list heading written to iout when PRINT_INPUT is used
   !<
-  subroutine vse_define_listlabel(this)
-    class(GwfVseType), intent(inout) :: this !< this instance
+  subroutine vset_define_listlabel(this)
+    class(GwfVsetType), intent(inout) :: this !< this instance
 
     this%listlabel = trim(this%filtyp)//' NO.'
     if (this%dis%ndim == 3) then
@@ -366,12 +366,12 @@ contains
       write (this%listlabel, '(a, a16)') trim(this%listlabel), 'BOUNDARY NAME'
     end if
 
-  end subroutine vse_define_listlabel
+  end subroutine vset_define_listlabel
 
   !> @brief Return requested boundary value
   !<
-  function vse_bound_value(this, col, row) result(bndval)
-    class(GwfVseType), intent(inout) :: this !< this instance
+  function vset_bound_value(this, col, row) result(bndval)
+    class(GwfVsetType), intent(inout) :: this !< this instance
     integer(I4B), intent(in) :: col !< bound column
     integer(I4B), intent(in) :: row !< bound row
     real(DP) :: bndval !< the returned bound value
@@ -385,31 +385,31 @@ contains
       end if
     case default
       write (errmsg, '(a,i0,a)') &
-        'Programming error. VSE bound value requested for column ', col, '.'
+        'Programming error. VSET bound value requested for column ', col, '.'
       call store_error(errmsg, terminate=.TRUE.)
     end select
 
-  end function vse_bound_value
+  end function vset_bound_value
 
-  !> @brief Return true because the VSE package supports observations
+  !> @brief Return true because the VSET package supports observations
   !<
-  logical function vse_obs_supported(this)
-    class(GwfVseType) :: this !< this instance
+  logical function vset_obs_supported(this)
+    class(GwfVsetType) :: this !< this instance
 
-    vse_obs_supported = .true.
+    vset_obs_supported = .true.
 
-  end function vse_obs_supported
+  end function vset_obs_supported
 
-  !> @brief Store observation type supported by the VSE package
+  !> @brief Store observation type supported by the VSET package
   !<
-  subroutine vse_df_obs(this)
-    class(GwfVseType) :: this !< this instance
+  subroutine vset_df_obs(this)
+    class(GwfVsetType) :: this !< this instance
     ! local
     integer(I4B) :: indx
 
-    call this%obs%StoreObsType('vse', .true., indx)
+    call this%obs%StoreObsType('vset', .true., indx)
     this%obs%obsData(indx)%ProcessIdPtr => DefaultObsIdProcessor
 
-  end subroutine vse_df_obs
+  end subroutine vset_df_obs
 
-end module GwfVseModule
+end module GwfVsetModule

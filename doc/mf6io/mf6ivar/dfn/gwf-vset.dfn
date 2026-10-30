@@ -1,4 +1,4 @@
-# --------------------- gwf vse options ---------------------
+# --------------------- gwf vset options ---------------------
 # flopy multi-package
 # package-type stress-package
 
@@ -170,9 +170,9 @@ tagged false
 reader urword
 optional false
 longname obs6 input filename
-description REPLACE obs6_filename {'{#1}': 'VSE', '{#2}': '\\ref{table:gwf-obstypetable}'}
+description REPLACE obs6_filename {'{#1}': 'VSET', '{#2}': '\\ref{table:gwf-obstypetable}'}
 
-# --------------------- gwf vse dimensions ---------------------
+# --------------------- gwf vset dimensions ---------------------
 
 block dimensions
 name maxbound
@@ -182,7 +182,7 @@ optional false
 longname maximum number of transpiration cells
 description REPLACE maxbound {'{#1}': 'transpiration'}
 
-# --------------------- gwf vse period ---------------------
+# --------------------- gwf vset period ---------------------
 
 block period
 name iper

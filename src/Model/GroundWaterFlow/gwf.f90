@@ -123,9 +123,9 @@ module GwfModule
   integer(I4B), parameter :: GWF_NMULTIPKG = 50
   character(len=LENPACKAGETYPE), dimension(GWF_NMULTIPKG) :: GWF_MULTIPKG
   data GWF_MULTIPKG/'WEL6 ', 'DRN6 ', 'RIV6 ', 'GHB6 ', '     ', & !  5
-                   &'     ', 'RCH6 ', 'EVT6 ', 'CHD6 ', 'SPG6 ', & ! 10
+                   &'     ', 'RCH6 ', 'EVT6 ', 'CHD6 ', 'VSSP6', & ! 10
                    &'MAW6 ', 'SFR6 ', 'LAK6 ', 'UZF6 ', 'API6 ', & ! 15
-                   &'VSE6 ', & ! 16
+                   &'VSET6', & ! 16
                    &34*'     '/ ! 50
 
   ! -- size of supported model package arrays
@@ -1269,7 +1269,7 @@ contains
     use DrnModule, only: drn_create
     use RivModule, only: riv_create
     use GhbModule, only: ghb_create
-    use SpgModule, only: spg_create
+    use VsspModule, only: vssp_create
     use RchModule, only: rch_create
     use EvtModule, only: evt_create
     use MawModule, only: maw_create
@@ -1277,7 +1277,7 @@ contains
     use LakModule, only: lak_create
     use UzfModule, only: uzf_create
     use ApiModule, only: api_create
-    use GwfVseModule, only: vse_create
+    use GwfVsetModule, only: vset_create
     ! -- dummy
     class(GwfModelType) :: this
     character(len=*), intent(in) :: filtyp
@@ -1309,9 +1309,9 @@ contains
     case ('GHB6')
       call ghb_create(packobj, ipakid, ipaknum, inunit, iout, this%name, &
                       pakname, mempath)
-    case ('SPG6')
-      call spg_create(packobj, ipakid, ipaknum, inunit, iout, this%name, &
-                      pakname, mempath)
+    case ('VSSP6')
+      call vssp_create(packobj, ipakid, ipaknum, inunit, iout, this%name, &
+                       pakname, mempath)
     case ('RCH6')
       call rch_create(packobj, ipakid, ipaknum, inunit, iout, this%name, &
                       pakname, mempath)
@@ -1330,9 +1330,9 @@ contains
     case ('UZF6')
       call uzf_create(packobj, ipakid, ipaknum, inunit, iout, this%name, &
                       pakname, mempath)
-    case ('VSE6')
-      call vse_create(packobj, ipakid, ipaknum, inunit, iout, this%name, &
-                      pakname, mempath)
+    case ('VSET6')
+      call vset_create(packobj, ipakid, ipaknum, inunit, iout, this%name, &
+                       pakname, mempath)
     case ('API6')
       call api_create(packobj, ipakid, ipaknum, inunit, iout, this%name, &
                       pakname, mempath)
@@ -1574,7 +1574,7 @@ contains
         this%inobs = inunit
       case ('WEL6', 'DRN6', 'RIV6', 'GHB6', 'RCH6', &
             'EVT6', 'API6', 'CHD6', 'MAW6', 'SFR6', &
-            'LAK6', 'UZF6', 'SPG6', 'VSE6')
+            'LAK6', 'UZF6', 'VSSP6', 'VSET6')
         call expandarray(bndpkgs)
         bndpkgs(size(bndpkgs)) = n
       case default

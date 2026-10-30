@@ -1,4 +1,4 @@
-# --------------------- gwf spg options ---------------------
+# --------------------- gwf vssp options ---------------------
 # flopy multi-package
 # package-type stress-package
 
@@ -48,7 +48,7 @@ description REPLACE save_flows {'{#1}': 'seepage'}
 mf6internal ipakcb
 
 
-# --------------------- gwf spg dimensions ---------------------
+# --------------------- gwf vssp dimensions ---------------------
 
 block dimensions
 name maxbound
@@ -59,7 +59,7 @@ longname maximum number of seepage cells
 description REPLACE maxbound {'{#1}': 'seepage cells'}
 
 
-# --------------------- gwf spg period ---------------------
+# --------------------- gwf vssp period ---------------------
 
 block period
 name iper

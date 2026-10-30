@@ -1,7 +1,7 @@
 """
-Test the seepage (SPG) boundary package.
+Test the seepage (VSSP) boundary package.
 
-The SPG package may only be applied to Richards (VSF) cells, so the model uses
+The VSSP package may only be applied to Richards (VSF) cells, so the model uses
 the VSF unsaturated-zone package (newton, non-convertible NPF cells).  The
 seepage conductance is approximated LAK-style from the NPF hydraulic
 conductivity (K11/K33) scaled by the VSF relative permeability (krel):
@@ -13,14 +13,14 @@ above the cell-center elevation (zero pressure head datum), and becomes a
 no-flow boundary when the head drops below it.
 
 The model is a confined two-cell vertical column: a constant head on the top
-cell and an SPG seepage boundary (vertical face, IHC=0) on the bottom cell.
+cell and a VSSP seepage boundary (vertical face, IHC=0) on the bottom cell.
 Because the column stays fully saturated when discharging, krel = 1 and the
 steady state reduces to an analytic two-node Robin problem:
 
-    C_col * (chd - h_bot) = C_spg * (h_bot - z_seep)
+    C_col * (chd - h_bot) = C_vssp * (h_bot - z_seep)
 
 with C_col = K33 * area / delz the cell-to-cell conductance and
-C_spg = K * HWVA / CL1 the seepage conductance.
+C_vssp = K * HWVA / CL1 the seepage conductance.
 
 Two scenarios are checked:
 
@@ -36,7 +36,7 @@ import pytest
 from framework import TestFramework
 from gwf_test_utils import get_vsf_soil_data
 
-cases = ["spg-act", "spg-nof"]
+cases = ["vssp-act", "vssp-nof"]
 chd_head = [5.0, 0.2]
 active_scenario = [True, False]
 
@@ -48,17 +48,17 @@ nlay, nrow, ncol = 2, 1, 1
 area = delr * delc
 
 # seepage face geometry (bottom cell, vertical face)
-spg_cl1 = 0.5  # distance from cell center (0.5) to the bottom face (0.0)
-spg_hwva = area  # seepage face area
-spg_ihc = 0  # vertical connection
-spg_angldegx = 0.0  # reserved, unused
+vssp_cl1 = 0.5  # distance from cell center (0.5) to the bottom face (0.0)
+vssp_hwva = area  # seepage face area
+vssp_ihc = 0  # vertical connection
+vssp_angldegx = 0.0  # reserved, unused
 
 # bottom-cell center elevation (seepage elevation): top=1, bot=0 -> 0.5
 z_seep = 0.5
 
 # cell-to-cell and seepage conductances
 cond_col = hk * area / delz
-cond_spg = hk * spg_hwva / spg_cl1
+cond_vssp = hk * vssp_hwva / vssp_cl1
 
 
 def build_models(idx, test):
@@ -129,13 +129,13 @@ def build_models(idx, test):
     )
 
     # seepage boundary on the bottom (Richards) cell
-    flopy.mf6.ModflowGwfspg(
+    flopy.mf6.ModflowGwfvssp(
         gwf,
         maxbound=1,
         stress_period_data={
-            0: [[(nlay - 1, 0, 0), spg_ihc, spg_cl1, spg_hwva, spg_angldegx]]
+            0: [[(nlay - 1, 0, 0), vssp_ihc, vssp_cl1, vssp_hwva, vssp_angldegx]]
         },
-        pname="SPG-1",
+        pname="VSSP-1",
         save_flows=True,
         print_flows=True,
     )
@@ -160,30 +160,30 @@ def check_output(idx, test):
     heads = hfile.get_data(idx=-1).flatten()
 
     cbb = flopy.utils.CellBudgetFile(ws / f"{gwfname}.cbc", precision="double")
-    q_spg = float(np.sum(cbb.get_data(text="SPG")[-1]["q"]))
+    q_vssp = float(np.sum(cbb.get_data(text="VSSP")[-1]["q"]))
     q_chd = float(np.sum(cbb.get_data(text="CHD")[-1]["q"]))
 
     if active_scenario[idx]:
         # saturated column (krel = 1): analytic two-node Robin solution
-        h_bot = (cond_col * chd_head[idx] + cond_spg * z_seep) / (cond_col + cond_spg)
-        q_expected = cond_spg * (h_bot - z_seep)
+        h_bot = (cond_col * chd_head[idx] + cond_vssp * z_seep) / (cond_col + cond_vssp)
+        q_expected = cond_vssp * (h_bot - z_seep)
         assert h_bot > z_seep, "test setup should discharge seepage"
 
         assert np.isclose(heads[1], h_bot, atol=1e-5), (
             f"bottom head {heads[1]} expected {h_bot}"
         )
         # seepage reported as outflow (negative), balancing the chd inflow
-        assert np.isclose(q_spg, -q_expected, atol=1e-5), (
-            f"SPG flow {q_spg} expected {-q_expected}"
+        assert np.isclose(q_vssp, -q_expected, atol=1e-5), (
+            f"VSSP flow {q_vssp} expected {-q_expected}"
         )
         assert np.isclose(q_chd, q_expected, atol=1e-5), (
             f"CHD flow {q_chd} expected {q_expected}"
         )
-        assert np.isclose(q_chd + q_spg, 0.0, atol=1e-5)
+        assert np.isclose(q_chd + q_vssp, 0.0, atol=1e-5)
     else:
         # seepage boundary inactive (head below the seepage elevation)
         assert heads[1] < z_seep, "test setup should keep seepage inactive"
-        assert np.isclose(q_spg, 0.0, atol=1e-6), f"SPG flow {q_spg} expected 0"
+        assert np.isclose(q_vssp, 0.0, atol=1e-6), f"VSSP flow {q_vssp} expected 0"
         assert np.isclose(q_chd, 0.0, atol=1e-6), f"CHD flow {q_chd} expected 0"
 
 
