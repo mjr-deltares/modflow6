@@ -46,6 +46,15 @@ longname relative permeability averaging method
 description is a text keyword to indicate the averaging method used to calculate the intercell relative permeability.
 
 block options
+name dev_pseudo_timestep
+type double precision
+reader urword
+optional true
+longname scaling factor for residual-driven pseudo-time stepping
+description is a positive scaling factor that activates residual-driven, cell-local pseudo-time stepping (pseudo-transient continuation) for the unsaturated (Richards) cells. The value controls the trust radius for the Newton/Picard update as a fraction of the local retention-curve curvature scale. A larger value applies weaker damping, a smaller value stronger damping. This is a development option, not available in official releases.
+mf6internal eps_pseu
+
+block options
 name sat_filerecord
 type record saturation fileout saturationfile
 shape

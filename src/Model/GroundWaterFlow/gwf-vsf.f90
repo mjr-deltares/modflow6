@@ -1,6 +1,6 @@
 module GwfVsfModule
   use KindModule, only: I4B, DP
-  use ConstantsModule, only: LENVARNAME, DHALF, DHNOFLO, LINELENGTH
+  use ConstantsModule, only: LENVARNAME, DHALF, DHNOFLO, LINELENGTH, DZERO
   use MemoryManagerModule, only: mem_allocate, mem_deallocate
   use MemoryManagerExtModule, only: mem_set_value
   use SimModule, only: store_error, count_errors, store_error_filename
@@ -33,7 +33,9 @@ module GwfVsfModule
     integer(I4B), pointer :: soil_model_kr_id => null() !< separate soil model id for relative permeability (development)
     class(SoilModelType), pointer :: soil_model_kr => null() !< alternative soil model for relative permeability (development)
     integer(I4B), pointer :: kr_averaging => null() !< 0 = default, 1 = geometric, 2 = arithm. mean, 3 = upstream
+    real(DP), pointer :: eps_pseu => null() !< scaling factor for residual-driven pseudo-time stepping (<= 0 disables)
     integer(I4B), dimension(:), pointer, contiguous :: iunsat => null() !< 0 = standard node, 1 = unsaturated (Richards) node
+    real(DP), dimension(:), pointer, contiguous :: res_pseu => null() !< per-cell flow residual used for pseudo-time stepping
     real(DP), dimension(:), pointer, contiguous :: porosity => null() !< the volumetric fraction of the pore space
     real(DP), dimension(:), pointer, contiguous :: sat_res => null() !< residual (also irreducible) saturation
     real(DP), dimension(:), pointer, contiguous :: pressure_head => null() !< pressure head
@@ -82,6 +84,7 @@ contains
     vsf_obj%soil_model_id = -1
     vsf_obj%soil_model_kr_id = -1
     vsf_obj%kr_averaging = -1
+    vsf_obj%eps_pseu = DZERO
 
     ! print a message when enabled
     if (inunit > 0) then
@@ -112,11 +115,13 @@ contains
     call mem_allocate(this%sat_res, dis%nodes, 'SATRES', this%memoryPath)
     call mem_allocate(this%pressure_head, dis%nodes, 'PHEAD', this%memoryPath)
     call mem_allocate(this%saturation, dis%nodes, 'SATURATION', this%memoryPath)
+    call mem_allocate(this%res_pseu, dis%nodes, 'RESPSEU', this%memoryPath)
 
     ! init
     do n = 1, dis%nodes
       this%pressure_head(n) = DHNOFLO
       this%saturation(n) = DHNOFLO
+      this%res_pseu(n) = DZERO
     end do
 
     ! load from idm
@@ -148,7 +153,8 @@ contains
     ! inject Richards into NPF:
     allocate (this%vsf_flow)
     call this%vsf_flow%initialize(this%iunsat, this%kr_averaging, &
-                                  this%soil_model_kr, dis, npf)
+                                  this%soil_model_kr, dis, npf, &
+                                  this%eps_pseu, this%res_pseu)
 
     npf_formulation => this%vsf_flow
     call npf%add_flow_formulation(npf_formulation, VSF_FLOW)
@@ -156,7 +162,8 @@ contains
     ! inject storage calculation
     allocate (this%vsf_sto)
     call this%vsf_sto%initialize(this%iunsat, this%storage_scheme, &
-                                 this%soil_model, dis, sto)
+                                 this%soil_model, dis, sto, &
+                                 this%eps_pseu, this%res_pseu)
 
     sto_ext => this%vsf_sto
     call sto%add_sto_formulation(sto_ext, VSF_STORAGE)
@@ -174,6 +181,7 @@ contains
     call mem_allocate(this%soil_model_kr_id, "SOIL_MODEL_KR", this%memoryPath)
     call mem_allocate(this%storage_scheme, "STORAGE_SCHEME", this%memoryPath)
     call mem_allocate(this%kr_averaging, "KR_AVERAGING", this%memoryPath)
+    call mem_allocate(this%eps_pseu, "EPS_PSEU", this%memoryPath)
 
   end subroutine allocate_scalars
 
@@ -230,6 +238,19 @@ contains
     if (this%kr_averaging > 0) then
       write (this%iout, '(4x,2a)') 'Kr weighting set to ', &
         trim(kr_averaging_name(this%kr_averaging))
+    end if
+
+    this%eps_pseu = DZERO
+    call mem_set_value(this%eps_pseu, 'EPS_PSEU', &
+                       this%input_mempath, found%eps_pseu)
+    if (found%eps_pseu) then
+      call developmode('DEV_PSEUDO_TIMESTEP is a development feature, install &
+        &the nightly build or compile from source with IDEVELOPMODE = 1.')
+      if (this%eps_pseu > DZERO) then
+        write (this%iout, '(4x,a,1pg15.6)') &
+          'Residual-driven pseudo-time stepping active with scaling factor ', &
+          this%eps_pseu
+      end if
     end if
 
     ! set fileout for saturation
@@ -407,6 +428,7 @@ contains
     call mem_deallocate(this%soil_model_kr_id)
     call mem_deallocate(this%storage_scheme)
     call mem_deallocate(this%kr_averaging)
+    call mem_deallocate(this%eps_pseu)
 
     if (this%inunit > 0) then
       call destroy_soil_models()
@@ -422,6 +444,7 @@ contains
       call mem_deallocate(this%sat_res)
       call mem_deallocate(this%pressure_head)
       call mem_deallocate(this%saturation)
+      call mem_deallocate(this%res_pseu)
     end if
 
     this%npf => null()

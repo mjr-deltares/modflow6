@@ -26,6 +26,8 @@ module VsfFlowModule
     integer(I4B), pointer :: kr_averaging => null() !< see VSF
     real(DP), pointer, dimension(:), contiguous :: krel => null() !< pointer to NPF k_r
     real(DP), pointer, dimension(:), contiguous :: dkrdh => null() !< pointer to NPF head derivative of k_r
+    real(DP), pointer :: eps_pseu => null() !< pseudo-time stepping scaling factor (<= 0 disables), see VSF
+    real(DP), pointer, dimension(:), contiguous :: res_pseu => null() !< per-cell flow residual accumulator, see VSF
     class(SoilModelType), pointer :: soil_model => null() !< soil model used to get relative permeability
     class(DisBaseType), pointer :: gwf_dis => null()
     type(GwfNpfType), pointer :: gwf_npf => null()
@@ -42,13 +44,16 @@ module VsfFlowModule
 
 contains
 
-  subroutine initialize(this, iunsat, kr_avg, soil_model, dis, npf)
+  subroutine initialize(this, iunsat, kr_avg, soil_model, dis, npf, &
+                        eps_pseu, res_pseu)
     class(VsfFlowType), intent(inout) :: this
     integer(I4B), pointer, dimension(:), contiguous, intent(in) :: iunsat
     integer(I4B), pointer :: kr_avg
     class(SoilModelType), pointer :: soil_model
     class(DisBaseType), pointer :: dis
     type(GwfNpfType), pointer, intent(in) :: npf
+    real(DP), pointer, intent(in) :: eps_pseu
+    real(DP), pointer, dimension(:), contiguous, intent(in) :: res_pseu
 
     this%iunsat => iunsat
     this%kr_averaging => kr_avg
@@ -56,6 +61,9 @@ contains
 
     this%gwf_dis => dis
     this%gwf_npf => npf
+
+    this%eps_pseu => eps_pseu
+    this%res_pseu => res_pseu
 
     this%krel => this%gwf_npf%krel
     this%dkrdh => this%gwf_npf%dkrdh
@@ -100,6 +108,21 @@ contains
     integer(I4B) :: isym !< transposed connection
     integer(I4B) :: isymcon !< position of reverse connection m-n
     real(DP), dimension(3) :: coeffs !< the linear system coefficients for the flow
+    logical :: do_pseu !< whether pseudo-time stepping residuals are accumulated
+    real(DP) :: sat_cond !< conductance at full saturation
+    real(DP) :: kr_avg !< weighted rel. permeability between nodes
+    real(DP) :: flow_nm !< physical flow from m into n
+
+    ! reset the per-cell flow residual accumulator for pseudo-time stepping
+    do_pseu = .false.
+    if (associated(this%eps_pseu)) then
+      if (this%eps_pseu > DZERO) do_pseu = .true.
+    end if
+    if (do_pseu) then
+      do n = 1, this%gwf_dis%nodes
+        this%res_pseu(n) = DZERO
+      end do
+    end if
 
     do n = 1, this%gwf_dis%nodes
       do ipos = this%gwf_dis%con%ia(n) + 1, this%gwf_dis%con%ia(n + 1) - 1
@@ -109,6 +132,16 @@ contains
         if (m < n) cycle
         ! only faces claimed by this formulation
         if (this%gwf_npf%iformulation(ipos) /= VSF_FLOW) cycle
+
+        ! accumulate physical intercell flow into the residual estimate
+        if (do_pseu) then
+          sat_cond = this%gwf_npf%condsat(this%gwf_dis%con%jas(ipos))
+          kr_avg = kr_averaging(this%krel(n), this%krel(m), &
+                                hnew(n), hnew(m), this%kr_averaging)
+          flow_nm = kr_avg * sat_cond * (hnew(m) - hnew(n))
+          this%res_pseu(n) = this%res_pseu(n) + flow_nm
+          this%res_pseu(m) = this%res_pseu(m) - flow_nm
+        end if
 
         if (this%gwf_npf%inewton == 0) then
 
@@ -281,6 +314,8 @@ contains
     this%iunsat => null()
     this%krel => null()
     this%dkrdh => null()
+    this%eps_pseu => null()
+    this%res_pseu => null()
 
   end subroutine destroy
 

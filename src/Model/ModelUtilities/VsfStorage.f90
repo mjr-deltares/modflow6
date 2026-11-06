@@ -21,6 +21,8 @@ module VsfStorageModule
     integer(I4B), pointer, dimension(:), contiguous :: vsf_iunsat => null() !< points to external data
     class(DisBaseType), pointer :: gwf_dis => null() !< points to external data
     type(GwfStoType), pointer :: gwf_sto => null() !< points to external data
+    real(DP), pointer :: eps_pseu => null() !< pseudo-time stepping scaling factor (<= 0 disables), see VSF
+    real(DP), dimension(:), pointer, contiguous :: res_pseu => null() !< per-cell flow residual (filled by VsfFlow), see VSF
 
     real(DP), dimension(:), pointer, contiguous :: strguz => null() !< internal array of unsaturated storage rates
   contains
@@ -35,17 +37,21 @@ module VsfStorageModule
     ! private
     procedure, private :: calculate_coeffs
     procedure, private :: calculate_coeffs_nwt
+    procedure, private :: add_pseudo_timestep_term
   end type VsfStorageType
 
 contains
 
-  subroutine initialize(this, iunsat, scheme, soil_model, dis, sto)
+  subroutine initialize(this, iunsat, scheme, soil_model, dis, sto, &
+                        eps_pseu, res_pseu)
     class(VsfStorageType), intent(inout) :: this
     integer(I4B), dimension(:), pointer, contiguous, intent(in) :: iunsat
     integer(I4B), pointer, intent(in) :: scheme
     class(SoilModelType), pointer, intent(in) :: soil_model
     class(DisBaseType), pointer, intent(in) :: dis
     type(GwfStoType), pointer, intent(in) :: sto
+    real(DP), pointer, intent(in) :: eps_pseu
+    real(DP), dimension(:), pointer, contiguous, intent(in) :: res_pseu
     ! local
     integer(I4B) :: n
 
@@ -56,6 +62,9 @@ contains
 
     this%gwf_dis => dis
     this%gwf_sto => sto
+
+    this%eps_pseu => eps_pseu
+    this%res_pseu => res_pseu
 
     call mem_allocate(this%strguz, dis%nodes, 'STRGUZ', sto%memoryPath)
     do n = 1, dis%nodes
@@ -89,6 +98,12 @@ contains
     integer(I4B) :: n !< the node number
     real(DP), dimension(4) :: coeffs !< the coefficients to add to the linear system
     integer(I4B) :: idiag !< the position of the diagonal element
+    logical :: do_pseu !< whether pseudo-time stepping is active
+
+    do_pseu = .false.
+    if (associated(this%eps_pseu)) then
+      if (this%eps_pseu > DZERO) do_pseu = .true.
+    end if
 
     do n = 1, this%gwf_dis%nodes
       if (this%gwf_sto%ibound(n) < 1) cycle
@@ -106,9 +121,108 @@ contains
       rhs(n) = rhs(n) + coeffs(2)
       call matrix_sln%add_value_pos(idxglo(idiag), coeffs(3))
       rhs(n) = rhs(n) + coeffs(4)
+
+      ! residual-driven pseudo-time stepping (pseudo-transient continuation)
+      if (do_pseu) then
+        call this%add_pseudo_timestep_term(n, h_old, h_new, matrix_sln, &
+                                           rhs, idxglo)
+      end if
     end do
 
   end subroutine uft_fc
+
+  !> @brief Add a residual-driven pseudo-storage term to the diagonal
+  !!
+  !! Implements a cell-local pseudo-transient continuation (pseudo-time
+  !! stepping) term for unsaturated cells. A trust radius for the pressure-head
+  !! update is derived from the curvature of the retention curve, and the
+  !! diagonal is augmented so that the implied Newton/Picard update stays within
+  !! that radius where the local mass-balance residual is large (e.g. at a sharp
+  !! infiltration front). The added term is -dpseu*(h^m - h^{m-1}); because it is
+  !! proportional to the change between successive outer iterates, it vanishes at
+  !! convergence and therefore does not alter the converged solution.
+  !<
+  subroutine add_pseudo_timestep_term(this, n, h_old, h_new, matrix_sln, &
+                                      rhs, idxglo)
+    use TdisModule, only: delt
+    use GwfStorageUtilsModule, only: SsCapacity
+    class(VsfStorageType), intent(inout) :: this !< this instance
+    integer(I4B), intent(in) :: n !< the node number
+    real(DP), dimension(:), intent(in) :: h_old !< the old head
+    real(DP), dimension(:), intent(in) :: h_new !< the new head
+    class(MatrixBaseType), pointer, intent(inout) :: matrix_sln !< system matrix
+    real(DP), dimension(:), intent(inout) :: rhs !< the right-hand side
+    integer(I4B), dimension(:), intent(in) :: idxglo !< global matrix positions
+    ! local
+    real(DP) :: top !< the top of the cell
+    real(DP) :: bot !< the bottom of the cell
+    real(DP) :: thk !< cell thickness
+    real(DP) :: area !< area of the cell
+    real(DP) :: vol !< cell volume
+    real(DP) :: z !< the nodal elevation
+    real(DP) :: psi1 !< the current pressure head
+    real(DP) :: psi0 !< the previous time level pressure head
+    real(DP) :: phi !< the cell porosity
+    real(DP) :: s1 !< the current saturation
+    real(DP) :: s0 !< the previous time level saturation
+    real(DP) :: Cm !< moisture capacity dtheta/dh
+    real(DP) :: dCmdh !< curvature d2theta/dh2
+    real(DP) :: shift !< the shift for the numerical derivative
+    real(DP) :: sc1 !< specific storage capacity
+    real(DP) :: sto_diag !< existing physical storage diagonal magnitude
+    real(DP) :: res !< local mass-balance residual (boundary terms excluded)
+    real(DP) :: dhmax !< the trust radius for the head update
+    real(DP) :: dpseu !< the pseudo-storage diagonal coefficient
+    integer(I4B) :: idiag !< the diagonal position
+
+    top = this%gwf_dis%top(n)
+    bot = this%gwf_dis%bot(n)
+    thk = top - bot
+    area = this%gwf_dis%area(n)
+    vol = area * thk
+    z = DHALF * (top + bot)
+    psi1 = h_new(n) - z
+    psi0 = h_old(n) - z
+
+    phi = this%soil_model%porosity(n)
+    s1 = this%soil_model%saturation(psi1, n)
+    s0 = this%soil_model%saturation(psi0, n)
+    Cm = this%soil_model%capacity(psi1, n)
+
+    ! curvature of the retention curve via central difference
+    shift = 1.0e-4_DP
+    dCmdh = (this%soil_model%capacity(psi1 + shift, n) - &
+             this%soil_model%capacity(psi1 - shift, n)) / (DTWO * shift)
+
+    ! only damp where the curvature is resolvable
+    if (abs(dCmdh) <= DPREC .or. abs(Cm) <= DPREC) return
+
+    ! trust radius: fraction of the local retention-curve length scale
+    dhmax = this%eps_pseu * abs(Cm) / abs(dCmdh)
+    if (dhmax <= DZERO) return
+
+    ! existing (physical) storage diagonal magnitude for this cell
+    sc1 = SsCapacity(this%gwf_sto%istor_coef, top, bot, area, this%gwf_sto%ss(n))
+    sto_diag = sc1 * s1 / delt + vol * Cm / delt
+
+    ! local mass-balance residual: intercell flow (accumulated by VsfFlow)
+    ! plus the storage rate; boundary fluxes are excluded, which only affects
+    ! the damping strength, not the converged solution
+    res = this%res_pseu(n) &
+          - sc1 * s1 * (h_new(n) - h_old(n)) / delt &
+          - phi * vol * (s1 - s0) / delt
+
+    ! additional diagonal needed to keep |dh| <= dhmax given this residual
+    dpseu = abs(res) / dhmax - sto_diag
+    if (dpseu <= DZERO) return
+
+    ! add the implicit pseudo-storage term -dpseu*(h^m - h^{m-1}), which
+    ! relaxes towards the previous iterate and vanishes at convergence
+    idiag = this%gwf_dis%con%ia(n)
+    call matrix_sln%add_value_pos(idxglo(idiag), -dpseu)
+    rhs(n) = rhs(n) - dpseu * h_new(n)
+
+  end subroutine add_pseudo_timestep_term
 
   !> @brief Calculate the matrix and RHS coefficients for formulation and cq
   !<
@@ -329,6 +443,8 @@ contains
     class(VsfStorageType) :: this
 
     call mem_deallocate(this%strguz)
+    this%eps_pseu => null()
+    this%res_pseu => null()
 
   end subroutine destroy
 
