@@ -18,6 +18,7 @@ module GwfVsfInputModule
     logical :: model_kr = .false.
     logical :: storage_scheme = .false.
     logical :: kr_averaging = .false.
+    logical :: vsf_1d_only = .false.
     logical :: sat_filerecord = .false.
     logical :: saturation = .false.
     logical :: fileout = .false.
@@ -132,6 +133,25 @@ module GwfVsfInputModule
     'STRING', & ! type
     '', & ! shape
     'relative permeability averaging method', & ! longname
+    .false., & ! required
+    .false., & ! developmode
+    .false., & ! multi-record
+    .false., & ! preserve case
+    .false., & ! layered
+    .false. & ! timeseries
+    )
+
+  type(InputParamDefinitionType), parameter :: &
+    gwfvsf_vsf_1d_only = InputParamDefinitionType &
+    ( &
+    'GWF', & ! component
+    'VSF', & ! subcomponent
+    'OPTIONS', & ! block
+    'VSF_1D_ONLY', & ! tag name
+    'VSF_1D_ONLY', & ! fortran variable
+    'KEYWORD', & ! type
+    '', & ! shape
+    'vertical-only unsaturated flow', & ! longname
     .false., & ! required
     .false., & ! developmode
     .false., & ! multi-record
@@ -452,6 +472,7 @@ module GwfVsfInputModule
     gwfvsf_model_kr, &
     gwfvsf_storage_scheme, &
     gwfvsf_kr_averaging, &
+    gwfvsf_vsf_1d_only, &
     gwfvsf_sat_filerecord, &
     gwfvsf_saturation, &
     gwfvsf_fileout, &

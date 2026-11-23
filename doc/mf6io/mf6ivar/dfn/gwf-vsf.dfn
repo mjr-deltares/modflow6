@@ -46,6 +46,14 @@ longname relative permeability averaging method
 description is a text keyword to indicate the averaging method used to calculate the intercell relative permeability.
 
 block options
+name vsf_1d_only
+type keyword
+reader urword
+optional true
+longname vertical-only unsaturated flow
+description keyword to apply the variably saturated (Richards) flow formulation to vertical connections only. Horizontal connections only conduct flow when both cells are fully saturated.
+
+block options
 name sat_filerecord
 type record saturation fileout saturationfile
 shape

@@ -33,6 +33,7 @@ module GwfVsfModule
     integer(I4B), pointer :: soil_model_kr_id => null() !< separate soil model id for relative permeability (development)
     class(SoilModelType), pointer :: soil_model_kr => null() !< alternative soil model for relative permeability (development)
     integer(I4B), pointer :: kr_averaging => null() !< 0 = default, 1 = geometric, 2 = arithm. mean, 3 = upstream
+    integer(I4B), pointer :: ivsf1d => null() !< 1 = Richards flow on vertical connections only, 0 = all connections
     integer(I4B), dimension(:), pointer, contiguous :: ivarsat => null() !< 0 = standard node, 1 = unsaturated (Richards) node
     real(DP), dimension(:), pointer, contiguous :: porosity => null() !< the volumetric fraction of the pore space
     real(DP), dimension(:), pointer, contiguous :: sat_res => null() !< residual (also irreducible) saturation
@@ -82,6 +83,7 @@ contains
     vsf_obj%soil_model_id = -1
     vsf_obj%soil_model_kr_id = -1
     vsf_obj%kr_averaging = -1
+    vsf_obj%ivsf1d = 0
 
     ! print a message when enabled
     if (inunit > 0) then
@@ -157,7 +159,7 @@ contains
     ! inject Richards into NPF:
     allocate (this%vsf_flow)
     call this%vsf_flow%initialize(this%ivarsat, this%kr_averaging, &
-                                  this%soil_model_kr, dis, npf)
+                                  this%ivsf1d, this%soil_model_kr, dis, npf)
 
     npf_formulation => this%vsf_flow
     call npf%add_flow_formulation(npf_formulation, VSF_FLOW)
@@ -183,6 +185,7 @@ contains
     call mem_allocate(this%soil_model_kr_id, "SOIL_MODEL_KR", this%memoryPath)
     call mem_allocate(this%storage_scheme, "STORAGE_SCHEME", this%memoryPath)
     call mem_allocate(this%kr_averaging, "KR_AVERAGING", this%memoryPath)
+    call mem_allocate(this%ivsf1d, "IVSF1D", this%memoryPath)
 
   end subroutine allocate_scalars
 
@@ -239,6 +242,13 @@ contains
     if (this%kr_averaging > 0) then
       write (this%iout, '(4x,2a)') 'Kr weighting set to ', &
         trim(kr_averaging_name(this%kr_averaging))
+    end if
+
+    call mem_set_value(this%ivsf1d, 'VSF_1D_ONLY', this%input_mempath, &
+                       found%vsf_1d_only)
+    if (this%ivsf1d > 0) then
+      write (this%iout, '(4x,a)') 'Richards flow restricted to vertical &
+        &connections, horizontal flow only between fully saturated cells'
     end if
 
     ! set fileout for saturation
@@ -416,6 +426,7 @@ contains
     call mem_deallocate(this%soil_model_kr_id)
     call mem_deallocate(this%storage_scheme)
     call mem_deallocate(this%kr_averaging)
+    call mem_deallocate(this%ivsf1d)
 
     if (this%inunit > 0) then
       call destroy_soil_models()
