@@ -1,0 +1,2 @@
+nproc,nodes,ranks_per_node,rankfile,job_id,outer,inner,run_s_rank0,elapsed,end,note
+32,4,8,hf_32_8.txt,29746489,322,8687,8155.259,"2 Hours 17 Minutes 40 Seconds",2026/11/27 19:40:08,"ngwm_043 moved rank 4->19 and ngwm_056 rank 19->4 in ngwm_032p.hpc"
