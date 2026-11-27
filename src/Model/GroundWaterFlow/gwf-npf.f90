@@ -2764,24 +2764,28 @@ contains
     class(GwfNpfType) :: this
     integer(I4B) :: max_conns
     ! local
-    integer(I4B) :: n, m, ic
+    integer(I4B) :: n, iedge, ic
+    integer(I4B), dimension(:), allocatable :: nedges_node
+
+    ! Count edge connections (i.e. from exchanges) per cell
+    allocate (nedges_node(this%dis%nodes))
+    nedges_node = 0
+    do iedge = 1, this%nedges
+      n = this%nodedge(iedge)
+      nedges_node(n) = nedges_node(n) + 1
+    end do
 
     max_conns = 0
     do n = 1, this%dis%nodes
 
-      ! Count internal model connections
-      ic = this%dis%con%ia(n + 1) - this%dis%con%ia(n) - 1
-
-      ! Add edge connections
-      do m = 1, this%nedges
-        if (this%nodedge(m) == n) then
-          ic = ic + 1
-        end if
-      end do
+      ! Count internal model connections plus edge connections
+      ic = this%dis%con%ia(n + 1) - this%dis%con%ia(n) - 1 + nedges_node(n)
 
       ! Set max number of connections for any cell
       if (ic > max_conns) max_conns = ic
     end do
+
+    deallocate (nedges_node)
 
   end function calc_max_conns
 
